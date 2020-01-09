@@ -4258,7 +4258,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon WorkSpaces"
+        "smithy.api#title": "Amazon WorkSpaces",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://workspaces.amazonaws.com/api/v1"
+        }
       }
     }
   }

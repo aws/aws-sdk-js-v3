@@ -3379,7 +3379,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            The specified ARN in the request doesn't exist.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.awsinsightsindexservice.v0#ResourceUtilization": {
@@ -4087,7 +4088,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            You've reached the limit on the number of resources you can create, or exceeded the size of an individual resources.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
       }
     },
     "com.amazonaws.awsinsightsindexservice.v0#ServiceSpecification": {

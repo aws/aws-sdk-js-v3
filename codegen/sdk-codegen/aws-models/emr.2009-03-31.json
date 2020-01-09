@@ -1822,7 +1822,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Elastic MapReduce"
+        "smithy.api#title": "Amazon Elastic MapReduce",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://elasticmapreduce.amazonaws.com/doc/2009-03-31"
+        }
       }
     },
     "elasticmapreduce.webservice#ErrorCode": {
@@ -3163,7 +3166,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "elasticmapreduce.webservice#InternalServerException": {

@@ -37,7 +37,10 @@
     "com.amazonaws.services.ssm#AccountIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AccountId"
+        "target": "com.amazonaws.services.ssm#AccountId",
+        "traits": {
+          "smithy.api#xmlName": "AccountId"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -69,7 +72,10 @@
     "com.amazonaws.services.ssm#AccountSharingInfoList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AccountSharingInfo"
+        "target": "com.amazonaws.services.ssm#AccountSharingInfo",
+        "traits": {
+          "smithy.api#xmlName": "AccountSharingInfo"
+        }
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A list of of AWS accounts where the current document is shared and the version shared with each account.</p>\n      "
@@ -274,7 +280,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error returned if an attempt is made to register a patch group with a patch baseline that is\n   already registered with a different patch baseline.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#AmazonSSM": {
@@ -661,7 +668,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Simple Systems Manager (SSM)"
+        "smithy.api#title": "Amazon Simple Systems Manager (SSM)",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ssm.amazonaws.com/doc/2014-11-06/"
+        }
       }
     },
     "com.amazonaws.services.ssm#ApproveAfterDays": {
@@ -678,7 +688,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>You must disassociate a document from all instances before you can delete it.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#Association": {
@@ -754,7 +765,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified association already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#AssociationComplianceSeverity": {
@@ -910,7 +922,10 @@
     "com.amazonaws.services.ssm#AssociationDescriptionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationDescription"
+        "target": "com.amazonaws.services.ssm#AssociationDescription",
+        "traits": {
+          "smithy.api#xmlName": "AssociationDescription"
+        }
       }
     },
     "com.amazonaws.services.ssm#AssociationDoesNotExist": {
@@ -922,7 +937,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified association does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AssociationExecution": {
@@ -990,7 +1006,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified execution ID does not exist. Verify the ID number and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AssociationExecutionFilter": {
@@ -1041,7 +1058,10 @@
     "com.amazonaws.services.ssm#AssociationExecutionFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationExecutionFilter"
+        "target": "com.amazonaws.services.ssm#AssociationExecutionFilter",
+        "traits": {
+          "smithy.api#xmlName": "AssociationExecutionFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -1166,7 +1186,10 @@
     "com.amazonaws.services.ssm#AssociationExecutionTargetsFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationExecutionTargetsFilter"
+        "target": "com.amazonaws.services.ssm#AssociationExecutionTargetsFilter",
+        "traits": {
+          "smithy.api#xmlName": "AssociationExecutionTargetsFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -1185,13 +1208,19 @@
     "com.amazonaws.services.ssm#AssociationExecutionTargetsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationExecutionTarget"
+        "target": "com.amazonaws.services.ssm#AssociationExecutionTarget",
+        "traits": {
+          "smithy.api#xmlName": "AssociationExecutionTarget"
+        }
       }
     },
     "com.amazonaws.services.ssm#AssociationExecutionsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationExecution"
+        "target": "com.amazonaws.services.ssm#AssociationExecution",
+        "traits": {
+          "smithy.api#xmlName": "AssociationExecution"
+        }
       }
     },
     "com.amazonaws.services.ssm#AssociationFilter": {
@@ -1247,7 +1276,10 @@
     "com.amazonaws.services.ssm#AssociationFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AssociationFilter"
+        "target": "com.amazonaws.services.ssm#AssociationFilter",
+        "traits": {
+          "smithy.api#xmlName": "AssociationFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -1302,13 +1334,17 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>You can have at most 2,000 active associations.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#AssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#Association"
+        "target": "com.amazonaws.services.ssm#Association",
+        "traits": {
+          "smithy.api#xmlName": "Association"
+        }
       }
     },
     "com.amazonaws.services.ssm#AssociationName": {
@@ -1522,7 +1558,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have reached the maximum number versions allowed for an association. Each association\n   has a limit of 1,000 versions. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#AssociationVersionList": {
@@ -1577,7 +1614,10 @@
     "com.amazonaws.services.ssm#AttachmentContentList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AttachmentContent"
+        "target": "com.amazonaws.services.ssm#AttachmentContent",
+        "traits": {
+          "smithy.api#xmlName": "AttachmentContent"
+        }
       }
     },
     "com.amazonaws.services.ssm#AttachmentHash": {
@@ -1622,7 +1662,10 @@
     "com.amazonaws.services.ssm#AttachmentInformationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#AttachmentInformation"
+        "target": "com.amazonaws.services.ssm#AttachmentInformation",
+        "traits": {
+          "smithy.api#xmlName": "AttachmentInformation"
+        }
       }
     },
     "com.amazonaws.services.ssm#AttachmentName": {
@@ -1739,7 +1782,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An Automation document with the specified name could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AutomationDefinitionVersionNotFoundException": {
@@ -1751,7 +1795,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An Automation document with the specified name and version could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AutomationExecution": {
@@ -2016,7 +2061,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The number of simultaneously running Automation executions exceeded the allowable\n   limit.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.services.ssm#AutomationExecutionMetadata": {
@@ -2174,7 +2220,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>There is no automation execution information for the requested automation execution\n   ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AutomationExecutionStatus": {
@@ -2262,7 +2309,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified step name and execution ID don't exist. Verify the information and try\n   again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#AutomationTargetParameterName": {
@@ -3194,7 +3242,10 @@
     "com.amazonaws.services.ssm#ComplianceItemList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ComplianceItem"
+        "target": "com.amazonaws.services.ssm#ComplianceItem",
+        "traits": {
+          "smithy.api#xmlName": "Item"
+        }
       }
     },
     "com.amazonaws.services.ssm#ComplianceItemTitle": {
@@ -3344,13 +3395,19 @@
     "com.amazonaws.services.ssm#ComplianceStringFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ComplianceStringFilter"
+        "target": "com.amazonaws.services.ssm#ComplianceStringFilter",
+        "traits": {
+          "smithy.api#xmlName": "ComplianceFilter"
+        }
       }
     },
     "com.amazonaws.services.ssm#ComplianceStringFilterValueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ComplianceFilterValue"
+        "target": "com.amazonaws.services.ssm#ComplianceFilterValue",
+        "traits": {
+          "smithy.api#xmlName": "FilterValue"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -3391,7 +3448,10 @@
     "com.amazonaws.services.ssm#ComplianceSummaryItemList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ComplianceSummaryItem"
+        "target": "com.amazonaws.services.ssm#ComplianceSummaryItem",
+        "traits": {
+          "smithy.api#xmlName": "Item"
+        }
       }
     },
     "com.amazonaws.services.ssm#ComplianceTypeCountLimitExceededException": {
@@ -3403,7 +3463,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You specified too many custom compliance types. You can specify a maximum of 10 different\n   types. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ComplianceTypeName": {
@@ -3647,7 +3708,10 @@
     "com.amazonaws.services.ssm#CreateAssociationBatchRequestEntries": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#CreateAssociationBatchRequestEntry"
+        "target": "com.amazonaws.services.ssm#CreateAssociationBatchRequestEntry",
+        "traits": {
+          "smithy.api#xmlName": "entries"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -4354,7 +4418,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try\n   again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DateTime": {
@@ -7307,7 +7372,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified document already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DocumentContent": {
@@ -7528,7 +7594,10 @@
     "com.amazonaws.services.ssm#DocumentFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#DocumentFilter"
+        "target": "com.amazonaws.services.ssm#DocumentFilter",
+        "traits": {
+          "smithy.api#xmlName": "DocumentFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -7656,7 +7725,10 @@
     "com.amazonaws.services.ssm#DocumentIdentifierList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#DocumentIdentifier"
+        "target": "com.amazonaws.services.ssm#DocumentIdentifier",
+        "traits": {
+          "smithy.api#xmlName": "DocumentIdentifier"
+        }
       }
     },
     "com.amazonaws.services.ssm#DocumentKeyValuesFilter": {
@@ -7724,7 +7796,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You can have at most 500 active Systems Manager documents.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DocumentName": {
@@ -7777,7 +7850,10 @@
     "com.amazonaws.services.ssm#DocumentParameterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#DocumentParameter"
+        "target": "com.amazonaws.services.ssm#DocumentParameter",
+        "traits": {
+          "smithy.api#xmlName": "DocumentParameter"
+        }
       }
     },
     "com.amazonaws.services.ssm#DocumentParameterName": {
@@ -7801,7 +7877,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The document cannot be shared with more AWS user accounts. You can share a document with a\n   maximum of 20 accounts. You can publicly share up to five documents. If you need to increase this\n   limit, contact AWS Support.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DocumentPermissionType": {
@@ -7983,7 +8060,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The document has too many versions. Delete one or more document versions and try\n   again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DocumentVersionList": {
@@ -8018,7 +8096,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error returned when the ID specified for a resource, such as a maintenance window or Patch\n   baseline, doesn't exist.</p>\n         <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#DryRun": {
@@ -8033,7 +8112,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The content of the association document matches another document. Change the content of the\n   document and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DuplicateDocumentVersionName": {
@@ -8045,7 +8125,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The version name has already been used in this document. Specify a different version name,\n   and then try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#DuplicateInstanceId": {
@@ -8053,7 +8134,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>You cannot specify an instance ID in more than one association.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#EffectiveInstanceAssociationMaxResults": {
@@ -8148,7 +8230,10 @@
     "com.amazonaws.services.ssm#FailedCreateAssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#FailedCreateAssociation"
+        "target": "com.amazonaws.services.ssm#FailedCreateAssociation",
+        "traits": {
+          "smithy.api#xmlName": "FailedCreateAssociationEntry"
+        }
       }
     },
     "com.amazonaws.services.ssm#FailureDetails": {
@@ -8196,7 +8281,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You attempted to register a LAMBDA or STEP_FUNCTIONS task in a region where the\n   corresponding service is not available. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#GetAutomationExecution": {
@@ -10108,7 +10194,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html\">Requirements and Constraints for\n    Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#HierarchyTypeMismatchException": {
@@ -10123,7 +10210,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Parameter Store does not support changing a parameter type in a hierarchy. For example, you\n   can't change a parameter from a String type to a SecureString type. You must create a new, unique\n   parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#IPAddress": {
@@ -10163,7 +10251,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error returned when an idempotent operation is retried and the parameters don't match the\n   original call to the API with the same idempotency token. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#IncompatiblePolicyException": {
@@ -10175,7 +10264,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>There is a conflict in the policies specified for this parameter. You can't, for example,\n   specify two Expiration policies for a parameter. Review your policies, and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InstallOverrideList": {
@@ -10578,7 +10668,10 @@
     "com.amazonaws.services.ssm#InstanceInformationFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InstanceInformationFilter"
+        "target": "com.amazonaws.services.ssm#InstanceInformationFilter",
+        "traits": {
+          "smithy.api#xmlName": "InstanceInformationFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -10597,7 +10690,10 @@
     "com.amazonaws.services.ssm#InstanceInformationFilterValueSet": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InstanceInformationFilterValue"
+        "target": "com.amazonaws.services.ssm#InstanceInformationFilterValue",
+        "traits": {
+          "smithy.api#xmlName": "InstanceInformationFilterValue"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -10609,7 +10705,10 @@
     "com.amazonaws.services.ssm#InstanceInformationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InstanceInformation"
+        "target": "com.amazonaws.services.ssm#InstanceInformation",
+        "traits": {
+          "smithy.api#xmlName": "InstanceInformation"
+        }
       }
     },
     "com.amazonaws.services.ssm#InstanceInformationStringFilter": {
@@ -10645,7 +10744,10 @@
     "com.amazonaws.services.ssm#InstanceInformationStringFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InstanceInformationStringFilter"
+        "target": "com.amazonaws.services.ssm#InstanceInformationStringFilter",
+        "traits": {
+          "smithy.api#xmlName": "InstanceInformationStringFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -10910,7 +11012,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An error occurred on the server side.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.services.ssm#InvalidActivation": {
@@ -10922,7 +11025,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The activation is not valid. The activation might have been deleted, or the ActivationId and\n   the ActivationCode do not match.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidActivationId": {
@@ -10934,7 +11038,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The activation ID is not valid. Verify the you entered the correct ActivationId or\n   ActivationCode and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidAggregatorException": {
@@ -10946,7 +11051,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified aggregator is not valid for inventory groups. Verify that the aggregator uses\n   a valid inventory type such as <code>AWS:Application</code> or\n    <code>AWS:InstanceInformation</code>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAllowedPatternException": {
@@ -10961,7 +11067,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request does not meet the regular expression requirement.</p>\n\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAssociation": {
@@ -10973,7 +11080,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The association is not valid or does not exist. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAssociationVersion": {
@@ -10985,7 +11093,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The version you specified is not valid. Use ListAssociationVersions to view all versions of\n   an association according to the association ID. Or, use the <code>$LATEST</code> parameter to\n   view the latest version of the association.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAutomationExecutionParametersException": {
@@ -10997,7 +11106,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The supplied parameters for invoking the specified Automation document are incorrect. For\n   example, they may not match the set of parameters permitted for the specified Automation\n   document.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAutomationSignalException": {
@@ -11009,7 +11119,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The signal is not valid for the current Automation execution.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidAutomationStatusUpdateException": {
@@ -11021,14 +11132,16 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified update status operation is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidCommandId": {
       "type": "structure",
       "members": { },
       "traits": {
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidDeleteInventoryParametersException": {
@@ -11040,7 +11153,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more of the parameters specified for the delete operation is not valid. Verify all\n   parameters and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidDeletionIdException": {
@@ -11052,7 +11166,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The ID specified for the delete operation does not exist or is not valid. Verify the ID and\n   try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidDocument": {
@@ -11067,7 +11182,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified document does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidDocumentContent": {
@@ -11082,7 +11198,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The content for the document is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidDocumentOperation": {
@@ -11094,7 +11211,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You attempted to delete a document while it is still shared. You must stop sharing the\n   document before you can delete it.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.services.ssm#InvalidDocumentSchemaVersion": {
@@ -11106,7 +11224,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The version of the document schema is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidDocumentVersion": {
@@ -11118,7 +11237,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The document version is not valid or does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidFilter": {
@@ -11130,7 +11250,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The filter name is not valid. Verify the you entered the correct name and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 441
       }
     },
     "com.amazonaws.services.ssm#InvalidFilterKey": {
@@ -11138,7 +11259,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified key is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidFilterOption": {
@@ -11153,7 +11275,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path\n   filter, valid options are Recursive and OneLevel.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidFilterValue": {
@@ -11165,7 +11288,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The filter value is not valid. Verify the value and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidInstanceId": {
@@ -11177,7 +11301,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The following problems can cause this exception:</p>\n         <p>You do not have permission to access the instance.</p>\n         <p>SSM Agent is not running. Verify that SSM Agent is running.</p>\n         <p>SSM Agent is not registered with the SSM endpoint. Try reinstalling SSM Agent.</p>\n         <p>The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping.\n   Invalid states are: Shutting-down and Terminated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidInstanceInformationFilterValue": {
@@ -11189,7 +11314,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified filter value is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidInventoryGroupException": {
@@ -11201,7 +11327,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified inventory group is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidInventoryItemContextException": {
@@ -11213,7 +11340,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You specified invalid keys or values in the <code>Context</code> attribute for\n    <code>InventoryItem</code>. Verify the keys and values, and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidInventoryRequestException": {
@@ -11225,7 +11353,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidItemContentException": {
@@ -11240,7 +11369,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more content items is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidKeyId": {
@@ -11252,7 +11382,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The query key ID is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidNextToken": {
@@ -11264,7 +11395,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified token is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidNotificationConfig": {
@@ -11276,7 +11408,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN)\n   was provided for an Amazon SNS topic.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidOptionException": {
@@ -11288,7 +11421,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The delete inventory option specified is not valid. Verify the option and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidOutputFolder": {
@@ -11296,7 +11430,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The S3 bucket does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidOutputLocation": {
@@ -11304,7 +11439,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The output location is not valid or does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidParameters": {
@@ -11316,7 +11452,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You must specify values for all required parameters in the Systems Manager document. You can only\n   supply values to parameters defined in the Systems Manager document.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidPermissionType": {
@@ -11328,7 +11465,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The permission type is not supported. <i>Share</i> is the only supported\n   permission type.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidPluginName": {
@@ -11336,7 +11474,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The plugin name is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#InvalidPolicyAttributeException": {
@@ -11348,7 +11487,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A policy attribute or its value is invalid. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidPolicyTypeException": {
@@ -11360,7 +11500,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The policy type is not supported. Parameter Store supports the following policy types:\n   Expiration, ExpirationNotification, and NoChangeNotification.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidResourceId": {
@@ -11368,7 +11509,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource ID is not valid. Verify that you entered the correct ID and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidResourceType": {
@@ -11376,7 +11518,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource type is not valid. For example, if you are attempting to tag an instance, the\n   instance must be a registered, managed instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidResultAttributeException": {
@@ -11388,7 +11531,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified inventory item result attribute is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidRole": {
@@ -11400,7 +11544,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The role name can't contain invalid characters. Also verify that you specified an IAM role\n   for notifications that includes the required trust policy. For information about configuring the\n   IAM role for Run Command notifications, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html\">Configuring Amazon SNS Notifications for Run Command</a> in the\n    <i>AWS Systems Manager User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidSchedule": {
@@ -11412,7 +11557,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidTarget": {
@@ -11424,7 +11570,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The target is not valid or does not exist. It might not be configured for EC2 Systems\n   Manager or you might not have permission to perform the operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidTypeNameException": {
@@ -11436,7 +11583,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter type name is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvalidUpdate": {
@@ -11448,7 +11596,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The update is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InventoryAggregator": {
@@ -11489,7 +11638,10 @@
     "com.amazonaws.services.ssm#InventoryAggregatorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryAggregator"
+        "target": "com.amazonaws.services.ssm#InventoryAggregator",
+        "traits": {
+          "smithy.api#xmlName": "Aggregator"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -11690,7 +11842,10 @@
     "com.amazonaws.services.ssm#InventoryFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryFilter"
+        "target": "com.amazonaws.services.ssm#InventoryFilter",
+        "traits": {
+          "smithy.api#xmlName": "InventoryFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -11705,7 +11860,10 @@
     "com.amazonaws.services.ssm#InventoryFilterValueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryFilterValue"
+        "target": "com.amazonaws.services.ssm#InventoryFilterValue",
+        "traits": {
+          "smithy.api#xmlName": "FilterValue"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -11739,7 +11897,10 @@
     "com.amazonaws.services.ssm#InventoryGroupList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryGroup"
+        "target": "com.amazonaws.services.ssm#InventoryGroup",
+        "traits": {
+          "smithy.api#xmlName": "InventoryGroup"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -11829,7 +11990,10 @@
     "com.amazonaws.services.ssm#InventoryItemAttributeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryItemAttribute"
+        "target": "com.amazonaws.services.ssm#InventoryItemAttribute",
+        "traits": {
+          "smithy.api#xmlName": "Attribute"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -11901,7 +12065,10 @@
     "com.amazonaws.services.ssm#InventoryItemList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryItem"
+        "target": "com.amazonaws.services.ssm#InventoryItem",
+        "traits": {
+          "smithy.api#xmlName": "Item"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -12026,7 +12193,10 @@
     "com.amazonaws.services.ssm#InventoryResultEntityList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#InventoryResultEntity"
+        "target": "com.amazonaws.services.ssm#InventoryResultEntity",
+        "traits": {
+          "smithy.api#xmlName": "Entity"
+        }
       }
     },
     "com.amazonaws.services.ssm#InventoryResultItem": {
@@ -12103,7 +12273,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The command ID and instance ID you specified did not match any invocations. Verify the\n   command ID and the instance ID and try again. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#InvocationTraceOutput": {
@@ -12130,7 +12301,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The inventory item has invalid content. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ItemSizeLimitExceededException": {
@@ -12145,7 +12317,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The inventory item size has exceeded the size limit.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#KeyList": {
@@ -14226,7 +14399,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The size limit of a document is 64 KB.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#MaxErrors": {
@@ -14507,7 +14681,10 @@
     "com.amazonaws.services.ssm#OpsAggregatorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#OpsAggregator"
+        "target": "com.amazonaws.services.ssm#OpsAggregator",
+        "traits": {
+          "smithy.api#xmlName": "Aggregator"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -14663,7 +14840,10 @@
     "com.amazonaws.services.ssm#OpsEntityList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#OpsEntity"
+        "target": "com.amazonaws.services.ssm#OpsEntity",
+        "traits": {
+          "smithy.api#xmlName": "Entity"
+        }
       }
     },
     "com.amazonaws.services.ssm#OpsFilter": {
@@ -14706,7 +14886,10 @@
     "com.amazonaws.services.ssm#OpsFilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#OpsFilter"
+        "target": "com.amazonaws.services.ssm#OpsFilter",
+        "traits": {
+          "smithy.api#xmlName": "OpsFilter"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -14746,7 +14929,10 @@
     "com.amazonaws.services.ssm#OpsFilterValueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#OpsFilterValue"
+        "target": "com.amazonaws.services.ssm#OpsFilterValue",
+        "traits": {
+          "smithy.api#xmlName": "FilterValue"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -14871,7 +15057,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The OpsItem already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#OpsItemCategory": {
@@ -15070,7 +15257,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A specified parameter argument isn't valid. Verify the available arguments and try\n   again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#OpsItemLimitExceededException": {
@@ -15091,7 +15279,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request caused OpsItems to exceed one or more limits. For information about OpsItem\n   limits, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits\">What\n    are the resource limits for OpsCenter?</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#OpsItemMaxResults": {
@@ -15113,7 +15302,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#OpsItemNotification": {
@@ -15314,7 +15504,10 @@
     "com.amazonaws.services.ssm#OpsResultAttributeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#OpsResultAttribute"
+        "target": "com.amazonaws.services.ssm#OpsResultAttribute",
+        "traits": {
+          "smithy.api#xmlName": "OpsResultAttribute"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -15454,7 +15647,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter already exists. You can't create duplicate parameters.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ParameterDescription": {
@@ -15618,7 +15812,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have exceeded the number of parameters for this AWS account. Delete one or more\n   parameters and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.services.ssm#ParameterList": {
@@ -15636,7 +15831,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter exceeded the maximum number of allowed versions.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ParameterMetadata": {
@@ -15737,7 +15933,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter could not be found. Verify the name and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#ParameterPatternMismatchException": {
@@ -15752,7 +15949,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter name is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ParameterPolicies": {
@@ -15893,7 +16091,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A parameter version can have a maximum of ten labels.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ParameterVersionNotFound": {
@@ -15905,7 +16104,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified parameter version was not found. Verify the parameter name and version, and\n   try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#Parameters": {
@@ -16825,7 +17025,10 @@
     "com.amazonaws.services.ssm#PlatformTypeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#PlatformType"
+        "target": "com.amazonaws.services.ssm#PlatformType",
+        "traits": {
+          "smithy.api#xmlName": "PlatformType"
+        }
       }
     },
     "com.amazonaws.services.ssm#PoliciesLimitExceededException": {
@@ -16837,7 +17040,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You specified more than the maximum number of allowed policies for the parameter. The\n   maximum is 10.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#Product": {
@@ -17787,7 +17991,10 @@
     "com.amazonaws.services.ssm#ResourceComplianceSummaryItemList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ResourceComplianceSummaryItem"
+        "target": "com.amazonaws.services.ssm#ResourceComplianceSummaryItem",
+        "traits": {
+          "smithy.api#xmlName": "Item"
+        }
       }
     },
     "com.amazonaws.services.ssm#ResourceCount": {
@@ -17815,7 +18022,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A sync configuration with the same name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ResourceDataSyncAwsOrganizationsSource": {
@@ -17848,7 +18056,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes\n   and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.services.ssm#ResourceDataSyncCountExceededException": {
@@ -17860,7 +18069,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have exceeded the allowed maximum sync configurations.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ResourceDataSyncCreatedTime": {
@@ -17878,7 +18088,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified sync configuration is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ResourceDataSyncItem": {
@@ -17982,7 +18193,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified sync name was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.ssm#ResourceDataSyncOrganizationSourceType": {
@@ -18234,7 +18446,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error returned if an attempt is made to delete a patch baseline that is registered for a\n   patch group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ResourceLimitExceededException": {
@@ -18246,7 +18459,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error returned when the caller has exceeded the default resource limits. For example, too\n   many maintenance windows or patch baselines have been created.</p>\n         <p>For information about resource limits in Systems Manager, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm\">AWS Systems Manager Limits</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ResourceType": {
@@ -18311,7 +18525,10 @@
     "com.amazonaws.services.ssm#ResultAttributeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.services.ssm#ResultAttribute"
+        "target": "com.amazonaws.services.ssm#ResultAttribute",
+        "traits": {
+          "smithy.api#xmlName": "ResultAttribute"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -18770,7 +18987,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified service setting was not found. Either the service name or the setting has not\n   been provisioned by the AWS service team.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#ServiceSettingValue": {
@@ -19436,7 +19654,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The updated status is the same as the current status.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#StepExecution": {
@@ -19754,7 +19973,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The sub-type count exceeded the limit for the inventory type.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#Tag": {
@@ -19843,7 +20063,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow\n   operation, but the target is still referenced in a task.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#TargetKey": {
@@ -19972,7 +20193,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified target instance for the session is not fully configured for use with Session Manager.\n   For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html\">Getting\n    Started with Session Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 430
       }
     },
     "com.amazonaws.services.ssm#TargetParameterList": {
@@ -20084,7 +20306,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n         <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try\n   the command again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#TooManyUpdates": {
@@ -20096,7 +20319,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>There are concurrent updates for a resource that supports one update at a time.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.services.ssm#TotalCount": {
@@ -20111,7 +20335,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The size of inventory data has exceeded the total size limit for the resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedFeatureRequiredException": {
@@ -20123,7 +20348,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Microsoft application patching is only available on EC2 instances and Advanced Instances. To\n   patch Microsoft applications on on-premises servers and VMs, you must enable Advanced Instances.\n   For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html\">Using the Advanced-Instances\n    Tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedInventoryItemContextException": {
@@ -20138,7 +20364,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code> is\n   not allowed for this inventory type. You can only use the <code>Context</code> attribute with\n   inventory types like <code>AWS:ComplianceItem</code>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedInventorySchemaVersionException": {
@@ -20150,7 +20377,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Inventory item type schema version has to match supported versions in the service. Check\n   output of GetInventorySchema to see the available schema version for each type.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedOperatingSystem": {
@@ -20162,7 +20390,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The operating systems you specified is not supported, or the operation is not supported for\n   the operating system. Valid operating systems include: Windows, AmazonLinux,\n   RedhatEnterpriseLinux, and Ubuntu.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedParameterType": {
@@ -20174,7 +20403,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter type is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UnsupportedPlatformType": {
@@ -20186,7 +20416,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The document does not support the platform type of the given instance ID(s). For example,\n   you sent an document for a Windows instance to a Linux instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.ssm#UpdateAssociation": {

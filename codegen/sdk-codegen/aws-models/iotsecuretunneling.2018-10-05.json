@@ -54,7 +54,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>\n\t\t\trequest is received, we close the WebSocket connections between the client and proxy\n\t\t\tserver so no data can be transmitted.</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>\n\t\t\trequest is received, we close the WebSocket connections between the client and proxy\n\t\t\tserver so no data can be transmitted.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tunnels/{tunnelId}",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#CloseTunnelRequest": {
@@ -64,13 +69,15 @@
           "target": "com.amazonaws.envoy.frontend#DeleteFlag",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data\n\t\t\timmediately.</p>\n\t     "
+            "smithy.api#documentation": "\n\t\t       <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data\n\t\t\timmediately.</p>\n\t     ",
+            "smithy.api#httpQuery": "delete"
           }
         },
         "tunnelId": {
           "target": "com.amazonaws.envoy.frontend#TunnelId",
           "traits": {
             "smithy.api#documentation": "\n\t\t       <p>The ID of the tunnel to close.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
@@ -133,7 +140,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Gets information about a tunnel identified by the unique tunnel id.</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>Gets information about a tunnel identified by the unique tunnel id.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tunnels/{tunnelId}",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#DescribeTunnelRequest": {
@@ -143,6 +155,7 @@
           "target": "com.amazonaws.envoy.frontend#TunnelId",
           "traits": {
             "smithy.api#documentation": "\n\t\t       <p>The tunnel to describe.</p>\n\t     ",
+            "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
@@ -244,7 +257,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Thrown when a tunnel limit is exceeded.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.envoy.frontend#ListTagsForResource": {
@@ -261,7 +275,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Lists the tags for the specified resource.</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>Lists the tags for the specified resource.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#ListTagsForResourceRequest": {
@@ -271,6 +290,7 @@
           "target": "com.amazonaws.envoy.frontend#AmazonResourceName",
           "traits": {
             "smithy.api#documentation": "\n\t\t       <p>The resource ARN.</p>\n\t     ",
+            "smithy.api#httpQuery": "resourceArn",
             "smithy.api#required": true
           }
         }
@@ -297,6 +317,11 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>List all tunnels for an AWS account. Tunnels are listed by creation time in\n\t\t\tdescending order, newer tunnels will be listed before older tunnels.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tunnels",
+          "code": 200
+        },
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
@@ -311,19 +336,22 @@
           "target": "com.amazonaws.envoy.frontend#MaxResults",
           "traits": {
             "smithy.api#box": true,
-            "smithy.api#documentation": "\n\t\t       <p>The maximum number of results to return at once.</p>\n\t     "
+            "smithy.api#documentation": "\n\t\t       <p>The maximum number of results to return at once.</p>\n\t     ",
+            "smithy.api#httpQuery": "maxResults"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.envoy.frontend#NextToken",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>A token to retrieve the next set of results.</p>\n\t     "
+            "smithy.api#documentation": "\n\t\t       <p>A token to retrieve the next set of results.</p>\n\t     ",
+            "smithy.api#httpQuery": "nextToken"
           }
         },
         "thingName": {
           "target": "com.amazonaws.envoy.frontend#ThingName",
           "traits": {
-            "smithy.api#documentation": "\n\t\t       <p>The name of the IoT thing associated with the destination device.</p>\n\t     "
+            "smithy.api#documentation": "\n\t\t       <p>The name of the IoT thing associated with the destination device.</p>\n\t     ",
+            "smithy.api#httpQuery": "thingName"
           }
         }
       }
@@ -374,7 +402,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Creates a new tunnel, and returns two client access tokens for clients to use to\n\t\t\tconnect to the AWS IoT Secure Tunneling proxy server. .</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>Creates a new tunnel, and returns two client access tokens for clients to use to\n\t\t\tconnect to the AWS IoT Secure Tunneling proxy server. .</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tunnels",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#OpenTunnelRequest": {
@@ -444,7 +477,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Thrown when an operation is attempted on a resource that does not exist.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.envoy.frontend#Service": {
@@ -539,7 +573,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>A resource tag.</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>A resource tag.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#TagResourceRequest": {
@@ -775,7 +814,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n\t\t       <p>Removes a tag from a resource.</p>\n\t     "
+        "smithy.api#documentation": "\n\t\t       <p>Removes a tag from a resource.</p>\n\t     ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/untag",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.envoy.frontend#UntagResourceRequest": {

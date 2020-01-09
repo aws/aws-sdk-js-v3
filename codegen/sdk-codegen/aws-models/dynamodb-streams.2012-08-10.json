@@ -223,7 +223,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon DynamoDB Streams"
+        "smithy.api#title": "Amazon DynamoDB Streams",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://dynamodb.amazonaws.com/doc/2012-08-10/"
+        }
       }
     },
     "com.amazonaws.dynamodb.v20120810#ErrorMessage": {

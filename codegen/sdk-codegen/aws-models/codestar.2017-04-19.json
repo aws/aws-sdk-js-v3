@@ -291,7 +291,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Another modification is being made. That modification must complete before you can make\n      your change.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.codestar#CreateProject": {
@@ -924,7 +925,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The next token is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#InvalidServiceRoleException": {
@@ -936,7 +938,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The service role is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#LastModifiedTimestamp": {
@@ -951,7 +954,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A resource limit has been exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#ListProjects": {
@@ -1298,7 +1302,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.\n      AWS CodeStar project IDs must be unique within a region for the AWS account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#ProjectArn": {
@@ -1316,7 +1321,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Project configuration information is required but not specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#ProjectCreationFailedException": {
@@ -1328,7 +1334,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The project creation request was valid, but a nonspecific exception or error occurred\n      during project creation. The project could not be created in AWS CodeStar.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#ProjectDescription": {
@@ -1372,7 +1379,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified AWS CodeStar project was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.codestar#ProjectStatus": {
@@ -1708,7 +1716,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The team member is already associated with a role in this project.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#TeamMemberNotFoundException": {
@@ -1720,7 +1729,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified team member was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.codestar#TeamMemberResult": {
@@ -2106,7 +2116,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A user profile with that name already exists in this region for the AWS account. AWS\n      CodeStar user profile names must be unique within a region for the AWS account. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.codestar#UserProfileDisplayName": {
@@ -2129,7 +2140,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The user profile was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.codestar#UserProfileSummary": {
@@ -2179,7 +2191,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified input is either not valid, or it could not be validated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     }
   }

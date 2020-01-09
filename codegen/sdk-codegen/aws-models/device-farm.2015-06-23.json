@@ -1845,7 +1845,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Device Farm"
+        "smithy.api#title": "AWS Device Farm",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://devicefarm.amazonaws.com/doc/2015-06-23/"
+        }
       }
     },
     "com.amazon.devicefarm.model#DeviceFilter": {
@@ -6745,7 +6748,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation was not successful. Try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.devicefarm.model#TagPolicyException": {
@@ -6760,7 +6764,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag policy. Correct your\n            request and then retry it.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.devicefarm.model#TagResource": {
@@ -6992,7 +6997,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a\n            repository is 50. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.devicefarm.model#TransactionIdentifier": {

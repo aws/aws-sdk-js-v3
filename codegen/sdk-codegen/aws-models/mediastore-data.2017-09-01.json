@@ -507,7 +507,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Elemental MediaStore Data Plane"
+        "smithy.api#title": "AWS Elemental MediaStore Data Plane",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://object.mediastore.amazonaws.com/doc/2017-09-01"
+        }
       }
     },
     "com.amazonaws.mediastore.object#NonNegativeLong": {

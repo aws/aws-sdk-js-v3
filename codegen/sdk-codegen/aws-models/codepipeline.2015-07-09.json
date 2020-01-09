@@ -1481,7 +1481,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS CodePipeline"
+        "smithy.api#title": "AWS CodePipeline",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://codepipeline.amazonaws.com/doc/2015-07-09/"
+        }
       }
     },
     "com.amazonaws.codepipeline#ConcurrentModificationException": {

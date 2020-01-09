@@ -844,7 +844,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>This exception is thrown when an error occurs in the AWS Transfer for SFTP service.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.necco.coral#InvalidNextTokenException": {
@@ -859,7 +860,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The <code>NextToken</code> parameter that was passed is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.necco.coral#InvalidRequestException": {
@@ -874,7 +876,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>This exception is thrown when the client submits a malformed request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.necco.coral#ListServers": {
@@ -1300,7 +1303,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The requested resource does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.necco.coral#ResourceNotFoundException": {
@@ -1327,7 +1331,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>This exception is thrown when a resource is not found by the AWS Transfer for SFTP\n      service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.necco.coral#ResourceType": {
@@ -1371,7 +1376,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.necco.coral#SshPublicKey": {
@@ -1738,12 +1744,16 @@
       "type": "structure",
       "members": {
         "RetryAfterSeconds": {
-          "target": "com.amazonaws.necco.coral#RetryAfterSeconds"
+          "target": "com.amazonaws.necco.coral#RetryAfterSeconds",
+          "traits": {
+            "smithy.api#httpHeader": "Retry-After"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was denied due to request throttling.</p>\n         <p> HTTP Status Code: 400</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.necco.coral#TransferService": {
