@@ -751,8 +751,10 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -769,7 +771,6 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -808,8 +809,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -826,7 +829,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -871,8 +873,10 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -896,7 +900,6 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -930,8 +933,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -948,7 +953,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -993,8 +997,10 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1011,7 +1017,6 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1056,8 +1061,10 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1074,7 +1081,6 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1113,8 +1119,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1131,7 +1139,6 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1177,8 +1184,10 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1195,7 +1204,6 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1244,8 +1252,10 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1262,7 +1272,6 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1311,8 +1320,10 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1329,7 +1340,6 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1389,8 +1399,10 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1407,7 +1419,6 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1474,8 +1485,10 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1492,7 +1505,6 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1545,8 +1557,10 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1563,7 +1577,6 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1609,8 +1622,10 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1627,7 +1642,6 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1688,8 +1702,10 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1706,7 +1722,6 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1751,8 +1766,10 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1769,7 +1786,6 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1806,8 +1822,10 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1824,7 +1842,6 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1869,8 +1886,10 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1887,7 +1906,6 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1926,8 +1944,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1944,7 +1964,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
@@ -1989,8 +2008,10 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -2007,7 +2028,6 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",

@@ -1166,10 +1166,7 @@ export async function deserializeAws_json1_1AssociateWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateWebACLResponse(
-    data.AssociateWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateWebACLResponse(data, context);
   const response: AssociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateWebACLResponse",
@@ -1188,7 +1185,7 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1222,7 +1219,6 @@ async function deserializeAws_json1_1AssociateWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1241,10 +1237,7 @@ export async function deserializeAws_json1_1CheckCapacityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckCapacityResponse(
-    data.CheckCapacityResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CheckCapacityResponse(data, context);
   const response: CheckCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CheckCapacityResponse",
@@ -1263,7 +1256,7 @@ async function deserializeAws_json1_1CheckCapacityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1311,7 +1304,6 @@ async function deserializeAws_json1_1CheckCapacityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1330,10 +1322,7 @@ export async function deserializeAws_json1_1CreateIPSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateIPSetResponse(
-    data.CreateIPSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateIPSetResponse(data, context);
   const response: CreateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateIPSetResponse",
@@ -1352,7 +1341,7 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1407,7 +1396,6 @@ async function deserializeAws_json1_1CreateIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1429,10 +1417,7 @@ export async function deserializeAws_json1_1CreateRegexPatternSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRegexPatternSetResponse(
-    data.CreateRegexPatternSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRegexPatternSetResponse(data, context);
   const response: CreateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRegexPatternSetResponse",
@@ -1451,7 +1436,7 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1506,7 +1491,6 @@ async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1525,10 +1509,7 @@ export async function deserializeAws_json1_1CreateRuleGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRuleGroupResponse(
-    data.CreateRuleGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRuleGroupResponse(data, context);
   const response: CreateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRuleGroupResponse",
@@ -1547,7 +1528,7 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1609,7 +1590,6 @@ async function deserializeAws_json1_1CreateRuleGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1628,10 +1608,7 @@ export async function deserializeAws_json1_1CreateWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWebACLResponse(
-    data.CreateWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWebACLResponse(data, context);
   const response: CreateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWebACLResponse",
@@ -1650,7 +1627,7 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1726,7 +1703,6 @@ async function deserializeAws_json1_1CreateWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1745,10 +1721,7 @@ export async function deserializeAws_json1_1DeleteIPSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteIPSetResponse(
-    data.DeleteIPSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteIPSetResponse(data, context);
   const response: DeleteIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteIPSetResponse",
@@ -1767,7 +1740,7 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1815,7 +1788,6 @@ async function deserializeAws_json1_1DeleteIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1838,7 +1810,7 @@ export async function deserializeAws_json1_1DeleteLoggingConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteLoggingConfigurationResponse(
-    data.DeleteLoggingConfigurationResponse,
+    data,
     context
   );
   const response: DeleteLoggingConfigurationCommandOutput = {
@@ -1859,7 +1831,7 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1886,7 +1858,6 @@ async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1908,10 +1879,7 @@ export async function deserializeAws_json1_1DeleteRegexPatternSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRegexPatternSetResponse(
-    data.DeleteRegexPatternSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRegexPatternSetResponse(data, context);
   const response: DeleteRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRegexPatternSetResponse",
@@ -1930,7 +1898,7 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1978,7 +1946,6 @@ async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -1997,10 +1964,7 @@ export async function deserializeAws_json1_1DeleteRuleGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRuleGroupResponse(
-    data.DeleteRuleGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRuleGroupResponse(data, context);
   const response: DeleteRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRuleGroupResponse",
@@ -2019,7 +1983,7 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2067,7 +2031,6 @@ async function deserializeAws_json1_1DeleteRuleGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2086,10 +2049,7 @@ export async function deserializeAws_json1_1DeleteWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWebACLResponse(
-    data.DeleteWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWebACLResponse(data, context);
   const response: DeleteWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebACLResponse",
@@ -2108,7 +2068,7 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2163,7 +2123,6 @@ async function deserializeAws_json1_1DeleteWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2186,7 +2145,7 @@ export async function deserializeAws_json1_1DescribeManagedRuleGroupCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeManagedRuleGroupResponse(
-    data.DescribeManagedRuleGroupResponse,
+    data,
     context
   );
   const response: DescribeManagedRuleGroupCommandOutput = {
@@ -2207,7 +2166,7 @@ async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2241,7 +2200,6 @@ async function deserializeAws_json1_1DescribeManagedRuleGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2263,10 +2221,7 @@ export async function deserializeAws_json1_1DisassociateWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateWebACLResponse(
-    data.DisassociateWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateWebACLResponse(data, context);
   const response: DisassociateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateWebACLResponse",
@@ -2285,7 +2240,7 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2312,7 +2267,6 @@ async function deserializeAws_json1_1DisassociateWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2331,10 +2285,7 @@ export async function deserializeAws_json1_1GetIPSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetIPSetResponse(
-    data.GetIPSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetIPSetResponse(data, context);
   const response: GetIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIPSetResponse",
@@ -2353,7 +2304,7 @@ async function deserializeAws_json1_1GetIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2380,7 +2331,6 @@ async function deserializeAws_json1_1GetIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2403,7 +2353,7 @@ export async function deserializeAws_json1_1GetLoggingConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetLoggingConfigurationResponse(
-    data.GetLoggingConfigurationResponse,
+    data,
     context
   );
   const response: GetLoggingConfigurationCommandOutput = {
@@ -2424,7 +2374,7 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2444,7 +2394,6 @@ async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2467,7 +2416,7 @@ export async function deserializeAws_json1_1GetRateBasedStatementManagedKeysComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRateBasedStatementManagedKeysResponse(
-    data.GetRateBasedStatementManagedKeysResponse,
+    data,
     context
   );
   const response: GetRateBasedStatementManagedKeysCommandOutput = {
@@ -2488,7 +2437,7 @@ async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2515,7 +2464,6 @@ async function deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2537,10 +2485,7 @@ export async function deserializeAws_json1_1GetRegexPatternSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRegexPatternSetResponse(
-    data.GetRegexPatternSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRegexPatternSetResponse(data, context);
   const response: GetRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRegexPatternSetResponse",
@@ -2559,7 +2504,7 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2586,7 +2531,6 @@ async function deserializeAws_json1_1GetRegexPatternSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2605,10 +2549,7 @@ export async function deserializeAws_json1_1GetRuleGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRuleGroupResponse(
-    data.GetRuleGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRuleGroupResponse(data, context);
   const response: GetRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRuleGroupResponse",
@@ -2627,7 +2568,7 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2654,7 +2595,6 @@ async function deserializeAws_json1_1GetRuleGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2676,10 +2616,7 @@ export async function deserializeAws_json1_1GetSampledRequestsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSampledRequestsResponse(
-    data.GetSampledRequestsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetSampledRequestsResponse(data, context);
   const response: GetSampledRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSampledRequestsResponse",
@@ -2698,7 +2635,7 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2725,7 +2662,6 @@ async function deserializeAws_json1_1GetSampledRequestsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2744,10 +2680,7 @@ export async function deserializeAws_json1_1GetWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWebACLResponse(
-    data.GetWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetWebACLResponse(data, context);
   const response: GetWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWebACLResponse",
@@ -2766,7 +2699,7 @@ async function deserializeAws_json1_1GetWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2793,7 +2726,6 @@ async function deserializeAws_json1_1GetWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2815,10 +2747,7 @@ export async function deserializeAws_json1_1GetWebACLForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWebACLForResourceResponse(
-    data.GetWebACLForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetWebACLForResourceResponse(data, context);
   const response: GetWebACLForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWebACLForResourceResponse",
@@ -2837,7 +2766,7 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2871,7 +2800,6 @@ async function deserializeAws_json1_1GetWebACLForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2894,7 +2822,7 @@ export async function deserializeAws_json1_1ListAvailableManagedRuleGroupsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAvailableManagedRuleGroupsResponse(
-    data.ListAvailableManagedRuleGroupsResponse,
+    data,
     context
   );
   const response: ListAvailableManagedRuleGroupsCommandOutput = {
@@ -2915,7 +2843,7 @@ async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2935,7 +2863,6 @@ async function deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -2954,10 +2881,7 @@ export async function deserializeAws_json1_1ListIPSetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIPSetsResponse(
-    data.ListIPSetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListIPSetsResponse(data, context);
   const response: ListIPSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIPSetsResponse",
@@ -2976,7 +2900,7 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2996,7 +2920,6 @@ async function deserializeAws_json1_1ListIPSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3019,7 +2942,7 @@ export async function deserializeAws_json1_1ListLoggingConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListLoggingConfigurationsResponse(
-    data.ListLoggingConfigurationsResponse,
+    data,
     context
   );
   const response: ListLoggingConfigurationsCommandOutput = {
@@ -3040,7 +2963,7 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3060,7 +2983,6 @@ async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3082,10 +3004,7 @@ export async function deserializeAws_json1_1ListRegexPatternSetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRegexPatternSetsResponse(
-    data.ListRegexPatternSetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRegexPatternSetsResponse(data, context);
   const response: ListRegexPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRegexPatternSetsResponse",
@@ -3104,7 +3023,7 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3124,7 +3043,6 @@ async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3147,7 +3065,7 @@ export async function deserializeAws_json1_1ListResourcesForWebACLCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListResourcesForWebACLResponse(
-    data.ListResourcesForWebACLResponse,
+    data,
     context
   );
   const response: ListResourcesForWebACLCommandOutput = {
@@ -3168,7 +3086,7 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3195,7 +3113,6 @@ async function deserializeAws_json1_1ListResourcesForWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3214,10 +3131,7 @@ export async function deserializeAws_json1_1ListRuleGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRuleGroupsResponse(
-    data.ListRuleGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRuleGroupsResponse(data, context);
   const response: ListRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRuleGroupsResponse",
@@ -3236,7 +3150,7 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3256,7 +3170,6 @@ async function deserializeAws_json1_1ListRuleGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3278,10 +3191,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -3300,7 +3210,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3341,7 +3251,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3360,10 +3269,7 @@ export async function deserializeAws_json1_1ListWebACLsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWebACLsResponse(
-    data.ListWebACLsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListWebACLsResponse(data, context);
   const response: ListWebACLsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebACLsResponse",
@@ -3382,7 +3288,7 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3402,7 +3308,6 @@ async function deserializeAws_json1_1ListWebACLsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3425,7 +3330,7 @@ export async function deserializeAws_json1_1PutLoggingConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutLoggingConfigurationResponse(
-    data.PutLoggingConfigurationResponse,
+    data,
     context
   );
   const response: PutLoggingConfigurationCommandOutput = {
@@ -3446,7 +3351,7 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3487,7 +3392,6 @@ async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3506,10 +3410,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -3528,7 +3429,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3576,7 +3477,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3595,10 +3495,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -3617,7 +3514,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3658,7 +3555,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3677,10 +3573,7 @@ export async function deserializeAws_json1_1UpdateIPSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateIPSetResponse(
-    data.UpdateIPSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateIPSetResponse(data, context);
   const response: UpdateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateIPSetResponse",
@@ -3699,7 +3592,7 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3747,7 +3640,6 @@ async function deserializeAws_json1_1UpdateIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3769,10 +3661,7 @@ export async function deserializeAws_json1_1UpdateRegexPatternSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRegexPatternSetResponse(
-    data.UpdateRegexPatternSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRegexPatternSetResponse(data, context);
   const response: UpdateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRegexPatternSetResponse",
@@ -3791,7 +3680,7 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3839,7 +3728,6 @@ async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3858,10 +3746,7 @@ export async function deserializeAws_json1_1UpdateRuleGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRuleGroupResponse(
-    data.UpdateRuleGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRuleGroupResponse(data, context);
   const response: UpdateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRuleGroupResponse",
@@ -3880,7 +3765,7 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3935,7 +3820,6 @@ async function deserializeAws_json1_1UpdateRuleGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",
@@ -3954,10 +3838,7 @@ export async function deserializeAws_json1_1UpdateWebACLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWebACLResponse(
-    data.UpdateWebACLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWebACLResponse(data, context);
   const response: UpdateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWebACLResponse",
@@ -3976,7 +3857,7 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4038,7 +3919,6 @@ async function deserializeAws_json1_1UpdateWebACLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gokucustomerapiv2.v20190729#${errorCode}`,
         $fault: "client",

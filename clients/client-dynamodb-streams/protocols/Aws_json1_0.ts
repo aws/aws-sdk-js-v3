@@ -150,10 +150,7 @@ export async function deserializeAws_json1_0DescribeStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStreamOutput(
-    data.DescribeStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeStreamOutput(data, context);
   const response: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStreamOutput",
@@ -172,7 +169,7 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -192,7 +189,6 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
@@ -211,10 +207,7 @@ export async function deserializeAws_json1_0GetRecordsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetRecordsOutput(
-    data.GetRecordsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetRecordsOutput(data, context);
   const response: GetRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRecordsOutput",
@@ -233,7 +226,7 @@ async function deserializeAws_json1_0GetRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -274,7 +267,6 @@ async function deserializeAws_json1_0GetRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
@@ -293,10 +285,7 @@ export async function deserializeAws_json1_0GetShardIteratorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetShardIteratorOutput(
-    data.GetShardIteratorOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetShardIteratorOutput(data, context);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetShardIteratorOutput",
@@ -315,7 +304,7 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -342,7 +331,6 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",
@@ -361,10 +349,7 @@ export async function deserializeAws_json1_0ListStreamsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStreamsOutput(
-    data.ListStreamsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListStreamsOutput(data, context);
   const response: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStreamsOutput",
@@ -383,7 +368,7 @@ async function deserializeAws_json1_0ListStreamsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -403,7 +388,6 @@ async function deserializeAws_json1_0ListStreamsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.streams.v20120810#${errorCode}`,
         $fault: "client",

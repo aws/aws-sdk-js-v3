@@ -601,8 +601,10 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -633,7 +635,6 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -670,8 +671,10 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -702,7 +705,6 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -736,8 +738,10 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -761,7 +765,6 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -798,8 +801,10 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -830,7 +835,6 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -864,8 +868,10 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -896,7 +902,6 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -941,8 +946,10 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -966,7 +973,6 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1011,8 +1017,10 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1036,7 +1044,6 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1073,8 +1080,10 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1105,7 +1114,6 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1150,8 +1158,10 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1175,7 +1185,6 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1224,8 +1233,10 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1249,7 +1260,6 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1295,8 +1305,10 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1313,7 +1325,6 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1350,8 +1361,10 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1382,7 +1395,6 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",
@@ -1416,8 +1428,10 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
@@ -1448,7 +1462,6 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot1click.projects#${errorCode}`,
         $fault: "client",

@@ -1829,8 +1829,10 @@ async function deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -1875,7 +1877,6 @@ async function deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -1914,8 +1915,10 @@ async function deserializeAws_restJson1_1ActivateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -1953,7 +1956,6 @@ async function deserializeAws_restJson1_1ActivateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -1998,8 +2000,10 @@ async function deserializeAws_restJson1_1AddResourcePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -2030,7 +2034,6 @@ async function deserializeAws_restJson1_1AddResourcePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2069,8 +2072,10 @@ async function deserializeAws_restJson1_1CreateCommentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
@@ -2129,7 +2134,6 @@ async function deserializeAws_restJson1_1CreateCommentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2166,8 +2170,10 @@ async function deserializeAws_restJson1_1CreateCustomMetadataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CustomMetadataLimitExceededException":
     case "com.amazon.aws.gorillaboy#CustomMetadataLimitExceededException":
@@ -2219,7 +2225,6 @@ async function deserializeAws_restJson1_1CreateCustomMetadataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2261,8 +2266,10 @@ async function deserializeAws_restJson1_1CreateFolderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
@@ -2328,7 +2335,6 @@ async function deserializeAws_restJson1_1CreateFolderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2362,8 +2368,10 @@ async function deserializeAws_restJson1_1CreateLabelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -2408,7 +2416,6 @@ async function deserializeAws_restJson1_1CreateLabelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2453,8 +2460,10 @@ async function deserializeAws_restJson1_1CreateNotificationSubscriptionCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
@@ -2478,7 +2487,6 @@ async function deserializeAws_restJson1_1CreateNotificationSubscriptionCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2517,8 +2525,10 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
@@ -2556,7 +2566,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2592,8 +2601,10 @@ async function deserializeAws_restJson1_1DeactivateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -2631,7 +2642,6 @@ async function deserializeAws_restJson1_1DeactivateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2664,8 +2674,10 @@ async function deserializeAws_restJson1_1DeleteCommentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
@@ -2717,7 +2729,6 @@ async function deserializeAws_restJson1_1DeleteCommentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2754,8 +2765,10 @@ async function deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -2800,7 +2813,6 @@ async function deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2836,8 +2848,10 @@ async function deserializeAws_restJson1_1DeleteDocumentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
@@ -2896,7 +2910,6 @@ async function deserializeAws_restJson1_1DeleteDocumentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -2929,8 +2942,10 @@ async function deserializeAws_restJson1_1DeleteFolderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
@@ -2989,7 +3004,6 @@ async function deserializeAws_restJson1_1DeleteFolderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3025,8 +3039,10 @@ async function deserializeAws_restJson1_1DeleteFolderContentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
@@ -3078,7 +3094,6 @@ async function deserializeAws_restJson1_1DeleteFolderContentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3112,8 +3127,10 @@ async function deserializeAws_restJson1_1DeleteLabelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3151,7 +3168,6 @@ async function deserializeAws_restJson1_1DeleteLabelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3187,8 +3203,10 @@ async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3219,7 +3237,6 @@ async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3252,8 +3269,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3291,7 +3310,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3340,8 +3358,10 @@ async function deserializeAws_restJson1_1DescribeActivitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -3379,7 +3399,6 @@ async function deserializeAws_restJson1_1DescribeActivitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3428,8 +3447,10 @@ async function deserializeAws_restJson1_1DescribeCommentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3474,7 +3495,6 @@ async function deserializeAws_restJson1_1DescribeCommentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3523,8 +3543,10 @@ async function deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3576,7 +3598,6 @@ async function deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3632,8 +3653,10 @@ async function deserializeAws_restJson1_1DescribeFolderContentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3678,7 +3701,6 @@ async function deserializeAws_restJson1_1DescribeFolderContentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3727,8 +3749,10 @@ async function deserializeAws_restJson1_1DescribeGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -3759,7 +3783,6 @@ async function deserializeAws_restJson1_1DescribeGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3808,8 +3831,10 @@ async function deserializeAws_restJson1_1DescribeNotificationSubscriptionsComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -3833,7 +3858,6 @@ async function deserializeAws_restJson1_1DescribeNotificationSubscriptionsComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3882,8 +3906,10 @@ async function deserializeAws_restJson1_1DescribeResourcePermissionsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -3914,7 +3940,6 @@ async function deserializeAws_restJson1_1DescribeResourcePermissionsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -3963,8 +3988,10 @@ async function deserializeAws_restJson1_1DescribeRootFoldersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -4002,7 +4029,6 @@ async function deserializeAws_restJson1_1DescribeRootFoldersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4052,8 +4078,10 @@ async function deserializeAws_restJson1_1DescribeUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4105,7 +4133,6 @@ async function deserializeAws_restJson1_1DescribeUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4147,8 +4174,10 @@ async function deserializeAws_restJson1_1GetCurrentUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4186,7 +4215,6 @@ async function deserializeAws_restJson1_1GetCurrentUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4235,8 +4263,10 @@ async function deserializeAws_restJson1_1GetDocumentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4288,7 +4318,6 @@ async function deserializeAws_restJson1_1GetDocumentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4330,8 +4359,10 @@ async function deserializeAws_restJson1_1GetDocumentPathCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4369,7 +4400,6 @@ async function deserializeAws_restJson1_1GetDocumentPathCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4421,8 +4451,10 @@ async function deserializeAws_restJson1_1GetDocumentVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4474,7 +4506,6 @@ async function deserializeAws_restJson1_1GetDocumentVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4523,8 +4554,10 @@ async function deserializeAws_restJson1_1GetFolderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4576,7 +4609,6 @@ async function deserializeAws_restJson1_1GetFolderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4615,8 +4647,10 @@ async function deserializeAws_restJson1_1GetFolderPathCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
@@ -4654,7 +4688,6 @@ async function deserializeAws_restJson1_1GetFolderPathCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4707,8 +4740,10 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -4746,7 +4781,6 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4798,8 +4832,10 @@ async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DraftUploadOutOfSyncException":
     case "com.amazon.aws.gorillaboy#DraftUploadOutOfSyncException":
@@ -4879,7 +4915,6 @@ async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4915,8 +4950,10 @@ async function deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -4947,7 +4984,6 @@ async function deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -4983,8 +5019,10 @@ async function deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
@@ -5015,7 +5053,6 @@ async function deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -5051,8 +5088,10 @@ async function deserializeAws_restJson1_1UpdateDocumentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
@@ -5125,7 +5164,6 @@ async function deserializeAws_restJson1_1UpdateDocumentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -5161,8 +5199,10 @@ async function deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
@@ -5221,7 +5261,6 @@ async function deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -5254,8 +5293,10 @@ async function deserializeAws_restJson1_1UpdateFolderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
@@ -5328,7 +5369,6 @@ async function deserializeAws_restJson1_1UpdateFolderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
@@ -5367,8 +5407,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DeactivatingLastSystemUserException":
     case "com.amazon.aws.gorillaboy#DeactivatingLastSystemUserException":
@@ -5427,7 +5469,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",

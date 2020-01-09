@@ -601,10 +601,7 @@ export async function deserializeAws_json1_1ActivatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ActivatePipelineOutput(
-    data.ActivatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ActivatePipelineOutput(data, context);
   const response: ActivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivatePipelineOutput",
@@ -623,7 +620,7 @@ async function deserializeAws_json1_1ActivatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -657,7 +654,6 @@ async function deserializeAws_json1_1ActivatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -676,7 +672,7 @@ export async function deserializeAws_json1_1AddTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsOutput(data.AddTagsOutput, context);
+  contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsOutput",
@@ -695,7 +691,7 @@ async function deserializeAws_json1_1AddTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -729,7 +725,6 @@ async function deserializeAws_json1_1AddTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -748,10 +743,7 @@ export async function deserializeAws_json1_1CreatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePipelineOutput(
-    data.CreatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineOutput",
@@ -770,7 +762,7 @@ async function deserializeAws_json1_1CreatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -790,7 +782,6 @@ async function deserializeAws_json1_1CreatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -812,10 +803,7 @@ export async function deserializeAws_json1_1DeactivatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeactivatePipelineOutput(
-    data.DeactivatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeactivatePipelineOutput(data, context);
   const response: DeactivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeactivatePipelineOutput",
@@ -834,7 +822,7 @@ async function deserializeAws_json1_1DeactivatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -868,7 +856,6 @@ async function deserializeAws_json1_1DeactivatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -901,7 +888,7 @@ async function deserializeAws_json1_1DeletePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -928,7 +915,6 @@ async function deserializeAws_json1_1DeletePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -947,10 +933,7 @@ export async function deserializeAws_json1_1DescribeObjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeObjectsOutput(
-    data.DescribeObjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeObjectsOutput(data, context);
   const response: DescribeObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeObjectsOutput",
@@ -969,7 +952,7 @@ async function deserializeAws_json1_1DescribeObjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1003,7 +986,6 @@ async function deserializeAws_json1_1DescribeObjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1022,10 +1004,7 @@ export async function deserializeAws_json1_1DescribePipelinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePipelinesOutput(
-    data.DescribePipelinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePipelinesOutput(data, context);
   const response: DescribePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePipelinesOutput",
@@ -1044,7 +1023,7 @@ async function deserializeAws_json1_1DescribePipelinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1078,7 +1057,6 @@ async function deserializeAws_json1_1DescribePipelinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1100,10 +1078,7 @@ export async function deserializeAws_json1_1EvaluateExpressionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EvaluateExpressionOutput(
-    data.EvaluateExpressionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1EvaluateExpressionOutput(data, context);
   const response: EvaluateExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EvaluateExpressionOutput",
@@ -1122,7 +1097,7 @@ async function deserializeAws_json1_1EvaluateExpressionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1163,7 +1138,6 @@ async function deserializeAws_json1_1EvaluateExpressionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1185,10 +1159,7 @@ export async function deserializeAws_json1_1GetPipelineDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPipelineDefinitionOutput(
-    data.GetPipelineDefinitionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPipelineDefinitionOutput(data, context);
   const response: GetPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineDefinitionOutput",
@@ -1207,7 +1178,7 @@ async function deserializeAws_json1_1GetPipelineDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1241,7 +1212,6 @@ async function deserializeAws_json1_1GetPipelineDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1260,10 +1230,7 @@ export async function deserializeAws_json1_1ListPipelinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPipelinesOutput(
-    data.ListPipelinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPipelinesOutput(data, context);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesOutput",
@@ -1282,7 +1249,7 @@ async function deserializeAws_json1_1ListPipelinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1302,7 +1269,6 @@ async function deserializeAws_json1_1ListPipelinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1321,10 +1287,7 @@ export async function deserializeAws_json1_1PollForTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PollForTaskOutput(
-    data.PollForTaskOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PollForTaskOutput(data, context);
   const response: PollForTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForTaskOutput",
@@ -1343,7 +1306,7 @@ async function deserializeAws_json1_1PollForTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1370,7 +1333,6 @@ async function deserializeAws_json1_1PollForTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1392,10 +1354,7 @@ export async function deserializeAws_json1_1PutPipelineDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutPipelineDefinitionOutput(
-    data.PutPipelineDefinitionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutPipelineDefinitionOutput(data, context);
   const response: PutPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPipelineDefinitionOutput",
@@ -1414,7 +1373,7 @@ async function deserializeAws_json1_1PutPipelineDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1448,7 +1407,6 @@ async function deserializeAws_json1_1PutPipelineDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1467,10 +1425,7 @@ export async function deserializeAws_json1_1QueryObjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1QueryObjectsOutput(
-    data.QueryObjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1QueryObjectsOutput(data, context);
   const response: QueryObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryObjectsOutput",
@@ -1489,7 +1444,7 @@ async function deserializeAws_json1_1QueryObjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1523,7 +1478,6 @@ async function deserializeAws_json1_1QueryObjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1542,10 +1496,7 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsOutput(
-    data.RemoveTagsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsOutput",
@@ -1564,7 +1515,7 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1598,7 +1549,6 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1620,10 +1570,7 @@ export async function deserializeAws_json1_1ReportTaskProgressCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReportTaskProgressOutput(
-    data.ReportTaskProgressOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ReportTaskProgressOutput(data, context);
   const response: ReportTaskProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReportTaskProgressOutput",
@@ -1642,7 +1589,7 @@ async function deserializeAws_json1_1ReportTaskProgressCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1683,7 +1630,6 @@ async function deserializeAws_json1_1ReportTaskProgressCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1706,7 +1652,7 @@ export async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput(
-    data.ReportTaskRunnerHeartbeatOutput,
+    data,
     context
   );
   const response: ReportTaskRunnerHeartbeatCommandOutput = {
@@ -1727,7 +1673,7 @@ async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1747,7 +1693,6 @@ async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1780,7 +1725,7 @@ async function deserializeAws_json1_1SetStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1814,7 +1759,6 @@ async function deserializeAws_json1_1SetStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1833,10 +1777,7 @@ export async function deserializeAws_json1_1SetTaskStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetTaskStatusOutput(
-    data.SetTaskStatusOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SetTaskStatusOutput(data, context);
   const response: SetTaskStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetTaskStatusOutput",
@@ -1855,7 +1796,7 @@ async function deserializeAws_json1_1SetTaskStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1896,7 +1837,6 @@ async function deserializeAws_json1_1SetTaskStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
@@ -1919,7 +1859,7 @@ export async function deserializeAws_json1_1ValidatePipelineDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ValidatePipelineDefinitionOutput(
-    data.ValidatePipelineDefinitionOutput,
+    data,
     context
   );
   const response: ValidatePipelineDefinitionCommandOutput = {
@@ -1940,7 +1880,7 @@ async function deserializeAws_json1_1ValidatePipelineDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1974,7 +1914,6 @@ async function deserializeAws_json1_1ValidatePipelineDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",

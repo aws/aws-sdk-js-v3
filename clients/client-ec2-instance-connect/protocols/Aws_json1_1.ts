@@ -57,10 +57,7 @@ export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendSSHPublicKeyResponse(
-    data.SendSSHPublicKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendSSHPublicKeyResponse(data, context);
   const response: SendSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendSSHPublicKeyResponse",
@@ -79,7 +76,7 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -120,7 +117,6 @@ async function deserializeAws_json1_1SendSSHPublicKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.sshaccessproxyservice#${errorCode}`,
         $fault: "client",

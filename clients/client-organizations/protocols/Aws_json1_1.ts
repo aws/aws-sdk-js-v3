@@ -1472,10 +1472,7 @@ export async function deserializeAws_json1_1AcceptHandshakeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptHandshakeResponse(
-    data.AcceptHandshakeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AcceptHandshakeResponse(data, context);
   const response: AcceptHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcceptHandshakeResponse",
@@ -1494,7 +1491,7 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1577,7 +1574,6 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1610,7 +1606,7 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1707,7 +1703,6 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1726,10 +1721,7 @@ export async function deserializeAws_json1_1CancelHandshakeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelHandshakeResponse(
-    data.CancelHandshakeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CancelHandshakeResponse(data, context);
   const response: CancelHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelHandshakeResponse",
@@ -1748,7 +1740,7 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1810,7 +1802,6 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1829,10 +1820,7 @@ export async function deserializeAws_json1_1CreateAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAccountResponse(
-    data.CreateAccountResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAccountResponse(data, context);
   const response: CreateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAccountResponse",
@@ -1851,7 +1839,7 @@ async function deserializeAws_json1_1CreateAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1920,7 +1908,6 @@ async function deserializeAws_json1_1CreateAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1942,10 +1929,7 @@ export async function deserializeAws_json1_1CreateGovCloudAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGovCloudAccountResponse(
-    data.CreateGovCloudAccountResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGovCloudAccountResponse(data, context);
   const response: CreateGovCloudAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGovCloudAccountResponse",
@@ -1964,7 +1948,7 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2033,7 +2017,6 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2055,10 +2038,7 @@ export async function deserializeAws_json1_1CreateOrganizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateOrganizationResponse(
-    data.CreateOrganizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateOrganizationResponse(data, context);
   const response: CreateOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateOrganizationResponse",
@@ -2077,7 +2057,7 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2139,7 +2119,6 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2162,7 +2141,7 @@ export async function deserializeAws_json1_1CreateOrganizationalUnitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateOrganizationalUnitResponse(
-    data.CreateOrganizationalUnitResponse,
+    data,
     context
   );
   const response: CreateOrganizationalUnitCommandOutput = {
@@ -2183,7 +2162,7 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2252,7 +2231,6 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2271,10 +2249,7 @@ export async function deserializeAws_json1_1CreatePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePolicyResponse(
-    data.CreatePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePolicyResponse(data, context);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePolicyResponse",
@@ -2293,7 +2268,7 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2376,7 +2351,6 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2395,10 +2369,7 @@ export async function deserializeAws_json1_1DeclineHandshakeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeclineHandshakeResponse(
-    data.DeclineHandshakeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeclineHandshakeResponse(data, context);
   const response: DeclineHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeclineHandshakeResponse",
@@ -2417,7 +2388,7 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2479,7 +2450,6 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2515,7 +2485,7 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2570,7 +2540,6 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2606,7 +2575,7 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2668,7 +2637,6 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2701,7 +2669,7 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2770,7 +2738,6 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2789,10 +2756,7 @@ export async function deserializeAws_json1_1DescribeAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAccountResponse(
-    data.DescribeAccountResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAccountResponse(data, context);
   const response: DescribeAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAccountResponse",
@@ -2811,7 +2775,7 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2859,7 +2823,6 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2882,7 +2845,7 @@ export async function deserializeAws_json1_1DescribeCreateAccountStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCreateAccountStatusResponse(
-    data.DescribeCreateAccountStatusResponse,
+    data,
     context
   );
   const response: DescribeCreateAccountStatusCommandOutput = {
@@ -2903,7 +2866,7 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2958,7 +2921,6 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2981,7 +2943,7 @@ export async function deserializeAws_json1_1DescribeEffectivePolicyCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEffectivePolicyResponse(
-    data.DescribeEffectivePolicyResponse,
+    data,
     context
   );
   const response: DescribeEffectivePolicyCommandOutput = {
@@ -3002,7 +2964,7 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3071,7 +3033,6 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3090,10 +3051,7 @@ export async function deserializeAws_json1_1DescribeHandshakeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHandshakeResponse(
-    data.DescribeHandshakeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHandshakeResponse(data, context);
   const response: DescribeHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHandshakeResponse",
@@ -3112,7 +3070,7 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3160,7 +3118,6 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3182,10 +3139,7 @@ export async function deserializeAws_json1_1DescribeOrganizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeOrganizationResponse(
-    data.DescribeOrganizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeOrganizationResponse(data, context);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeOrganizationResponse",
@@ -3204,7 +3158,7 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3245,7 +3199,6 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3268,7 +3221,7 @@ export async function deserializeAws_json1_1DescribeOrganizationalUnitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationalUnitResponse(
-    data.DescribeOrganizationalUnitResponse,
+    data,
     context
   );
   const response: DescribeOrganizationalUnitCommandOutput = {
@@ -3289,7 +3242,7 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3337,7 +3290,6 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3356,10 +3308,7 @@ export async function deserializeAws_json1_1DescribePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePolicyResponse(
-    data.DescribePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePolicyResponse(data, context);
   const response: DescribePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePolicyResponse",
@@ -3378,7 +3327,7 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3433,7 +3382,6 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3466,7 +3414,7 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3556,7 +3504,6 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3592,7 +3539,7 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3647,7 +3594,6 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3666,10 +3612,7 @@ export async function deserializeAws_json1_1DisablePolicyTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisablePolicyTypeResponse(
-    data.DisablePolicyTypeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DisablePolicyTypeResponse(data, context);
   const response: DisablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisablePolicyTypeResponse",
@@ -3688,7 +3631,7 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3771,7 +3714,6 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3807,7 +3749,7 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3862,7 +3804,6 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3881,10 +3822,7 @@ export async function deserializeAws_json1_1EnableAllFeaturesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableAllFeaturesResponse(
-    data.EnableAllFeaturesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1EnableAllFeaturesResponse(data, context);
   const response: EnableAllFeaturesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableAllFeaturesResponse",
@@ -3903,7 +3841,7 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3958,7 +3896,6 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3977,10 +3914,7 @@ export async function deserializeAws_json1_1EnablePolicyTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnablePolicyTypeResponse(
-    data.EnablePolicyTypeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1EnablePolicyTypeResponse(data, context);
   const response: EnablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnablePolicyTypeResponse",
@@ -3999,7 +3933,7 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4089,7 +4023,6 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4112,7 +4045,7 @@ export async function deserializeAws_json1_1InviteAccountToOrganizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1InviteAccountToOrganizationResponse(
-    data.InviteAccountToOrganizationResponse,
+    data,
     context
   );
   const response: InviteAccountToOrganizationCommandOutput = {
@@ -4133,7 +4066,7 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4209,7 +4142,6 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4242,7 +4174,7 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4311,7 +4243,6 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4334,7 +4265,7 @@ export async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse(
-    data.ListAWSServiceAccessForOrganizationResponse,
+    data,
     context
   );
   const response: ListAWSServiceAccessForOrganizationCommandOutput = {
@@ -4355,7 +4286,7 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4403,7 +4334,6 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4422,10 +4352,7 @@ export async function deserializeAws_json1_1ListAccountsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccountsResponse(
-    data.ListAccountsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAccountsResponse(data, context);
   const response: ListAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAccountsResponse",
@@ -4444,7 +4371,7 @@ async function deserializeAws_json1_1ListAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4485,7 +4412,6 @@ async function deserializeAws_json1_1ListAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4507,10 +4433,7 @@ export async function deserializeAws_json1_1ListAccountsForParentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccountsForParentResponse(
-    data.ListAccountsForParentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAccountsForParentResponse(data, context);
   const response: ListAccountsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAccountsForParentResponse",
@@ -4529,7 +4452,7 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4577,7 +4500,6 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4596,10 +4518,7 @@ export async function deserializeAws_json1_1ListChildrenCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListChildrenResponse(
-    data.ListChildrenResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListChildrenResponse(data, context);
   const response: ListChildrenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListChildrenResponse",
@@ -4618,7 +4537,7 @@ async function deserializeAws_json1_1ListChildrenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4666,7 +4585,6 @@ async function deserializeAws_json1_1ListChildrenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4689,7 +4607,7 @@ export async function deserializeAws_json1_1ListCreateAccountStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCreateAccountStatusResponse(
-    data.ListCreateAccountStatusResponse,
+    data,
     context
   );
   const response: ListCreateAccountStatusCommandOutput = {
@@ -4710,7 +4628,7 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4758,7 +4676,6 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4781,7 +4698,7 @@ export async function deserializeAws_json1_1ListHandshakesForAccountCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListHandshakesForAccountResponse(
-    data.ListHandshakesForAccountResponse,
+    data,
     context
   );
   const response: ListHandshakesForAccountCommandOutput = {
@@ -4802,7 +4719,7 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4843,7 +4760,6 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4866,7 +4782,7 @@ export async function deserializeAws_json1_1ListHandshakesForOrganizationCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListHandshakesForOrganizationResponse(
-    data.ListHandshakesForOrganizationResponse,
+    data,
     context
   );
   const response: ListHandshakesForOrganizationCommandOutput = {
@@ -4887,7 +4803,7 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4935,7 +4851,6 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4958,7 +4873,7 @@ export async function deserializeAws_json1_1ListOrganizationalUnitsForParentComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListOrganizationalUnitsForParentResponse(
-    data.ListOrganizationalUnitsForParentResponse,
+    data,
     context
   );
   const response: ListOrganizationalUnitsForParentCommandOutput = {
@@ -4979,7 +4894,7 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5027,7 +4942,6 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5046,10 +4960,7 @@ export async function deserializeAws_json1_1ListParentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListParentsResponse(
-    data.ListParentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListParentsResponse(data, context);
   const response: ListParentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListParentsResponse",
@@ -5068,7 +4979,7 @@ async function deserializeAws_json1_1ListParentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5116,7 +5027,6 @@ async function deserializeAws_json1_1ListParentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5135,10 +5045,7 @@ export async function deserializeAws_json1_1ListPoliciesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesResponse(
-    data.ListPoliciesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPoliciesResponse",
@@ -5157,7 +5064,7 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5205,7 +5112,6 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5227,10 +5133,7 @@ export async function deserializeAws_json1_1ListPoliciesForTargetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesForTargetResponse(
-    data.ListPoliciesForTargetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPoliciesForTargetResponse(data, context);
   const response: ListPoliciesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPoliciesForTargetResponse",
@@ -5249,7 +5152,7 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5304,7 +5207,6 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5323,10 +5225,7 @@ export async function deserializeAws_json1_1ListRootsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRootsResponse(
-    data.ListRootsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRootsResponse(data, context);
   const response: ListRootsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRootsResponse",
@@ -5345,7 +5244,7 @@ async function deserializeAws_json1_1ListRootsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5386,7 +5285,6 @@ async function deserializeAws_json1_1ListRootsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5408,10 +5306,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -5430,7 +5325,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5478,7 +5373,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5500,10 +5394,7 @@ export async function deserializeAws_json1_1ListTargetsForPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTargetsForPolicyResponse(
-    data.ListTargetsForPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTargetsForPolicyResponse(data, context);
   const response: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTargetsForPolicyResponse",
@@ -5522,7 +5413,7 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5577,7 +5468,6 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5610,7 +5500,7 @@ async function deserializeAws_json1_1MoveAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5686,7 +5576,6 @@ async function deserializeAws_json1_1MoveAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5722,7 +5611,7 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5791,7 +5680,6 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5824,7 +5712,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5886,7 +5774,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -5919,7 +5806,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5981,7 +5868,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -6004,7 +5890,7 @@ export async function deserializeAws_json1_1UpdateOrganizationalUnitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateOrganizationalUnitResponse(
-    data.UpdateOrganizationalUnitResponse,
+    data,
     context
   );
   const response: UpdateOrganizationalUnitCommandOutput = {
@@ -6025,7 +5911,7 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6087,7 +5973,6 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -6106,10 +5991,7 @@ export async function deserializeAws_json1_1UpdatePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePolicyResponse(
-    data.UpdatePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePolicyResponse(data, context);
   const response: UpdatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePolicyResponse",
@@ -6128,7 +6010,7 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6218,7 +6100,6 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",

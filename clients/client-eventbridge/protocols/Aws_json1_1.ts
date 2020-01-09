@@ -997,7 +997,7 @@ async function deserializeAws_json1_1ActivateEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1024,7 +1024,6 @@ async function deserializeAws_json1_1ActivateEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1043,10 +1042,7 @@ export async function deserializeAws_json1_1CreateEventBusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEventBusResponse(
-    data.CreateEventBusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEventBusResponse(data, context);
   const response: CreateEventBusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEventBusResponse",
@@ -1065,7 +1061,7 @@ async function deserializeAws_json1_1CreateEventBusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1113,7 +1109,6 @@ async function deserializeAws_json1_1CreateEventBusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1136,7 +1131,7 @@ export async function deserializeAws_json1_1CreatePartnerEventSourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePartnerEventSourceResponse(
-    data.CreatePartnerEventSourceResponse,
+    data,
     context
   );
   const response: CreatePartnerEventSourceCommandOutput = {
@@ -1157,7 +1152,7 @@ async function deserializeAws_json1_1CreatePartnerEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1191,7 +1186,6 @@ async function deserializeAws_json1_1CreatePartnerEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1227,7 +1221,7 @@ async function deserializeAws_json1_1DeactivateEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1254,7 +1248,6 @@ async function deserializeAws_json1_1DeactivateEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1287,7 +1280,7 @@ async function deserializeAws_json1_1DeleteEventBusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1300,7 +1293,6 @@ async function deserializeAws_json1_1DeleteEventBusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1336,7 +1328,7 @@ async function deserializeAws_json1_1DeletePartnerEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1349,7 +1341,6 @@ async function deserializeAws_json1_1DeletePartnerEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1382,7 +1373,7 @@ async function deserializeAws_json1_1DeleteRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1416,7 +1407,6 @@ async function deserializeAws_json1_1DeleteRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1435,10 +1425,7 @@ export async function deserializeAws_json1_1DescribeEventBusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventBusResponse(
-    data.DescribeEventBusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventBusResponse(data, context);
   const response: DescribeEventBusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventBusResponse",
@@ -1457,7 +1444,7 @@ async function deserializeAws_json1_1DescribeEventBusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1477,7 +1464,6 @@ async function deserializeAws_json1_1DescribeEventBusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1499,10 +1485,7 @@ export async function deserializeAws_json1_1DescribeEventSourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventSourceResponse(
-    data.DescribeEventSourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventSourceResponse(data, context);
   const response: DescribeEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventSourceResponse",
@@ -1521,7 +1504,7 @@ async function deserializeAws_json1_1DescribeEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1541,7 +1524,6 @@ async function deserializeAws_json1_1DescribeEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1564,7 +1546,7 @@ export async function deserializeAws_json1_1DescribePartnerEventSourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePartnerEventSourceResponse(
-    data.DescribePartnerEventSourceResponse,
+    data,
     context
   );
   const response: DescribePartnerEventSourceCommandOutput = {
@@ -1585,7 +1567,7 @@ async function deserializeAws_json1_1DescribePartnerEventSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1605,7 +1587,6 @@ async function deserializeAws_json1_1DescribePartnerEventSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1624,10 +1605,7 @@ export async function deserializeAws_json1_1DescribeRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRuleResponse(
-    data.DescribeRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRuleResponse(data, context);
   const response: DescribeRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRuleResponse",
@@ -1646,7 +1624,7 @@ async function deserializeAws_json1_1DescribeRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1666,7 +1644,6 @@ async function deserializeAws_json1_1DescribeRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1699,7 +1676,7 @@ async function deserializeAws_json1_1DisableRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1733,7 +1710,6 @@ async function deserializeAws_json1_1DisableRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1766,7 +1742,7 @@ async function deserializeAws_json1_1EnableRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1800,7 +1776,6 @@ async function deserializeAws_json1_1EnableRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1819,10 +1794,7 @@ export async function deserializeAws_json1_1ListEventBusesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEventBusesResponse(
-    data.ListEventBusesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEventBusesResponse(data, context);
   const response: ListEventBusesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEventBusesResponse",
@@ -1841,7 +1813,7 @@ async function deserializeAws_json1_1ListEventBusesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1854,7 +1826,6 @@ async function deserializeAws_json1_1ListEventBusesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1873,10 +1844,7 @@ export async function deserializeAws_json1_1ListEventSourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEventSourcesResponse(
-    data.ListEventSourcesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEventSourcesResponse(data, context);
   const response: ListEventSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEventSourcesResponse",
@@ -1895,7 +1863,7 @@ async function deserializeAws_json1_1ListEventSourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1908,7 +1876,6 @@ async function deserializeAws_json1_1ListEventSourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1931,7 +1898,7 @@ export async function deserializeAws_json1_1ListPartnerEventSourceAccountsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPartnerEventSourceAccountsResponse(
-    data.ListPartnerEventSourceAccountsResponse,
+    data,
     context
   );
   const response: ListPartnerEventSourceAccountsCommandOutput = {
@@ -1952,7 +1919,7 @@ async function deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1972,7 +1939,6 @@ async function deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -1995,7 +1961,7 @@ export async function deserializeAws_json1_1ListPartnerEventSourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPartnerEventSourcesResponse(
-    data.ListPartnerEventSourcesResponse,
+    data,
     context
   );
   const response: ListPartnerEventSourcesCommandOutput = {
@@ -2016,7 +1982,7 @@ async function deserializeAws_json1_1ListPartnerEventSourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2029,7 +1995,6 @@ async function deserializeAws_json1_1ListPartnerEventSourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2051,10 +2016,7 @@ export async function deserializeAws_json1_1ListRuleNamesByTargetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRuleNamesByTargetResponse(
-    data.ListRuleNamesByTargetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRuleNamesByTargetResponse(data, context);
   const response: ListRuleNamesByTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRuleNamesByTargetResponse",
@@ -2073,7 +2035,7 @@ async function deserializeAws_json1_1ListRuleNamesByTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2093,7 +2055,6 @@ async function deserializeAws_json1_1ListRuleNamesByTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2112,10 +2073,7 @@ export async function deserializeAws_json1_1ListRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRulesResponse(
-    data.ListRulesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRulesResponse(data, context);
   const response: ListRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRulesResponse",
@@ -2134,7 +2092,7 @@ async function deserializeAws_json1_1ListRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2154,7 +2112,6 @@ async function deserializeAws_json1_1ListRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2176,10 +2133,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2198,7 +2152,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2218,7 +2172,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2237,10 +2190,7 @@ export async function deserializeAws_json1_1ListTargetsByRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTargetsByRuleResponse(
-    data.ListTargetsByRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTargetsByRuleResponse(data, context);
   const response: ListTargetsByRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTargetsByRuleResponse",
@@ -2259,7 +2209,7 @@ async function deserializeAws_json1_1ListTargetsByRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2279,7 +2229,6 @@ async function deserializeAws_json1_1ListTargetsByRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2298,10 +2247,7 @@ export async function deserializeAws_json1_1PutEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEventsResponse(
-    data.PutEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutEventsResponse(data, context);
   const response: PutEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEventsResponse",
@@ -2320,7 +2266,7 @@ async function deserializeAws_json1_1PutEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2333,7 +2279,6 @@ async function deserializeAws_json1_1PutEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2352,10 +2297,7 @@ export async function deserializeAws_json1_1PutPartnerEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutPartnerEventsResponse(
-    data.PutPartnerEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutPartnerEventsResponse(data, context);
   const response: PutPartnerEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPartnerEventsResponse",
@@ -2374,7 +2316,7 @@ async function deserializeAws_json1_1PutPartnerEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2387,7 +2329,6 @@ async function deserializeAws_json1_1PutPartnerEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2420,7 +2361,7 @@ async function deserializeAws_json1_1PutPermissionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2454,7 +2395,6 @@ async function deserializeAws_json1_1PutPermissionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2473,10 +2413,7 @@ export async function deserializeAws_json1_1PutRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRuleResponse(
-    data.PutRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutRuleResponse(data, context);
   const response: PutRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRuleResponse",
@@ -2495,7 +2432,7 @@ async function deserializeAws_json1_1PutRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2543,7 +2480,6 @@ async function deserializeAws_json1_1PutRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2562,10 +2498,7 @@ export async function deserializeAws_json1_1PutTargetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutTargetsResponse(
-    data.PutTargetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutTargetsResponse(data, context);
   const response: PutTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutTargetsResponse",
@@ -2584,7 +2517,7 @@ async function deserializeAws_json1_1PutTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2625,7 +2558,6 @@ async function deserializeAws_json1_1PutTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2658,7 +2590,7 @@ async function deserializeAws_json1_1RemovePermissionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2685,7 +2617,6 @@ async function deserializeAws_json1_1RemovePermissionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2704,10 +2635,7 @@ export async function deserializeAws_json1_1RemoveTargetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTargetsResponse(
-    data.RemoveTargetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTargetsResponse(data, context);
   const response: RemoveTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTargetsResponse",
@@ -2726,7 +2654,7 @@ async function deserializeAws_json1_1RemoveTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2760,7 +2688,6 @@ async function deserializeAws_json1_1RemoveTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2779,10 +2706,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2801,7 +2725,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2835,7 +2759,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2854,10 +2777,7 @@ export async function deserializeAws_json1_1TestEventPatternCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestEventPatternResponse(
-    data.TestEventPatternResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TestEventPatternResponse(data, context);
   const response: TestEventPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestEventPatternResponse",
@@ -2876,7 +2796,7 @@ async function deserializeAws_json1_1TestEventPatternCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2896,7 +2816,6 @@ async function deserializeAws_json1_1TestEventPatternCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",
@@ -2915,10 +2834,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2937,7 +2853,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2971,7 +2887,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.jetstream.v20151007#${errorCode}`,
         $fault: "client",

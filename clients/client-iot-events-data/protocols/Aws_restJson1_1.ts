@@ -207,8 +207,10 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
@@ -239,7 +241,6 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.iot.columbo.data#${errorCode}`,
         $fault: "client",
@@ -284,8 +285,10 @@ async function deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
@@ -316,7 +319,6 @@ async function deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.iot.columbo.data#${errorCode}`,
         $fault: "client",
@@ -361,8 +363,10 @@ async function deserializeAws_restJson1_1DescribeDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
@@ -400,7 +404,6 @@ async function deserializeAws_restJson1_1DescribeDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.iot.columbo.data#${errorCode}`,
         $fault: "client",
@@ -446,8 +449,10 @@ async function deserializeAws_restJson1_1ListDetectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
@@ -485,7 +490,6 @@ async function deserializeAws_restJson1_1ListDetectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.iot.columbo.data#${errorCode}`,
         $fault: "client",

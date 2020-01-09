@@ -469,7 +469,7 @@ async function deserializeAws_json1_1AssociateAdminAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -503,7 +503,6 @@ async function deserializeAws_json1_1AssociateAdminAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -539,7 +538,7 @@ async function deserializeAws_json1_1DeleteNotificationChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -566,7 +565,6 @@ async function deserializeAws_json1_1DeleteNotificationChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -599,7 +597,7 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -626,7 +624,6 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -662,7 +659,7 @@ async function deserializeAws_json1_1DisassociateAdminAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -689,7 +686,6 @@ async function deserializeAws_json1_1DisassociateAdminAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -708,10 +704,7 @@ export async function deserializeAws_json1_1GetAdminAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAdminAccountResponse(
-    data.GetAdminAccountResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAdminAccountResponse(data, context);
   const response: GetAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAdminAccountResponse",
@@ -730,7 +723,7 @@ async function deserializeAws_json1_1GetAdminAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -757,7 +750,6 @@ async function deserializeAws_json1_1GetAdminAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -779,10 +771,7 @@ export async function deserializeAws_json1_1GetComplianceDetailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetComplianceDetailResponse(
-    data.GetComplianceDetailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetComplianceDetailResponse(data, context);
   const response: GetComplianceDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetComplianceDetailResponse",
@@ -801,7 +790,7 @@ async function deserializeAws_json1_1GetComplianceDetailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -821,7 +810,6 @@ async function deserializeAws_json1_1GetComplianceDetailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -844,7 +832,7 @@ export async function deserializeAws_json1_1GetNotificationChannelCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetNotificationChannelResponse(
-    data.GetNotificationChannelResponse,
+    data,
     context
   );
   const response: GetNotificationChannelCommandOutput = {
@@ -865,7 +853,7 @@ async function deserializeAws_json1_1GetNotificationChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -892,7 +880,6 @@ async function deserializeAws_json1_1GetNotificationChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -911,10 +898,7 @@ export async function deserializeAws_json1_1GetPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPolicyResponse(
-    data.GetPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPolicyResponse(data, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPolicyResponse",
@@ -933,7 +917,7 @@ async function deserializeAws_json1_1GetPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -967,7 +951,6 @@ async function deserializeAws_json1_1GetPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -989,10 +972,7 @@ export async function deserializeAws_json1_1GetProtectionStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProtectionStatusResponse(
-    data.GetProtectionStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetProtectionStatusResponse(data, context);
   const response: GetProtectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProtectionStatusResponse",
@@ -1011,7 +991,7 @@ async function deserializeAws_json1_1GetProtectionStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1038,7 +1018,6 @@ async function deserializeAws_json1_1GetProtectionStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -1060,10 +1039,7 @@ export async function deserializeAws_json1_1ListComplianceStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListComplianceStatusResponse(
-    data.ListComplianceStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListComplianceStatusResponse(data, context);
   const response: ListComplianceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListComplianceStatusResponse",
@@ -1082,7 +1058,7 @@ async function deserializeAws_json1_1ListComplianceStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1102,7 +1078,6 @@ async function deserializeAws_json1_1ListComplianceStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -1124,10 +1099,7 @@ export async function deserializeAws_json1_1ListMemberAccountsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMemberAccountsResponse(
-    data.ListMemberAccountsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListMemberAccountsResponse(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListMemberAccountsResponse",
@@ -1146,7 +1118,7 @@ async function deserializeAws_json1_1ListMemberAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1166,7 +1138,6 @@ async function deserializeAws_json1_1ListMemberAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -1185,10 +1156,7 @@ export async function deserializeAws_json1_1ListPoliciesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPoliciesResponse(
-    data.ListPoliciesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPoliciesResponse",
@@ -1207,7 +1175,7 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1241,7 +1209,6 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -1277,7 +1244,7 @@ async function deserializeAws_json1_1PutNotificationChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1304,7 +1271,6 @@ async function deserializeAws_json1_1PutNotificationChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
@@ -1323,10 +1289,7 @@ export async function deserializeAws_json1_1PutPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutPolicyResponse(
-    data.PutPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutPolicyResponse(data, context);
   const response: PutPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPolicyResponse",
@@ -1345,7 +1308,7 @@ async function deserializeAws_json1_1PutPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1393,7 +1356,6 @@ async function deserializeAws_json1_1PutPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",

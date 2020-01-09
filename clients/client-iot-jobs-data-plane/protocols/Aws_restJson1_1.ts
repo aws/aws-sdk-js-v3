@@ -240,8 +240,10 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
@@ -286,7 +288,6 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
@@ -338,8 +339,10 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
@@ -377,7 +380,6 @@ async function deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
@@ -422,8 +424,10 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
@@ -461,7 +465,6 @@ async function deserializeAws_restJson1_1StartNextPendingJobExecutionCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",
@@ -510,8 +513,10 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
@@ -556,7 +561,6 @@ async function deserializeAws_restJson1_1UpdateJobExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.laser.thingjobmanagerservice.external#${errorCode}`,
         $fault: "client",

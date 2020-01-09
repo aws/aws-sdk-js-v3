@@ -445,10 +445,7 @@ export async function deserializeAws_json1_1CreateDeliveryStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeliveryStreamOutput(
-    data.CreateDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDeliveryStreamOutput(data, context);
   const response: CreateDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeliveryStreamOutput",
@@ -467,7 +464,7 @@ async function deserializeAws_json1_1CreateDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -501,7 +498,6 @@ async function deserializeAws_json1_1CreateDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -523,10 +519,7 @@ export async function deserializeAws_json1_1DeleteDeliveryStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeliveryStreamOutput(
-    data.DeleteDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeliveryStreamOutput(data, context);
   const response: DeleteDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeliveryStreamOutput",
@@ -545,7 +538,7 @@ async function deserializeAws_json1_1DeleteDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -565,7 +558,6 @@ async function deserializeAws_json1_1DeleteDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -587,10 +579,7 @@ export async function deserializeAws_json1_1DescribeDeliveryStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDeliveryStreamOutput(
-    data.DescribeDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDeliveryStreamOutput(data, context);
   const response: DescribeDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDeliveryStreamOutput",
@@ -609,7 +598,7 @@ async function deserializeAws_json1_1DescribeDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -622,7 +611,6 @@ async function deserializeAws_json1_1DescribeDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -644,10 +632,7 @@ export async function deserializeAws_json1_1ListDeliveryStreamsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeliveryStreamsOutput(
-    data.ListDeliveryStreamsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeliveryStreamsOutput(data, context);
   const response: ListDeliveryStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeliveryStreamsOutput",
@@ -662,13 +647,12 @@ async function deserializeAws_json1_1ListDeliveryStreamsCommandError(
 ): Promise<ListDeliveryStreamsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -691,7 +675,7 @@ export async function deserializeAws_json1_1ListTagsForDeliveryStreamCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForDeliveryStreamOutput(
-    data.ListTagsForDeliveryStreamOutput,
+    data,
     context
   );
   const response: ListTagsForDeliveryStreamCommandOutput = {
@@ -712,7 +696,7 @@ async function deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -739,7 +723,6 @@ async function deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -758,10 +741,7 @@ export async function deserializeAws_json1_1PutRecordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordOutput(
-    data.PutRecordOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRecordOutput(data, context);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordOutput",
@@ -780,7 +760,7 @@ async function deserializeAws_json1_1PutRecordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -814,7 +794,6 @@ async function deserializeAws_json1_1PutRecordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -833,10 +812,7 @@ export async function deserializeAws_json1_1PutRecordBatchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordBatchOutput(
-    data.PutRecordBatchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRecordBatchOutput(data, context);
   const response: PutRecordBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordBatchOutput",
@@ -855,7 +831,7 @@ async function deserializeAws_json1_1PutRecordBatchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -889,7 +865,6 @@ async function deserializeAws_json1_1PutRecordBatchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -912,7 +887,7 @@ export async function deserializeAws_json1_1StartDeliveryStreamEncryptionCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDeliveryStreamEncryptionOutput(
-    data.StartDeliveryStreamEncryptionOutput,
+    data,
     context
   );
   const response: StartDeliveryStreamEncryptionCommandOutput = {
@@ -933,7 +908,7 @@ async function deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -974,7 +949,6 @@ async function deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -997,7 +971,7 @@ export async function deserializeAws_json1_1StopDeliveryStreamEncryptionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopDeliveryStreamEncryptionOutput(
-    data.StopDeliveryStreamEncryptionOutput,
+    data,
     context
   );
   const response: StopDeliveryStreamEncryptionCommandOutput = {
@@ -1018,7 +992,7 @@ async function deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1052,7 +1026,6 @@ async function deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -1071,10 +1044,7 @@ export async function deserializeAws_json1_1TagDeliveryStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagDeliveryStreamOutput(
-    data.TagDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagDeliveryStreamOutput(data, context);
   const response: TagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagDeliveryStreamOutput",
@@ -1093,7 +1063,7 @@ async function deserializeAws_json1_1TagDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1127,7 +1097,6 @@ async function deserializeAws_json1_1TagDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -1149,10 +1118,7 @@ export async function deserializeAws_json1_1UntagDeliveryStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagDeliveryStreamOutput(
-    data.UntagDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagDeliveryStreamOutput(data, context);
   const response: UntagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagDeliveryStreamOutput",
@@ -1171,7 +1137,7 @@ async function deserializeAws_json1_1UntagDeliveryStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1205,7 +1171,6 @@ async function deserializeAws_json1_1UntagDeliveryStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
@@ -1224,10 +1189,7 @@ export async function deserializeAws_json1_1UpdateDestinationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDestinationOutput(
-    data.UpdateDestinationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDestinationOutput(data, context);
   const response: UpdateDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDestinationOutput",
@@ -1246,7 +1208,7 @@ async function deserializeAws_json1_1UpdateDestinationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1280,7 +1242,6 @@ async function deserializeAws_json1_1UpdateDestinationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",

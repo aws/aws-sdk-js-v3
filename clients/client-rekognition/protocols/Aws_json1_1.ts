@@ -1353,10 +1353,7 @@ export async function deserializeAws_json1_1CompareFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CompareFacesResponse(
-    data.CompareFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CompareFacesResponse(data, context);
   const response: CompareFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CompareFacesResponse",
@@ -1375,7 +1372,7 @@ async function deserializeAws_json1_1CompareFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1437,7 +1434,6 @@ async function deserializeAws_json1_1CompareFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1456,10 +1452,7 @@ export async function deserializeAws_json1_1CreateCollectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCollectionResponse(
-    data.CreateCollectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCollectionResponse(data, context);
   const response: CreateCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCollectionResponse",
@@ -1478,7 +1471,7 @@ async function deserializeAws_json1_1CreateCollectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1526,7 +1519,6 @@ async function deserializeAws_json1_1CreateCollectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1545,10 +1537,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectResponse(
-    data.CreateProjectResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectResponse(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResponse",
@@ -1567,7 +1556,7 @@ async function deserializeAws_json1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1622,7 +1611,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1644,10 +1632,7 @@ export async function deserializeAws_json1_1CreateProjectVersionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectVersionResponse(
-    data.CreateProjectVersionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectVersionResponse(data, context);
   const response: CreateProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectVersionResponse",
@@ -1666,7 +1651,7 @@ async function deserializeAws_json1_1CreateProjectVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1728,7 +1713,6 @@ async function deserializeAws_json1_1CreateProjectVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1750,10 +1734,7 @@ export async function deserializeAws_json1_1CreateStreamProcessorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStreamProcessorResponse(
-    data.CreateStreamProcessorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateStreamProcessorResponse(data, context);
   const response: CreateStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStreamProcessorResponse",
@@ -1772,7 +1753,7 @@ async function deserializeAws_json1_1CreateStreamProcessorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1827,7 +1808,6 @@ async function deserializeAws_json1_1CreateStreamProcessorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1846,10 +1826,7 @@ export async function deserializeAws_json1_1DeleteCollectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCollectionResponse(
-    data.DeleteCollectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteCollectionResponse(data, context);
   const response: DeleteCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteCollectionResponse",
@@ -1868,7 +1845,7 @@ async function deserializeAws_json1_1DeleteCollectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1916,7 +1893,6 @@ async function deserializeAws_json1_1DeleteCollectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1935,10 +1911,7 @@ export async function deserializeAws_json1_1DeleteFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFacesResponse(
-    data.DeleteFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteFacesResponse(data, context);
   const response: DeleteFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFacesResponse",
@@ -1957,7 +1930,7 @@ async function deserializeAws_json1_1DeleteFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2005,7 +1978,6 @@ async function deserializeAws_json1_1DeleteFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2027,10 +1999,7 @@ export async function deserializeAws_json1_1DeleteStreamProcessorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteStreamProcessorResponse(
-    data.DeleteStreamProcessorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteStreamProcessorResponse(data, context);
   const response: DeleteStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStreamProcessorResponse",
@@ -2049,7 +2018,7 @@ async function deserializeAws_json1_1DeleteStreamProcessorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2104,7 +2073,6 @@ async function deserializeAws_json1_1DeleteStreamProcessorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2126,10 +2094,7 @@ export async function deserializeAws_json1_1DescribeCollectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCollectionResponse(
-    data.DescribeCollectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCollectionResponse(data, context);
   const response: DescribeCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCollectionResponse",
@@ -2148,7 +2113,7 @@ async function deserializeAws_json1_1DescribeCollectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2196,7 +2161,6 @@ async function deserializeAws_json1_1DescribeCollectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2219,7 +2183,7 @@ export async function deserializeAws_json1_1DescribeProjectVersionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProjectVersionsResponse(
-    data.DescribeProjectVersionsResponse,
+    data,
     context
   );
   const response: DescribeProjectVersionsCommandOutput = {
@@ -2240,7 +2204,7 @@ async function deserializeAws_json1_1DescribeProjectVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2295,7 +2259,6 @@ async function deserializeAws_json1_1DescribeProjectVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2314,10 +2277,7 @@ export async function deserializeAws_json1_1DescribeProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProjectsResponse(
-    data.DescribeProjectsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProjectsResponse(data, context);
   const response: DescribeProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProjectsResponse",
@@ -2336,7 +2296,7 @@ async function deserializeAws_json1_1DescribeProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2384,7 +2344,6 @@ async function deserializeAws_json1_1DescribeProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2407,7 +2366,7 @@ export async function deserializeAws_json1_1DescribeStreamProcessorCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStreamProcessorResponse(
-    data.DescribeStreamProcessorResponse,
+    data,
     context
   );
   const response: DescribeStreamProcessorCommandOutput = {
@@ -2428,7 +2387,7 @@ async function deserializeAws_json1_1DescribeStreamProcessorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2476,7 +2435,6 @@ async function deserializeAws_json1_1DescribeStreamProcessorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2498,10 +2456,7 @@ export async function deserializeAws_json1_1DetectCustomLabelsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectCustomLabelsResponse(
-    data.DetectCustomLabelsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectCustomLabelsResponse(data, context);
   const response: DetectCustomLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectCustomLabelsResponse",
@@ -2520,7 +2475,7 @@ async function deserializeAws_json1_1DetectCustomLabelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2603,7 +2558,6 @@ async function deserializeAws_json1_1DetectCustomLabelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2622,10 +2576,7 @@ export async function deserializeAws_json1_1DetectFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectFacesResponse(
-    data.DetectFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectFacesResponse(data, context);
   const response: DetectFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectFacesResponse",
@@ -2644,7 +2595,7 @@ async function deserializeAws_json1_1DetectFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2706,7 +2657,6 @@ async function deserializeAws_json1_1DetectFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2725,10 +2675,7 @@ export async function deserializeAws_json1_1DetectLabelsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectLabelsResponse(
-    data.DetectLabelsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectLabelsResponse(data, context);
   const response: DetectLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectLabelsResponse",
@@ -2747,7 +2694,7 @@ async function deserializeAws_json1_1DetectLabelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2809,7 +2756,6 @@ async function deserializeAws_json1_1DetectLabelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2832,7 +2778,7 @@ export async function deserializeAws_json1_1DetectModerationLabelsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DetectModerationLabelsResponse(
-    data.DetectModerationLabelsResponse,
+    data,
     context
   );
   const response: DetectModerationLabelsCommandOutput = {
@@ -2853,7 +2799,7 @@ async function deserializeAws_json1_1DetectModerationLabelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2922,7 +2868,6 @@ async function deserializeAws_json1_1DetectModerationLabelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2941,10 +2886,7 @@ export async function deserializeAws_json1_1DetectTextCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectTextResponse(
-    data.DetectTextResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectTextResponse(data, context);
   const response: DetectTextCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectTextResponse",
@@ -2963,7 +2905,7 @@ async function deserializeAws_json1_1DetectTextCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3025,7 +2967,6 @@ async function deserializeAws_json1_1DetectTextCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3044,10 +2985,7 @@ export async function deserializeAws_json1_1GetCelebrityInfoCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCelebrityInfoResponse(
-    data.GetCelebrityInfoResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCelebrityInfoResponse(data, context);
   const response: GetCelebrityInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCelebrityInfoResponse",
@@ -3066,7 +3004,7 @@ async function deserializeAws_json1_1GetCelebrityInfoCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3114,7 +3052,6 @@ async function deserializeAws_json1_1GetCelebrityInfoCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3137,7 +3074,7 @@ export async function deserializeAws_json1_1GetCelebrityRecognitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCelebrityRecognitionResponse(
-    data.GetCelebrityRecognitionResponse,
+    data,
     context
   );
   const response: GetCelebrityRecognitionCommandOutput = {
@@ -3158,7 +3095,7 @@ async function deserializeAws_json1_1GetCelebrityRecognitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3213,7 +3150,6 @@ async function deserializeAws_json1_1GetCelebrityRecognitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3235,10 +3171,7 @@ export async function deserializeAws_json1_1GetContentModerationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContentModerationResponse(
-    data.GetContentModerationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetContentModerationResponse(data, context);
   const response: GetContentModerationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetContentModerationResponse",
@@ -3257,7 +3190,7 @@ async function deserializeAws_json1_1GetContentModerationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3312,7 +3245,6 @@ async function deserializeAws_json1_1GetContentModerationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3331,10 +3263,7 @@ export async function deserializeAws_json1_1GetFaceDetectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFaceDetectionResponse(
-    data.GetFaceDetectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetFaceDetectionResponse(data, context);
   const response: GetFaceDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFaceDetectionResponse",
@@ -3353,7 +3282,7 @@ async function deserializeAws_json1_1GetFaceDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3408,7 +3337,6 @@ async function deserializeAws_json1_1GetFaceDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3427,10 +3355,7 @@ export async function deserializeAws_json1_1GetFaceSearchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFaceSearchResponse(
-    data.GetFaceSearchResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetFaceSearchResponse(data, context);
   const response: GetFaceSearchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFaceSearchResponse",
@@ -3449,7 +3374,7 @@ async function deserializeAws_json1_1GetFaceSearchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3504,7 +3429,6 @@ async function deserializeAws_json1_1GetFaceSearchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3523,10 +3447,7 @@ export async function deserializeAws_json1_1GetLabelDetectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLabelDetectionResponse(
-    data.GetLabelDetectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetLabelDetectionResponse(data, context);
   const response: GetLabelDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLabelDetectionResponse",
@@ -3545,7 +3466,7 @@ async function deserializeAws_json1_1GetLabelDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3600,7 +3521,6 @@ async function deserializeAws_json1_1GetLabelDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3619,10 +3539,7 @@ export async function deserializeAws_json1_1GetPersonTrackingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPersonTrackingResponse(
-    data.GetPersonTrackingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPersonTrackingResponse(data, context);
   const response: GetPersonTrackingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPersonTrackingResponse",
@@ -3641,7 +3558,7 @@ async function deserializeAws_json1_1GetPersonTrackingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3696,7 +3613,6 @@ async function deserializeAws_json1_1GetPersonTrackingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3715,10 +3631,7 @@ export async function deserializeAws_json1_1IndexFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IndexFacesResponse(
-    data.IndexFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1IndexFacesResponse(data, context);
   const response: IndexFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IndexFacesResponse",
@@ -3737,7 +3650,7 @@ async function deserializeAws_json1_1IndexFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3806,7 +3719,6 @@ async function deserializeAws_json1_1IndexFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3825,10 +3737,7 @@ export async function deserializeAws_json1_1ListCollectionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCollectionsResponse(
-    data.ListCollectionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListCollectionsResponse(data, context);
   const response: ListCollectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCollectionsResponse",
@@ -3847,7 +3756,7 @@ async function deserializeAws_json1_1ListCollectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3902,7 +3811,6 @@ async function deserializeAws_json1_1ListCollectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3921,10 +3829,7 @@ export async function deserializeAws_json1_1ListFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFacesResponse(
-    data.ListFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListFacesResponse(data, context);
   const response: ListFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFacesResponse",
@@ -3943,7 +3848,7 @@ async function deserializeAws_json1_1ListFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3998,7 +3903,6 @@ async function deserializeAws_json1_1ListFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4020,10 +3924,7 @@ export async function deserializeAws_json1_1ListStreamProcessorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListStreamProcessorsResponse(
-    data.ListStreamProcessorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListStreamProcessorsResponse(data, context);
   const response: ListStreamProcessorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStreamProcessorsResponse",
@@ -4042,7 +3943,7 @@ async function deserializeAws_json1_1ListStreamProcessorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4090,7 +3991,6 @@ async function deserializeAws_json1_1ListStreamProcessorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4112,10 +4012,7 @@ export async function deserializeAws_json1_1RecognizeCelebritiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RecognizeCelebritiesResponse(
-    data.RecognizeCelebritiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RecognizeCelebritiesResponse(data, context);
   const response: RecognizeCelebritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RecognizeCelebritiesResponse",
@@ -4134,7 +4031,7 @@ async function deserializeAws_json1_1RecognizeCelebritiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4196,7 +4093,6 @@ async function deserializeAws_json1_1RecognizeCelebritiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4215,10 +4111,7 @@ export async function deserializeAws_json1_1SearchFacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchFacesResponse(
-    data.SearchFacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchFacesResponse(data, context);
   const response: SearchFacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchFacesResponse",
@@ -4237,7 +4130,7 @@ async function deserializeAws_json1_1SearchFacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4285,7 +4178,6 @@ async function deserializeAws_json1_1SearchFacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4307,10 +4199,7 @@ export async function deserializeAws_json1_1SearchFacesByImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchFacesByImageResponse(
-    data.SearchFacesByImageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchFacesByImageResponse(data, context);
   const response: SearchFacesByImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchFacesByImageResponse",
@@ -4329,7 +4218,7 @@ async function deserializeAws_json1_1SearchFacesByImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4398,7 +4287,6 @@ async function deserializeAws_json1_1SearchFacesByImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4421,7 +4309,7 @@ export async function deserializeAws_json1_1StartCelebrityRecognitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartCelebrityRecognitionResponse(
-    data.StartCelebrityRecognitionResponse,
+    data,
     context
   );
   const response: StartCelebrityRecognitionCommandOutput = {
@@ -4442,7 +4330,7 @@ async function deserializeAws_json1_1StartCelebrityRecognitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4511,7 +4399,6 @@ async function deserializeAws_json1_1StartCelebrityRecognitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4534,7 +4421,7 @@ export async function deserializeAws_json1_1StartContentModerationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartContentModerationResponse(
-    data.StartContentModerationResponse,
+    data,
     context
   );
   const response: StartContentModerationCommandOutput = {
@@ -4555,7 +4442,7 @@ async function deserializeAws_json1_1StartContentModerationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4624,7 +4511,6 @@ async function deserializeAws_json1_1StartContentModerationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4646,10 +4532,7 @@ export async function deserializeAws_json1_1StartFaceDetectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFaceDetectionResponse(
-    data.StartFaceDetectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartFaceDetectionResponse(data, context);
   const response: StartFaceDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFaceDetectionResponse",
@@ -4668,7 +4551,7 @@ async function deserializeAws_json1_1StartFaceDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4737,7 +4620,6 @@ async function deserializeAws_json1_1StartFaceDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4756,10 +4638,7 @@ export async function deserializeAws_json1_1StartFaceSearchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFaceSearchResponse(
-    data.StartFaceSearchResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartFaceSearchResponse(data, context);
   const response: StartFaceSearchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFaceSearchResponse",
@@ -4778,7 +4657,7 @@ async function deserializeAws_json1_1StartFaceSearchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4854,7 +4733,6 @@ async function deserializeAws_json1_1StartFaceSearchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4876,10 +4754,7 @@ export async function deserializeAws_json1_1StartLabelDetectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartLabelDetectionResponse(
-    data.StartLabelDetectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartLabelDetectionResponse(data, context);
   const response: StartLabelDetectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartLabelDetectionResponse",
@@ -4898,7 +4773,7 @@ async function deserializeAws_json1_1StartLabelDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4967,7 +4842,6 @@ async function deserializeAws_json1_1StartLabelDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4989,10 +4863,7 @@ export async function deserializeAws_json1_1StartPersonTrackingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartPersonTrackingResponse(
-    data.StartPersonTrackingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartPersonTrackingResponse(data, context);
   const response: StartPersonTrackingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPersonTrackingResponse",
@@ -5011,7 +4882,7 @@ async function deserializeAws_json1_1StartPersonTrackingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5080,7 +4951,6 @@ async function deserializeAws_json1_1StartPersonTrackingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -5102,10 +4972,7 @@ export async function deserializeAws_json1_1StartProjectVersionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartProjectVersionResponse(
-    data.StartProjectVersionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartProjectVersionResponse(data, context);
   const response: StartProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartProjectVersionResponse",
@@ -5124,7 +4991,7 @@ async function deserializeAws_json1_1StartProjectVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5186,7 +5053,6 @@ async function deserializeAws_json1_1StartProjectVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -5208,10 +5074,7 @@ export async function deserializeAws_json1_1StartStreamProcessorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartStreamProcessorResponse(
-    data.StartStreamProcessorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartStreamProcessorResponse(data, context);
   const response: StartStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartStreamProcessorResponse",
@@ -5230,7 +5093,7 @@ async function deserializeAws_json1_1StartStreamProcessorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5285,7 +5148,6 @@ async function deserializeAws_json1_1StartStreamProcessorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -5307,10 +5169,7 @@ export async function deserializeAws_json1_1StopProjectVersionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopProjectVersionResponse(
-    data.StopProjectVersionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopProjectVersionResponse(data, context);
   const response: StopProjectVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopProjectVersionResponse",
@@ -5329,7 +5188,7 @@ async function deserializeAws_json1_1StopProjectVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5384,7 +5243,6 @@ async function deserializeAws_json1_1StopProjectVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -5406,10 +5264,7 @@ export async function deserializeAws_json1_1StopStreamProcessorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopStreamProcessorResponse(
-    data.StopStreamProcessorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopStreamProcessorResponse(data, context);
   const response: StopStreamProcessorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopStreamProcessorResponse",
@@ -5428,7 +5283,7 @@ async function deserializeAws_json1_1StopStreamProcessorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5483,7 +5338,6 @@ async function deserializeAws_json1_1StopStreamProcessorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",

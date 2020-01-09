@@ -45,30 +45,37 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class RDSData extends RDSDataClient {
   /**
-   * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
-   *             commits the changes.</p>
+   * <p>Runs a batch SQL statement over an array of data.</p>
+   *         <p>You can run bulk update and insert operations for multiple records using a DML
+   *             statement with different parameter sets. Bulk operations can provide a significant
+   *             performance improvement over individual insert and update operations.</p>
+   *         <important>
+   *             <p>If a call isn't part of a transaction because it doesn't include the
+   *                     <code>transactionID</code> parameter, changes that result from the call are
+   *                 committed automatically.</p>
+   *         </important>
    */
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CommitTransactionCommandOutput>;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
-    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): Promise<BatchExecuteStatementCommandOutput>;
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): void;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): void;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public batchExecuteStatement(
+    args: BatchExecuteStatementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CommitTransactionCommandOutput) => void),
-    cb?: (err: any, data?: CommitTransactionCommandOutput) => void
-  ): Promise<CommitTransactionCommandOutput> | void {
-    const command = new CommitTransactionCommand(args);
+      | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
+    cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): Promise<BatchExecuteStatementCommandOutput> | void {
+    const command = new BatchExecuteStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -127,72 +134,30 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
-   * <p>Runs a batch SQL statement over an array of data.</p>
-   *         <p>You can run bulk update and insert operations for multiple records using a DML
-   *             statement with different parameter sets. Bulk operations can provide a significant
-   *             performance improvement over individual insert and update operations.</p>
-   *         <important>
-   *             <p>If a call isn't part of a transaction because it doesn't include the
-   *                     <code>transactionID</code> parameter, changes that result from the call are
-   *                 committed automatically.</p>
-   *         </important>
+   * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
+   *             commits the changes.</p>
    */
-  public batchExecuteStatement(
-    args: BatchExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<BatchExecuteStatementCommandOutput>;
-  public batchExecuteStatement(
-    args: BatchExecuteStatementCommandInput,
-    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+  ): Promise<CommitTransactionCommandOutput>;
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
-  public batchExecuteStatement(
-    args: BatchExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
-  public batchExecuteStatement(
-    args: BatchExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
-    cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
-  ): Promise<BatchExecuteStatementCommandOutput> | void {
-    const command = new BatchExecuteStatementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
-   */
-  public rollbackTransaction(
-    args: RollbackTransactionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RollbackTransactionCommandOutput>;
-  public rollbackTransaction(
-    args: RollbackTransactionCommandInput,
-    cb: (err: any, data?: RollbackTransactionCommandOutput) => void
-  ): void;
-  public rollbackTransaction(
-    args: RollbackTransactionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RollbackTransactionCommandOutput) => void
-  ): void;
-  public rollbackTransaction(
-    args: RollbackTransactionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RollbackTransactionCommandOutput) => void),
-    cb?: (err: any, data?: RollbackTransactionCommandOutput) => void
-  ): Promise<RollbackTransactionCommandOutput> | void {
-    const command = new RollbackTransactionCommand(args);
+      | ((err: any, data?: CommitTransactionCommandOutput) => void),
+    cb?: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): Promise<CommitTransactionCommandOutput> | void {
+    const command = new CommitTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -273,6 +238,41 @@ export class RDSData extends RDSDataClient {
     cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): Promise<ExecuteStatementCommandOutput> | void {
     const command = new ExecuteStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
+   */
+  public rollbackTransaction(
+    args: RollbackTransactionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackTransactionCommandOutput>;
+  public rollbackTransaction(
+    args: RollbackTransactionCommandInput,
+    cb: (err: any, data?: RollbackTransactionCommandOutput) => void
+  ): void;
+  public rollbackTransaction(
+    args: RollbackTransactionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackTransactionCommandOutput) => void
+  ): void;
+  public rollbackTransaction(
+    args: RollbackTransactionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RollbackTransactionCommandOutput) => void),
+    cb?: (err: any, data?: RollbackTransactionCommandOutput) => void
+  ): Promise<RollbackTransactionCommandOutput> | void {
+    const command = new RollbackTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

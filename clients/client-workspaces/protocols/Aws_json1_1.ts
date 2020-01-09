@@ -1299,10 +1299,7 @@ export async function deserializeAws_json1_1AssociateIpGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateIpGroupsResult(
-    data.AssociateIpGroupsResult,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateIpGroupsResult(data, context);
   const response: AssociateIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateIpGroupsResult",
@@ -1321,7 +1318,7 @@ async function deserializeAws_json1_1AssociateIpGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1369,7 +1366,6 @@ async function deserializeAws_json1_1AssociateIpGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1388,10 +1384,7 @@ export async function deserializeAws_json1_1AuthorizeIpRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AuthorizeIpRulesResult(
-    data.AuthorizeIpRulesResult,
-    context
-  );
+  contents = deserializeAws_json1_1AuthorizeIpRulesResult(data, context);
   const response: AuthorizeIpRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AuthorizeIpRulesResult",
@@ -1410,7 +1403,7 @@ async function deserializeAws_json1_1AuthorizeIpRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1451,7 +1444,6 @@ async function deserializeAws_json1_1AuthorizeIpRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1473,10 +1465,7 @@ export async function deserializeAws_json1_1CopyWorkspaceImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyWorkspaceImageResult(
-    data.CopyWorkspaceImageResult,
-    context
-  );
+  contents = deserializeAws_json1_1CopyWorkspaceImageResult(data, context);
   const response: CopyWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyWorkspaceImageResult",
@@ -1495,7 +1484,7 @@ async function deserializeAws_json1_1CopyWorkspaceImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1550,7 +1539,6 @@ async function deserializeAws_json1_1CopyWorkspaceImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1569,10 +1557,7 @@ export async function deserializeAws_json1_1CreateIpGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateIpGroupResult(
-    data.CreateIpGroupResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateIpGroupResult(data, context);
   const response: CreateIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateIpGroupResult",
@@ -1591,7 +1576,7 @@ async function deserializeAws_json1_1CreateIpGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1632,7 +1617,6 @@ async function deserializeAws_json1_1CreateIpGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1651,10 +1635,7 @@ export async function deserializeAws_json1_1CreateTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTagsResult(
-    data.CreateTagsResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTagsResult(data, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTagsResult",
@@ -1673,7 +1654,7 @@ async function deserializeAws_json1_1CreateTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1700,7 +1681,6 @@ async function deserializeAws_json1_1CreateTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1719,10 +1699,7 @@ export async function deserializeAws_json1_1CreateWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkspacesResult(
-    data.CreateWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWorkspacesResult(data, context);
   const response: CreateWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWorkspacesResult",
@@ -1741,7 +1718,7 @@ async function deserializeAws_json1_1CreateWorkspacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1761,7 +1738,6 @@ async function deserializeAws_json1_1CreateWorkspacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1780,10 +1756,7 @@ export async function deserializeAws_json1_1DeleteIpGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteIpGroupResult(
-    data.DeleteIpGroupResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteIpGroupResult(data, context);
   const response: DeleteIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteIpGroupResult",
@@ -1802,7 +1775,7 @@ async function deserializeAws_json1_1DeleteIpGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1836,7 +1809,6 @@ async function deserializeAws_json1_1DeleteIpGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1855,10 +1827,7 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagsResult(
-    data.DeleteTagsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTagsResult(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTagsResult",
@@ -1877,7 +1846,7 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1897,7 +1866,6 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1919,10 +1887,7 @@ export async function deserializeAws_json1_1DeleteWorkspaceImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkspaceImageResult(
-    data.DeleteWorkspaceImageResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWorkspaceImageResult(data, context);
   const response: DeleteWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWorkspaceImageResult",
@@ -1941,7 +1906,7 @@ async function deserializeAws_json1_1DeleteWorkspaceImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1968,7 +1933,6 @@ async function deserializeAws_json1_1DeleteWorkspaceImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -1991,7 +1955,7 @@ export async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterWorkspaceDirectoryResult(
-    data.DeregisterWorkspaceDirectoryResult,
+    data,
     context
   );
   const response: DeregisterWorkspaceDirectoryCommandOutput = {
@@ -2012,7 +1976,7 @@ async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2053,7 +2017,6 @@ async function deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2072,10 +2035,7 @@ export async function deserializeAws_json1_1DescribeAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAccountResult(
-    data.DescribeAccountResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAccountResult(data, context);
   const response: DescribeAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAccountResult",
@@ -2094,7 +2054,7 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2107,7 +2067,6 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2130,7 +2089,7 @@ export async function deserializeAws_json1_1DescribeAccountModificationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAccountModificationsResult(
-    data.DescribeAccountModificationsResult,
+    data,
     context
   );
   const response: DescribeAccountModificationsCommandOutput = {
@@ -2151,7 +2110,7 @@ async function deserializeAws_json1_1DescribeAccountModificationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2164,7 +2123,6 @@ async function deserializeAws_json1_1DescribeAccountModificationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2187,7 +2145,7 @@ export async function deserializeAws_json1_1DescribeClientPropertiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeClientPropertiesResult(
-    data.DescribeClientPropertiesResult,
+    data,
     context
   );
   const response: DescribeClientPropertiesCommandOutput = {
@@ -2208,7 +2166,7 @@ async function deserializeAws_json1_1DescribeClientPropertiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2235,7 +2193,6 @@ async function deserializeAws_json1_1DescribeClientPropertiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2254,10 +2211,7 @@ export async function deserializeAws_json1_1DescribeIpGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeIpGroupsResult(
-    data.DescribeIpGroupsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeIpGroupsResult(data, context);
   const response: DescribeIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIpGroupsResult",
@@ -2276,7 +2230,7 @@ async function deserializeAws_json1_1DescribeIpGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2296,7 +2250,6 @@ async function deserializeAws_json1_1DescribeIpGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2315,10 +2268,7 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsResult(
-    data.DescribeTagsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagsResult(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagsResult",
@@ -2337,7 +2287,7 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2350,7 +2300,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2373,7 +2322,7 @@ export async function deserializeAws_json1_1DescribeWorkspaceBundlesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeWorkspaceBundlesResult(
-    data.DescribeWorkspaceBundlesResult,
+    data,
     context
   );
   const response: DescribeWorkspaceBundlesCommandOutput = {
@@ -2394,7 +2343,7 @@ async function deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2407,7 +2356,6 @@ async function deserializeAws_json1_1DescribeWorkspaceBundlesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2430,7 +2378,7 @@ export async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeWorkspaceDirectoriesResult(
-    data.DescribeWorkspaceDirectoriesResult,
+    data,
     context
   );
   const response: DescribeWorkspaceDirectoriesCommandOutput = {
@@ -2451,7 +2399,7 @@ async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2464,7 +2412,6 @@ async function deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2486,10 +2433,7 @@ export async function deserializeAws_json1_1DescribeWorkspaceImagesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspaceImagesResult(
-    data.DescribeWorkspaceImagesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspaceImagesResult(data, context);
   const response: DescribeWorkspaceImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspaceImagesResult",
@@ -2508,7 +2452,7 @@ async function deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2521,7 +2465,6 @@ async function deserializeAws_json1_1DescribeWorkspaceImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2544,7 +2487,7 @@ export async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeWorkspaceSnapshotsResult(
-    data.DescribeWorkspaceSnapshotsResult,
+    data,
     context
   );
   const response: DescribeWorkspaceSnapshotsCommandOutput = {
@@ -2565,7 +2508,7 @@ async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2592,7 +2535,6 @@ async function deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2614,10 +2556,7 @@ export async function deserializeAws_json1_1DescribeWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkspacesResult(
-    data.DescribeWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkspacesResult(data, context);
   const response: DescribeWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkspacesResult",
@@ -2636,7 +2575,7 @@ async function deserializeAws_json1_1DescribeWorkspacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2656,7 +2595,6 @@ async function deserializeAws_json1_1DescribeWorkspacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2679,7 +2617,7 @@ export async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeWorkspacesConnectionStatusResult(
-    data.DescribeWorkspacesConnectionStatusResult,
+    data,
     context
   );
   const response: DescribeWorkspacesConnectionStatusCommandOutput = {
@@ -2700,7 +2638,7 @@ async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2713,7 +2651,6 @@ async function deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2735,10 +2672,7 @@ export async function deserializeAws_json1_1DisassociateIpGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateIpGroupsResult(
-    data.DisassociateIpGroupsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateIpGroupsResult(data, context);
   const response: DisassociateIpGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateIpGroupsResult",
@@ -2757,7 +2691,7 @@ async function deserializeAws_json1_1DisassociateIpGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2791,7 +2725,6 @@ async function deserializeAws_json1_1DisassociateIpGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2813,10 +2746,7 @@ export async function deserializeAws_json1_1ImportWorkspaceImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportWorkspaceImageResult(
-    data.ImportWorkspaceImageResult,
-    context
-  );
+  contents = deserializeAws_json1_1ImportWorkspaceImageResult(data, context);
   const response: ImportWorkspaceImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportWorkspaceImageResult",
@@ -2835,7 +2765,7 @@ async function deserializeAws_json1_1ImportWorkspaceImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2883,7 +2813,6 @@ async function deserializeAws_json1_1ImportWorkspaceImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2906,7 +2835,7 @@ export async function deserializeAws_json1_1ListAvailableManagementCidrRangesCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAvailableManagementCidrRangesResult(
-    data.ListAvailableManagementCidrRangesResult,
+    data,
     context
   );
   const response: ListAvailableManagementCidrRangesCommandOutput = {
@@ -2927,7 +2856,7 @@ async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2947,7 +2876,6 @@ async function deserializeAws_json1_1ListAvailableManagementCidrRangesCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -2966,10 +2894,7 @@ export async function deserializeAws_json1_1ModifyAccountCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyAccountResult(
-    data.ModifyAccountResult,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyAccountResult(data, context);
   const response: ModifyAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyAccountResult",
@@ -2988,7 +2913,7 @@ async function deserializeAws_json1_1ModifyAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3029,7 +2954,6 @@ async function deserializeAws_json1_1ModifyAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3051,10 +2975,7 @@ export async function deserializeAws_json1_1ModifyClientPropertiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyClientPropertiesResult(
-    data.ModifyClientPropertiesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyClientPropertiesResult(data, context);
   const response: ModifyClientPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyClientPropertiesResult",
@@ -3073,7 +2994,7 @@ async function deserializeAws_json1_1ModifyClientPropertiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3100,7 +3021,6 @@ async function deserializeAws_json1_1ModifyClientPropertiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3123,7 +3043,7 @@ export async function deserializeAws_json1_1ModifySelfservicePermissionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifySelfservicePermissionsResult(
-    data.ModifySelfservicePermissionsResult,
+    data,
     context
   );
   const response: ModifySelfservicePermissionsCommandOutput = {
@@ -3144,7 +3064,7 @@ async function deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3171,7 +3091,6 @@ async function deserializeAws_json1_1ModifySelfservicePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3194,7 +3113,7 @@ export async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyWorkspaceAccessPropertiesResult(
-    data.ModifyWorkspaceAccessPropertiesResult,
+    data,
     context
   );
   const response: ModifyWorkspaceAccessPropertiesCommandOutput = {
@@ -3215,7 +3134,7 @@ async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3235,7 +3154,6 @@ async function deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3258,7 +3176,7 @@ export async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyWorkspaceCreationPropertiesResult(
-    data.ModifyWorkspaceCreationPropertiesResult,
+    data,
     context
   );
   const response: ModifyWorkspaceCreationPropertiesCommandOutput = {
@@ -3279,7 +3197,7 @@ async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3306,7 +3224,6 @@ async function deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3329,7 +3246,7 @@ export async function deserializeAws_json1_1ModifyWorkspacePropertiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyWorkspacePropertiesResult(
-    data.ModifyWorkspacePropertiesResult,
+    data,
     context
   );
   const response: ModifyWorkspacePropertiesCommandOutput = {
@@ -3350,7 +3267,7 @@ async function deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3405,7 +3322,6 @@ async function deserializeAws_json1_1ModifyWorkspacePropertiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3427,10 +3343,7 @@ export async function deserializeAws_json1_1ModifyWorkspaceStateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyWorkspaceStateResult(
-    data.ModifyWorkspaceStateResult,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyWorkspaceStateResult(data, context);
   const response: ModifyWorkspaceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyWorkspaceStateResult",
@@ -3449,7 +3362,7 @@ async function deserializeAws_json1_1ModifyWorkspaceStateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3476,7 +3389,6 @@ async function deserializeAws_json1_1ModifyWorkspaceStateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3495,10 +3407,7 @@ export async function deserializeAws_json1_1RebootWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RebootWorkspacesResult(
-    data.RebootWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1RebootWorkspacesResult(data, context);
   const response: RebootWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RebootWorkspacesResult",
@@ -3513,13 +3422,12 @@ async function deserializeAws_json1_1RebootWorkspacesCommandError(
 ): Promise<RebootWorkspacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3538,10 +3446,7 @@ export async function deserializeAws_json1_1RebuildWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RebuildWorkspacesResult(
-    data.RebuildWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1RebuildWorkspacesResult(data, context);
   const response: RebuildWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RebuildWorkspacesResult",
@@ -3556,13 +3461,12 @@ async function deserializeAws_json1_1RebuildWorkspacesCommandError(
 ): Promise<RebuildWorkspacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3585,7 +3489,7 @@ export async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterWorkspaceDirectoryResult(
-    data.RegisterWorkspaceDirectoryResult,
+    data,
     context
   );
   const response: RegisterWorkspaceDirectoryCommandOutput = {
@@ -3606,7 +3510,7 @@ async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3668,7 +3572,6 @@ async function deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3687,10 +3590,7 @@ export async function deserializeAws_json1_1RestoreWorkspaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreWorkspaceResult(
-    data.RestoreWorkspaceResult,
-    context
-  );
+  contents = deserializeAws_json1_1RestoreWorkspaceResult(data, context);
   const response: RestoreWorkspaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreWorkspaceResult",
@@ -3709,7 +3609,7 @@ async function deserializeAws_json1_1RestoreWorkspaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3736,7 +3636,6 @@ async function deserializeAws_json1_1RestoreWorkspaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3755,10 +3654,7 @@ export async function deserializeAws_json1_1RevokeIpRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RevokeIpRulesResult(
-    data.RevokeIpRulesResult,
-    context
-  );
+  contents = deserializeAws_json1_1RevokeIpRulesResult(data, context);
   const response: RevokeIpRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RevokeIpRulesResult",
@@ -3777,7 +3673,7 @@ async function deserializeAws_json1_1RevokeIpRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3811,7 +3707,6 @@ async function deserializeAws_json1_1RevokeIpRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3830,10 +3725,7 @@ export async function deserializeAws_json1_1StartWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartWorkspacesResult(
-    data.StartWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartWorkspacesResult(data, context);
   const response: StartWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartWorkspacesResult",
@@ -3848,13 +3740,12 @@ async function deserializeAws_json1_1StartWorkspacesCommandError(
 ): Promise<StartWorkspacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3873,10 +3764,7 @@ export async function deserializeAws_json1_1StopWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopWorkspacesResult(
-    data.StopWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopWorkspacesResult(data, context);
   const response: StopWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopWorkspacesResult",
@@ -3891,13 +3779,12 @@ async function deserializeAws_json1_1StopWorkspacesCommandError(
 ): Promise<StopWorkspacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3919,10 +3806,7 @@ export async function deserializeAws_json1_1TerminateWorkspacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TerminateWorkspacesResult(
-    data.TerminateWorkspacesResult,
-    context
-  );
+  contents = deserializeAws_json1_1TerminateWorkspacesResult(data, context);
   const response: TerminateWorkspacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TerminateWorkspacesResult",
@@ -3937,13 +3821,12 @@ async function deserializeAws_json1_1TerminateWorkspacesCommandError(
 ): Promise<TerminateWorkspacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",
@@ -3965,10 +3848,7 @@ export async function deserializeAws_json1_1UpdateRulesOfIpGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRulesOfIpGroupResult(
-    data.UpdateRulesOfIpGroupResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRulesOfIpGroupResult(data, context);
   const response: UpdateRulesOfIpGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRulesOfIpGroupResult",
@@ -3987,7 +3867,7 @@ async function deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4028,7 +3908,6 @@ async function deserializeAws_json1_1UpdateRulesOfIpGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workspaces#${errorCode}`,
         $fault: "client",

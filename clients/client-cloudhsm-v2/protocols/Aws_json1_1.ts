@@ -423,10 +423,7 @@ export async function deserializeAws_json1_1CopyBackupToRegionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyBackupToRegionResponse(
-    data.CopyBackupToRegionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CopyBackupToRegionResponse(data, context);
   const response: CopyBackupToRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyBackupToRegionResponse",
@@ -445,7 +442,7 @@ async function deserializeAws_json1_1CopyBackupToRegionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -486,7 +483,6 @@ async function deserializeAws_json1_1CopyBackupToRegionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -505,10 +501,7 @@ export async function deserializeAws_json1_1CreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResponse(
-    data.CreateClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClusterResponse",
@@ -527,7 +520,7 @@ async function deserializeAws_json1_1CreateClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -568,7 +561,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -587,10 +579,7 @@ export async function deserializeAws_json1_1CreateHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHsmResponse(
-    data.CreateHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHsmResponse",
@@ -609,7 +598,7 @@ async function deserializeAws_json1_1CreateHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -650,7 +639,6 @@ async function deserializeAws_json1_1CreateHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -669,10 +657,7 @@ export async function deserializeAws_json1_1DeleteBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBackupResponse(
-    data.DeleteBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackupResponse",
@@ -691,7 +676,7 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -732,7 +717,6 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -751,10 +735,7 @@ export async function deserializeAws_json1_1DeleteClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClusterResponse(
-    data.DeleteClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteClusterResponse",
@@ -773,7 +754,7 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -814,7 +795,6 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -833,10 +813,7 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHsmResponse(
-    data.DeleteHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHsmResponse",
@@ -855,7 +832,7 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -896,7 +873,6 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -915,10 +891,7 @@ export async function deserializeAws_json1_1DescribeBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBackupsResponse(
-    data.DescribeBackupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupsResponse",
@@ -937,7 +910,7 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -978,7 +951,6 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -997,10 +969,7 @@ export async function deserializeAws_json1_1DescribeClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClustersResponse(
-    data.DescribeClustersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClustersResponse",
@@ -1019,7 +988,7 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1053,7 +1022,6 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -1072,10 +1040,7 @@ export async function deserializeAws_json1_1InitializeClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitializeClusterResponse(
-    data.InitializeClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1InitializeClusterResponse(data, context);
   const response: InitializeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitializeClusterResponse",
@@ -1094,7 +1059,7 @@ async function deserializeAws_json1_1InitializeClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1135,7 +1100,6 @@ async function deserializeAws_json1_1InitializeClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -1154,10 +1118,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -1176,7 +1137,7 @@ async function deserializeAws_json1_1ListTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1217,7 +1178,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -1236,10 +1196,7 @@ export async function deserializeAws_json1_1RestoreBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreBackupResponse(
-    data.RestoreBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RestoreBackupResponse(data, context);
   const response: RestoreBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreBackupResponse",
@@ -1258,7 +1215,7 @@ async function deserializeAws_json1_1RestoreBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1299,7 +1256,6 @@ async function deserializeAws_json1_1RestoreBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -1318,10 +1274,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -1340,7 +1293,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1381,7 +1334,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",
@@ -1400,10 +1352,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -1422,7 +1371,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1463,7 +1412,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.baldr.api.service#${errorCode}`,
         $fault: "client",

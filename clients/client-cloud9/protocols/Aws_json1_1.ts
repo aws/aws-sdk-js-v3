@@ -355,10 +355,7 @@ export async function deserializeAws_json1_1CreateEnvironmentEC2Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEnvironmentEC2Result(
-    data.CreateEnvironmentEC2Result,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEnvironmentEC2Result(data, context);
   const response: CreateEnvironmentEC2CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEnvironmentEC2Result",
@@ -377,7 +374,7 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -432,7 +429,6 @@ async function deserializeAws_json1_1CreateEnvironmentEC2CommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -455,7 +451,7 @@ export async function deserializeAws_json1_1CreateEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(
-    data.CreateEnvironmentMembershipResult,
+    data,
     context
   );
   const response: CreateEnvironmentMembershipCommandOutput = {
@@ -476,7 +472,7 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -531,7 +527,6 @@ async function deserializeAws_json1_1CreateEnvironmentMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -550,10 +545,7 @@ export async function deserializeAws_json1_1DeleteEnvironmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEnvironmentResult(
-    data.DeleteEnvironmentResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEnvironmentResult(data, context);
   const response: DeleteEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEnvironmentResult",
@@ -572,7 +564,7 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -627,7 +619,6 @@ async function deserializeAws_json1_1DeleteEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -650,7 +641,7 @@ export async function deserializeAws_json1_1DeleteEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(
-    data.DeleteEnvironmentMembershipResult,
+    data,
     context
   );
   const response: DeleteEnvironmentMembershipCommandOutput = {
@@ -671,7 +662,7 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -726,7 +717,6 @@ async function deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -749,7 +739,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentMembershipsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(
-    data.DescribeEnvironmentMembershipsResult,
+    data,
     context
   );
   const response: DescribeEnvironmentMembershipsCommandOutput = {
@@ -770,7 +760,7 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -825,7 +815,6 @@ async function deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -848,7 +837,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(
-    data.DescribeEnvironmentStatusResult,
+    data,
     context
   );
   const response: DescribeEnvironmentStatusCommandOutput = {
@@ -869,7 +858,7 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -924,7 +913,6 @@ async function deserializeAws_json1_1DescribeEnvironmentStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -946,10 +934,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentsResult(
-    data.DescribeEnvironmentsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
   const response: DescribeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEnvironmentsResult",
@@ -968,7 +953,7 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1023,7 +1008,6 @@ async function deserializeAws_json1_1DescribeEnvironmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -1042,10 +1026,7 @@ export async function deserializeAws_json1_1ListEnvironmentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEnvironmentsResult(
-    data.ListEnvironmentsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListEnvironmentsResult(data, context);
   const response: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEnvironmentsResult",
@@ -1064,7 +1045,7 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1119,7 +1100,6 @@ async function deserializeAws_json1_1ListEnvironmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -1138,10 +1118,7 @@ export async function deserializeAws_json1_1UpdateEnvironmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEnvironmentResult(
-    data.UpdateEnvironmentResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEnvironmentResult(data, context);
   const response: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEnvironmentResult",
@@ -1160,7 +1137,7 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1215,7 +1192,6 @@ async function deserializeAws_json1_1UpdateEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",
@@ -1238,7 +1214,7 @@ export async function deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(
-    data.UpdateEnvironmentMembershipResult,
+    data,
     context
   );
   const response: UpdateEnvironmentMembershipCommandOutput = {
@@ -1259,7 +1235,7 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1314,7 +1290,6 @@ async function deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSCloud9WorkspaceManagement#${errorCode}`,
         $fault: "client",

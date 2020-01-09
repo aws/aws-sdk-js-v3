@@ -943,8 +943,10 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1017,7 +1019,6 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1066,8 +1067,10 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1140,7 +1143,6 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1186,8 +1188,10 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
@@ -1239,7 +1243,6 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1288,8 +1291,10 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1369,7 +1374,6 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1415,8 +1419,10 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1482,7 +1488,6 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1531,8 +1536,10 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1605,7 +1612,6 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1651,8 +1657,10 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
@@ -1704,7 +1712,6 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1746,8 +1753,10 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
@@ -1771,7 +1780,6 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1813,8 +1821,10 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -1859,7 +1869,6 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1908,8 +1917,10 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -1947,7 +1958,6 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -1996,8 +2006,10 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2049,7 +2061,6 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2098,8 +2109,10 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidMaxResultsException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidMaxResultsException":
@@ -2151,7 +2164,6 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2200,8 +2212,10 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2246,7 +2260,6 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2295,8 +2308,10 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2362,7 +2377,6 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2411,8 +2425,10 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2450,7 +2466,6 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2499,8 +2514,10 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2545,7 +2562,6 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2594,8 +2610,10 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2647,7 +2665,6 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2693,8 +2710,10 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2746,7 +2765,6 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2788,8 +2806,10 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -2834,7 +2854,6 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2883,8 +2902,10 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -2957,7 +2978,6 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -2991,8 +3011,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -3044,7 +3066,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -3078,8 +3099,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -3103,7 +3126,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
@@ -3152,8 +3174,10 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -3219,7 +3243,6 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",

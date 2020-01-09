@@ -237,10 +237,7 @@ export async function deserializeAws_json1_1AnalyzeDocumentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AnalyzeDocumentResponse(
-    data.AnalyzeDocumentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AnalyzeDocumentResponse(data, context);
   const response: AnalyzeDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AnalyzeDocumentResponse",
@@ -259,7 +256,7 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -335,7 +332,6 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
@@ -357,10 +353,7 @@ export async function deserializeAws_json1_1DetectDocumentTextCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectDocumentTextResponse(
-    data.DetectDocumentTextResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectDocumentTextResponse(data, context);
   const response: DetectDocumentTextCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectDocumentTextResponse",
@@ -379,7 +372,7 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -448,7 +441,6 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
@@ -470,10 +462,7 @@ export async function deserializeAws_json1_1GetDocumentAnalysisCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDocumentAnalysisResponse(
-    data.GetDocumentAnalysisResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDocumentAnalysisResponse(data, context);
   const response: GetDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDocumentAnalysisResponse",
@@ -492,7 +481,7 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -540,7 +529,6 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
@@ -563,7 +551,7 @@ export async function deserializeAws_json1_1GetDocumentTextDetectionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDocumentTextDetectionResponse(
-    data.GetDocumentTextDetectionResponse,
+    data,
     context
   );
   const response: GetDocumentTextDetectionCommandOutput = {
@@ -584,7 +572,7 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -632,7 +620,6 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
@@ -654,10 +641,7 @@ export async function deserializeAws_json1_1StartDocumentAnalysisCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDocumentAnalysisResponse(
-    data.StartDocumentAnalysisResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartDocumentAnalysisResponse(data, context);
   const response: StartDocumentAnalysisCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDocumentAnalysisResponse",
@@ -676,7 +660,7 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -759,7 +743,6 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",
@@ -782,7 +765,7 @@ export async function deserializeAws_json1_1StartDocumentTextDetectionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDocumentTextDetectionResponse(
-    data.StartDocumentTextDetectionResponse,
+    data,
     context
   );
   const response: StartDocumentTextDetectionCommandOutput = {
@@ -803,7 +786,7 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -886,7 +869,6 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.textract#${errorCode}`,
         $fault: "client",

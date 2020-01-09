@@ -413,8 +413,10 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccountStreamLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#AccountStreamLimitExceededException":
@@ -466,7 +468,6 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -500,8 +501,10 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -539,7 +542,6 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -584,8 +586,10 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -616,7 +620,6 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -658,8 +661,10 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -690,7 +695,6 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -736,8 +740,10 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -754,7 +760,6 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -800,8 +805,10 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -839,7 +846,6 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -873,8 +879,10 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -919,7 +927,6 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -953,8 +960,10 @@ async function deserializeAws_restJson1_1UntagStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -992,7 +1001,6 @@ async function deserializeAws_restJson1_1UntagStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -1029,8 +1037,10 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -1075,7 +1085,6 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
@@ -1109,8 +1118,10 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -1155,7 +1166,6 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",

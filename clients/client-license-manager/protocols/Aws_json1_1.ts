@@ -549,7 +549,7 @@ export async function deserializeAws_json1_1CreateLicenseConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLicenseConfigurationResponse(
-    data.CreateLicenseConfigurationResponse,
+    data,
     context
   );
   const response: CreateLicenseConfigurationCommandOutput = {
@@ -570,7 +570,7 @@ async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -618,7 +618,6 @@ async function deserializeAws_json1_1CreateLicenseConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -641,7 +640,7 @@ export async function deserializeAws_json1_1DeleteLicenseConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteLicenseConfigurationResponse(
-    data.DeleteLicenseConfigurationResponse,
+    data,
     context
   );
   const response: DeleteLicenseConfigurationCommandOutput = {
@@ -662,7 +661,7 @@ async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -703,7 +702,6 @@ async function deserializeAws_json1_1DeleteLicenseConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -726,7 +724,7 @@ export async function deserializeAws_json1_1GetLicenseConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetLicenseConfigurationResponse(
-    data.GetLicenseConfigurationResponse,
+    data,
     context
   );
   const response: GetLicenseConfigurationCommandOutput = {
@@ -747,7 +745,7 @@ async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -788,7 +786,6 @@ async function deserializeAws_json1_1GetLicenseConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -810,10 +807,7 @@ export async function deserializeAws_json1_1GetServiceSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetServiceSettingsResponse(
-    data.GetServiceSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetServiceSettingsResponse(data, context);
   const response: GetServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceSettingsResponse",
@@ -832,7 +826,7 @@ async function deserializeAws_json1_1GetServiceSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -866,7 +860,6 @@ async function deserializeAws_json1_1GetServiceSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -889,7 +882,7 @@ export async function deserializeAws_json1_1ListAssociationsForLicenseConfigurat
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAssociationsForLicenseConfigurationResponse(
-    data.ListAssociationsForLicenseConfigurationResponse,
+    data,
     context
   );
   const response: ListAssociationsForLicenseConfigurationCommandOutput = {
@@ -910,7 +903,7 @@ async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -958,7 +951,6 @@ async function deserializeAws_json1_1ListAssociationsForLicenseConfigurationComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -981,7 +973,7 @@ export async function deserializeAws_json1_1ListFailuresForLicenseConfigurationO
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsResponse(
-    data.ListFailuresForLicenseConfigurationOperationsResponse,
+    data,
     context
   );
   const response: ListFailuresForLicenseConfigurationOperationsCommandOutput = {
@@ -1002,7 +994,7 @@ async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperatio
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1043,7 +1035,6 @@ async function deserializeAws_json1_1ListFailuresForLicenseConfigurationOperatio
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1066,7 +1057,7 @@ export async function deserializeAws_json1_1ListLicenseConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListLicenseConfigurationsResponse(
-    data.ListLicenseConfigurationsResponse,
+    data,
     context
   );
   const response: ListLicenseConfigurationsCommandOutput = {
@@ -1087,7 +1078,7 @@ async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1135,7 +1126,6 @@ async function deserializeAws_json1_1ListLicenseConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1158,7 +1148,7 @@ export async function deserializeAws_json1_1ListLicenseSpecificationsForResource
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse(
-    data.ListLicenseSpecificationsForResourceResponse,
+    data,
     context
   );
   const response: ListLicenseSpecificationsForResourceCommandOutput = {
@@ -1179,7 +1169,7 @@ async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1220,7 +1210,6 @@ async function deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1242,10 +1231,7 @@ export async function deserializeAws_json1_1ListResourceInventoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceInventoryResponse(
-    data.ListResourceInventoryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourceInventoryResponse(data, context);
   const response: ListResourceInventoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceInventoryResponse",
@@ -1264,7 +1250,7 @@ async function deserializeAws_json1_1ListResourceInventoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1319,7 +1305,6 @@ async function deserializeAws_json1_1ListResourceInventoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1341,10 +1326,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1363,7 +1345,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1404,7 +1386,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1427,7 +1408,7 @@ export async function deserializeAws_json1_1ListUsageForLicenseConfigurationComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListUsageForLicenseConfigurationResponse(
-    data.ListUsageForLicenseConfigurationResponse,
+    data,
     context
   );
   const response: ListUsageForLicenseConfigurationCommandOutput = {
@@ -1448,7 +1429,7 @@ async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1496,7 +1477,6 @@ async function deserializeAws_json1_1ListUsageForLicenseConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1515,10 +1495,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -1537,7 +1514,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1578,7 +1555,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1597,10 +1573,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -1619,7 +1592,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1660,7 +1633,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1683,7 +1655,7 @@ export async function deserializeAws_json1_1UpdateLicenseConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateLicenseConfigurationResponse(
-    data.UpdateLicenseConfigurationResponse,
+    data,
     context
   );
   const response: UpdateLicenseConfigurationCommandOutput = {
@@ -1704,7 +1676,7 @@ async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1745,7 +1717,6 @@ async function deserializeAws_json1_1UpdateLicenseConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1768,7 +1739,7 @@ export async function deserializeAws_json1_1UpdateLicenseSpecificationsForResour
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateLicenseSpecificationsForResourceResponse(
-    data.UpdateLicenseSpecificationsForResourceResponse,
+    data,
     context
   );
   const response: UpdateLicenseSpecificationsForResourceCommandOutput = {
@@ -1789,7 +1760,7 @@ async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1844,7 +1815,6 @@ async function deserializeAws_json1_1UpdateLicenseSpecificationsForResourceComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",
@@ -1866,10 +1836,7 @@ export async function deserializeAws_json1_1UpdateServiceSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceSettingsResponse(
-    data.UpdateServiceSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServiceSettingsResponse(data, context);
   const response: UpdateServiceSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceSettingsResponse",
@@ -1888,7 +1855,7 @@ async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1929,7 +1896,6 @@ async function deserializeAws_json1_1UpdateServiceSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.license.manager.V2018_08_01#${errorCode}`,
         $fault: "client",

@@ -450,10 +450,7 @@ export async function deserializeAws_json1_1BatchGrantPermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGrantPermissionsResponse(
-    data.BatchGrantPermissionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGrantPermissionsResponse(data, context);
   const response: BatchGrantPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGrantPermissionsResponse",
@@ -472,7 +469,7 @@ async function deserializeAws_json1_1BatchGrantPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -492,7 +489,6 @@ async function deserializeAws_json1_1BatchGrantPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -515,7 +511,7 @@ export async function deserializeAws_json1_1BatchRevokePermissionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchRevokePermissionsResponse(
-    data.BatchRevokePermissionsResponse,
+    data,
     context
   );
   const response: BatchRevokePermissionsCommandOutput = {
@@ -536,7 +532,7 @@ async function deserializeAws_json1_1BatchRevokePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -556,7 +552,6 @@ async function deserializeAws_json1_1BatchRevokePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -578,10 +573,7 @@ export async function deserializeAws_json1_1DeregisterResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterResourceResponse(
-    data.DeregisterResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeregisterResourceResponse(data, context);
   const response: DeregisterResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterResourceResponse",
@@ -600,7 +592,7 @@ async function deserializeAws_json1_1DeregisterResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -634,7 +626,6 @@ async function deserializeAws_json1_1DeregisterResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -653,10 +644,7 @@ export async function deserializeAws_json1_1DescribeResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourceResponse(
-    data.DescribeResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeResourceResponse(data, context);
   const response: DescribeResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeResourceResponse",
@@ -675,7 +663,7 @@ async function deserializeAws_json1_1DescribeResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -709,7 +697,6 @@ async function deserializeAws_json1_1DescribeResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -731,10 +718,7 @@ export async function deserializeAws_json1_1GetDataLakeSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDataLakeSettingsResponse(
-    data.GetDataLakeSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDataLakeSettingsResponse(data, context);
   const response: GetDataLakeSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDataLakeSettingsResponse",
@@ -753,7 +737,7 @@ async function deserializeAws_json1_1GetDataLakeSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -780,7 +764,6 @@ async function deserializeAws_json1_1GetDataLakeSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -803,7 +786,7 @@ export async function deserializeAws_json1_1GetEffectivePermissionsForPathComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetEffectivePermissionsForPathResponse(
-    data.GetEffectivePermissionsForPathResponse,
+    data,
     context
   );
   const response: GetEffectivePermissionsForPathCommandOutput = {
@@ -824,7 +807,7 @@ async function deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -858,7 +841,6 @@ async function deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -877,10 +859,7 @@ export async function deserializeAws_json1_1GrantPermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GrantPermissionsResponse(
-    data.GrantPermissionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GrantPermissionsResponse(data, context);
   const response: GrantPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GrantPermissionsResponse",
@@ -899,7 +878,7 @@ async function deserializeAws_json1_1GrantPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -926,7 +905,6 @@ async function deserializeAws_json1_1GrantPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -945,10 +923,7 @@ export async function deserializeAws_json1_1ListPermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPermissionsResponse(
-    data.ListPermissionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPermissionsResponse(data, context);
   const response: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPermissionsResponse",
@@ -967,7 +942,7 @@ async function deserializeAws_json1_1ListPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -994,7 +969,6 @@ async function deserializeAws_json1_1ListPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -1013,10 +987,7 @@ export async function deserializeAws_json1_1ListResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesResponse(
-    data.ListResourcesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourcesResponse(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourcesResponse",
@@ -1035,7 +1006,7 @@ async function deserializeAws_json1_1ListResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1062,7 +1033,6 @@ async function deserializeAws_json1_1ListResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -1084,10 +1054,7 @@ export async function deserializeAws_json1_1PutDataLakeSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutDataLakeSettingsResponse(
-    data.PutDataLakeSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutDataLakeSettingsResponse(data, context);
   const response: PutDataLakeSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutDataLakeSettingsResponse",
@@ -1106,7 +1073,7 @@ async function deserializeAws_json1_1PutDataLakeSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1126,7 +1093,6 @@ async function deserializeAws_json1_1PutDataLakeSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -1145,10 +1111,7 @@ export async function deserializeAws_json1_1RegisterResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterResourceResponse(
-    data.RegisterResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterResourceResponse(data, context);
   const response: RegisterResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterResourceResponse",
@@ -1167,7 +1130,7 @@ async function deserializeAws_json1_1RegisterResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1201,7 +1164,6 @@ async function deserializeAws_json1_1RegisterResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -1220,10 +1182,7 @@ export async function deserializeAws_json1_1RevokePermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RevokePermissionsResponse(
-    data.RevokePermissionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RevokePermissionsResponse(data, context);
   const response: RevokePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RevokePermissionsResponse",
@@ -1242,7 +1201,7 @@ async function deserializeAws_json1_1RevokePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1269,7 +1228,6 @@ async function deserializeAws_json1_1RevokePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
@@ -1288,10 +1246,7 @@ export async function deserializeAws_json1_1UpdateResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResourceResponse(
-    data.UpdateResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateResourceResponse(data, context);
   const response: UpdateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateResourceResponse",
@@ -1310,7 +1265,7 @@ async function deserializeAws_json1_1UpdateResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1344,7 +1299,6 @@ async function deserializeAws_json1_1UpdateResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.michigan#${errorCode}`,
         $fault: "client",
