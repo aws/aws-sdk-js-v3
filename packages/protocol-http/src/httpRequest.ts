@@ -43,6 +43,7 @@ export class HttpRequest implements HttpMessage, Endpoint {
 
   static isInstance(request: unknown): request is HttpRequest {
     //determine if request is a valid httpRequest
+    if (!request) return false;
     const req: any = request;
     return (
       "method" in req &&
