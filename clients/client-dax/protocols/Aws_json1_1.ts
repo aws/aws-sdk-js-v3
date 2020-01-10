@@ -718,14 +718,13 @@ async function deserializeAws_json1_1CreateClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -862,14 +861,13 @@ async function deserializeAws_json1_1CreateParameterGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateParameterGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -947,14 +945,13 @@ async function deserializeAws_json1_1CreateSubnetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubnetGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1031,14 +1028,13 @@ async function deserializeAws_json1_1DecreaseReplicationFactorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicationFactorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1116,14 +1112,13 @@ async function deserializeAws_json1_1DeleteClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1197,14 +1192,13 @@ async function deserializeAws_json1_1DeleteParameterGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteParameterGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1275,14 +1269,13 @@ async function deserializeAws_json1_1DeleteSubnetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubnetGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1339,14 +1332,13 @@ async function deserializeAws_json1_1DescribeClustersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1416,14 +1408,13 @@ async function deserializeAws_json1_1DescribeDefaultParametersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDefaultParametersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1480,14 +1471,13 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1550,14 +1540,13 @@ async function deserializeAws_json1_1DescribeParameterGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParameterGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1624,14 +1613,13 @@ async function deserializeAws_json1_1DescribeParametersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeParametersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1698,14 +1686,13 @@ async function deserializeAws_json1_1DescribeSubnetGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubnetGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1761,14 +1748,13 @@ async function deserializeAws_json1_1IncreaseReplicationFactorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicationFactorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1867,14 +1853,13 @@ async function deserializeAws_json1_1ListTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1952,14 +1937,13 @@ async function deserializeAws_json1_1RebootNodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootNodeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2037,14 +2021,13 @@ async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2129,14 +2112,13 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2221,14 +2203,13 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2316,14 +2297,13 @@ async function deserializeAws_json1_1UpdateParameterGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateParameterGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2394,14 +2374,13 @@ async function deserializeAws_json1_1UpdateSubnetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubnetGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2451,442 +2430,462 @@ async function deserializeAws_json1_1UpdateSubnetGroupCommandError(
 }
 
 const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidParameterCombinationException = {
     __type: "InvalidParameterCombinationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidParameterValueException = {
     __type: "InvalidParameterValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterAlreadyExistsFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ClusterAlreadyExistsFault(
-    output.body,
+    body,
     context
   );
   const contents: ClusterAlreadyExistsFault = {
     __type: "ClusterAlreadyExistsFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ClusterNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ClusterNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: ClusterNotFoundFault = {
     __type: "ClusterNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ClusterQuotaForCustomerExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ClusterQuotaForCustomerExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: ClusterQuotaForCustomerExceededFault = {
     __type: "ClusterQuotaForCustomerExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InsufficientClusterCapacityFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientClusterCapacityFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsufficientClusterCapacityFault(
-    output.body,
+    body,
     context
   );
   const contents: InsufficientClusterCapacityFault = {
     __type: "InsufficientClusterCapacityFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidARNFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidARNFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidARNFault(
-    output.body,
+    body,
     context
   );
   const contents: InvalidARNFault = {
     __type: "InvalidARNFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClusterStateFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidClusterStateFault(
-    output.body,
+    body,
     context
   );
   const contents: InvalidClusterStateFault = {
     __type: "InvalidClusterStateFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterGroupStateFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterGroupStateFault(
-    output.body,
+    body,
     context
   );
   const contents: InvalidParameterGroupStateFault = {
     __type: "InvalidParameterGroupStateFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidSubnetResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSubnet> => {
-  const deserialized: any = deserializeAws_json1_1InvalidSubnet(
-    output.body,
-    context
-  );
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
   const contents: InvalidSubnet = {
     __type: "InvalidSubnet",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidVPCNetworkStateFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidVPCNetworkStateFault(
-    output.body,
+    body,
     context
   );
   const contents: InvalidVPCNetworkStateFault = {
     __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1NodeNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NodeNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: NodeNotFoundFault = {
     __type: "NodeNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForClusterExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NodeQuotaForClusterExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: NodeQuotaForClusterExceededFault = {
     __type: "NodeQuotaForClusterExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NodeQuotaForCustomerExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NodeQuotaForCustomerExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: NodeQuotaForCustomerExceededFault = {
     __type: "NodeQuotaForCustomerExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupAlreadyExistsFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ParameterGroupAlreadyExistsFault(
-    output.body,
+    body,
     context
   );
   const contents: ParameterGroupAlreadyExistsFault = {
     __type: "ParameterGroupAlreadyExistsFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ParameterGroupNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ParameterGroupNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: ParameterGroupNotFoundFault = {
     __type: "ParameterGroupNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ParameterGroupQuotaExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ParameterGroupQuotaExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: ParameterGroupQuotaExceededFault = {
     __type: "ParameterGroupQuotaExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceLinkedRoleNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceLinkedRoleNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: ServiceLinkedRoleNotFoundFault = {
     __type: "ServiceLinkedRoleNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupAlreadyExistsFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetGroupAlreadyExistsFault(
-    output.body,
+    body,
     context
   );
   const contents: SubnetGroupAlreadyExistsFault = {
     __type: "SubnetGroupAlreadyExistsFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetGroupInUseFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupInUseFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetGroupInUseFault(
-    output.body,
+    body,
     context
   );
   const contents: SubnetGroupInUseFault = {
     __type: "SubnetGroupInUseFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetGroupNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetGroupNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: SubnetGroupNotFoundFault = {
     __type: "SubnetGroupNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetGroupQuotaExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetGroupQuotaExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: SubnetGroupQuotaExceededFault = {
     __type: "SubnetGroupQuotaExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetInUseResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetInUse> => {
-  const deserialized: any = deserializeAws_json1_1SubnetInUse(
-    output.body,
-    context
-  );
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SubnetInUse(body, context);
   const contents: SubnetInUse = {
     __type: "SubnetInUse",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1SubnetQuotaExceededFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<SubnetQuotaExceededFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetQuotaExceededFault(
-    output.body,
+    body,
     context
   );
   const contents: SubnetQuotaExceededFault = {
     __type: "SubnetQuotaExceededFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TagNotFoundFaultResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagNotFoundFault> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagNotFoundFault(
-    output.body,
+    body,
     context
   );
   const contents: TagNotFoundFault = {
     __type: "TagNotFoundFault",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TagQuotaPerResourceExceededResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagQuotaPerResourceExceeded> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagQuotaPerResourceExceeded(
-    output.body,
+    body,
     context
   );
   const contents: TagQuotaPerResourceExceeded = {
     __type: "TagQuotaPerResourceExceeded",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -4653,9 +4652,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -325,11 +325,6 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -339,49 +334,49 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.services.mobile.model#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -428,11 +423,6 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -442,35 +432,35 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -513,11 +503,6 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBundleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -527,42 +512,42 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -605,11 +590,6 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -619,42 +599,42 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -691,11 +671,6 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBundleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -705,42 +680,42 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -785,11 +760,6 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -799,42 +769,42 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -878,11 +848,6 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBundlesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -892,35 +857,35 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -964,11 +929,6 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -978,35 +938,35 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1046,11 +1006,6 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1060,56 +1015,56 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
     case "AccountActionRequiredException":
     case "com.amazonaws.services.mobile.model#AccountActionRequiredException":
       response = await deserializeAws_restJson1_1AccountActionRequiredExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.services.mobile.model#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.services.mobile.model#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.mobile.model#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.services.mobile.model#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.services.mobile.model#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1133,7 +1088,7 @@ const deserializeAws_restJson1_1AccountActionRequiredExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1150,7 +1105,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1167,7 +1122,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1188,7 +1143,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1205,7 +1160,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1226,7 +1181,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1247,7 +1202,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1264,7 +1219,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1463,9 +1418,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

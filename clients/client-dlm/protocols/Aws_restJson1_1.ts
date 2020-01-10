@@ -342,11 +342,6 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -356,21 +351,21 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -405,11 +400,6 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -419,21 +409,21 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -476,11 +466,6 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePoliciesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -490,28 +475,28 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -554,11 +539,6 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -568,21 +548,21 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -622,11 +602,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -636,21 +611,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -682,11 +657,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -696,21 +666,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -742,11 +712,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -756,21 +721,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -805,11 +770,6 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -819,28 +779,28 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
       response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.abslifecyclefrontendlambda#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.abslifecyclefrontendlambda#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.abslifecyclefrontendlambda#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -865,7 +825,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -888,7 +848,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     MutuallyExclusiveParameters: undefined,
     RequiredParameters: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -922,7 +882,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -948,7 +908,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     ResourceIds: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -1587,9 +1547,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

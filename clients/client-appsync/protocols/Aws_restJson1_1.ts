@@ -1892,11 +1892,6 @@ async function deserializeAws_restJson1_1CreateApiCacheCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiCacheCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1906,35 +1901,35 @@ async function deserializeAws_restJson1_1CreateApiCacheCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1971,11 +1966,6 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiKeyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1985,49 +1975,49 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
     case "ApiKeyLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyLimitExceededException":
       response = await deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException":
       response = await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2070,11 +2060,6 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2084,35 +2069,35 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2155,11 +2140,6 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2169,28 +2149,28 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2233,11 +2213,6 @@ async function deserializeAws_restJson1_1CreateGraphqlApiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGraphqlApiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2247,42 +2222,42 @@ async function deserializeAws_restJson1_1CreateGraphqlApiCommandError(
     case "ApiLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiLimitExceededException":
       response = await deserializeAws_restJson1_1ApiLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2325,11 +2300,6 @@ async function deserializeAws_restJson1_1CreateResolverCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResolverCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2339,28 +2309,28 @@ async function deserializeAws_restJson1_1CreateResolverCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2397,11 +2367,6 @@ async function deserializeAws_restJson1_1CreateTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTypeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2411,35 +2376,35 @@ async function deserializeAws_restJson1_1CreateTypeCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2474,11 +2439,6 @@ async function deserializeAws_restJson1_1DeleteApiCacheCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiCacheCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2488,35 +2448,35 @@ async function deserializeAws_restJson1_1DeleteApiCacheCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2548,11 +2508,6 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiKeyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2562,28 +2517,28 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2618,11 +2573,6 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2632,35 +2582,35 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2695,11 +2645,6 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2709,28 +2654,28 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2765,11 +2710,6 @@ async function deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGraphqlApiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2779,42 +2719,42 @@ async function deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2849,11 +2789,6 @@ async function deserializeAws_restJson1_1DeleteResolverCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResolverCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2863,28 +2798,28 @@ async function deserializeAws_restJson1_1DeleteResolverCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2916,11 +2851,6 @@ async function deserializeAws_restJson1_1DeleteTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTypeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2930,35 +2860,35 @@ async function deserializeAws_restJson1_1DeleteTypeCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2990,11 +2920,6 @@ async function deserializeAws_restJson1_1FlushApiCacheCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlushApiCacheCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3004,35 +2929,35 @@ async function deserializeAws_restJson1_1FlushApiCacheCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3072,11 +2997,6 @@ async function deserializeAws_restJson1_1GetApiCacheCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiCacheCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3086,35 +3006,35 @@ async function deserializeAws_restJson1_1GetApiCacheCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3154,11 +3074,6 @@ async function deserializeAws_restJson1_1GetDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3168,35 +3083,35 @@ async function deserializeAws_restJson1_1GetDataSourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3236,11 +3151,6 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3250,21 +3160,21 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3304,11 +3214,6 @@ async function deserializeAws_restJson1_1GetGraphqlApiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGraphqlApiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3318,35 +3223,35 @@ async function deserializeAws_restJson1_1GetGraphqlApiCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3375,7 +3280,7 @@ export async function deserializeAws_restJson1_1GetIntrospectionSchemaCommand(
     __type: "GetIntrospectionSchemaResponse",
     schema: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = await collectBody(output.body, context);
   contents.schema = data;
   return Promise.resolve(contents);
 }
@@ -3384,11 +3289,6 @@ async function deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntrospectionSchemaCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3398,28 +3298,28 @@ async function deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
     case "GraphQLSchemaException":
     case "com.amazonaws.deepdish.controlplane#GraphQLSchemaException":
       response = await deserializeAws_restJson1_1GraphQLSchemaExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3459,11 +3359,6 @@ async function deserializeAws_restJson1_1GetResolverCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResolverCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3473,21 +3368,21 @@ async function deserializeAws_restJson1_1GetResolverCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3531,11 +3426,6 @@ async function deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaCreationStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3545,28 +3435,28 @@ async function deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3603,11 +3493,6 @@ async function deserializeAws_restJson1_1GetTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTypeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3617,35 +3502,35 @@ async function deserializeAws_restJson1_1GetTypeCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3686,11 +3571,6 @@ async function deserializeAws_restJson1_1ListApiKeysCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApiKeysCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3700,28 +3580,28 @@ async function deserializeAws_restJson1_1ListApiKeysCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3768,11 +3648,6 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3782,28 +3657,28 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3847,11 +3722,6 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3861,28 +3731,28 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3929,11 +3799,6 @@ async function deserializeAws_restJson1_1ListGraphqlApisCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGraphqlApisCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3943,21 +3808,21 @@ async function deserializeAws_restJson1_1ListGraphqlApisCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4001,11 +3866,6 @@ async function deserializeAws_restJson1_1ListResolversCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolversCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4015,28 +3875,28 @@ async function deserializeAws_restJson1_1ListResolversCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4083,11 +3943,6 @@ async function deserializeAws_restJson1_1ListResolversByFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResolversByFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4097,28 +3952,28 @@ async function deserializeAws_restJson1_1ListResolversByFunctionCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4158,11 +4013,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4172,42 +4022,42 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4248,11 +4098,6 @@ async function deserializeAws_restJson1_1ListTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4262,35 +4107,35 @@ async function deserializeAws_restJson1_1ListTypesCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4330,11 +4175,6 @@ async function deserializeAws_restJson1_1StartSchemaCreationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSchemaCreationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4344,35 +4184,35 @@ async function deserializeAws_restJson1_1StartSchemaCreationCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4404,11 +4244,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4418,42 +4253,42 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4485,11 +4320,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4499,42 +4329,42 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4577,11 +4407,6 @@ async function deserializeAws_restJson1_1UpdateApiCacheCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiCacheCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4591,35 +4416,35 @@ async function deserializeAws_restJson1_1UpdateApiCacheCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4656,11 +4481,6 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiKeyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4670,42 +4490,42 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException":
       response = await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4748,11 +4568,6 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4762,35 +4577,35 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4833,11 +4648,6 @@ async function deserializeAws_restJson1_1UpdateFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4847,28 +4657,28 @@ async function deserializeAws_restJson1_1UpdateFunctionCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4911,11 +4721,6 @@ async function deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGraphqlApiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4925,42 +4730,42 @@ async function deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5003,11 +4808,6 @@ async function deserializeAws_restJson1_1UpdateResolverCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResolverCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5017,28 +4817,28 @@ async function deserializeAws_restJson1_1UpdateResolverCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5075,11 +4875,6 @@ async function deserializeAws_restJson1_1UpdateTypeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTypeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5089,35 +4884,35 @@ async function deserializeAws_restJson1_1UpdateTypeCommandError(
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5141,7 +4936,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5158,7 +4953,7 @@ const deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5175,7 +4970,7 @@ const deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse = asy
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5192,7 +4987,7 @@ const deserializeAws_restJson1_1ApiLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5209,7 +5004,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5226,7 +5021,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5243,7 +5038,7 @@ const deserializeAws_restJson1_1GraphQLSchemaExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5260,7 +5055,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5277,7 +5072,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5294,7 +5089,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5311,7 +5106,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -6499,9 +6294,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -795,14 +795,13 @@ async function deserializeAws_json1_1CheckDomainAvailabilityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckDomainAvailabilityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -858,14 +857,13 @@ async function deserializeAws_json1_1CheckDomainTransferabilityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckDomainTransferabilityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -918,14 +916,13 @@ async function deserializeAws_json1_1DeleteTagsForDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsForDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -988,14 +985,13 @@ async function deserializeAws_json1_1DisableDomainAutoRenewCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDomainAutoRenewCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1051,14 +1047,13 @@ async function deserializeAws_json1_1DisableDomainTransferLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDomainTransferLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1132,14 +1127,13 @@ async function deserializeAws_json1_1EnableDomainAutoRenewCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDomainAutoRenewCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1202,14 +1196,13 @@ async function deserializeAws_json1_1EnableDomainTransferLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDomainTransferLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1286,14 +1279,13 @@ async function deserializeAws_json1_1GetContactReachabilityStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactReachabilityStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1350,14 +1342,13 @@ async function deserializeAws_json1_1GetDomainDetailCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDetailCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1410,14 +1401,13 @@ async function deserializeAws_json1_1GetDomainSuggestionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainSuggestionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1470,14 +1460,13 @@ async function deserializeAws_json1_1GetOperationDetailCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOperationDetailCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1520,14 +1509,13 @@ async function deserializeAws_json1_1ListDomainsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1570,14 +1558,13 @@ async function deserializeAws_json1_1ListOperationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1620,14 +1607,13 @@ async function deserializeAws_json1_1ListTagsForDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1684,14 +1670,13 @@ async function deserializeAws_json1_1RegisterDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1769,14 +1754,13 @@ async function deserializeAws_json1_1RenewDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RenewDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1853,14 +1837,13 @@ async function deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendContactReachabilityEmailCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1923,14 +1906,13 @@ async function deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveDomainAuthCodeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1980,14 +1962,13 @@ async function deserializeAws_json1_1TransferDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransferDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2068,14 +2049,13 @@ async function deserializeAws_json1_1UpdateDomainContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainContactCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2152,14 +2132,13 @@ async function deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainContactPrivacyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2236,14 +2215,13 @@ async function deserializeAws_json1_1UpdateDomainNameserversCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameserversCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2317,14 +2295,13 @@ async function deserializeAws_json1_1UpdateTagsForDomainCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagsForDomainCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2381,14 +2358,13 @@ async function deserializeAws_json1_1ViewBillingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ViewBillingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2410,102 +2386,102 @@ async function deserializeAws_json1_1ViewBillingCommandError(
 }
 
 const deserializeAws_json1_1DomainLimitExceededResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DomainLimitExceeded> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DomainLimitExceeded(
-    output.body,
+    body,
     context
   );
   const contents: DomainLimitExceeded = {
     __type: "DomainLimitExceeded",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DuplicateRequestResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DuplicateRequest> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateRequest(
-    output.body,
+    body,
     context
   );
   const contents: DuplicateRequest = {
     __type: "DuplicateRequest",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidInputResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInput> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInput(
-    output.body,
-    context
-  );
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
   const contents: InvalidInput = {
     __type: "InvalidInput",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1OperationLimitExceededResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationLimitExceeded> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationLimitExceeded(
-    output.body,
+    body,
     context
   );
   const contents: OperationLimitExceeded = {
     __type: "OperationLimitExceeded",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TLDRulesViolationResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TLDRulesViolation> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TLDRulesViolation(
-    output.body,
+    body,
     context
   );
   const contents: TLDRulesViolation = {
     __type: "TLDRulesViolation",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1UnsupportedTLDResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedTLD> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedTLD(
-    output.body,
-    context
-  );
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedTLD(body, context);
   const contents: UnsupportedTLD = {
     __type: "UnsupportedTLD",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -3985,9 +3961,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
