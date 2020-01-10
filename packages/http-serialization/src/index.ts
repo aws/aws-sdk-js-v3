@@ -30,7 +30,7 @@ export function parseRequest(serialized: string): IHttpRequest {
 
     parseTargetIntoMessage(message, target);
 
-    if (!message.hostname && headers["host"]) {
+    if (headers["host"]) {
       const matches = headers.host.match(/:(\d+)$/);
       if (matches) {
         message.hostname = headers.host.substr(0, matches.index);

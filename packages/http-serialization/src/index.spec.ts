@@ -6,12 +6,16 @@ import {
 } from "./";
 import { requests } from "./requests.fixture";
 import { responses } from "./responses.fixture";
-import { HttpRequest, HttpResponse } from "@aws-sdk/types";
+import {
+  HttpRequest as IHttpRequest,
+  HttpResponse as IHttpResponse
+} from "@aws-sdk/types";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
 describe("parseRequest", () => {
   for (const [serialized, expected] of requests) {
     it(`should parse the request: ${serialized}`, () => {
-      expect(parseRequest(serialized)).toEqual(expected);
+      expect(parseRequest(serialized)).toMatchObject(expected);
     });
   }
 
@@ -33,7 +37,7 @@ My-Header1:value1
      value3
 X-Amz-Date:20150830T123600Z`;
 
-    expect(parseRequest(serialized)).toEqual({
+    expect(parseRequest(serialized)).toMatchObject({
       method: "GET",
       path: "/",
       headers: {
@@ -54,7 +58,7 @@ My-Header1:value2
 My-Header1:value1
 X-Amz-Date:20150830T123600Z`;
 
-    expect(parseRequest(serialized)).toEqual({
+    expect(parseRequest(serialized)).toMatchObject({
       method: "GET",
       path: "/",
       headers: {
@@ -82,7 +86,7 @@ Proxy-Authorization: basic aGVsbG86d29ybGQ=`;
       parseRequest(
         "GET https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET HTTP/1.1"
       )
-    ).toEqual({
+    ).toMatchObject({
       method: "GET",
       protocol: "https:",
       hostname: "developer.mozilla.org",
@@ -110,7 +114,7 @@ describe("parseResponse", () => {
 
 describe("serializeRequest", () => {
   it("should serialize requests with string bodies", () => {
-    const request: HttpRequest<string> = {
+    const request: IHttpRequest = {
       method: "PUT",
       protocol: "https:",
       path: "/new",
@@ -134,7 +138,7 @@ content-length: 13\r
   });
 
   it("should serialize requests without bodies", () => {
-    const request: HttpRequest<string> = {
+    const request: IHttpRequest = {
       method: "GET",
       protocol: "https:",
       path: "/",
@@ -153,7 +157,7 @@ host: example.com\r
   });
 
   it("should serialize requests with a placeholder for ArrayBuffer bodies", () => {
-    const request: HttpRequest<string> = {
+    const request: IHttpRequest = {
       method: "PUT",
       protocol: "https:",
       path: "/new",
@@ -177,7 +181,7 @@ content-length: 13\r
   });
 
   it("should serialize requests with a placeholder for ArrayBufferView bodies", () => {
-    const request: HttpRequest<string> = {
+    const request: IHttpRequest = {
       method: "PUT",
       protocol: "https:",
       path: "/new",
@@ -206,7 +210,7 @@ content-length: 13\r
      */
     class ExoticStream {}
 
-    const request: HttpRequest<ExoticStream> = {
+    const request: IHttpRequest = {
       method: "PUT",
       protocol: "https:",
       path: "/new",
@@ -232,7 +236,7 @@ content-length: 13\r
 
 describe("serializeResponse", () => {
   it("should serialize responses with string bodies", () => {
-    const response: HttpResponse<string> = {
+    const response: IHttpResponse = {
       headers: {
         host: "example.com",
         "content-type": "application/json",
@@ -253,7 +257,7 @@ content-length: 13\r
   });
 
   it("should serialize responses without bodies", () => {
-    const response: HttpResponse<string> = {
+    const response: IHttpResponse = {
       headers: {
         host: "example.com"
       },
@@ -269,7 +273,7 @@ host: example.com\r
   });
 
   it("should serialize responses with a placeholder for ArrayBuffer bodies", () => {
-    const response: HttpResponse<string> = {
+    const response: IHttpResponse = {
       headers: {
         host: "example.com",
         "content-type": "application/json",
@@ -290,7 +294,7 @@ content-length: 13\r
   });
 
   it("should serialize responses with a placeholder for ArrayBufferView bodies", () => {
-    const response: HttpResponse<string> = {
+    const response: IHttpResponse = {
       headers: {
         host: "example.com",
         "content-type": "application/json",
@@ -316,7 +320,7 @@ content-length: 13\r
      */
     class ExoticStream {}
 
-    const response: HttpResponse<ExoticStream> = {
+    const response: IHttpResponse = {
       headers: {
         host: "example.com",
         "content-type": "application/json",

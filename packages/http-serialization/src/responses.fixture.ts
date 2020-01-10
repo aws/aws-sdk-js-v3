@@ -1,6 +1,6 @@
-import { HttpResponse } from "@aws-sdk/types";
+import { HttpResponse } from "@aws-sdk/protocol-http";
 
-export const responses = new Map<string, HttpResponse<string>>();
+export const responses = new Map<string, HttpResponse>();
 
 // add examples from https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/*
 responses.set(
@@ -12,7 +12,7 @@ Date: Wed, 21 Oct 2015 07:28:00 GMT
     <h1>File deleted.</h1> 
   </body>
 </html>`,
-  {
+  new HttpResponse({
     statusCode: 200,
     headers: {
       date: "Wed, 21 Oct 2015 07:28:00 GMT"
@@ -22,7 +22,7 @@ Date: Wed, 21 Oct 2015 07:28:00 GMT
     <h1>File deleted.</h1> 
   </body>
 </html>`
-  }
+  })
 );
 
 responses.set(
@@ -34,7 +34,7 @@ Expires: Thu, 20 Oct 2016 11:45:00 GMT
 Server: EOS (lax004/2813)
 x-ec-custom-error: 1
 Content-Length: 0`,
-  {
+  new HttpResponse({
     statusCode: 200,
     headers: {
       allow: "OPTIONS, GET, HEAD, POST",
@@ -45,20 +45,20 @@ Content-Length: 0`,
       "x-ec-custom-error": "1",
       "content-length": "0"
     }
-  }
+  })
 );
 
 responses.set(
   `HTTP/1.1 204 No Content
 Content-Location: /file.txt
 ETag: "e0023aa4f"`,
-  {
+  new HttpResponse({
     statusCode: 204,
     headers: {
       "content-location": "/file.txt",
       etag: '"e0023aa4f"'
     }
-  }
+  })
 );
 
 responses.set(
@@ -70,7 +70,7 @@ Date: Wed, 21 Oct 2015 07:28:00 GMT
     <h1>Not found.</h1> 
   </body>
 </html>`,
-  {
+  new HttpResponse({
     statusCode: 404,
     headers: {
       date: "Wed, 21 Oct 2015 07:28:00 GMT"
@@ -80,5 +80,5 @@ Date: Wed, 21 Oct 2015 07:28:00 GMT
     <h1>Not found.</h1> 
   </body>
 </html>`
-  }
+  })
 );

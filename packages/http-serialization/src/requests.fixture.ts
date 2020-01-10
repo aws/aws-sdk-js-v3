@@ -1,6 +1,6 @@
-import { HttpRequest } from "@aws-sdk/types";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export const requests = new Map<string, Partial<HttpRequest<string>>>();
+export const requests = new Map<string, Partial<HttpRequest>>();
 
 // add examples from https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/*
 requests.set(
