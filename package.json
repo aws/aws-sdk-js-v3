@@ -61,7 +61,7 @@
     }
   },
   "lint-staged": {
-    "{packages,clients}/**/*.{ts,js,md,json}": [
+    "{scripts,packages,clients}/**/*.{ts,js,md,json}": [
       "prettier --write",
       "git add"
     ]
