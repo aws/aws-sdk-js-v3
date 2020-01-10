@@ -18,4 +18,6 @@ const prettifyCode = async () => {
   }
 };
 
-module.exports = { prettifyCode };
+module.exports = {
+  prettifyCode
+};
