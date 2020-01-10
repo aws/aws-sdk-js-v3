@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-mediaconnect",
   "description": "@aws-sdk/client-mediaconnect client",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
