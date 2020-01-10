@@ -2,14 +2,12 @@ import { reasonPhrases } from "./constants";
 import { isArrayBuffer } from "@aws-sdk/is-array-buffer";
 import {
   HeaderBag,
-  HttpRequest,
-  HttpResponse,
   HttpMessage,
+  HttpRequest as IHttpRequest,
+  HttpResponse as IHttpResponse,
   QueryParameterBag
 } from "@aws-sdk/types";
-
-export type DerivedHttpRequest = Partial<HttpRequest<string>> &
-  HttpMessage<string> & { method: string };
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 
 /**
  * Parses well-formed HTTP request strings into HTTP request objects.
@@ -20,15 +18,15 @@ export type DerivedHttpRequest = Partial<HttpRequest<string>> &
  *
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
-export function parseRequest(serialized: string): DerivedHttpRequest {
+export function parseRequest(serialized: string): IHttpRequest {
   const { startLine, headers, body } = parseMessage(serialized);
   if (startLine.match(/^\S+\s+\S+\s+\S+/)) {
     const [method, target, protocolVersion] = startLine.split(/\s+/, 3);
-    const message: DerivedHttpRequest = {
+    const message = new HttpRequest({
       method,
       headers,
       body
-    };
+    });
 
     parseTargetIntoMessage(message, target);
 
@@ -57,15 +55,15 @@ export function parseRequest(serialized: string): DerivedHttpRequest {
  *
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
-export function parseResponse(serialized: string): HttpResponse<string> {
+export function parseResponse(serialized: string): IHttpResponse {
   const { startLine, headers, body } = parseMessage(serialized);
   if (startLine.match(/^HTTP\/.* [0-9]{3}( .*|$)/)) {
     const [protocol, statusCode, reasonPhrase] = startLine.split(" ", 3);
-    return {
+    return new HttpResponse({
       headers,
       body,
       statusCode: parseInt(statusCode, 10)
-    };
+    });
   }
 
   throw new Error("Invalid response string");
@@ -80,7 +78,7 @@ export function parseResponse(serialized: string): HttpResponse<string> {
  *
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
-export function serializeRequest(request: HttpRequest<any>): string {
+export function serializeRequest(request: IHttpRequest): string {
   const startLine = `${request.method} ${request.path} HTTP/1.1`;
 
   return `${startLine}\r\n${serializeMessage(request)}`;
@@ -95,7 +93,7 @@ export function serializeRequest(request: HttpRequest<any>): string {
  *
  * @see https://tools.ietf.org/html/rfc7230#section-3
  */
-export function serializeResponse(response: HttpResponse<any>): string {
+export function serializeResponse(response: IHttpResponse): string {
   const { statusCode } = response;
   const startLine = `HTTP/1.1 ${statusCode} ${reasonPhrases[statusCode]}`;
 
@@ -118,7 +116,7 @@ function addHeaderToMessage(message: ParsedMessage, header: [string, string]) {
 }
 
 function parseAuthorityIntoMessage(
-  message: DerivedHttpRequest,
+  message: IHttpRequest,
   authority: string
 ): void {
   const [hostname, port] = authority.split(":");
@@ -209,7 +207,7 @@ const requestRegex = /^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*
  *
  * @see https://tools.ietf.org/html/rfc7230#section-5.3
  */
-function parseTargetIntoMessage(message: DerivedHttpRequest, target: string) {
+function parseTargetIntoMessage(message: IHttpRequest, target: string) {
   if (target === "*") {
     // this is the asterisk form
     message.path = target;
@@ -236,7 +234,7 @@ function parseTargetIntoMessage(message: DerivedHttpRequest, target: string) {
   }
 }
 
-function serializeBody(message: HttpMessage<any>): string {
+function serializeBody(message: HttpMessage): string {
   if (message.body === undefined) {
     return "";
   }
@@ -252,13 +250,13 @@ function serializeBody(message: HttpMessage<any>): string {
   return "[streaming payload]";
 }
 
-function serializeHeaders(message: HttpMessage<any>): string {
+function serializeHeaders(message: HttpMessage): string {
   return Object.keys(message.headers).reduce(
     (carry, key) => carry + `${key}: ${message.headers[key]}\r\n`,
     ""
   );
 }
 
-function serializeMessage(message: HttpMessage<any>): string {
+function serializeMessage(message: HttpMessage): string {
   return `${serializeHeaders(message)}\r\n${serializeBody(message)}`;
 }
