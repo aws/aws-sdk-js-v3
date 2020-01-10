@@ -1,6 +1,7 @@
 import { applyMd5BodyChecksumMiddleware } from "./applyMd5BodyChecksumMiddleware";
 import { HashConstructor } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { XmlNode } from "@aws-sdk/xml-builder";
 
 describe("applyMd5BodyChecksumMiddleware", () => {
   const mockEncoder = jest.fn().mockReturnValue("encoded");
@@ -95,5 +96,25 @@ describe("applyMd5BodyChecksumMiddleware", () => {
     expect(mockHashDigest.mock.calls.length).toBe(0);
     expect(mockEncoder.mock.calls.length).toBe(1);
     expect(mockEncoder.mock.calls).toEqual([[new Uint8Array(5)]]);
+  });
+
+  it("should calculate the body hash of an XmlNode, encode the result, and set the encoded hash to Content-MD5 header", async () => {
+    const handler = applyMd5BodyChecksumMiddleware({
+      md5: MockHash,
+      base64Encoder: mockEncoder,
+      streamHasher: async (stream: ExoticStream) => new Uint8Array(5)
+    })(next, {} as any);
+
+    await handler({
+      input: {},
+      request: new HttpRequest({
+        body: new XmlNode("foo")
+      })
+    });
+
+    expect(next.mock.calls.length).toBe(1);
+    const { request } = next.mock.calls[0][0];
+    expect(request.headers["Content-MD5"]).toBe("encoded");
+    expect(mockHashUpdate.mock.calls).toEqual([["<foo/>"]]);
   });
 });

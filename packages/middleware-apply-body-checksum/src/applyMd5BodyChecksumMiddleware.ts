@@ -34,6 +34,10 @@ export function applyMd5BodyChecksumMiddleware(
           const hash = new options.md5();
           hash.update(body || "");
           digest = hash.digest();
+        } else if (isXmlNode(body)) {
+          const hash = new options.md5();
+          hash.update(body.toString());
+          digest = hash.digest();
         } else {
           digest = options.streamHasher(options.md5, body);
         }
@@ -80,4 +84,15 @@ function hasHeader(soughtHeader: string, headers: HeaderBag): boolean {
   }
 
   return false;
+}
+
+function isXmlNode(arg: any) {
+  return (
+    typeof arg === "object" &&
+    typeof arg.toString === "function" &&
+    typeof arg.addAttribute === "function" &&
+    typeof arg.addChildNode === "function" &&
+    typeof arg.children === "object" &&
+    typeof arg.attributes === "object"
+  );
 }
