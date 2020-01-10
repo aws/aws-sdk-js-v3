@@ -1,8 +1,8 @@
-var util = require('util');
-var jmespath = require('jmespath');
+var util = require("util");
+var jmespath = require("jmespath");
 
-module.exports = function () {
-  this.World = require('./world.js').World;
+module.exports = function() {
+  this.World = require("./world.js").World;
 
   this.Before(function(callback) {
     this.params = {};
@@ -13,8 +13,12 @@ module.exports = function () {
   this.Given(/^I create a shared bucket$/, function(callback) {
     if (this.sharedBucket) return callback();
 
-    var bucket = this.sharedBucket = this.uniqueName('aws-sdk-js-shared-integration');
-    this.request('s3', 'createBucket', {Bucket: this.sharedBucket}, function(err) {
+    var bucket = (this.sharedBucket = this.uniqueName(
+      "aws-sdk-js-shared-integration"
+    ));
+    this.request("s3", "createBucket", { Bucket: this.sharedBucket }, function(
+      err
+    ) {
       this.cacheBucketName(this.sharedBucket);
       if (err) {
         callback.fail(err);
@@ -22,76 +26,105 @@ module.exports = function () {
         if (err) {
           return callback(err);
         }
-        this.s3.waitFor('bucketExists', {Bucket: bucket}, callback);
+        this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
       }
     });
   });
 
   this.Given(/^I create a bucket$/, function(callback) {
-    var bucket = this.bucket = this.uniqueName('aws-sdk-js-integration');
-    this.request('s3', 'createBucket', {Bucket: this.bucket}, function(err, data) {
+    var bucket = (this.bucket = this.uniqueName("aws-sdk-js-integration"));
+    this.request("s3", "createBucket", { Bucket: this.bucket }, function(
+      err,
+      data
+    ) {
       if (err) {
         return callback(err);
       }
-      this.s3.waitFor('bucketExists', {Bucket: bucket}, callback);
+      this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
     });
   });
 
   this.When(/^I delete the bucket$/, function(callback) {
-    this.request('s3', 'deleteBucket', {Bucket: this.bucket}, callback);
+    this.request("s3", "deleteBucket", { Bucket: this.bucket }, callback);
   });
 
   this.Then(/^the bucket should exist$/, function(next) {
-    this.s3.waitFor('bucketExists', {Bucket: this.bucket}, next);
+    this.s3.waitFor("bucketExists", { Bucket: this.bucket }, next);
   });
 
   this.Then(/^the bucket should not exist$/, function(callback) {
-    this.s3.waitFor('bucketNotExists', {Bucket: this.bucket}, callback);
+    this.s3.waitFor("bucketNotExists", { Bucket: this.bucket }, callback);
   });
 
   /* Global error code steps */
 
-  this.Given(/^I run the "([^"]*)" operation$/, function (operation, callback) {
+  this.Given(/^I run the "([^"]*)" operation$/, function(operation, callback) {
     this.request(null, operation, {}, callback, false);
   });
 
-  this.Given(/^I run the "([^"]*)" operation with params:$/, function (operation, params, callback) {
+  this.Given(/^I run the "([^"]*)" operation with params:$/, function(
+    operation,
+    params,
+    callback
+  ) {
     this.request(null, operation, JSON.parse(params), callback, false);
   });
 
-  this.Then(/^the request should be successful$/, function (callback) {
-    this.assert.ok(!this.error, 'Response was not successful');
+  this.Then(/^the request should be successful$/, function(callback) {
+    this.assert.ok(!this.error, "Response was not successful");
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a list$/, function (path, callback) {
+  this.Then(/^the value at "([^"]*)" should be a list$/, function(
+    path,
+    callback
+  ) {
     var value = jmespath.search(this.data, path);
-    this.assert.ok(Array.isArray(value), 'expected ' + util.inspect(value) + ' to be a list');
+    this.assert.ok(
+      Array.isArray(value),
+      "expected " + util.inspect(value) + " to be a list"
+    );
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a number$/, function (path, callback) {
+  this.Then(/^the value at "([^"]*)" should be a number$/, function(
+    path,
+    callback
+  ) {
     var value = jmespath.search(this.data, path);
-    this.assert.ok(typeof value === 'number', 'expected ' + util.inspect(value) + ' to be a number');
+    this.assert.ok(
+      typeof value === "number",
+      "expected " + util.inspect(value) + " to be a number"
+    );
     callback();
   });
 
-  this.Then(/^the value at "([^"]*)" should be a string$/, function (path, callback) {
+  this.Then(/^the value at "([^"]*)" should be a string$/, function(
+    path,
+    callback
+  ) {
     var value = jmespath.search(this.data, path);
-    this.assert.ok(typeof value === 'string', 'expected ' + util.inspect(value) + ' to be a string');
+    this.assert.ok(
+      typeof value === "string",
+      "expected " + util.inspect(value) + " to be a string"
+    );
     callback();
   });
 
   this.Then(/^the error code should be "([^"]*)"$/, function(code, callback) {
-    this.assert.ok(this.error, 'Response does not contain an error');
+    this.assert.ok(this.error, "Response does not contain an error");
     this.assert.equal(this.error.name, code);
     callback();
   });
 
-  this.Then(/^the error message should (be|equal|match|contain):$/, function(matcher, message, callback) {
-    if (matcher === 'be') matcher = 'equal';
-    if (matcher === 'contain') matcher = 'match';
-    this.assert.ok(this.error, 'Response does not contain an error');
+  this.Then(/^the error message should (be|equal|match|contain):$/, function(
+    matcher,
+    message,
+    callback
+  ) {
+    if (matcher === "be") matcher = "equal";
+    if (matcher === "contain") matcher = "match";
+    this.assert.ok(this.error, "Response does not contain an error");
     this.assert[matcher](this.error.message, message);
     callback();
   });
@@ -106,7 +139,10 @@ module.exports = function () {
     callback();
   });
 
-  this.Then(/^the error status code should be (\d+)$/, function(status, callback) {
+  this.Then(/^the error status code should be (\d+)$/, function(
+    status,
+    callback
+  ) {
     this.assert.equal(this.error.$metadata.httpStatusCode, parseInt(status));
     callback();
   });
@@ -118,48 +154,54 @@ module.exports = function () {
     callback();
   });
 
-  this.Given(/^I have a "([^"]*)" service in the "([^"]*)" region$/, function(svc, region, callback) {
+  this.Given(/^I have a "([^"]*)" service in the "([^"]*)" region$/, function(
+    svc,
+    region,
+    callback
+  ) {
     this.service = new this.AWS[svc]({ region: region });
     callback();
   });
 
-  this.Given(/^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/, function(operation, limit, maxPages, callback) {
-    limit = parseInt(limit);
-    if (maxPages) maxPages = parseInt(maxPages);
+  this.Given(
+    /^I paginate the "([^"]*)" operation(?: with limit (\d+))?(?: and max pages (\d+))?$/,
+    function(operation, limit, maxPages, callback) {
+      limit = parseInt(limit);
+      if (maxPages) maxPages = parseInt(maxPages);
 
-    var world = this;
-    this.numPages = 0;
-    this.numMarkers = 0;
-    this.operation = operation;
-    this.paginationConfig = this.service.paginationConfig(operation);
-    this.params = this.params || {};
+      var world = this;
+      this.numPages = 0;
+      this.numMarkers = 0;
+      this.operation = operation;
+      this.paginationConfig = this.service.paginationConfig(operation);
+      this.params = this.params || {};
 
-    var marker = this.paginationConfig.outputToken;
-    if (this.paginationConfig.limitKey) {
-      this.params[this.paginationConfig.limitKey] = limit;
+      var marker = this.paginationConfig.outputToken;
+      if (this.paginationConfig.limitKey) {
+        this.params[this.paginationConfig.limitKey] = limit;
+      }
+      this.service[operation](this.params).eachPage(function(err, data) {
+        if (err) callback.fail(err);
+        else if (data === null) callback();
+        else if (maxPages && world.numPages === maxPages) {
+          callback();
+          return false;
+        } else {
+          if (data[marker]) world.numMarkers++;
+          world.numPages++;
+          world.data = data;
+        }
+      });
     }
-    this.service[operation](this.params).eachPage(function (err, data) {
-      if (err) callback.fail(err);
-      else if (data === null) callback();
-      else if (maxPages && world.numPages === maxPages) {
-        callback();
-        return false;
-      }
-      else {
-        if (data[marker]) world.numMarkers++;
-        world.numPages++;
-        world.data = data;
-      }
-    });
-  });
+  );
 
   this.Then(/^I should get more than one page$/, function(callback) {
-    this.assert.compare(this.numPages, '>', 1);
+    this.assert.compare(this.numPages, ">", 1);
     callback();
   });
 
   this.Then(/^I should get at least one page$/, function(callback) {
-    this.assert.compare(this.numPages, '>=', 1);
+    this.assert.compare(this.numPages, ">=", 1);
     callback();
   });
 
@@ -179,23 +221,33 @@ module.exports = function () {
     callback();
   });
 
-
-  this.Then(/^the result at (\w+) should contain a property (\w+) with an? (\w+)$/, function(wrapper, property, type, callback) {
-    if (type === 'Array' || type === 'Date') {
-      this.assert.equal(this.AWS.util.isType(this.data[wrapper][property], type), true);
-    } else {
-      this.assert.equal(typeof this.data[wrapper][property], type);
+  this.Then(
+    /^the result at (\w+) should contain a property (\w+) with an? (\w+)$/,
+    function(wrapper, property, type, callback) {
+      if (type === "Array" || type === "Date") {
+        this.assert.equal(
+          this.AWS.util.isType(this.data[wrapper][property], type),
+          true
+        );
+      } else {
+        this.assert.equal(typeof this.data[wrapper][property], type);
+      }
+      callback();
     }
-    callback();
-  });
+  );
 
-  this.Then(/^the result should contain a property (\w+) with an? (\w+)$/, function(property, type, callback) {
-    if (type === 'Array' || type === 'Date') {
-      this.assert.equal(this.AWS.util.isType(this.data[property], type), true);
-    } else {
-      this.assert.equal(typeof this.data[property], type);
+  this.Then(
+    /^the result should contain a property (\w+) with an? (\w+)$/,
+    function(property, type, callback) {
+      if (type === "Array" || type === "Date") {
+        this.assert.equal(
+          this.AWS.util.isType(this.data[property], type),
+          true
+        );
+      } else {
+        this.assert.equal(typeof this.data[property], type);
+      }
+      callback();
     }
-    callback();
-  });
-
+  );
 };
