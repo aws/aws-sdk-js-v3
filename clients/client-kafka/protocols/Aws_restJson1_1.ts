@@ -777,11 +777,6 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -791,49 +786,49 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.kafka#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.kafka#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -888,11 +883,6 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -902,49 +892,49 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.kafka#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.kafka#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -985,11 +975,6 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -999,28 +984,28 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1063,11 +1048,6 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1077,35 +1057,35 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1148,11 +1128,6 @@ async function deserializeAws_restJson1_1DescribeClusterOperationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterOperationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1162,35 +1137,35 @@ async function deserializeAws_restJson1_1DescribeClusterOperationCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1256,11 +1231,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1270,42 +1240,42 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1361,11 +1331,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1375,42 +1340,42 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1454,11 +1419,6 @@ async function deserializeAws_restJson1_1GetBootstrapBrokersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBootstrapBrokersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1468,35 +1428,35 @@ async function deserializeAws_restJson1_1GetBootstrapBrokersCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.kafka#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1543,11 +1503,6 @@ async function deserializeAws_restJson1_1ListClusterOperationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClusterOperationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1557,28 +1512,28 @@ async function deserializeAws_restJson1_1ListClusterOperationsCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1622,11 +1577,6 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1636,28 +1586,28 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1704,11 +1654,6 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1718,42 +1663,42 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1800,11 +1745,6 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1814,35 +1754,35 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1886,11 +1826,6 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1900,28 +1835,28 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1964,11 +1899,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1978,21 +1908,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2023,11 +1953,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2037,21 +1962,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2082,11 +2007,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2096,21 +2016,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2154,11 +2074,6 @@ async function deserializeAws_restJson1_1UpdateBrokerCountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerCountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2168,35 +2083,35 @@ async function deserializeAws_restJson1_1UpdateBrokerCountCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2240,11 +2155,6 @@ async function deserializeAws_restJson1_1UpdateBrokerStorageCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerStorageCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2254,35 +2164,35 @@ async function deserializeAws_restJson1_1UpdateBrokerStorageCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2326,11 +2236,6 @@ async function deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2340,42 +2245,42 @@ async function deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.kafka#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.kafka#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2400,7 +2305,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2421,7 +2326,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2442,7 +2347,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2463,7 +2368,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2484,7 +2389,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2505,7 +2410,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2526,7 +2431,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -2547,7 +2452,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     InvalidParameter: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.invalidParameter !== undefined) {
     contents.InvalidParameter = data.invalidParameter;
   }
@@ -3397,9 +3302,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

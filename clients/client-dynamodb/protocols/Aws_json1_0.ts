@@ -1353,10 +1353,13 @@ async function deserializeAws_json1_0DescribeEndpointsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1392,14 +1395,13 @@ async function deserializeAws_json1_0BatchGetItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1470,14 +1472,13 @@ async function deserializeAws_json1_0BatchWriteItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchWriteItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1555,14 +1556,13 @@ async function deserializeAws_json1_0CreateBackupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1647,14 +1647,13 @@ async function deserializeAws_json1_0CreateGlobalTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1725,14 +1724,13 @@ async function deserializeAws_json1_0CreateTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1796,14 +1794,13 @@ async function deserializeAws_json1_0DeleteBackupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1874,14 +1871,13 @@ async function deserializeAws_json1_0DeleteItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1973,14 +1969,13 @@ async function deserializeAws_json1_0DeleteTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2051,14 +2046,13 @@ async function deserializeAws_json1_0DescribeBackupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2121,14 +2115,13 @@ async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeContinuousBackupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2191,14 +2184,13 @@ async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeContributorInsightsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2251,14 +2243,13 @@ async function deserializeAws_json1_0DescribeGlobalTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2321,14 +2312,13 @@ async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalTableSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2385,14 +2375,13 @@ async function deserializeAws_json1_0DescribeLimitsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLimitsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2442,14 +2431,13 @@ async function deserializeAws_json1_0DescribeTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2512,14 +2500,13 @@ async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2572,14 +2559,13 @@ async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTimeToLiveCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2636,14 +2622,13 @@ async function deserializeAws_json1_0GetItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2714,14 +2699,13 @@ async function deserializeAws_json1_0ListBackupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2774,14 +2758,13 @@ async function deserializeAws_json1_0ListContributorInsightsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContributorInsightsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2831,14 +2814,13 @@ async function deserializeAws_json1_0ListGlobalTablesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGlobalTablesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2888,14 +2870,13 @@ async function deserializeAws_json1_0ListTablesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2948,14 +2929,13 @@ async function deserializeAws_json1_0ListTagsOfResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsOfResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3012,14 +2992,13 @@ async function deserializeAws_json1_0PutItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3111,14 +3090,13 @@ async function deserializeAws_json1_0QueryCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3192,14 +3170,13 @@ async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableFromBackupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3290,14 +3267,13 @@ async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreTableToPointInTimeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3389,14 +3365,13 @@ async function deserializeAws_json1_0ScanCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScanCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3462,14 +3437,13 @@ async function deserializeAws_json1_0TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3540,14 +3514,13 @@ async function deserializeAws_json1_0TransactGetItemsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransactGetItemsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3628,14 +3601,13 @@ async function deserializeAws_json1_0TransactWriteItemsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransactWriteItemsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3722,14 +3694,13 @@ async function deserializeAws_json1_0UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3803,14 +3774,13 @@ async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContinuousBackupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3880,14 +3850,13 @@ async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContributorInsightsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3937,14 +3906,13 @@ async function deserializeAws_json1_0UpdateGlobalTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4028,14 +3996,13 @@ async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalTableSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4120,14 +4087,13 @@ async function deserializeAws_json1_0UpdateItemCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateItemCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4219,14 +4185,13 @@ async function deserializeAws_json1_0UpdateTableCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTableCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4303,14 +4268,13 @@ async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTableReplicaAutoScalingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4374,14 +4338,13 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTimeToLiveCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4431,442 +4394,468 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
 }
 
 const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEndpointException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidEndpointException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidEndpointException = {
     __type: "InvalidEndpointException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0BackupInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BackupInUseException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0BackupInUseException(
-    output.body,
+    body,
     context
   );
   const contents: BackupInUseException = {
     __type: "BackupInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BackupNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0BackupNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: BackupNotFoundException = {
     __type: "BackupNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConditionalCheckFailedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ConditionalCheckFailedException(
-    output.body,
+    body,
     context
   );
   const contents: ConditionalCheckFailedException = {
     __type: "ConditionalCheckFailedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ContinuousBackupsUnavailableException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ContinuousBackupsUnavailableException(
-    output.body,
+    body,
     context
   );
   const contents: ContinuousBackupsUnavailableException = {
     __type: "ContinuousBackupsUnavailableException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GlobalTableAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0GlobalTableAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: GlobalTableAlreadyExistsException = {
     __type: "GlobalTableAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GlobalTableNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0GlobalTableNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: GlobalTableNotFoundException = {
     __type: "GlobalTableNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0IdempotentParameterMismatchException(
-    output.body,
+    body,
     context
   );
   const contents: IdempotentParameterMismatchException = {
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IndexNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0IndexNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: IndexNotFoundException = {
     __type: "IndexNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0InternalServerErrorResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerError> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InternalServerError(
-    output.body,
+    body,
     context
   );
   const contents: InternalServerError = {
     __type: "InternalServerError",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRestoreTimeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidRestoreTimeException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidRestoreTimeException = {
     __type: "InvalidRestoreTimeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ItemCollectionSizeLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ItemCollectionSizeLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: ItemCollectionSizeLimitExceededException = {
     __type: "ItemCollectionSizeLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0LimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<PointInTimeRecoveryUnavailableException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0PointInTimeRecoveryUnavailableException(
-    output.body,
+    body,
     context
   );
   const contents: PointInTimeRecoveryUnavailableException = {
     __type: "PointInTimeRecoveryUnavailableException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ProvisionedThroughputExceededException(
-    output.body,
+    body,
     context
   );
   const contents: ProvisionedThroughputExceededException = {
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicaAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ReplicaAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: ReplicaAlreadyExistsException = {
     __type: "ReplicaAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ReplicaNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ReplicaNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: ReplicaNotFoundException = {
     __type: "ReplicaNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0RequestLimitExceededResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestLimitExceeded> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0RequestLimitExceeded(
-    output.body,
+    body,
     context
   );
   const contents: RequestLimitExceeded = {
     __type: "RequestLimitExceeded",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceInUseException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceInUseException = {
     __type: "ResourceInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TableAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: TableAlreadyExistsException = {
     __type: "TableAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TableInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TableInUseException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableInUseException(
-    output.body,
+    body,
     context
   );
   const contents: TableInUseException = {
     __type: "TableInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TableNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: TableNotFoundException = {
     __type: "TableNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionCanceledException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionCanceledException(
-    output.body,
+    body,
     context
   );
   const contents: TransactionCanceledException = {
     __type: "TransactionCanceledException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionConflictException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionConflictException(
-    output.body,
+    body,
     context
   );
   const contents: TransactionConflictException = {
     __type: "TransactionConflictException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionInProgressException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionInProgressException(
-    output.body,
+    body,
     context
   );
   const contents: TransactionInProgressException = {
     __type: "TransactionInProgressException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -10682,9 +10671,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

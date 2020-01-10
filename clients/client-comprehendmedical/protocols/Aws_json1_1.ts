@@ -399,14 +399,13 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -476,14 +475,13 @@ async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePHIDetectionJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -547,14 +545,13 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectEntitiesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -632,14 +629,13 @@ async function deserializeAws_json1_1DetectEntitiesV2CommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectEntitiesV2CommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -717,14 +713,13 @@ async function deserializeAws_json1_1DetectPHICommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectPHICommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -808,14 +803,13 @@ async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -882,14 +876,13 @@ async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPHIDetectionJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -959,14 +952,13 @@ async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartEntitiesDetectionV2JobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1033,14 +1025,13 @@ async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPHIDetectionJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1110,14 +1101,13 @@ async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopEntitiesDetectionV2JobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1177,14 +1167,13 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopPHIDetectionJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1220,136 +1209,144 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
 }
 
 const deserializeAws_json1_1InternalServerExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServerException(
-    output.body,
+    body,
     context
   );
   const contents: InternalServerException = {
     __type: "InternalServerException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidEncodingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEncodingException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEncodingException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidEncodingException = {
     __type: "InvalidEncodingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    output.body,
+    body,
     context
   );
   const contents: ServiceUnavailableException = {
     __type: "ServiceUnavailableException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TextSizeLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TextSizeLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: TextSizeLimitExceededException = {
     __type: "TextSizeLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    output.body,
+    body,
     context
   );
   const contents: TooManyRequestsException = {
     __type: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ValidationException(
-    output.body,
+    body,
     context
   );
   const contents: ValidationException = {
     __type: "ValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -2228,9 +2225,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

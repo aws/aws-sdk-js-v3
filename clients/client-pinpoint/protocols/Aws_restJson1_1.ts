@@ -4208,11 +4208,6 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4222,42 +4217,42 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4298,11 +4293,6 @@ async function deserializeAws_restJson1_1CreateCampaignCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4312,42 +4302,42 @@ async function deserializeAws_restJson1_1CreateCampaignCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4388,11 +4378,6 @@ async function deserializeAws_restJson1_1CreateEmailTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4402,35 +4387,35 @@ async function deserializeAws_restJson1_1CreateEmailTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4471,11 +4456,6 @@ async function deserializeAws_restJson1_1CreateExportJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4485,42 +4465,42 @@ async function deserializeAws_restJson1_1CreateExportJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4561,11 +4541,6 @@ async function deserializeAws_restJson1_1CreateImportJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4575,42 +4550,42 @@ async function deserializeAws_restJson1_1CreateImportJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4648,11 +4623,6 @@ async function deserializeAws_restJson1_1CreateJourneyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJourneyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4662,42 +4632,42 @@ async function deserializeAws_restJson1_1CreateJourneyCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4738,11 +4708,6 @@ async function deserializeAws_restJson1_1CreatePushTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePushTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4752,35 +4717,35 @@ async function deserializeAws_restJson1_1CreatePushTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4818,11 +4783,6 @@ async function deserializeAws_restJson1_1CreateSegmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSegmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4832,42 +4792,42 @@ async function deserializeAws_restJson1_1CreateSegmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4908,11 +4868,6 @@ async function deserializeAws_restJson1_1CreateSmsTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSmsTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4922,35 +4877,35 @@ async function deserializeAws_restJson1_1CreateSmsTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4991,11 +4946,6 @@ async function deserializeAws_restJson1_1CreateVoiceTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5005,35 +4955,35 @@ async function deserializeAws_restJson1_1CreateVoiceTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5074,11 +5024,6 @@ async function deserializeAws_restJson1_1DeleteAdmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAdmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5088,42 +5033,42 @@ async function deserializeAws_restJson1_1DeleteAdmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5164,11 +5109,6 @@ async function deserializeAws_restJson1_1DeleteApnsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5178,42 +5118,42 @@ async function deserializeAws_restJson1_1DeleteApnsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5254,11 +5194,6 @@ async function deserializeAws_restJson1_1DeleteApnsSandboxChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5268,42 +5203,42 @@ async function deserializeAws_restJson1_1DeleteApnsSandboxChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5344,11 +5279,6 @@ async function deserializeAws_restJson1_1DeleteApnsVoipChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5358,42 +5288,42 @@ async function deserializeAws_restJson1_1DeleteApnsVoipChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5434,11 +5364,6 @@ async function deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5448,42 +5373,42 @@ async function deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommandErro
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5521,11 +5446,6 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5535,42 +5455,42 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5611,11 +5531,6 @@ async function deserializeAws_restJson1_1DeleteBaiduChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBaiduChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5625,42 +5540,42 @@ async function deserializeAws_restJson1_1DeleteBaiduChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5701,11 +5616,6 @@ async function deserializeAws_restJson1_1DeleteCampaignCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5715,42 +5625,42 @@ async function deserializeAws_restJson1_1DeleteCampaignCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5791,11 +5701,6 @@ async function deserializeAws_restJson1_1DeleteEmailChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5805,42 +5710,42 @@ async function deserializeAws_restJson1_1DeleteEmailChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5878,11 +5783,6 @@ async function deserializeAws_restJson1_1DeleteEmailTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5892,42 +5792,42 @@ async function deserializeAws_restJson1_1DeleteEmailTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5968,11 +5868,6 @@ async function deserializeAws_restJson1_1DeleteEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5982,42 +5877,42 @@ async function deserializeAws_restJson1_1DeleteEndpointCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6055,11 +5950,6 @@ async function deserializeAws_restJson1_1DeleteEventStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6069,42 +5959,42 @@ async function deserializeAws_restJson1_1DeleteEventStreamCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6145,11 +6035,6 @@ async function deserializeAws_restJson1_1DeleteGcmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGcmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6159,42 +6044,42 @@ async function deserializeAws_restJson1_1DeleteGcmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6232,11 +6117,6 @@ async function deserializeAws_restJson1_1DeleteJourneyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJourneyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6246,42 +6126,42 @@ async function deserializeAws_restJson1_1DeleteJourneyCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6319,11 +6199,6 @@ async function deserializeAws_restJson1_1DeletePushTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePushTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6333,42 +6208,42 @@ async function deserializeAws_restJson1_1DeletePushTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6406,11 +6281,6 @@ async function deserializeAws_restJson1_1DeleteSegmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSegmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6420,42 +6290,42 @@ async function deserializeAws_restJson1_1DeleteSegmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6496,11 +6366,6 @@ async function deserializeAws_restJson1_1DeleteSmsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6510,42 +6375,42 @@ async function deserializeAws_restJson1_1DeleteSmsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6583,11 +6448,6 @@ async function deserializeAws_restJson1_1DeleteSmsTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6597,42 +6457,42 @@ async function deserializeAws_restJson1_1DeleteSmsTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6673,11 +6533,6 @@ async function deserializeAws_restJson1_1DeleteUserEndpointsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserEndpointsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6687,42 +6542,42 @@ async function deserializeAws_restJson1_1DeleteUserEndpointsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6763,11 +6618,6 @@ async function deserializeAws_restJson1_1DeleteVoiceChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6777,42 +6627,42 @@ async function deserializeAws_restJson1_1DeleteVoiceChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6850,11 +6700,6 @@ async function deserializeAws_restJson1_1DeleteVoiceTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6864,42 +6709,42 @@ async function deserializeAws_restJson1_1DeleteVoiceTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6937,11 +6782,6 @@ async function deserializeAws_restJson1_1GetAdmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6951,42 +6791,42 @@ async function deserializeAws_restJson1_1GetAdmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7027,11 +6867,6 @@ async function deserializeAws_restJson1_1GetApnsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7041,42 +6876,42 @@ async function deserializeAws_restJson1_1GetApnsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7117,11 +6952,6 @@ async function deserializeAws_restJson1_1GetApnsSandboxChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7131,42 +6961,42 @@ async function deserializeAws_restJson1_1GetApnsSandboxChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7207,11 +7037,6 @@ async function deserializeAws_restJson1_1GetApnsVoipChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7221,42 +7046,42 @@ async function deserializeAws_restJson1_1GetApnsVoipChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7297,11 +7122,6 @@ async function deserializeAws_restJson1_1GetApnsVoipSandboxChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7311,42 +7131,42 @@ async function deserializeAws_restJson1_1GetApnsVoipSandboxChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7384,11 +7204,6 @@ async function deserializeAws_restJson1_1GetAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7398,42 +7213,42 @@ async function deserializeAws_restJson1_1GetAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7474,11 +7289,6 @@ async function deserializeAws_restJson1_1GetApplicationDateRangeKpiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationDateRangeKpiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7488,42 +7298,42 @@ async function deserializeAws_restJson1_1GetApplicationDateRangeKpiCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7564,11 +7374,6 @@ async function deserializeAws_restJson1_1GetApplicationSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7578,42 +7383,42 @@ async function deserializeAws_restJson1_1GetApplicationSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7651,11 +7456,6 @@ async function deserializeAws_restJson1_1GetAppsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7665,42 +7465,42 @@ async function deserializeAws_restJson1_1GetAppsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7741,11 +7541,6 @@ async function deserializeAws_restJson1_1GetBaiduChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBaiduChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7755,42 +7550,42 @@ async function deserializeAws_restJson1_1GetBaiduChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7828,11 +7623,6 @@ async function deserializeAws_restJson1_1GetCampaignCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7842,42 +7632,42 @@ async function deserializeAws_restJson1_1GetCampaignCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7918,11 +7708,6 @@ async function deserializeAws_restJson1_1GetCampaignActivitiesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignActivitiesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7932,42 +7717,42 @@ async function deserializeAws_restJson1_1GetCampaignActivitiesCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8008,11 +7793,6 @@ async function deserializeAws_restJson1_1GetCampaignDateRangeKpiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignDateRangeKpiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8022,42 +7802,42 @@ async function deserializeAws_restJson1_1GetCampaignDateRangeKpiCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8098,11 +7878,6 @@ async function deserializeAws_restJson1_1GetCampaignVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8112,42 +7887,42 @@ async function deserializeAws_restJson1_1GetCampaignVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8188,11 +7963,6 @@ async function deserializeAws_restJson1_1GetCampaignVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8202,42 +7972,42 @@ async function deserializeAws_restJson1_1GetCampaignVersionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8275,11 +8045,6 @@ async function deserializeAws_restJson1_1GetCampaignsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8289,42 +8054,42 @@ async function deserializeAws_restJson1_1GetCampaignsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8362,11 +8127,6 @@ async function deserializeAws_restJson1_1GetChannelsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8376,42 +8136,42 @@ async function deserializeAws_restJson1_1GetChannelsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8452,11 +8212,6 @@ async function deserializeAws_restJson1_1GetEmailChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8466,42 +8221,42 @@ async function deserializeAws_restJson1_1GetEmailChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8542,11 +8297,6 @@ async function deserializeAws_restJson1_1GetEmailTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8556,42 +8306,42 @@ async function deserializeAws_restJson1_1GetEmailTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8629,11 +8379,6 @@ async function deserializeAws_restJson1_1GetEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8643,42 +8388,42 @@ async function deserializeAws_restJson1_1GetEndpointCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8716,11 +8461,6 @@ async function deserializeAws_restJson1_1GetEventStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8730,42 +8470,42 @@ async function deserializeAws_restJson1_1GetEventStreamCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8803,11 +8543,6 @@ async function deserializeAws_restJson1_1GetExportJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8817,42 +8552,42 @@ async function deserializeAws_restJson1_1GetExportJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8890,11 +8625,6 @@ async function deserializeAws_restJson1_1GetExportJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8904,42 +8634,42 @@ async function deserializeAws_restJson1_1GetExportJobsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8977,11 +8707,6 @@ async function deserializeAws_restJson1_1GetGcmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGcmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8991,42 +8716,42 @@ async function deserializeAws_restJson1_1GetGcmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9064,11 +8789,6 @@ async function deserializeAws_restJson1_1GetImportJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9078,42 +8798,42 @@ async function deserializeAws_restJson1_1GetImportJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9151,11 +8871,6 @@ async function deserializeAws_restJson1_1GetImportJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9165,42 +8880,42 @@ async function deserializeAws_restJson1_1GetImportJobsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9238,11 +8953,6 @@ async function deserializeAws_restJson1_1GetJourneyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9252,42 +8962,42 @@ async function deserializeAws_restJson1_1GetJourneyCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9328,11 +9038,6 @@ async function deserializeAws_restJson1_1GetJourneyDateRangeKpiCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyDateRangeKpiCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9342,42 +9047,42 @@ async function deserializeAws_restJson1_1GetJourneyDateRangeKpiCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9418,11 +9123,6 @@ async function deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9432,42 +9132,42 @@ async function deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsComma
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9508,11 +9208,6 @@ async function deserializeAws_restJson1_1GetJourneyExecutionMetricsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9522,42 +9217,42 @@ async function deserializeAws_restJson1_1GetJourneyExecutionMetricsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9598,11 +9293,6 @@ async function deserializeAws_restJson1_1GetPushTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPushTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9612,42 +9302,42 @@ async function deserializeAws_restJson1_1GetPushTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9685,11 +9375,6 @@ async function deserializeAws_restJson1_1GetSegmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9699,42 +9384,42 @@ async function deserializeAws_restJson1_1GetSegmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9775,11 +9460,6 @@ async function deserializeAws_restJson1_1GetSegmentExportJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentExportJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9789,42 +9469,42 @@ async function deserializeAws_restJson1_1GetSegmentExportJobsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9865,11 +9545,6 @@ async function deserializeAws_restJson1_1GetSegmentImportJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentImportJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9879,42 +9554,42 @@ async function deserializeAws_restJson1_1GetSegmentImportJobsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9955,11 +9630,6 @@ async function deserializeAws_restJson1_1GetSegmentVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9969,42 +9639,42 @@ async function deserializeAws_restJson1_1GetSegmentVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10045,11 +9715,6 @@ async function deserializeAws_restJson1_1GetSegmentVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10059,42 +9724,42 @@ async function deserializeAws_restJson1_1GetSegmentVersionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10132,11 +9797,6 @@ async function deserializeAws_restJson1_1GetSegmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10146,42 +9806,42 @@ async function deserializeAws_restJson1_1GetSegmentsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10219,11 +9879,6 @@ async function deserializeAws_restJson1_1GetSmsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10233,42 +9888,42 @@ async function deserializeAws_restJson1_1GetSmsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10309,11 +9964,6 @@ async function deserializeAws_restJson1_1GetSmsTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10323,42 +9973,42 @@ async function deserializeAws_restJson1_1GetSmsTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10399,11 +10049,6 @@ async function deserializeAws_restJson1_1GetUserEndpointsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserEndpointsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10413,42 +10058,42 @@ async function deserializeAws_restJson1_1GetUserEndpointsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10489,11 +10134,6 @@ async function deserializeAws_restJson1_1GetVoiceChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10503,42 +10143,42 @@ async function deserializeAws_restJson1_1GetVoiceChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10579,11 +10219,6 @@ async function deserializeAws_restJson1_1GetVoiceTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10593,42 +10228,42 @@ async function deserializeAws_restJson1_1GetVoiceTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10666,11 +10301,6 @@ async function deserializeAws_restJson1_1ListJourneysCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJourneysCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10680,42 +10310,42 @@ async function deserializeAws_restJson1_1ListJourneysCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10753,7 +10383,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10794,11 +10423,6 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10808,35 +10432,35 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10877,11 +10501,6 @@ async function deserializeAws_restJson1_1PhoneNumberValidateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PhoneNumberValidateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10891,42 +10510,42 @@ async function deserializeAws_restJson1_1PhoneNumberValidateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10964,11 +10583,6 @@ async function deserializeAws_restJson1_1PutEventStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10978,42 +10592,42 @@ async function deserializeAws_restJson1_1PutEventStreamCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11051,11 +10665,6 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11065,42 +10674,42 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11141,11 +10750,6 @@ async function deserializeAws_restJson1_1RemoveAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAttributesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11155,42 +10759,42 @@ async function deserializeAws_restJson1_1RemoveAttributesCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11228,11 +10832,6 @@ async function deserializeAws_restJson1_1SendMessagesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessagesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11242,42 +10841,42 @@ async function deserializeAws_restJson1_1SendMessagesCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11318,11 +10917,6 @@ async function deserializeAws_restJson1_1SendUsersMessagesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendUsersMessagesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11332,42 +10926,42 @@ async function deserializeAws_restJson1_1SendUsersMessagesCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11398,7 +10992,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11432,7 +11025,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11476,11 +11068,6 @@ async function deserializeAws_restJson1_1UpdateAdmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAdmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11490,42 +11077,42 @@ async function deserializeAws_restJson1_1UpdateAdmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11566,11 +11153,6 @@ async function deserializeAws_restJson1_1UpdateApnsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11580,42 +11162,42 @@ async function deserializeAws_restJson1_1UpdateApnsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11656,11 +11238,6 @@ async function deserializeAws_restJson1_1UpdateApnsSandboxChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11670,42 +11247,42 @@ async function deserializeAws_restJson1_1UpdateApnsSandboxChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11746,11 +11323,6 @@ async function deserializeAws_restJson1_1UpdateApnsVoipChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11760,42 +11332,42 @@ async function deserializeAws_restJson1_1UpdateApnsVoipChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11836,11 +11408,6 @@ async function deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11850,42 +11417,42 @@ async function deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommandErro
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11926,11 +11493,6 @@ async function deserializeAws_restJson1_1UpdateApplicationSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11940,42 +11502,42 @@ async function deserializeAws_restJson1_1UpdateApplicationSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12016,11 +11578,6 @@ async function deserializeAws_restJson1_1UpdateBaiduChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBaiduChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12030,42 +11587,42 @@ async function deserializeAws_restJson1_1UpdateBaiduChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12106,11 +11663,6 @@ async function deserializeAws_restJson1_1UpdateCampaignCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12120,42 +11672,42 @@ async function deserializeAws_restJson1_1UpdateCampaignCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12196,11 +11748,6 @@ async function deserializeAws_restJson1_1UpdateEmailChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12210,42 +11757,42 @@ async function deserializeAws_restJson1_1UpdateEmailChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12283,11 +11830,6 @@ async function deserializeAws_restJson1_1UpdateEmailTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12297,42 +11839,42 @@ async function deserializeAws_restJson1_1UpdateEmailTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12370,11 +11912,6 @@ async function deserializeAws_restJson1_1UpdateEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12384,42 +11921,42 @@ async function deserializeAws_restJson1_1UpdateEndpointCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12457,11 +11994,6 @@ async function deserializeAws_restJson1_1UpdateEndpointsBatchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointsBatchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12471,42 +12003,42 @@ async function deserializeAws_restJson1_1UpdateEndpointsBatchCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12547,11 +12079,6 @@ async function deserializeAws_restJson1_1UpdateGcmChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGcmChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12561,42 +12088,42 @@ async function deserializeAws_restJson1_1UpdateGcmChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12634,11 +12161,6 @@ async function deserializeAws_restJson1_1UpdateJourneyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12648,42 +12170,42 @@ async function deserializeAws_restJson1_1UpdateJourneyCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12724,11 +12246,6 @@ async function deserializeAws_restJson1_1UpdateJourneyStateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyStateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12738,42 +12255,42 @@ async function deserializeAws_restJson1_1UpdateJourneyStateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12811,11 +12328,6 @@ async function deserializeAws_restJson1_1UpdatePushTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePushTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12825,42 +12337,42 @@ async function deserializeAws_restJson1_1UpdatePushTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12898,11 +12410,6 @@ async function deserializeAws_restJson1_1UpdateSegmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSegmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12912,42 +12419,42 @@ async function deserializeAws_restJson1_1UpdateSegmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12988,11 +12495,6 @@ async function deserializeAws_restJson1_1UpdateSmsChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -13002,42 +12504,42 @@ async function deserializeAws_restJson1_1UpdateSmsChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -13075,11 +12577,6 @@ async function deserializeAws_restJson1_1UpdateSmsTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -13089,42 +12586,42 @@ async function deserializeAws_restJson1_1UpdateSmsTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -13165,11 +12662,6 @@ async function deserializeAws_restJson1_1UpdateVoiceChannelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceChannelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -13179,42 +12671,42 @@ async function deserializeAws_restJson1_1UpdateVoiceChannelCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -13252,11 +12744,6 @@ async function deserializeAws_restJson1_1UpdateVoiceTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -13266,42 +12753,42 @@ async function deserializeAws_restJson1_1UpdateVoiceTemplateCommandError(
     case "BadRequestException":
     case "com.amazonaws.pinpoint#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.pinpoint#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.pinpoint#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MethodNotAllowedException":
     case "com.amazonaws.pinpoint#MethodNotAllowedException":
       response = await deserializeAws_restJson1_1MethodNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.pinpoint#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -13326,7 +12813,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -13347,7 +12834,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -13368,7 +12855,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -13389,7 +12876,7 @@ const deserializeAws_restJson1_1MethodNotAllowedExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -13410,7 +12897,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -13431,7 +12918,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     Message: undefined,
     RequestID: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -20661,9 +20148,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

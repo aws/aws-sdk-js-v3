@@ -2236,11 +2236,6 @@ async function deserializeAws_restJson1_1AddLayerVersionPermissionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddLayerVersionPermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2250,49 +2245,49 @@ async function deserializeAws_restJson1_1AddLayerVersionPermissionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PolicyLengthExceededException":
     case "com.amazonaws.awsgirapi#PolicyLengthExceededException":
       response = await deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2329,11 +2324,6 @@ async function deserializeAws_restJson1_1AddPermissionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2343,49 +2333,49 @@ async function deserializeAws_restJson1_1AddPermissionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PolicyLengthExceededException":
     case "com.amazonaws.awsgirapi#PolicyLengthExceededException":
       response = await deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2445,11 +2435,6 @@ async function deserializeAws_restJson1_1CreateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2459,35 +2444,35 @@ async function deserializeAws_restJson1_1CreateAliasCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2587,11 +2572,6 @@ async function deserializeAws_restJson1_1CreateEventSourceMappingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventSourceMappingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2601,35 +2581,35 @@ async function deserializeAws_restJson1_1CreateEventSourceMappingCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2784,11 +2764,6 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2798,42 +2773,42 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
     case "CodeStorageExceededException":
     case "com.amazonaws.awsgirapi#CodeStorageExceededException":
       response = await deserializeAws_restJson1_1CodeStorageExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2864,11 +2839,6 @@ async function deserializeAws_restJson1_1DeleteAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2878,28 +2848,28 @@ async function deserializeAws_restJson1_1DeleteAliasCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2999,11 +2969,6 @@ async function deserializeAws_restJson1_1DeleteEventSourceMappingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventSourceMappingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3013,35 +2978,35 @@ async function deserializeAws_restJson1_1DeleteEventSourceMappingCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.awsgirapi#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3075,11 +3040,6 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3089,35 +3049,35 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3151,11 +3111,6 @@ async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3165,35 +3120,35 @@ async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3227,11 +3182,6 @@ async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3241,28 +3191,28 @@ async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommandE
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3296,11 +3246,6 @@ async function deserializeAws_restJson1_1DeleteLayerVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLayerVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3310,14 +3255,14 @@ async function deserializeAws_restJson1_1DeleteLayerVersionCommandError(
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3351,11 +3296,6 @@ async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3365,35 +3305,35 @@ async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigComma
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3443,11 +3383,6 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3457,14 +3392,14 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3524,11 +3459,6 @@ async function deserializeAws_restJson1_1GetAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAliasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3538,28 +3468,28 @@ async function deserializeAws_restJson1_1GetAliasCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3659,11 +3589,6 @@ async function deserializeAws_restJson1_1GetEventSourceMappingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventSourceMappingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3673,28 +3598,28 @@ async function deserializeAws_restJson1_1GetEventSourceMappingCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3752,11 +3677,6 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3766,28 +3686,28 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3827,11 +3747,6 @@ async function deserializeAws_restJson1_1GetFunctionConcurrencyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConcurrencyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3841,28 +3756,28 @@ async function deserializeAws_restJson1_1GetFunctionConcurrencyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4017,11 +3932,6 @@ async function deserializeAws_restJson1_1GetFunctionConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4031,28 +3941,28 @@ async function deserializeAws_restJson1_1GetFunctionConfigurationCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4115,11 +4025,6 @@ async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4129,28 +4034,28 @@ async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommandErro
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4224,11 +4129,6 @@ async function deserializeAws_restJson1_1GetLayerVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4238,28 +4138,28 @@ async function deserializeAws_restJson1_1GetLayerVersionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4333,11 +4233,6 @@ async function deserializeAws_restJson1_1GetLayerVersionByArnCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionByArnCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4347,28 +4242,28 @@ async function deserializeAws_restJson1_1GetLayerVersionByArnCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4412,11 +4307,6 @@ async function deserializeAws_restJson1_1GetLayerVersionPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4426,28 +4316,28 @@ async function deserializeAws_restJson1_1GetLayerVersionPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4488,11 +4378,6 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4502,28 +4387,28 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4586,11 +4471,6 @@ async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProvisionedConcurrencyConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4600,35 +4480,35 @@ async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommandE
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ProvisionedConcurrencyConfigNotFoundException":
     case "com.amazonaws.awsgirapi#ProvisionedConcurrencyConfigNotFoundException":
       response = await deserializeAws_restJson1_1ProvisionedConcurrencyConfigNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4666,7 +4546,7 @@ export async function deserializeAws_restJson1_1InvokeCommand(
   if (output.headers["X-Amz-Log-Result"] !== undefined) {
     contents.LogResult = output.headers["X-Amz-Log-Result"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await collectBody(output.body, context);
   contents.Payload = data;
   return Promise.resolve(contents);
 }
@@ -4675,11 +4555,6 @@ async function deserializeAws_restJson1_1InvokeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4689,154 +4564,154 @@ async function deserializeAws_restJson1_1InvokeCommandError(
     case "EC2AccessDeniedException":
     case "com.amazonaws.awsgirapi#EC2AccessDeniedException":
       response = await deserializeAws_restJson1_1EC2AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "EC2ThrottledException":
     case "com.amazonaws.awsgirapi#EC2ThrottledException":
       response = await deserializeAws_restJson1_1EC2ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "EC2UnexpectedException":
     case "com.amazonaws.awsgirapi#EC2UnexpectedException":
       response = await deserializeAws_restJson1_1EC2UnexpectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ENILimitReachedException":
     case "com.amazonaws.awsgirapi#ENILimitReachedException":
       response = await deserializeAws_restJson1_1ENILimitReachedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestContentException":
     case "com.amazonaws.awsgirapi#InvalidRequestContentException":
       response = await deserializeAws_restJson1_1InvalidRequestContentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRuntimeException":
     case "com.amazonaws.awsgirapi#InvalidRuntimeException":
       response = await deserializeAws_restJson1_1InvalidRuntimeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidSecurityGroupIDException":
     case "com.amazonaws.awsgirapi#InvalidSecurityGroupIDException":
       response = await deserializeAws_restJson1_1InvalidSecurityGroupIDExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidSubnetIDException":
     case "com.amazonaws.awsgirapi#InvalidSubnetIDException":
       response = await deserializeAws_restJson1_1InvalidSubnetIDExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidZipFileException":
     case "com.amazonaws.awsgirapi#InvalidZipFileException":
       response = await deserializeAws_restJson1_1InvalidZipFileExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "KMSAccessDeniedException":
     case "com.amazonaws.awsgirapi#KMSAccessDeniedException":
       response = await deserializeAws_restJson1_1KMSAccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "KMSDisabledException":
     case "com.amazonaws.awsgirapi#KMSDisabledException":
       response = await deserializeAws_restJson1_1KMSDisabledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "KMSInvalidStateException":
     case "com.amazonaws.awsgirapi#KMSInvalidStateException":
       response = await deserializeAws_restJson1_1KMSInvalidStateExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "KMSNotFoundException":
     case "com.amazonaws.awsgirapi#KMSNotFoundException":
       response = await deserializeAws_restJson1_1KMSNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "RequestTooLargeException":
     case "com.amazonaws.awsgirapi#RequestTooLargeException":
       response = await deserializeAws_restJson1_1RequestTooLargeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.awsgirapi#ResourceNotReadyException":
       response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "SubnetIPAddressLimitReachedException":
     case "com.amazonaws.awsgirapi#SubnetIPAddressLimitReachedException":
       response = await deserializeAws_restJson1_1SubnetIPAddressLimitReachedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.awsgirapi#UnsupportedMediaTypeException":
       response = await deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4868,11 +4743,6 @@ async function deserializeAws_restJson1_1InvokeAsyncCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeAsyncCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4882,35 +4752,35 @@ async function deserializeAws_restJson1_1InvokeAsyncCommandError(
     case "InvalidRequestContentException":
     case "com.amazonaws.awsgirapi#InvalidRequestContentException":
       response = await deserializeAws_restJson1_1InvalidRequestContentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRuntimeException":
     case "com.amazonaws.awsgirapi#InvalidRuntimeException":
       response = await deserializeAws_restJson1_1InvalidRuntimeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4954,11 +4824,6 @@ async function deserializeAws_restJson1_1ListAliasesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4968,28 +4833,28 @@ async function deserializeAws_restJson1_1ListAliasesCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5036,11 +4901,6 @@ async function deserializeAws_restJson1_1ListEventSourceMappingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventSourceMappingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5050,28 +4910,28 @@ async function deserializeAws_restJson1_1ListEventSourceMappingsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5118,11 +4978,6 @@ async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionEventInvokeConfigsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5132,28 +4987,28 @@ async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommandEr
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5197,11 +5052,6 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5211,21 +5061,21 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5272,11 +5122,6 @@ async function deserializeAws_restJson1_1ListLayerVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayerVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5286,28 +5131,28 @@ async function deserializeAws_restJson1_1ListLayerVersionsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5351,11 +5196,6 @@ async function deserializeAws_restJson1_1ListLayersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5365,21 +5205,21 @@ async function deserializeAws_restJson1_1ListLayersCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5426,11 +5266,6 @@ async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5440,28 +5275,28 @@ async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsComman
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5498,11 +5333,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5512,28 +5342,28 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5580,11 +5410,6 @@ async function deserializeAws_restJson1_1ListVersionsByFunctionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVersionsByFunctionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5594,28 +5419,28 @@ async function deserializeAws_restJson1_1ListVersionsByFunctionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5689,11 +5514,6 @@ async function deserializeAws_restJson1_1PublishLayerVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishLayerVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5703,35 +5523,35 @@ async function deserializeAws_restJson1_1PublishLayerVersionCommandError(
     case "CodeStorageExceededException":
     case "com.amazonaws.awsgirapi#CodeStorageExceededException":
       response = await deserializeAws_restJson1_1CodeStorageExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5886,11 +5706,6 @@ async function deserializeAws_restJson1_1PublishVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5900,49 +5715,49 @@ async function deserializeAws_restJson1_1PublishVersionCommandError(
     case "CodeStorageExceededException":
     case "com.amazonaws.awsgirapi#CodeStorageExceededException":
       response = await deserializeAws_restJson1_1CodeStorageExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5982,11 +5797,6 @@ async function deserializeAws_restJson1_1PutFunctionConcurrencyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionConcurrencyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5996,35 +5806,35 @@ async function deserializeAws_restJson1_1PutFunctionConcurrencyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6087,11 +5897,6 @@ async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionEventInvokeConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6101,28 +5906,28 @@ async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommandErro
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6185,11 +5990,6 @@ async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6199,35 +5999,35 @@ async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommandE
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6261,11 +6061,6 @@ async function deserializeAws_restJson1_1RemoveLayerVersionPermissionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6275,35 +6070,35 @@ async function deserializeAws_restJson1_1RemoveLayerVersionPermissionCommandErro
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6337,11 +6132,6 @@ async function deserializeAws_restJson1_1RemovePermissionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6351,35 +6141,35 @@ async function deserializeAws_restJson1_1RemovePermissionCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6410,11 +6200,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6424,28 +6209,28 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6476,11 +6261,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6490,28 +6270,28 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6571,11 +6351,6 @@ async function deserializeAws_restJson1_1UpdateAliasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6585,42 +6360,42 @@ async function deserializeAws_restJson1_1UpdateAliasCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6720,11 +6495,6 @@ async function deserializeAws_restJson1_1UpdateEventSourceMappingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventSourceMappingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6734,42 +6504,42 @@ async function deserializeAws_restJson1_1UpdateEventSourceMappingCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.awsgirapi#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6924,11 +6694,6 @@ async function deserializeAws_restJson1_1UpdateFunctionCodeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionCodeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6938,49 +6703,49 @@ async function deserializeAws_restJson1_1UpdateFunctionCodeCommandError(
     case "CodeStorageExceededException":
     case "com.amazonaws.awsgirapi#CodeStorageExceededException":
       response = await deserializeAws_restJson1_1CodeStorageExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7135,11 +6900,6 @@ async function deserializeAws_restJson1_1UpdateFunctionConfigurationCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7149,42 +6909,42 @@ async function deserializeAws_restJson1_1UpdateFunctionConfigurationCommandError
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PreconditionFailedException":
     case "com.amazonaws.awsgirapi#PreconditionFailedException":
       response = await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.awsgirapi#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7247,11 +7007,6 @@ async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7261,28 +7016,28 @@ async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommandE
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceException":
     case "com.amazonaws.awsgirapi#ServiceException":
       response = await deserializeAws_restJson1_1ServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsgirapi#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7307,7 +7062,7 @@ const deserializeAws_restJson1_1CodeStorageExceededExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7328,7 +7083,7 @@ const deserializeAws_restJson1_1EC2AccessDeniedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7349,7 +7104,7 @@ const deserializeAws_restJson1_1EC2ThrottledExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7371,7 +7126,7 @@ const deserializeAws_restJson1_1EC2UnexpectedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.EC2ErrorCode !== undefined) {
     contents.EC2ErrorCode = data.EC2ErrorCode;
   }
@@ -7395,7 +7150,7 @@ const deserializeAws_restJson1_1ENILimitReachedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7416,7 +7171,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7437,7 +7192,7 @@ const deserializeAws_restJson1_1InvalidRequestContentExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7458,7 +7213,7 @@ const deserializeAws_restJson1_1InvalidRuntimeExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7479,7 +7234,7 @@ const deserializeAws_restJson1_1InvalidSecurityGroupIDExceptionResponse = async 
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7500,7 +7255,7 @@ const deserializeAws_restJson1_1InvalidSubnetIDExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7521,7 +7276,7 @@ const deserializeAws_restJson1_1InvalidZipFileExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7542,7 +7297,7 @@ const deserializeAws_restJson1_1KMSAccessDeniedExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7563,7 +7318,7 @@ const deserializeAws_restJson1_1KMSDisabledExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7584,7 +7339,7 @@ const deserializeAws_restJson1_1KMSInvalidStateExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7605,7 +7360,7 @@ const deserializeAws_restJson1_1KMSNotFoundExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7626,7 +7381,7 @@ const deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7647,7 +7402,7 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7668,7 +7423,7 @@ const deserializeAws_restJson1_1ProvisionedConcurrencyConfigNotFoundExceptionRes
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7689,7 +7444,7 @@ const deserializeAws_restJson1_1RequestTooLargeExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7710,7 +7465,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7731,7 +7486,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7752,7 +7507,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7773,7 +7528,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -7794,7 +7549,7 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7815,7 +7570,7 @@ const deserializeAws_restJson1_1SubnetIPAddressLimitReachedExceptionResponse = a
     Message: undefined,
     Type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -7841,7 +7596,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Reason !== undefined) {
     contents.Reason = data.Reason;
   }
@@ -7865,7 +7620,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
     Type: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Type !== undefined) {
     contents.Type = data.Type;
   }
@@ -8893,9 +8648,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

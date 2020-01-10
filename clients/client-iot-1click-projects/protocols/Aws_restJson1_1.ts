@@ -595,11 +595,6 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -609,28 +604,28 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -665,11 +660,6 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -679,28 +669,28 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -732,11 +722,6 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -746,21 +731,21 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -795,11 +780,6 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -809,28 +789,28 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -862,11 +842,6 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -876,28 +851,28 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -940,11 +915,6 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -954,21 +924,21 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1011,11 +981,6 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1025,21 +990,21 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1074,11 +1039,6 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1088,28 +1048,28 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1152,11 +1112,6 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1166,21 +1121,21 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1227,11 +1182,6 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1241,21 +1191,21 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1299,11 +1249,6 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1313,14 +1258,14 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1355,11 +1300,6 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1369,28 +1309,28 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1422,11 +1362,6 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1436,28 +1371,28 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
       response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1482,7 +1417,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1503,7 +1438,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1524,7 +1459,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1545,7 +1480,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1566,7 +1501,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1937,9 +1872,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

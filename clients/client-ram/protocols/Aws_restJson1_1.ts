@@ -937,11 +937,6 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptResourceShareInvitationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -951,70 +946,70 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationAlreadyAcceptedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyAcceptedException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1061,11 +1056,6 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResourceShareCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1075,70 +1065,70 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException":
       response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1182,11 +1172,6 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResourceSharePermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1196,49 +1181,49 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1285,11 +1270,6 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceShareCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1299,77 +1279,77 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException":
       response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TagPolicyViolationException":
     case "com.amazonaws.resourcesharing.V2018_01_04#TagPolicyViolationException":
       response = await deserializeAws_restJson1_1TagPolicyViolationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1413,11 +1393,6 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceShareCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1427,63 +1402,63 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException":
       response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1530,11 +1505,6 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResourceShareCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1544,70 +1514,70 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidStateTransitionException":
       response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1651,11 +1621,6 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResourceSharePermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1665,49 +1630,49 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1747,11 +1712,6 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1761,21 +1721,21 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1815,11 +1775,6 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPermissionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1829,42 +1784,42 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1911,11 +1866,6 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePoliciesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1925,35 +1875,35 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2000,11 +1950,6 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceShareAssociationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2014,49 +1959,49 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2103,11 +2048,6 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceShareInvitationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2117,49 +2057,49 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
     case "InvalidMaxResultsException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidMaxResultsException":
       response = await deserializeAws_restJson1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2206,11 +2146,6 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceSharesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2220,42 +2155,42 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2302,11 +2237,6 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPendingInvitationResourcesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2316,63 +2246,63 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException":
       response = await deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2419,11 +2349,6 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2433,35 +2358,35 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2508,11 +2433,6 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2522,42 +2442,42 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2604,11 +2524,6 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSharePermissionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2618,49 +2533,49 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2704,11 +2619,6 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2718,49 +2628,49 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidResourceTypeException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidResourceTypeException":
       response = await deserializeAws_restJson1_1InvalidResourceTypeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2800,11 +2710,6 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2814,42 +2719,42 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException":
       response = await deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2896,11 +2801,6 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectResourceShareInvitationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2910,70 +2810,70 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationAlreadyAcceptedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyAcceptedException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationAlreadyRejectedException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationExpiredException":
       response = await deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3005,11 +2905,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3019,49 +2914,49 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceArnNotFoundException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnNotFoundException":
       response = await deserializeAws_restJson1_1ResourceArnNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TagLimitExceededException":
     case "com.amazonaws.resourcesharing.V2018_01_04#TagLimitExceededException":
       response = await deserializeAws_restJson1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TagPolicyViolationException":
     case "com.amazonaws.resourcesharing.V2018_01_04#TagPolicyViolationException":
       response = await deserializeAws_restJson1_1TagPolicyViolationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3093,11 +2988,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3107,21 +2997,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3168,11 +3058,6 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceShareCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3182,63 +3067,63 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
       response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
       response = await deserializeAws_restJson1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MalformedArnException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MalformedArnException":
       response = await deserializeAws_restJson1_1MalformedArnExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingRequiredParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#MissingRequiredParameterException":
       response = await deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
       response = await deserializeAws_restJson1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServerInternalException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServerInternalException":
       response = await deserializeAws_restJson1_1ServerInternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.resourcesharing.V2018_01_04#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnknownResourceException":
     case "com.amazonaws.resourcesharing.V2018_01_04#UnknownResourceException":
       response = await deserializeAws_restJson1_1UnknownResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3262,7 +3147,7 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3279,7 +3164,7 @@ const deserializeAws_restJson1_1InvalidClientTokenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3296,7 +3181,7 @@ const deserializeAws_restJson1_1InvalidMaxResultsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3313,7 +3198,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3330,7 +3215,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3347,7 +3232,7 @@ const deserializeAws_restJson1_1InvalidResourceTypeExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3364,7 +3249,7 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3381,7 +3266,7 @@ const deserializeAws_restJson1_1MalformedArnExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3398,7 +3283,7 @@ const deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse = asyn
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3415,7 +3300,7 @@ const deserializeAws_restJson1_1OperationNotPermittedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3432,7 +3317,7 @@ const deserializeAws_restJson1_1ResourceArnNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3449,7 +3334,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyAcceptedExceptionR
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3466,7 +3351,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionR
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3483,7 +3368,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionRespo
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3500,7 +3385,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3517,7 +3402,7 @@ const deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse = as
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3534,7 +3419,7 @@ const deserializeAws_restJson1_1ServerInternalExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3551,7 +3436,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3568,7 +3453,7 @@ const deserializeAws_restJson1_1TagLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3585,7 +3470,7 @@ const deserializeAws_restJson1_1TagPolicyViolationExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3602,7 +3487,7 @@ const deserializeAws_restJson1_1UnknownResourceExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4150,9 +4035,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -1745,11 +1745,6 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1759,35 +1754,35 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1830,11 +1825,6 @@ async function deserializeAws_restJson1_1CreateBackendEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendEnvironmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1844,35 +1834,35 @@ async function deserializeAws_restJson1_1CreateBackendEnvironmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1909,11 +1899,6 @@ async function deserializeAws_restJson1_1CreateBranchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1923,42 +1908,42 @@ async function deserializeAws_restJson1_1CreateBranchCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2009,11 +1994,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2023,28 +2003,28 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2087,11 +2067,6 @@ async function deserializeAws_restJson1_1CreateDomainAssociationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainAssociationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2101,42 +2076,42 @@ async function deserializeAws_restJson1_1CreateDomainAssociationCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2173,11 +2148,6 @@ async function deserializeAws_restJson1_1CreateWebhookCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2187,42 +2157,42 @@ async function deserializeAws_restJson1_1CreateWebhookCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2259,11 +2229,6 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2273,35 +2238,35 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2344,11 +2309,6 @@ async function deserializeAws_restJson1_1DeleteBackendEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendEnvironmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2358,35 +2318,35 @@ async function deserializeAws_restJson1_1DeleteBackendEnvironmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2423,11 +2383,6 @@ async function deserializeAws_restJson1_1DeleteBranchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2437,35 +2392,35 @@ async function deserializeAws_restJson1_1DeleteBranchCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2508,11 +2463,6 @@ async function deserializeAws_restJson1_1DeleteDomainAssociationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainAssociationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2522,35 +2472,35 @@ async function deserializeAws_restJson1_1DeleteDomainAssociationCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2590,11 +2540,6 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2604,35 +2549,35 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2669,11 +2614,6 @@ async function deserializeAws_restJson1_1DeleteWebhookCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2683,35 +2623,35 @@ async function deserializeAws_restJson1_1DeleteWebhookCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2751,11 +2691,6 @@ async function deserializeAws_restJson1_1GenerateAccessLogsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateAccessLogsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2765,28 +2700,28 @@ async function deserializeAws_restJson1_1GenerateAccessLogsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2823,11 +2758,6 @@ async function deserializeAws_restJson1_1GetAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2837,28 +2767,28 @@ async function deserializeAws_restJson1_1GetAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2902,11 +2832,6 @@ async function deserializeAws_restJson1_1GetArtifactUrlCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetArtifactUrlCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2916,35 +2841,35 @@ async function deserializeAws_restJson1_1GetArtifactUrlCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2987,11 +2912,6 @@ async function deserializeAws_restJson1_1GetBackendEnvironmentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendEnvironmentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3001,28 +2921,28 @@ async function deserializeAws_restJson1_1GetBackendEnvironmentCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3059,11 +2979,6 @@ async function deserializeAws_restJson1_1GetBranchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3073,28 +2988,28 @@ async function deserializeAws_restJson1_1GetBranchCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3137,11 +3052,6 @@ async function deserializeAws_restJson1_1GetDomainAssociationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainAssociationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3151,28 +3061,28 @@ async function deserializeAws_restJson1_1GetDomainAssociationCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3209,11 +3119,6 @@ async function deserializeAws_restJson1_1GetJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3223,35 +3128,35 @@ async function deserializeAws_restJson1_1GetJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3288,11 +3193,6 @@ async function deserializeAws_restJson1_1GetWebhookCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWebhookCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3302,35 +3202,35 @@ async function deserializeAws_restJson1_1GetWebhookCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3371,11 +3271,6 @@ async function deserializeAws_restJson1_1ListAppsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3385,21 +3280,21 @@ async function deserializeAws_restJson1_1ListAppsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3443,11 +3338,6 @@ async function deserializeAws_restJson1_1ListArtifactsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3457,28 +3347,28 @@ async function deserializeAws_restJson1_1ListArtifactsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3525,11 +3415,6 @@ async function deserializeAws_restJson1_1ListBackendEnvironmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackendEnvironmentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3539,21 +3424,21 @@ async function deserializeAws_restJson1_1ListBackendEnvironmentsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3597,11 +3482,6 @@ async function deserializeAws_restJson1_1ListBranchesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3611,21 +3491,21 @@ async function deserializeAws_restJson1_1ListBranchesCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3672,11 +3552,6 @@ async function deserializeAws_restJson1_1ListDomainAssociationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainAssociationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3686,21 +3561,21 @@ async function deserializeAws_restJson1_1ListDomainAssociationsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3744,11 +3619,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3758,28 +3628,28 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3819,11 +3689,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3833,21 +3698,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3891,11 +3756,6 @@ async function deserializeAws_restJson1_1ListWebhooksCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3905,28 +3765,28 @@ async function deserializeAws_restJson1_1ListWebhooksCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3969,11 +3829,6 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3983,35 +3838,35 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4051,11 +3906,6 @@ async function deserializeAws_restJson1_1StartJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4065,35 +3915,35 @@ async function deserializeAws_restJson1_1StartJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4133,11 +3983,6 @@ async function deserializeAws_restJson1_1StopJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4147,35 +3992,35 @@ async function deserializeAws_restJson1_1StopJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4207,11 +4052,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4221,21 +4061,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4267,11 +4107,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4281,21 +4116,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4332,11 +4167,6 @@ async function deserializeAws_restJson1_1UpdateAppCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4346,28 +4176,28 @@ async function deserializeAws_restJson1_1UpdateAppCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4404,11 +4234,6 @@ async function deserializeAws_restJson1_1UpdateBranchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBranchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4418,35 +4243,35 @@ async function deserializeAws_restJson1_1UpdateBranchCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4489,11 +4314,6 @@ async function deserializeAws_restJson1_1UpdateDomainAssociationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainAssociationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4503,35 +4323,35 @@ async function deserializeAws_restJson1_1UpdateDomainAssociationCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4568,11 +4388,6 @@ async function deserializeAws_restJson1_1UpdateWebhookCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4582,35 +4397,35 @@ async function deserializeAws_restJson1_1UpdateWebhookCommandError(
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
       response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4634,7 +4449,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4651,7 +4466,7 @@ const deserializeAws_restJson1_1DependentServiceFailureExceptionResponse = async
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4668,7 +4483,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4685,7 +4500,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4702,7 +4517,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4720,7 +4535,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4740,7 +4555,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5728,9 +5543,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

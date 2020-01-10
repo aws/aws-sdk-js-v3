@@ -250,14 +250,13 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -366,14 +365,13 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectDocumentTextCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -475,14 +473,13 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentAnalysisCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -566,14 +563,13 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentTextDetectionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -654,14 +650,13 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentAnalysisCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -780,14 +775,13 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentTextDetectionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -879,221 +873,234 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
 }
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
+    body,
     context
   );
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1BadDocumentExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadDocumentException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BadDocumentException(
-    output.body,
+    body,
     context
   );
   const contents: BadDocumentException = {
     __type: "BadDocumentException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DocumentTooLargeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentTooLargeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DocumentTooLargeException(
-    output.body,
+    body,
     context
   );
   const contents: DocumentTooLargeException = {
     __type: "DocumentTooLargeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<HumanLoopQuotaExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1HumanLoopQuotaExceededException(
-    output.body,
+    body,
     context
   );
   const contents: HumanLoopQuotaExceededException = {
     __type: "HumanLoopQuotaExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(
-    output.body,
+    body,
     context
   );
   const contents: IdempotentParameterMismatchException = {
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InternalServerErrorResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerError> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServerError(
-    output.body,
+    body,
     context
   );
   const contents: InternalServerError = {
     __type: "InternalServerError",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidJobIdException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidJobIdException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidJobIdException = {
     __type: "InvalidJobIdException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidParameterException = {
     __type: "InvalidParameterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidS3ObjectException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidS3ObjectException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidS3ObjectException = {
     __type: "InvalidS3ObjectException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ProvisionedThroughputExceededException(
-    output.body,
+    body,
     context
   );
   const contents: ProvisionedThroughputExceededException = {
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    output.body,
+    body,
     context
   );
   const contents: ThrottlingException = {
     __type: "ThrottlingException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedDocumentException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedDocumentException(
-    output.body,
+    body,
     context
   );
   const contents: UnsupportedDocumentException = {
     __type: "UnsupportedDocumentException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -2044,9 +2051,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -626,11 +626,6 @@ async function deserializeAws_restJson1_1CreateDetectorModelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDetectorModelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -640,49 +635,49 @@ async function deserializeAws_restJson1_1CreateDetectorModelCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.iot.columbo.common.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -722,11 +717,6 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInputCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -736,35 +726,35 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -799,11 +789,6 @@ async function deserializeAws_restJson1_1DeleteDetectorModelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDetectorModelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -813,42 +798,42 @@ async function deserializeAws_restJson1_1DeleteDetectorModelCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -880,11 +865,6 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInputCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -894,42 +874,42 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -972,11 +952,6 @@ async function deserializeAws_restJson1_1DescribeDetectorModelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDetectorModelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -986,35 +961,35 @@ async function deserializeAws_restJson1_1DescribeDetectorModelCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1051,11 +1026,6 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInputCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1065,35 +1035,35 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1136,11 +1106,6 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1150,42 +1115,42 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnsupportedOperationException":
     case "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException":
       response = await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1232,11 +1197,6 @@ async function deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorModelVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1246,35 +1206,35 @@ async function deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1321,11 +1281,6 @@ async function deserializeAws_restJson1_1ListDetectorModelsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorModelsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1335,28 +1290,28 @@ async function deserializeAws_restJson1_1ListDetectorModelsCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1400,11 +1355,6 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInputsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1414,28 +1364,28 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1475,11 +1425,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1489,35 +1434,35 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1551,11 +1496,6 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1565,42 +1505,42 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnsupportedOperationException":
     case "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException":
       response = await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1632,11 +1572,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1646,42 +1581,42 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazon.iot.columbo.common.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1713,11 +1648,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1727,35 +1657,35 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1798,11 +1728,6 @@ async function deserializeAws_restJson1_1UpdateDetectorModelCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorModelCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1812,42 +1737,42 @@ async function deserializeAws_restJson1_1UpdateDetectorModelCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1887,11 +1812,6 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInputCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1901,42 +1821,42 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1960,7 +1880,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1977,7 +1897,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1994,7 +1914,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2013,7 +1933,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     resourceArn: undefined,
     resourceId: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2036,7 +1956,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2053,7 +1973,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2070,7 +1990,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2087,7 +2007,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2104,7 +2024,7 @@ const deserializeAws_restJson1_1UnsupportedOperationExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -3425,9 +3345,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

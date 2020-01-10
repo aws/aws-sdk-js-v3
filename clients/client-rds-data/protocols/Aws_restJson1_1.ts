@@ -301,11 +301,6 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -315,35 +310,35 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
       response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -383,11 +378,6 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -397,35 +387,35 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
       response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -465,11 +455,6 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -479,35 +464,35 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazon.rdsdataservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -547,11 +532,6 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -561,28 +541,28 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -643,11 +623,6 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -657,35 +632,35 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
       response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -725,11 +700,6 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -739,35 +709,35 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazon.rdsdataservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
       response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -791,7 +761,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -808,7 +778,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -837,7 +807,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -867,7 +837,7 @@ const deserializeAws_restJson1_1StatementTimeoutExceptionResponse = async (
     dbConnectionId: undefined,
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.dbConnectionId !== undefined) {
     contents.dbConnectionId = data.dbConnectionId;
   }
@@ -1430,9 +1400,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
