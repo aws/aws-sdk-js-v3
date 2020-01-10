@@ -41,6 +41,13 @@ import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGene
  */
 abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
+    /**
+     * Creates a AWS JSON RPC protocol generator.
+     */
+    JsonRpcProtocolGenerator() {
+        super(true);
+    }
+
     protected Format getDocumentTimestampFormat() {
         return Format.EPOCH_SECONDS;
     }
@@ -96,8 +103,8 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        writer.write("const errorTypeParts: String = data[\"__type\"].split('#');");
+        // parsedOutput is in scope because HttpRpcProtocolGenerator.isErrorCodeInBody is true
+        writer.write("const errorTypeParts: String = parsedOutput.body[\"__type\"].split('#');");
         writer.write("errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];");
     }
 
