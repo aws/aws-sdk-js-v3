@@ -82,7 +82,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ACCEPTS_HEADER.dependency, "AcceptsHeader",
+                        .withConventions(AwsDependency.ACCEPT_HEADER.dependency, "AcceptHeader",
                                          HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                         .build(),

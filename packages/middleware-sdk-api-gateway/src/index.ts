@@ -9,7 +9,7 @@ import {
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function acceptsHeaderMiddleware(): BuildMiddleware<any, any> {
+export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: BuildHandler<any, Output>
   ): BuildHandler<any, Output> => async (
@@ -19,7 +19,7 @@ export function acceptsHeaderMiddleware(): BuildMiddleware<any, any> {
     if (HttpRequest.isInstance(request)) {
       request.headers = {
         ...request.headers,
-        accepts: "application/json"
+        accept: "application/json"
       };
     }
     return next({
@@ -29,14 +29,14 @@ export function acceptsHeaderMiddleware(): BuildMiddleware<any, any> {
   };
 }
 
-export const acceptsHeaderMiddlewareOptions: BuildHandlerOptions = {
+export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
-  tags: ["SET_ACCEPTS_HEADER", "ACCEPTS_HEADER"],
-  name: "acceptsHeaderMiddleware"
+  tags: ["SET_ACCEPT_HEADER", "ACCEPT_HEADER"],
+  name: "acceptHeaderMiddleware"
 };
 
 export const getAcceptsHeaderPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(acceptsHeaderMiddleware(), acceptsHeaderMiddlewareOptions);
+    clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);
   }
 });
