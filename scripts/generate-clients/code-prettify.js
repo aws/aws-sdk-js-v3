@@ -11,11 +11,13 @@ const prettifyCode = async () => {
       modelName,
       "typescript-codegen"
     );
-    await spawnProcess(
-      "./node_modules/.bin/prettier",
-      ["--write", `${artifactPath}/**/*.{ts,md,json}`]
-    );
+    await spawnProcess("./node_modules/.bin/prettier", [
+      "--write",
+      `${artifactPath}/**/*.{ts,md,json}`
+    ]);
   }
 };
 
-module.exports = { prettifyCode };
+module.exports = {
+  prettifyCode
+};
