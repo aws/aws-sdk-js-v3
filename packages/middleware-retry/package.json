@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-retry",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -19,7 +19,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.2",
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.3",
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
