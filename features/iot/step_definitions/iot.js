@@ -1,7 +1,7 @@
-var { IoT } = require('../../../clients/node/client-iot-node');
+var { IoT } = require("../../../clients/node/client-iot-node");
 
 module.exports = function() {
-  this.Before("@iot", function (callback) {
+  this.Before("@iot", function(callback) {
     this.service = new IoT({});
     callback();
   });
