@@ -1,22 +1,35 @@
-var { CloudWatchLogs } = require('../../../clients/node/client-cloudwatch-logs-node');
+var {
+  CloudWatchLogs
+} = require("../../../clients/node/client-cloudwatch-logs-node");
 
 module.exports = function() {
-  this.Before("@cloudwatchlogs", function (callback) {
+  this.Before("@cloudwatchlogs", function(callback) {
     this.service = new CloudWatchLogs({});
     callback();
   });
 
-  this.Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function (prefix, callback) {
+  this.Given(/^I create a CloudWatch logGroup with prefix "([^"]*)"$/, function(
+    prefix,
+    callback
+  ) {
     var expectErr = prefix === "" ? false : undefined;
     this.logGroupName = this.uniqueName(prefix);
-    this.request(null, 'createLogGroup', {logGroupName: this.logGroupName}, callback, expectErr);
+    this.request(
+      null,
+      "createLogGroup",
+      { logGroupName: this.logGroupName },
+      callback,
+      expectErr
+    );
   });
 
-  this.Given(/^I list the CloudWatch logGroups$/, function (callback) {
-    this.request(null, 'describeLogGroups', {}, callback);
+  this.Given(/^I list the CloudWatch logGroups$/, function(callback) {
+    this.request(null, "describeLogGroups", {}, callback);
   });
 
-  this.Then(/^the list should contain the CloudWatch logGroup$/, function (callback) {
+  this.Then(/^the list should contain the CloudWatch logGroup$/, function(
+    callback
+  ) {
     var name = this.logGroupName;
     this.assert.contains(this.data.logGroups, function(alarm) {
       return alarm.logGroupName === name;
@@ -24,7 +37,12 @@ module.exports = function() {
     callback();
   });
 
-  this.Then(/^I delete the CloudWatch logGroup$/, function (callback) {
-    this.request(null, 'deleteLogGroup', {logGroupName: this.logGroupName}, callback);
+  this.Then(/^I delete the CloudWatch logGroup$/, function(callback) {
+    this.request(
+      null,
+      "deleteLogGroup",
+      { logGroupName: this.logGroupName },
+      callback
+    );
   });
 };
