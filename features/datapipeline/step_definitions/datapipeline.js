@@ -1,15 +1,21 @@
-var { DataPipeline } = require('../../../clients/node/client-data-pipeline-node');
+var {
+  DataPipeline
+} = require("../../../clients/node/client-data-pipeline-node");
 
 module.exports = function() {
-  this.Before("@datapipeline", function (callback) {
+  this.Before("@datapipeline", function(callback) {
     this.service = new DataPipeline({});
     callback();
   });
 
-  this.Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(prefix, callback) {
+  this.Given(/^I create a Data Pipeline with name prefix "([^"]*)"$/, function(
+    prefix,
+    callback
+  ) {
     var params = {
-      name: this.uniqueName(prefix), uniqueId: this.uniqueName('aws-js-sdk')
+      name: this.uniqueName(prefix),
+      uniqueId: this.uniqueName("aws-js-sdk")
     };
-    this.request(null, 'createPipeline', params, callback, false);
+    this.request(null, "createPipeline", params, callback, false);
   });
 };
