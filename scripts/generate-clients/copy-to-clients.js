@@ -1,19 +1,7 @@
-const { join, normalize } = require("path");
+const { join } = require("path");
 const { copySync, ensureDirSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync } = require("fs");
-
-const CODE_GEN_OUTPUT_DIR = normalize(
-  join(
-    __dirname,
-    "..",
-    "..",
-    "codegen",
-    "sdk-codegen",
-    "build",
-    "smithyprojections",
-    "sdk-codegen"
-  )
-);
+const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const getOverwritablePredicate = packageName => pathName => {
   const overwritablePathnames = [
@@ -70,4 +58,4 @@ async function copyToClients(clientsDir) {
   }
 }
 
-module.exports = { copyToClients, CODE_GEN_OUTPUT_DIR };
+module.exports = { copyToClients };
