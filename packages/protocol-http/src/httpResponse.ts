@@ -14,7 +14,6 @@ export class HttpResponse {
   public statusCode: number;
   public headers: HeaderBag;
   public body?: any;
-  private readonly isHttpResponse = true;
 
   constructor(options: HttpResponseOptions) {
     this.statusCode = options.statusCode;
@@ -22,9 +21,12 @@ export class HttpResponse {
     this.body = options.body;
   }
 
-  static isInstance(request: unknown): request is HttpResponse {
+  static isInstance(response: unknown): response is HttpResponse {
+    //determine if response is a valid HttpResponse
+    if (!response) return false;
+    const resp = response as any;
     return (
-      request !== undefined && (request as HttpResponse).isHttpResponse === true
+      typeof resp.statusCode === "number" && typeof resp.headers === "object"
     );
   }
 }
