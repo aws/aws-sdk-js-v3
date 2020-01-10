@@ -45,6 +45,12 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
  * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
  */
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
+    /**
+     * Creates a AWS JSON RPC protocol generator.
+     */
+    RestJsonProtocolGenerator() {
+        super(false);
+    }
 
     @Override
     protected TimestampFormatTrait.Format getDocumentTimestampFormat() {
