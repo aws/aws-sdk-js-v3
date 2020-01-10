@@ -34,4 +34,6 @@ async function generateClients(models) {
   );
 }
 
-module.exports = { generateClients };
+module.exports = {
+  generateClients
+};

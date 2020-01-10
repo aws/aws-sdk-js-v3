@@ -1,8 +1,6 @@
 const { join, normalize } = require("path");
 
-const CODE_GEN_ROOT = normalize(
-  join(__dirname, "..", "..", "codegen")
-);
+const CODE_GEN_ROOT = normalize(join(__dirname, "..", "..", "codegen"));
 
 const CODE_GEN_INPUT_DIR = normalize(
   join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models")

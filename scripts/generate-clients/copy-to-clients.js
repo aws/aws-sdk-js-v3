@@ -52,10 +52,14 @@ async function copyToClients(clientsDir) {
       if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         //Overwrite the directories and files that are overwritable, or not yet exists
         if (lstatSync(packageSubPath).isDirectory()) ensureDirSync(destSubPath);
-        copySync(packageSubPath, destSubPath, { overwrite: true });
+        copySync(packageSubPath, destSubPath, {
+          overwrite: true
+        });
       }
     }
   }
 }
 
-module.exports = { copyToClients };
+module.exports = {
+  copyToClients
+};
