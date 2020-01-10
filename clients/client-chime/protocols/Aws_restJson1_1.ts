@@ -3580,11 +3580,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePhoneNumberWithUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3594,56 +3589,56 @@ async function deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommandErro
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3686,11 +3681,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3700,56 +3690,56 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3792,11 +3782,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3806,56 +3791,56 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3905,11 +3890,6 @@ async function deserializeAws_restJson1_1BatchCreateAttendeeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateAttendeeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3919,56 +3899,56 @@ async function deserializeAws_restJson1_1BatchCreateAttendeeCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4011,11 +3991,6 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateRoomMembershipCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4025,42 +4000,42 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4103,11 +4078,6 @@ async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeletePhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4117,49 +4087,49 @@ async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4202,11 +4172,6 @@ async function deserializeAws_restJson1_1BatchSuspendUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchSuspendUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4216,49 +4181,49 @@ async function deserializeAws_restJson1_1BatchSuspendUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4301,11 +4266,6 @@ async function deserializeAws_restJson1_1BatchUnsuspendUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUnsuspendUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4315,49 +4275,49 @@ async function deserializeAws_restJson1_1BatchUnsuspendUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4400,11 +4360,6 @@ async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdatePhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4414,49 +4369,49 @@ async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4499,11 +4454,6 @@ async function deserializeAws_restJson1_1BatchUpdateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4513,49 +4463,49 @@ async function deserializeAws_restJson1_1BatchUpdateUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4592,11 +4542,6 @@ async function deserializeAws_restJson1_1CreateAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4606,49 +4551,49 @@ async function deserializeAws_restJson1_1CreateAccountCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4691,11 +4636,6 @@ async function deserializeAws_restJson1_1CreateAttendeeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAttendeeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4705,56 +4645,56 @@ async function deserializeAws_restJson1_1CreateAttendeeCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4791,11 +4731,6 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4805,49 +4740,49 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4884,11 +4819,6 @@ async function deserializeAws_restJson1_1CreateMeetingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeetingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4898,49 +4828,49 @@ async function deserializeAws_restJson1_1CreateMeetingCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4983,11 +4913,6 @@ async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePhoneNumberOrderCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4997,56 +4922,56 @@ async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5083,11 +5008,6 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoomCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5097,49 +5017,49 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5182,11 +5102,6 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoomMembershipCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5196,56 +5111,56 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5288,11 +5203,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5302,56 +5212,56 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5394,11 +5304,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5408,56 +5313,56 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5489,11 +5394,6 @@ async function deserializeAws_restJson1_1DeleteAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5503,56 +5403,56 @@ async function deserializeAws_restJson1_1DeleteAccountCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.ucbuzzconsoleservice#UnprocessableEntityException":
       response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5586,11 +5486,6 @@ async function deserializeAws_restJson1_1DeleteAttendeeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAttendeeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5600,49 +5495,49 @@ async function deserializeAws_restJson1_1DeleteAttendeeCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5676,11 +5571,6 @@ async function deserializeAws_restJson1_1DeleteEventsConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventsConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5690,42 +5580,42 @@ async function deserializeAws_restJson1_1DeleteEventsConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5756,11 +5646,6 @@ async function deserializeAws_restJson1_1DeleteMeetingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeetingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5770,49 +5655,49 @@ async function deserializeAws_restJson1_1DeleteMeetingCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5846,11 +5731,6 @@ async function deserializeAws_restJson1_1DeletePhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5860,49 +5740,49 @@ async function deserializeAws_restJson1_1DeletePhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5933,11 +5813,6 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoomCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5947,42 +5822,42 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6016,11 +5891,6 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoomMembershipCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6030,42 +5900,42 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6099,11 +5969,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6113,56 +5978,56 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6196,11 +6061,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6210,56 +6070,56 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6293,11 +6153,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorOriginationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6307,49 +6162,49 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommandE
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6383,11 +6238,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurat
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6397,49 +6247,49 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurat
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6473,11 +6323,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorTerminationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6487,49 +6332,49 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCommandE
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6563,11 +6408,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredenti
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6577,49 +6417,49 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredenti
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6654,11 +6494,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePhoneNumberFromUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6668,49 +6503,49 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommandE
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6753,11 +6588,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6767,49 +6597,49 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6852,11 +6682,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6866,49 +6691,49 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6945,11 +6770,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6959,49 +6779,49 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7044,11 +6864,6 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7058,49 +6873,49 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7140,11 +6955,6 @@ async function deserializeAws_restJson1_1GetAttendeeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAttendeeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7154,49 +6964,49 @@ async function deserializeAws_restJson1_1GetAttendeeCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7233,11 +7043,6 @@ async function deserializeAws_restJson1_1GetBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7247,42 +7052,42 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7325,11 +7130,6 @@ async function deserializeAws_restJson1_1GetEventsConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventsConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7339,49 +7139,49 @@ async function deserializeAws_restJson1_1GetEventsConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7431,11 +7231,6 @@ async function deserializeAws_restJson1_1GetGlobalSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGlobalSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7445,42 +7240,42 @@ async function deserializeAws_restJson1_1GetGlobalSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7517,11 +7312,6 @@ async function deserializeAws_restJson1_1GetMeetingCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMeetingCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7531,49 +7321,49 @@ async function deserializeAws_restJson1_1GetMeetingCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7616,11 +7406,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7630,49 +7415,49 @@ async function deserializeAws_restJson1_1GetPhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7715,11 +7500,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberOrderCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPhoneNumberOrderCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7729,49 +7509,49 @@ async function deserializeAws_restJson1_1GetPhoneNumberOrderCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7817,11 +7597,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPhoneNumberSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7831,42 +7606,42 @@ async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7903,11 +7678,6 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoomCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7917,42 +7687,42 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7989,11 +7759,6 @@ async function deserializeAws_restJson1_1GetUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8003,49 +7768,49 @@ async function deserializeAws_restJson1_1GetUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8088,11 +7853,6 @@ async function deserializeAws_restJson1_1GetUserSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8102,49 +7862,49 @@ async function deserializeAws_restJson1_1GetUserSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8187,11 +7947,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8201,49 +7956,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8286,11 +8041,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8300,49 +8050,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8385,11 +8135,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8399,49 +8144,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCo
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8484,11 +8229,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorOriginationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorOriginationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8498,49 +8238,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorOriginationCommandErro
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8583,11 +8323,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfiguration
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8597,49 +8332,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfiguration
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8682,11 +8417,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorTerminationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8696,49 +8426,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationCommandErro
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8781,11 +8511,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8795,49 +8520,49 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthComma
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8877,11 +8602,6 @@ async function deserializeAws_restJson1_1InviteUsersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteUsersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8891,49 +8611,49 @@ async function deserializeAws_restJson1_1InviteUsersCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8977,11 +8697,6 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8991,49 +8706,49 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9077,11 +8792,6 @@ async function deserializeAws_restJson1_1ListAttendeesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttendeesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9091,49 +8801,49 @@ async function deserializeAws_restJson1_1ListAttendeesCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9174,11 +8884,6 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBotsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9188,42 +8893,42 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9267,11 +8972,6 @@ async function deserializeAws_restJson1_1ListMeetingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMeetingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9281,42 +8981,42 @@ async function deserializeAws_restJson1_1ListMeetingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9363,11 +9063,6 @@ async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumberOrdersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9377,42 +9072,42 @@ async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9459,11 +9154,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9473,42 +9163,42 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9555,11 +9245,6 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoomMembershipsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9569,42 +9254,42 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9645,11 +9330,6 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoomsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9659,42 +9339,42 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9735,11 +9415,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9749,49 +9424,49 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9838,11 +9513,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVoiceConnectorGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9852,42 +9522,42 @@ async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9930,11 +9600,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCredential
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9944,49 +9609,49 @@ async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCredential
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10033,11 +9698,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVoiceConnectorsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10047,42 +9707,42 @@ async function deserializeAws_restJson1_1ListVoiceConnectorsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10114,11 +9774,6 @@ async function deserializeAws_restJson1_1LogoutUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LogoutUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10128,49 +9783,49 @@ async function deserializeAws_restJson1_1LogoutUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10213,11 +9868,6 @@ async function deserializeAws_restJson1_1PutEventsConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10227,49 +9877,49 @@ async function deserializeAws_restJson1_1PutEventsConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10312,11 +9962,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10326,49 +9971,49 @@ async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCo
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10411,11 +10056,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorOriginationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorOriginationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10425,49 +10065,49 @@ async function deserializeAws_restJson1_1PutVoiceConnectorOriginationCommandErro
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10510,11 +10150,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfiguration
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10524,49 +10159,49 @@ async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfiguration
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10609,11 +10244,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorTerminationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10623,56 +10253,56 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCommandErro
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10706,11 +10336,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCredentials
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10720,49 +10345,49 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCredentials
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10802,11 +10427,6 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegenerateSecurityTokenCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10816,42 +10436,42 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10891,11 +10511,6 @@ async function deserializeAws_restJson1_1ResetPersonalPINCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetPersonalPINCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -10905,49 +10520,49 @@ async function deserializeAws_restJson1_1ResetPersonalPINCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -10990,11 +10605,6 @@ async function deserializeAws_restJson1_1RestorePhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestorePhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11004,56 +10614,56 @@ async function deserializeAws_restJson1_1RestorePhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.ucbuzzconsoleservice#ResourceLimitExceededException":
       response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11096,11 +10706,6 @@ async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchAvailablePhoneNumbersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11110,49 +10715,49 @@ async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommandError
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11189,11 +10794,6 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11203,49 +10803,49 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11280,11 +10880,6 @@ async function deserializeAws_restJson1_1UpdateAccountSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11294,56 +10889,56 @@ async function deserializeAws_restJson1_1UpdateAccountSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11380,11 +10975,6 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBotCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11394,42 +10984,42 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11463,11 +11053,6 @@ async function deserializeAws_restJson1_1UpdateGlobalSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGlobalSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11477,42 +11062,42 @@ async function deserializeAws_restJson1_1UpdateGlobalSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11555,11 +11140,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePhoneNumberCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11569,49 +11149,49 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11645,11 +11225,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePhoneNumberSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11659,42 +11234,42 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11731,11 +11306,6 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoomCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11745,42 +11315,42 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11823,11 +11393,6 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoomMembershipCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11837,42 +11402,42 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11909,11 +11474,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -11923,49 +11483,49 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -11999,11 +11559,6 @@ async function deserializeAws_restJson1_1UpdateUserSettingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserSettingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12013,49 +11568,49 @@ async function deserializeAws_restJson1_1UpdateUserSettingsCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12098,11 +11653,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceConnectorCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12112,49 +11662,49 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12197,11 +11747,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceConnectorGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -12211,56 +11756,56 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.ucbuzzconsoleservice#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.ucbuzzconsoleservice#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.ucbuzzconsoleservice#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceFailureException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceFailureException":
       response = await deserializeAws_restJson1_1ServiceFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.ucbuzzconsoleservice#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledClientException":
     case "com.amazonaws.ucbuzzconsoleservice#ThrottledClientException":
       response = await deserializeAws_restJson1_1ThrottledClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedClientException":
     case "com.amazonaws.ucbuzzconsoleservice#UnauthorizedClientException":
       response = await deserializeAws_restJson1_1UnauthorizedClientExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -12285,7 +11830,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12306,7 +11851,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12327,7 +11872,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12348,7 +11893,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12369,7 +11914,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12390,7 +11935,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12411,7 +11956,7 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12432,7 +11977,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12453,7 +11998,7 @@ const deserializeAws_restJson1_1ThrottledClientExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12474,7 +12019,7 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -12495,7 +12040,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -14035,9 +13580,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

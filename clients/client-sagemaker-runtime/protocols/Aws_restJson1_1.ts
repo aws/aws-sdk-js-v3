@@ -95,7 +95,7 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
     contents.InvokedProductionVariant =
       output.headers["x-Amzn-Invoked-Production-Variant"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await collectBody(output.body, context);
   contents.Body = data;
   return Promise.resolve(contents);
 }
@@ -104,11 +104,6 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -118,28 +113,28 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
     case "InternalFailure":
     case "com.amazonaws.sagemaker.runtime#InternalFailure":
       response = await deserializeAws_restJson1_1InternalFailureResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ModelError":
     case "com.amazonaws.sagemaker.runtime#ModelError":
       response = await deserializeAws_restJson1_1ModelErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailable":
     case "com.amazonaws.sagemaker.runtime#ServiceUnavailable":
       response = await deserializeAws_restJson1_1ServiceUnavailableResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationError":
     case "com.amazonaws.sagemaker.runtime#ValidationError":
       response = await deserializeAws_restJson1_1ValidationErrorResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -163,7 +158,7 @@ const deserializeAws_restJson1_1InternalFailureResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -183,7 +178,7 @@ const deserializeAws_restJson1_1ModelErrorResponse = async (
     OriginalMessage: undefined,
     OriginalStatusCode: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.LogStreamArn !== undefined) {
     contents.LogStreamArn = data.LogStreamArn;
   }
@@ -209,7 +204,7 @@ const deserializeAws_restJson1_1ServiceUnavailableResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -226,7 +221,7 @@ const deserializeAws_restJson1_1ValidationErrorResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -239,9 +234,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

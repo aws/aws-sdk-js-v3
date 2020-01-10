@@ -505,11 +505,6 @@ async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -519,42 +514,42 @@ async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.codestarnotifications#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConfigurationException":
     case "com.amazonaws.codestarnotifications#ConfigurationException":
       response = await deserializeAws_restJson1_1ConfigurationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codestarnotifications#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -594,11 +589,6 @@ async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -608,21 +598,21 @@ async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codestarnotifications#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -654,11 +644,6 @@ async function deserializeAws_restJson1_1DeleteTargetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTargetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -668,7 +653,7 @@ async function deserializeAws_restJson1_1DeleteTargetCommandError(
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -762,11 +747,6 @@ async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -776,14 +756,14 @@ async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -830,11 +810,6 @@ async function deserializeAws_restJson1_1ListEventTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventTypesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -844,14 +819,14 @@ async function deserializeAws_restJson1_1ListEventTypesCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -898,11 +873,6 @@ async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotificationRulesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -912,14 +882,14 @@ async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -959,11 +929,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -973,14 +938,14 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1024,11 +989,6 @@ async function deserializeAws_restJson1_1ListTargetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1038,14 +998,14 @@ async function deserializeAws_restJson1_1ListTargetsCommandError(
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
       response = await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1082,11 +1042,6 @@ async function deserializeAws_restJson1_1SubscribeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1096,14 +1051,14 @@ async function deserializeAws_restJson1_1SubscribeCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1140,11 +1095,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1154,21 +1104,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1205,11 +1155,6 @@ async function deserializeAws_restJson1_1UnsubscribeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1219,7 +1164,7 @@ async function deserializeAws_restJson1_1UnsubscribeCommandError(
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1251,11 +1196,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1265,21 +1205,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
       response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1314,11 +1254,6 @@ async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1328,14 +1263,14 @@ async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1359,7 +1294,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1376,7 +1311,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1393,7 +1328,7 @@ const deserializeAws_restJson1_1ConfigurationExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1410,7 +1345,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1427,7 +1362,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1444,7 +1379,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1461,7 +1396,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1478,7 +1413,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1712,9 +1647,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

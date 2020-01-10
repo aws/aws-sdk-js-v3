@@ -948,11 +948,6 @@ async function deserializeAws_restJson1_1CreateBrokerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBrokerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -962,35 +957,35 @@ async function deserializeAws_restJson1_1CreateBrokerCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.mq#UnauthorizedException":
       response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1049,11 +1044,6 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1063,28 +1053,28 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1115,11 +1105,6 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1129,28 +1114,28 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1182,11 +1167,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1196,35 +1176,35 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1261,11 +1241,6 @@ async function deserializeAws_restJson1_1DeleteBrokerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBrokerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1275,28 +1250,28 @@ async function deserializeAws_restJson1_1DeleteBrokerCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1327,11 +1302,6 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1341,28 +1311,28 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1394,11 +1364,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1408,28 +1373,28 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1584,11 +1549,6 @@ async function deserializeAws_restJson1_1DescribeBrokerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1598,28 +1558,28 @@ async function deserializeAws_restJson1_1DescribeBrokerCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1670,11 +1630,6 @@ async function deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1684,21 +1639,21 @@ async function deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1749,11 +1704,6 @@ async function deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1763,21 +1713,21 @@ async function deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandErr
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1855,11 +1805,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1869,28 +1814,28 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1942,11 +1887,6 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1956,28 +1896,28 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2036,11 +1976,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2050,28 +1985,28 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2115,11 +2050,6 @@ async function deserializeAws_restJson1_1ListBrokersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBrokersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2129,21 +2059,21 @@ async function deserializeAws_restJson1_1ListBrokersCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2198,11 +2128,6 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2212,28 +2137,28 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2284,11 +2209,6 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2298,21 +2218,21 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2352,11 +2272,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2366,28 +2281,28 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2439,11 +2354,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2453,28 +2363,28 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2506,11 +2416,6 @@ async function deserializeAws_restJson1_1RebootBrokerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootBrokerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2520,28 +2425,28 @@ async function deserializeAws_restJson1_1RebootBrokerCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2608,11 +2513,6 @@ async function deserializeAws_restJson1_1UpdateBrokerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2622,35 +2522,35 @@ async function deserializeAws_restJson1_1UpdateBrokerCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2716,11 +2616,6 @@ async function deserializeAws_restJson1_1UpdateConfigurationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2730,35 +2625,35 @@ async function deserializeAws_restJson1_1UpdateConfigurationCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2790,11 +2685,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2804,35 +2694,35 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2857,7 +2747,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2878,7 +2768,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2899,7 +2789,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2920,7 +2810,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2941,7 +2831,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -2962,7 +2852,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     ErrorAttribute: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.errorAttribute !== undefined) {
     contents.ErrorAttribute = data.errorAttribute;
   }
@@ -3645,9 +3535,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

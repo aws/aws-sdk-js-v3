@@ -407,11 +407,6 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -421,49 +416,49 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
     case "AccountStreamLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#AccountStreamLimitExceededException":
       response = await deserializeAws_restJson1_1AccountStreamLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DeviceStreamLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#DeviceStreamLimitExceededException":
       response = await deserializeAws_restJson1_1DeviceStreamLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidDeviceException":
     case "com.amazon.kinesis.video.v20170930#InvalidDeviceException":
       response = await deserializeAws_restJson1_1InvalidDeviceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TagsPerResourceExceededLimitException":
     case "com.amazon.kinesis.video.v20170930#TagsPerResourceExceededLimitException":
       response = await deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -495,11 +490,6 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -509,35 +499,35 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "VersionMismatchException":
     case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
       response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -580,11 +570,6 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -594,28 +579,28 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -655,11 +640,6 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataEndpointCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -669,28 +649,28 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -734,11 +714,6 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -748,14 +723,14 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -799,11 +774,6 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -813,35 +783,35 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidResourceFormatException":
     case "com.amazon.kinesis.video.v20170930#InvalidResourceFormatException":
       response = await deserializeAws_restJson1_1InvalidResourceFormatExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -873,11 +843,6 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -887,42 +852,42 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidResourceFormatException":
     case "com.amazon.kinesis.video.v20170930#InvalidResourceFormatException":
       response = await deserializeAws_restJson1_1InvalidResourceFormatExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "TagsPerResourceExceededLimitException":
     case "com.amazon.kinesis.video.v20170930#TagsPerResourceExceededLimitException":
       response = await deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -954,11 +919,6 @@ async function deserializeAws_restJson1_1UntagStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -968,35 +928,35 @@ async function deserializeAws_restJson1_1UntagStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidResourceFormatException":
     case "com.amazon.kinesis.video.v20170930#InvalidResourceFormatException":
       response = await deserializeAws_restJson1_1InvalidResourceFormatExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1031,11 +991,6 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataRetentionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1045,42 +1000,42 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "VersionMismatchException":
     case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
       response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1112,11 +1067,6 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1126,42 +1076,42 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazon.kinesis.video.v20170930#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "VersionMismatchException":
     case "com.amazon.kinesis.video.v20170930#VersionMismatchException":
       response = await deserializeAws_restJson1_1VersionMismatchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1185,7 +1135,7 @@ const deserializeAws_restJson1_1AccountStreamLimitExceededExceptionResponse = as
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1202,7 +1152,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1219,7 +1169,7 @@ const deserializeAws_restJson1_1DeviceStreamLimitExceededExceptionResponse = asy
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1236,7 +1186,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1253,7 +1203,7 @@ const deserializeAws_restJson1_1InvalidDeviceExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1270,7 +1220,7 @@ const deserializeAws_restJson1_1InvalidResourceFormatExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1287,7 +1237,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1304,7 +1254,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1321,7 +1271,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1338,7 +1288,7 @@ const deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse = 
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1355,7 +1305,7 @@ const deserializeAws_restJson1_1VersionMismatchExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1470,9 +1420,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

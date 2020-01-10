@@ -195,11 +195,6 @@ async function deserializeAws_restJson1_1SearchCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -209,7 +204,7 @@ async function deserializeAws_restJson1_1SearchCommandError(
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
       response = await deserializeAws_restJson1_1SearchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -256,11 +251,6 @@ async function deserializeAws_restJson1_1SuggestCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SuggestCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -270,7 +260,7 @@ async function deserializeAws_restJson1_1SuggestCommandError(
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
       response = await deserializeAws_restJson1_1SearchExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -325,11 +315,6 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -339,7 +324,7 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
     case "DocumentServiceException":
     case "com.a9.cloudsearch.service2013#DocumentServiceException":
       response = await deserializeAws_restJson1_1DocumentServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -364,7 +349,7 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
     message: undefined,
     status: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -384,7 +369,7 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -724,9 +709,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -567,14 +567,13 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceQuotaTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -672,14 +671,13 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -784,14 +782,13 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceQuotaTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -889,14 +886,13 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAWSDefaultServiceQuotaCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -973,14 +969,13 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1078,14 +1073,13 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRequestedServiceQuotaChangeCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1156,14 +1150,13 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceQuotaCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1240,14 +1233,13 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1352,14 +1344,13 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAWSDefaultServiceQuotasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1443,14 +1434,13 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1534,14 +1524,13 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1625,14 +1614,13 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1724,14 +1712,13 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceQuotasCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1809,14 +1796,13 @@ async function deserializeAws_json1_1ListServicesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServicesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1893,14 +1879,13 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2012,14 +1997,13 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RequestServiceQuotaIncreaseCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2097,255 +2081,270 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
 }
 
 const deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AWSServiceAccessNotEnabledException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AWSServiceAccessNotEnabledException(
-    output.body,
+    body,
     context
   );
   const contents: AWSServiceAccessNotEnabledException = {
     __type: "AWSServiceAccessNotEnabledException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
+    body,
     context
   );
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DependencyAccessDeniedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyAccessDeniedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DependencyAccessDeniedException(
-    output.body,
+    body,
     context
   );
   const contents: DependencyAccessDeniedException = {
     __type: "DependencyAccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IllegalArgumentExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalArgumentException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IllegalArgumentException(
-    output.body,
+    body,
     context
   );
   const contents: IllegalArgumentException = {
     __type: "IllegalArgumentException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidPaginationTokenException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidPaginationTokenException = {
     __type: "InvalidPaginationTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidResourceStateException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidResourceStateException = {
     __type: "InvalidResourceStateException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoAvailableOrganizationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NoAvailableOrganizationException(
-    output.body,
+    body,
     context
   );
   const contents: NoAvailableOrganizationException = {
     __type: "NoAvailableOrganizationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1NoSuchResourceExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchResourceException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NoSuchResourceException(
-    output.body,
+    body,
     context
   );
   const contents: NoSuchResourceException = {
     __type: "NoSuchResourceException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<OrganizationNotInAllFeaturesModeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationNotInAllFeaturesModeException(
-    output.body,
+    body,
     context
   );
   const contents: OrganizationNotInAllFeaturesModeException = {
     __type: "OrganizationNotInAllFeaturesModeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1QuotaExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<QuotaExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1QuotaExceededException(
-    output.body,
+    body,
     context
   );
   const contents: QuotaExceededException = {
     __type: "QuotaExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceAlreadyExistsException = {
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ServiceExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceException(
-    output.body,
+    body,
     context
   );
   const contents: ServiceException = {
     __type: "ServiceException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaTemplateNotInUseException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceQuotaTemplateNotInUseException(
-    output.body,
+    body,
     context
   );
   const contents: ServiceQuotaTemplateNotInUseException = {
     __type: "ServiceQuotaTemplateNotInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TemplatesNotAvailableInRegionException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TemplatesNotAvailableInRegionException(
-    output.body,
+    body,
     context
   );
   const contents: TemplatesNotAvailableInRegionException = {
     __type: "TemplatesNotAvailableInRegionException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    output.body,
+    body,
     context
   );
   const contents: TooManyRequestsException = {
     __type: "TooManyRequestsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -3390,9 +3389,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

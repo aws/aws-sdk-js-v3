@@ -727,11 +727,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -741,42 +736,42 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -813,11 +808,6 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -827,42 +817,42 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -912,11 +902,6 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -926,42 +911,42 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1002,11 +987,6 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1016,35 +996,35 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1079,11 +1059,6 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1093,42 +1068,42 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1160,11 +1135,6 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1174,35 +1144,35 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1246,11 +1216,6 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1260,35 +1225,35 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1332,11 +1297,6 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1346,35 +1306,35 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1418,11 +1378,6 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1432,28 +1387,28 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1494,11 +1449,6 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1508,28 +1458,28 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1566,11 +1516,6 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1580,35 +1525,35 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1655,11 +1600,6 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1669,35 +1609,35 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1734,11 +1674,6 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1748,35 +1683,35 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1820,11 +1755,6 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestRoleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1834,35 +1764,35 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1912,11 +1842,6 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1926,42 +1851,42 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2004,11 +1929,6 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2018,42 +1938,42 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2096,11 +2016,6 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2110,42 +2025,42 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
       response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
       response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2169,7 +2084,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2186,7 +2101,7 @@ const deserializeAws_restJson1_1IncompatibleVersionExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2203,7 +2118,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2220,7 +2135,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2237,7 +2152,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2254,7 +2169,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -2271,7 +2186,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -4359,9 +4274,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

@@ -1142,11 +1142,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1156,49 +1151,49 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
       response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amazonconnectservice.v20170808#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1229,11 +1224,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1243,35 +1233,35 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1308,11 +1298,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1322,35 +1307,35 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1393,11 +1378,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1407,35 +1387,35 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1478,11 +1458,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyStructureCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1492,35 +1467,35 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1563,11 +1538,6 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactAttributesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1577,21 +1547,21 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1646,11 +1616,6 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCurrentMetricDataCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1660,35 +1625,35 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1731,11 +1696,6 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFederationTokenCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1745,42 +1705,42 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
       response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UserNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#UserNotFoundException":
       response = await deserializeAws_restJson1_1UserNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1824,11 +1784,6 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMetricDataCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1838,35 +1793,35 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1913,11 +1868,6 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListContactFlowsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1927,35 +1877,35 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2002,11 +1952,6 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHoursOfOperationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2016,35 +1961,35 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2091,11 +2036,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2105,35 +2045,35 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2177,11 +2117,6 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQueuesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2191,35 +2126,35 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2266,11 +2201,6 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutingProfilesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2280,35 +2210,35 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2355,11 +2285,6 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityProfilesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2369,35 +2294,35 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2444,11 +2369,6 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserHierarchyGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2458,35 +2378,35 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2530,11 +2450,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2544,35 +2459,35 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2612,11 +2527,6 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartOutboundVoiceContactCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2626,49 +2536,49 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
     case "DestinationNotAllowedException":
     case "com.amazonaws.amazonconnectservice.v20170808#DestinationNotAllowedException":
       response = await deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.amazonconnectservice.v20170808#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "OutboundContactNotPermittedException":
     case "com.amazonaws.amazonconnectservice.v20170808#OutboundContactNotPermittedException":
       response = await deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2700,11 +2610,6 @@ async function deserializeAws_restJson1_1StopContactCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopContactCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2714,35 +2619,35 @@ async function deserializeAws_restJson1_1StopContactCommandError(
     case "ContactNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ContactNotFoundException":
       response = await deserializeAws_restJson1_1ContactNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2777,11 +2682,6 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateContactAttributesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2791,28 +2691,28 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2846,11 +2746,6 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserHierarchyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2860,35 +2755,35 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2922,11 +2817,6 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserIdentityInfoCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2936,35 +2826,35 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2998,11 +2888,6 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserPhoneConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3012,35 +2897,35 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3074,11 +2959,6 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserRoutingProfileCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3088,35 +2968,35 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3150,11 +3030,6 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserSecurityProfilesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3164,35 +3039,35 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
       response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
       response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3216,7 +3091,7 @@ const deserializeAws_restJson1_1ContactNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3233,7 +3108,7 @@ const deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3250,7 +3125,7 @@ const deserializeAws_restJson1_1DuplicateResourceExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3267,7 +3142,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3284,7 +3159,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3301,7 +3176,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3318,7 +3193,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3335,7 +3210,7 @@ const deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse = a
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3352,7 +3227,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3369,7 +3244,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3386,7 +3261,7 @@ const deserializeAws_restJson1_1UserNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -4358,9 +4233,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

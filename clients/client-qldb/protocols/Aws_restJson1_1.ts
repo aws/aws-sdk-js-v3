@@ -608,11 +608,6 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLedgerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -622,28 +617,28 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.ledger.v20190102#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.ledger.v20190102#ResourceAlreadyExistsException":
       response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -674,11 +669,6 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLedgerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -688,28 +678,28 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
       response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
       response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -752,11 +742,6 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJournalS3ExportCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -766,7 +751,7 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -826,11 +811,6 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLedgerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -840,14 +820,14 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -887,11 +867,6 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportJournalToS3CommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -901,14 +876,14 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
       response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -949,11 +924,6 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -963,21 +933,21 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
       response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1021,11 +991,6 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDigestCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1035,21 +1000,21 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
       response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1093,11 +1058,6 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRevisionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1107,21 +1067,21 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
       response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1168,7 +1128,6 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1218,7 +1177,6 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1265,7 +1223,6 @@ async function deserializeAws_restJson1_1ListLedgersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLedgersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1308,11 +1265,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1322,14 +1274,14 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1361,11 +1313,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1375,14 +1322,14 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1414,11 +1361,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1428,14 +1370,14 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1492,11 +1434,6 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLedgerCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1506,14 +1443,14 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
       response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1538,7 +1475,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     Message: undefined,
     ParameterName: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1559,7 +1496,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1581,7 +1518,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1606,7 +1543,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1631,7 +1568,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1656,7 +1593,7 @@ const deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse = as
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1902,9 +1839,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

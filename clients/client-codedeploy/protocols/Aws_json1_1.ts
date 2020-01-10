@@ -1601,14 +1601,13 @@ async function deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToOnPremisesInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1699,14 +1698,13 @@ async function deserializeAws_json1_1BatchGetApplicationRevisionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationRevisionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1787,14 +1785,13 @@ async function deserializeAws_json1_1BatchGetApplicationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetApplicationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1864,14 +1861,13 @@ async function deserializeAws_json1_1BatchGetDeploymentGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1962,14 +1958,13 @@ async function deserializeAws_json1_1BatchGetDeploymentInstancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2060,14 +2055,13 @@ async function deserializeAws_json1_1BatchGetDeploymentTargetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentTargetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2162,14 +2156,13 @@ async function deserializeAws_json1_1BatchGetDeploymentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetDeploymentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2232,14 +2225,13 @@ async function deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetOnPremisesInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2294,14 +2286,13 @@ async function deserializeAws_json1_1ContinueDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ContinueDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2393,14 +2384,13 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2478,14 +2468,13 @@ async function deserializeAws_json1_1CreateDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2685,14 +2674,13 @@ async function deserializeAws_json1_1CreateDeploymentConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2780,14 +2768,13 @@ async function deserializeAws_json1_1CreateDeploymentGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3042,14 +3029,13 @@ async function deserializeAws_json1_1DeleteApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3104,14 +3090,13 @@ async function deserializeAws_json1_1DeleteDeploymentConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3178,14 +3163,13 @@ async function deserializeAws_json1_1DeleteDeploymentGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3262,14 +3246,13 @@ async function deserializeAws_json1_1DeleteGitHubAccountTokenCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGitHubAccountTokenCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3338,14 +3321,13 @@ async function deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterOnPremisesInstanceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3395,14 +3377,13 @@ async function deserializeAws_json1_1GetApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3462,14 +3443,13 @@ async function deserializeAws_json1_1GetApplicationRevisionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationRevisionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3547,14 +3527,13 @@ async function deserializeAws_json1_1GetDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3614,14 +3593,13 @@ async function deserializeAws_json1_1GetDeploymentConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3688,14 +3666,13 @@ async function deserializeAws_json1_1GetDeploymentGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3783,14 +3760,13 @@ async function deserializeAws_json1_1GetDeploymentInstanceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentInstanceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3878,14 +3854,13 @@ async function deserializeAws_json1_1GetDeploymentTargetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentTargetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3980,14 +3955,13 @@ async function deserializeAws_json1_1GetOnPremisesInstanceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOnPremisesInstanceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4050,14 +4024,13 @@ async function deserializeAws_json1_1ListApplicationRevisionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationRevisionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4163,14 +4136,13 @@ async function deserializeAws_json1_1ListApplicationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4216,14 +4188,13 @@ async function deserializeAws_json1_1ListDeploymentConfigsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentConfigsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4269,14 +4240,13 @@ async function deserializeAws_json1_1ListDeploymentGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4343,14 +4313,13 @@ async function deserializeAws_json1_1ListDeploymentInstancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4459,14 +4428,13 @@ async function deserializeAws_json1_1ListDeploymentTargetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentTargetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4558,14 +4526,13 @@ async function deserializeAws_json1_1ListDeploymentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4670,14 +4637,13 @@ async function deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGitHubAccountTokenNamesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4737,14 +4703,13 @@ async function deserializeAws_json1_1ListOnPremisesInstancesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOnPremisesInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4804,14 +4769,13 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4874,14 +4838,13 @@ async function deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4964,14 +4927,13 @@ async function deserializeAws_json1_1RegisterApplicationRevisionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterApplicationRevisionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5047,14 +5009,13 @@ async function deserializeAws_json1_1RegisterOnPremisesInstanceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterOnPremisesInstanceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5158,14 +5119,13 @@ async function deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5248,14 +5208,13 @@ async function deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5333,14 +5292,13 @@ async function deserializeAws_json1_1StopDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5411,14 +5369,13 @@ async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5510,14 +5467,13 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5604,14 +5560,13 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5678,14 +5633,13 @@ async function deserializeAws_json1_1UpdateDeploymentGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: await parseBody(output.body, context)
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split("#");
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5910,1836 +5864,1944 @@ async function deserializeAws_json1_1UpdateDeploymentGroupCommandError(
 }
 
 const deserializeAws_json1_1AlarmsLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlarmsLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AlarmsLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: AlarmsLimitExceededException = {
     __type: "AlarmsLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ApplicationAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ApplicationAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: ApplicationAlreadyExistsException = {
     __type: "ApplicationAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ApplicationDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ApplicationDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: ApplicationDoesNotExistException = {
     __type: "ApplicationDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ApplicationLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ApplicationLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: ApplicationLimitExceededException = {
     __type: "ApplicationLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ApplicationNameRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ApplicationNameRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ApplicationNameRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: ApplicationNameRequiredException = {
     __type: "ApplicationNameRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ArnNotSupportedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ArnNotSupportedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ArnNotSupportedException(
-    output.body,
+    body,
     context
   );
   const contents: ArnNotSupportedException = {
     __type: "ArnNotSupportedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1BatchLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BatchLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BatchLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: BatchLimitExceededException = {
     __type: "BatchLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1BucketNameFilterRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<BucketNameFilterRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BucketNameFilterRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: BucketNameFilterRequiredException = {
     __type: "BucketNameFilterRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentAlreadyCompletedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentAlreadyCompletedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentAlreadyCompletedException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentAlreadyCompletedException = {
     __type: "DeploymentAlreadyCompletedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentConfigAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentConfigAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentConfigAlreadyExistsException = {
     __type: "DeploymentConfigAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentConfigDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentConfigDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentConfigDoesNotExistException = {
     __type: "DeploymentConfigDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentConfigInUseExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigInUseException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentConfigInUseException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentConfigInUseException = {
     __type: "DeploymentConfigInUseException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentConfigLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentConfigLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentConfigLimitExceededException = {
     __type: "DeploymentConfigLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentConfigNameRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentConfigNameRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentConfigNameRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentConfigNameRequiredException = {
     __type: "DeploymentConfigNameRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentDoesNotExistException = {
     __type: "DeploymentDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentGroupAlreadyExistsExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupAlreadyExistsException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentGroupAlreadyExistsException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentGroupAlreadyExistsException = {
     __type: "DeploymentGroupAlreadyExistsException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentGroupDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentGroupDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentGroupDoesNotExistException = {
     __type: "DeploymentGroupDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentGroupLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentGroupLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentGroupLimitExceededException = {
     __type: "DeploymentGroupLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentGroupNameRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentGroupNameRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentGroupNameRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentGroupNameRequiredException = {
     __type: "DeploymentGroupNameRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentIdRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentIdRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentIdRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentIdRequiredException = {
     __type: "DeploymentIdRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentIsNotInReadyStateExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentIsNotInReadyStateException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentIsNotInReadyStateException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentIsNotInReadyStateException = {
     __type: "DeploymentIsNotInReadyStateException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentLimitExceededException = {
     __type: "DeploymentLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentNotStartedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentNotStartedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentNotStartedException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentNotStartedException = {
     __type: "DeploymentNotStartedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentTargetDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentTargetDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentTargetDoesNotExistException = {
     __type: "DeploymentTargetDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentTargetIdRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetIdRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentTargetIdRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentTargetIdRequiredException = {
     __type: "DeploymentTargetIdRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DeploymentTargetListSizeExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeploymentTargetListSizeExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DeploymentTargetListSizeExceededException(
-    output.body,
+    body,
     context
   );
   const contents: DeploymentTargetListSizeExceededException = {
     __type: "DeploymentTargetListSizeExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1DescriptionTooLongExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<DescriptionTooLongException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DescriptionTooLongException(
-    output.body,
+    body,
     context
   );
   const contents: DescriptionTooLongException = {
     __type: "DescriptionTooLongException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ECSServiceMappingLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ECSServiceMappingLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ECSServiceMappingLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: ECSServiceMappingLimitExceededException = {
     __type: "ECSServiceMappingLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1GitHubAccountTokenDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GitHubAccountTokenDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1GitHubAccountTokenDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: GitHubAccountTokenDoesNotExistException = {
     __type: "GitHubAccountTokenDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1GitHubAccountTokenNameRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<GitHubAccountTokenNameRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1GitHubAccountTokenNameRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: GitHubAccountTokenNameRequiredException = {
     __type: "GitHubAccountTokenNameRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IamArnRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamArnRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IamArnRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: IamArnRequiredException = {
     __type: "IamArnRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IamSessionArnAlreadyRegisteredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamSessionArnAlreadyRegisteredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IamSessionArnAlreadyRegisteredException(
-    output.body,
+    body,
     context
   );
   const contents: IamSessionArnAlreadyRegisteredException = {
     __type: "IamSessionArnAlreadyRegisteredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IamUserArnAlreadyRegisteredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamUserArnAlreadyRegisteredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IamUserArnAlreadyRegisteredException(
-    output.body,
+    body,
     context
   );
   const contents: IamUserArnAlreadyRegisteredException = {
     __type: "IamUserArnAlreadyRegisteredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1IamUserArnRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<IamUserArnRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IamUserArnRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: IamUserArnRequiredException = {
     __type: "IamUserArnRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceDoesNotExistException = {
     __type: "InstanceDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceIdRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceIdRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceIdRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceIdRequiredException = {
     __type: "InstanceIdRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceLimitExceededException = {
     __type: "InstanceLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceNameAlreadyRegisteredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNameAlreadyRegisteredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceNameAlreadyRegisteredException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceNameAlreadyRegisteredException = {
     __type: "InstanceNameAlreadyRegisteredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceNameRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNameRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceNameRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceNameRequiredException = {
     __type: "InstanceNameRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InstanceNotRegisteredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InstanceNotRegisteredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceNotRegisteredException(
-    output.body,
+    body,
     context
   );
   const contents: InstanceNotRegisteredException = {
     __type: "InstanceNotRegisteredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidAlarmConfigExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAlarmConfigException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidAlarmConfigException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidAlarmConfigException = {
     __type: "InvalidAlarmConfigException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidApplicationNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidApplicationNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidApplicationNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidApplicationNameException = {
     __type: "InvalidApplicationNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidArnExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArnException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidArnException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidArnException = {
     __type: "InvalidArnException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidAutoRollbackConfigExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAutoRollbackConfigException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidAutoRollbackConfigException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidAutoRollbackConfigException = {
     __type: "InvalidAutoRollbackConfigException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidAutoScalingGroupExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidAutoScalingGroupException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidAutoScalingGroupException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidAutoScalingGroupException = {
     __type: "InvalidAutoScalingGroupException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBlueGreenDeploymentConfigurationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidBlueGreenDeploymentConfigurationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidBlueGreenDeploymentConfigurationException = {
     __type: "InvalidBlueGreenDeploymentConfigurationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidBucketNameFilterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidBucketNameFilterException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidBucketNameFilterException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidBucketNameFilterException = {
     __type: "InvalidBucketNameFilterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidComputePlatformExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidComputePlatformException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidComputePlatformException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidComputePlatformException = {
     __type: "InvalidComputePlatformException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeployedStateFilterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeployedStateFilterException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeployedStateFilterException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeployedStateFilterException = {
     __type: "InvalidDeployedStateFilterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentConfigNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentConfigNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentConfigNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentConfigNameException = {
     __type: "InvalidDeploymentConfigNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentGroupNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentGroupNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentGroupNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentGroupNameException = {
     __type: "InvalidDeploymentGroupNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentIdExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentIdException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentIdException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentIdException = {
     __type: "InvalidDeploymentIdException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentInstanceTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentInstanceTypeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentInstanceTypeException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentInstanceTypeException = {
     __type: "InvalidDeploymentInstanceTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentStatusExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentStatusException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentStatusException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentStatusException = {
     __type: "InvalidDeploymentStatusException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentStyleExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentStyleException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentStyleException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentStyleException = {
     __type: "InvalidDeploymentStyleException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentTargetIdExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentTargetIdException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentTargetIdException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentTargetIdException = {
     __type: "InvalidDeploymentTargetIdException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidDeploymentWaitTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDeploymentWaitTypeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDeploymentWaitTypeException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidDeploymentWaitTypeException = {
     __type: "InvalidDeploymentWaitTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidEC2TagCombinationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEC2TagCombinationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEC2TagCombinationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidEC2TagCombinationException = {
     __type: "InvalidEC2TagCombinationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidEC2TagExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidEC2TagException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEC2TagException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidEC2TagException = {
     __type: "InvalidEC2TagException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidECSServiceExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidECSServiceException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidECSServiceException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidECSServiceException = {
     __type: "InvalidECSServiceException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidFileExistsBehaviorExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidFileExistsBehaviorException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidFileExistsBehaviorException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidFileExistsBehaviorException = {
     __type: "InvalidFileExistsBehaviorException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidGitHubAccountTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGitHubAccountTokenException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGitHubAccountTokenException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidGitHubAccountTokenException = {
     __type: "InvalidGitHubAccountTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidGitHubAccountTokenNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidGitHubAccountTokenNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGitHubAccountTokenNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidGitHubAccountTokenNameException = {
     __type: "InvalidGitHubAccountTokenNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidIamSessionArnExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIamSessionArnException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidIamSessionArnException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidIamSessionArnException = {
     __type: "InvalidIamSessionArnException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidIamUserArnExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIamUserArnException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidIamUserArnException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidIamUserArnException = {
     __type: "InvalidIamUserArnException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidIgnoreApplicationStopFailuresValueException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidIgnoreApplicationStopFailuresValueException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidIgnoreApplicationStopFailuresValueException = {
     __type: "InvalidIgnoreApplicationStopFailuresValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidInputExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidInputException = {
     __type: "InvalidInputException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidInstanceNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInstanceNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidInstanceNameException = {
     __type: "InvalidInstanceNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidInstanceStatusExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceStatusException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInstanceStatusException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidInstanceStatusException = {
     __type: "InvalidInstanceStatusException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidInstanceTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInstanceTypeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInstanceTypeException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidInstanceTypeException = {
     __type: "InvalidInstanceTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidKeyPrefixFilterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKeyPrefixFilterException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidKeyPrefixFilterException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidKeyPrefixFilterException = {
     __type: "InvalidKeyPrefixFilterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLifecycleEventHookExecutionIdException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLifecycleEventHookExecutionIdException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidLifecycleEventHookExecutionIdException = {
     __type: "InvalidLifecycleEventHookExecutionIdException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLifecycleEventHookExecutionStatusException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLifecycleEventHookExecutionStatusException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidLifecycleEventHookExecutionStatusException = {
     __type: "InvalidLifecycleEventHookExecutionStatusException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidLoadBalancerInfoExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLoadBalancerInfoException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLoadBalancerInfoException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidLoadBalancerInfoException = {
     __type: "InvalidLoadBalancerInfoException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidMinimumHealthyHostValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMinimumHealthyHostValueException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidMinimumHealthyHostValueException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidMinimumHealthyHostValueException = {
     __type: "InvalidMinimumHealthyHostValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidNextTokenException = {
     __type: "InvalidNextTokenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidOnPremisesTagCombinationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOnPremisesTagCombinationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidOnPremisesTagCombinationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidOnPremisesTagCombinationException = {
     __type: "InvalidOnPremisesTagCombinationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidOperationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidOperationException = {
     __type: "InvalidOperationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidRegistrationStatusExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRegistrationStatusException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRegistrationStatusException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidRegistrationStatusException = {
     __type: "InvalidRegistrationStatusException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidRevisionExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRevisionException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRevisionException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidRevisionException = {
     __type: "InvalidRevisionException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRoleException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidRoleException = {
     __type: "InvalidRoleException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidSortByExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSortByException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSortByException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidSortByException = {
     __type: "InvalidSortByException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidSortOrderExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSortOrderException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSortOrderException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidSortOrderException = {
     __type: "InvalidSortOrderException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTagExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTagException = {
     __type: "InvalidTagException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTagFilterExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagFilterException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagFilterException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTagFilterException = {
     __type: "InvalidTagFilterException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTagsToAddExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTagsToAddException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagsToAddException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTagsToAddException = {
     __type: "InvalidTagsToAddException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTargetFilterNameExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetFilterNameException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTargetFilterNameException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTargetFilterNameException = {
     __type: "InvalidTargetFilterNameException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTargetGroupPairExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetGroupPairException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTargetGroupPairException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTargetGroupPairException = {
     __type: "InvalidTargetGroupPairException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTargetInstancesExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTargetInstancesException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTargetInstancesException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTargetInstancesException = {
     __type: "InvalidTargetInstancesException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTimeRangeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTimeRangeException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTimeRangeException = {
     __type: "InvalidTimeRangeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTrafficRoutingConfigurationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTrafficRoutingConfigurationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTrafficRoutingConfigurationException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTrafficRoutingConfigurationException = {
     __type: "InvalidTrafficRoutingConfigurationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidTriggerConfigExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTriggerConfigException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTriggerConfigException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidTriggerConfigException = {
     __type: "InvalidTriggerConfigException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidUpdateOutdatedInstancesOnlyValueException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidUpdateOutdatedInstancesOnlyValueException(
-    output.body,
+    body,
     context
   );
   const contents: InvalidUpdateOutdatedInstancesOnlyValueException = {
     __type: "InvalidUpdateOutdatedInstancesOnlyValueException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecycleEventAlreadyCompletedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LifecycleEventAlreadyCompletedException(
-    output.body,
+    body,
     context
   );
   const contents: LifecycleEventAlreadyCompletedException = {
     __type: "LifecycleEventAlreadyCompletedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1LifecycleHookLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<LifecycleHookLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LifecycleHookLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: LifecycleHookLimitExceededException = {
     __type: "LifecycleHookLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1MultipleIamArnsProvidedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<MultipleIamArnsProvidedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MultipleIamArnsProvidedException(
-    output.body,
+    body,
     context
   );
   const contents: MultipleIamArnsProvidedException = {
     __type: "MultipleIamArnsProvidedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotSupportedException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationNotSupportedException(
-    output.body,
+    body,
     context
   );
   const contents: OperationNotSupportedException = {
     __type: "OperationNotSupportedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ResourceArnRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceArnRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceArnRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceArnRequiredException = {
     __type: "ResourceArnRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ResourceValidationExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceValidationException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceValidationException(
-    output.body,
+    body,
     context
   );
   const contents: ResourceValidationException = {
     __type: "ResourceValidationException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1RevisionDoesNotExistExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionDoesNotExistException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RevisionDoesNotExistException(
-    output.body,
+    body,
     context
   );
   const contents: RevisionDoesNotExistException = {
     __type: "RevisionDoesNotExistException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1RevisionRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RevisionRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RevisionRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: RevisionRequiredException = {
     __type: "RevisionRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1RoleRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<RoleRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RoleRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: RoleRequiredException = {
     __type: "RoleRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: TagLimitExceededException = {
     __type: "TagLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TagRequiredExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagRequiredException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagRequiredException(
-    output.body,
+    body,
     context
   );
   const contents: TagRequiredException = {
     __type: "TagRequiredException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TagSetListLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagSetListLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagSetListLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: TagSetListLimitExceededException = {
     __type: "TagSetListLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    output.body,
+    body,
     context
   );
   const contents: ThrottlingException = {
     __type: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1TriggerTargetsLimitExceededExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<TriggerTargetsLimitExceededException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TriggerTargetsLimitExceededException(
-    output.body,
+    body,
     context
   );
   const contents: TriggerTargetsLimitExceededException = {
     __type: "TriggerTargetsLimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
 };
 
 const deserializeAws_json1_1UnsupportedActionForDeploymentTypeExceptionResponse = async (
-  output: any,
+  parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedActionForDeploymentTypeException> => {
+  const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedActionForDeploymentTypeException(
-    output.body,
+    body,
     context
   );
   const contents: UnsupportedActionForDeploymentTypeException = {
     __type: "UnsupportedActionForDeploymentTypeException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(parsedOutput),
     ...deserialized
   };
   return contents;
@@ -13517,9 +13579,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
