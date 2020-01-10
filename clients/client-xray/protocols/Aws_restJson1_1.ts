@@ -745,11 +745,6 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -759,14 +754,14 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -803,11 +798,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -817,14 +807,14 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -867,11 +857,6 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -881,21 +866,21 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "RuleLimitExceededException":
     case "com.amazonaws.tracing#RuleLimitExceededException":
       response = await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -927,11 +912,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -941,14 +921,14 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -991,11 +971,6 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1005,14 +980,14 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1055,11 +1030,6 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1069,14 +1039,14 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1113,11 +1083,6 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1127,14 +1092,14 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1178,11 +1143,6 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1192,14 +1152,14 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1246,11 +1206,6 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1260,14 +1215,14 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1314,11 +1269,6 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1328,14 +1278,14 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1393,11 +1343,6 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1407,14 +1352,14 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1479,11 +1424,6 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1493,14 +1433,14 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1551,11 +1491,6 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1565,14 +1500,14 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1616,11 +1551,6 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTraceGraphCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1630,14 +1560,14 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1696,11 +1626,6 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1710,14 +1635,14 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1760,11 +1685,6 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1774,14 +1694,14 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1816,11 +1736,6 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1830,14 +1745,14 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1880,11 +1795,6 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1894,14 +1804,14 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1938,11 +1848,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1952,14 +1857,14 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2002,11 +1907,6 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2016,14 +1916,14 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2047,7 +1947,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -2064,7 +1964,7 @@ const deserializeAws_restJson1_1RuleLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -2081,7 +1981,7 @@ const deserializeAws_restJson1_1ThrottledExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3846,9 +3746,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

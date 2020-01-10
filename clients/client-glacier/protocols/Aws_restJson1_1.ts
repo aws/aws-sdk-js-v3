@@ -1484,11 +1484,6 @@ async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1498,28 +1493,28 @@ async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1553,11 +1548,6 @@ async function deserializeAws_restJson1_1AbortVaultLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortVaultLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1567,28 +1557,28 @@ async function deserializeAws_restJson1_1AbortVaultLockCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1622,11 +1612,6 @@ async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1636,35 +1621,35 @@ async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.glacier.gaws#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1711,11 +1696,6 @@ async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1725,28 +1705,28 @@ async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1780,11 +1760,6 @@ async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteVaultLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1794,28 +1769,28 @@ async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1851,11 +1826,6 @@ async function deserializeAws_restJson1_1CreateVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1865,28 +1835,28 @@ async function deserializeAws_restJson1_1CreateVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.glacier.gaws#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1917,11 +1887,6 @@ async function deserializeAws_restJson1_1DeleteArchiveCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1931,28 +1896,28 @@ async function deserializeAws_restJson1_1DeleteArchiveCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1983,11 +1948,6 @@ async function deserializeAws_restJson1_1DeleteVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1997,28 +1957,28 @@ async function deserializeAws_restJson1_1DeleteVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2052,11 +2012,6 @@ async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultAccessPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2066,28 +2021,28 @@ async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2121,11 +2076,6 @@ async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVaultNotificationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2135,28 +2085,28 @@ async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2282,11 +2232,6 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2296,28 +2241,28 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2374,11 +2319,6 @@ async function deserializeAws_restJson1_1DescribeVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2388,28 +2328,28 @@ async function deserializeAws_restJson1_1DescribeVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2452,11 +2392,6 @@ async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataRetrievalPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2466,21 +2401,21 @@ async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2535,11 +2470,6 @@ async function deserializeAws_restJson1_1GetJobOutputCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobOutputCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2549,28 +2479,28 @@ async function deserializeAws_restJson1_1GetJobOutputCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2608,11 +2538,6 @@ async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultAccessPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2622,28 +2547,28 @@ async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2692,11 +2617,6 @@ async function deserializeAws_restJson1_1GetVaultLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2706,28 +2626,28 @@ async function deserializeAws_restJson1_1GetVaultLockCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2768,11 +2688,6 @@ async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVaultNotificationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2782,28 +2697,28 @@ async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2847,11 +2762,6 @@ async function deserializeAws_restJson1_1InitiateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2861,42 +2771,42 @@ async function deserializeAws_restJson1_1InitiateJobCommandError(
     case "InsufficientCapacityException":
     case "com.amazonaws.glacier.gaws#InsufficientCapacityException":
       response = await deserializeAws_restJson1_1InsufficientCapacityExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "PolicyEnforcedException":
     case "com.amazonaws.glacier.gaws#PolicyEnforcedException":
       response = await deserializeAws_restJson1_1PolicyEnforcedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2939,11 +2849,6 @@ async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateMultipartUploadCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2953,28 +2858,28 @@ async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3013,11 +2918,6 @@ async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateVaultLockCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3027,28 +2927,28 @@ async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3089,11 +2989,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3103,28 +2998,28 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3171,11 +3066,6 @@ async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3185,28 +3075,28 @@ async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3267,11 +3157,6 @@ async function deserializeAws_restJson1_1ListPartsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3281,28 +3166,28 @@ async function deserializeAws_restJson1_1ListPartsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3345,11 +3230,6 @@ async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedCapacityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3359,21 +3239,21 @@ async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3413,11 +3293,6 @@ async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3427,28 +3302,28 @@ async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3492,11 +3367,6 @@ async function deserializeAws_restJson1_1ListVaultsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVaultsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3506,28 +3376,28 @@ async function deserializeAws_restJson1_1ListVaultsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3566,11 +3436,6 @@ async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseProvisionedCapacityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3580,28 +3445,28 @@ async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.glacier.gaws#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3635,11 +3500,6 @@ async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromVaultCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3649,28 +3509,28 @@ async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3704,11 +3564,6 @@ async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDataRetrievalPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3718,21 +3573,21 @@ async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3766,11 +3621,6 @@ async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultAccessPolicyCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3780,28 +3630,28 @@ async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3835,11 +3685,6 @@ async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVaultNotificationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3849,28 +3694,28 @@ async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3914,11 +3759,6 @@ async function deserializeAws_restJson1_1UploadArchiveCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadArchiveCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3928,35 +3768,35 @@ async function deserializeAws_restJson1_1UploadArchiveCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "RequestTimeoutException":
     case "com.amazonaws.glacier.gaws#RequestTimeoutException":
       response = await deserializeAws_restJson1_1RequestTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3995,11 +3835,6 @@ async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadMultipartPartCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4009,35 +3844,35 @@ async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "MissingParameterValueException":
     case "com.amazonaws.glacier.gaws#MissingParameterValueException":
       response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "RequestTimeoutException":
     case "com.amazonaws.glacier.gaws#RequestTimeoutException":
       response = await deserializeAws_restJson1_1RequestTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier.gaws#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier.gaws#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4063,7 +3898,7 @@ const deserializeAws_restJson1_1InsufficientCapacityExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4088,7 +3923,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4113,7 +3948,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4138,7 +3973,7 @@ const deserializeAws_restJson1_1MissingParameterValueExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4163,7 +3998,7 @@ const deserializeAws_restJson1_1PolicyEnforcedExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4188,7 +4023,7 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4213,7 +4048,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4238,7 +4073,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -5326,9 +5161,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

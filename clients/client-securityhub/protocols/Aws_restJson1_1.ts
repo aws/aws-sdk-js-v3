@@ -1260,11 +1260,6 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1274,35 +1269,35 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1345,11 +1340,6 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisableStandardsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1359,28 +1349,28 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1423,11 +1413,6 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchEnableStandardsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1437,28 +1422,28 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1509,11 +1494,6 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchImportFindingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1523,28 +1503,28 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1584,11 +1564,6 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateActionTargetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1598,35 +1573,35 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1663,11 +1638,6 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInsightCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1677,35 +1647,35 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1745,11 +1715,6 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1759,35 +1724,35 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1830,11 +1795,6 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineInvitationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1844,28 +1804,28 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1905,11 +1865,6 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteActionTargetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1919,28 +1874,28 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -1977,11 +1932,6 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInsightCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -1991,35 +1941,35 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2062,11 +2012,6 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInvitationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2076,35 +2021,35 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2144,11 +2089,6 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2158,35 +2098,35 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2233,11 +2173,6 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActionTargetsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2247,28 +2182,28 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2309,11 +2244,6 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHubCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2323,35 +2253,35 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2398,11 +2328,6 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2412,28 +2337,28 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2468,11 +2393,6 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableImportFindingsForProductCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2482,35 +2402,35 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2545,11 +2465,6 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableSecurityHubCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2559,28 +2474,28 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2615,11 +2530,6 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFromMasterAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2629,35 +2539,35 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2692,11 +2602,6 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2706,35 +2611,35 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2774,11 +2679,6 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableImportFindingsForProductCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2788,35 +2688,35 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2851,11 +2751,6 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableSecurityHubCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2865,35 +2760,35 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
     case "AccessDeniedException":
     case "com.amazonaws.securityhub#AccessDeniedException":
       response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -2940,11 +2835,6 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnabledStandardsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -2954,28 +2844,28 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3019,11 +2909,6 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3033,28 +2918,28 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3097,11 +2982,6 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightResultsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3111,35 +2991,35 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3183,11 +3063,6 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInsightsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3197,35 +3072,35 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3265,11 +3140,6 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInvitationsCountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3279,28 +3149,28 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3343,11 +3213,6 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMasterAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3357,35 +3222,35 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3432,11 +3297,6 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3446,35 +3306,35 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3514,11 +3374,6 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InviteMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3528,35 +3383,35 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3603,11 +3458,6 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnabledProductsForImportCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3617,21 +3467,21 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3678,11 +3528,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3692,28 +3537,28 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3757,11 +3602,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3771,28 +3611,28 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3832,11 +3672,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3846,21 +3681,21 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3892,11 +3727,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3906,21 +3736,21 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3952,11 +3782,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3966,21 +3791,21 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4015,11 +3840,6 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateActionTargetCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4029,28 +3849,28 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4085,11 +3905,6 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFindingsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4099,35 +3914,35 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4159,11 +3974,6 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInsightCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4173,35 +3983,35 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidAccessException":
     case "com.amazonaws.securityhub#InvalidAccessException":
       response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4226,7 +4036,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4247,7 +4057,7 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4268,7 +4078,7 @@ const deserializeAws_restJson1_1InvalidAccessExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4289,7 +4099,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4310,7 +4120,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4331,7 +4141,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -4352,7 +4162,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -7634,9 +7444,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
