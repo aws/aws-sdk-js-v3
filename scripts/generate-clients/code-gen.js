@@ -1,14 +1,8 @@
 const path = require("path");
 const { copyFileSync, emptyDirSync } = require("fs-extra");
 const { readdirSync, lstatSync } = require("fs");
-const { spawn } = require("child_process");
-
-const CODE_GEN_INPUT_DIR = path.normalize(
-  path.join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models")
-);
-const CODE_GEN_ROOT = path.normalize(
-  path.join(__dirname, "..", "..", "codegen")
-);
+const { spawnProcess } = require("./spawn-process");
+const { CODE_GEN_ROOT, CODE_GEN_INPUT_DIR } = require("./code-gen-dir");
 
 async function generateClients(models) {
   console.info("models directory: ", models);
@@ -40,24 +34,4 @@ async function generateClients(models) {
   );
 }
 
-const spawnProcess = (command, args = [], options = {}) =>
-  new Promise((resolve, reject) => {
-    try {
-      const ls = spawn(command, args, options);
-      ls.stdout.on("data", data => {
-        console.log(data.toString());
-      });
-      ls.stderr.on("data", data => {
-        console.error(`stderr: ${data.toString()}`);
-      });
-
-      ls.on("close", code => {
-        console.log(`child process exited with code ${code}`);
-        resolve();
-      });
-    } catch (e) {
-      reject(e);
-    }
-  });
-
-module.exports = { generateClients, CODE_GEN_INPUT_DIR };
+module.exports = { generateClients };
