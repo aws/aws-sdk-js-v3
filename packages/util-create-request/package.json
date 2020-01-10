@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.0",
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.2",
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.3",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.3",
     "jest": "^24.7.1",
