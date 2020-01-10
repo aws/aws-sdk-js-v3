@@ -372,11 +372,6 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -386,35 +381,35 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -472,11 +467,6 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -486,28 +476,28 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -586,11 +576,6 @@ async function deserializeAws_restJson1_1PostContentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostContentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -600,77 +585,77 @@ async function deserializeAws_restJson1_1PostContentCommandError(
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAcceptableException":
     case "com.amazonaws.commonapi.exceptions#NotAcceptableException":
       response = await deserializeAws_restJson1_1NotAcceptableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "RequestTimeoutException":
     case "com.amazonaws.commonapi.exceptions#RequestTimeoutException":
       response = await deserializeAws_restJson1_1RequestTimeoutExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "UnsupportedMediaTypeException":
     case "com.amazonaws.commonapi.exceptions#UnsupportedMediaTypeException":
       response = await deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadGatewayException":
     case "com.amazonaws.deepsense.runtimeservice#BadGatewayException":
       response = await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependencyFailedException":
     case "com.amazonaws.deepsense.runtimeservice#DependencyFailedException":
       response = await deserializeAws_restJson1_1DependencyFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LoopDetectedException":
     case "com.amazonaws.deepsense.runtimeservice#LoopDetectedException":
       response = await deserializeAws_restJson1_1LoopDetectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -752,11 +737,6 @@ async function deserializeAws_restJson1_1PostTextCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -766,56 +746,56 @@ async function deserializeAws_restJson1_1PostTextCommandError(
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadGatewayException":
     case "com.amazonaws.deepsense.runtimeservice#BadGatewayException":
       response = await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependencyFailedException":
     case "com.amazonaws.deepsense.runtimeservice#DependencyFailedException":
       response = await deserializeAws_restJson1_1DependencyFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LoopDetectedException":
     case "com.amazonaws.deepsense.runtimeservice#LoopDetectedException":
       response = await deserializeAws_restJson1_1LoopDetectedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -886,11 +866,6 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSessionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -900,56 +875,56 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
       response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalFailureException":
     case "com.amazonaws.commonapi.exceptions#InternalFailureException":
       response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotAcceptableException":
     case "com.amazonaws.commonapi.exceptions#NotAcceptableException":
       response = await deserializeAws_restJson1_1NotAcceptableExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
       response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "BadGatewayException":
     case "com.amazonaws.deepsense.runtimeservice#BadGatewayException":
       response = await deserializeAws_restJson1_1BadGatewayExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "DependencyFailedException":
     case "com.amazonaws.deepsense.runtimeservice#DependencyFailedException":
       response = await deserializeAws_restJson1_1DependencyFailedExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -973,7 +948,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -990,7 +965,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1007,7 +982,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1028,7 +1003,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1045,7 +1020,7 @@ const deserializeAws_restJson1_1NotAcceptableExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1062,7 +1037,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1079,7 +1054,7 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1096,7 +1071,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1113,7 +1088,7 @@ const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1130,7 +1105,7 @@ const deserializeAws_restJson1_1DependencyFailedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1147,7 +1122,7 @@ const deserializeAws_restJson1_1LoopDetectedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1452,9 +1427,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }

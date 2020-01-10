@@ -3521,11 +3521,6 @@ async function deserializeAws_restJson1_1AssociateRoleToGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3535,14 +3530,14 @@ async function deserializeAws_restJson1_1AssociateRoleToGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3582,11 +3577,6 @@ async function deserializeAws_restJson1_1AssociateServiceRoleToAccountCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3596,14 +3586,14 @@ async function deserializeAws_restJson1_1AssociateServiceRoleToAccountCommandErr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3667,11 +3657,6 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3681,7 +3666,7 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3733,11 +3718,6 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3747,7 +3727,7 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3811,11 +3791,6 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3825,7 +3800,7 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3877,11 +3852,6 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionVersionCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3891,7 +3861,7 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionVersionCommandError
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -3935,11 +3905,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -3949,7 +3914,7 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4013,11 +3978,6 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4027,7 +3987,7 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4079,11 +4039,6 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4093,7 +4048,7 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommandErr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4157,11 +4112,6 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4171,7 +4121,7 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4223,11 +4173,6 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4237,7 +4182,7 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommandE
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4298,11 +4243,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4312,7 +4252,7 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4352,11 +4292,6 @@ async function deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4366,14 +4301,14 @@ async function deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommandE
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4425,11 +4360,6 @@ async function deserializeAws_restJson1_1CreateGroupVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4439,7 +4369,7 @@ async function deserializeAws_restJson1_1CreateGroupVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4503,11 +4433,6 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4517,7 +4442,7 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4569,11 +4494,6 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4583,7 +4503,7 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommandErr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4647,11 +4567,6 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4661,7 +4576,7 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4713,11 +4628,6 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionVersionCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4727,7 +4637,7 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionVersionCommandE
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4775,11 +4685,6 @@ async function deserializeAws_restJson1_1CreateSoftwareUpdateJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4789,14 +4694,14 @@ async function deserializeAws_restJson1_1CreateSoftwareUpdateJobCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4860,11 +4765,6 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4874,7 +4774,7 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4926,11 +4826,6 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4940,7 +4835,7 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionComm
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -4975,11 +4870,6 @@ async function deserializeAws_restJson1_1DeleteConnectorDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -4989,7 +4879,7 @@ async function deserializeAws_restJson1_1DeleteConnectorDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5024,11 +4914,6 @@ async function deserializeAws_restJson1_1DeleteCoreDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5038,7 +4923,7 @@ async function deserializeAws_restJson1_1DeleteCoreDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5073,11 +4958,6 @@ async function deserializeAws_restJson1_1DeleteDeviceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5087,7 +4967,7 @@ async function deserializeAws_restJson1_1DeleteDeviceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5122,11 +5002,6 @@ async function deserializeAws_restJson1_1DeleteFunctionDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5136,7 +5011,7 @@ async function deserializeAws_restJson1_1DeleteFunctionDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5168,11 +5043,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5182,7 +5052,7 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5217,11 +5087,6 @@ async function deserializeAws_restJson1_1DeleteLoggerDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5231,7 +5096,7 @@ async function deserializeAws_restJson1_1DeleteLoggerDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5266,11 +5131,6 @@ async function deserializeAws_restJson1_1DeleteResourceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5280,7 +5140,7 @@ async function deserializeAws_restJson1_1DeleteResourceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5315,11 +5175,6 @@ async function deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5329,7 +5184,7 @@ async function deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5369,11 +5224,6 @@ async function deserializeAws_restJson1_1DisassociateRoleFromGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5383,14 +5233,14 @@ async function deserializeAws_restJson1_1DisassociateRoleFromGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5430,11 +5280,6 @@ async function deserializeAws_restJson1_1DisassociateServiceRoleFromAccountComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5444,7 +5289,7 @@ async function deserializeAws_restJson1_1DisassociateServiceRoleFromAccountComma
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5488,11 +5333,6 @@ async function deserializeAws_restJson1_1GetAssociatedRoleCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5502,14 +5342,14 @@ async function deserializeAws_restJson1_1GetAssociatedRoleCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5575,11 +5415,6 @@ async function deserializeAws_restJson1_1GetBulkDeploymentStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5589,7 +5424,7 @@ async function deserializeAws_restJson1_1GetBulkDeploymentStatusCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5636,11 +5471,6 @@ async function deserializeAws_restJson1_1GetConnectivityInfoCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5650,14 +5480,14 @@ async function deserializeAws_restJson1_1GetConnectivityInfoCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5725,11 +5555,6 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5739,7 +5564,7 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5802,11 +5627,6 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionVersionCommandErr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5816,7 +5636,7 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionVersionCommandErr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5884,11 +5704,6 @@ async function deserializeAws_restJson1_1GetCoreDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5898,7 +5713,7 @@ async function deserializeAws_restJson1_1GetCoreDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -5961,11 +5776,6 @@ async function deserializeAws_restJson1_1GetCoreDefinitionVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5975,7 +5785,7 @@ async function deserializeAws_restJson1_1GetCoreDefinitionVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6034,11 +5844,6 @@ async function deserializeAws_restJson1_1GetDeploymentStatusCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6048,7 +5853,7 @@ async function deserializeAws_restJson1_1GetDeploymentStatusCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6116,11 +5921,6 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6130,7 +5930,7 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6193,11 +5993,6 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6207,7 +6002,7 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6275,11 +6070,6 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6289,7 +6079,7 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6352,11 +6142,6 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionVersionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6366,7 +6151,7 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionVersionCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6431,11 +6216,6 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6445,7 +6225,7 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6493,11 +6273,6 @@ async function deserializeAws_restJson1_1GetGroupCertificateAuthorityCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6507,14 +6282,14 @@ async function deserializeAws_restJson1_1GetGroupCertificateAuthorityCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6564,11 +6339,6 @@ async function deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6578,14 +6348,14 @@ async function deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6644,11 +6414,6 @@ async function deserializeAws_restJson1_1GetGroupVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6658,7 +6423,7 @@ async function deserializeAws_restJson1_1GetGroupVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6726,11 +6491,6 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6740,7 +6500,7 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6799,11 +6559,6 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionVersionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6813,7 +6568,7 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionVersionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6881,11 +6636,6 @@ async function deserializeAws_restJson1_1GetResourceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6895,7 +6645,7 @@ async function deserializeAws_restJson1_1GetResourceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -6954,11 +6704,6 @@ async function deserializeAws_restJson1_1GetResourceDefinitionVersionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -6968,7 +6713,7 @@ async function deserializeAws_restJson1_1GetResourceDefinitionVersionCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7012,11 +6757,6 @@ async function deserializeAws_restJson1_1GetServiceRoleForAccountCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7026,7 +6766,7 @@ async function deserializeAws_restJson1_1GetServiceRoleForAccountCommandError(
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7094,11 +6834,6 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7108,7 +6843,7 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7171,11 +6906,6 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7185,7 +6915,7 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7232,11 +6962,6 @@ async function deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7246,7 +6971,7 @@ async function deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsComman
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7293,11 +7018,6 @@ async function deserializeAws_restJson1_1ListBulkDeploymentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7307,7 +7027,7 @@ async function deserializeAws_restJson1_1ListBulkDeploymentsCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7354,11 +7074,6 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7368,7 +7083,7 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommandE
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7415,7 +7130,6 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7465,11 +7179,6 @@ async function deserializeAws_restJson1_1ListCoreDefinitionVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7479,7 +7188,7 @@ async function deserializeAws_restJson1_1ListCoreDefinitionVersionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7526,7 +7235,6 @@ async function deserializeAws_restJson1_1ListCoreDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7576,11 +7284,6 @@ async function deserializeAws_restJson1_1ListDeploymentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7590,7 +7293,7 @@ async function deserializeAws_restJson1_1ListDeploymentsCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7637,11 +7340,6 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7651,7 +7349,7 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7698,7 +7396,6 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7748,11 +7445,6 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7762,7 +7454,7 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommandEr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7809,7 +7501,6 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7855,11 +7546,6 @@ async function deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommandE
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7869,14 +7555,14 @@ async function deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommandE
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7923,11 +7609,6 @@ async function deserializeAws_restJson1_1ListGroupVersionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -7937,7 +7618,7 @@ async function deserializeAws_restJson1_1ListGroupVersionsCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -7981,7 +7662,6 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8031,11 +7711,6 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8045,7 +7720,7 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8092,7 +7767,6 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8142,11 +7816,6 @@ async function deserializeAws_restJson1_1ListResourceDefinitionVersionsCommandEr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8156,7 +7825,7 @@ async function deserializeAws_restJson1_1ListResourceDefinitionVersionsCommandEr
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8203,7 +7872,6 @@ async function deserializeAws_restJson1_1ListResourceDefinitionsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8253,11 +7921,6 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8267,7 +7930,7 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsComma
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8314,7 +7977,6 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionsCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8357,11 +8019,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8371,7 +8028,7 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8415,11 +8072,6 @@ async function deserializeAws_restJson1_1ResetDeploymentsCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8429,7 +8081,7 @@ async function deserializeAws_restJson1_1ResetDeploymentsCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8473,11 +8125,6 @@ async function deserializeAws_restJson1_1StartBulkDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8487,7 +8134,7 @@ async function deserializeAws_restJson1_1StartBulkDeploymentCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8522,11 +8169,6 @@ async function deserializeAws_restJson1_1StopBulkDeploymentCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8536,7 +8178,7 @@ async function deserializeAws_restJson1_1StopBulkDeploymentCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8567,11 +8209,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8581,7 +8218,7 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8612,11 +8249,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8626,7 +8258,7 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8670,11 +8302,6 @@ async function deserializeAws_restJson1_1UpdateConnectivityInfoCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8684,14 +8311,14 @@ async function deserializeAws_restJson1_1UpdateConnectivityInfoCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8726,11 +8353,6 @@ async function deserializeAws_restJson1_1UpdateConnectorDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8740,7 +8362,7 @@ async function deserializeAws_restJson1_1UpdateConnectorDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8775,11 +8397,6 @@ async function deserializeAws_restJson1_1UpdateCoreDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8789,7 +8406,7 @@ async function deserializeAws_restJson1_1UpdateCoreDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8824,11 +8441,6 @@ async function deserializeAws_restJson1_1UpdateDeviceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8838,7 +8450,7 @@ async function deserializeAws_restJson1_1UpdateDeviceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8873,11 +8485,6 @@ async function deserializeAws_restJson1_1UpdateFunctionDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8887,7 +8494,7 @@ async function deserializeAws_restJson1_1UpdateFunctionDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8919,11 +8526,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8933,7 +8535,7 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -8983,11 +8585,6 @@ async function deserializeAws_restJson1_1UpdateGroupCertificateConfigurationComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -8997,14 +8594,14 @@ async function deserializeAws_restJson1_1UpdateGroupCertificateConfigurationComm
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
       response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9039,11 +8636,6 @@ async function deserializeAws_restJson1_1UpdateLoggerDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9053,7 +8645,7 @@ async function deserializeAws_restJson1_1UpdateLoggerDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9088,11 +8680,6 @@ async function deserializeAws_restJson1_1UpdateResourceDefinitionCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9102,7 +8689,7 @@ async function deserializeAws_restJson1_1UpdateResourceDefinitionCommandError(
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9137,11 +8724,6 @@ async function deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommandErro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> {
-  const data: any = await parseBody(output.body, context);
-  const parsedOutput: any = {
-    ...output,
-    body: data
-  };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -9151,7 +8733,7 @@ async function deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommandErro
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
       response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
+        output,
         context
       );
       break;
@@ -9176,7 +8758,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     ErrorDetails: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.ErrorDetails !== undefined) {
     contents.ErrorDetails = deserializeAws_restJson1_1ErrorDetails(
       data.ErrorDetails,
@@ -9200,7 +8782,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     ErrorDetails: undefined,
     Message: undefined
   };
-  const data: any = output.body;
+  const data: any = await parseBody(output.body, context);
   if (data.ErrorDetails !== undefined) {
     contents.ErrorDetails = deserializeAws_restJson1_1ErrorDetails(
       data.ErrorDetails,
@@ -11149,9 +10731,26 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   requestId: output.headers["x-amzn-requestid"]
 });
 
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<Uint8Array> => {
+  return context.streamCollector(streamBody) || new Uint8Array();
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (
+  streamBody: any,
+  context: __SerdeContext
+): Promise<string> => {
+  return collectBody(streamBody, context).then(body =>
+    context.utf8Encoder(body)
+  );
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
-  return context.streamCollector(streamBody).then((body: any) => {
-    const encoded = context.utf8Encoder(body);
+  return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       return JSON.parse(encoded);
     }
