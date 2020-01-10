@@ -35,7 +35,7 @@ export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   name: "acceptHeaderMiddleware"
 };
 
-export const getAcceptsHeaderPlugin = (unused: any): Pluggable<any, any> => ({
+export const getAcceptHeaderPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(acceptHeaderMiddleware(), acceptHeaderMiddlewareOptions);
   }

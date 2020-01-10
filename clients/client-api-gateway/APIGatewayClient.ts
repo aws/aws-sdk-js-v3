@@ -192,7 +192,7 @@ import {
   getRetryPlugin,
   resolveRetryConfig
 } from "@aws-sdk/middleware-retry";
-import { getAcceptsHeaderPlugin } from "@aws-sdk/middleware-sdk-api-gateway";
+import { getAcceptHeaderPlugin } from "@aws-sdk/middleware-sdk-api-gateway";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -576,7 +576,7 @@ export class APIGatewayClient extends __Client<
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getAcceptsHeaderPlugin(this.config));
+    this.middlewareStack.use(getAcceptHeaderPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
