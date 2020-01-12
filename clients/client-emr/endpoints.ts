@@ -1,7 +1,7 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "elasticmapreduce.{region}.amazonaws.com";
+const AWS_TEMPLATE = "{region}.elasticmapreduce.amazonaws.com";
 const AWS_CN_TEMPLATE = "elasticmapreduce.{region}.amazonaws.com.cn";
 const AWS_ISO_TEMPLATE = "elasticmapreduce.{region}.c2s.ic.gov";
 const AWS_ISO_B_TEMPLATE = "elasticmapreduce.{region}.sc2s.sgov.gov";
@@ -42,37 +42,37 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
     // First, try to match exact region names.
     case "ap-east-1":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-east-1.amazonaws.com"
+        hostname: "ap-east-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ap-northeast-1":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-northeast-1.amazonaws.com"
+        hostname: "ap-northeast-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-northeast-2.amazonaws.com"
+        hostname: "ap-northeast-2.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ap-south-1":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-south-1.amazonaws.com"
+        hostname: "ap-south-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-southeast-1.amazonaws.com"
+        hostname: "ap-southeast-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "elasticmapreduce.ap-southeast-2.amazonaws.com"
+        hostname: "ap-southeast-2.elasticmapreduce.amazonaws.com"
       };
       break;
     case "ca-central-1":
       regionInfo = {
-        hostname: "elasticmapreduce.ca-central-1.amazonaws.com"
+        hostname: "ca-central-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "cn-north-1":
@@ -92,32 +92,32 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "eu-north-1":
       regionInfo = {
-        hostname: "elasticmapreduce.eu-north-1.amazonaws.com"
+        hostname: "eu-north-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "elasticmapreduce.eu-west-1.amazonaws.com"
+        hostname: "eu-west-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "eu-west-2":
       regionInfo = {
-        hostname: "elasticmapreduce.eu-west-2.amazonaws.com"
+        hostname: "eu-west-2.elasticmapreduce.amazonaws.com"
       };
       break;
     case "eu-west-3":
       regionInfo = {
-        hostname: "elasticmapreduce.eu-west-3.amazonaws.com"
+        hostname: "eu-west-3.elasticmapreduce.amazonaws.com"
       };
       break;
     case "me-south-1":
       regionInfo = {
-        hostname: "elasticmapreduce.me-south-1.amazonaws.com"
+        hostname: "me-south-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "sa-east-1":
       regionInfo = {
-        hostname: "elasticmapreduce.sa-east-1.amazonaws.com"
+        hostname: "sa-east-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "us-east-1":
@@ -127,7 +127,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-east-2":
       regionInfo = {
-        hostname: "elasticmapreduce.us-east-2.amazonaws.com"
+        hostname: "us-east-2.elasticmapreduce.amazonaws.com"
       };
       break;
     case "us-gov-east-1":
@@ -152,12 +152,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-west-1":
       regionInfo = {
-        hostname: "elasticmapreduce.us-west-1.amazonaws.com"
+        hostname: "us-west-1.elasticmapreduce.amazonaws.com"
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "elasticmapreduce.us-west-2.amazonaws.com"
+        hostname: "us-west-2.elasticmapreduce.amazonaws.com"
       };
       break;
     // Next, try to match partition endpoints.

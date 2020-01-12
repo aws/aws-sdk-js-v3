@@ -1,7 +1,7 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "shield.{region}.amazonaws.com";
+const AWS_TEMPLATE = "shield.us-east-1.amazonaws.com";
 const AWS_CN_TEMPLATE = "shield.{region}.amazonaws.com.cn";
 const AWS_ISO_TEMPLATE = "shield.{region}.c2s.ic.gov";
 const AWS_ISO_B_TEMPLATE = "shield.{region}.sc2s.sgov.gov";

@@ -1,7 +1,7 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "chime.{region}.amazonaws.com";
+const AWS_TEMPLATE = "service.chime.aws.amazon.com";
 const AWS_CN_TEMPLATE = "chime.{region}.amazonaws.com.cn";
 const AWS_ISO_TEMPLATE = "chime.{region}.c2s.ic.gov";
 const AWS_ISO_B_TEMPLATE = "chime.{region}.sc2s.sgov.gov";

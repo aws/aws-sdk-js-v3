@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "elastic-inference.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "elastic-inference.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "elastic-inference.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "elastic-inference.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "elastic-inference.{region}.amazonaws.com";
+const AWS_TEMPLATE = "api.elastic-inference.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "api.elastic-inference.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "api.elastic-inference.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "api.elastic-inference.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "api.elastic-inference.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([

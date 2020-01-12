@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "sagemaker.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "sagemaker.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "sagemaker.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "sagemaker.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "sagemaker.{region}.amazonaws.com";
+const AWS_TEMPLATE = "runtime.sagemaker.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "runtime.sagemaker.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "runtime.sagemaker.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "runtime.sagemaker.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "runtime.sagemaker.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,6 +40,130 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-east-1.amazonaws.com"
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-northeast-1.amazonaws.com"
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-northeast-2.amazonaws.com"
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-south-1.amazonaws.com"
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-southeast-1.amazonaws.com"
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ap-southeast-2.amazonaws.com"
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.ca-central-1.amazonaws.com"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.eu-central-1.amazonaws.com"
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.eu-north-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.eu-west-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "runtime.sagemaker.eu-west-2.amazonaws.com"
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "runtime.sagemaker.eu-west-3.amazonaws.com"
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.me-south-1.amazonaws.com"
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.sa-east-1.amazonaws.com"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-east-1.amazonaws.com"
+      };
+      break;
+    case "us-east-1-fips":
+      regionInfo = {
+        hostname: "runtime-fips.sagemaker.us-east-1.amazonaws.com",
+        signingRegion: "us-east-1"
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-east-2.amazonaws.com"
+      };
+      break;
+    case "us-east-2-fips":
+      regionInfo = {
+        hostname: "runtime-fips.sagemaker.us-east-2.amazonaws.com",
+        signingRegion: "us-east-2"
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-gov-west-1.amazonaws.com"
+      };
+      break;
+    case "us-iso-east-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-iso-east-1.c2s.ic.gov"
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-west-1.amazonaws.com"
+      };
+      break;
+    case "us-west-1-fips":
+      regionInfo = {
+        hostname: "runtime-fips.sagemaker.us-west-1.amazonaws.com",
+        signingRegion: "us-west-1"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "runtime.sagemaker.us-west-2.amazonaws.com"
+      };
+      break;
+    case "us-west-2-fips":
+      regionInfo = {
+        hostname: "runtime-fips.sagemaker.us-west-2.amazonaws.com",
+        signingRegion: "us-west-2"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

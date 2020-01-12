@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "ses.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "ses.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "ses.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "ses.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "ses.{region}.amazonaws.com";
+const AWS_TEMPLATE = "email.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "email.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "email.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "email.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "email.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,6 +40,36 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "email.ap-south-1.amazonaws.com"
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "email.ap-southeast-2.amazonaws.com"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "email.eu-central-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "email.eu-west-1.amazonaws.com"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "email.us-east-1.amazonaws.com"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "email.us-west-2.amazonaws.com"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

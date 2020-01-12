@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "aws-marketplace.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "aws-marketplace.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "aws-marketplace.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
+const AWS_TEMPLATE = "metering.marketplace.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "metering.marketplace.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "metering.marketplace.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "metering.marketplace.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "metering.marketplace.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,11 +40,132 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-east-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-northeast-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-northeast-2.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-south-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-southeast-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "metering.marketplace.ap-southeast-2.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "metering.marketplace.ca-central-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "metering.marketplace.eu-central-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "metering.marketplace.eu-north-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "metering.marketplace.eu-west-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "metering.marketplace.eu-west-2.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "metering.marketplace.eu-west-3.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "metering.marketplace.me-south-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "metering.marketplace.sa-east-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "metering.marketplace.us-east-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "metering.marketplace.us-east-2.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "metering.marketplace.us-gov-east-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "metering.marketplace.us-gov-west-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "metering.marketplace.us-west-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "metering.marketplace.us-west-2.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "aws-marketplace"
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
@@ -64,13 +185,15 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region)
+          hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          signingService: "aws-marketplace"
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "aws-marketplace"
         };
       }
   }

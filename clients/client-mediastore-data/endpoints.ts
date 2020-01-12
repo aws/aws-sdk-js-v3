@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "mediastore.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "mediastore.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "mediastore.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "mediastore.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "mediastore.{region}.amazonaws.com";
+const AWS_TEMPLATE = "data.mediastore.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "data.mediastore.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "data.mediastore.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "data.mediastore.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "data.mediastore.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -42,42 +42,42 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
     // First, try to match exact region names.
     case "ap-northeast-1":
       regionInfo = {
-        hostname: "mediastore.ap-northeast-1.amazonaws.com"
+        hostname: "data.mediastore.ap-northeast-1.amazonaws.com"
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
-        hostname: "mediastore.ap-northeast-2.amazonaws.com"
+        hostname: "data.mediastore.ap-northeast-2.amazonaws.com"
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "mediastore.ap-southeast-2.amazonaws.com"
+        hostname: "data.mediastore.ap-southeast-2.amazonaws.com"
       };
       break;
     case "eu-central-1":
       regionInfo = {
-        hostname: "mediastore.eu-central-1.amazonaws.com"
+        hostname: "data.mediastore.eu-central-1.amazonaws.com"
       };
       break;
     case "eu-north-1":
       regionInfo = {
-        hostname: "mediastore.eu-north-1.amazonaws.com"
+        hostname: "data.mediastore.eu-north-1.amazonaws.com"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "mediastore.eu-west-1.amazonaws.com"
+        hostname: "data.mediastore.eu-west-1.amazonaws.com"
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "mediastore.us-east-1.amazonaws.com"
+        hostname: "data.mediastore.us-east-1.amazonaws.com"
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "mediastore.us-west-2.amazonaws.com"
+        hostname: "data.mediastore.us-west-2.amazonaws.com"
       };
       break;
     // Next, try to match partition endpoints.
