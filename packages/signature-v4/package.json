@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.3",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist/cjs/index.js",
-  "browser": "./dist/es/index.js",
+  "module": "./dist/es/index.js",
   "scripts": {
     "build:cjs": "tsc -p ./tsconfig.json",
     "build:es": "tsc -p ./tsconfig.es.json",
@@ -33,5 +33,5 @@
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   },
-  "types": "./build/index.d.ts"
+  "types": "./types/index.d.ts"
 }

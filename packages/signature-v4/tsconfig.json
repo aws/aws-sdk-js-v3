@@ -11,6 +11,7 @@
     "importHelpers": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
-    "incremental": true
+    "incremental": true,
+    "declarationDir": "./types"
   }
 }
