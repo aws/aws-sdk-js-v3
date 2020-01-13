@@ -6,14 +6,14 @@ const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 const getOverwritablePredicate = packageName => pathName => {
   const overwritablePathnames = [
     "commands",
-    "lib",
     "models",
     "protocols",
     "LICENCE",
     "runtimeConfig.ts",
     "runtimeConfig.browser.ts",
     "runtimeConfig.shared.ts",
-    "index.ts"
+    "index.ts",
+    "endpoints.ts"
   ];
   return (
     pathName.toLowerCase().indexOf(

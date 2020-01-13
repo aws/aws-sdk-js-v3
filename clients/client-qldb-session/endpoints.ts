@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "qldb.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "qldb.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "qldb.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "qldb.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "qldb.{region}.amazonaws.com";
+const AWS_TEMPLATE = "session.qldb.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "session.qldb.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "session.qldb.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "session.qldb.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "session.qldb.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -42,47 +42,47 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
     // First, try to match exact region names.
     case "ap-northeast-1":
       regionInfo = {
-        hostname: "qldb.ap-northeast-1.amazonaws.com"
+        hostname: "session.qldb.ap-northeast-1.amazonaws.com"
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
-        hostname: "qldb.ap-northeast-2.amazonaws.com"
+        hostname: "session.qldb.ap-northeast-2.amazonaws.com"
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
-        hostname: "qldb.ap-southeast-1.amazonaws.com"
+        hostname: "session.qldb.ap-southeast-1.amazonaws.com"
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "qldb.ap-southeast-2.amazonaws.com"
+        hostname: "session.qldb.ap-southeast-2.amazonaws.com"
       };
       break;
     case "eu-central-1":
       regionInfo = {
-        hostname: "qldb.eu-central-1.amazonaws.com"
+        hostname: "session.qldb.eu-central-1.amazonaws.com"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "qldb.eu-west-1.amazonaws.com"
+        hostname: "session.qldb.eu-west-1.amazonaws.com"
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "qldb.us-east-1.amazonaws.com"
+        hostname: "session.qldb.us-east-1.amazonaws.com"
       };
       break;
     case "us-east-2":
       regionInfo = {
-        hostname: "qldb.us-east-2.amazonaws.com"
+        hostname: "session.qldb.us-east-2.amazonaws.com"
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "qldb.us-west-2.amazonaws.com"
+        hostname: "session.qldb.us-west-2.amazonaws.com"
       };
       break;
     // Next, try to match partition endpoints.

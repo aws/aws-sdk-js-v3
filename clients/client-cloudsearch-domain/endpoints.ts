@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "cloudsearch.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "cloudsearch.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "cloudsearch.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "cloudsearch.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "cloudsearch.{region}.amazonaws.com";
+const AWS_TEMPLATE = "cloudsearchdomain.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "cloudsearchdomain.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "cloudsearchdomain.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "cloudsearchdomain.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "cloudsearchdomain.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,56 +40,6 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "ap-northeast-1":
-      regionInfo = {
-        hostname: "cloudsearch.ap-northeast-1.amazonaws.com"
-      };
-      break;
-    case "ap-northeast-2":
-      regionInfo = {
-        hostname: "cloudsearch.ap-northeast-2.amazonaws.com"
-      };
-      break;
-    case "ap-southeast-1":
-      regionInfo = {
-        hostname: "cloudsearch.ap-southeast-1.amazonaws.com"
-      };
-      break;
-    case "ap-southeast-2":
-      regionInfo = {
-        hostname: "cloudsearch.ap-southeast-2.amazonaws.com"
-      };
-      break;
-    case "eu-central-1":
-      regionInfo = {
-        hostname: "cloudsearch.eu-central-1.amazonaws.com"
-      };
-      break;
-    case "eu-west-1":
-      regionInfo = {
-        hostname: "cloudsearch.eu-west-1.amazonaws.com"
-      };
-      break;
-    case "sa-east-1":
-      regionInfo = {
-        hostname: "cloudsearch.sa-east-1.amazonaws.com"
-      };
-      break;
-    case "us-east-1":
-      regionInfo = {
-        hostname: "cloudsearch.us-east-1.amazonaws.com"
-      };
-      break;
-    case "us-west-1":
-      regionInfo = {
-        hostname: "cloudsearch.us-west-1.amazonaws.com"
-      };
-      break;
-    case "us-west-2":
-      regionInfo = {
-        hostname: "cloudsearch.us-west-2.amazonaws.com"
-      };
-      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

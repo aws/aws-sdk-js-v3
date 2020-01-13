@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "awsssoportal.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "awsssoportal.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "awsssoportal.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "awsssoportal.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "awsssoportal.{region}.amazonaws.com";
+const AWS_TEMPLATE = "portal.sso.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "portal.sso.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "portal.sso.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "portal.sso.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "portal.sso.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,6 +40,60 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "portal.sso.ap-southeast-1.amazonaws.com",
+        signingRegion: "ap-southeast-1"
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "portal.sso.ap-southeast-2.amazonaws.com",
+        signingRegion: "ap-southeast-2"
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "portal.sso.ca-central-1.amazonaws.com",
+        signingRegion: "ca-central-1"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "portal.sso.eu-central-1.amazonaws.com",
+        signingRegion: "eu-central-1"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "portal.sso.eu-west-1.amazonaws.com",
+        signingRegion: "eu-west-1"
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "portal.sso.eu-west-2.amazonaws.com",
+        signingRegion: "eu-west-2"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "portal.sso.us-east-1.amazonaws.com",
+        signingRegion: "us-east-1"
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "portal.sso.us-east-2.amazonaws.com",
+        signingRegion: "us-east-2"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "portal.sso.us-west-2.amazonaws.com",
+        signingRegion: "us-west-2"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

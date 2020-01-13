@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "transcribe.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "transcribe.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "transcribe.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "transcribe.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "transcribe.{region}.amazonaws.com";
+const AWS_TEMPLATE = "transcribestreaming.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "transcribestreaming.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "transcribestreaming.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "transcribestreaming.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "transcribestreaming.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,106 +40,34 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "ap-east-1":
-      regionInfo = {
-        hostname: "transcribe.ap-east-1.amazonaws.com"
-      };
-      break;
-    case "ap-northeast-1":
-      regionInfo = {
-        hostname: "transcribe.ap-northeast-1.amazonaws.com"
-      };
-      break;
-    case "ap-northeast-2":
-      regionInfo = {
-        hostname: "transcribe.ap-northeast-2.amazonaws.com"
-      };
-      break;
-    case "ap-south-1":
-      regionInfo = {
-        hostname: "transcribe.ap-south-1.amazonaws.com"
-      };
-      break;
-    case "ap-southeast-1":
-      regionInfo = {
-        hostname: "transcribe.ap-southeast-1.amazonaws.com"
-      };
-      break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "transcribe.ap-southeast-2.amazonaws.com"
+        hostname: "transcribestreaming.ap-southeast-2.amazonaws.com"
       };
       break;
     case "ca-central-1":
       regionInfo = {
-        hostname: "transcribe.ca-central-1.amazonaws.com"
-      };
-      break;
-    case "cn-north-1":
-      regionInfo = {
-        hostname: "cn.transcribe.cn-north-1.amazonaws.com.cn",
-        signingRegion: "cn-north-1"
-      };
-      break;
-    case "cn-northwest-1":
-      regionInfo = {
-        hostname: "cn.transcribe.cn-northwest-1.amazonaws.com.cn",
-        signingRegion: "cn-northwest-1"
-      };
-      break;
-    case "eu-central-1":
-      regionInfo = {
-        hostname: "transcribe.eu-central-1.amazonaws.com"
+        hostname: "transcribestreaming.ca-central-1.amazonaws.com"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "transcribe.eu-west-1.amazonaws.com"
-      };
-      break;
-    case "eu-west-2":
-      regionInfo = {
-        hostname: "transcribe.eu-west-2.amazonaws.com"
-      };
-      break;
-    case "eu-west-3":
-      regionInfo = {
-        hostname: "transcribe.eu-west-3.amazonaws.com"
-      };
-      break;
-    case "me-south-1":
-      regionInfo = {
-        hostname: "transcribe.me-south-1.amazonaws.com"
-      };
-      break;
-    case "sa-east-1":
-      regionInfo = {
-        hostname: "transcribe.sa-east-1.amazonaws.com"
+        hostname: "transcribestreaming.eu-west-1.amazonaws.com"
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "transcribe.us-east-1.amazonaws.com"
+        hostname: "transcribestreaming.us-east-1.amazonaws.com"
       };
       break;
     case "us-east-2":
       regionInfo = {
-        hostname: "transcribe.us-east-2.amazonaws.com"
-      };
-      break;
-    case "us-gov-west-1":
-      regionInfo = {
-        hostname: "transcribe.us-gov-west-1.amazonaws.com"
-      };
-      break;
-    case "us-west-1":
-      regionInfo = {
-        hostname: "transcribe.us-west-1.amazonaws.com"
+        hostname: "transcribestreaming.us-east-2.amazonaws.com"
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "transcribe.us-west-2.amazonaws.com"
+        hostname: "transcribestreaming.us-west-2.amazonaws.com"
       };
       break;
     // Next, try to match partition endpoints.

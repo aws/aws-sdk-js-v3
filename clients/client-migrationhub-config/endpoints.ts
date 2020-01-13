@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "mgh.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "mgh.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "mgh.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "mgh.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "mgh.{region}.amazonaws.com";
+const AWS_TEMPLATE = "migrationhub-config.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "migrationhub-config.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "migrationhub-config.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "migrationhub-config.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "migrationhub-config.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,16 +40,6 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "eu-central-1":
-      regionInfo = {
-        hostname: "mgh.eu-central-1.amazonaws.com"
-      };
-      break;
-    case "us-west-2":
-      regionInfo = {
-        hostname: "mgh.us-west-2.amazonaws.com"
-      };
-      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
