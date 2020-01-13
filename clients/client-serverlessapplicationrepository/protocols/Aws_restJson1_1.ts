@@ -640,7 +640,7 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApplicationCommandError(
       output,
       context
@@ -768,7 +768,7 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApplicationVersionCommandError(
       output,
       context
@@ -883,7 +883,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCloudFormationChangeSetCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandError(
       output,
       context
@@ -965,7 +965,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationTemplateComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCloudFormationTemplateCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCloudFormationTemplateCommandError(
       output,
       context
@@ -1066,7 +1066,7 @@ export async function deserializeAws_restJson1_1DeleteApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApplicationCommandError(
       output,
       context
@@ -1144,7 +1144,7 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationCommandError(
       output,
       context
@@ -1272,7 +1272,7 @@ export async function deserializeAws_restJson1_1GetApplicationPolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationPolicyCommandError(
       output,
       context
@@ -1352,7 +1352,7 @@ export async function deserializeAws_restJson1_1GetCloudFormationTemplateCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCloudFormationTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(
       output,
       context
@@ -1453,7 +1453,7 @@ export async function deserializeAws_restJson1_1ListApplicationDependenciesComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationDependenciesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListApplicationDependenciesCommandError(
       output,
       context
@@ -1537,7 +1537,7 @@ export async function deserializeAws_restJson1_1ListApplicationVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListApplicationVersionsCommandError(
       output,
       context
@@ -1621,7 +1621,7 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListApplicationsCommandError(
       output,
       context
@@ -1698,7 +1698,7 @@ export async function deserializeAws_restJson1_1PutApplicationPolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutApplicationPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutApplicationPolicyCommandError(
       output,
       context
@@ -1778,7 +1778,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApplicationCommandError(
       output,
       context

@@ -601,7 +601,7 @@ export async function deserializeAws_restJson1_1CreateDetectorModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDetectorModelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDetectorModelCommandError(
       output,
       context
@@ -695,7 +695,7 @@ export async function deserializeAws_restJson1_1CreateInputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInputCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateInputCommandError(output, context);
   }
   const contents: CreateInputCommandOutput = {
@@ -772,7 +772,7 @@ export async function deserializeAws_restJson1_1DeleteDetectorModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDetectorModelCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDetectorModelCommandError(
       output,
       context
@@ -851,7 +851,7 @@ export async function deserializeAws_restJson1_1DeleteInputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInputCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteInputCommandError(output, context);
   }
   const contents: DeleteInputCommandOutput = {
@@ -927,7 +927,7 @@ export async function deserializeAws_restJson1_1DescribeDetectorModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDetectorModelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDetectorModelCommandError(
       output,
       context
@@ -1007,7 +1007,7 @@ export async function deserializeAws_restJson1_1DescribeInputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInputCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeInputCommandError(output, context);
   }
   const contents: DescribeInputCommandOutput = {
@@ -1081,7 +1081,7 @@ export async function deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
       output,
       context
@@ -1168,7 +1168,7 @@ export async function deserializeAws_restJson1_1ListDetectorModelVersionsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorModelVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(
       output,
       context
@@ -1252,7 +1252,7 @@ export async function deserializeAws_restJson1_1ListDetectorModelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorModelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDetectorModelsCommandError(
       output,
       context
@@ -1329,7 +1329,7 @@ export async function deserializeAws_restJson1_1ListInputsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInputsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListInputsCommandError(output, context);
   }
   const contents: ListInputsCommandOutput = {
@@ -1403,7 +1403,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -1480,7 +1480,7 @@ export async function deserializeAws_restJson1_1PutLoggingOptionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutLoggingOptionsCommandError(
       output,
       context
@@ -1558,7 +1558,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1634,7 +1634,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1703,7 +1703,7 @@ export async function deserializeAws_restJson1_1UpdateDetectorModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorModelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDetectorModelCommandError(
       output,
       context
@@ -1790,7 +1790,7 @@ export async function deserializeAws_restJson1_1UpdateInputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateInputCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateInputCommandError(output, context);
   }
   const contents: UpdateInputCommandOutput = {
