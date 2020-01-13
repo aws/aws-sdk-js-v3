@@ -473,7 +473,7 @@ export async function deserializeAws_restJson1_1CancelSigningProfileCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelSigningProfileCommandError(
       output,
       context
@@ -537,7 +537,7 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSigningJobCommandError(
       output,
       context
@@ -668,7 +668,7 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSigningPlatformCommandError(
       output,
       context
@@ -765,7 +765,7 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSigningProfileCommandError(
       output,
       context
@@ -872,7 +872,7 @@ export async function deserializeAws_restJson1_1ListSigningJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSigningJobsCommandError(
       output,
       context
@@ -946,7 +946,7 @@ export async function deserializeAws_restJson1_1ListSigningPlatformsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSigningPlatformsCommandError(
       output,
       context
@@ -1023,7 +1023,7 @@ export async function deserializeAws_restJson1_1ListSigningProfilesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSigningProfilesCommandError(
       output,
       context
@@ -1093,7 +1093,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -1156,7 +1156,7 @@ export async function deserializeAws_restJson1_1PutSigningProfileCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSigningProfileCommandError(
       output,
       context
@@ -1233,7 +1233,7 @@ export async function deserializeAws_restJson1_1StartSigningJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartSigningJobCommandError(
       output,
       context
@@ -1310,7 +1310,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1365,7 +1365,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

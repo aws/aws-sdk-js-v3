@@ -351,7 +351,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationSetCommandError(
       output,
       context
@@ -423,7 +423,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetEventDesti
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommandError(
       output,
       context
@@ -502,7 +502,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
       output,
       context
@@ -567,7 +567,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetEventDesti
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationCommandError(
       output,
       context
@@ -632,7 +632,7 @@ export async function deserializeAws_restJson1_1GetConfigurationSetEventDestinat
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommandError(
       output,
       context
@@ -705,7 +705,7 @@ export async function deserializeAws_restJson1_1ListConfigurationSetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationSetsCommandError(
       output,
       context
@@ -775,7 +775,7 @@ export async function deserializeAws_restJson1_1SendVoiceMessageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendVoiceMessageCommandError(
       output,
       context
@@ -838,7 +838,7 @@ export async function deserializeAws_restJson1_1UpdateConfigurationSetEventDesti
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommandError(
       output,
       context

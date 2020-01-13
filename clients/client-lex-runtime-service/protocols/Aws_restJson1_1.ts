@@ -341,7 +341,7 @@ export async function deserializeAws_restJson1_1DeleteSessionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSessionCommandError(output, context);
   }
   const contents: DeleteSessionCommandOutput = {
@@ -427,7 +427,7 @@ export async function deserializeAws_restJson1_1GetSessionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSessionCommandError(output, context);
   }
   const contents: GetSessionCommandOutput = {
@@ -515,7 +515,7 @@ export async function deserializeAws_restJson1_1PostContentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostContentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostContentCommandError(output, context);
   }
   const contents: PostContentCommandOutput = {
@@ -673,7 +673,7 @@ export async function deserializeAws_restJson1_1PostTextCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PostTextCommandError(output, context);
   }
   const contents: PostTextCommandOutput = {
@@ -813,7 +813,7 @@ export async function deserializeAws_restJson1_1PutSessionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSessionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSessionCommandError(output, context);
   }
   const contents: PutSessionCommandOutput = {

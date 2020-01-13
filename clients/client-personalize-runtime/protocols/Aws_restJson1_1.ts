@@ -91,7 +91,7 @@ export async function deserializeAws_restJson1_1GetPersonalizedRankingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPersonalizedRankingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
       output,
       context
@@ -150,7 +150,7 @@ export async function deserializeAws_restJson1_1GetRecommendationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRecommendationsCommandError(
       output,
       context
