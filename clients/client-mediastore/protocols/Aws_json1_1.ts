@@ -1754,6 +1754,7 @@ const deserializeAws_json1_1ContainerInUseExceptionResponse = async (
     context
   );
   const contents: ContainerInUseException = {
+    name: "ContainerInUseException",
     __type: "ContainerInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1772,6 +1773,7 @@ const deserializeAws_json1_1ContainerNotFoundExceptionResponse = async (
     context
   );
   const contents: ContainerNotFoundException = {
+    name: "ContainerNotFoundException",
     __type: "ContainerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1790,6 +1792,7 @@ const deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: CorsPolicyNotFoundException = {
+    name: "CorsPolicyNotFoundException",
     __type: "CorsPolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1808,6 +1811,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1826,6 +1830,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1844,6 +1849,7 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: PolicyNotFoundException = {
+    name: "PolicyNotFoundException",
     __type: "PolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

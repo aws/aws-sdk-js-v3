@@ -563,6 +563,7 @@ export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceErrorException";
+  name: "InternalServiceErrorException";
   $fault: "client";
   Message?: string;
 }
@@ -582,6 +583,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -601,6 +603,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   /**
    *
@@ -627,6 +630,7 @@ export interface InvalidPolicyDocument
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPolicyDocument";
+  name: "InvalidPolicyDocument";
   $fault: "client";
   Message?: string;
 }
@@ -646,6 +650,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -665,6 +670,7 @@ export interface InvalidTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagException";
+  name: "InvalidTagException";
   $fault: "client";
   Message?: string;
 }
@@ -826,6 +832,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
   /**
@@ -1575,6 +1582,7 @@ export interface ResourceExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceExistsException";
+  name: "ResourceExistsException";
   $fault: "client";
   Message?: string;
   /**
@@ -1600,6 +1608,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
   /**
@@ -1625,6 +1634,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
   /**
@@ -1650,6 +1660,7 @@ export interface ResourceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceUnavailableException";
+  name: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
   /**
@@ -1811,6 +1822,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
@@ -1830,6 +1842,7 @@ export interface UnknownResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnknownResourceException";
+  name: "UnknownResourceException";
   $fault: "client";
   Message?: string;
 }

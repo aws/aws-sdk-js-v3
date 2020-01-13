@@ -2929,6 +2929,7 @@ const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
     context
   );
   const contents: AuthorizationErrorException = {
+    name: "AuthorizationErrorException",
     __type: "AuthorizationErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2947,6 +2948,7 @@ const deserializeAws_json1_1ConflictErrorExceptionResponse = async (
     context
   );
   const contents: ConflictErrorException = {
+    name: "ConflictErrorException",
     __type: "ConflictErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2965,6 +2967,7 @@ const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
     context
   );
   const contents: HomeRegionNotSetException = {
+    name: "HomeRegionNotSetException",
     __type: "HomeRegionNotSetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2983,6 +2986,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3001,6 +3005,7 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3019,6 +3024,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
     context
   );
   const contents: OperationNotPermittedException = {
+    name: "OperationNotPermittedException",
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3037,6 +3043,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3055,6 +3062,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3073,6 +3081,7 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
     context
   );
   const contents: ServerInternalErrorException = {
+    name: "ServerInternalErrorException",
     __type: "ServerInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

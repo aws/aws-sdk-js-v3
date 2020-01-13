@@ -11824,6 +11824,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11845,6 +11846,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11866,6 +11868,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11887,6 +11890,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
+    name: "ForbiddenException",
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11908,6 +11912,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11929,6 +11934,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -11950,6 +11956,7 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
   const contents: ServiceFailureException = {
+    name: "ServiceFailureException",
     __type: "ServiceFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -11971,6 +11978,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -11992,6 +12000,7 @@ const deserializeAws_restJson1_1ThrottledClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottledClientException> => {
   const contents: ThrottledClientException = {
+    name: "ThrottledClientException",
     __type: "ThrottledClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -12013,6 +12022,7 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
   const contents: UnauthorizedClientException = {
+    name: "UnauthorizedClientException",
     __type: "UnauthorizedClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -12034,6 +12044,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnprocessableEntityException> => {
   const contents: UnprocessableEntityException = {
+    name: "UnprocessableEntityException",
     __type: "UnprocessableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

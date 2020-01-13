@@ -312,6 +312,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
+    name: "ForbiddenException",
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
@@ -324,6 +325,7 @@ const deserializeAws_restJson1_1GoneExceptionResponse = async (
   context: __SerdeContext
 ): Promise<GoneException> => {
   const contents: GoneException = {
+    name: "GoneException",
     __type: "GoneException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
@@ -336,6 +338,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
@@ -348,6 +351,7 @@ const deserializeAws_restJson1_1PayloadTooLargeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PayloadTooLargeException> => {
   const contents: PayloadTooLargeException = {
+    name: "PayloadTooLargeException",
     __type: "PayloadTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

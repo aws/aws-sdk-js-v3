@@ -479,6 +479,7 @@ export interface BatchSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BatchSizeLimitExceededException";
+  name: "BatchSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -630,6 +631,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
@@ -3008,6 +3010,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
@@ -3028,6 +3031,7 @@ export interface InvalidFilterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidFilterException";
+  name: "InvalidFilterException";
   $fault: "client";
   Message?: string;
 }
@@ -3048,6 +3052,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -3067,6 +3072,7 @@ export interface JobNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "JobNotFoundException";
+  name: "JobNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -3305,6 +3311,7 @@ export interface KmsKeyValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KmsKeyValidationException";
+  name: "KmsKeyValidationException";
   $fault: "client";
   Message?: string;
 }
@@ -3987,6 +3994,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -4006,6 +4014,7 @@ export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceLimitExceededException";
+  name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -4025,6 +4034,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -4045,6 +4055,7 @@ export interface ResourceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceUnavailableException";
+  name: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
 }
@@ -5349,6 +5360,7 @@ export interface TextSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TextSizeLimitExceededException";
+  name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -5368,6 +5380,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }
@@ -5387,6 +5400,7 @@ export interface TooManyTagKeysException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagKeysException";
+  name: "TooManyTagKeysException";
   $fault: "client";
   Message?: string;
 }
@@ -5407,6 +5421,7 @@ export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsException";
+  name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
 }
@@ -5590,6 +5605,7 @@ export interface UnsupportedLanguageException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedLanguageException";
+  name: "UnsupportedLanguageException";
   $fault: "client";
   Message?: string;
 }

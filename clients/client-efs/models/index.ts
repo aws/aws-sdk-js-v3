@@ -9,6 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequest";
+  name: "BadRequest";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -30,6 +31,7 @@ export interface DependencyTimeout
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DependencyTimeout";
+  name: "DependencyTimeout";
   $fault: "server";
   ErrorCode: string | undefined;
   Message?: string;
@@ -51,6 +53,7 @@ export interface FileSystemAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileSystemAlreadyExists";
+  name: "FileSystemAlreadyExists";
   $fault: "client";
   ErrorCode: string | undefined;
   FileSystemId: string | undefined;
@@ -72,6 +75,7 @@ export interface FileSystemInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileSystemInUse";
+  name: "FileSystemInUse";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -93,6 +97,7 @@ export interface FileSystemLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileSystemLimitExceeded";
+  name: "FileSystemLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -115,6 +120,7 @@ export interface FileSystemNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileSystemNotFound";
+  name: "FileSystemNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -135,6 +141,7 @@ export interface IncorrectFileSystemLifeCycleState
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncorrectFileSystemLifeCycleState";
+  name: "IncorrectFileSystemLifeCycleState";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -156,6 +163,7 @@ export interface IncorrectMountTargetState
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncorrectMountTargetState";
+  name: "IncorrectMountTargetState";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -180,6 +188,7 @@ export interface InsufficientThroughputCapacity
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientThroughputCapacity";
+  name: "InsufficientThroughputCapacity";
   $fault: "server";
   ErrorCode: string | undefined;
   Message?: string;
@@ -200,6 +209,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   ErrorCode: string | undefined;
   Message?: string;
@@ -221,6 +231,7 @@ export interface IpAddressInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IpAddressInUse";
+  name: "IpAddressInUse";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -242,6 +253,7 @@ export interface MountTargetConflict
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MountTargetConflict";
+  name: "MountTargetConflict";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -263,6 +275,7 @@ export interface MountTargetNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MountTargetNotFound";
+  name: "MountTargetNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -287,6 +300,7 @@ export interface NetworkInterfaceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NetworkInterfaceLimitExceeded";
+  name: "NetworkInterfaceLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -308,6 +322,7 @@ export interface NoFreeAddressesInSubnet
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoFreeAddressesInSubnet";
+  name: "NoFreeAddressesInSubnet";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -329,6 +344,7 @@ export interface SecurityGroupLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SecurityGroupLimitExceeded";
+  name: "SecurityGroupLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -350,6 +366,7 @@ export interface SecurityGroupNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SecurityGroupNotFound";
+  name: "SecurityGroupNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -371,6 +388,7 @@ export interface SubnetNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetNotFound";
+  name: "SubnetNotFound";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -392,6 +410,7 @@ export interface ThroughputLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThroughputLimitExceeded";
+  name: "ThroughputLimitExceeded";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -413,6 +432,7 @@ export interface TooManyRequests
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequests";
+  name: "TooManyRequests";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;
@@ -433,6 +453,7 @@ export interface UnsupportedAvailabilityZone
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedAvailabilityZone";
+  name: "UnsupportedAvailabilityZone";
   $fault: "client";
   ErrorCode: string | undefined;
   Message?: string;

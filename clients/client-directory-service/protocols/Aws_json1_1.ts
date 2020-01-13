@@ -6425,6 +6425,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6443,6 +6444,7 @@ const deserializeAws_json1_1AuthenticationFailedExceptionResponse = async (
     context
   );
   const contents: AuthenticationFailedException = {
+    name: "AuthenticationFailedException",
     __type: "AuthenticationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6461,6 +6463,7 @@ const deserializeAws_json1_1CertificateAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: CertificateAlreadyExistsException = {
+    name: "CertificateAlreadyExistsException",
     __type: "CertificateAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6479,6 +6482,7 @@ const deserializeAws_json1_1CertificateDoesNotExistExceptionResponse = async (
     context
   );
   const contents: CertificateDoesNotExistException = {
+    name: "CertificateDoesNotExistException",
     __type: "CertificateDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6497,6 +6501,7 @@ const deserializeAws_json1_1CertificateInUseExceptionResponse = async (
     context
   );
   const contents: CertificateInUseException = {
+    name: "CertificateInUseException",
     __type: "CertificateInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6515,6 +6520,7 @@ const deserializeAws_json1_1CertificateLimitExceededExceptionResponse = async (
     context
   );
   const contents: CertificateLimitExceededException = {
+    name: "CertificateLimitExceededException",
     __type: "CertificateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6533,6 +6539,7 @@ const deserializeAws_json1_1ClientExceptionResponse = async (
     context
   );
   const contents: ClientException = {
+    name: "ClientException",
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6551,6 +6558,7 @@ const deserializeAws_json1_1DirectoryAlreadySharedExceptionResponse = async (
     context
   );
   const contents: DirectoryAlreadySharedException = {
+    name: "DirectoryAlreadySharedException",
     __type: "DirectoryAlreadySharedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6569,6 +6577,7 @@ const deserializeAws_json1_1DirectoryDoesNotExistExceptionResponse = async (
     context
   );
   const contents: DirectoryDoesNotExistException = {
+    name: "DirectoryDoesNotExistException",
     __type: "DirectoryDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6587,6 +6596,7 @@ const deserializeAws_json1_1DirectoryLimitExceededExceptionResponse = async (
     context
   );
   const contents: DirectoryLimitExceededException = {
+    name: "DirectoryLimitExceededException",
     __type: "DirectoryLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6605,6 +6615,7 @@ const deserializeAws_json1_1DirectoryNotSharedExceptionResponse = async (
     context
   );
   const contents: DirectoryNotSharedException = {
+    name: "DirectoryNotSharedException",
     __type: "DirectoryNotSharedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6623,6 +6634,7 @@ const deserializeAws_json1_1DirectoryUnavailableExceptionResponse = async (
     context
   );
   const contents: DirectoryUnavailableException = {
+    name: "DirectoryUnavailableException",
     __type: "DirectoryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6641,6 +6653,7 @@ const deserializeAws_json1_1DomainControllerLimitExceededExceptionResponse = asy
     context
   );
   const contents: DomainControllerLimitExceededException = {
+    name: "DomainControllerLimitExceededException",
     __type: "DomainControllerLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6659,6 +6672,7 @@ const deserializeAws_json1_1EntityAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: EntityAlreadyExistsException = {
+    name: "EntityAlreadyExistsException",
     __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6677,6 +6691,7 @@ const deserializeAws_json1_1EntityDoesNotExistExceptionResponse = async (
     context
   );
   const contents: EntityDoesNotExistException = {
+    name: "EntityDoesNotExistException",
     __type: "EntityDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6695,6 +6710,7 @@ const deserializeAws_json1_1InsufficientPermissionsExceptionResponse = async (
     context
   );
   const contents: InsufficientPermissionsException = {
+    name: "InsufficientPermissionsException",
     __type: "InsufficientPermissionsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6713,6 +6729,7 @@ const deserializeAws_json1_1InvalidCertificateExceptionResponse = async (
     context
   );
   const contents: InvalidCertificateException = {
+    name: "InvalidCertificateException",
     __type: "InvalidCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6731,6 +6748,7 @@ const deserializeAws_json1_1InvalidLDAPSStatusExceptionResponse = async (
     context
   );
   const contents: InvalidLDAPSStatusException = {
+    name: "InvalidLDAPSStatusException",
     __type: "InvalidLDAPSStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6749,6 +6767,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6767,6 +6786,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6785,6 +6805,7 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
     context
   );
   const contents: InvalidPasswordException = {
+    name: "InvalidPasswordException",
     __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6803,6 +6824,7 @@ const deserializeAws_json1_1InvalidTargetExceptionResponse = async (
     context
   );
   const contents: InvalidTargetException = {
+    name: "InvalidTargetException",
     __type: "InvalidTargetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6821,6 +6843,7 @@ const deserializeAws_json1_1IpRouteLimitExceededExceptionResponse = async (
     context
   );
   const contents: IpRouteLimitExceededException = {
+    name: "IpRouteLimitExceededException",
     __type: "IpRouteLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6839,6 +6862,7 @@ const deserializeAws_json1_1NoAvailableCertificateExceptionResponse = async (
     context
   );
   const contents: NoAvailableCertificateException = {
+    name: "NoAvailableCertificateException",
     __type: "NoAvailableCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6857,6 +6881,7 @@ const deserializeAws_json1_1OrganizationsExceptionResponse = async (
     context
   );
   const contents: OrganizationsException = {
+    name: "OrganizationsException",
     __type: "OrganizationsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6875,6 +6900,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
     context
   );
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6893,6 +6919,7 @@ const deserializeAws_json1_1ShareLimitExceededExceptionResponse = async (
     context
   );
   const contents: ShareLimitExceededException = {
+    name: "ShareLimitExceededException",
     __type: "ShareLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6911,6 +6938,7 @@ const deserializeAws_json1_1SnapshotLimitExceededExceptionResponse = async (
     context
   );
   const contents: SnapshotLimitExceededException = {
+    name: "SnapshotLimitExceededException",
     __type: "SnapshotLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6929,6 +6957,7 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
     context
   );
   const contents: TagLimitExceededException = {
+    name: "TagLimitExceededException",
     __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6947,6 +6976,7 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
     context
   );
   const contents: UnsupportedOperationException = {
+    name: "UnsupportedOperationException",
     __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6965,6 +6995,7 @@ const deserializeAws_json1_1UserDoesNotExistExceptionResponse = async (
     context
   );
   const contents: UserDoesNotExistException = {
+    name: "UserDoesNotExistException",
     __type: "UserDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -8,6 +8,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -25,6 +26,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -345,6 +347,7 @@ export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceErrorException";
+  name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -384,6 +387,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -442,6 +446,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -584,6 +589,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }

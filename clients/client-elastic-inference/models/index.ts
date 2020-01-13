@@ -10,6 +10,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
@@ -29,6 +30,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   message?: string;
 }
@@ -80,6 +82,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }

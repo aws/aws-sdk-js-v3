@@ -1307,6 +1307,7 @@ const deserializeAws_json1_1ActiveDirectoryErrorResponse = async (
     context
   );
   const contents: ActiveDirectoryError = {
+    name: "ActiveDirectoryError",
     __type: "ActiveDirectoryError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1325,6 +1326,7 @@ const deserializeAws_json1_1BackupInProgressResponse = async (
     context
   );
   const contents: BackupInProgress = {
+    name: "BackupInProgress",
     __type: "BackupInProgress",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1340,6 +1342,7 @@ const deserializeAws_json1_1BackupNotFoundResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BackupNotFound(body, context);
   const contents: BackupNotFound = {
+    name: "BackupNotFound",
     __type: "BackupNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1358,6 +1361,7 @@ const deserializeAws_json1_1BackupRestoringResponse = async (
     context
   );
   const contents: BackupRestoring = {
+    name: "BackupRestoring",
     __type: "BackupRestoring",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1373,6 +1377,7 @@ const deserializeAws_json1_1BadRequestResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BadRequest(body, context);
   const contents: BadRequest = {
+    name: "BadRequest",
     __type: "BadRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1391,6 +1396,7 @@ const deserializeAws_json1_1FileSystemNotFoundResponse = async (
     context
   );
   const contents: FileSystemNotFound = {
+    name: "FileSystemNotFound",
     __type: "FileSystemNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1409,6 +1415,7 @@ const deserializeAws_json1_1IncompatibleParameterErrorResponse = async (
     context
   );
   const contents: IncompatibleParameterError = {
+    name: "IncompatibleParameterError",
     __type: "IncompatibleParameterError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1427,6 +1434,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1445,6 +1453,7 @@ const deserializeAws_json1_1InvalidExportPathResponse = async (
     context
   );
   const contents: InvalidExportPath = {
+    name: "InvalidExportPath",
     __type: "InvalidExportPath",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1463,6 +1472,7 @@ const deserializeAws_json1_1InvalidImportPathResponse = async (
     context
   );
   const contents: InvalidImportPath = {
+    name: "InvalidImportPath",
     __type: "InvalidImportPath",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1481,6 +1491,7 @@ const deserializeAws_json1_1InvalidNetworkSettingsResponse = async (
     context
   );
   const contents: InvalidNetworkSettings = {
+    name: "InvalidNetworkSettings",
     __type: "InvalidNetworkSettings",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1499,6 +1510,7 @@ const deserializeAws_json1_1MissingFileSystemConfigurationResponse = async (
     context
   );
   const contents: MissingFileSystemConfiguration = {
+    name: "MissingFileSystemConfiguration",
     __type: "MissingFileSystemConfiguration",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1517,6 +1529,7 @@ const deserializeAws_json1_1NotServiceResourceErrorResponse = async (
     context
   );
   const contents: NotServiceResourceError = {
+    name: "NotServiceResourceError",
     __type: "NotServiceResourceError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1535,6 +1548,7 @@ const deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse = async (
     context
   );
   const contents: ResourceDoesNotSupportTagging = {
+    name: "ResourceDoesNotSupportTagging",
     __type: "ResourceDoesNotSupportTagging",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1553,6 +1567,7 @@ const deserializeAws_json1_1ResourceNotFoundResponse = async (
     context
   );
   const contents: ResourceNotFound = {
+    name: "ResourceNotFound",
     __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1571,6 +1586,7 @@ const deserializeAws_json1_1ServiceLimitExceededResponse = async (
     context
   );
   const contents: ServiceLimitExceeded = {
+    name: "ServiceLimitExceeded",
     __type: "ServiceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1589,6 +1605,7 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
     context
   );
   const contents: UnsupportedOperation = {
+    name: "UnsupportedOperation",
     __type: "UnsupportedOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

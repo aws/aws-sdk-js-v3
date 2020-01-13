@@ -13025,6 +13025,7 @@ const deserializeAws_json1_1AliasExistsExceptionResponse = async (
     context
   );
   const contents: AliasExistsException = {
+    name: "AliasExistsException",
     __type: "AliasExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13043,6 +13044,7 @@ const deserializeAws_json1_1CodeDeliveryFailureExceptionResponse = async (
     context
   );
   const contents: CodeDeliveryFailureException = {
+    name: "CodeDeliveryFailureException",
     __type: "CodeDeliveryFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13061,6 +13063,7 @@ const deserializeAws_json1_1CodeMismatchExceptionResponse = async (
     context
   );
   const contents: CodeMismatchException = {
+    name: "CodeMismatchException",
     __type: "CodeMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13079,6 +13082,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13097,6 +13101,7 @@ const deserializeAws_json1_1DuplicateProviderExceptionResponse = async (
     context
   );
   const contents: DuplicateProviderException = {
+    name: "DuplicateProviderException",
     __type: "DuplicateProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13115,6 +13120,7 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse = async (
     context
   );
   const contents: EnableSoftwareTokenMFAException = {
+    name: "EnableSoftwareTokenMFAException",
     __type: "EnableSoftwareTokenMFAException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13133,6 +13139,7 @@ const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
     context
   );
   const contents: ExpiredCodeException = {
+    name: "ExpiredCodeException",
     __type: "ExpiredCodeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13151,6 +13158,7 @@ const deserializeAws_json1_1GroupExistsExceptionResponse = async (
     context
   );
   const contents: GroupExistsException = {
+    name: "GroupExistsException",
     __type: "GroupExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13169,6 +13177,7 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
     context
   );
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13187,6 +13196,7 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse = asyn
     context
   );
   const contents: InvalidEmailRoleAccessPolicyException = {
+    name: "InvalidEmailRoleAccessPolicyException",
     __type: "InvalidEmailRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13205,6 +13215,7 @@ const deserializeAws_json1_1InvalidLambdaResponseExceptionResponse = async (
     context
   );
   const contents: InvalidLambdaResponseException = {
+    name: "InvalidLambdaResponseException",
     __type: "InvalidLambdaResponseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13223,6 +13234,7 @@ const deserializeAws_json1_1InvalidOAuthFlowExceptionResponse = async (
     context
   );
   const contents: InvalidOAuthFlowException = {
+    name: "InvalidOAuthFlowException",
     __type: "InvalidOAuthFlowException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13241,6 +13253,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13259,6 +13272,7 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
     context
   );
   const contents: InvalidPasswordException = {
+    name: "InvalidPasswordException",
     __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13277,6 +13291,7 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse = async 
     context
   );
   const contents: InvalidSmsRoleAccessPolicyException = {
+    name: "InvalidSmsRoleAccessPolicyException",
     __type: "InvalidSmsRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13295,6 +13310,7 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse = a
     context
   );
   const contents: InvalidSmsRoleTrustRelationshipException = {
+    name: "InvalidSmsRoleTrustRelationshipException",
     __type: "InvalidSmsRoleTrustRelationshipException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13313,6 +13329,7 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse = asyn
     context
   );
   const contents: InvalidUserPoolConfigurationException = {
+    name: "InvalidUserPoolConfigurationException",
     __type: "InvalidUserPoolConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13331,6 +13348,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13349,6 +13367,7 @@ const deserializeAws_json1_1MFAMethodNotFoundExceptionResponse = async (
     context
   );
   const contents: MFAMethodNotFoundException = {
+    name: "MFAMethodNotFoundException",
     __type: "MFAMethodNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13367,6 +13386,7 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
     context
   );
   const contents: NotAuthorizedException = {
+    name: "NotAuthorizedException",
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13385,6 +13405,7 @@ const deserializeAws_json1_1PasswordResetRequiredExceptionResponse = async (
     context
   );
   const contents: PasswordResetRequiredException = {
+    name: "PasswordResetRequiredException",
     __type: "PasswordResetRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13403,6 +13424,7 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
     context
   );
   const contents: PreconditionNotMetException = {
+    name: "PreconditionNotMetException",
     __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13421,6 +13443,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13439,6 +13462,7 @@ const deserializeAws_json1_1ScopeDoesNotExistExceptionResponse = async (
     context
   );
   const contents: ScopeDoesNotExistException = {
+    name: "ScopeDoesNotExistException",
     __type: "ScopeDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13457,6 +13481,7 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse = async (
     context
   );
   const contents: SoftwareTokenMFANotFoundException = {
+    name: "SoftwareTokenMFANotFoundException",
     __type: "SoftwareTokenMFANotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13475,6 +13500,7 @@ const deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse = async (
     context
   );
   const contents: TooManyFailedAttemptsException = {
+    name: "TooManyFailedAttemptsException",
     __type: "TooManyFailedAttemptsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13493,6 +13519,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13511,6 +13538,7 @@ const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
     context
   );
   const contents: UnexpectedLambdaException = {
+    name: "UnexpectedLambdaException",
     __type: "UnexpectedLambdaException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13529,6 +13557,7 @@ const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async
     context
   );
   const contents: UnsupportedIdentityProviderException = {
+    name: "UnsupportedIdentityProviderException",
     __type: "UnsupportedIdentityProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13547,6 +13576,7 @@ const deserializeAws_json1_1UnsupportedUserStateExceptionResponse = async (
     context
   );
   const contents: UnsupportedUserStateException = {
+    name: "UnsupportedUserStateException",
     __type: "UnsupportedUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13565,6 +13595,7 @@ const deserializeAws_json1_1UserImportInProgressExceptionResponse = async (
     context
   );
   const contents: UserImportInProgressException = {
+    name: "UserImportInProgressException",
     __type: "UserImportInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13583,6 +13614,7 @@ const deserializeAws_json1_1UserLambdaValidationExceptionResponse = async (
     context
   );
   const contents: UserLambdaValidationException = {
+    name: "UserLambdaValidationException",
     __type: "UserLambdaValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13601,6 +13633,7 @@ const deserializeAws_json1_1UserNotConfirmedExceptionResponse = async (
     context
   );
   const contents: UserNotConfirmedException = {
+    name: "UserNotConfirmedException",
     __type: "UserNotConfirmedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13619,6 +13652,7 @@ const deserializeAws_json1_1UserNotFoundExceptionResponse = async (
     context
   );
   const contents: UserNotFoundException = {
+    name: "UserNotFoundException",
     __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13637,6 +13671,7 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse = async (
     context
   );
   const contents: UserPoolAddOnNotEnabledException = {
+    name: "UserPoolAddOnNotEnabledException",
     __type: "UserPoolAddOnNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13655,6 +13690,7 @@ const deserializeAws_json1_1UserPoolTaggingExceptionResponse = async (
     context
   );
   const contents: UserPoolTaggingException = {
+    name: "UserPoolTaggingException",
     __type: "UserPoolTaggingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13673,6 +13709,7 @@ const deserializeAws_json1_1UsernameExistsExceptionResponse = async (
     context
   );
   const contents: UsernameExistsException = {
+    name: "UsernameExistsException",
     __type: "UsernameExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

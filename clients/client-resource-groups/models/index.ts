@@ -10,6 +10,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -132,6 +133,7 @@ export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ForbiddenException";
+  name: "ForbiddenException";
   $fault: "client";
   Message?: string;
 }
@@ -377,6 +379,7 @@ export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerErrorException";
+  name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -539,6 +542,7 @@ export interface MethodNotAllowedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MethodNotAllowedException";
+  name: "MethodNotAllowedException";
   $fault: "client";
   Message?: string;
 }
@@ -558,6 +562,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -856,6 +861,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }
@@ -875,6 +881,7 @@ export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedException";
+  name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
 }

@@ -52,6 +52,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -121,6 +122,7 @@ export interface CloudHsmClusterInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmClusterInUseException";
+  name: "CloudHsmClusterInUseException";
   $fault: "client";
   message?: string;
 }
@@ -172,6 +174,7 @@ export interface CloudHsmClusterInvalidConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmClusterInvalidConfigurationException";
+  name: "CloudHsmClusterInvalidConfigurationException";
   $fault: "client";
   message?: string;
 }
@@ -195,6 +198,7 @@ export interface CloudHsmClusterNotActiveException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmClusterNotActiveException";
+  name: "CloudHsmClusterNotActiveException";
   $fault: "client";
   message?: string;
 }
@@ -215,6 +219,7 @@ export interface CloudHsmClusterNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmClusterNotFoundException";
+  name: "CloudHsmClusterNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -241,6 +246,7 @@ export interface CloudHsmClusterNotRelatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmClusterNotRelatedException";
+  name: "CloudHsmClusterNotRelatedException";
   $fault: "client";
   message?: string;
 }
@@ -749,6 +755,7 @@ export interface CustomKeyStoreHasCMKsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomKeyStoreHasCMKsException";
+  name: "CustomKeyStoreHasCMKsException";
   $fault: "client";
   message?: string;
 }
@@ -788,6 +795,7 @@ export interface CustomKeyStoreInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomKeyStoreInvalidStateException";
+  name: "CustomKeyStoreInvalidStateException";
   $fault: "client";
   message?: string;
 }
@@ -809,6 +817,7 @@ export interface CustomKeyStoreNameInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomKeyStoreNameInUseException";
+  name: "CustomKeyStoreNameInUseException";
   $fault: "client";
   message?: string;
 }
@@ -829,6 +838,7 @@ export interface CustomKeyStoreNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomKeyStoreNotFoundException";
+  name: "CustomKeyStoreNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1176,6 +1186,7 @@ export interface DependencyTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DependencyTimeoutException";
+  name: "DependencyTimeoutException";
   $fault: "server";
   message?: string;
 }
@@ -1405,6 +1416,7 @@ export interface DisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DisabledException";
+  name: "DisabledException";
   $fault: "client";
   message?: string;
 }
@@ -1627,6 +1639,7 @@ export interface ExpiredImportTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredImportTokenException";
+  name: "ExpiredImportTokenException";
   $fault: "client";
   message?: string;
 }
@@ -2686,6 +2699,7 @@ export interface IncorrectKeyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncorrectKeyException";
+  name: "IncorrectKeyException";
   $fault: "client";
   message?: string;
 }
@@ -2707,6 +2721,7 @@ export interface IncorrectKeyMaterialException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncorrectKeyMaterialException";
+  name: "IncorrectKeyMaterialException";
   $fault: "client";
   message?: string;
 }
@@ -2729,6 +2744,7 @@ export interface IncorrectTrustAnchorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncorrectTrustAnchorException";
+  name: "IncorrectTrustAnchorException";
   $fault: "client";
   message?: string;
 }
@@ -2748,6 +2764,7 @@ export interface InvalidAliasNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidAliasNameException";
+  name: "InvalidAliasNameException";
   $fault: "client";
   message?: string;
 }
@@ -2768,6 +2785,7 @@ export interface InvalidArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArnException";
+  name: "InvalidArnException";
   $fault: "client";
   message?: string;
 }
@@ -2792,6 +2810,7 @@ export interface InvalidCiphertextException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCiphertextException";
+  name: "InvalidCiphertextException";
   $fault: "client";
   message?: string;
 }
@@ -2811,6 +2830,7 @@ export interface InvalidGrantIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidGrantIdException";
+  name: "InvalidGrantIdException";
   $fault: "client";
   message?: string;
 }
@@ -2830,6 +2850,7 @@ export interface InvalidGrantTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidGrantTokenException";
+  name: "InvalidGrantTokenException";
   $fault: "client";
   message?: string;
 }
@@ -2850,6 +2871,7 @@ export interface InvalidImportTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidImportTokenException";
+  name: "InvalidImportTokenException";
   $fault: "client";
   message?: string;
 }
@@ -2882,6 +2904,7 @@ export interface InvalidKeyUsageException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidKeyUsageException";
+  name: "InvalidKeyUsageException";
   $fault: "client";
   message?: string;
 }
@@ -2902,6 +2925,7 @@ export interface InvalidMarkerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMarkerException";
+  name: "InvalidMarkerException";
   $fault: "client";
   message?: string;
 }
@@ -2922,6 +2946,7 @@ export interface KMSInternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSInternalException";
+  name: "KMSInternalException";
   $fault: "server";
   message?: string;
 }
@@ -2946,6 +2971,7 @@ export interface KMSInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSInvalidStateException";
+  name: "KMSInvalidStateException";
   $fault: "client";
   message?: string;
 }
@@ -3170,6 +3196,7 @@ export interface KeyUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KeyUnavailableException";
+  name: "KeyUnavailableException";
   $fault: "server";
   message?: string;
 }
@@ -3195,6 +3222,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -3650,6 +3678,7 @@ export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
+  name: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
 }
@@ -3675,6 +3704,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -4256,6 +4286,7 @@ export namespace Tag {
  */
 export interface TagException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagException";
+  name: "TagException";
   $fault: "client";
   message?: string;
 }
@@ -4312,6 +4343,7 @@ export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedOperationException";
+  name: "UnsupportedOperationException";
   $fault: "client";
   message?: string;
 }

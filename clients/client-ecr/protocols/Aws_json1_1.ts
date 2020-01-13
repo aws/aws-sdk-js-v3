@@ -3109,6 +3109,7 @@ const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
     context
   );
   const contents: EmptyUploadException = {
+    name: "EmptyUploadException",
     __type: "EmptyUploadException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3127,6 +3128,7 @@ const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ImageAlreadyExistsException = {
+    name: "ImageAlreadyExistsException",
     __type: "ImageAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3145,6 +3147,7 @@ const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
     context
   );
   const contents: ImageNotFoundException = {
+    name: "ImageNotFoundException",
     __type: "ImageNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3163,6 +3166,7 @@ const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ImageTagAlreadyExistsException = {
+    name: "ImageTagAlreadyExistsException",
     __type: "ImageTagAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3181,6 +3185,7 @@ const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
     context
   );
   const contents: InvalidLayerException = {
+    name: "InvalidLayerException",
     __type: "InvalidLayerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3199,6 +3204,7 @@ const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
     context
   );
   const contents: InvalidLayerPartException = {
+    name: "InvalidLayerPartException",
     __type: "InvalidLayerPartException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3217,6 +3223,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3235,6 +3242,7 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
     context
   );
   const contents: InvalidTagParameterException = {
+    name: "InvalidTagParameterException",
     __type: "InvalidTagParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3253,6 +3261,7 @@ const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: LayerAlreadyExistsException = {
+    name: "LayerAlreadyExistsException",
     __type: "LayerAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3271,6 +3280,7 @@ const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
     context
   );
   const contents: LayerInaccessibleException = {
+    name: "LayerInaccessibleException",
     __type: "LayerInaccessibleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3289,6 +3299,7 @@ const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
     context
   );
   const contents: LayerPartTooSmallException = {
+    name: "LayerPartTooSmallException",
     __type: "LayerPartTooSmallException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3307,6 +3318,7 @@ const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
     context
   );
   const contents: LayersNotFoundException = {
+    name: "LayersNotFoundException",
     __type: "LayersNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3325,6 +3337,7 @@ const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: LifecyclePolicyNotFoundException = {
+    name: "LifecyclePolicyNotFoundException",
     __type: "LifecyclePolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3343,6 +3356,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = 
     context
   );
   const contents: LifecyclePolicyPreviewInProgressException = {
+    name: "LifecyclePolicyPreviewInProgressException",
     __type: "LifecyclePolicyPreviewInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3361,6 +3375,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = as
     context
   );
   const contents: LifecyclePolicyPreviewNotFoundException = {
+    name: "LifecyclePolicyPreviewNotFoundException",
     __type: "LifecyclePolicyPreviewNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3379,6 +3394,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3397,6 +3413,7 @@ const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: RepositoryAlreadyExistsException = {
+    name: "RepositoryAlreadyExistsException",
     __type: "RepositoryAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3415,6 +3432,7 @@ const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
     context
   );
   const contents: RepositoryNotEmptyException = {
+    name: "RepositoryNotEmptyException",
     __type: "RepositoryNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3433,6 +3451,7 @@ const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
     context
   );
   const contents: RepositoryNotFoundException = {
+    name: "RepositoryNotFoundException",
     __type: "RepositoryNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3451,6 +3470,7 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: RepositoryPolicyNotFoundException = {
+    name: "RepositoryPolicyNotFoundException",
     __type: "RepositoryPolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3469,6 +3489,7 @@ const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
     context
   );
   const contents: ScanNotFoundException = {
+    name: "ScanNotFoundException",
     __type: "ScanNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3487,6 +3508,7 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
     context
   );
   const contents: ServerException = {
+    name: "ServerException",
     __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3505,6 +3527,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3523,6 +3546,7 @@ const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
     context
   );
   const contents: UploadNotFoundException = {
+    name: "UploadNotFoundException",
     __type: "UploadNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

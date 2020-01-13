@@ -4651,6 +4651,7 @@ export interface WAFAssociatedItemException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFAssociatedItemException";
+  name: "WAFAssociatedItemException";
   $fault: "client";
   Message?: string;
 }
@@ -4670,6 +4671,7 @@ export interface WAFDuplicateItemException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFDuplicateItemException";
+  name: "WAFDuplicateItemException";
   $fault: "client";
   Message?: string;
 }
@@ -4689,6 +4691,7 @@ export interface WAFInternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFInternalErrorException";
+  name: "WAFInternalErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -4723,6 +4726,7 @@ export interface WAFInvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFInvalidParameterException";
+  name: "WAFInvalidParameterException";
   $fault: "client";
   Field?: ParameterExceptionField | string;
   Parameter?: string;
@@ -4745,6 +4749,7 @@ export interface WAFInvalidResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFInvalidResourceException";
+  name: "WAFInvalidResourceException";
   $fault: "client";
   Message?: string;
 }
@@ -4766,6 +4771,7 @@ export interface WAFLimitsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFLimitsExceededException";
+  name: "WAFLimitsExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -4785,6 +4791,7 @@ export interface WAFNonexistentItemException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFNonexistentItemException";
+  name: "WAFNonexistentItemException";
   $fault: "client";
   Message?: string;
 }
@@ -4804,6 +4811,7 @@ export interface WAFOptimisticLockException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFOptimisticLockException";
+  name: "WAFOptimisticLockException";
   $fault: "client";
   Message?: string;
 }
@@ -4823,6 +4831,7 @@ export interface WAFServiceLinkedRoleErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFServiceLinkedRoleErrorException";
+  name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
 }
@@ -4842,6 +4851,7 @@ export interface WAFTagOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFTagOperationException";
+  name: "WAFTagOperationException";
   $fault: "client";
   Message?: string;
 }
@@ -4861,6 +4871,7 @@ export interface WAFTagOperationInternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFTagOperationInternalErrorException";
+  name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -4880,6 +4891,7 @@ export interface WAFUnavailableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WAFUnavailableEntityException";
+  name: "WAFUnavailableEntityException";
   $fault: "client";
   Message?: string;
 }

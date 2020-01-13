@@ -6072,6 +6072,7 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
     context
   );
   const contents: AWSOrganizationsNotInUseException = {
+    name: "AWSOrganizationsNotInUseException",
     __type: "AWSOrganizationsNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6090,6 +6091,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6108,6 +6110,7 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
     context
   );
   const contents: AccessDeniedForDependencyException = {
+    name: "AccessDeniedForDependencyException",
     __type: "AccessDeniedForDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6126,6 +6129,7 @@ const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
     context
   );
   const contents: AccountNotFoundException = {
+    name: "AccountNotFoundException",
     __type: "AccountNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6144,6 +6148,7 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
     context
   );
   const contents: AccountOwnerNotVerifiedException = {
+    name: "AccountOwnerNotVerifiedException",
     __type: "AccountOwnerNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6162,6 +6167,7 @@ const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
     context
   );
   const contents: AlreadyInOrganizationException = {
+    name: "AlreadyInOrganizationException",
     __type: "AlreadyInOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6180,6 +6186,7 @@ const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
     context
   );
   const contents: ChildNotFoundException = {
+    name: "ChildNotFoundException",
     __type: "ChildNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6198,6 +6205,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6216,6 +6224,7 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
     context
   );
   const contents: ConstraintViolationException = {
+    name: "ConstraintViolationException",
     __type: "ConstraintViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6234,6 +6243,7 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async
     context
   );
   const contents: CreateAccountStatusNotFoundException = {
+    name: "CreateAccountStatusNotFoundException",
     __type: "CreateAccountStatusNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6252,6 +6262,7 @@ const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
     context
   );
   const contents: DestinationParentNotFoundException = {
+    name: "DestinationParentNotFoundException",
     __type: "DestinationParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6270,6 +6281,7 @@ const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
     context
   );
   const contents: DuplicateAccountException = {
+    name: "DuplicateAccountException",
     __type: "DuplicateAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6288,6 +6300,7 @@ const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
     context
   );
   const contents: DuplicateHandshakeException = {
+    name: "DuplicateHandshakeException",
     __type: "DuplicateHandshakeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6306,6 +6319,7 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async
     context
   );
   const contents: DuplicateOrganizationalUnitException = {
+    name: "DuplicateOrganizationalUnitException",
     __type: "DuplicateOrganizationalUnitException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6324,6 +6338,7 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
     context
   );
   const contents: DuplicatePolicyAttachmentException = {
+    name: "DuplicatePolicyAttachmentException",
     __type: "DuplicatePolicyAttachmentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6342,6 +6357,7 @@ const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
     context
   );
   const contents: DuplicatePolicyException = {
+    name: "DuplicatePolicyException",
     __type: "DuplicatePolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6360,6 +6376,7 @@ const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: EffectivePolicyNotFoundException = {
+    name: "EffectivePolicyNotFoundException",
     __type: "EffectivePolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6378,6 +6395,7 @@ const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
     context
   );
   const contents: FinalizingOrganizationException = {
+    name: "FinalizingOrganizationException",
     __type: "FinalizingOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6396,6 +6414,7 @@ const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
     context
   );
   const contents: HandshakeAlreadyInStateException = {
+    name: "HandshakeAlreadyInStateException",
     __type: "HandshakeAlreadyInStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6414,6 +6433,7 @@ const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = asyn
     context
   );
   const contents: HandshakeConstraintViolationException = {
+    name: "HandshakeConstraintViolationException",
     __type: "HandshakeConstraintViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6432,6 +6452,7 @@ const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
     context
   );
   const contents: HandshakeNotFoundException = {
+    name: "HandshakeNotFoundException",
     __type: "HandshakeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6450,6 +6471,7 @@ const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async 
     context
   );
   const contents: InvalidHandshakeTransitionException = {
+    name: "InvalidHandshakeTransitionException",
     __type: "InvalidHandshakeTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6468,6 +6490,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6486,6 +6509,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
     context
   );
   const contents: MalformedPolicyDocumentException = {
+    name: "MalformedPolicyDocumentException",
     __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6504,6 +6528,7 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = asy
     context
   );
   const contents: MasterCannotLeaveOrganizationException = {
+    name: "MasterCannotLeaveOrganizationException",
     __type: "MasterCannotLeaveOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6522,6 +6547,7 @@ const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
     context
   );
   const contents: OrganizationNotEmptyException = {
+    name: "OrganizationNotEmptyException",
     __type: "OrganizationNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6540,6 +6566,7 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async 
     context
   );
   const contents: OrganizationalUnitNotEmptyException = {
+    name: "OrganizationalUnitNotEmptyException",
     __type: "OrganizationalUnitNotEmptyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6558,6 +6585,7 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async 
     context
   );
   const contents: OrganizationalUnitNotFoundException = {
+    name: "OrganizationalUnitNotFoundException",
     __type: "OrganizationalUnitNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6576,6 +6604,7 @@ const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
     context
   );
   const contents: ParentNotFoundException = {
+    name: "ParentNotFoundException",
     __type: "ParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6594,6 +6623,7 @@ const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
     context
   );
   const contents: PolicyChangesInProgressException = {
+    name: "PolicyChangesInProgressException",
     __type: "PolicyChangesInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6612,6 +6642,7 @@ const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
     context
   );
   const contents: PolicyInUseException = {
+    name: "PolicyInUseException",
     __type: "PolicyInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6630,6 +6661,7 @@ const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
     context
   );
   const contents: PolicyNotAttachedException = {
+    name: "PolicyNotAttachedException",
     __type: "PolicyNotAttachedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6648,6 +6680,7 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
     context
   );
   const contents: PolicyNotFoundException = {
+    name: "PolicyNotFoundException",
     __type: "PolicyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6666,6 +6699,7 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
     context
   );
   const contents: PolicyTypeAlreadyEnabledException = {
+    name: "PolicyTypeAlreadyEnabledException",
     __type: "PolicyTypeAlreadyEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6684,6 +6718,7 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionRespon
     context
   );
   const contents: PolicyTypeNotAvailableForOrganizationException = {
+    name: "PolicyTypeNotAvailableForOrganizationException",
     __type: "PolicyTypeNotAvailableForOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6702,6 +6737,7 @@ const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
     context
   );
   const contents: PolicyTypeNotEnabledException = {
+    name: "PolicyTypeNotEnabledException",
     __type: "PolicyTypeNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6720,6 +6756,7 @@ const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
     context
   );
   const contents: RootNotFoundException = {
+    name: "RootNotFoundException",
     __type: "RootNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6738,6 +6775,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
     context
   );
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6756,6 +6794,7 @@ const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
     context
   );
   const contents: SourceParentNotFoundException = {
+    name: "SourceParentNotFoundException",
     __type: "SourceParentNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6774,6 +6813,7 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
     context
   );
   const contents: TargetNotFoundException = {
+    name: "TargetNotFoundException",
     __type: "TargetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6792,6 +6832,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6810,6 +6851,7 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
     context
   );
   const contents: UnsupportedAPIEndpointException = {
+    name: "UnsupportedAPIEndpointException",
     __type: "UnsupportedAPIEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

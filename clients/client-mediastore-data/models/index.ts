@@ -10,6 +10,7 @@ export interface ContainerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ContainerNotFoundException";
+  name: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -220,6 +221,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   Message?: string;
 }
@@ -370,6 +372,7 @@ export interface ObjectNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ObjectNotFoundException";
+  name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -487,6 +490,7 @@ export interface RequestedRangeNotSatisfiableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestedRangeNotSatisfiableException";
+  name: "RequestedRangeNotSatisfiableException";
   $fault: "client";
   Message?: string;
 }

@@ -86,6 +86,7 @@ export interface ArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ArgumentException";
+  name: "ArgumentException";
   $fault: "client";
   /**
    *
@@ -3009,6 +3010,7 @@ export interface IdempotencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotencyException";
+  name: "IdempotencyException";
   $fault: "client";
   /**
    *
@@ -3209,6 +3211,7 @@ export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOperationException";
+  name: "InvalidOperationException";
   $fault: "client";
   message?: string;
 }
@@ -3459,6 +3462,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -4994,6 +4998,7 @@ export interface NotEligibleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotEligibleException";
+  name: "NotEligibleException";
   $fault: "client";
   /**
    *
@@ -5018,6 +5023,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   /**
    *
@@ -6877,6 +6883,7 @@ export interface ServiceAccountException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceAccountException";
+  name: "ServiceAccountException";
   $fault: "client";
   /**
    *
@@ -7254,6 +7261,7 @@ export interface TagOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagOperationException";
+  name: "TagOperationException";
   $fault: "client";
   message?: string;
   resourceName?: string;
@@ -7275,6 +7283,7 @@ export interface TagPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagPolicyException";
+  name: "TagPolicyException";
   $fault: "client";
   message?: string;
   resourceName?: string;
@@ -7560,6 +7569,7 @@ export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsException";
+  name: "TooManyTagsException";
   $fault: "client";
   message?: string;
   resourceName?: string;

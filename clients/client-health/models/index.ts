@@ -33,6 +33,7 @@ export interface InvalidPaginationToken
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPaginationToken";
+  name: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
 }
@@ -52,6 +53,7 @@ export interface UnsupportedLocale
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedLocale";
+  name: "UnsupportedLocale";
   $fault: "client";
   message?: string;
 }

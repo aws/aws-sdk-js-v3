@@ -882,6 +882,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -900,6 +901,7 @@ const deserializeAws_json1_1BadDocumentExceptionResponse = async (
     context
   );
   const contents: BadDocumentException = {
+    name: "BadDocumentException",
     __type: "BadDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -918,6 +920,7 @@ const deserializeAws_json1_1DocumentTooLargeExceptionResponse = async (
     context
   );
   const contents: DocumentTooLargeException = {
+    name: "DocumentTooLargeException",
     __type: "DocumentTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -936,6 +939,7 @@ const deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse = async (
     context
   );
   const contents: HumanLoopQuotaExceededException = {
+    name: "HumanLoopQuotaExceededException",
     __type: "HumanLoopQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -954,6 +958,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
     context
   );
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -972,6 +977,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -990,6 +996,7 @@ const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
     context
   );
   const contents: InvalidJobIdException = {
+    name: "InvalidJobIdException",
     __type: "InvalidJobIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1008,6 +1015,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1026,6 +1034,7 @@ const deserializeAws_json1_1InvalidS3ObjectExceptionResponse = async (
     context
   );
   const contents: InvalidS3ObjectException = {
+    name: "InvalidS3ObjectException",
     __type: "InvalidS3ObjectException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1044,6 +1053,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1062,6 +1072,7 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
     context
   );
   const contents: ProvisionedThroughputExceededException = {
+    name: "ProvisionedThroughputExceededException",
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1080,6 +1091,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
     context
   );
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1098,6 +1110,7 @@ const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
     context
   );
   const contents: UnsupportedDocumentException = {
+    name: "UnsupportedDocumentException",
     __type: "UnsupportedDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

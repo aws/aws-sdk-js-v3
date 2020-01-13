@@ -1865,6 +1865,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1883,6 +1884,7 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
     context
   );
   const contents: AccessDeniedForDependencyException = {
+    name: "AccessDeniedForDependencyException",
     __type: "AccessDeniedForDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1901,6 +1903,7 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
     context
   );
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1919,6 +1922,7 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
     context
   );
   const contents: InvalidOperationException = {
+    name: "InvalidOperationException",
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1937,6 +1941,7 @@ const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
     context
   );
   const contents: InvalidPaginationTokenException = {
+    name: "InvalidPaginationTokenException",
     __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1955,6 +1960,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1973,6 +1979,7 @@ const deserializeAws_json1_1InvalidResourceExceptionResponse = async (
     context
   );
   const contents: InvalidResourceException = {
+    name: "InvalidResourceException",
     __type: "InvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1991,6 +1998,7 @@ const deserializeAws_json1_1LimitsExceededExceptionResponse = async (
     context
   );
   const contents: LimitsExceededException = {
+    name: "LimitsExceededException",
     __type: "LimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2009,6 +2017,7 @@ const deserializeAws_json1_1LockedSubscriptionExceptionResponse = async (
     context
   );
   const contents: LockedSubscriptionException = {
+    name: "LockedSubscriptionException",
     __type: "LockedSubscriptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2027,6 +2036,7 @@ const deserializeAws_json1_1NoAssociatedRoleExceptionResponse = async (
     context
   );
   const contents: NoAssociatedRoleException = {
+    name: "NoAssociatedRoleException",
     __type: "NoAssociatedRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2045,6 +2055,7 @@ const deserializeAws_json1_1OptimisticLockExceptionResponse = async (
     context
   );
   const contents: OptimisticLockException = {
+    name: "OptimisticLockException",
     __type: "OptimisticLockException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2063,6 +2074,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2081,6 +2093,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

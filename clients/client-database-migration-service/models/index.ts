@@ -11,6 +11,7 @@ export interface AccessDeniedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedFault";
+  name: "AccessDeniedFault";
   $fault: "client";
   /**
    *
@@ -35,6 +36,7 @@ export interface InsufficientResourceCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientResourceCapacityFault";
+  name: "InsufficientResourceCapacityFault";
   $fault: "client";
   /**
    *
@@ -59,6 +61,7 @@ export interface InvalidCertificateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCertificateFault";
+  name: "InvalidCertificateFault";
   $fault: "client";
   message?: string;
 }
@@ -78,6 +81,7 @@ export interface InvalidResourceStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceStateFault";
+  name: "InvalidResourceStateFault";
   $fault: "client";
   /**
    *
@@ -102,6 +106,7 @@ export interface InvalidSubnet
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSubnet";
+  name: "InvalidSubnet";
   $fault: "client";
   /**
    *
@@ -126,6 +131,7 @@ export interface KMSAccessDeniedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSAccessDeniedFault";
+  name: "KMSAccessDeniedFault";
   $fault: "client";
   message?: string;
 }
@@ -145,6 +151,7 @@ export interface KMSDisabledFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSDisabledFault";
+  name: "KMSDisabledFault";
   $fault: "client";
   message?: string;
 }
@@ -164,6 +171,7 @@ export interface KMSInvalidStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSInvalidStateFault";
+  name: "KMSInvalidStateFault";
   $fault: "client";
   message?: string;
 }
@@ -183,6 +191,7 @@ export interface KMSKeyNotAccessibleFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSKeyNotAccessibleFault";
+  name: "KMSKeyNotAccessibleFault";
   $fault: "client";
   /**
    *
@@ -207,6 +216,7 @@ export interface KMSNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSNotFoundFault";
+  name: "KMSNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -226,6 +236,7 @@ export interface KMSThrottlingFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSThrottlingFault";
+  name: "KMSThrottlingFault";
   $fault: "client";
   message?: string;
 }
@@ -245,6 +256,7 @@ export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   /**
    *
@@ -271,6 +283,7 @@ export interface ResourceAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsFault";
+  name: "ResourceAlreadyExistsFault";
   $fault: "client";
   /**
    *
@@ -297,6 +310,7 @@ export interface ResourceNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundFault";
+  name: "ResourceNotFoundFault";
   $fault: "client";
   /**
    *
@@ -321,6 +335,7 @@ export interface ResourceQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceQuotaExceededFault";
+  name: "ResourceQuotaExceededFault";
   $fault: "client";
   /**
    *
@@ -345,6 +360,7 @@ export interface SNSInvalidTopicFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SNSInvalidTopicFault";
+  name: "SNSInvalidTopicFault";
   $fault: "client";
   /**
    *
@@ -369,6 +385,7 @@ export interface SNSNoAuthorizationFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SNSNoAuthorizationFault";
+  name: "SNSNoAuthorizationFault";
   $fault: "client";
   /**
    *
@@ -393,6 +410,7 @@ export interface StorageQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StorageQuotaExceededFault";
+  name: "StorageQuotaExceededFault";
   $fault: "client";
   /**
    *
@@ -417,6 +435,7 @@ export interface SubnetAlreadyInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetAlreadyInUse";
+  name: "SubnetAlreadyInUse";
   $fault: "client";
   /**
    *
@@ -441,6 +460,7 @@ export interface UpgradeDependencyFailureFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UpgradeDependencyFailureFault";
+  name: "UpgradeDependencyFailureFault";
   $fault: "client";
   /**
    *

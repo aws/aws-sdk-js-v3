@@ -1874,6 +1874,7 @@ const deserializeAws_json1_1CloudHsmInternalExceptionResponse = async (
     context
   );
   const contents: CloudHsmInternalException = {
+    name: "CloudHsmInternalException",
     __type: "CloudHsmInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1892,6 +1893,7 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
     context
   );
   const contents: CloudHsmServiceException = {
+    name: "CloudHsmServiceException",
     __type: "CloudHsmServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1910,6 +1912,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
