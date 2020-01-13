@@ -5,8 +5,8 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "scripts": {
-    "build:cjs": "tsc -p ./tsconfig.json",
-    "build:es": "tsc -p ./tsconfig.es.json",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "build": "node scripts/buildSuiteFixture.js && yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build",
@@ -33,5 +33,5 @@
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   },
-  "types": "./types/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }

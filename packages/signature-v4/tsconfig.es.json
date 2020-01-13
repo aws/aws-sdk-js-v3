@@ -6,7 +6,6 @@
     "moduleResolution": "node",
     "lib": ["es5", "es2015.promise", "es2015.collection"],
     "declaration": true,
-    "declarationDir": null,
     "sourceMap": true,
     "strict": true,
     "stripInternal": true,
