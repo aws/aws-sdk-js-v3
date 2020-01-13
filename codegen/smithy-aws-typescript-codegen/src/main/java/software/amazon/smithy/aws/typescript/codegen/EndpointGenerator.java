@@ -93,7 +93,8 @@ final class EndpointGenerator implements Runnable {
                 // Merge the endpoint settings into the resolved service settings.
                 ObjectNode config = partition.getDefaults().merge(entry.getValue().expectObjectNode());
                 // Resolve the hostname.
-                String hostName = config.expectStringMember("hostname").getValue();
+                String hostName = config.getStringMemberOrDefault(
+                        "sslCommonName", config.expectStringMember("hostname").getValue());
                 hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
                 hostName = hostName.replace("{service}", endpointPrefix);
                 hostName = hostName.replace("{region}", entry.getKey());
@@ -211,7 +212,8 @@ final class EndpointGenerator implements Runnable {
             defaults = partitionDefaults.merge(getService().getObjectMember("defaults").orElse(Node.objectNode()));
 
             // Resolve the template to use for this service in this partition.
-            String template = defaults.expectStringMember("hostname").getValue();
+            String template = defaults.getStringMemberOrDefault(
+                    "sslCommonName",  defaults.expectStringMember("hostname").getValue());
             template = template.replace("{service}", endpointPrefix);
             template = template.replace("{dnsSuffix}", config.expectStringMember("dnsSuffix").getValue());
             templateValue = template;
