@@ -782,6 +782,7 @@ export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
   $fault: "client";
   message: string | undefined;
 }
@@ -801,6 +802,7 @@ export interface InvalidClientTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidClientTokenException";
+  name: "InvalidClientTokenException";
   $fault: "client";
   message: string | undefined;
 }
@@ -820,6 +822,7 @@ export interface InvalidMaxResultsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMaxResultsException";
+  name: "InvalidMaxResultsException";
   $fault: "client";
   message: string | undefined;
 }
@@ -839,6 +842,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   message: string | undefined;
 }
@@ -858,6 +862,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   message: string | undefined;
 }
@@ -877,6 +882,7 @@ export interface InvalidResourceTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceTypeException";
+  name: "InvalidResourceTypeException";
   $fault: "client";
   message: string | undefined;
 }
@@ -896,6 +902,7 @@ export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidStateTransitionException";
+  name: "InvalidStateTransitionException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1255,6 +1262,7 @@ export interface MalformedArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedArnException";
+  name: "MalformedArnException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1274,6 +1282,7 @@ export interface MissingRequiredParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingRequiredParameterException";
+  name: "MissingRequiredParameterException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1293,6 +1302,7 @@ export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotPermittedException";
+  name: "OperationNotPermittedException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1515,6 +1525,7 @@ export interface ResourceArnNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceArnNotFoundException";
+  name: "ResourceArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1809,6 +1820,7 @@ export interface ResourceShareInvitationAlreadyAcceptedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceShareInvitationAlreadyAcceptedException";
+  name: "ResourceShareInvitationAlreadyAcceptedException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1830,6 +1842,7 @@ export interface ResourceShareInvitationAlreadyRejectedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceShareInvitationAlreadyRejectedException";
+  name: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1851,6 +1864,7 @@ export interface ResourceShareInvitationArnNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceShareInvitationArnNotFoundException";
+  name: "ResourceShareInvitationArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1872,6 +1886,7 @@ export interface ResourceShareInvitationExpiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceShareInvitationExpiredException";
+  name: "ResourceShareInvitationExpiredException";
   $fault: "client";
   message: string | undefined;
 }
@@ -1897,6 +1912,7 @@ export interface ResourceShareLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceShareLimitExceededException";
+  name: "ResourceShareLimitExceededException";
   $fault: "client";
   message: string | undefined;
 }
@@ -2073,6 +2089,7 @@ export interface ServerInternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServerInternalException";
+  name: "ServerInternalException";
   $fault: "server";
   message: string | undefined;
 }
@@ -2092,6 +2109,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   message: string | undefined;
 }
@@ -2167,6 +2185,7 @@ export interface TagLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagLimitExceededException";
+  name: "TagLimitExceededException";
   $fault: "client";
   message: string | undefined;
 }
@@ -2186,6 +2205,7 @@ export interface TagPolicyViolationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagPolicyViolationException";
+  name: "TagPolicyViolationException";
   $fault: "client";
   message: string | undefined;
 }
@@ -2238,6 +2258,7 @@ export interface UnknownResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnknownResourceException";
+  name: "UnknownResourceException";
   $fault: "client";
   message: string | undefined;
 }

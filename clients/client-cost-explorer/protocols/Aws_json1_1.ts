@@ -1963,6 +1963,7 @@ const deserializeAws_json1_1BillExpirationExceptionResponse = async (
     context
   );
   const contents: BillExpirationException = {
+    name: "BillExpirationException",
     __type: "BillExpirationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1981,6 +1982,7 @@ const deserializeAws_json1_1DataUnavailableExceptionResponse = async (
     context
   );
   const contents: DataUnavailableException = {
+    name: "DataUnavailableException",
     __type: "DataUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1999,6 +2001,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2017,6 +2020,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2035,6 +2039,7 @@ const deserializeAws_json1_1RequestChangedExceptionResponse = async (
     context
   );
   const contents: RequestChangedException = {
+    name: "RequestChangedException",
     __type: "RequestChangedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2053,6 +2058,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2071,6 +2077,7 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
     context
   );
   const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
     __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2089,6 +2096,7 @@ const deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse = async (
     context
   );
   const contents: UnresolvableUsageUnitException = {
+    name: "UnresolvableUsageUnitException",
     __type: "UnresolvableUsageUnitException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

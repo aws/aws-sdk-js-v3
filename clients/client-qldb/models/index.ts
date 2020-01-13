@@ -494,6 +494,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
   /**
@@ -647,6 +648,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
   /**
@@ -904,6 +906,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
   /**
@@ -936,6 +939,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
   /**
@@ -968,6 +972,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
   /**
@@ -1000,6 +1005,7 @@ export interface ResourcePreconditionNotMetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourcePreconditionNotMetException";
+  name: "ResourcePreconditionNotMetException";
   $fault: "client";
   Message?: string;
   /**

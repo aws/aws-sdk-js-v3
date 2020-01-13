@@ -409,6 +409,7 @@ const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
     context
   );
   const contents: DuplicateReportNameException = {
+    name: "DuplicateReportNameException",
     __type: "DuplicateReportNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -427,6 +428,7 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
     context
   );
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -445,6 +447,7 @@ const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
     context
   );
   const contents: ReportLimitReachedException = {
+    name: "ReportLimitReachedException",
     __type: "ReportLimitReachedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -463,6 +466,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -819,6 +819,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -840,6 +841,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -875,6 +877,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -900,6 +903,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

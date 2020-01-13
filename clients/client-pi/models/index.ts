@@ -10,6 +10,7 @@ export interface InternalServiceError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceError";
+  name: "InternalServiceError";
   $fault: "server";
   Message?: string;
 }
@@ -29,6 +30,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
 }
@@ -48,6 +50,7 @@ export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotAuthorizedException";
+  name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }

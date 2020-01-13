@@ -4878,6 +4878,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4899,6 +4900,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
+    name: "InternalServerErrorException",
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),

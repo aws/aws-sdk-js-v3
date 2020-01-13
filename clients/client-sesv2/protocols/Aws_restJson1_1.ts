@@ -4993,6 +4993,7 @@ const deserializeAws_restJson1_1AccountSuspendedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccountSuspendedException> => {
   const contents: AccountSuspendedException = {
+    name: "AccountSuspendedException",
     __type: "AccountSuspendedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5010,6 +5011,7 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
   const contents: AlreadyExistsException = {
+    name: "AlreadyExistsException",
     __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5027,6 +5029,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5044,6 +5047,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -5061,6 +5065,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5078,6 +5083,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5095,6 +5101,7 @@ const deserializeAws_restJson1_1MailFromDomainNotVerifiedExceptionResponse = asy
   context: __SerdeContext
 ): Promise<MailFromDomainNotVerifiedException> => {
   const contents: MailFromDomainNotVerifiedException = {
+    name: "MailFromDomainNotVerifiedException",
     __type: "MailFromDomainNotVerifiedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5112,6 +5119,7 @@ const deserializeAws_restJson1_1MessageRejectedResponse = async (
   context: __SerdeContext
 ): Promise<MessageRejected> => {
   const contents: MessageRejected = {
+    name: "MessageRejected",
     __type: "MessageRejected",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5129,6 +5137,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5146,6 +5155,7 @@ const deserializeAws_restJson1_1SendingPausedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SendingPausedException> => {
   const contents: SendingPausedException = {
+    name: "SendingPausedException",
     __type: "SendingPausedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5163,6 +5173,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

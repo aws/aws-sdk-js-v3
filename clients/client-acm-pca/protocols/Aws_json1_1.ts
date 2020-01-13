@@ -2166,6 +2166,7 @@ const deserializeAws_json1_1CertificateMismatchExceptionResponse = async (
     context
   );
   const contents: CertificateMismatchException = {
+    name: "CertificateMismatchException",
     __type: "CertificateMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2184,6 +2185,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2202,6 +2204,7 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
     context
   );
   const contents: InvalidArgsException = {
+    name: "InvalidArgsException",
     __type: "InvalidArgsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2220,6 +2223,7 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
     context
   );
   const contents: InvalidArnException = {
+    name: "InvalidArnException",
     __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2238,6 +2242,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2256,6 +2261,7 @@ const deserializeAws_json1_1InvalidPolicyExceptionResponse = async (
     context
   );
   const contents: InvalidPolicyException = {
+    name: "InvalidPolicyException",
     __type: "InvalidPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2274,6 +2280,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2292,6 +2299,7 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
     context
   );
   const contents: InvalidStateException = {
+    name: "InvalidStateException",
     __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2310,6 +2318,7 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
     context
   );
   const contents: InvalidTagException = {
+    name: "InvalidTagException",
     __type: "InvalidTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2328,6 +2337,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2346,6 +2356,7 @@ const deserializeAws_json1_1MalformedCSRExceptionResponse = async (
     context
   );
   const contents: MalformedCSRException = {
+    name: "MalformedCSRException",
     __type: "MalformedCSRException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2364,6 +2375,7 @@ const deserializeAws_json1_1MalformedCertificateExceptionResponse = async (
     context
   );
   const contents: MalformedCertificateException = {
+    name: "MalformedCertificateException",
     __type: "MalformedCertificateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2382,6 +2394,7 @@ const deserializeAws_json1_1PermissionAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: PermissionAlreadyExistsException = {
+    name: "PermissionAlreadyExistsException",
     __type: "PermissionAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2400,6 +2413,7 @@ const deserializeAws_json1_1RequestAlreadyProcessedExceptionResponse = async (
     context
   );
   const contents: RequestAlreadyProcessedException = {
+    name: "RequestAlreadyProcessedException",
     __type: "RequestAlreadyProcessedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2418,6 +2432,7 @@ const deserializeAws_json1_1RequestFailedExceptionResponse = async (
     context
   );
   const contents: RequestFailedException = {
+    name: "RequestFailedException",
     __type: "RequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2436,6 +2451,7 @@ const deserializeAws_json1_1RequestInProgressExceptionResponse = async (
     context
   );
   const contents: RequestInProgressException = {
+    name: "RequestInProgressException",
     __type: "RequestInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2454,6 +2470,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2472,6 +2489,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

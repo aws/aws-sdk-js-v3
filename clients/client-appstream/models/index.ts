@@ -344,6 +344,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   /**
    *
@@ -3003,6 +3004,7 @@ export interface IncompatibleImageException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncompatibleImageException";
+  name: "IncompatibleImageException";
   $fault: "client";
   /**
    *
@@ -3027,6 +3029,7 @@ export interface InvalidAccountStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidAccountStatusException";
+  name: "InvalidAccountStatusException";
   $fault: "client";
   /**
    *
@@ -3051,6 +3054,7 @@ export interface InvalidParameterCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
    *
@@ -3075,6 +3079,7 @@ export interface InvalidRoleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRoleException";
+  name: "InvalidRoleException";
   $fault: "client";
   /**
    *
@@ -3127,6 +3132,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -3308,6 +3314,7 @@ export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotPermittedException";
+  name: "OperationNotPermittedException";
   $fault: "client";
   /**
    *
@@ -3342,6 +3349,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -3401,6 +3409,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   /**
    *
@@ -3425,6 +3434,7 @@ export interface ResourceNotAvailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotAvailableException";
+  name: "ResourceNotAvailableException";
   $fault: "client";
   /**
    *
@@ -3449,6 +3459,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *

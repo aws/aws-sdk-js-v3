@@ -461,6 +461,7 @@ export interface ConcurrentUpdatingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentUpdatingException";
+  name: "ConcurrentUpdatingException";
   $fault: "server";
   Message?: string;
   RequestId?: string;
@@ -3750,6 +3751,7 @@ export interface DomainNotWhitelistedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DomainNotWhitelistedException";
+  name: "DomainNotWhitelistedException";
   $fault: "client";
   Message?: string;
   /**
@@ -4162,6 +4164,7 @@ export interface IdentityTypeNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdentityTypeNotSupportedException";
+  name: "IdentityTypeNotSupportedException";
   $fault: "client";
   Message?: string;
   /**
@@ -5856,6 +5859,7 @@ export interface QuickSightUserNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "QuickSightUserNotFoundException";
+  name: "QuickSightUserNotFoundException";
   $fault: "client";
   Message?: string;
   /**
@@ -6308,6 +6312,7 @@ export interface SessionLifetimeInMinutesInvalidException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SessionLifetimeInMinutesInvalidException";
+  name: "SessionLifetimeInMinutesInvalidException";
   $fault: "client";
   Message?: string;
   /**
@@ -8402,6 +8407,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
   /**
@@ -8434,6 +8440,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Message?: string;
   /**
@@ -8476,6 +8483,7 @@ export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalFailureException";
+  name: "InternalFailureException";
   $fault: "server";
   Message?: string;
   /**
@@ -8501,6 +8509,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
   /**
@@ -8526,6 +8535,7 @@ export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
   /**
@@ -8551,6 +8561,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
   /**
@@ -8583,6 +8594,7 @@ export interface PreconditionNotMetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PreconditionNotMetException";
+  name: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
   /**
@@ -8608,6 +8620,7 @@ export interface ResourceExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceExistsException";
+  name: "ResourceExistsException";
   $fault: "client";
   Message?: string;
   /**
@@ -8640,6 +8653,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
   /**
@@ -8712,6 +8726,7 @@ export interface ResourceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceUnavailableException";
+  name: "ResourceUnavailableException";
   $fault: "server";
   Message?: string;
   /**
@@ -8773,6 +8788,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
   /**
@@ -8801,6 +8817,7 @@ export interface UnsupportedUserEditionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedUserEditionException";
+  name: "UnsupportedUserEditionException";
   $fault: "client";
   Message?: string;
   /**

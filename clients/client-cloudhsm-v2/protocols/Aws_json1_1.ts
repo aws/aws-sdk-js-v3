@@ -1418,6 +1418,7 @@ const deserializeAws_json1_1CloudHsmAccessDeniedExceptionResponse = async (
     context
   );
   const contents: CloudHsmAccessDeniedException = {
+    name: "CloudHsmAccessDeniedException",
     __type: "CloudHsmAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1436,6 +1437,7 @@ const deserializeAws_json1_1CloudHsmInternalFailureExceptionResponse = async (
     context
   );
   const contents: CloudHsmInternalFailureException = {
+    name: "CloudHsmInternalFailureException",
     __type: "CloudHsmInternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1454,6 +1456,7 @@ const deserializeAws_json1_1CloudHsmInvalidRequestExceptionResponse = async (
     context
   );
   const contents: CloudHsmInvalidRequestException = {
+    name: "CloudHsmInvalidRequestException",
     __type: "CloudHsmInvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1472,6 +1475,7 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: CloudHsmResourceNotFoundException = {
+    name: "CloudHsmResourceNotFoundException",
     __type: "CloudHsmResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1490,6 +1494,7 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
     context
   );
   const contents: CloudHsmServiceException = {
+    name: "CloudHsmServiceException",
     __type: "CloudHsmServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

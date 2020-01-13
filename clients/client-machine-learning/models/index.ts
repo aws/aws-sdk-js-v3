@@ -3101,6 +3101,7 @@ export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
   $fault: "client";
   code?: number;
   message?: string;
@@ -3121,6 +3122,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   code?: number;
   message?: string;
@@ -3141,6 +3143,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   code?: number;
   message?: string;
@@ -3161,6 +3164,7 @@ export interface InvalidTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagException";
+  name: "InvalidTagException";
   $fault: "client";
   message?: string;
 }
@@ -3180,6 +3184,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   code?: number;
   message?: string;
@@ -3640,6 +3645,7 @@ export interface PredictorNotMountedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PredictorNotMountedException";
+  name: "PredictorNotMountedException";
   $fault: "client";
   message?: string;
 }
@@ -4294,6 +4300,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   code?: number;
   message?: string;
@@ -4493,6 +4500,7 @@ export interface TagLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagLimitExceededException";
+  name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
 }

@@ -715,6 +715,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

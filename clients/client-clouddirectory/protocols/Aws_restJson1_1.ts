@@ -9487,6 +9487,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9504,6 +9505,7 @@ const deserializeAws_restJson1_1BatchWriteExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BatchWriteException> => {
   const contents: BatchWriteException = {
+    name: "BatchWriteException",
     __type: "BatchWriteException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9529,6 +9531,7 @@ const deserializeAws_restJson1_1CannotListParentOfRootExceptionResponse = async 
   context: __SerdeContext
 ): Promise<CannotListParentOfRootException> => {
   const contents: CannotListParentOfRootException = {
+    name: "CannotListParentOfRootException",
     __type: "CannotListParentOfRootException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9546,6 +9549,7 @@ const deserializeAws_restJson1_1DirectoryAlreadyExistsExceptionResponse = async 
   context: __SerdeContext
 ): Promise<DirectoryAlreadyExistsException> => {
   const contents: DirectoryAlreadyExistsException = {
+    name: "DirectoryAlreadyExistsException",
     __type: "DirectoryAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9563,6 +9567,7 @@ const deserializeAws_restJson1_1DirectoryDeletedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DirectoryDeletedException> => {
   const contents: DirectoryDeletedException = {
+    name: "DirectoryDeletedException",
     __type: "DirectoryDeletedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9580,6 +9585,7 @@ const deserializeAws_restJson1_1DirectoryNotDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DirectoryNotDisabledException> => {
   const contents: DirectoryNotDisabledException = {
+    name: "DirectoryNotDisabledException",
     __type: "DirectoryNotDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9597,6 +9603,7 @@ const deserializeAws_restJson1_1DirectoryNotEnabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DirectoryNotEnabledException> => {
   const contents: DirectoryNotEnabledException = {
+    name: "DirectoryNotEnabledException",
     __type: "DirectoryNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9614,6 +9621,7 @@ const deserializeAws_restJson1_1FacetAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<FacetAlreadyExistsException> => {
   const contents: FacetAlreadyExistsException = {
+    name: "FacetAlreadyExistsException",
     __type: "FacetAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9631,6 +9639,7 @@ const deserializeAws_restJson1_1FacetInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<FacetInUseException> => {
   const contents: FacetInUseException = {
+    name: "FacetInUseException",
     __type: "FacetInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9648,6 +9657,7 @@ const deserializeAws_restJson1_1FacetNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<FacetNotFoundException> => {
   const contents: FacetNotFoundException = {
+    name: "FacetNotFoundException",
     __type: "FacetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9665,6 +9675,7 @@ const deserializeAws_restJson1_1FacetValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<FacetValidationException> => {
   const contents: FacetValidationException = {
+    name: "FacetValidationException",
     __type: "FacetValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9682,6 +9693,7 @@ const deserializeAws_restJson1_1IncompatibleSchemaExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IncompatibleSchemaException> => {
   const contents: IncompatibleSchemaException = {
+    name: "IncompatibleSchemaException",
     __type: "IncompatibleSchemaException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9699,6 +9711,7 @@ const deserializeAws_restJson1_1IndexedAttributeMissingExceptionResponse = async
   context: __SerdeContext
 ): Promise<IndexedAttributeMissingException> => {
   const contents: IndexedAttributeMissingException = {
+    name: "IndexedAttributeMissingException",
     __type: "IndexedAttributeMissingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9716,6 +9729,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -9733,6 +9747,7 @@ const deserializeAws_restJson1_1InvalidArnExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArnException> => {
   const contents: InvalidArnException = {
+    name: "InvalidArnException",
     __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9750,6 +9765,7 @@ const deserializeAws_restJson1_1InvalidAttachmentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidAttachmentException> => {
   const contents: InvalidAttachmentException = {
+    name: "InvalidAttachmentException",
     __type: "InvalidAttachmentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9767,6 +9783,7 @@ const deserializeAws_restJson1_1InvalidFacetUpdateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidFacetUpdateException> => {
   const contents: InvalidFacetUpdateException = {
+    name: "InvalidFacetUpdateException",
     __type: "InvalidFacetUpdateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9784,6 +9801,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9801,6 +9819,7 @@ const deserializeAws_restJson1_1InvalidRuleExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRuleException> => {
   const contents: InvalidRuleException = {
+    name: "InvalidRuleException",
     __type: "InvalidRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9818,6 +9837,7 @@ const deserializeAws_restJson1_1InvalidSchemaDocExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidSchemaDocException> => {
   const contents: InvalidSchemaDocException = {
+    name: "InvalidSchemaDocException",
     __type: "InvalidSchemaDocException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9835,6 +9855,7 @@ const deserializeAws_restJson1_1InvalidTaggingRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidTaggingRequestException> => {
   const contents: InvalidTaggingRequestException = {
+    name: "InvalidTaggingRequestException",
     __type: "InvalidTaggingRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9852,6 +9873,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9869,6 +9891,7 @@ const deserializeAws_restJson1_1LinkNameAlreadyInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LinkNameAlreadyInUseException> => {
   const contents: LinkNameAlreadyInUseException = {
+    name: "LinkNameAlreadyInUseException",
     __type: "LinkNameAlreadyInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9886,6 +9909,7 @@ const deserializeAws_restJson1_1NotIndexExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotIndexException> => {
   const contents: NotIndexException = {
+    name: "NotIndexException",
     __type: "NotIndexException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9903,6 +9927,7 @@ const deserializeAws_restJson1_1NotNodeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotNodeException> => {
   const contents: NotNodeException = {
+    name: "NotNodeException",
     __type: "NotNodeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9920,6 +9945,7 @@ const deserializeAws_restJson1_1NotPolicyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotPolicyException> => {
   const contents: NotPolicyException = {
+    name: "NotPolicyException",
     __type: "NotPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9937,6 +9963,7 @@ const deserializeAws_restJson1_1ObjectAlreadyDetachedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ObjectAlreadyDetachedException> => {
   const contents: ObjectAlreadyDetachedException = {
+    name: "ObjectAlreadyDetachedException",
     __type: "ObjectAlreadyDetachedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9954,6 +9981,7 @@ const deserializeAws_restJson1_1ObjectNotDetachedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ObjectNotDetachedException> => {
   const contents: ObjectNotDetachedException = {
+    name: "ObjectNotDetachedException",
     __type: "ObjectNotDetachedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9971,6 +9999,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9988,6 +10017,7 @@ const deserializeAws_restJson1_1RetryableConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<RetryableConflictException> => {
   const contents: RetryableConflictException = {
+    name: "RetryableConflictException",
     __type: "RetryableConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10005,6 +10035,7 @@ const deserializeAws_restJson1_1SchemaAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SchemaAlreadyExistsException> => {
   const contents: SchemaAlreadyExistsException = {
+    name: "SchemaAlreadyExistsException",
     __type: "SchemaAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10022,6 +10053,7 @@ const deserializeAws_restJson1_1SchemaAlreadyPublishedExceptionResponse = async 
   context: __SerdeContext
 ): Promise<SchemaAlreadyPublishedException> => {
   const contents: SchemaAlreadyPublishedException = {
+    name: "SchemaAlreadyPublishedException",
     __type: "SchemaAlreadyPublishedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10039,6 +10071,7 @@ const deserializeAws_restJson1_1StillContainsLinksExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StillContainsLinksException> => {
   const contents: StillContainsLinksException = {
+    name: "StillContainsLinksException",
     __type: "StillContainsLinksException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10056,6 +10089,7 @@ const deserializeAws_restJson1_1UnsupportedIndexTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedIndexTypeException> => {
   const contents: UnsupportedIndexTypeException = {
+    name: "UnsupportedIndexTypeException",
     __type: "UnsupportedIndexTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10073,6 +10107,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

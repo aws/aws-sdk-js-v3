@@ -484,6 +484,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -501,6 +502,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -518,6 +520,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -535,6 +538,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -552,6 +556,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

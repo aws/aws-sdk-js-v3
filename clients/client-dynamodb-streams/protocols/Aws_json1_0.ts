@@ -403,6 +403,7 @@ const deserializeAws_json1_0ExpiredIteratorExceptionResponse = async (
     context
   );
   const contents: ExpiredIteratorException = {
+    name: "ExpiredIteratorException",
     __type: "ExpiredIteratorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -421,6 +422,7 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
     context
   );
   const contents: TrimmedDataAccessException = {
+    name: "TrimmedDataAccessException",
     __type: "TrimmedDataAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -439,6 +441,7 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -457,6 +460,7 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -475,6 +479,7 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

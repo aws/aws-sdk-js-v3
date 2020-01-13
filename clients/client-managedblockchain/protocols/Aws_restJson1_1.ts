@@ -2258,6 +2258,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output)
@@ -2270,6 +2271,7 @@ const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IllegalActionException> => {
   const contents: IllegalActionException = {
+    name: "IllegalActionException",
     __type: "IllegalActionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2287,6 +2289,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const contents: InternalServiceErrorException = {
+    name: "InternalServiceErrorException",
     __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output)
@@ -2299,6 +2302,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2316,6 +2320,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2333,6 +2338,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2350,6 +2356,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2367,6 +2374,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
   const contents: ResourceNotReadyException = {
+    name: "ResourceNotReadyException",
     __type: "ResourceNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2384,6 +2392,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output)

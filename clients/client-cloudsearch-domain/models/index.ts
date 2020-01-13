@@ -61,6 +61,7 @@ export interface DocumentServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DocumentServiceException";
+  name: "DocumentServiceException";
   $fault: "client";
   /**
    *
@@ -272,6 +273,7 @@ export interface SearchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SearchException";
+  name: "SearchException";
   $fault: "client";
   /**
    *

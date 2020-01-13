@@ -2491,6 +2491,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2509,6 +2510,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2527,6 +2529,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2545,6 +2548,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2563,6 +2567,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2581,6 +2586,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

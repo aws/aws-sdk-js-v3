@@ -1903,6 +1903,7 @@ const deserializeAws_json1_1DecryptionFailureResponse = async (
     context
   );
   const contents: DecryptionFailure = {
+    name: "DecryptionFailure",
     __type: "DecryptionFailure",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1921,6 +1922,7 @@ const deserializeAws_json1_1EncryptionFailureResponse = async (
     context
   );
   const contents: EncryptionFailure = {
+    name: "EncryptionFailure",
     __type: "EncryptionFailure",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1939,6 +1941,7 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
     context
   );
   const contents: InternalServiceError = {
+    name: "InternalServiceError",
     __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1957,6 +1960,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1975,6 +1979,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1993,6 +1998,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2011,6 +2017,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2029,6 +2036,7 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
     context
   );
   const contents: MalformedPolicyDocumentException = {
+    name: "MalformedPolicyDocumentException",
     __type: "MalformedPolicyDocumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2047,6 +2055,7 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
     context
   );
   const contents: PreconditionNotMetException = {
+    name: "PreconditionNotMetException",
     __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2065,6 +2074,7 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
     context
   );
   const contents: ResourceExistsException = {
+    name: "ResourceExistsException",
     __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2083,6 +2093,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

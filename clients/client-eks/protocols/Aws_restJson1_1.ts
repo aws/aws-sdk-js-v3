@@ -2580,6 +2580,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2597,6 +2598,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
+    name: "ClientException",
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2622,6 +2624,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2651,6 +2654,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2676,6 +2680,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2693,6 +2698,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2718,6 +2724,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceLimitExceededException> => {
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2743,6 +2750,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2772,6 +2780,7 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServerException> => {
   const contents: ServerException = {
+    name: "ServerException",
     __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -2797,6 +2806,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -2814,6 +2824,7 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneExceptionResponse = a
   context: __SerdeContext
 ): Promise<UnsupportedAvailabilityZoneException> => {
   const contents: UnsupportedAvailabilityZoneException = {
+    name: "UnsupportedAvailabilityZoneException",
     __type: "UnsupportedAvailabilityZoneException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

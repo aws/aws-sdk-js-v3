@@ -75,6 +75,7 @@ export interface CustomerNotEntitledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomerNotEntitledException";
+  name: "CustomerNotEntitledException";
   $fault: "client";
   message?: string;
 }
@@ -94,6 +95,7 @@ export interface DisabledApiException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DisabledApiException";
+  name: "DisabledApiException";
   $fault: "client";
   message?: string;
 }
@@ -115,6 +117,7 @@ export interface DuplicateRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateRequestException";
+  name: "DuplicateRequestException";
   $fault: "client";
   message?: string;
 }
@@ -138,6 +141,7 @@ export interface ExpiredTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredTokenException";
+  name: "ExpiredTokenException";
   $fault: "client";
   message?: string;
 }
@@ -158,6 +162,7 @@ export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceErrorException";
+  name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
 }
@@ -177,6 +182,7 @@ export interface InvalidCustomerIdentifierException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCustomerIdentifierException";
+  name: "InvalidCustomerIdentifierException";
   $fault: "client";
   message?: string;
 }
@@ -198,6 +204,7 @@ export interface InvalidEndpointRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEndpointRegionException";
+  name: "InvalidEndpointRegionException";
   $fault: "client";
   message?: string;
 }
@@ -218,6 +225,7 @@ export interface InvalidProductCodeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidProductCodeException";
+  name: "InvalidProductCodeException";
   $fault: "client";
   message?: string;
 }
@@ -237,6 +245,7 @@ export interface InvalidPublicKeyVersionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPublicKeyVersionException";
+  name: "InvalidPublicKeyVersionException";
   $fault: "client";
   message?: string;
 }
@@ -258,6 +267,7 @@ export interface InvalidRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRegionException";
+  name: "InvalidRegionException";
   $fault: "client";
   message?: string;
 }
@@ -277,6 +287,7 @@ export interface InvalidTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTokenException";
+  name: "InvalidTokenException";
   $fault: "client";
   message?: string;
 }
@@ -297,6 +308,7 @@ export interface InvalidUsageDimensionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidUsageDimensionException";
+  name: "InvalidUsageDimensionException";
   $fault: "client";
   message?: string;
 }
@@ -386,6 +398,7 @@ export interface PlatformNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PlatformNotSupportedException";
+  name: "PlatformNotSupportedException";
   $fault: "client";
   message?: string;
 }
@@ -517,6 +530,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   message?: string;
 }
@@ -536,6 +550,7 @@ export interface TimestampOutOfBoundsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TimestampOutOfBoundsException";
+  name: "TimestampOutOfBoundsException";
   $fault: "client";
   message?: string;
 }

@@ -296,6 +296,7 @@ export interface DecryptionFailure
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DecryptionFailure";
+  name: "DecryptionFailure";
   $fault: "client";
   Message?: string;
 }
@@ -608,6 +609,7 @@ export interface EncryptionFailure
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionFailure";
+  name: "EncryptionFailure";
   $fault: "client";
   Message?: string;
 }
@@ -916,6 +918,7 @@ export interface InternalServiceError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceError";
+  name: "InternalServiceError";
   $fault: "server";
   Message?: string;
 }
@@ -935,6 +938,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -954,6 +958,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
 }
@@ -984,6 +989,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -1003,6 +1009,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1195,6 +1202,7 @@ export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
+  name: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
 }
@@ -1214,6 +1222,7 @@ export interface PreconditionNotMetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PreconditionNotMetException";
+  name: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
 }
@@ -1451,6 +1460,7 @@ export interface ResourceExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceExistsException";
+  name: "ResourceExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -1470,6 +1480,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }

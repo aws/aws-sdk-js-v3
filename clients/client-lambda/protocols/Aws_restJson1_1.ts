@@ -7056,6 +7056,7 @@ const deserializeAws_restJson1_1CodeStorageExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CodeStorageExceededException> => {
   const contents: CodeStorageExceededException = {
+    name: "CodeStorageExceededException",
     __type: "CodeStorageExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7077,6 +7078,7 @@ const deserializeAws_restJson1_1EC2AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EC2AccessDeniedException> => {
   const contents: EC2AccessDeniedException = {
+    name: "EC2AccessDeniedException",
     __type: "EC2AccessDeniedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7098,6 +7100,7 @@ const deserializeAws_restJson1_1EC2ThrottledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EC2ThrottledException> => {
   const contents: EC2ThrottledException = {
+    name: "EC2ThrottledException",
     __type: "EC2ThrottledException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7119,6 +7122,7 @@ const deserializeAws_restJson1_1EC2UnexpectedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EC2UnexpectedException> => {
   const contents: EC2UnexpectedException = {
+    name: "EC2UnexpectedException",
     __type: "EC2UnexpectedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7144,6 +7148,7 @@ const deserializeAws_restJson1_1ENILimitReachedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ENILimitReachedException> => {
   const contents: ENILimitReachedException = {
+    name: "ENILimitReachedException",
     __type: "ENILimitReachedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7165,6 +7170,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7186,6 +7192,7 @@ const deserializeAws_restJson1_1InvalidRequestContentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestContentException> => {
   const contents: InvalidRequestContentException = {
+    name: "InvalidRequestContentException",
     __type: "InvalidRequestContentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7207,6 +7214,7 @@ const deserializeAws_restJson1_1InvalidRuntimeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRuntimeException> => {
   const contents: InvalidRuntimeException = {
+    name: "InvalidRuntimeException",
     __type: "InvalidRuntimeException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7228,6 +7236,7 @@ const deserializeAws_restJson1_1InvalidSecurityGroupIDExceptionResponse = async 
   context: __SerdeContext
 ): Promise<InvalidSecurityGroupIDException> => {
   const contents: InvalidSecurityGroupIDException = {
+    name: "InvalidSecurityGroupIDException",
     __type: "InvalidSecurityGroupIDException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7249,6 +7258,7 @@ const deserializeAws_restJson1_1InvalidSubnetIDExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidSubnetIDException> => {
   const contents: InvalidSubnetIDException = {
+    name: "InvalidSubnetIDException",
     __type: "InvalidSubnetIDException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7270,6 +7280,7 @@ const deserializeAws_restJson1_1InvalidZipFileExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidZipFileException> => {
   const contents: InvalidZipFileException = {
+    name: "InvalidZipFileException",
     __type: "InvalidZipFileException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7291,6 +7302,7 @@ const deserializeAws_restJson1_1KMSAccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSAccessDeniedException> => {
   const contents: KMSAccessDeniedException = {
+    name: "KMSAccessDeniedException",
     __type: "KMSAccessDeniedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7312,6 +7324,7 @@ const deserializeAws_restJson1_1KMSDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSDisabledException> => {
   const contents: KMSDisabledException = {
+    name: "KMSDisabledException",
     __type: "KMSDisabledException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7333,6 +7346,7 @@ const deserializeAws_restJson1_1KMSInvalidStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
   const contents: KMSInvalidStateException = {
+    name: "KMSInvalidStateException",
     __type: "KMSInvalidStateException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7354,6 +7368,7 @@ const deserializeAws_restJson1_1KMSNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<KMSNotFoundException> => {
   const contents: KMSNotFoundException = {
+    name: "KMSNotFoundException",
     __type: "KMSNotFoundException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7375,6 +7390,7 @@ const deserializeAws_restJson1_1PolicyLengthExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PolicyLengthExceededException> => {
   const contents: PolicyLengthExceededException = {
+    name: "PolicyLengthExceededException",
     __type: "PolicyLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7396,6 +7412,7 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PreconditionFailedException> => {
   const contents: PreconditionFailedException = {
+    name: "PreconditionFailedException",
     __type: "PreconditionFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7417,6 +7434,7 @@ const deserializeAws_restJson1_1ProvisionedConcurrencyConfigNotFoundExceptionRes
   context: __SerdeContext
 ): Promise<ProvisionedConcurrencyConfigNotFoundException> => {
   const contents: ProvisionedConcurrencyConfigNotFoundException = {
+    name: "ProvisionedConcurrencyConfigNotFoundException",
     __type: "ProvisionedConcurrencyConfigNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7438,6 +7456,7 @@ const deserializeAws_restJson1_1RequestTooLargeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<RequestTooLargeException> => {
   const contents: RequestTooLargeException = {
+    name: "RequestTooLargeException",
     __type: "RequestTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7459,6 +7478,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
+    name: "ResourceConflictException",
     __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7480,6 +7500,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7501,6 +7522,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7522,6 +7544,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
   const contents: ResourceNotReadyException = {
+    name: "ResourceNotReadyException",
     __type: "ResourceNotReadyException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7543,6 +7566,7 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceException> => {
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7564,6 +7588,7 @@ const deserializeAws_restJson1_1SubnetIPAddressLimitReachedExceptionResponse = a
   context: __SerdeContext
 ): Promise<SubnetIPAddressLimitReachedException> => {
   const contents: SubnetIPAddressLimitReachedException = {
+    name: "SubnetIPAddressLimitReachedException",
     __type: "SubnetIPAddressLimitReachedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -7585,6 +7610,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -7614,6 +7640,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedMediaTypeException> => {
   const contents: UnsupportedMediaTypeException = {
+    name: "UnsupportedMediaTypeException",
     __type: "UnsupportedMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

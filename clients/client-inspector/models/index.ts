@@ -21,6 +21,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   /**
    *
@@ -249,6 +250,7 @@ export interface AgentsAlreadyRunningAssessmentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AgentsAlreadyRunningAssessmentException";
+  name: "AgentsAlreadyRunningAssessmentException";
   $fault: "client";
   /**
    *
@@ -565,6 +567,7 @@ export interface AssessmentRunInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AssessmentRunInProgressException";
+  name: "AssessmentRunInProgressException";
   $fault: "client";
   /**
    *
@@ -2233,6 +2236,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   /**
    *
@@ -2270,6 +2274,7 @@ export interface InvalidCrossAccountRoleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCrossAccountRoleException";
+  name: "InvalidCrossAccountRoleException";
   $fault: "client";
   /**
    *
@@ -2366,6 +2371,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   /**
    *
@@ -2413,6 +2419,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -3116,6 +3123,7 @@ export interface NoSuchEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoSuchEntityException";
+  name: "NoSuchEntityException";
   $fault: "client";
   /**
    *
@@ -3215,6 +3223,7 @@ export interface PreviewGenerationInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PreviewGenerationInProgressException";
+  name: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
 }
@@ -3525,6 +3534,7 @@ export interface ServiceTemporarilyUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceTemporarilyUnavailableException";
+  name: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
    *
@@ -3857,6 +3867,7 @@ export interface UnsupportedFeatureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedFeatureException";
+  name: "UnsupportedFeatureException";
   $fault: "client";
   canRetry: boolean | undefined;
   message: string | undefined;

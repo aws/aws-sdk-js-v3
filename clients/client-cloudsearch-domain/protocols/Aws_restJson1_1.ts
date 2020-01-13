@@ -343,6 +343,7 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DocumentServiceException> => {
   const contents: DocumentServiceException = {
+    name: "DocumentServiceException",
     __type: "DocumentServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -364,6 +365,7 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SearchException> => {
   const contents: SearchException = {
+    name: "SearchException",
     __type: "SearchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

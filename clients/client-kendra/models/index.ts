@@ -31,6 +31,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -470,6 +471,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Message?: string;
 }
@@ -1943,6 +1945,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
@@ -2566,6 +2569,7 @@ export interface ResourceAlreadyExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistException";
+  name: "ResourceAlreadyExistException";
   $fault: "client";
   Message?: string;
 }
@@ -2585,6 +2589,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -2604,6 +2609,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -2623,6 +2629,7 @@ export interface ResourceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceUnavailableException";
+  name: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
 }
@@ -2789,6 +2796,7 @@ export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceQuotaExceededException";
+  name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -3030,6 +3038,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
@@ -3181,6 +3190,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   Message?: string;
 }

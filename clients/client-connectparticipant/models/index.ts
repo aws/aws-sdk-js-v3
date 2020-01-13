@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
 }
@@ -201,6 +202,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
 }
@@ -357,6 +359,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
 }
@@ -376,6 +379,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   Message: string | undefined;
 }

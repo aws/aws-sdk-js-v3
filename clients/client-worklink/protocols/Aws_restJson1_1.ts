@@ -3356,6 +3356,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
+    name: "InternalServerErrorException",
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -3373,6 +3374,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3390,6 +3392,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3407,6 +3410,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3424,6 +3428,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3441,6 +3446,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
