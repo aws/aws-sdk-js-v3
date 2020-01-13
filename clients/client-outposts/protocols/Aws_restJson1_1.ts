@@ -185,7 +185,7 @@ export async function deserializeAws_restJson1_1CreateOutpostCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutpostCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateOutpostCommandError(output, context);
   }
   const contents: CreateOutpostCommandOutput = {
@@ -259,7 +259,7 @@ export async function deserializeAws_restJson1_1GetOutpostCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetOutpostCommandError(output, context);
   }
   const contents: GetOutpostCommandOutput = {
@@ -326,7 +326,7 @@ export async function deserializeAws_restJson1_1GetOutpostInstanceTypesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostInstanceTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetOutpostInstanceTypesCommandError(
       output,
       context
@@ -411,7 +411,7 @@ export async function deserializeAws_restJson1_1ListOutpostsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutpostsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListOutpostsCommandError(output, context);
   }
   const contents: ListOutpostsCommandOutput = {
@@ -478,7 +478,7 @@ export async function deserializeAws_restJson1_1ListSitesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSitesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSitesCommandError(output, context);
   }
   const contents: ListSitesCommandOutput = {

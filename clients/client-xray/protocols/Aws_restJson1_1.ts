@@ -712,7 +712,7 @@ export async function deserializeAws_restJson1_1BatchGetTracesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchGetTracesCommandError(
       output,
       context
@@ -779,7 +779,7 @@ export async function deserializeAws_restJson1_1CreateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupCommandError(output, context);
   }
   const contents: CreateGroupCommandOutput = {
@@ -832,7 +832,7 @@ export async function deserializeAws_restJson1_1CreateSamplingRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSamplingRuleCommandError(
       output,
       context
@@ -898,7 +898,7 @@ export async function deserializeAws_restJson1_1DeleteGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGroupCommandError(output, context);
   }
   const contents: DeleteGroupCommandOutput = {
@@ -946,7 +946,7 @@ export async function deserializeAws_restJson1_1DeleteSamplingRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
       output,
       context
@@ -1005,7 +1005,7 @@ export async function deserializeAws_restJson1_1GetEncryptionConfigCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEncryptionConfigCommandError(
       output,
       context
@@ -1064,7 +1064,7 @@ export async function deserializeAws_restJson1_1GetGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupCommandError(output, context);
   }
   const contents: GetGroupCommandOutput = {
@@ -1117,7 +1117,7 @@ export async function deserializeAws_restJson1_1GetGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupsCommandError(output, context);
   }
   const contents: GetGroupsCommandOutput = {
@@ -1177,7 +1177,7 @@ export async function deserializeAws_restJson1_1GetSamplingRulesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSamplingRulesCommandError(
       output,
       context
@@ -1240,7 +1240,7 @@ export async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(
       output,
       context
@@ -1303,7 +1303,7 @@ export async function deserializeAws_restJson1_1GetSamplingTargetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSamplingTargetsCommandError(
       output,
       context
@@ -1377,7 +1377,7 @@ export async function deserializeAws_restJson1_1GetServiceGraphCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetServiceGraphCommandError(
       output,
       context
@@ -1458,7 +1458,7 @@ export async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(
       output,
       context
@@ -1525,7 +1525,7 @@ export async function deserializeAws_restJson1_1GetTraceGraphCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTraceGraphCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTraceGraphCommandError(output, context);
   }
   const contents: GetTraceGraphCommandOutput = {
@@ -1585,7 +1585,7 @@ export async function deserializeAws_restJson1_1GetTraceSummariesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTraceSummariesCommandError(
       output,
       context
@@ -1660,7 +1660,7 @@ export async function deserializeAws_restJson1_1PutEncryptionConfigCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutEncryptionConfigCommandError(
       output,
       context
@@ -1719,7 +1719,7 @@ export async function deserializeAws_restJson1_1PutTelemetryRecordsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
       output,
       context
@@ -1770,7 +1770,7 @@ export async function deserializeAws_restJson1_1PutTraceSegmentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutTraceSegmentsCommandError(
       output,
       context
@@ -1829,7 +1829,7 @@ export async function deserializeAws_restJson1_1UpdateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGroupCommandError(output, context);
   }
   const contents: UpdateGroupCommandOutput = {
@@ -1882,7 +1882,7 @@ export async function deserializeAws_restJson1_1UpdateSamplingRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
       output,
       context

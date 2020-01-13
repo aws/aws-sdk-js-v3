@@ -320,7 +320,7 @@ export async function deserializeAws_restJson1_1CreateLifecyclePolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
       output,
       context
@@ -383,7 +383,7 @@ export async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
       output,
       context
@@ -441,7 +441,7 @@ export async function deserializeAws_restJson1_1GetLifecyclePoliciesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePoliciesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
       output,
       context
@@ -514,7 +514,7 @@ export async function deserializeAws_restJson1_1GetLifecyclePolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
       output,
       context
@@ -580,7 +580,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -643,7 +643,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -698,7 +698,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -753,7 +753,7 @@ export async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
       output,
       context

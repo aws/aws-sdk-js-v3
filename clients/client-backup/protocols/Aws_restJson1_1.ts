@@ -1635,7 +1635,7 @@ export async function deserializeAws_restJson1_1CreateBackupPlanCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupPlanCommandError(
       output,
       context
@@ -1728,7 +1728,7 @@ export async function deserializeAws_restJson1_1CreateBackupSelectionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupSelectionCommandError(
       output,
       context
@@ -1817,7 +1817,7 @@ export async function deserializeAws_restJson1_1CreateBackupVaultCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBackupVaultCommandError(
       output,
       context
@@ -1906,7 +1906,7 @@ export async function deserializeAws_restJson1_1DeleteBackupPlanCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupPlanCommandError(
       output,
       context
@@ -1999,7 +1999,7 @@ export async function deserializeAws_restJson1_1DeleteBackupSelectionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
       output,
       context
@@ -2063,7 +2063,7 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultCommandError(
       output,
       context
@@ -2134,7 +2134,7 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandError(
       output,
       context
@@ -2198,7 +2198,7 @@ export async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandError(
       output,
       context
@@ -2262,7 +2262,7 @@ export async function deserializeAws_restJson1_1DeleteRecoveryPointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
       output,
       context
@@ -2333,7 +2333,7 @@ export async function deserializeAws_restJson1_1DescribeBackupJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBackupJobCommandError(
       output,
       context
@@ -2491,7 +2491,7 @@ export async function deserializeAws_restJson1_1DescribeBackupVaultCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBackupVaultCommandError(
       output,
       context
@@ -2585,7 +2585,7 @@ export async function deserializeAws_restJson1_1DescribeProtectedResourceCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
       output,
       context
@@ -2667,7 +2667,7 @@ export async function deserializeAws_restJson1_1DescribeRecoveryPointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
       output,
       context
@@ -2822,7 +2822,7 @@ export async function deserializeAws_restJson1_1DescribeRestoreJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRestoreJobCommandError(
       output,
       context
@@ -2947,7 +2947,7 @@ export async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
       output,
       context
@@ -3017,7 +3017,7 @@ export async function deserializeAws_restJson1_1GetBackupPlanCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanCommandError(output, context);
   }
   const contents: GetBackupPlanCommandOutput = {
@@ -3127,7 +3127,7 @@ export async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
       output,
       context
@@ -3207,7 +3207,7 @@ export async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
       output,
       context
@@ -3280,7 +3280,7 @@ export async function deserializeAws_restJson1_1GetBackupSelectionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupSelectionCommandError(
       output,
       context
@@ -3373,7 +3373,7 @@ export async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
       output,
       context
@@ -3451,7 +3451,7 @@ export async function deserializeAws_restJson1_1GetBackupVaultNotificationsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError(
       output,
       context
@@ -3536,7 +3536,7 @@ export async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandError(
       output,
       context
@@ -3617,7 +3617,7 @@ export async function deserializeAws_restJson1_1GetSupportedResourceTypesCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
       output,
       context
@@ -3669,7 +3669,7 @@ export async function deserializeAws_restJson1_1ListBackupJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupJobsCommandError(
       output,
       context
@@ -3732,7 +3732,7 @@ export async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
       output,
       context
@@ -3809,7 +3809,7 @@ export async function deserializeAws_restJson1_1ListBackupPlanVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
       output,
       context
@@ -3886,7 +3886,7 @@ export async function deserializeAws_restJson1_1ListBackupPlansCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupPlansCommandError(
       output,
       context
@@ -3963,7 +3963,7 @@ export async function deserializeAws_restJson1_1ListBackupSelectionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupSelectionsCommandError(
       output,
       context
@@ -4040,7 +4040,7 @@ export async function deserializeAws_restJson1_1ListBackupVaultsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBackupVaultsCommandError(
       output,
       context
@@ -4117,7 +4117,7 @@ export async function deserializeAws_restJson1_1ListProtectedResourcesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProtectedResourcesCommandError(
       output,
       context
@@ -4180,7 +4180,7 @@ export async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandError(
       output,
       context
@@ -4257,7 +4257,7 @@ export async function deserializeAws_restJson1_1ListRecoveryPointsByResourceComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandError(
       output,
       context
@@ -4334,7 +4334,7 @@ export async function deserializeAws_restJson1_1ListRestoreJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRestoreJobsCommandError(
       output,
       context
@@ -4411,7 +4411,7 @@ export async function deserializeAws_restJson1_1ListTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -4482,7 +4482,7 @@ export async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
       output,
       context
@@ -4546,7 +4546,7 @@ export async function deserializeAws_restJson1_1PutBackupVaultNotificationsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError(
       output,
       context
@@ -4610,7 +4610,7 @@ export async function deserializeAws_restJson1_1StartBackupJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartBackupJobCommandError(
       output,
       context
@@ -4699,7 +4699,7 @@ export async function deserializeAws_restJson1_1StartRestoreJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartRestoreJobCommandError(
       output,
       context
@@ -4769,7 +4769,7 @@ export async function deserializeAws_restJson1_1StopBackupJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBackupJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopBackupJobCommandError(output, context);
   }
   const contents: StopBackupJobCommandOutput = {
@@ -4837,7 +4837,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -4905,7 +4905,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -4966,7 +4966,7 @@ export async function deserializeAws_restJson1_1UpdateBackupPlanCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBackupPlanCommandError(
       output,
       context
@@ -5052,7 +5052,7 @@ export async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandError(
       output,
       context

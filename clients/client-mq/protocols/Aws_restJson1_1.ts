@@ -925,7 +925,7 @@ export async function deserializeAws_restJson1_1CreateBrokerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBrokerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBrokerCommandError(output, context);
   }
   const contents: CreateBrokerCommandOutput = {
@@ -1003,7 +1003,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationCommandError(
       output,
       context
@@ -1092,7 +1092,7 @@ export async function deserializeAws_restJson1_1CreateTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTagsCommandError(output, context);
   }
   const contents: CreateTagsCommandOutput = {
@@ -1153,7 +1153,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateUserCommandError(output, context);
   }
   const contents: CreateUserCommandOutput = {
@@ -1222,7 +1222,7 @@ export async function deserializeAws_restJson1_1DeleteBrokerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBrokerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBrokerCommandError(output, context);
   }
   const contents: DeleteBrokerCommandOutput = {
@@ -1289,7 +1289,7 @@ export async function deserializeAws_restJson1_1DeleteTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTagsCommandError(output, context);
   }
   const contents: DeleteTagsCommandOutput = {
@@ -1350,7 +1350,7 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
@@ -1412,7 +1412,7 @@ export async function deserializeAws_restJson1_1DescribeBrokerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBrokerCommandError(
       output,
       context
@@ -1597,7 +1597,7 @@ export async function deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerEngineTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError(
       output,
       context
@@ -1671,7 +1671,7 @@ export async function deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBrokerInstanceOptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError(
       output,
       context
@@ -1745,7 +1745,7 @@ export async function deserializeAws_restJson1_1DescribeConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeConfigurationCommandError(
       output,
       context
@@ -1853,7 +1853,7 @@ export async function deserializeAws_restJson1_1DescribeConfigurationRevisionCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError(
       output,
       context
@@ -1935,7 +1935,7 @@ export async function deserializeAws_restJson1_1DescribeUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeUserCommandError(output, context);
   }
   const contents: DescribeUserCommandOutput = {
@@ -2024,7 +2024,7 @@ export async function deserializeAws_restJson1_1ListBrokersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBrokersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBrokersCommandError(output, context);
   }
   const contents: ListBrokersCommandOutput = {
@@ -2091,7 +2091,7 @@ export async function deserializeAws_restJson1_1ListConfigurationRevisionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
       output,
       context
@@ -2176,7 +2176,7 @@ export async function deserializeAws_restJson1_1ListConfigurationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationsCommandError(
       output,
       context
@@ -2250,7 +2250,7 @@ export async function deserializeAws_restJson1_1ListTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -2320,7 +2320,7 @@ export async function deserializeAws_restJson1_1ListUsersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListUsersCommandError(output, context);
   }
   const contents: ListUsersCommandOutput = {
@@ -2402,7 +2402,7 @@ export async function deserializeAws_restJson1_1RebootBrokerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootBrokerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RebootBrokerCommandError(output, context);
   }
   const contents: RebootBrokerCommandOutput = {
@@ -2464,7 +2464,7 @@ export async function deserializeAws_restJson1_1UpdateBrokerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBrokerCommandError(output, context);
   }
   const contents: UpdateBrokerCommandOutput = {
@@ -2568,7 +2568,7 @@ export async function deserializeAws_restJson1_1UpdateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConfigurationCommandError(
       output,
       context
@@ -2671,7 +2671,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateUserCommandError(output, context);
   }
   const contents: UpdateUserCommandOutput = {

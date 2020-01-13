@@ -3582,7 +3582,7 @@ export async function deserializeAws_restJson1_1CancelIngestionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelIngestionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelIngestionCommandError(
       output,
       context
@@ -3674,7 +3674,7 @@ export async function deserializeAws_restJson1_1CreateDashboardCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDashboardCommandError(
       output,
       context
@@ -3781,7 +3781,7 @@ export async function deserializeAws_restJson1_1CreateDataSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDataSetCommandError(output, context);
   }
   const contents: CreateDataSetCommandOutput = {
@@ -3899,7 +3899,7 @@ export async function deserializeAws_restJson1_1CreateDataSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDataSourceCommandError(
       output,
       context
@@ -4009,7 +4009,7 @@ export async function deserializeAws_restJson1_1CreateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupCommandError(output, context);
   }
   const contents: CreateGroupCommandOutput = {
@@ -4115,7 +4115,7 @@ export async function deserializeAws_restJson1_1CreateGroupMembershipCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupMembershipCommandError(
       output,
       context
@@ -4213,7 +4213,7 @@ export async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIAMPolicyAssignmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
       output,
       context
@@ -4327,7 +4327,7 @@ export async function deserializeAws_restJson1_1CreateIngestionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIngestionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIngestionCommandError(
       output,
       context
@@ -4430,7 +4430,7 @@ export async function deserializeAws_restJson1_1CreateTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTemplateCommandError(
       output,
       context
@@ -4544,7 +4544,7 @@ export async function deserializeAws_restJson1_1CreateTemplateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTemplateAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTemplateAliasCommandError(
       output,
       context
@@ -4642,7 +4642,7 @@ export async function deserializeAws_restJson1_1DeleteDashboardCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDashboardCommandError(
       output,
       context
@@ -4734,7 +4734,7 @@ export async function deserializeAws_restJson1_1DeleteDataSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDataSetCommandError(output, context);
   }
   const contents: DeleteDataSetCommandOutput = {
@@ -4816,7 +4816,7 @@ export async function deserializeAws_restJson1_1DeleteDataSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDataSourceCommandError(
       output,
       context
@@ -4901,7 +4901,7 @@ export async function deserializeAws_restJson1_1DeleteGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGroupCommandError(output, context);
   }
   const contents: DeleteGroupCommandOutput = {
@@ -4989,7 +4989,7 @@ export async function deserializeAws_restJson1_1DeleteGroupMembershipCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
       output,
       context
@@ -5080,7 +5080,7 @@ export async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
       output,
       context
@@ -5175,7 +5175,7 @@ export async function deserializeAws_restJson1_1DeleteTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTemplateCommandError(
       output,
       context
@@ -5274,7 +5274,7 @@ export async function deserializeAws_restJson1_1DeleteTemplateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTemplateAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
       output,
       context
@@ -5356,7 +5356,7 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
@@ -5437,7 +5437,7 @@ export async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserByPrincipalIdCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
       output,
       context
@@ -5521,7 +5521,7 @@ export async function deserializeAws_restJson1_1DescribeDashboardCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDashboardCommandError(
       output,
       context
@@ -5612,7 +5612,7 @@ export async function deserializeAws_restJson1_1DescribeDashboardPermissionsComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardPermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError(
       output,
       context
@@ -5704,7 +5704,7 @@ export async function deserializeAws_restJson1_1DescribeDataSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDataSetCommandError(
       output,
       context
@@ -5785,7 +5785,7 @@ export async function deserializeAws_restJson1_1DescribeDataSetPermissionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSetPermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
       output,
       context
@@ -5877,7 +5877,7 @@ export async function deserializeAws_restJson1_1DescribeDataSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDataSourceCommandError(
       output,
       context
@@ -5961,7 +5961,7 @@ export async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataSourcePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError(
       output,
       context
@@ -6053,7 +6053,7 @@ export async function deserializeAws_restJson1_1DescribeGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeGroupCommandError(output, context);
   }
   const contents: DescribeGroupCommandOutput = {
@@ -6145,7 +6145,7 @@ export async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIAMPolicyAssignmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError(
       output,
       context
@@ -6236,7 +6236,7 @@ export async function deserializeAws_restJson1_1DescribeIngestionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIngestionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeIngestionCommandError(
       output,
       context
@@ -6327,7 +6327,7 @@ export async function deserializeAws_restJson1_1DescribeTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeTemplateCommandError(
       output,
       context
@@ -6428,7 +6428,7 @@ export async function deserializeAws_restJson1_1DescribeTemplateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplateAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
       output,
       context
@@ -6505,7 +6505,7 @@ export async function deserializeAws_restJson1_1DescribeTemplatePermissionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTemplatePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError(
       output,
       context
@@ -6604,7 +6604,7 @@ export async function deserializeAws_restJson1_1DescribeUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeUserCommandError(output, context);
   }
   const contents: DescribeUserCommandOutput = {
@@ -6689,7 +6689,7 @@ export async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDashboardEmbedUrlCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
       output,
       context
@@ -6812,7 +6812,7 @@ export async function deserializeAws_restJson1_1ListDashboardVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDashboardVersionsCommandError(
       output,
       context
@@ -6907,7 +6907,7 @@ export async function deserializeAws_restJson1_1ListDashboardsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDashboardsCommandError(
       output,
       context
@@ -6988,7 +6988,7 @@ export async function deserializeAws_restJson1_1ListDataSetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDataSetsCommandError(output, context);
   }
   const contents: ListDataSetsCommandOutput = {
@@ -7073,7 +7073,7 @@ export async function deserializeAws_restJson1_1ListDataSourcesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDataSourcesCommandError(
       output,
       context
@@ -7161,7 +7161,7 @@ export async function deserializeAws_restJson1_1ListGroupMembershipsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGroupMembershipsCommandError(
       output,
       context
@@ -7270,7 +7270,7 @@ export async function deserializeAws_restJson1_1ListGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGroupsCommandError(output, context);
   }
   const contents: ListGroupsCommandOutput = {
@@ -7376,7 +7376,7 @@ export async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
       output,
       context
@@ -7471,7 +7471,7 @@ export async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError(
       output,
       context
@@ -7573,7 +7573,7 @@ export async function deserializeAws_restJson1_1ListIngestionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIngestionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIngestionsCommandError(
       output,
       context
@@ -7675,7 +7675,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -7756,7 +7756,7 @@ export async function deserializeAws_restJson1_1ListTemplateAliasesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateAliasesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTemplateAliasesCommandError(
       output,
       context
@@ -7837,7 +7837,7 @@ export async function deserializeAws_restJson1_1ListTemplateVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTemplateVersionsCommandError(
       output,
       context
@@ -7932,7 +7932,7 @@ export async function deserializeAws_restJson1_1ListTemplatesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTemplatesCommandError(output, context);
   }
   const contents: ListTemplatesCommandOutput = {
@@ -8024,7 +8024,7 @@ export async function deserializeAws_restJson1_1ListUserGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListUserGroupsCommandError(
       output,
       context
@@ -8119,7 +8119,7 @@ export async function deserializeAws_restJson1_1ListUsersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListUsersCommandError(output, context);
   }
   const contents: ListUsersCommandOutput = {
@@ -8218,7 +8218,7 @@ export async function deserializeAws_restJson1_1RegisterUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterUserCommandError(output, context);
   }
   const contents: RegisterUserCommandOutput = {
@@ -8328,7 +8328,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -8409,7 +8409,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -8483,7 +8483,7 @@ export async function deserializeAws_restJson1_1UpdateDashboardCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDashboardCommandError(
       output,
       context
@@ -8594,7 +8594,7 @@ export async function deserializeAws_restJson1_1UpdateDashboardPermissionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardPermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
       output,
       context
@@ -8693,7 +8693,7 @@ export async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError(
       output,
       context
@@ -8785,7 +8785,7 @@ export async function deserializeAws_restJson1_1UpdateDataSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDataSetCommandError(output, context);
   }
   const contents: UpdateDataSetCommandOutput = {
@@ -8896,7 +8896,7 @@ export async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSetPermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
       output,
       context
@@ -8988,7 +8988,7 @@ export async function deserializeAws_restJson1_1UpdateDataSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDataSourceCommandError(
       output,
       context
@@ -9084,7 +9084,7 @@ export async function deserializeAws_restJson1_1UpdateDataSourcePermissionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSourcePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError(
       output,
       context
@@ -9176,7 +9176,7 @@ export async function deserializeAws_restJson1_1UpdateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGroupCommandError(output, context);
   }
   const contents: UpdateGroupCommandOutput = {
@@ -9268,7 +9268,7 @@ export async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIAMPolicyAssignmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
       output,
       context
@@ -9382,7 +9382,7 @@ export async function deserializeAws_restJson1_1UpdateTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateTemplateCommandError(
       output,
       context
@@ -9496,7 +9496,7 @@ export async function deserializeAws_restJson1_1UpdateTemplateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplateAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
       output,
       context
@@ -9580,7 +9580,7 @@ export async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTemplatePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
       output,
       context
@@ -9679,7 +9679,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateUserCommandError(output, context);
   }
   const contents: UpdateUserCommandOutput = {

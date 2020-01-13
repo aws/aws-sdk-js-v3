@@ -70,7 +70,7 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeEndpointCommandError(
       output,
       context

@@ -161,7 +161,7 @@ export async function deserializeAws_restJson1_1AssociateRepositoryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRepositoryCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateRepositoryCommandError(
       output,
       context
@@ -241,7 +241,7 @@ export async function deserializeAws_restJson1_1DescribeRepositoryAssociationCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoryAssociationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRepositoryAssociationCommandError(
       output,
       context
@@ -321,7 +321,7 @@ export async function deserializeAws_restJson1_1DisassociateRepositoryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRepositoryCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateRepositoryCommandError(
       output,
       context
@@ -408,7 +408,7 @@ export async function deserializeAws_restJson1_1ListRepositoryAssociationsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRepositoryAssociationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
       output,
       context

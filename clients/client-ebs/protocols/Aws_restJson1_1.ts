@@ -150,7 +150,7 @@ export async function deserializeAws_restJson1_1GetSnapshotBlockCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSnapshotBlockCommandError(
       output,
       context
@@ -216,7 +216,7 @@ export async function deserializeAws_restJson1_1ListChangedBlocksCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListChangedBlocksCommandError(
       output,
       context
@@ -295,7 +295,7 @@ export async function deserializeAws_restJson1_1ListSnapshotBlocksCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
       output,
       context

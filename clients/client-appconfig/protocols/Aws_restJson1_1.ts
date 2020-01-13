@@ -1315,7 +1315,7 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApplicationCommandError(
       output,
       context
@@ -1379,7 +1379,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationProfileComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationProfileCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationProfileCommandError(
       output,
       context
@@ -1469,7 +1469,7 @@ export async function deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentStrategyCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeploymentStrategyCommandError(
       output,
       context
@@ -1553,7 +1553,7 @@ export async function deserializeAws_restJson1_1CreateEnvironmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateEnvironmentCommandError(
       output,
       context
@@ -1639,7 +1639,7 @@ export async function deserializeAws_restJson1_1DeleteApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApplicationCommandError(
       output,
       context
@@ -1696,7 +1696,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationProfileComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationProfileCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConfigurationProfileCommandError(
       output,
       context
@@ -1760,7 +1760,7 @@ export async function deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentStrategyCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDeploymentStrategyCommandError(
       output,
       context
@@ -1817,7 +1817,7 @@ export async function deserializeAws_restJson1_1DeleteEnvironmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEnvironmentCommandError(
       output,
       context
@@ -1881,7 +1881,7 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationCommandError(
       output,
       context
@@ -1952,7 +1952,7 @@ export async function deserializeAws_restJson1_1GetConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationCommandError(
       output,
       context
@@ -2021,7 +2021,7 @@ export async function deserializeAws_restJson1_1GetConfigurationProfileCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationProfileCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConfigurationProfileCommandError(
       output,
       context
@@ -2111,7 +2111,7 @@ export async function deserializeAws_restJson1_1GetDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentCommandError(output, context);
   }
   const contents: GetDeploymentCommandOutput = {
@@ -2235,7 +2235,7 @@ export async function deserializeAws_restJson1_1GetDeploymentStrategyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStrategyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentStrategyCommandError(
       output,
       context
@@ -2326,7 +2326,7 @@ export async function deserializeAws_restJson1_1GetEnvironmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEnvironmentCommandError(
       output,
       context
@@ -2412,7 +2412,7 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListApplicationsCommandError(
       output,
       context
@@ -2475,7 +2475,7 @@ export async function deserializeAws_restJson1_1ListConfigurationProfilesCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationProfilesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationProfilesCommandError(
       output,
       context
@@ -2545,7 +2545,7 @@ export async function deserializeAws_restJson1_1ListDeploymentStrategiesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentStrategiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentStrategiesCommandError(
       output,
       context
@@ -2608,7 +2608,7 @@ export async function deserializeAws_restJson1_1ListDeploymentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentsCommandError(
       output,
       context
@@ -2678,7 +2678,7 @@ export async function deserializeAws_restJson1_1ListEnvironmentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEnvironmentsCommandError(
       output,
       context
@@ -2748,7 +2748,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -2811,7 +2811,7 @@ export async function deserializeAws_restJson1_1StartDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartDeploymentCommandError(
       output,
       context
@@ -2945,7 +2945,7 @@ export async function deserializeAws_restJson1_1StopDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopDeploymentCommandError(
       output,
       context
@@ -3072,7 +3072,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3126,7 +3126,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3180,7 +3180,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApplicationCommandError(
       output,
       context
@@ -3251,7 +3251,7 @@ export async function deserializeAws_restJson1_1UpdateConfigurationProfileComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationProfileCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConfigurationProfileCommandError(
       output,
       context
@@ -3341,7 +3341,7 @@ export async function deserializeAws_restJson1_1UpdateDeploymentStrategyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentStrategyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeploymentStrategyCommandError(
       output,
       context
@@ -3432,7 +3432,7 @@ export async function deserializeAws_restJson1_1UpdateEnvironmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEnvironmentCommandError(
       output,
       context
@@ -3518,7 +3518,7 @@ export async function deserializeAws_restJson1_1ValidateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateConfigurationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ValidateConfigurationCommandError(
       output,
       context

@@ -958,7 +958,7 @@ export async function deserializeAws_restJson1_1AssociateDomainCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDomainCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateDomainCommandError(
       output,
       context
@@ -1037,7 +1037,7 @@ export async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationPro
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandError(
       output,
       context
@@ -1121,7 +1121,7 @@ export async function deserializeAws_restJson1_1AssociateWebsiteCertificateAutho
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError(
       output,
       context
@@ -1205,7 +1205,7 @@ export async function deserializeAws_restJson1_1CreateFleetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFleetCommandError(output, context);
   }
   const contents: CreateFleetCommandOutput = {
@@ -1286,7 +1286,7 @@ export async function deserializeAws_restJson1_1DeleteFleetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFleetCommandError(output, context);
   }
   const contents: DeleteFleetCommandOutput = {
@@ -1355,7 +1355,7 @@ export async function deserializeAws_restJson1_1DescribeAuditStreamConfiguration
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(
       output,
       context
@@ -1432,7 +1432,7 @@ export async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurat
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError(
       output,
       context
@@ -1523,7 +1523,7 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDeviceCommandError(
       output,
       context
@@ -1640,7 +1640,7 @@ export async function deserializeAws_restJson1_1DescribeDevicePolicyConfiguratio
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(
       output,
       context
@@ -1717,7 +1717,7 @@ export async function deserializeAws_restJson1_1DescribeDomainCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDomainCommandError(
       output,
       context
@@ -1814,7 +1814,7 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
       output,
       context
@@ -1923,7 +1923,7 @@ export async function deserializeAws_restJson1_1DescribeIdentityProviderConfigur
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandError(
       output,
       context
@@ -2008,7 +2008,7 @@ export async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthor
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError(
       output,
       context
@@ -2097,7 +2097,7 @@ export async function deserializeAws_restJson1_1DisassociateDomainCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDomainCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateDomainCommandError(
       output,
       context
@@ -2169,7 +2169,7 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteAuthorization
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandError(
       output,
       context
@@ -2248,7 +2248,7 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAu
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandError(
       output,
       context
@@ -2320,7 +2320,7 @@ export async function deserializeAws_restJson1_1ListDevicesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDevicesCommandError(output, context);
   }
   const contents: ListDevicesCommandOutput = {
@@ -2401,7 +2401,7 @@ export async function deserializeAws_restJson1_1ListDomainsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDomainsCommandError(output, context);
   }
   const contents: ListDomainsCommandOutput = {
@@ -2475,7 +2475,7 @@ export async function deserializeAws_restJson1_1ListFleetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFleetsCommandError(output, context);
   }
   const contents: ListFleetsCommandOutput = {
@@ -2549,7 +2549,7 @@ export async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvider
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(
       output,
       context
@@ -2633,7 +2633,7 @@ export async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritie
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(
       output,
       context
@@ -2710,7 +2710,7 @@ export async function deserializeAws_restJson1_1RestoreDomainAccessCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreDomainAccessCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RestoreDomainAccessCommandError(
       output,
       context
@@ -2782,7 +2782,7 @@ export async function deserializeAws_restJson1_1RevokeDomainAccessCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeDomainAccessCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RevokeDomainAccessCommandError(
       output,
       context
@@ -2854,7 +2854,7 @@ export async function deserializeAws_restJson1_1SignOutUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SignOutUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SignOutUserCommandError(output, context);
   }
   const contents: SignOutUserCommandOutput = {
@@ -2923,7 +2923,7 @@ export async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(
       output,
       context
@@ -2995,7 +2995,7 @@ export async function deserializeAws_restJson1_1UpdateCompanyNetworkConfiguratio
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(
       output,
       context
@@ -3067,7 +3067,7 @@ export async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(
       output,
       context
@@ -3139,7 +3139,7 @@ export async function deserializeAws_restJson1_1UpdateDomainMetadataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
       output,
       context
@@ -3211,7 +3211,7 @@ export async function deserializeAws_restJson1_1UpdateFleetMetadataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
       output,
       context
@@ -3283,7 +3283,7 @@ export async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurat
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError(
       output,
       context

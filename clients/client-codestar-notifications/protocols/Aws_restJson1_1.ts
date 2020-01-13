@@ -483,7 +483,7 @@ export async function deserializeAws_restJson1_1CreateNotificationRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateNotificationRuleCommandError(
       output,
       context
@@ -567,7 +567,7 @@ export async function deserializeAws_restJson1_1DeleteNotificationRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
       output,
       context
@@ -630,7 +630,7 @@ export async function deserializeAws_restJson1_1DeleteTargetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTargetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTargetCommandError(output, context);
   }
   const contents: DeleteTargetCommandOutput = {
@@ -671,7 +671,7 @@ export async function deserializeAws_restJson1_1DescribeNotificationRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
       output,
       context
@@ -781,7 +781,7 @@ export async function deserializeAws_restJson1_1ListEventTypesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEventTypesCommandError(
       output,
       context
@@ -844,7 +844,7 @@ export async function deserializeAws_restJson1_1ListNotificationRulesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNotificationRulesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListNotificationRulesCommandError(
       output,
       context
@@ -907,7 +907,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -963,7 +963,7 @@ export async function deserializeAws_restJson1_1ListTargetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTargetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTargetsCommandError(output, context);
   }
   const contents: ListTargetsCommandOutput = {
@@ -1023,7 +1023,7 @@ export async function deserializeAws_restJson1_1SubscribeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SubscribeCommandError(output, context);
   }
   const contents: SubscribeCommandOutput = {
@@ -1076,7 +1076,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1136,7 +1136,7 @@ export async function deserializeAws_restJson1_1UnsubscribeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UnsubscribeCommandError(output, context);
   }
   const contents: UnsubscribeCommandOutput = {
@@ -1182,7 +1182,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1237,7 +1237,7 @@ export async function deserializeAws_restJson1_1UpdateNotificationRuleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationRuleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
       output,
       context

@@ -388,7 +388,7 @@ export async function deserializeAws_restJson1_1CreateStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateStreamCommandError(output, context);
   }
   const contents: CreateStreamCommandOutput = {
@@ -476,7 +476,7 @@ export async function deserializeAws_restJson1_1DeleteStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteStreamCommandError(output, context);
   }
   const contents: DeleteStreamCommandOutput = {
@@ -545,7 +545,7 @@ export async function deserializeAws_restJson1_1DescribeStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeStreamCommandError(
       output,
       context
@@ -618,7 +618,7 @@ export async function deserializeAws_restJson1_1GetDataEndpointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataEndpointCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDataEndpointCommandError(
       output,
       context
@@ -688,7 +688,7 @@ export async function deserializeAws_restJson1_1ListStreamsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListStreamsCommandError(output, context);
   }
   const contents: ListStreamsCommandOutput = {
@@ -748,7 +748,7 @@ export async function deserializeAws_restJson1_1ListTagsForStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForStreamCommandError(
       output,
       context
@@ -829,7 +829,7 @@ export async function deserializeAws_restJson1_1TagStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagStreamCommandError(output, context);
   }
   const contents: TagStreamCommandOutput = {
@@ -905,7 +905,7 @@ export async function deserializeAws_restJson1_1UntagStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagStreamCommandError(output, context);
   }
   const contents: UntagStreamCommandOutput = {
@@ -974,7 +974,7 @@ export async function deserializeAws_restJson1_1UpdateDataRetentionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataRetentionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDataRetentionCommandError(
       output,
       context
@@ -1053,7 +1053,7 @@ export async function deserializeAws_restJson1_1UpdateStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateStreamCommandError(output, context);
   }
   const contents: UpdateStreamCommandOutput = {

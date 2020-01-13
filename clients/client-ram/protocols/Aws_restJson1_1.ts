@@ -908,7 +908,7 @@ export async function deserializeAws_restJson1_1AcceptResourceShareInvitationCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptResourceShareInvitationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AcceptResourceShareInvitationCommandError(
       output,
       context
@@ -1027,7 +1027,7 @@ export async function deserializeAws_restJson1_1AssociateResourceShareCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResourceShareCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateResourceShareCommandError(
       output,
       context
@@ -1146,7 +1146,7 @@ export async function deserializeAws_restJson1_1AssociateResourceSharePermission
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateResourceSharePermissionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateResourceSharePermissionCommandError(
       output,
       context
@@ -1241,7 +1241,7 @@ export async function deserializeAws_restJson1_1CreateResourceShareCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceShareCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateResourceShareCommandError(
       output,
       context
@@ -1367,7 +1367,7 @@ export async function deserializeAws_restJson1_1DeleteResourceShareCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceShareCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteResourceShareCommandError(
       output,
       context
@@ -1476,7 +1476,7 @@ export async function deserializeAws_restJson1_1DisassociateResourceShareCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResourceShareCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateResourceShareCommandError(
       output,
       context
@@ -1595,7 +1595,7 @@ export async function deserializeAws_restJson1_1DisassociateResourceSharePermiss
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateResourceSharePermissionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateResourceSharePermissionCommandError(
       output,
       context
@@ -1690,7 +1690,7 @@ export async function deserializeAws_restJson1_1EnableSharingWithAwsOrganization
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableSharingWithAwsOrganizationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommandError(
       output,
       context
@@ -1753,7 +1753,7 @@ export async function deserializeAws_restJson1_1GetPermissionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPermissionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPermissionCommandError(output, context);
   }
   const contents: GetPermissionCommandOutput = {
@@ -1837,7 +1837,7 @@ export async function deserializeAws_restJson1_1GetResourcePoliciesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcePoliciesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourcePoliciesCommandError(
       output,
       context
@@ -1921,7 +1921,7 @@ export async function deserializeAws_restJson1_1GetResourceShareAssociationsComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceShareAssociationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceShareAssociationsCommandError(
       output,
       context
@@ -2019,7 +2019,7 @@ export async function deserializeAws_restJson1_1GetResourceShareInvitationsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceShareInvitationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceShareInvitationsCommandError(
       output,
       context
@@ -2117,7 +2117,7 @@ export async function deserializeAws_restJson1_1GetResourceSharesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceSharesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceSharesCommandError(
       output,
       context
@@ -2208,7 +2208,7 @@ export async function deserializeAws_restJson1_1ListPendingInvitationResourcesCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPendingInvitationResourcesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPendingInvitationResourcesCommandError(
       output,
       context
@@ -2320,7 +2320,7 @@ export async function deserializeAws_restJson1_1ListPermissionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPermissionsCommandError(
       output,
       context
@@ -2404,7 +2404,7 @@ export async function deserializeAws_restJson1_1ListPrincipalsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPrincipalsCommandError(
       output,
       context
@@ -2495,7 +2495,7 @@ export async function deserializeAws_restJson1_1ListResourceSharePermissionsComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceSharePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourceSharePermissionsCommandError(
       output,
       context
@@ -2593,7 +2593,7 @@ export async function deserializeAws_restJson1_1ListResourcesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourcesCommandError(output, context);
   }
   const contents: ListResourcesCommandOutput = {
@@ -2688,7 +2688,7 @@ export async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromP
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommandError(
       output,
       context
@@ -2772,7 +2772,7 @@ export async function deserializeAws_restJson1_1RejectResourceShareInvitationCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectResourceShareInvitationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RejectResourceShareInvitationCommandError(
       output,
       context
@@ -2891,7 +2891,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -2974,7 +2974,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3029,7 +3029,7 @@ export async function deserializeAws_restJson1_1UpdateResourceShareCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceShareCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateResourceShareCommandError(
       output,
       context

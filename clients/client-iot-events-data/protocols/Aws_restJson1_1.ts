@@ -176,7 +176,7 @@ export async function deserializeAws_restJson1_1BatchPutMessageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchPutMessageCommandError(
       output,
       context
@@ -249,7 +249,7 @@ export async function deserializeAws_restJson1_1BatchUpdateDetectorCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateDetectorCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchUpdateDetectorCommandError(
       output,
       context
@@ -322,7 +322,7 @@ export async function deserializeAws_restJson1_1DescribeDetectorCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDetectorCommandError(
       output,
       context
@@ -402,7 +402,7 @@ export async function deserializeAws_restJson1_1ListDetectorsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDetectorsCommandError(output, context);
   }
   const contents: ListDetectorsCommandOutput = {
