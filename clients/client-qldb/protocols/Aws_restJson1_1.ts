@@ -569,7 +569,7 @@ export async function deserializeAws_restJson1_1CreateLedgerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLedgerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLedgerCommandError(output, context);
   }
   const contents: CreateLedgerCommandOutput = {
@@ -656,7 +656,7 @@ export async function deserializeAws_restJson1_1DeleteLedgerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLedgerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLedgerCommandError(output, context);
   }
   const contents: DeleteLedgerCommandOutput = {
@@ -717,7 +717,7 @@ export async function deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJournalS3ExportCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
       output,
       context
@@ -769,7 +769,7 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLedgerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeLedgerCommandError(
       output,
       context
@@ -845,7 +845,7 @@ export async function deserializeAws_restJson1_1ExportJournalToS3Command(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportJournalToS3CommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportJournalToS3CommandError(
       output,
       context
@@ -901,7 +901,7 @@ export async function deserializeAws_restJson1_1GetBlockCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBlockCommandError(output, context);
   }
   const contents: GetBlockCommandOutput = {
@@ -965,7 +965,7 @@ export async function deserializeAws_restJson1_1GetDigestCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDigestCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDigestCommandError(output, context);
   }
   const contents: GetDigestCommandOutput = {
@@ -1032,7 +1032,7 @@ export async function deserializeAws_restJson1_1GetRevisionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRevisionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRevisionCommandError(output, context);
   }
   const contents: GetRevisionCommandOutput = {
@@ -1099,7 +1099,7 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
       output,
       context
@@ -1148,7 +1148,7 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(
       output,
       context
@@ -1197,7 +1197,7 @@ export async function deserializeAws_restJson1_1ListLedgersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLedgersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLedgersCommandError(output, context);
   }
   const contents: ListLedgersCommandOutput = {
@@ -1243,7 +1243,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -1299,7 +1299,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1347,7 +1347,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1395,7 +1395,7 @@ export async function deserializeAws_restJson1_1UpdateLedgerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLedgerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLedgerCommandError(output, context);
   }
   const contents: UpdateLedgerCommandOutput = {

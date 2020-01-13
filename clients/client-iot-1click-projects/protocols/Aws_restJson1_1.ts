@@ -578,7 +578,7 @@ export async function deserializeAws_restJson1_1AssociateDeviceWithPlacementComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandError(
       output,
       context
@@ -643,7 +643,7 @@ export async function deserializeAws_restJson1_1CreatePlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePlacementCommandError(
       output,
       context
@@ -708,7 +708,7 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -763,7 +763,7 @@ export async function deserializeAws_restJson1_1DeletePlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePlacementCommandError(
       output,
       context
@@ -828,7 +828,7 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -890,7 +890,7 @@ export async function deserializeAws_restJson1_1DescribePlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribePlacementCommandError(
       output,
       context
@@ -956,7 +956,7 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProjectCommandError(
       output,
       context
@@ -1022,7 +1022,7 @@ export async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandError(
       output,
       context
@@ -1087,7 +1087,7 @@ export async function deserializeAws_restJson1_1GetDevicesInPlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
       output,
       context
@@ -1153,7 +1153,7 @@ export async function deserializeAws_restJson1_1ListPlacementsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPlacementsCommandError(
       output,
       context
@@ -1223,7 +1223,7 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -1283,7 +1283,7 @@ export async function deserializeAws_restJson1_1UpdatePlacementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdatePlacementCommandError(
       output,
       context
@@ -1348,7 +1348,7 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {

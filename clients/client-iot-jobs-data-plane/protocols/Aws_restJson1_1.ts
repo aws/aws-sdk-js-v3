@@ -209,7 +209,7 @@ export async function deserializeAws_restJson1_1DescribeJobExecutionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeJobExecutionCommandError(
       output,
       context
@@ -296,7 +296,7 @@ export async function deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
       output,
       context
@@ -383,7 +383,7 @@ export async function deserializeAws_restJson1_1StartNextPendingJobExecutionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError(
       output,
       context
@@ -463,7 +463,7 @@ export async function deserializeAws_restJson1_1UpdateJobExecutionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateJobExecutionCommandError(
       output,
       context

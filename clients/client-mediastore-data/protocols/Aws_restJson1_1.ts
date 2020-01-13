@@ -186,7 +186,7 @@ export async function deserializeAws_restJson1_1DeleteObjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteObjectCommandError(output, context);
   }
   const contents: DeleteObjectCommandOutput = {
@@ -241,7 +241,7 @@ export async function deserializeAws_restJson1_1DescribeObjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeObjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeObjectCommandError(
       output,
       context
@@ -319,7 +319,7 @@ export async function deserializeAws_restJson1_1GetObjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetObjectCommandError(output, context);
   }
   const contents: GetObjectCommandOutput = {
@@ -408,7 +408,7 @@ export async function deserializeAws_restJson1_1ListItemsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListItemsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListItemsCommandError(output, context);
   }
   const contents: ListItemsCommandOutput = {
@@ -465,7 +465,7 @@ export async function deserializeAws_restJson1_1PutObjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutObjectCommandError(output, context);
   }
   const contents: PutObjectCommandOutput = {

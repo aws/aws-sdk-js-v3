@@ -1807,7 +1807,7 @@ export async function deserializeAws_restJson1_1AbortDocumentVersionUploadComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
       output,
       context
@@ -1885,7 +1885,7 @@ export async function deserializeAws_restJson1_1ActivateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ActivateUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ActivateUserCommandError(output, context);
   }
   const contents: ActivateUserCommandOutput = {
@@ -1959,7 +1959,7 @@ export async function deserializeAws_restJson1_1AddResourcePermissionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddResourcePermissionsCommandError(
       output,
       context
@@ -2032,7 +2032,7 @@ export async function deserializeAws_restJson1_1CreateCommentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCommentCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCommentCommandError(output, context);
   }
   const contents: CreateCommentCommandOutput = {
@@ -2127,7 +2127,7 @@ export async function deserializeAws_restJson1_1CreateCustomMetadataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCustomMetadataCommandError(
       output,
       context
@@ -2213,7 +2213,7 @@ export async function deserializeAws_restJson1_1CreateFolderCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFolderCommandError(output, context);
   }
   const contents: CreateFolderCommandOutput = {
@@ -2318,7 +2318,7 @@ export async function deserializeAws_restJson1_1CreateLabelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLabelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLabelsCommandError(output, context);
   }
   const contents: CreateLabelsCommandOutput = {
@@ -2394,7 +2394,7 @@ export async function deserializeAws_restJson1_1CreateNotificationSubscriptionCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(
       output,
       context
@@ -2460,7 +2460,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateUserCommandError(output, context);
   }
   const contents: CreateUserCommandOutput = {
@@ -2534,7 +2534,7 @@ export async function deserializeAws_restJson1_1DeactivateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeactivateUserCommandError(
       output,
       context
@@ -2605,7 +2605,7 @@ export async function deserializeAws_restJson1_1DeleteCommentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCommentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteCommentCommandError(output, context);
   }
   const contents: DeleteCommentCommandOutput = {
@@ -2687,7 +2687,7 @@ export async function deserializeAws_restJson1_1DeleteCustomMetadataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
       output,
       context
@@ -2766,7 +2766,7 @@ export async function deserializeAws_restJson1_1DeleteDocumentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDocumentCommandError(
       output,
       context
@@ -2858,7 +2858,7 @@ export async function deserializeAws_restJson1_1DeleteFolderCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFolderCommandError(output, context);
   }
   const contents: DeleteFolderCommandOutput = {
@@ -2947,7 +2947,7 @@ export async function deserializeAws_restJson1_1DeleteFolderContentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFolderContentsCommandError(
       output,
       context
@@ -3032,7 +3032,7 @@ export async function deserializeAws_restJson1_1DeleteLabelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLabelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLabelsCommandError(output, context);
   }
   const contents: DeleteLabelsCommandOutput = {
@@ -3101,7 +3101,7 @@ export async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(
       output,
       context
@@ -3165,7 +3165,7 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
@@ -3233,7 +3233,7 @@ export async function deserializeAws_restJson1_1DescribeActivitiesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeActivitiesCommandError(
       output,
       context
@@ -3317,7 +3317,7 @@ export async function deserializeAws_restJson1_1DescribeCommentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeCommentsCommandError(
       output,
       context
@@ -3408,7 +3408,7 @@ export async function deserializeAws_restJson1_1DescribeDocumentVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
       output,
       context
@@ -3506,7 +3506,7 @@ export async function deserializeAws_restJson1_1DescribeFolderContentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeFolderContentsCommandError(
       output,
       context
@@ -3604,7 +3604,7 @@ export async function deserializeAws_restJson1_1DescribeGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeGroupsCommandError(
       output,
       context
@@ -3681,7 +3681,7 @@ export async function deserializeAws_restJson1_1DescribeNotificationSubscription
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(
       output,
       context
@@ -3751,7 +3751,7 @@ export async function deserializeAws_restJson1_1DescribeResourcePermissionsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(
       output,
       context
@@ -3828,7 +3828,7 @@ export async function deserializeAws_restJson1_1DescribeRootFoldersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRootFoldersCommandError(
       output,
       context
@@ -3912,7 +3912,7 @@ export async function deserializeAws_restJson1_1DescribeUsersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeUsersCommandError(output, context);
   }
   const contents: DescribeUsersCommandOutput = {
@@ -4011,7 +4011,7 @@ export async function deserializeAws_restJson1_1GetCurrentUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCurrentUserCommandError(
       output,
       context
@@ -4088,7 +4088,7 @@ export async function deserializeAws_restJson1_1GetDocumentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDocumentCommandError(output, context);
   }
   const contents: GetDocumentCommandOutput = {
@@ -4186,7 +4186,7 @@ export async function deserializeAws_restJson1_1GetDocumentPathCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDocumentPathCommandError(
       output,
       context
@@ -4263,7 +4263,7 @@ export async function deserializeAws_restJson1_1GetDocumentVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDocumentVersionCommandError(
       output,
       context
@@ -4364,7 +4364,7 @@ export async function deserializeAws_restJson1_1GetFolderCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFolderCommandError(output, context);
   }
   const contents: GetFolderCommandOutput = {
@@ -4462,7 +4462,7 @@ export async function deserializeAws_restJson1_1GetFolderPathCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFolderPathCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFolderPathCommandError(output, context);
   }
   const contents: GetFolderPathCommandOutput = {
@@ -4536,7 +4536,7 @@ export async function deserializeAws_restJson1_1GetResourcesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourcesCommandError(output, context);
   }
   const contents: GetResourcesCommandOutput = {
@@ -4624,7 +4624,7 @@ export async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(
       output,
       context
@@ -4753,7 +4753,7 @@ export async function deserializeAws_restJson1_1RemoveAllResourcePermissionsComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(
       output,
       context
@@ -4817,7 +4817,7 @@ export async function deserializeAws_restJson1_1RemoveResourcePermissionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
       output,
       context
@@ -4881,7 +4881,7 @@ export async function deserializeAws_restJson1_1UpdateDocumentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDocumentCommandError(
       output,
       context
@@ -4987,7 +4987,7 @@ export async function deserializeAws_restJson1_1UpdateDocumentVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
       output,
       context
@@ -5079,7 +5079,7 @@ export async function deserializeAws_restJson1_1UpdateFolderCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFolderCommandError(output, context);
   }
   const contents: UpdateFolderCommandOutput = {
@@ -5182,7 +5182,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateUserCommandError(output, context);
   }
   const contents: UpdateUserCommandOutput = {

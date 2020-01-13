@@ -242,7 +242,7 @@ export async function deserializeAws_restJson1_1CancelChangeSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelChangeSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelChangeSetCommandError(
       output,
       context
@@ -330,7 +330,7 @@ export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeChangeSetCommandError(
       output,
       context
@@ -438,7 +438,7 @@ export async function deserializeAws_restJson1_1DescribeEntityCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeEntityCommandError(
       output,
       context
@@ -538,7 +538,7 @@ export async function deserializeAws_restJson1_1ListChangeSetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangeSetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListChangeSetsCommandError(
       output,
       context
@@ -615,7 +615,7 @@ export async function deserializeAws_restJson1_1ListEntitiesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEntitiesCommandError(output, context);
   }
   const contents: ListEntitiesCommandOutput = {
@@ -696,7 +696,7 @@ export async function deserializeAws_restJson1_1StartChangeSetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChangeSetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartChangeSetCommandError(
       output,
       context

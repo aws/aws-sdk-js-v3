@@ -565,7 +565,7 @@ export async function deserializeAws_restJson1_1CreateFileSystemCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFileSystemCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFileSystemCommandError(
       output,
       context
@@ -708,7 +708,7 @@ export async function deserializeAws_restJson1_1CreateMountTargetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMountTargetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateMountTargetCommandError(
       output,
       context
@@ -858,7 +858,7 @@ export async function deserializeAws_restJson1_1CreateTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateTagsCommandError(output, context);
   }
   const contents: CreateTagsCommandOutput = {
@@ -912,7 +912,7 @@ export async function deserializeAws_restJson1_1DeleteFileSystemCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFileSystemCommandError(
       output,
       context
@@ -976,7 +976,7 @@ export async function deserializeAws_restJson1_1DeleteMountTargetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMountTargetCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteMountTargetCommandError(
       output,
       context
@@ -1040,7 +1040,7 @@ export async function deserializeAws_restJson1_1DeleteTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteTagsCommandError(output, context);
   }
   const contents: DeleteTagsCommandOutput = {
@@ -1094,7 +1094,7 @@ export async function deserializeAws_restJson1_1DescribeFileSystemsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeFileSystemsCommandError(
       output,
       context
@@ -1168,7 +1168,7 @@ export async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLifecycleConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandError(
       output,
       context
@@ -1234,7 +1234,7 @@ export async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroup
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsCommandError(
       output,
       context
@@ -1307,7 +1307,7 @@ export async function deserializeAws_restJson1_1DescribeMountTargetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMountTargetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeMountTargetsCommandError(
       output,
       context
@@ -1388,7 +1388,7 @@ export async function deserializeAws_restJson1_1DescribeTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeTagsCommandError(output, context);
   }
   const contents: DescribeTagsCommandOutput = {
@@ -1456,7 +1456,7 @@ export async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandError(
       output,
       context
@@ -1534,7 +1534,7 @@ export async function deserializeAws_restJson1_1PutLifecycleConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecycleConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
       output,
       context
@@ -1607,7 +1607,7 @@ export async function deserializeAws_restJson1_1UpdateFileSystemCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFileSystemCommandError(
       output,
       context

@@ -4188,7 +4188,7 @@ export async function deserializeAws_restJson1_1CreateAppCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateAppCommandError(output, context);
   }
   const contents: CreateAppCommandOutput = {
@@ -4270,7 +4270,7 @@ export async function deserializeAws_restJson1_1CreateCampaignCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCampaignCommandError(
       output,
       context
@@ -4355,7 +4355,7 @@ export async function deserializeAws_restJson1_1CreateEmailTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateEmailTemplateCommandError(
       output,
       context
@@ -4433,7 +4433,7 @@ export async function deserializeAws_restJson1_1CreateExportJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateExportJobCommandError(
       output,
       context
@@ -4518,7 +4518,7 @@ export async function deserializeAws_restJson1_1CreateImportJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateImportJobCommandError(
       output,
       context
@@ -4603,7 +4603,7 @@ export async function deserializeAws_restJson1_1CreateJourneyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJourneyCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateJourneyCommandError(output, context);
   }
   const contents: CreateJourneyCommandOutput = {
@@ -4685,7 +4685,7 @@ export async function deserializeAws_restJson1_1CreatePushTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePushTemplateCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePushTemplateCommandError(
       output,
       context
@@ -4763,7 +4763,7 @@ export async function deserializeAws_restJson1_1CreateSegmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSegmentCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSegmentCommandError(output, context);
   }
   const contents: CreateSegmentCommandOutput = {
@@ -4845,7 +4845,7 @@ export async function deserializeAws_restJson1_1CreateSmsTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSmsTemplateCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSmsTemplateCommandError(
       output,
       context
@@ -4923,7 +4923,7 @@ export async function deserializeAws_restJson1_1CreateVoiceTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVoiceTemplateCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateVoiceTemplateCommandError(
       output,
       context
@@ -5001,7 +5001,7 @@ export async function deserializeAws_restJson1_1DeleteAdmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAdmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteAdmChannelCommandError(
       output,
       context
@@ -5086,7 +5086,7 @@ export async function deserializeAws_restJson1_1DeleteApnsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApnsChannelCommandError(
       output,
       context
@@ -5171,7 +5171,7 @@ export async function deserializeAws_restJson1_1DeleteApnsSandboxChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApnsSandboxChannelCommandError(
       output,
       context
@@ -5256,7 +5256,7 @@ export async function deserializeAws_restJson1_1DeleteApnsVoipChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApnsVoipChannelCommandError(
       output,
       context
@@ -5341,7 +5341,7 @@ export async function deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommandError(
       output,
       context
@@ -5426,7 +5426,7 @@ export async function deserializeAws_restJson1_1DeleteAppCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteAppCommandError(output, context);
   }
   const contents: DeleteAppCommandOutput = {
@@ -5508,7 +5508,7 @@ export async function deserializeAws_restJson1_1DeleteBaiduChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBaiduChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBaiduChannelCommandError(
       output,
       context
@@ -5593,7 +5593,7 @@ export async function deserializeAws_restJson1_1DeleteCampaignCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteCampaignCommandError(
       output,
       context
@@ -5678,7 +5678,7 @@ export async function deserializeAws_restJson1_1DeleteEmailChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEmailChannelCommandError(
       output,
       context
@@ -5763,7 +5763,7 @@ export async function deserializeAws_restJson1_1DeleteEmailTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEmailTemplateCommandError(
       output,
       context
@@ -5845,7 +5845,7 @@ export async function deserializeAws_restJson1_1DeleteEndpointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEndpointCommandError(
       output,
       context
@@ -5930,7 +5930,7 @@ export async function deserializeAws_restJson1_1DeleteEventStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEventStreamCommandError(
       output,
       context
@@ -6012,7 +6012,7 @@ export async function deserializeAws_restJson1_1DeleteGcmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGcmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGcmChannelCommandError(
       output,
       context
@@ -6097,7 +6097,7 @@ export async function deserializeAws_restJson1_1DeleteJourneyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJourneyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteJourneyCommandError(output, context);
   }
   const contents: DeleteJourneyCommandOutput = {
@@ -6179,7 +6179,7 @@ export async function deserializeAws_restJson1_1DeletePushTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePushTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePushTemplateCommandError(
       output,
       context
@@ -6261,7 +6261,7 @@ export async function deserializeAws_restJson1_1DeleteSegmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSegmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSegmentCommandError(output, context);
   }
   const contents: DeleteSegmentCommandOutput = {
@@ -6343,7 +6343,7 @@ export async function deserializeAws_restJson1_1DeleteSmsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSmsChannelCommandError(
       output,
       context
@@ -6428,7 +6428,7 @@ export async function deserializeAws_restJson1_1DeleteSmsTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSmsTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSmsTemplateCommandError(
       output,
       context
@@ -6510,7 +6510,7 @@ export async function deserializeAws_restJson1_1DeleteUserEndpointsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserEndpointsCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUserEndpointsCommandError(
       output,
       context
@@ -6595,7 +6595,7 @@ export async function deserializeAws_restJson1_1DeleteVoiceChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVoiceChannelCommandError(
       output,
       context
@@ -6680,7 +6680,7 @@ export async function deserializeAws_restJson1_1DeleteVoiceTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVoiceTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteVoiceTemplateCommandError(
       output,
       context
@@ -6762,7 +6762,7 @@ export async function deserializeAws_restJson1_1GetAdmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAdmChannelCommandError(output, context);
   }
   const contents: GetAdmChannelCommandOutput = {
@@ -6844,7 +6844,7 @@ export async function deserializeAws_restJson1_1GetApnsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApnsChannelCommandError(
       output,
       context
@@ -6929,7 +6929,7 @@ export async function deserializeAws_restJson1_1GetApnsSandboxChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApnsSandboxChannelCommandError(
       output,
       context
@@ -7014,7 +7014,7 @@ export async function deserializeAws_restJson1_1GetApnsVoipChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApnsVoipChannelCommandError(
       output,
       context
@@ -7099,7 +7099,7 @@ export async function deserializeAws_restJson1_1GetApnsVoipSandboxChannelCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApnsVoipSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApnsVoipSandboxChannelCommandError(
       output,
       context
@@ -7184,7 +7184,7 @@ export async function deserializeAws_restJson1_1GetAppCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAppCommandError(output, context);
   }
   const contents: GetAppCommandOutput = {
@@ -7266,7 +7266,7 @@ export async function deserializeAws_restJson1_1GetApplicationDateRangeKpiComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationDateRangeKpiCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationDateRangeKpiCommandError(
       output,
       context
@@ -7351,7 +7351,7 @@ export async function deserializeAws_restJson1_1GetApplicationSettingsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationSettingsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApplicationSettingsCommandError(
       output,
       context
@@ -7436,7 +7436,7 @@ export async function deserializeAws_restJson1_1GetAppsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAppsCommandError(output, context);
   }
   const contents: GetAppsCommandOutput = {
@@ -7518,7 +7518,7 @@ export async function deserializeAws_restJson1_1GetBaiduChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBaiduChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBaiduChannelCommandError(
       output,
       context
@@ -7603,7 +7603,7 @@ export async function deserializeAws_restJson1_1GetCampaignCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignCommandError(output, context);
   }
   const contents: GetCampaignCommandOutput = {
@@ -7685,7 +7685,7 @@ export async function deserializeAws_restJson1_1GetCampaignActivitiesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignActivitiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignActivitiesCommandError(
       output,
       context
@@ -7770,7 +7770,7 @@ export async function deserializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignDateRangeKpiCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignDateRangeKpiCommandError(
       output,
       context
@@ -7855,7 +7855,7 @@ export async function deserializeAws_restJson1_1GetCampaignVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignVersionCommandError(
       output,
       context
@@ -7940,7 +7940,7 @@ export async function deserializeAws_restJson1_1GetCampaignVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignVersionsCommandError(
       output,
       context
@@ -8025,7 +8025,7 @@ export async function deserializeAws_restJson1_1GetCampaignsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCampaignsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCampaignsCommandError(output, context);
   }
   const contents: GetCampaignsCommandOutput = {
@@ -8107,7 +8107,7 @@ export async function deserializeAws_restJson1_1GetChannelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetChannelsCommandError(output, context);
   }
   const contents: GetChannelsCommandOutput = {
@@ -8189,7 +8189,7 @@ export async function deserializeAws_restJson1_1GetEmailChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEmailChannelCommandError(
       output,
       context
@@ -8274,7 +8274,7 @@ export async function deserializeAws_restJson1_1GetEmailTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEmailTemplateCommandError(
       output,
       context
@@ -8359,7 +8359,7 @@ export async function deserializeAws_restJson1_1GetEndpointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEndpointCommandError(output, context);
   }
   const contents: GetEndpointCommandOutput = {
@@ -8441,7 +8441,7 @@ export async function deserializeAws_restJson1_1GetEventStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEventStreamCommandError(
       output,
       context
@@ -8523,7 +8523,7 @@ export async function deserializeAws_restJson1_1GetExportJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetExportJobCommandError(output, context);
   }
   const contents: GetExportJobCommandOutput = {
@@ -8605,7 +8605,7 @@ export async function deserializeAws_restJson1_1GetExportJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetExportJobsCommandError(output, context);
   }
   const contents: GetExportJobsCommandOutput = {
@@ -8687,7 +8687,7 @@ export async function deserializeAws_restJson1_1GetGcmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGcmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGcmChannelCommandError(output, context);
   }
   const contents: GetGcmChannelCommandOutput = {
@@ -8769,7 +8769,7 @@ export async function deserializeAws_restJson1_1GetImportJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetImportJobCommandError(output, context);
   }
   const contents: GetImportJobCommandOutput = {
@@ -8851,7 +8851,7 @@ export async function deserializeAws_restJson1_1GetImportJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetImportJobsCommandError(output, context);
   }
   const contents: GetImportJobsCommandOutput = {
@@ -8933,7 +8933,7 @@ export async function deserializeAws_restJson1_1GetJourneyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetJourneyCommandError(output, context);
   }
   const contents: GetJourneyCommandOutput = {
@@ -9015,7 +9015,7 @@ export async function deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyDateRangeKpiCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetJourneyDateRangeKpiCommandError(
       output,
       context
@@ -9100,7 +9100,7 @@ export async function deserializeAws_restJson1_1GetJourneyExecutionActivityMetri
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommandError(
       output,
       context
@@ -9185,7 +9185,7 @@ export async function deserializeAws_restJson1_1GetJourneyExecutionMetricsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJourneyExecutionMetricsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetJourneyExecutionMetricsCommandError(
       output,
       context
@@ -9270,7 +9270,7 @@ export async function deserializeAws_restJson1_1GetPushTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPushTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPushTemplateCommandError(
       output,
       context
@@ -9355,7 +9355,7 @@ export async function deserializeAws_restJson1_1GetSegmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentCommandError(output, context);
   }
   const contents: GetSegmentCommandOutput = {
@@ -9437,7 +9437,7 @@ export async function deserializeAws_restJson1_1GetSegmentExportJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentExportJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentExportJobsCommandError(
       output,
       context
@@ -9522,7 +9522,7 @@ export async function deserializeAws_restJson1_1GetSegmentImportJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentImportJobsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentImportJobsCommandError(
       output,
       context
@@ -9607,7 +9607,7 @@ export async function deserializeAws_restJson1_1GetSegmentVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentVersionCommandError(
       output,
       context
@@ -9692,7 +9692,7 @@ export async function deserializeAws_restJson1_1GetSegmentVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentVersionsCommandError(
       output,
       context
@@ -9777,7 +9777,7 @@ export async function deserializeAws_restJson1_1GetSegmentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSegmentsCommandError(output, context);
   }
   const contents: GetSegmentsCommandOutput = {
@@ -9859,7 +9859,7 @@ export async function deserializeAws_restJson1_1GetSmsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSmsChannelCommandError(output, context);
   }
   const contents: GetSmsChannelCommandOutput = {
@@ -9941,7 +9941,7 @@ export async function deserializeAws_restJson1_1GetSmsTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSmsTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSmsTemplateCommandError(
       output,
       context
@@ -10026,7 +10026,7 @@ export async function deserializeAws_restJson1_1GetUserEndpointsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserEndpointsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetUserEndpointsCommandError(
       output,
       context
@@ -10111,7 +10111,7 @@ export async function deserializeAws_restJson1_1GetVoiceChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetVoiceChannelCommandError(
       output,
       context
@@ -10196,7 +10196,7 @@ export async function deserializeAws_restJson1_1GetVoiceTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVoiceTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetVoiceTemplateCommandError(
       output,
       context
@@ -10281,7 +10281,7 @@ export async function deserializeAws_restJson1_1ListJourneysCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJourneysCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListJourneysCommandError(output, context);
   }
   const contents: ListJourneysCommandOutput = {
@@ -10363,7 +10363,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -10403,7 +10403,7 @@ export async function deserializeAws_restJson1_1ListTemplatesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTemplatesCommandError(output, context);
   }
   const contents: ListTemplatesCommandOutput = {
@@ -10478,7 +10478,7 @@ export async function deserializeAws_restJson1_1PhoneNumberValidateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PhoneNumberValidateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PhoneNumberValidateCommandError(
       output,
       context
@@ -10563,7 +10563,7 @@ export async function deserializeAws_restJson1_1PutEventStreamCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventStreamCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutEventStreamCommandError(
       output,
       context
@@ -10645,7 +10645,7 @@ export async function deserializeAws_restJson1_1PutEventsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutEventsCommandError(output, context);
   }
   const contents: PutEventsCommandOutput = {
@@ -10727,7 +10727,7 @@ export async function deserializeAws_restJson1_1RemoveAttributesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAttributesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveAttributesCommandError(
       output,
       context
@@ -10812,7 +10812,7 @@ export async function deserializeAws_restJson1_1SendMessagesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessagesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendMessagesCommandError(output, context);
   }
   const contents: SendMessagesCommandOutput = {
@@ -10894,7 +10894,7 @@ export async function deserializeAws_restJson1_1SendUsersMessagesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendUsersMessagesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendUsersMessagesCommandError(
       output,
       context
@@ -10979,7 +10979,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -11012,7 +11012,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -11045,7 +11045,7 @@ export async function deserializeAws_restJson1_1UpdateAdmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAdmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateAdmChannelCommandError(
       output,
       context
@@ -11130,7 +11130,7 @@ export async function deserializeAws_restJson1_1UpdateApnsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApnsChannelCommandError(
       output,
       context
@@ -11215,7 +11215,7 @@ export async function deserializeAws_restJson1_1UpdateApnsSandboxChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApnsSandboxChannelCommandError(
       output,
       context
@@ -11300,7 +11300,7 @@ export async function deserializeAws_restJson1_1UpdateApnsVoipChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApnsVoipChannelCommandError(
       output,
       context
@@ -11385,7 +11385,7 @@ export async function deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApnsVoipSandboxChannelCommandError(
       output,
       context
@@ -11470,7 +11470,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationSettingsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApplicationSettingsCommandError(
       output,
       context
@@ -11555,7 +11555,7 @@ export async function deserializeAws_restJson1_1UpdateBaiduChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBaiduChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBaiduChannelCommandError(
       output,
       context
@@ -11640,7 +11640,7 @@ export async function deserializeAws_restJson1_1UpdateCampaignCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateCampaignCommandError(
       output,
       context
@@ -11725,7 +11725,7 @@ export async function deserializeAws_restJson1_1UpdateEmailChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEmailChannelCommandError(
       output,
       context
@@ -11810,7 +11810,7 @@ export async function deserializeAws_restJson1_1UpdateEmailTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEmailTemplateCommandError(
       output,
       context
@@ -11892,7 +11892,7 @@ export async function deserializeAws_restJson1_1UpdateEndpointCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEndpointCommandError(
       output,
       context
@@ -11974,7 +11974,7 @@ export async function deserializeAws_restJson1_1UpdateEndpointsBatchCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointsBatchCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEndpointsBatchCommandError(
       output,
       context
@@ -12056,7 +12056,7 @@ export async function deserializeAws_restJson1_1UpdateGcmChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGcmChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGcmChannelCommandError(
       output,
       context
@@ -12141,7 +12141,7 @@ export async function deserializeAws_restJson1_1UpdateJourneyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateJourneyCommandError(output, context);
   }
   const contents: UpdateJourneyCommandOutput = {
@@ -12223,7 +12223,7 @@ export async function deserializeAws_restJson1_1UpdateJourneyStateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJourneyStateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateJourneyStateCommandError(
       output,
       context
@@ -12308,7 +12308,7 @@ export async function deserializeAws_restJson1_1UpdatePushTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePushTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdatePushTemplateCommandError(
       output,
       context
@@ -12390,7 +12390,7 @@ export async function deserializeAws_restJson1_1UpdateSegmentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSegmentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSegmentCommandError(output, context);
   }
   const contents: UpdateSegmentCommandOutput = {
@@ -12472,7 +12472,7 @@ export async function deserializeAws_restJson1_1UpdateSmsChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSmsChannelCommandError(
       output,
       context
@@ -12557,7 +12557,7 @@ export async function deserializeAws_restJson1_1UpdateSmsTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSmsTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSmsTemplateCommandError(
       output,
       context
@@ -12639,7 +12639,7 @@ export async function deserializeAws_restJson1_1UpdateVoiceChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateVoiceChannelCommandError(
       output,
       context
@@ -12724,7 +12724,7 @@ export async function deserializeAws_restJson1_1UpdateVoiceTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVoiceTemplateCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateVoiceTemplateCommandError(
       output,
       context

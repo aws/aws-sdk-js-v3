@@ -2713,7 +2713,7 @@ export async function deserializeAws_restJson1_1CreateApiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApiCommandError(output, context);
   }
   const contents: CreateApiCommandOutput = {
@@ -2823,7 +2823,7 @@ export async function deserializeAws_restJson1_1CreateApiMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiMappingCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateApiMappingCommandError(
       output,
       context
@@ -2905,7 +2905,7 @@ export async function deserializeAws_restJson1_1CreateAuthorizerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateAuthorizerCommandError(
       output,
       context
@@ -3013,7 +3013,7 @@ export async function deserializeAws_restJson1_1CreateDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeploymentCommandError(
       output,
       context
@@ -3099,7 +3099,7 @@ export async function deserializeAws_restJson1_1CreateDomainNameCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDomainNameCommandError(
       output,
       context
@@ -3180,7 +3180,7 @@ export async function deserializeAws_restJson1_1CreateIntegrationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIntegrationCommandError(
       output,
       context
@@ -3313,7 +3313,7 @@ export async function deserializeAws_restJson1_1CreateIntegrationResponseCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntegrationResponseCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIntegrationResponseCommandError(
       output,
       context
@@ -3409,7 +3409,7 @@ export async function deserializeAws_restJson1_1CreateModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateModelCommandError(output, context);
   }
   const contents: CreateModelCommandOutput = {
@@ -3492,7 +3492,7 @@ export async function deserializeAws_restJson1_1CreateRouteCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRouteCommandError(output, context);
   }
   const contents: CreateRouteCommandOutput = {
@@ -3613,7 +3613,7 @@ export async function deserializeAws_restJson1_1CreateRouteResponseCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteResponseCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRouteResponseCommandError(
       output,
       context
@@ -3705,7 +3705,7 @@ export async function deserializeAws_restJson1_1CreateStageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateStageCommandError(output, context);
   }
   const contents: CreateStageCommandOutput = {
@@ -3820,7 +3820,7 @@ export async function deserializeAws_restJson1_1DeleteApiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApiCommandError(output, context);
   }
   const contents: DeleteApiCommandOutput = {
@@ -3867,7 +3867,7 @@ export async function deserializeAws_restJson1_1DeleteApiMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiMappingCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteApiMappingCommandError(
       output,
       context
@@ -3924,7 +3924,7 @@ export async function deserializeAws_restJson1_1DeleteAuthorizerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteAuthorizerCommandError(
       output,
       context
@@ -3974,7 +3974,7 @@ export async function deserializeAws_restJson1_1DeleteDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDeploymentCommandError(
       output,
       context
@@ -4024,7 +4024,7 @@ export async function deserializeAws_restJson1_1DeleteDomainNameCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDomainNameCommandError(
       output,
       context
@@ -4074,7 +4074,7 @@ export async function deserializeAws_restJson1_1DeleteIntegrationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteIntegrationCommandError(
       output,
       context
@@ -4124,7 +4124,7 @@ export async function deserializeAws_restJson1_1DeleteIntegrationResponseCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
       output,
       context
@@ -4174,7 +4174,7 @@ export async function deserializeAws_restJson1_1DeleteModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteModelCommandError(output, context);
   }
   const contents: DeleteModelCommandOutput = {
@@ -4221,7 +4221,7 @@ export async function deserializeAws_restJson1_1DeleteRouteCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRouteCommandError(output, context);
   }
   const contents: DeleteRouteCommandOutput = {
@@ -4268,7 +4268,7 @@ export async function deserializeAws_restJson1_1DeleteRouteResponseCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteResponseCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRouteResponseCommandError(
       output,
       context
@@ -4318,7 +4318,7 @@ export async function deserializeAws_restJson1_1DeleteStageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteStageCommandError(output, context);
   }
   const contents: DeleteStageCommandOutput = {
@@ -4365,7 +4365,7 @@ export async function deserializeAws_restJson1_1GetApiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApiCommandError(output, context);
   }
   const contents: GetApiCommandOutput = {
@@ -4461,7 +4461,7 @@ export async function deserializeAws_restJson1_1GetApiMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApiMappingCommandError(output, context);
   }
   const contents: GetApiMappingCommandOutput = {
@@ -4533,7 +4533,7 @@ export async function deserializeAws_restJson1_1GetApiMappingsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiMappingsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApiMappingsCommandError(
       output,
       context
@@ -4603,7 +4603,7 @@ export async function deserializeAws_restJson1_1GetApisCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApisCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetApisCommandError(output, context);
   }
   const contents: GetApisCommandOutput = {
@@ -4667,7 +4667,7 @@ export async function deserializeAws_restJson1_1GetAuthorizerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAuthorizerCommandError(output, context);
   }
   const contents: GetAuthorizerCommandOutput = {
@@ -4758,7 +4758,7 @@ export async function deserializeAws_restJson1_1GetAuthorizersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAuthorizersCommandError(
       output,
       context
@@ -4828,7 +4828,7 @@ export async function deserializeAws_restJson1_1GetDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentCommandError(output, context);
   }
   const contents: GetDeploymentCommandOutput = {
@@ -4897,7 +4897,7 @@ export async function deserializeAws_restJson1_1GetDeploymentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentsCommandError(
       output,
       context
@@ -4967,7 +4967,7 @@ export async function deserializeAws_restJson1_1GetDomainNameCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDomainNameCommandError(output, context);
   }
   const contents: GetDomainNameCommandOutput = {
@@ -5031,7 +5031,7 @@ export async function deserializeAws_restJson1_1GetDomainNamesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDomainNamesCommandError(
       output,
       context
@@ -5101,7 +5101,7 @@ export async function deserializeAws_restJson1_1GetIntegrationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntegrationCommandError(
       output,
       context
@@ -5220,7 +5220,7 @@ export async function deserializeAws_restJson1_1GetIntegrationResponseCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntegrationResponseCommandError(
       output,
       context
@@ -5302,7 +5302,7 @@ export async function deserializeAws_restJson1_1GetIntegrationResponsesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponsesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntegrationResponsesCommandError(
       output,
       context
@@ -5372,7 +5372,7 @@ export async function deserializeAws_restJson1_1GetIntegrationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntegrationsCommandError(
       output,
       context
@@ -5442,7 +5442,7 @@ export async function deserializeAws_restJson1_1GetModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetModelCommandError(output, context);
   }
   const contents: GetModelCommandOutput = {
@@ -5511,7 +5511,7 @@ export async function deserializeAws_restJson1_1GetModelTemplateCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetModelTemplateCommandError(
       output,
       context
@@ -5567,7 +5567,7 @@ export async function deserializeAws_restJson1_1GetModelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetModelsCommandError(output, context);
   }
   const contents: GetModelsCommandOutput = {
@@ -5634,7 +5634,7 @@ export async function deserializeAws_restJson1_1GetRouteCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRouteCommandError(output, context);
   }
   const contents: GetRouteCommandOutput = {
@@ -5741,7 +5741,7 @@ export async function deserializeAws_restJson1_1GetRouteResponseCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponseCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRouteResponseCommandError(
       output,
       context
@@ -5819,7 +5819,7 @@ export async function deserializeAws_restJson1_1GetRouteResponsesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRouteResponsesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRouteResponsesCommandError(
       output,
       context
@@ -5889,7 +5889,7 @@ export async function deserializeAws_restJson1_1GetRoutesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoutesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRoutesCommandError(output, context);
   }
   const contents: GetRoutesCommandOutput = {
@@ -5956,7 +5956,7 @@ export async function deserializeAws_restJson1_1GetStageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetStageCommandError(output, context);
   }
   const contents: GetStageCommandOutput = {
@@ -6057,7 +6057,7 @@ export async function deserializeAws_restJson1_1GetStagesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetStagesCommandError(output, context);
   }
   const contents: GetStagesCommandOutput = {
@@ -6124,7 +6124,7 @@ export async function deserializeAws_restJson1_1UpdateApiCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApiCommandError(output, context);
   }
   const contents: UpdateApiCommandOutput = {
@@ -6234,7 +6234,7 @@ export async function deserializeAws_restJson1_1UpdateApiMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiMappingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateApiMappingCommandError(
       output,
       context
@@ -6316,7 +6316,7 @@ export async function deserializeAws_restJson1_1UpdateAuthorizerCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateAuthorizerCommandError(
       output,
       context
@@ -6424,7 +6424,7 @@ export async function deserializeAws_restJson1_1UpdateDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeploymentCommandError(
       output,
       context
@@ -6510,7 +6510,7 @@ export async function deserializeAws_restJson1_1UpdateDomainNameCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDomainNameCommandError(
       output,
       context
@@ -6591,7 +6591,7 @@ export async function deserializeAws_restJson1_1UpdateIntegrationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateIntegrationCommandError(
       output,
       context
@@ -6724,7 +6724,7 @@ export async function deserializeAws_restJson1_1UpdateIntegrationResponseCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
       output,
       context
@@ -6820,7 +6820,7 @@ export async function deserializeAws_restJson1_1UpdateModelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateModelCommandError(output, context);
   }
   const contents: UpdateModelCommandOutput = {
@@ -6903,7 +6903,7 @@ export async function deserializeAws_restJson1_1UpdateRouteCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRouteCommandError(output, context);
   }
   const contents: UpdateRouteCommandOutput = {
@@ -7024,7 +7024,7 @@ export async function deserializeAws_restJson1_1UpdateRouteResponseCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteResponseCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRouteResponseCommandError(
       output,
       context
@@ -7116,7 +7116,7 @@ export async function deserializeAws_restJson1_1UpdateStageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateStageCommandError(output, context);
   }
   const contents: UpdateStageCommandOutput = {

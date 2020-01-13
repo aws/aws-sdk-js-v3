@@ -811,7 +811,7 @@ export async function deserializeAws_restJson1_1BulkPublishCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BulkPublishCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BulkPublishCommandError(output, context);
   }
   const contents: BulkPublishCommandOutput = {
@@ -892,7 +892,7 @@ export async function deserializeAws_restJson1_1DeleteDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDatasetCommandError(output, context);
   }
   const contents: DeleteDatasetCommandOutput = {
@@ -973,7 +973,7 @@ export async function deserializeAws_restJson1_1DescribeDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDatasetCommandError(
       output,
       context
@@ -1050,7 +1050,7 @@ export async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityPoolUsageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
       output,
       context
@@ -1130,7 +1130,7 @@ export async function deserializeAws_restJson1_1DescribeIdentityUsageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityUsageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
       output,
       context
@@ -1210,7 +1210,7 @@ export async function deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBulkPublishDetailsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
       output,
       context
@@ -1304,7 +1304,7 @@ export async function deserializeAws_restJson1_1GetCognitoEventsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCognitoEventsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCognitoEventsCommandError(
       output,
       context
@@ -1381,7 +1381,7 @@ export async function deserializeAws_restJson1_1GetIdentityPoolConfigurationComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityPoolConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(
       output,
       context
@@ -1472,7 +1472,7 @@ export async function deserializeAws_restJson1_1ListDatasetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDatasetsCommandError(output, context);
   }
   const contents: ListDatasetsCommandOutput = {
@@ -1550,7 +1550,7 @@ export async function deserializeAws_restJson1_1ListIdentityPoolUsageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityPoolUsageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
       output,
       context
@@ -1635,7 +1635,7 @@ export async function deserializeAws_restJson1_1ListRecordsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecordsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRecordsCommandError(output, context);
   }
   const contents: ListRecordsCommandOutput = {
@@ -1741,7 +1741,7 @@ export async function deserializeAws_restJson1_1RegisterDeviceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDeviceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RegisterDeviceCommandError(
       output,
       context
@@ -1825,7 +1825,7 @@ export async function deserializeAws_restJson1_1SetCognitoEventsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetCognitoEventsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SetCognitoEventsCommandError(
       output,
       context
@@ -1896,7 +1896,7 @@ export async function deserializeAws_restJson1_1SetIdentityPoolConfigurationComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityPoolConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(
       output,
       context
@@ -1994,7 +1994,7 @@ export async function deserializeAws_restJson1_1SubscribeToDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeToDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SubscribeToDatasetCommandError(
       output,
       context
@@ -2073,7 +2073,7 @@ export async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeFromDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
       output,
       context
@@ -2152,7 +2152,7 @@ export async function deserializeAws_restJson1_1UpdateRecordsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecordsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRecordsCommandError(output, context);
   }
   const contents: UpdateRecordsCommandOutput = {

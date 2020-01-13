@@ -1183,7 +1183,7 @@ export async function deserializeAws_restJson1_1CreateDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDiscovererCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDiscovererCommandError(
       output,
       context
@@ -1287,7 +1287,7 @@ export async function deserializeAws_restJson1_1CreateRegistryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRegistryCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateRegistryCommandError(
       output,
       context
@@ -1383,7 +1383,7 @@ export async function deserializeAws_restJson1_1CreateSchemaCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSchemaCommandError(output, context);
   }
   const contents: CreateSchemaCommandOutput = {
@@ -1478,7 +1478,7 @@ export async function deserializeAws_restJson1_1DeleteDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDiscovererCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDiscovererCommandError(
       output,
       context
@@ -1556,7 +1556,7 @@ export async function deserializeAws_restJson1_1DeleteRegistryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegistryCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteRegistryCommandError(
       output,
       context
@@ -1634,7 +1634,7 @@ export async function deserializeAws_restJson1_1DeleteSchemaCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSchemaCommandError(output, context);
   }
   const contents: DeleteSchemaCommandOutput = {
@@ -1709,7 +1709,7 @@ export async function deserializeAws_restJson1_1DeleteSchemaVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaVersionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSchemaVersionCommandError(
       output,
       context
@@ -1787,7 +1787,7 @@ export async function deserializeAws_restJson1_1DescribeCodeBindingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCodeBindingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeCodeBindingCommandError(
       output,
       context
@@ -1883,7 +1883,7 @@ export async function deserializeAws_restJson1_1DescribeDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDiscovererCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDiscovererCommandError(
       output,
       context
@@ -1987,7 +1987,7 @@ export async function deserializeAws_restJson1_1DescribeRegistryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegistryCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeRegistryCommandError(
       output,
       context
@@ -2083,7 +2083,7 @@ export async function deserializeAws_restJson1_1DescribeSchemaCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeSchemaCommandError(
       output,
       context
@@ -2199,7 +2199,7 @@ export async function deserializeAws_restJson1_1GetCodeBindingSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCodeBindingSourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCodeBindingSourceCommandError(
       output,
       context
@@ -2281,7 +2281,7 @@ export async function deserializeAws_restJson1_1GetDiscoveredSchemaCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDiscoveredSchemaCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDiscoveredSchemaCommandError(
       output,
       context
@@ -2358,7 +2358,7 @@ export async function deserializeAws_restJson1_1ListDiscoverersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDiscoverersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDiscoverersCommandError(
       output,
       context
@@ -2442,7 +2442,7 @@ export async function deserializeAws_restJson1_1ListRegistriesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRegistriesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListRegistriesCommandError(
       output,
       context
@@ -2526,7 +2526,7 @@ export async function deserializeAws_restJson1_1ListSchemaVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemaVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSchemaVersionsCommandError(
       output,
       context
@@ -2617,7 +2617,7 @@ export async function deserializeAws_restJson1_1ListSchemasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSchemasCommandError(output, context);
   }
   const contents: ListSchemasCommandOutput = {
@@ -2698,7 +2698,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -2768,7 +2768,7 @@ export async function deserializeAws_restJson1_1LockServiceLinkedRoleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LockServiceLinkedRoleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1LockServiceLinkedRoleCommandError(
       output,
       context
@@ -2856,7 +2856,7 @@ export async function deserializeAws_restJson1_1PutCodeBindingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutCodeBindingCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutCodeBindingCommandError(
       output,
       context
@@ -2959,7 +2959,7 @@ export async function deserializeAws_restJson1_1SearchSchemasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchSchemasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SearchSchemasCommandError(output, context);
   }
   const contents: SearchSchemasCommandOutput = {
@@ -3040,7 +3040,7 @@ export async function deserializeAws_restJson1_1StartDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDiscovererCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartDiscovererCommandError(
       output,
       context
@@ -3128,7 +3128,7 @@ export async function deserializeAws_restJson1_1StopDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDiscovererCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopDiscovererCommandError(
       output,
       context
@@ -3216,7 +3216,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3277,7 +3277,7 @@ export async function deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnlockServiceLinkedRoleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UnlockServiceLinkedRoleCommandError(
       output,
       context
@@ -3349,7 +3349,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3410,7 +3410,7 @@ export async function deserializeAws_restJson1_1UpdateDiscovererCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDiscovererCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDiscovererCommandError(
       output,
       context
@@ -3514,7 +3514,7 @@ export async function deserializeAws_restJson1_1UpdateRegistryCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegistryCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateRegistryCommandError(
       output,
       context
@@ -3610,7 +3610,7 @@ export async function deserializeAws_restJson1_1UpdateSchemaCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSchemaCommandError(output, context);
   }
   const contents: UpdateSchemaCommandOutput = {

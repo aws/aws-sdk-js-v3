@@ -303,7 +303,7 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -394,7 +394,7 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -478,7 +478,7 @@ export async function deserializeAws_restJson1_1DescribeBundleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBundleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeBundleCommandError(
       output,
       context
@@ -565,7 +565,7 @@ export async function deserializeAws_restJson1_1DescribeProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeProjectCommandError(
       output,
       context
@@ -652,7 +652,7 @@ export async function deserializeAws_restJson1_1ExportBundleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBundleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportBundleCommandError(output, context);
   }
   const contents: ExportBundleCommandOutput = {
@@ -733,7 +733,7 @@ export async function deserializeAws_restJson1_1ExportProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExportProjectCommandError(output, context);
   }
   const contents: ExportProjectCommandOutput = {
@@ -822,7 +822,7 @@ export async function deserializeAws_restJson1_1ListBundlesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBundlesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBundlesCommandError(output, context);
   }
   const contents: ListBundlesCommandOutput = {
@@ -903,7 +903,7 @@ export async function deserializeAws_restJson1_1ListProjectsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -984,7 +984,7 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {

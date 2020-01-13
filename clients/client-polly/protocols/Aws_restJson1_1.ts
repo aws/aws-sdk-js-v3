@@ -383,7 +383,7 @@ export async function deserializeAws_restJson1_1DeleteLexiconCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLexiconCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLexiconCommandError(output, context);
   }
   const contents: DeleteLexiconCommandOutput = {
@@ -431,7 +431,7 @@ export async function deserializeAws_restJson1_1DescribeVoicesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVoicesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeVoicesCommandError(
       output,
       context
@@ -491,7 +491,7 @@ export async function deserializeAws_restJson1_1GetLexiconCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLexiconCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLexiconCommandError(output, context);
   }
   const contents: GetLexiconCommandOutput = {
@@ -551,7 +551,7 @@ export async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSpeechSynthesisTaskCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
       output,
       context
@@ -617,7 +617,7 @@ export async function deserializeAws_restJson1_1ListLexiconsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLexiconsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLexiconsCommandError(output, context);
   }
   const contents: ListLexiconsCommandOutput = {
@@ -677,7 +677,7 @@ export async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSpeechSynthesisTasksCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
       output,
       context
@@ -740,7 +740,7 @@ export async function deserializeAws_restJson1_1PutLexiconCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLexiconCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutLexiconCommandError(output, context);
   }
   const contents: PutLexiconCommandOutput = {
@@ -823,7 +823,7 @@ export async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSpeechSynthesisTaskCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
       output,
       context
@@ -952,7 +952,7 @@ export async function deserializeAws_restJson1_1SynthesizeSpeechCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SynthesizeSpeechCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SynthesizeSpeechCommandError(
       output,
       context

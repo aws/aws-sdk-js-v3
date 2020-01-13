@@ -1479,7 +1479,7 @@ export async function deserializeAws_restJson1_1CreateBotVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateBotVersionCommandError(
       output,
       context
@@ -1640,7 +1640,7 @@ export async function deserializeAws_restJson1_1CreateIntentVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateIntentVersionCommandError(
       output,
       context
@@ -1809,7 +1809,7 @@ export async function deserializeAws_restJson1_1CreateSlotTypeVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
       output,
       context
@@ -1932,7 +1932,7 @@ export async function deserializeAws_restJson1_1DeleteBotCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBotCommandError(output, context);
   }
   const contents: DeleteBotCommandOutput = {
@@ -2007,7 +2007,7 @@ export async function deserializeAws_restJson1_1DeleteBotAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBotAliasCommandError(
       output,
       context
@@ -2085,7 +2085,7 @@ export async function deserializeAws_restJson1_1DeleteBotChannelAssociationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError(
       output,
       context
@@ -2156,7 +2156,7 @@ export async function deserializeAws_restJson1_1DeleteBotVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteBotVersionCommandError(
       output,
       context
@@ -2234,7 +2234,7 @@ export async function deserializeAws_restJson1_1DeleteIntentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteIntentCommandError(output, context);
   }
   const contents: DeleteIntentCommandOutput = {
@@ -2309,7 +2309,7 @@ export async function deserializeAws_restJson1_1DeleteIntentVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteIntentVersionCommandError(
       output,
       context
@@ -2387,7 +2387,7 @@ export async function deserializeAws_restJson1_1DeleteSlotTypeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSlotTypeCommandError(
       output,
       context
@@ -2465,7 +2465,7 @@ export async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
       output,
       context
@@ -2543,7 +2543,7 @@ export async function deserializeAws_restJson1_1DeleteUtterancesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteUtterancesCommandError(
       output,
       context
@@ -2607,7 +2607,7 @@ export async function deserializeAws_restJson1_1GetBotCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotCommandError(output, context);
   }
   const contents: GetBotCommandOutput = {
@@ -2751,7 +2751,7 @@ export async function deserializeAws_restJson1_1GetBotAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotAliasCommandError(output, context);
   }
   const contents: GetBotAliasCommandOutput = {
@@ -2850,7 +2850,7 @@ export async function deserializeAws_restJson1_1GetBotAliasesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotAliasesCommandError(output, context);
   }
   const contents: GetBotAliasesCommandOutput = {
@@ -2917,7 +2917,7 @@ export async function deserializeAws_restJson1_1GetBotChannelAssociationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
       output,
       context
@@ -3026,7 +3026,7 @@ export async function deserializeAws_restJson1_1GetBotChannelAssociationsCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
       output,
       context
@@ -3096,7 +3096,7 @@ export async function deserializeAws_restJson1_1GetBotVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotVersionsCommandError(
       output,
       context
@@ -3173,7 +3173,7 @@ export async function deserializeAws_restJson1_1GetBotsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBotsCommandError(output, context);
   }
   const contents: GetBotsCommandOutput = {
@@ -3247,7 +3247,7 @@ export async function deserializeAws_restJson1_1GetBuiltinIntentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBuiltinIntentCommandError(
       output,
       context
@@ -3331,7 +3331,7 @@ export async function deserializeAws_restJson1_1GetBuiltinIntentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
       output,
       context
@@ -3401,7 +3401,7 @@ export async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
       output,
       context
@@ -3471,7 +3471,7 @@ export async function deserializeAws_restJson1_1GetExportCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetExportCommandError(output, context);
   }
   const contents: GetExportCommandOutput = {
@@ -3562,7 +3562,7 @@ export async function deserializeAws_restJson1_1GetImportCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetImportCommandError(output, context);
   }
   const contents: GetImportCommandOutput = {
@@ -3660,7 +3660,7 @@ export async function deserializeAws_restJson1_1GetIntentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntentCommandError(output, context);
   }
   const contents: GetIntentCommandOutput = {
@@ -3812,7 +3812,7 @@ export async function deserializeAws_restJson1_1GetIntentVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntentVersionsCommandError(
       output,
       context
@@ -3889,7 +3889,7 @@ export async function deserializeAws_restJson1_1GetIntentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetIntentsCommandError(output, context);
   }
   const contents: GetIntentsCommandOutput = {
@@ -3963,7 +3963,7 @@ export async function deserializeAws_restJson1_1GetSlotTypeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSlotTypeCommandError(output, context);
   }
   const contents: GetSlotTypeCommandOutput = {
@@ -4069,7 +4069,7 @@ export async function deserializeAws_restJson1_1GetSlotTypeVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
       output,
       context
@@ -4146,7 +4146,7 @@ export async function deserializeAws_restJson1_1GetSlotTypesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSlotTypesCommandError(output, context);
   }
   const contents: GetSlotTypesCommandOutput = {
@@ -4220,7 +4220,7 @@ export async function deserializeAws_restJson1_1GetUtterancesViewCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetUtterancesViewCommandError(
       output,
       context
@@ -4290,7 +4290,7 @@ export async function deserializeAws_restJson1_1PutBotCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBotCommandError(output, context);
   }
   const contents: PutBotCommandOutput = {
@@ -4445,7 +4445,7 @@ export async function deserializeAws_restJson1_1PutBotAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutBotAliasCommandError(output, context);
   }
   const contents: PutBotAliasCommandOutput = {
@@ -4551,7 +4551,7 @@ export async function deserializeAws_restJson1_1PutIntentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutIntentCommandError(output, context);
   }
   const contents: PutIntentCommandOutput = {
@@ -4714,7 +4714,7 @@ export async function deserializeAws_restJson1_1PutSlotTypeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSlotTypeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutSlotTypeCommandError(output, context);
   }
   const contents: PutSlotTypeCommandOutput = {
@@ -4831,7 +4831,7 @@ export async function deserializeAws_restJson1_1StartImportCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartImportCommandError(output, context);
   }
   const contents: StartImportCommandOutput = {

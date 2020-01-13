@@ -284,7 +284,7 @@ export async function deserializeAws_restJson1_1DeletePlaybackConfigurationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlaybackConfigurationCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePlaybackConfigurationCommandError(
       output,
       context
@@ -321,7 +321,7 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPlaybackConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPlaybackConfigurationCommandError(
       output,
       context
@@ -427,7 +427,7 @@ export async function deserializeAws_restJson1_1ListPlaybackConfigurationsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlaybackConfigurationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPlaybackConfigurationsCommandError(
       output,
       context
@@ -476,7 +476,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -528,7 +528,7 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPlaybackConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutPlaybackConfigurationCommandError(
       output,
       context
@@ -634,7 +634,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -674,7 +674,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

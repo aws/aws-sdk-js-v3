@@ -54,7 +54,7 @@ export async function deserializeAws_restJson1_1PutEventsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutEventsCommandError(output, context);
   }
   const contents: PutEventsCommandOutput = {

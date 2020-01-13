@@ -750,7 +750,7 @@ export async function deserializeAws_restJson1_1CreateClusterCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateClusterCommandError(output, context);
   }
   const contents: CreateClusterCommandOutput = {
@@ -846,7 +846,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConfigurationCommandError(
       output,
       context
@@ -952,7 +952,7 @@ export async function deserializeAws_restJson1_1DeleteClusterCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteClusterCommandError(output, context);
   }
   const contents: DeleteClusterCommandOutput = {
@@ -1023,7 +1023,7 @@ export async function deserializeAws_restJson1_1DescribeClusterCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeClusterCommandError(
       output,
       context
@@ -1103,7 +1103,7 @@ export async function deserializeAws_restJson1_1DescribeClusterOperationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterOperationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeClusterOperationCommandError(
       output,
       context
@@ -1183,7 +1183,7 @@ export async function deserializeAws_restJson1_1DescribeConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeConfigurationCommandError(
       output,
       context
@@ -1293,7 +1293,7 @@ export async function deserializeAws_restJson1_1DescribeConfigurationRevisionCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError(
       output,
       context
@@ -1393,7 +1393,7 @@ export async function deserializeAws_restJson1_1GetBootstrapBrokersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBootstrapBrokersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBootstrapBrokersCommandError(
       output,
       context
@@ -1474,7 +1474,7 @@ export async function deserializeAws_restJson1_1ListClusterOperationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClusterOperationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListClusterOperationsCommandError(
       output,
       context
@@ -1551,7 +1551,7 @@ export async function deserializeAws_restJson1_1ListClustersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListClustersCommandError(output, context);
   }
   const contents: ListClustersCommandOutput = {
@@ -1625,7 +1625,7 @@ export async function deserializeAws_restJson1_1ListConfigurationRevisionsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
       output,
       context
@@ -1716,7 +1716,7 @@ export async function deserializeAws_restJson1_1ListConfigurationsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConfigurationsCommandError(
       output,
       context
@@ -1800,7 +1800,7 @@ export async function deserializeAws_restJson1_1ListNodesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListNodesCommandError(output, context);
   }
   const contents: ListNodesCommandOutput = {
@@ -1874,7 +1874,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -1940,7 +1940,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1994,7 +1994,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2048,7 +2048,7 @@ export async function deserializeAws_restJson1_1UpdateBrokerCountCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerCountCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBrokerCountCommandError(
       output,
       context
@@ -2129,7 +2129,7 @@ export async function deserializeAws_restJson1_1UpdateBrokerStorageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerStorageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateBrokerStorageCommandError(
       output,
       context
@@ -2210,7 +2210,7 @@ export async function deserializeAws_restJson1_1UpdateClusterConfigurationComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
       output,
       context

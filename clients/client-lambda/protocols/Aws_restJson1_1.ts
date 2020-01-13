@@ -2210,7 +2210,7 @@ export async function deserializeAws_restJson1_1AddLayerVersionPermissionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddLayerVersionPermissionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddLayerVersionPermissionCommandError(
       output,
       context
@@ -2305,7 +2305,7 @@ export async function deserializeAws_restJson1_1AddPermissionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddPermissionCommandError(output, context);
   }
   const contents: AddPermissionCommandOutput = {
@@ -2393,7 +2393,7 @@ export async function deserializeAws_restJson1_1CreateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateAliasCommandError(output, context);
   }
   const contents: CreateAliasCommandOutput = {
@@ -2490,7 +2490,7 @@ export async function deserializeAws_restJson1_1CreateEventSourceMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventSourceMappingCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateEventSourceMappingCommandError(
       output,
       context
@@ -2627,7 +2627,7 @@ export async function deserializeAws_restJson1_1CreateFunctionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFunctionCommandError(
       output,
       context
@@ -2826,7 +2826,7 @@ export async function deserializeAws_restJson1_1DeleteAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteAliasCommandError(output, context);
   }
   const contents: DeleteAliasCommandOutput = {
@@ -2887,7 +2887,7 @@ export async function deserializeAws_restJson1_1DeleteEventSourceMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventSourceMappingCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteEventSourceMappingCommandError(
       output,
       context
@@ -3024,7 +3024,7 @@ export async function deserializeAws_restJson1_1DeleteFunctionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFunctionCommandError(
       output,
       context
@@ -3095,7 +3095,7 @@ export async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionConcurrencyCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFunctionConcurrencyCommandError(
       output,
       context
@@ -3166,7 +3166,7 @@ export async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommandError(
       output,
       context
@@ -3230,7 +3230,7 @@ export async function deserializeAws_restJson1_1DeleteLayerVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLayerVersionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLayerVersionCommandError(
       output,
       context
@@ -3280,7 +3280,7 @@ export async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConf
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigCommandError(
       output,
       context
@@ -3351,7 +3351,7 @@ export async function deserializeAws_restJson1_1GetAccountSettingsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAccountSettingsCommandError(
       output,
       context
@@ -3417,7 +3417,7 @@ export async function deserializeAws_restJson1_1GetAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAliasCommandError(output, context);
   }
   const contents: GetAliasCommandOutput = {
@@ -3507,7 +3507,7 @@ export async function deserializeAws_restJson1_1GetEventSourceMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventSourceMappingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetEventSourceMappingCommandError(
       output,
       context
@@ -3637,7 +3637,7 @@ export async function deserializeAws_restJson1_1GetFunctionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionCommandError(output, context);
   }
   const contents: GetFunctionCommandOutput = {
@@ -3725,7 +3725,7 @@ export async function deserializeAws_restJson1_1GetFunctionConcurrencyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConcurrencyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionConcurrencyCommandError(
       output,
       context
@@ -3795,7 +3795,7 @@ export async function deserializeAws_restJson1_1GetFunctionConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionConfigurationCommandError(
       output,
       context
@@ -3980,7 +3980,7 @@ export async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommandError(
       output,
       context
@@ -4073,7 +4073,7 @@ export async function deserializeAws_restJson1_1GetLayerVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLayerVersionCommandError(
       output,
       context
@@ -4177,7 +4177,7 @@ export async function deserializeAws_restJson1_1GetLayerVersionByArnCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionByArnCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLayerVersionByArnCommandError(
       output,
       context
@@ -4281,7 +4281,7 @@ export async function deserializeAws_restJson1_1GetLayerVersionPolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLayerVersionPolicyCommandError(
       output,
       context
@@ -4355,7 +4355,7 @@ export async function deserializeAws_restJson1_1GetPolicyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetPolicyCommandError(output, context);
   }
   const contents: GetPolicyCommandOutput = {
@@ -4426,7 +4426,7 @@ export async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProvisionedConcurrencyConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommandError(
       output,
       context
@@ -4526,7 +4526,7 @@ export async function deserializeAws_restJson1_1InvokeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeCommandError(output, context);
   }
   const contents: InvokeCommandOutput = {
@@ -4729,7 +4729,7 @@ export async function deserializeAws_restJson1_1InvokeAsyncCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeAsyncCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1InvokeAsyncCommandError(output, context);
   }
   const contents: InvokeAsyncCommandOutput = {
@@ -4798,7 +4798,7 @@ export async function deserializeAws_restJson1_1ListAliasesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAliasesCommandError(output, context);
   }
   const contents: ListAliasesCommandOutput = {
@@ -4872,7 +4872,7 @@ export async function deserializeAws_restJson1_1ListEventSourceMappingsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventSourceMappingsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEventSourceMappingsCommandError(
       output,
       context
@@ -4949,7 +4949,7 @@ export async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCo
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionEventInvokeConfigsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommandError(
       output,
       context
@@ -5026,7 +5026,7 @@ export async function deserializeAws_restJson1_1ListFunctionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFunctionsCommandError(output, context);
   }
   const contents: ListFunctionsCommandOutput = {
@@ -5093,7 +5093,7 @@ export async function deserializeAws_restJson1_1ListLayerVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayerVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLayerVersionsCommandError(
       output,
       context
@@ -5170,7 +5170,7 @@ export async function deserializeAws_restJson1_1ListLayersCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayersCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLayersCommandError(output, context);
   }
   const contents: ListLayersCommandOutput = {
@@ -5237,7 +5237,7 @@ export async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfig
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommandError(
       output,
       context
@@ -5314,7 +5314,7 @@ export async function deserializeAws_restJson1_1ListTagsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -5381,7 +5381,7 @@ export async function deserializeAws_restJson1_1ListVersionsByFunctionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVersionsByFunctionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListVersionsByFunctionCommandError(
       output,
       context
@@ -5458,7 +5458,7 @@ export async function deserializeAws_restJson1_1PublishLayerVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishLayerVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PublishLayerVersionCommandError(
       output,
       context
@@ -5569,7 +5569,7 @@ export async function deserializeAws_restJson1_1PublishVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishVersionCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PublishVersionCommandError(
       output,
       context
@@ -5775,7 +5775,7 @@ export async function deserializeAws_restJson1_1PutFunctionConcurrencyCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionConcurrencyCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutFunctionConcurrencyCommandError(
       output,
       context
@@ -5852,7 +5852,7 @@ export async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionEventInvokeConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommandError(
       output,
       context
@@ -5945,7 +5945,7 @@ export async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommandError(
       output,
       context
@@ -6045,7 +6045,7 @@ export async function deserializeAws_restJson1_1RemoveLayerVersionPermissionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommandError(
       output,
       context
@@ -6116,7 +6116,7 @@ export async function deserializeAws_restJson1_1RemovePermissionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemovePermissionCommandError(
       output,
       context
@@ -6187,7 +6187,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6248,7 +6248,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6309,7 +6309,7 @@ export async function deserializeAws_restJson1_1UpdateAliasCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateAliasCommandError(output, context);
   }
   const contents: UpdateAliasCommandOutput = {
@@ -6413,7 +6413,7 @@ export async function deserializeAws_restJson1_1UpdateEventSourceMappingCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventSourceMappingCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateEventSourceMappingCommandError(
       output,
       context
@@ -6557,7 +6557,7 @@ export async function deserializeAws_restJson1_1UpdateFunctionCodeCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionCodeCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFunctionCodeCommandError(
       output,
       context
@@ -6763,7 +6763,7 @@ export async function deserializeAws_restJson1_1UpdateFunctionConfigurationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFunctionConfigurationCommandError(
       output,
       context
@@ -6962,7 +6962,7 @@ export async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigC
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommandError(
       output,
       context

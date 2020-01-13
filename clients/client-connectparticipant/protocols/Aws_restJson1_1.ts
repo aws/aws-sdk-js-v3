@@ -208,7 +208,7 @@ export async function deserializeAws_restJson1_1CreateParticipantConnectionComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateParticipantConnectionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateParticipantConnectionCommandError(
       output,
       context
@@ -288,7 +288,7 @@ export async function deserializeAws_restJson1_1DisconnectParticipantCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectParticipantCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisconnectParticipantCommandError(
       output,
       context
@@ -353,7 +353,7 @@ export async function deserializeAws_restJson1_1GetTranscriptCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetTranscriptCommandError(output, context);
   }
   const contents: GetTranscriptCommandOutput = {
@@ -431,7 +431,7 @@ export async function deserializeAws_restJson1_1SendEventCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEventCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendEventCommandError(output, context);
   }
   const contents: SendEventCommandOutput = {
@@ -502,7 +502,7 @@ export async function deserializeAws_restJson1_1SendMessageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SendMessageCommandError(output, context);
   }
   const contents: SendMessageCommandOutput = {

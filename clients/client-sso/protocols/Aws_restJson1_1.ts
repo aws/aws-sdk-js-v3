@@ -142,7 +142,7 @@ export async function deserializeAws_restJson1_1GetRoleCredentialsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoleCredentialsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetRoleCredentialsCommandError(
       output,
       context
@@ -215,7 +215,7 @@ export async function deserializeAws_restJson1_1ListAccountRolesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountRolesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAccountRolesCommandError(
       output,
       context
@@ -292,7 +292,7 @@ export async function deserializeAws_restJson1_1ListAccountsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListAccountsCommandError(output, context);
   }
   const contents: ListAccountsCommandOutput = {
@@ -366,7 +366,7 @@ export async function deserializeAws_restJson1_1LogoutCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LogoutCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1LogoutCommandError(output, context);
   }
   const contents: LogoutCommandOutput = {

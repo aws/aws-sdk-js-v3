@@ -1324,7 +1324,7 @@ export async function deserializeAws_restJson1_1CancelPipelineReprocessingComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelPipelineReprocessingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CancelPipelineReprocessingCommandError(
       output,
       context
@@ -1396,7 +1396,7 @@ export async function deserializeAws_restJson1_1CreateChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateChannelCommandError(output, context);
   }
   const contents: CreateChannelCommandOutput = {
@@ -1488,7 +1488,7 @@ export async function deserializeAws_restJson1_1CreateDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDatasetCommandError(output, context);
   }
   const contents: CreateDatasetCommandOutput = {
@@ -1580,7 +1580,7 @@ export async function deserializeAws_restJson1_1CreateDatasetContentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetContentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDatasetContentCommandError(
       output,
       context
@@ -1657,7 +1657,7 @@ export async function deserializeAws_restJson1_1CreateDatastoreCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatastoreCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDatastoreCommandError(
       output,
       context
@@ -1752,7 +1752,7 @@ export async function deserializeAws_restJson1_1CreatePipelineCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreatePipelineCommandError(
       output,
       context
@@ -1840,7 +1840,7 @@ export async function deserializeAws_restJson1_1DeleteChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
@@ -1908,7 +1908,7 @@ export async function deserializeAws_restJson1_1DeleteDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDatasetCommandError(output, context);
   }
   const contents: DeleteDatasetCommandOutput = {
@@ -1976,7 +1976,7 @@ export async function deserializeAws_restJson1_1DeleteDatasetContentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetContentCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDatasetContentCommandError(
       output,
       context
@@ -2047,7 +2047,7 @@ export async function deserializeAws_restJson1_1DeleteDatastoreCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatastoreCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDatastoreCommandError(
       output,
       context
@@ -2118,7 +2118,7 @@ export async function deserializeAws_restJson1_1DeletePipelineCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeletePipelineCommandError(
       output,
       context
@@ -2189,7 +2189,7 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeChannelCommandError(
       output,
       context
@@ -2273,7 +2273,7 @@ export async function deserializeAws_restJson1_1DescribeDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDatasetCommandError(
       output,
       context
@@ -2350,7 +2350,7 @@ export async function deserializeAws_restJson1_1DescribeDatastoreCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatastoreCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeDatastoreCommandError(
       output,
       context
@@ -2437,7 +2437,7 @@ export async function deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
       output,
       context
@@ -2517,7 +2517,7 @@ export async function deserializeAws_restJson1_1DescribePipelineCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribePipelineCommandError(
       output,
       context
@@ -2597,7 +2597,7 @@ export async function deserializeAws_restJson1_1GetDatasetContentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatasetContentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDatasetContentCommandError(
       output,
       context
@@ -2692,7 +2692,7 @@ export async function deserializeAws_restJson1_1ListChannelsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListChannelsCommandError(output, context);
   }
   const contents: ListChannelsCommandOutput = {
@@ -2766,7 +2766,7 @@ export async function deserializeAws_restJson1_1ListDatasetContentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetContentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDatasetContentsCommandError(
       output,
       context
@@ -2850,7 +2850,7 @@ export async function deserializeAws_restJson1_1ListDatasetsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDatasetsCommandError(output, context);
   }
   const contents: ListDatasetsCommandOutput = {
@@ -2924,7 +2924,7 @@ export async function deserializeAws_restJson1_1ListDatastoresCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatastoresCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDatastoresCommandError(
       output,
       context
@@ -3001,7 +3001,7 @@ export async function deserializeAws_restJson1_1ListPipelinesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListPipelinesCommandError(output, context);
   }
   const contents: ListPipelinesCommandOutput = {
@@ -3075,7 +3075,7 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -3159,7 +3159,7 @@ export async function deserializeAws_restJson1_1PutLoggingOptionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1PutLoggingOptionsCommandError(
       output,
       context
@@ -3223,7 +3223,7 @@ export async function deserializeAws_restJson1_1RunPipelineActivityCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunPipelineActivityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RunPipelineActivityCommandError(
       output,
       context
@@ -3300,7 +3300,7 @@ export async function deserializeAws_restJson1_1SampleChannelDataCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SampleChannelDataCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1SampleChannelDataCommandError(
       output,
       context
@@ -3380,7 +3380,7 @@ export async function deserializeAws_restJson1_1StartPipelineReprocessingCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPipelineReprocessingCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartPipelineReprocessingCommandError(
       output,
       context
@@ -3464,7 +3464,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3540,7 +3540,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3616,7 +3616,7 @@ export async function deserializeAws_restJson1_1UpdateChannelCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {
@@ -3684,7 +3684,7 @@ export async function deserializeAws_restJson1_1UpdateDatasetCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDatasetCommandError(output, context);
   }
   const contents: UpdateDatasetCommandOutput = {
@@ -3752,7 +3752,7 @@ export async function deserializeAws_restJson1_1UpdateDatastoreCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatastoreCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDatastoreCommandError(
       output,
       context
@@ -3823,7 +3823,7 @@ export async function deserializeAws_restJson1_1UpdatePipelineCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdatePipelineCommandError(
       output,
       context
@@ -3901,7 +3901,7 @@ export async function deserializeAws_restJson1_1BatchPutMessageCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchPutMessageCommandError(
       output,
       context
