@@ -2292,13 +2292,18 @@ async function deserializeAws_restJson1_1AddLayerVersionPermissionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1AddPermissionCommand(
@@ -2380,13 +2385,18 @@ async function deserializeAws_restJson1_1AddPermissionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateAliasCommand(
@@ -2477,13 +2487,18 @@ async function deserializeAws_restJson1_1CreateAliasCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateEventSourceMappingCommand(
@@ -2614,13 +2629,18 @@ async function deserializeAws_restJson1_1CreateEventSourceMappingCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateFunctionCommand(
@@ -2813,13 +2833,18 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteAliasCommand(
@@ -2874,13 +2899,18 @@ async function deserializeAws_restJson1_1DeleteAliasCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteEventSourceMappingCommand(
@@ -3011,13 +3041,18 @@ async function deserializeAws_restJson1_1DeleteEventSourceMappingCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteFunctionCommand(
@@ -3082,13 +3117,18 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommand(
@@ -3153,13 +3193,18 @@ async function deserializeAws_restJson1_1DeleteFunctionConcurrencyCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(
@@ -3217,13 +3262,18 @@ async function deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteLayerVersionCommand(
@@ -3267,13 +3317,18 @@ async function deserializeAws_restJson1_1DeleteLayerVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigCommand(
@@ -3338,13 +3393,18 @@ async function deserializeAws_restJson1_1DeleteProvisionedConcurrencyConfigComma
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetAccountSettingsCommand(
@@ -3404,13 +3464,18 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetAliasCommand(
@@ -3494,13 +3559,18 @@ async function deserializeAws_restJson1_1GetAliasCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetEventSourceMappingCommand(
@@ -3624,13 +3694,18 @@ async function deserializeAws_restJson1_1GetEventSourceMappingCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionCommand(
@@ -3712,13 +3787,18 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionConcurrencyCommand(
@@ -3782,13 +3862,18 @@ async function deserializeAws_restJson1_1GetFunctionConcurrencyCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionConfigurationCommand(
@@ -3967,13 +4052,18 @@ async function deserializeAws_restJson1_1GetFunctionConfigurationCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(
@@ -4060,13 +4150,18 @@ async function deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetLayerVersionCommand(
@@ -4164,13 +4259,18 @@ async function deserializeAws_restJson1_1GetLayerVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetLayerVersionByArnCommand(
@@ -4268,13 +4368,18 @@ async function deserializeAws_restJson1_1GetLayerVersionByArnCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetLayerVersionPolicyCommand(
@@ -4342,13 +4447,18 @@ async function deserializeAws_restJson1_1GetLayerVersionPolicyCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetPolicyCommand(
@@ -4413,13 +4523,18 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand(
@@ -4513,13 +4628,18 @@ async function deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1InvokeCommand(
@@ -4716,13 +4836,18 @@ async function deserializeAws_restJson1_1InvokeCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1InvokeAsyncCommand(
@@ -4785,13 +4910,18 @@ async function deserializeAws_restJson1_1InvokeAsyncCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListAliasesCommand(
@@ -4859,13 +4989,18 @@ async function deserializeAws_restJson1_1ListAliasesCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListEventSourceMappingsCommand(
@@ -4936,13 +5071,18 @@ async function deserializeAws_restJson1_1ListEventSourceMappingsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(
@@ -5013,13 +5153,18 @@ async function deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommandEr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListFunctionsCommand(
@@ -5080,13 +5225,18 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListLayerVersionsCommand(
@@ -5157,13 +5307,18 @@ async function deserializeAws_restJson1_1ListLayerVersionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListLayersCommand(
@@ -5224,13 +5379,18 @@ async function deserializeAws_restJson1_1ListLayersCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsCommand(
@@ -5301,13 +5461,18 @@ async function deserializeAws_restJson1_1ListProvisionedConcurrencyConfigsComman
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsCommand(
@@ -5368,13 +5533,18 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListVersionsByFunctionCommand(
@@ -5445,13 +5615,18 @@ async function deserializeAws_restJson1_1ListVersionsByFunctionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PublishLayerVersionCommand(
@@ -5556,13 +5731,18 @@ async function deserializeAws_restJson1_1PublishLayerVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PublishVersionCommand(
@@ -5762,13 +5942,18 @@ async function deserializeAws_restJson1_1PublishVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PutFunctionConcurrencyCommand(
@@ -5839,13 +6024,18 @@ async function deserializeAws_restJson1_1PutFunctionConcurrencyCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommand(
@@ -5932,13 +6122,18 @@ async function deserializeAws_restJson1_1PutFunctionEventInvokeConfigCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand(
@@ -6032,13 +6227,18 @@ async function deserializeAws_restJson1_1PutProvisionedConcurrencyConfigCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
@@ -6103,13 +6303,18 @@ async function deserializeAws_restJson1_1RemoveLayerVersionPermissionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1RemovePermissionCommand(
@@ -6174,13 +6379,18 @@ async function deserializeAws_restJson1_1RemovePermissionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
@@ -6235,13 +6445,18 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
@@ -6296,13 +6511,18 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateAliasCommand(
@@ -6400,13 +6620,18 @@ async function deserializeAws_restJson1_1UpdateAliasCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateEventSourceMappingCommand(
@@ -6544,13 +6769,18 @@ async function deserializeAws_restJson1_1UpdateEventSourceMappingCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFunctionCodeCommand(
@@ -6750,13 +6980,18 @@ async function deserializeAws_restJson1_1UpdateFunctionCodeCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFunctionConfigurationCommand(
@@ -6949,13 +7184,18 @@ async function deserializeAws_restJson1_1UpdateFunctionConfigurationCommandError
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(
@@ -7042,13 +7282,18 @@ async function deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.awsgirapi#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1CodeStorageExceededExceptionResponse = async (

@@ -943,13 +943,18 @@ async function deserializeAws_json1_1AddTagsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateBatchPredictionCommand(
@@ -1009,13 +1014,18 @@ async function deserializeAws_json1_1CreateBatchPredictionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateDataSourceFromRDSCommand(
@@ -1075,13 +1085,18 @@ async function deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(
@@ -1144,13 +1159,18 @@ async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateDataSourceFromS3Command(
@@ -1210,13 +1230,18 @@ async function deserializeAws_json1_1CreateDataSourceFromS3CommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateEvaluationCommand(
@@ -1273,13 +1298,18 @@ async function deserializeAws_json1_1CreateEvaluationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateMLModelCommand(
@@ -1336,13 +1366,18 @@ async function deserializeAws_json1_1CreateMLModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateRealtimeEndpointCommand(
@@ -1402,13 +1437,18 @@ async function deserializeAws_json1_1CreateRealtimeEndpointCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteBatchPredictionCommand(
@@ -1468,13 +1508,18 @@ async function deserializeAws_json1_1DeleteBatchPredictionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteDataSourceCommand(
@@ -1531,13 +1576,18 @@ async function deserializeAws_json1_1DeleteDataSourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteEvaluationCommand(
@@ -1594,13 +1644,18 @@ async function deserializeAws_json1_1DeleteEvaluationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteMLModelCommand(
@@ -1657,13 +1712,18 @@ async function deserializeAws_json1_1DeleteMLModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteRealtimeEndpointCommand(
@@ -1723,13 +1783,18 @@ async function deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteTagsCommand(
@@ -1793,13 +1858,18 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeBatchPredictionsCommand(
@@ -1855,13 +1925,18 @@ async function deserializeAws_json1_1DescribeBatchPredictionsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeDataSourcesCommand(
@@ -1914,13 +1989,18 @@ async function deserializeAws_json1_1DescribeDataSourcesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeEvaluationsCommand(
@@ -1973,13 +2053,18 @@ async function deserializeAws_json1_1DescribeEvaluationsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeMLModelsCommand(
@@ -2029,13 +2114,18 @@ async function deserializeAws_json1_1DescribeMLModelsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeTagsCommand(
@@ -2092,13 +2182,18 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetBatchPredictionCommand(
@@ -2158,13 +2253,18 @@ async function deserializeAws_json1_1GetBatchPredictionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetDataSourceCommand(
@@ -2221,13 +2321,18 @@ async function deserializeAws_json1_1GetDataSourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetEvaluationCommand(
@@ -2284,13 +2389,18 @@ async function deserializeAws_json1_1GetEvaluationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetMLModelCommand(
@@ -2347,13 +2457,18 @@ async function deserializeAws_json1_1GetMLModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1PredictCommand(
@@ -2424,13 +2539,18 @@ async function deserializeAws_json1_1PredictCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateBatchPredictionCommand(
@@ -2490,13 +2610,18 @@ async function deserializeAws_json1_1UpdateBatchPredictionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDataSourceCommand(
@@ -2553,13 +2678,18 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateEvaluationCommand(
@@ -2616,13 +2746,18 @@ async function deserializeAws_json1_1UpdateEvaluationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateMLModelCommand(
@@ -2679,13 +2814,18 @@ async function deserializeAws_json1_1UpdateMLModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async (

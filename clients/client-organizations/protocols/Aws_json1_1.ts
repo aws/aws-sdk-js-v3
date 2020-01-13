@@ -1573,13 +1573,18 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1AttachPolicyCommand(
@@ -1701,13 +1706,18 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CancelHandshakeCommand(
@@ -1799,13 +1809,18 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateAccountCommand(
@@ -1904,13 +1919,18 @@ async function deserializeAws_json1_1CreateAccountCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateGovCloudAccountCommand(
@@ -2012,13 +2032,18 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateOrganizationCommand(
@@ -2113,13 +2138,18 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateOrganizationalUnitCommand(
@@ -2224,13 +2254,18 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreatePolicyCommand(
@@ -2343,13 +2378,18 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeclineHandshakeCommand(
@@ -2441,13 +2481,18 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteOrganizationCommand(
@@ -2530,13 +2575,18 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteOrganizationalUnitCommand(
@@ -2626,13 +2676,18 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeletePolicyCommand(
@@ -2726,13 +2781,18 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeAccountCommand(
@@ -2810,13 +2870,18 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeCreateAccountStatusCommand(
@@ -2907,13 +2972,18 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeEffectivePolicyCommand(
@@ -3018,13 +3088,18 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeHandshakeCommand(
@@ -3102,13 +3177,18 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeOrganizationCommand(
@@ -3182,13 +3262,18 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeOrganizationalUnitCommand(
@@ -3272,13 +3357,18 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribePolicyCommand(
@@ -3363,13 +3453,18 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DetachPolicyCommand(
@@ -3484,13 +3579,18 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DisableAWSServiceAccessCommand(
@@ -3573,13 +3673,18 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DisablePolicyTypeCommand(
@@ -3692,13 +3797,18 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1EnableAWSServiceAccessCommand(
@@ -3781,13 +3891,18 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1EnableAllFeaturesCommand(
@@ -3872,13 +3987,18 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1EnablePolicyTypeCommand(
@@ -3998,13 +4118,18 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1InviteAccountToOrganizationCommand(
@@ -4116,13 +4241,18 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1LeaveOrganizationCommand(
@@ -4216,13 +4346,18 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
@@ -4306,13 +4441,18 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListAccountsCommand(
@@ -4383,13 +4523,18 @@ async function deserializeAws_json1_1ListAccountsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListAccountsForParentCommand(
@@ -4470,13 +4615,18 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListChildrenCommand(
@@ -4554,13 +4704,18 @@ async function deserializeAws_json1_1ListChildrenCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListCreateAccountStatusCommand(
@@ -4644,13 +4799,18 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListHandshakesForAccountCommand(
@@ -4727,13 +4887,18 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListHandshakesForOrganizationCommand(
@@ -4817,13 +4982,18 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommand(
@@ -4907,13 +5077,18 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListParentsCommand(
@@ -4991,13 +5166,18 @@ async function deserializeAws_json1_1ListParentsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListPoliciesCommand(
@@ -5075,13 +5255,18 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListPoliciesForTargetCommand(
@@ -5169,13 +5354,18 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListRootsCommand(
@@ -5246,13 +5436,18 @@ async function deserializeAws_json1_1ListRootsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListTagsForResourceCommand(
@@ -5333,13 +5528,18 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListTargetsForPolicyCommand(
@@ -5427,13 +5627,18 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1MoveAccountCommand(
@@ -5534,13 +5739,18 @@ async function deserializeAws_json1_1MoveAccountCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1RemoveAccountFromOrganizationCommand(
@@ -5637,13 +5847,18 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1TagResourceCommand(
@@ -5730,13 +5945,18 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UntagResourceCommand(
@@ -5823,13 +6043,18 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateOrganizationalUnitCommand(
@@ -5927,13 +6152,18 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdatePolicyCommand(
@@ -6053,13 +6283,18 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (

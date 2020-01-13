@@ -463,13 +463,18 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteStreamCommand(
@@ -532,13 +537,18 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeStreamCommand(
@@ -605,13 +615,18 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetDataEndpointCommand(
@@ -675,13 +690,18 @@ async function deserializeAws_restJson1_1GetDataEndpointCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListStreamsCommand(
@@ -735,13 +755,18 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsForStreamCommand(
@@ -816,13 +841,18 @@ async function deserializeAws_restJson1_1ListTagsForStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagStreamCommand(
@@ -892,13 +922,18 @@ async function deserializeAws_restJson1_1TagStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagStreamCommand(
@@ -961,13 +996,18 @@ async function deserializeAws_restJson1_1UntagStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateDataRetentionCommand(
@@ -1040,13 +1080,18 @@ async function deserializeAws_restJson1_1UpdateDataRetentionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateStreamCommand(
@@ -1116,13 +1161,18 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.kinesis.video.v20170930#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1AccountStreamLimitExceededExceptionResponse = async (

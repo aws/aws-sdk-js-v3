@@ -1014,13 +1014,18 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1AssociateResourceShareCommand(
@@ -1133,13 +1138,18 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand(
@@ -1228,13 +1238,18 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateResourceShareCommand(
@@ -1354,13 +1369,18 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteResourceShareCommand(
@@ -1463,13 +1483,18 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DisassociateResourceShareCommand(
@@ -1582,13 +1607,18 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DisassociateResourceSharePermissionCommand(
@@ -1677,13 +1707,18 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand(
@@ -1740,13 +1775,18 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetPermissionCommand(
@@ -1824,13 +1864,18 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourcePoliciesCommand(
@@ -1908,13 +1953,18 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourceShareAssociationsCommand(
@@ -2006,13 +2056,18 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourceShareInvitationsCommand(
@@ -2104,13 +2159,18 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourceSharesCommand(
@@ -2195,13 +2255,18 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommand(
@@ -2307,13 +2372,18 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListPermissionsCommand(
@@ -2391,13 +2461,18 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListPrincipalsCommand(
@@ -2482,13 +2557,18 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListResourceSharePermissionsCommand(
@@ -2580,13 +2660,18 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListResourcesCommand(
@@ -2675,13 +2760,18 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
@@ -2759,13 +2849,18 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1RejectResourceShareInvitationCommand(
@@ -2878,13 +2973,18 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
@@ -2961,13 +3061,18 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
@@ -3016,13 +3121,18 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateResourceShareCommand(
@@ -3128,13 +3238,18 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.resourcesharing.V2018_01_04#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = async (

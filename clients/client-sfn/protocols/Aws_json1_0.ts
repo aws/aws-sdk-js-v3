@@ -784,13 +784,18 @@ async function deserializeAws_json1_0CreateActivityCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0CreateStateMachineCommand(
@@ -892,13 +897,18 @@ async function deserializeAws_json1_0CreateStateMachineCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DeleteActivityCommand(
@@ -941,13 +951,18 @@ async function deserializeAws_json1_0DeleteActivityCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DeleteStateMachineCommand(
@@ -993,13 +1008,18 @@ async function deserializeAws_json1_0DeleteStateMachineCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DescribeActivityCommand(
@@ -1049,13 +1069,18 @@ async function deserializeAws_json1_0DescribeActivityCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DescribeExecutionCommand(
@@ -1105,13 +1130,18 @@ async function deserializeAws_json1_0DescribeExecutionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DescribeStateMachineCommand(
@@ -1164,13 +1194,18 @@ async function deserializeAws_json1_0DescribeStateMachineCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0DescribeStateMachineForExecutionCommand(
@@ -1226,13 +1261,18 @@ async function deserializeAws_json1_0DescribeStateMachineForExecutionCommandErro
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0GetActivityTaskCommand(
@@ -1289,13 +1329,18 @@ async function deserializeAws_json1_0GetActivityTaskCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0GetExecutionHistoryCommand(
@@ -1355,13 +1400,18 @@ async function deserializeAws_json1_0GetExecutionHistoryCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0ListActivitiesCommand(
@@ -1404,13 +1454,18 @@ async function deserializeAws_json1_0ListActivitiesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0ListExecutionsCommand(
@@ -1474,13 +1529,18 @@ async function deserializeAws_json1_0ListExecutionsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0ListStateMachinesCommand(
@@ -1523,13 +1583,18 @@ async function deserializeAws_json1_0ListStateMachinesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0ListTagsForResourceCommand(
@@ -1582,13 +1647,18 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0SendTaskFailureCommand(
@@ -1645,13 +1715,18 @@ async function deserializeAws_json1_0SendTaskFailureCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0SendTaskHeartbeatCommand(
@@ -1708,13 +1783,18 @@ async function deserializeAws_json1_0SendTaskHeartbeatCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0SendTaskSuccessCommand(
@@ -1778,13 +1858,18 @@ async function deserializeAws_json1_0SendTaskSuccessCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0StartExecutionCommand(
@@ -1869,13 +1954,18 @@ async function deserializeAws_json1_0StartExecutionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0StopExecutionCommand(
@@ -1925,13 +2015,18 @@ async function deserializeAws_json1_0StopExecutionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0TagResourceCommand(
@@ -1988,13 +2083,18 @@ async function deserializeAws_json1_0TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0UntagResourceCommand(
@@ -2044,13 +2144,18 @@ async function deserializeAws_json1_0UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_0UpdateStateMachineCommand(
@@ -2131,13 +2236,18 @@ async function deserializeAws_json1_0UpdateStateMachineCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_json1_0ActivityDoesNotExistResponse = async (

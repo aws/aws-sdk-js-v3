@@ -820,13 +820,18 @@ async function deserializeAws_json1_1CheckDomainAvailabilityCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CheckDomainTransferabilityCommand(
@@ -882,13 +887,18 @@ async function deserializeAws_json1_1CheckDomainTransferabilityCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteTagsForDomainCommand(
@@ -948,13 +958,18 @@ async function deserializeAws_json1_1DeleteTagsForDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DisableDomainAutoRenewCommand(
@@ -1010,13 +1025,18 @@ async function deserializeAws_json1_1DisableDomainAutoRenewCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DisableDomainTransferLockCommand(
@@ -1093,13 +1113,18 @@ async function deserializeAws_json1_1DisableDomainTransferLockCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1EnableDomainAutoRenewCommand(
@@ -1159,13 +1184,18 @@ async function deserializeAws_json1_1EnableDomainAutoRenewCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1EnableDomainTransferLockCommand(
@@ -1242,13 +1272,18 @@ async function deserializeAws_json1_1EnableDomainTransferLockCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetContactReachabilityStatusCommand(
@@ -1311,13 +1346,18 @@ async function deserializeAws_json1_1GetContactReachabilityStatusCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetDomainDetailCommand(
@@ -1367,13 +1407,18 @@ async function deserializeAws_json1_1GetDomainDetailCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetDomainSuggestionsCommand(
@@ -1426,13 +1471,18 @@ async function deserializeAws_json1_1GetDomainSuggestionsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetOperationDetailCommand(
@@ -1478,13 +1528,18 @@ async function deserializeAws_json1_1GetOperationDetailCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListDomainsCommand(
@@ -1527,13 +1582,18 @@ async function deserializeAws_json1_1ListDomainsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListOperationsCommand(
@@ -1576,13 +1636,18 @@ async function deserializeAws_json1_1ListOperationsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ListTagsForDomainCommand(
@@ -1639,13 +1704,18 @@ async function deserializeAws_json1_1ListTagsForDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1RegisterDomainCommand(
@@ -1723,13 +1793,18 @@ async function deserializeAws_json1_1RegisterDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1RenewDomainCommand(
@@ -1800,13 +1875,18 @@ async function deserializeAws_json1_1RenewDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ResendContactReachabilityEmailCommand(
@@ -1869,13 +1949,18 @@ async function deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1RetrieveDomainAuthCodeCommand(
@@ -1931,13 +2016,18 @@ async function deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1TransferDomainCommand(
@@ -2015,13 +2105,18 @@ async function deserializeAws_json1_1TransferDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDomainContactCommand(
@@ -2095,13 +2190,18 @@ async function deserializeAws_json1_1UpdateDomainContactCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDomainContactPrivacyCommand(
@@ -2178,13 +2278,18 @@ async function deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDomainNameserversCommand(
@@ -2261,13 +2366,18 @@ async function deserializeAws_json1_1UpdateDomainNameserversCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateTagsForDomainCommand(
@@ -2327,13 +2437,18 @@ async function deserializeAws_json1_1UpdateTagsForDomainCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1ViewBillingCommand(
@@ -2376,13 +2491,18 @@ async function deserializeAws_json1_1ViewBillingCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.route53domains.v20140515#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_json1_1DomainLimitExceededResponse = async (

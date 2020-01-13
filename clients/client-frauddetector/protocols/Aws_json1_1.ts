@@ -996,13 +996,18 @@ async function deserializeAws_json1_1BatchCreateVariableCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1BatchGetVariableCommand(
@@ -1059,13 +1064,18 @@ async function deserializeAws_json1_1BatchGetVariableCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateDetectorVersionCommand(
@@ -1132,13 +1142,18 @@ async function deserializeAws_json1_1CreateDetectorVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateModelVersionCommand(
@@ -1198,13 +1213,18 @@ async function deserializeAws_json1_1CreateModelVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateRuleCommand(
@@ -1261,13 +1281,18 @@ async function deserializeAws_json1_1CreateRuleCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1CreateVariableCommand(
@@ -1324,13 +1349,18 @@ async function deserializeAws_json1_1CreateVariableCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteDetectorVersionCommand(
@@ -1397,13 +1427,18 @@ async function deserializeAws_json1_1DeleteDetectorVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DeleteEventCommand(
@@ -1453,13 +1488,18 @@ async function deserializeAws_json1_1DeleteEventCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeDetectorCommand(
@@ -1523,13 +1563,18 @@ async function deserializeAws_json1_1DescribeDetectorCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1DescribeModelVersionsCommand(
@@ -1596,13 +1641,18 @@ async function deserializeAws_json1_1DescribeModelVersionsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetDetectorVersionCommand(
@@ -1669,13 +1719,18 @@ async function deserializeAws_json1_1GetDetectorVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetDetectorsCommand(
@@ -1739,13 +1794,18 @@ async function deserializeAws_json1_1GetDetectorsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetExternalModelsCommand(
@@ -1809,13 +1869,18 @@ async function deserializeAws_json1_1GetExternalModelsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetModelVersionCommand(
@@ -1879,13 +1944,18 @@ async function deserializeAws_json1_1GetModelVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetModelsCommand(
@@ -1949,13 +2019,18 @@ async function deserializeAws_json1_1GetModelsCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetOutcomesCommand(
@@ -2019,13 +2094,18 @@ async function deserializeAws_json1_1GetOutcomesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetPredictionCommand(
@@ -2089,13 +2169,18 @@ async function deserializeAws_json1_1GetPredictionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetRulesCommand(
@@ -2159,13 +2244,18 @@ async function deserializeAws_json1_1GetRulesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1GetVariablesCommand(
@@ -2229,13 +2319,18 @@ async function deserializeAws_json1_1GetVariablesCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1PutDetectorCommand(
@@ -2292,13 +2387,18 @@ async function deserializeAws_json1_1PutDetectorCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1PutExternalModelCommand(
@@ -2355,13 +2455,18 @@ async function deserializeAws_json1_1PutExternalModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1PutModelCommand(
@@ -2418,13 +2523,18 @@ async function deserializeAws_json1_1PutModelCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1PutOutcomeCommand(
@@ -2481,13 +2591,18 @@ async function deserializeAws_json1_1PutOutcomeCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDetectorVersionCommand(
@@ -2554,13 +2669,18 @@ async function deserializeAws_json1_1UpdateDetectorVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDetectorVersionMetadataCommand(
@@ -2623,13 +2743,18 @@ async function deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateDetectorVersionStatusCommand(
@@ -2699,13 +2824,18 @@ async function deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateModelVersionCommand(
@@ -2772,13 +2902,18 @@ async function deserializeAws_json1_1UpdateModelVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateRuleMetadataCommand(
@@ -2845,13 +2980,18 @@ async function deserializeAws_json1_1UpdateRuleMetadataCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateRuleVersionCommand(
@@ -2915,13 +3055,18 @@ async function deserializeAws_json1_1UpdateRuleVersionCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_json1_1UpdateVariableCommand(
@@ -2985,13 +3130,18 @@ async function deserializeAws_json1_1UpdateVariableCommandError(
       );
       break;
     default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_json1_1InternalServerExceptionResponse = async (

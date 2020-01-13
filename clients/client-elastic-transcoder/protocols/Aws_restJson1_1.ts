@@ -776,13 +776,18 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateJobCommand(
@@ -857,13 +862,18 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreatePipelineCommand(
@@ -951,13 +961,18 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreatePresetCommand(
@@ -1029,13 +1044,18 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeletePipelineCommand(
@@ -1108,13 +1128,18 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeletePresetCommand(
@@ -1177,13 +1202,18 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListJobsByPipelineCommand(
@@ -1258,13 +1288,18 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListJobsByStatusCommand(
@@ -1339,13 +1374,18 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListPipelinesCommand(
@@ -1413,13 +1453,18 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListPresetsCommand(
@@ -1484,13 +1529,18 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ReadJobCommand(
@@ -1558,13 +1608,18 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ReadPipelineCommand(
@@ -1642,13 +1697,18 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ReadPresetCommand(
@@ -1716,13 +1776,18 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TestRoleCommand(
@@ -1797,13 +1862,18 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdatePipelineCommand(
@@ -1891,13 +1961,18 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommand(
@@ -1978,13 +2053,18 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdatePipelineStatusCommand(
@@ -2065,13 +2145,18 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (

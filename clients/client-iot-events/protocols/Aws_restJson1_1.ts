@@ -682,13 +682,18 @@ async function deserializeAws_restJson1_1CreateDetectorModelCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateInputCommand(
@@ -759,13 +764,18 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteDetectorModelCommand(
@@ -838,13 +848,18 @@ async function deserializeAws_restJson1_1DeleteDetectorModelCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteInputCommand(
@@ -914,13 +929,18 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeDetectorModelCommand(
@@ -994,13 +1014,18 @@ async function deserializeAws_restJson1_1DescribeDetectorModelCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeInputCommand(
@@ -1068,13 +1093,18 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeLoggingOptionsCommand(
@@ -1155,13 +1185,18 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListDetectorModelVersionsCommand(
@@ -1239,13 +1274,18 @@ async function deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListDetectorModelsCommand(
@@ -1316,13 +1356,18 @@ async function deserializeAws_restJson1_1ListDetectorModelsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListInputsCommand(
@@ -1390,13 +1435,18 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
@@ -1467,13 +1517,18 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1PutLoggingOptionsCommand(
@@ -1545,13 +1600,18 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
@@ -1621,13 +1681,18 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
@@ -1690,13 +1755,18 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateDetectorModelCommand(
@@ -1777,13 +1847,18 @@ async function deserializeAws_restJson1_1UpdateDetectorModelCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateInputCommand(
@@ -1861,13 +1936,18 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazon.iot.columbo#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
