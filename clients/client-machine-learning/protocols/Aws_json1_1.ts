@@ -2698,6 +2698,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
     context
   );
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2716,6 +2717,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2734,6 +2736,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2752,6 +2755,7 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
     context
   );
   const contents: InvalidTagException = {
+    name: "InvalidTagException",
     __type: "InvalidTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2770,6 +2774,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2788,6 +2793,7 @@ const deserializeAws_json1_1PredictorNotMountedExceptionResponse = async (
     context
   );
   const contents: PredictorNotMountedException = {
+    name: "PredictorNotMountedException",
     __type: "PredictorNotMountedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2806,6 +2812,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2824,6 +2831,7 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
     context
   );
   const contents: TagLimitExceededException = {
+    name: "TagLimitExceededException",
     __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

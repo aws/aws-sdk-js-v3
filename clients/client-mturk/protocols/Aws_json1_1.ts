@@ -3558,6 +3558,7 @@ const deserializeAws_json1_1RequestErrorResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RequestError(body, context);
   const contents: RequestError = {
+    name: "RequestError",
     __type: "RequestError",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3573,6 +3574,7 @@ const deserializeAws_json1_1ServiceFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceFault(body, context);
   const contents: ServiceFault = {
+    name: "ServiceFault",
     __type: "ServiceFault",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

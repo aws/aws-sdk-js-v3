@@ -2543,6 +2543,7 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
     context
   );
   const contents: InternalServiceErrorException = {
+    name: "InternalServiceErrorException",
     __type: "InternalServiceErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2561,6 +2562,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2579,6 +2581,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2597,6 +2600,7 @@ const deserializeAws_json1_1InvalidPolicyDocumentResponse = async (
     context
   );
   const contents: InvalidPolicyDocument = {
+    name: "InvalidPolicyDocument",
     __type: "InvalidPolicyDocument",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2615,6 +2619,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2633,6 +2638,7 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
     context
   );
   const contents: InvalidTagException = {
+    name: "InvalidTagException",
     __type: "InvalidTagException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2651,6 +2657,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2669,6 +2676,7 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
     context
   );
   const contents: ResourceExistsException = {
+    name: "ResourceExistsException",
     __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2687,6 +2695,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2705,6 +2714,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2723,6 +2733,7 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
     context
   );
   const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2741,6 +2752,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
     context
   );
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2759,6 +2771,7 @@ const deserializeAws_json1_1UnknownResourceExceptionResponse = async (
     context
   );
   const contents: UnknownResourceException = {
+    name: "UnknownResourceException",
     __type: "UnknownResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

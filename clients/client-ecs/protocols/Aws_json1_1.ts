@@ -5316,6 +5316,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5334,6 +5335,7 @@ const deserializeAws_json1_1AttributeLimitExceededExceptionResponse = async (
     context
   );
   const contents: AttributeLimitExceededException = {
+    name: "AttributeLimitExceededException",
     __type: "AttributeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5352,6 +5354,7 @@ const deserializeAws_json1_1BlockedExceptionResponse = async (
     context
   );
   const contents: BlockedException = {
+    name: "BlockedException",
     __type: "BlockedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5370,6 +5373,7 @@ const deserializeAws_json1_1ClientExceptionResponse = async (
     context
   );
   const contents: ClientException = {
+    name: "ClientException",
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5388,6 +5392,7 @@ const deserializeAws_json1_1ClusterContainsContainerInstancesExceptionResponse =
     context
   );
   const contents: ClusterContainsContainerInstancesException = {
+    name: "ClusterContainsContainerInstancesException",
     __type: "ClusterContainsContainerInstancesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5406,6 +5411,7 @@ const deserializeAws_json1_1ClusterContainsServicesExceptionResponse = async (
     context
   );
   const contents: ClusterContainsServicesException = {
+    name: "ClusterContainsServicesException",
     __type: "ClusterContainsServicesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5424,6 +5430,7 @@ const deserializeAws_json1_1ClusterContainsTasksExceptionResponse = async (
     context
   );
   const contents: ClusterContainsTasksException = {
+    name: "ClusterContainsTasksException",
     __type: "ClusterContainsTasksException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5442,6 +5449,7 @@ const deserializeAws_json1_1ClusterNotFoundExceptionResponse = async (
     context
   );
   const contents: ClusterNotFoundException = {
+    name: "ClusterNotFoundException",
     __type: "ClusterNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5460,6 +5468,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5478,6 +5487,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5496,6 +5506,7 @@ const deserializeAws_json1_1MissingVersionExceptionResponse = async (
     context
   );
   const contents: MissingVersionException = {
+    name: "MissingVersionException",
     __type: "MissingVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5514,6 +5525,7 @@ const deserializeAws_json1_1NoUpdateAvailableExceptionResponse = async (
     context
   );
   const contents: NoUpdateAvailableException = {
+    name: "NoUpdateAvailableException",
     __type: "NoUpdateAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5532,6 +5544,7 @@ const deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionRespon
     context
   );
   const contents: PlatformTaskDefinitionIncompatibilityException = {
+    name: "PlatformTaskDefinitionIncompatibilityException",
     __type: "PlatformTaskDefinitionIncompatibilityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5550,6 +5563,7 @@ const deserializeAws_json1_1PlatformUnknownExceptionResponse = async (
     context
   );
   const contents: PlatformUnknownException = {
+    name: "PlatformUnknownException",
     __type: "PlatformUnknownException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5568,6 +5582,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5586,6 +5601,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5604,6 +5620,7 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
     context
   );
   const contents: ServerException = {
+    name: "ServerException",
     __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5622,6 +5639,7 @@ const deserializeAws_json1_1ServiceNotActiveExceptionResponse = async (
     context
   );
   const contents: ServiceNotActiveException = {
+    name: "ServiceNotActiveException",
     __type: "ServiceNotActiveException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5640,6 +5658,7 @@ const deserializeAws_json1_1ServiceNotFoundExceptionResponse = async (
     context
   );
   const contents: ServiceNotFoundException = {
+    name: "ServiceNotFoundException",
     __type: "ServiceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5658,6 +5677,7 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
     context
   );
   const contents: TargetNotFoundException = {
+    name: "TargetNotFoundException",
     __type: "TargetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5676,6 +5696,7 @@ const deserializeAws_json1_1TaskSetNotFoundExceptionResponse = async (
     context
   );
   const contents: TaskSetNotFoundException = {
+    name: "TaskSetNotFoundException",
     __type: "TaskSetNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5694,6 +5715,7 @@ const deserializeAws_json1_1UnsupportedFeatureExceptionResponse = async (
     context
   );
   const contents: UnsupportedFeatureException = {
+    name: "UnsupportedFeatureException",
     __type: "UnsupportedFeatureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5712,6 +5734,7 @@ const deserializeAws_json1_1UpdateInProgressExceptionResponse = async (
     context
   );
   const contents: UpdateInProgressException = {
+    name: "UpdateInProgressException",
     __type: "UpdateInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -9765,6 +9765,7 @@ const deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentUpdatingException> => {
   const contents: ConcurrentUpdatingException = {
+    name: "ConcurrentUpdatingException",
     __type: "ConcurrentUpdatingException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -9786,6 +9787,7 @@ const deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DomainNotWhitelistedException> => {
   const contents: DomainNotWhitelistedException = {
+    name: "DomainNotWhitelistedException",
     __type: "DomainNotWhitelistedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9807,6 +9809,7 @@ const deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<IdentityTypeNotSupportedException> => {
   const contents: IdentityTypeNotSupportedException = {
+    name: "IdentityTypeNotSupportedException",
     __type: "IdentityTypeNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9828,6 +9831,7 @@ const deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse = async 
   context: __SerdeContext
 ): Promise<QuickSightUserNotFoundException> => {
   const contents: QuickSightUserNotFoundException = {
+    name: "QuickSightUserNotFoundException",
     __type: "QuickSightUserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9849,6 +9853,7 @@ const deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse
   context: __SerdeContext
 ): Promise<SessionLifetimeInMinutesInvalidException> => {
   const contents: SessionLifetimeInMinutesInvalidException = {
+    name: "SessionLifetimeInMinutesInvalidException",
     __type: "SessionLifetimeInMinutesInvalidException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9870,6 +9875,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9891,6 +9897,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9912,6 +9919,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -9933,6 +9941,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9954,6 +9963,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -9975,6 +9985,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10000,6 +10011,7 @@ const deserializeAws_restJson1_1PreconditionNotMetExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
   const contents: PreconditionNotMetException = {
+    name: "PreconditionNotMetException",
     __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10021,6 +10033,7 @@ const deserializeAws_restJson1_1ResourceExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const contents: ResourceExistsException = {
+    name: "ResourceExistsException",
     __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10046,6 +10059,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10071,6 +10085,7 @@ const deserializeAws_restJson1_1ResourceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
   const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     __type: "ResourceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -10096,6 +10111,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -10117,6 +10133,7 @@ const deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse = async 
   context: __SerdeContext
 ): Promise<UnsupportedUserEditionException> => {
   const contents: UnsupportedUserEditionException = {
+    name: "UnsupportedUserEditionException",
     __type: "UnsupportedUserEditionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

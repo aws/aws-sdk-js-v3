@@ -3086,6 +3086,7 @@ const deserializeAws_restJson1_1ContactNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ContactNotFoundException> => {
   const contents: ContactNotFoundException = {
+    name: "ContactNotFoundException",
     __type: "ContactNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3103,6 +3104,7 @@ const deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DestinationNotAllowedException> => {
   const contents: DestinationNotAllowedException = {
+    name: "DestinationNotAllowedException",
     __type: "DestinationNotAllowedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3120,6 +3122,7 @@ const deserializeAws_restJson1_1DuplicateResourceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DuplicateResourceException> => {
   const contents: DuplicateResourceException = {
+    name: "DuplicateResourceException",
     __type: "DuplicateResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3137,6 +3140,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -3154,6 +3158,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3171,6 +3176,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3188,6 +3194,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3205,6 +3212,7 @@ const deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse = a
   context: __SerdeContext
 ): Promise<OutboundContactNotPermittedException> => {
   const contents: OutboundContactNotPermittedException = {
+    name: "OutboundContactNotPermittedException",
     __type: "OutboundContactNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3222,6 +3230,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3239,6 +3248,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3256,6 +3266,7 @@ const deserializeAws_restJson1_1UserNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UserNotFoundException> => {
   const contents: UserNotFoundException = {
+    name: "UserNotFoundException",
     __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

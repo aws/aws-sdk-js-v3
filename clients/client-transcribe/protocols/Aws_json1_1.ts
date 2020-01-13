@@ -928,6 +928,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
     context
   );
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -946,6 +947,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
     context
   );
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -964,6 +966,7 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
     context
   );
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -982,6 +985,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1000,6 +1004,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

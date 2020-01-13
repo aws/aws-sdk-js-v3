@@ -1253,6 +1253,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1271,6 +1272,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
     context
   );
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1289,6 +1291,7 @@ const deserializeAws_json1_1InvalidKMSResourceExceptionResponse = async (
     context
   );
   const contents: InvalidKMSResourceException = {
+    name: "InvalidKMSResourceException",
     __type: "InvalidKMSResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1307,6 +1310,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1325,6 +1329,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1343,6 +1348,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1361,6 +1367,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
     context
   );
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

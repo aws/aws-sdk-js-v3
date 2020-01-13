@@ -2439,6 +2439,7 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
     context
   );
   const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2457,6 +2458,7 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2475,6 +2477,7 @@ const deserializeAws_json1_1ClusterAlreadyExistsFaultResponse = async (
     context
   );
   const contents: ClusterAlreadyExistsFault = {
+    name: "ClusterAlreadyExistsFault",
     __type: "ClusterAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2493,6 +2496,7 @@ const deserializeAws_json1_1ClusterNotFoundFaultResponse = async (
     context
   );
   const contents: ClusterNotFoundFault = {
+    name: "ClusterNotFoundFault",
     __type: "ClusterNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2511,6 +2515,7 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFaultResponse = async
     context
   );
   const contents: ClusterQuotaForCustomerExceededFault = {
+    name: "ClusterQuotaForCustomerExceededFault",
     __type: "ClusterQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2529,6 +2534,7 @@ const deserializeAws_json1_1InsufficientClusterCapacityFaultResponse = async (
     context
   );
   const contents: InsufficientClusterCapacityFault = {
+    name: "InsufficientClusterCapacityFault",
     __type: "InsufficientClusterCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2547,6 +2553,7 @@ const deserializeAws_json1_1InvalidARNFaultResponse = async (
     context
   );
   const contents: InvalidARNFault = {
+    name: "InvalidARNFault",
     __type: "InvalidARNFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2565,6 +2572,7 @@ const deserializeAws_json1_1InvalidClusterStateFaultResponse = async (
     context
   );
   const contents: InvalidClusterStateFault = {
+    name: "InvalidClusterStateFault",
     __type: "InvalidClusterStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2583,6 +2591,7 @@ const deserializeAws_json1_1InvalidParameterGroupStateFaultResponse = async (
     context
   );
   const contents: InvalidParameterGroupStateFault = {
+    name: "InvalidParameterGroupStateFault",
     __type: "InvalidParameterGroupStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2598,6 +2607,7 @@ const deserializeAws_json1_1InvalidSubnetResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
   const contents: InvalidSubnet = {
+    name: "InvalidSubnet",
     __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2616,6 +2626,7 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFaultResponse = async (
     context
   );
   const contents: InvalidVPCNetworkStateFault = {
+    name: "InvalidVPCNetworkStateFault",
     __type: "InvalidVPCNetworkStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2634,6 +2645,7 @@ const deserializeAws_json1_1NodeNotFoundFaultResponse = async (
     context
   );
   const contents: NodeNotFoundFault = {
+    name: "NodeNotFoundFault",
     __type: "NodeNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2652,6 +2664,7 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFaultResponse = async (
     context
   );
   const contents: NodeQuotaForClusterExceededFault = {
+    name: "NodeQuotaForClusterExceededFault",
     __type: "NodeQuotaForClusterExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2670,6 +2683,7 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFaultResponse = async (
     context
   );
   const contents: NodeQuotaForCustomerExceededFault = {
+    name: "NodeQuotaForCustomerExceededFault",
     __type: "NodeQuotaForCustomerExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2688,6 +2702,7 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFaultResponse = async (
     context
   );
   const contents: ParameterGroupAlreadyExistsFault = {
+    name: "ParameterGroupAlreadyExistsFault",
     __type: "ParameterGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2706,6 +2721,7 @@ const deserializeAws_json1_1ParameterGroupNotFoundFaultResponse = async (
     context
   );
   const contents: ParameterGroupNotFoundFault = {
+    name: "ParameterGroupNotFoundFault",
     __type: "ParameterGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2724,6 +2740,7 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFaultResponse = async (
     context
   );
   const contents: ParameterGroupQuotaExceededFault = {
+    name: "ParameterGroupQuotaExceededFault",
     __type: "ParameterGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2742,6 +2759,7 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFaultResponse = async (
     context
   );
   const contents: ServiceLinkedRoleNotFoundFault = {
+    name: "ServiceLinkedRoleNotFoundFault",
     __type: "ServiceLinkedRoleNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2760,6 +2778,7 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFaultResponse = async (
     context
   );
   const contents: SubnetGroupAlreadyExistsFault = {
+    name: "SubnetGroupAlreadyExistsFault",
     __type: "SubnetGroupAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2778,6 +2797,7 @@ const deserializeAws_json1_1SubnetGroupInUseFaultResponse = async (
     context
   );
   const contents: SubnetGroupInUseFault = {
+    name: "SubnetGroupInUseFault",
     __type: "SubnetGroupInUseFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2796,6 +2816,7 @@ const deserializeAws_json1_1SubnetGroupNotFoundFaultResponse = async (
     context
   );
   const contents: SubnetGroupNotFoundFault = {
+    name: "SubnetGroupNotFoundFault",
     __type: "SubnetGroupNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2814,6 +2835,7 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFaultResponse = async (
     context
   );
   const contents: SubnetGroupQuotaExceededFault = {
+    name: "SubnetGroupQuotaExceededFault",
     __type: "SubnetGroupQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2829,6 +2851,7 @@ const deserializeAws_json1_1SubnetInUseResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SubnetInUse(body, context);
   const contents: SubnetInUse = {
+    name: "SubnetInUse",
     __type: "SubnetInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2847,6 +2870,7 @@ const deserializeAws_json1_1SubnetQuotaExceededFaultResponse = async (
     context
   );
   const contents: SubnetQuotaExceededFault = {
+    name: "SubnetQuotaExceededFault",
     __type: "SubnetQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2865,6 +2889,7 @@ const deserializeAws_json1_1TagNotFoundFaultResponse = async (
     context
   );
   const contents: TagNotFoundFault = {
+    name: "TagNotFoundFault",
     __type: "TagNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2883,6 +2908,7 @@ const deserializeAws_json1_1TagQuotaPerResourceExceededResponse = async (
     context
   );
   const contents: TagQuotaPerResourceExceeded = {
+    name: "TagQuotaPerResourceExceeded",
     __type: "TagQuotaPerResourceExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

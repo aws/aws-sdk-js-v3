@@ -3093,6 +3093,7 @@ const deserializeAws_json1_1InternalErrorResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalError(body, context);
   const contents: InternalError = {
+    name: "InternalError",
     __type: "InternalError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3111,6 +3112,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3129,6 +3131,7 @@ const deserializeAws_json1_1MissingRequiredParameterExceptionResponse = async (
     context
   );
   const contents: MissingRequiredParameterException = {
+    name: "MissingRequiredParameterException",
     __type: "MissingRequiredParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3147,6 +3150,7 @@ const deserializeAws_json1_1NoConnectorsAvailableExceptionResponse = async (
     context
   );
   const contents: NoConnectorsAvailableException = {
+    name: "NoConnectorsAvailableException",
     __type: "NoConnectorsAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3165,6 +3169,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
     context
   );
   const contents: OperationNotPermittedException = {
+    name: "OperationNotPermittedException",
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3183,6 +3188,7 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse = async
     context
   );
   const contents: ReplicationJobAlreadyExistsException = {
+    name: "ReplicationJobAlreadyExistsException",
     __type: "ReplicationJobAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3201,6 +3207,7 @@ const deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse = async (
     context
   );
   const contents: ReplicationJobNotFoundException = {
+    name: "ReplicationJobNotFoundException",
     __type: "ReplicationJobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3219,6 +3226,7 @@ const deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse = async
     context
   );
   const contents: ReplicationRunLimitExceededException = {
+    name: "ReplicationRunLimitExceededException",
     __type: "ReplicationRunLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3237,6 +3245,7 @@ const deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse = async (
     context
   );
   const contents: ServerCannotBeReplicatedException = {
+    name: "ServerCannotBeReplicatedException",
     __type: "ServerCannotBeReplicatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3255,6 +3264,7 @@ const deserializeAws_json1_1TemporarilyUnavailableExceptionResponse = async (
     context
   );
   const contents: TemporarilyUnavailableException = {
+    name: "TemporarilyUnavailableException",
     __type: "TemporarilyUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3273,6 +3283,7 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
     context
   );
   const contents: UnauthorizedOperationException = {
+    name: "UnauthorizedOperationException",
     __type: "UnauthorizedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

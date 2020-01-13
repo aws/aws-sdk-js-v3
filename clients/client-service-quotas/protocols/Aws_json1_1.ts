@@ -2090,6 +2090,7 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledExceptionResponse = async 
     context
   );
   const contents: AWSServiceAccessNotEnabledException = {
+    name: "AWSServiceAccessNotEnabledException",
     __type: "AWSServiceAccessNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2108,6 +2109,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2126,6 +2128,7 @@ const deserializeAws_json1_1DependencyAccessDeniedExceptionResponse = async (
     context
   );
   const contents: DependencyAccessDeniedException = {
+    name: "DependencyAccessDeniedException",
     __type: "DependencyAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2144,6 +2147,7 @@ const deserializeAws_json1_1IllegalArgumentExceptionResponse = async (
     context
   );
   const contents: IllegalArgumentException = {
+    name: "IllegalArgumentException",
     __type: "IllegalArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2162,6 +2166,7 @@ const deserializeAws_json1_1InvalidPaginationTokenExceptionResponse = async (
     context
   );
   const contents: InvalidPaginationTokenException = {
+    name: "InvalidPaginationTokenException",
     __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2180,6 +2185,7 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
     context
   );
   const contents: InvalidResourceStateException = {
+    name: "InvalidResourceStateException",
     __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2198,6 +2204,7 @@ const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
     context
   );
   const contents: NoAvailableOrganizationException = {
+    name: "NoAvailableOrganizationException",
     __type: "NoAvailableOrganizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2216,6 +2223,7 @@ const deserializeAws_json1_1NoSuchResourceExceptionResponse = async (
     context
   );
   const contents: NoSuchResourceException = {
+    name: "NoSuchResourceException",
     __type: "NoSuchResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2234,6 +2242,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = 
     context
   );
   const contents: OrganizationNotInAllFeaturesModeException = {
+    name: "OrganizationNotInAllFeaturesModeException",
     __type: "OrganizationNotInAllFeaturesModeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2252,6 +2261,7 @@ const deserializeAws_json1_1QuotaExceededExceptionResponse = async (
     context
   );
   const contents: QuotaExceededException = {
+    name: "QuotaExceededException",
     __type: "QuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2270,6 +2280,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2288,6 +2299,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
     context
   );
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2306,6 +2318,7 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse = asyn
     context
   );
   const contents: ServiceQuotaTemplateNotInUseException = {
+    name: "ServiceQuotaTemplateNotInUseException",
     __type: "ServiceQuotaTemplateNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2324,6 +2337,7 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse = asy
     context
   );
   const contents: TemplatesNotAvailableInRegionException = {
+    name: "TemplatesNotAvailableInRegionException",
     __type: "TemplatesNotAvailableInRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2342,6 +2356,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

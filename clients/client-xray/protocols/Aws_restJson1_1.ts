@@ -1942,6 +1942,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1959,6 +1960,7 @@ const deserializeAws_restJson1_1RuleLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<RuleLimitExceededException> => {
   const contents: RuleLimitExceededException = {
+    name: "RuleLimitExceededException",
     __type: "RuleLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1976,6 +1978,7 @@ const deserializeAws_restJson1_1ThrottledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottledException> => {
   const contents: ThrottledException = {
+    name: "ThrottledException",
     __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

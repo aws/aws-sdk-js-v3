@@ -1130,6 +1130,7 @@ const deserializeAws_restJson1_1AccountStreamLimitExceededExceptionResponse = as
   context: __SerdeContext
 ): Promise<AccountStreamLimitExceededException> => {
   const contents: AccountStreamLimitExceededException = {
+    name: "AccountStreamLimitExceededException",
     __type: "AccountStreamLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1147,6 +1148,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
   const contents: ClientLimitExceededException = {
+    name: "ClientLimitExceededException",
     __type: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1164,6 +1166,7 @@ const deserializeAws_restJson1_1DeviceStreamLimitExceededExceptionResponse = asy
   context: __SerdeContext
 ): Promise<DeviceStreamLimitExceededException> => {
   const contents: DeviceStreamLimitExceededException = {
+    name: "DeviceStreamLimitExceededException",
     __type: "DeviceStreamLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1181,6 +1184,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1198,6 +1202,7 @@ const deserializeAws_restJson1_1InvalidDeviceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidDeviceException> => {
   const contents: InvalidDeviceException = {
+    name: "InvalidDeviceException",
     __type: "InvalidDeviceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1215,6 +1220,7 @@ const deserializeAws_restJson1_1InvalidResourceFormatExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidResourceFormatException> => {
   const contents: InvalidResourceFormatException = {
+    name: "InvalidResourceFormatException",
     __type: "InvalidResourceFormatException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1232,6 +1238,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
+    name: "NotAuthorizedException",
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1249,6 +1256,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1266,6 +1274,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1283,6 +1292,7 @@ const deserializeAws_restJson1_1TagsPerResourceExceededLimitExceptionResponse = 
   context: __SerdeContext
 ): Promise<TagsPerResourceExceededLimitException> => {
   const contents: TagsPerResourceExceededLimitException = {
+    name: "TagsPerResourceExceededLimitException",
     __type: "TagsPerResourceExceededLimitException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1300,6 +1310,7 @@ const deserializeAws_restJson1_1VersionMismatchExceptionResponse = async (
   context: __SerdeContext
 ): Promise<VersionMismatchException> => {
   const contents: VersionMismatchException = {
+    name: "VersionMismatchException",
     __type: "VersionMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

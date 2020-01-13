@@ -4030,6 +4030,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4051,6 +4052,7 @@ const deserializeAws_restJson1_1InternalExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalException> => {
   const contents: InternalException = {
+    name: "InternalException",
     __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -4072,6 +4074,7 @@ const deserializeAws_restJson1_1InvalidAccessExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidAccessException> => {
   const contents: InvalidAccessException = {
+    name: "InvalidAccessException",
     __type: "InvalidAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4093,6 +4096,7 @@ const deserializeAws_restJson1_1InvalidInputExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4114,6 +4118,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4135,6 +4140,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
+    name: "ResourceConflictException",
     __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4156,6 +4162,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

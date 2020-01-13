@@ -12834,6 +12834,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12852,6 +12853,7 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
     context
   );
   const contents: AlreadyExistsException = {
+    name: "AlreadyExistsException",
     __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12870,6 +12872,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12888,6 +12891,7 @@ const deserializeAws_json1_1ConcurrentRunsExceededExceptionResponse = async (
     context
   );
   const contents: ConcurrentRunsExceededException = {
+    name: "ConcurrentRunsExceededException",
     __type: "ConcurrentRunsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12906,6 +12910,7 @@ const deserializeAws_json1_1ConditionCheckFailureExceptionResponse = async (
     context
   );
   const contents: ConditionCheckFailureException = {
+    name: "ConditionCheckFailureException",
     __type: "ConditionCheckFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12924,6 +12929,7 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
     context
   );
   const contents: EntityNotFoundException = {
+    name: "EntityNotFoundException",
     __type: "EntityNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12942,6 +12948,7 @@ const deserializeAws_json1_1GlueEncryptionExceptionResponse = async (
     context
   );
   const contents: GlueEncryptionException = {
+    name: "GlueEncryptionException",
     __type: "GlueEncryptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12960,6 +12967,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
     context
   );
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12978,6 +12986,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
     context
   );
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -12996,6 +13005,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13014,6 +13024,7 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
     context
   );
   const contents: OperationTimeoutException = {
+    name: "OperationTimeoutException",
     __type: "OperationTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13032,6 +13043,7 @@ const deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse = async
     context
   );
   const contents: ResourceNumberLimitExceededException = {
+    name: "ResourceNumberLimitExceededException",
     __type: "ResourceNumberLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13050,6 +13062,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13068,6 +13081,7 @@ const deserializeAws_json1_1VersionMismatchExceptionResponse = async (
     context
   );
   const contents: VersionMismatchException = {
+    name: "VersionMismatchException",
     __type: "VersionMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13086,6 +13100,7 @@ const deserializeAws_json1_1MLTransformNotReadyExceptionResponse = async (
     context
   );
   const contents: MLTransformNotReadyException = {
+    name: "MLTransformNotReadyException",
     __type: "MLTransformNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13104,6 +13119,7 @@ const deserializeAws_json1_1CrawlerNotRunningExceptionResponse = async (
     context
   );
   const contents: CrawlerNotRunningException = {
+    name: "CrawlerNotRunningException",
     __type: "CrawlerNotRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13122,6 +13138,7 @@ const deserializeAws_json1_1CrawlerRunningExceptionResponse = async (
     context
   );
   const contents: CrawlerRunningException = {
+    name: "CrawlerRunningException",
     __type: "CrawlerRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13140,6 +13157,7 @@ const deserializeAws_json1_1CrawlerStoppingExceptionResponse = async (
     context
   );
   const contents: CrawlerStoppingException = {
+    name: "CrawlerStoppingException",
     __type: "CrawlerStoppingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13158,6 +13176,7 @@ const deserializeAws_json1_1NoScheduleExceptionResponse = async (
     context
   );
   const contents: NoScheduleException = {
+    name: "NoScheduleException",
     __type: "NoScheduleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13176,6 +13195,7 @@ const deserializeAws_json1_1SchedulerNotRunningExceptionResponse = async (
     context
   );
   const contents: SchedulerNotRunningException = {
+    name: "SchedulerNotRunningException",
     __type: "SchedulerNotRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13194,6 +13214,7 @@ const deserializeAws_json1_1SchedulerRunningExceptionResponse = async (
     context
   );
   const contents: SchedulerRunningException = {
+    name: "SchedulerRunningException",
     __type: "SchedulerRunningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13212,6 +13233,7 @@ const deserializeAws_json1_1SchedulerTransitioningExceptionResponse = async (
     context
   );
   const contents: SchedulerTransitioningException = {
+    name: "SchedulerTransitioningException",
     __type: "SchedulerTransitioningException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -350,6 +350,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -368,6 +369,7 @@ const deserializeAws_json1_1DryRunOperationResponse = async (
     context
   );
   const contents: DryRunOperation = {
+    name: "DryRunOperation",
     __type: "DryRunOperation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -386,6 +388,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -404,6 +407,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -422,6 +426,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
     context
   );
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
