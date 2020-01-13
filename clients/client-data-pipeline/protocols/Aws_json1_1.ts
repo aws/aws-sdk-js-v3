@@ -1914,6 +1914,7 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
     context
   );
   const contents: InternalServiceError = {
+    name: "InternalServiceError",
     __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1932,6 +1933,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1950,6 +1952,7 @@ const deserializeAws_json1_1PipelineDeletedExceptionResponse = async (
     context
   );
   const contents: PipelineDeletedException = {
+    name: "PipelineDeletedException",
     __type: "PipelineDeletedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1968,6 +1971,7 @@ const deserializeAws_json1_1PipelineNotFoundExceptionResponse = async (
     context
   );
   const contents: PipelineNotFoundException = {
+    name: "PipelineNotFoundException",
     __type: "PipelineNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1986,6 +1990,7 @@ const deserializeAws_json1_1TaskNotFoundExceptionResponse = async (
     context
   );
   const contents: TaskNotFoundException = {
+    name: "TaskNotFoundException",
     __type: "TaskNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

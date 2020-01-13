@@ -11,6 +11,7 @@ export interface AWSServiceAccessNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AWSServiceAccessNotEnabledException";
+  name: "AWSServiceAccessNotEnabledException";
   $fault: "client";
   Message?: string;
 }
@@ -30,6 +31,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -120,6 +122,7 @@ export interface DependencyAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DependencyAccessDeniedException";
+  name: "DependencyAccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -409,6 +412,7 @@ export interface IllegalArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IllegalArgumentException";
+  name: "IllegalArgumentException";
   $fault: "client";
   Message?: string;
 }
@@ -428,6 +432,7 @@ export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPaginationTokenException";
+  name: "InvalidPaginationTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -447,6 +452,7 @@ export interface InvalidResourceStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceStateException";
+  name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
 }
@@ -966,6 +972,7 @@ export interface NoAvailableOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoAvailableOrganizationException";
+  name: "NoAvailableOrganizationException";
   $fault: "client";
   Message?: string;
 }
@@ -985,6 +992,7 @@ export interface NoSuchResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoSuchResourceException";
+  name: "NoSuchResourceException";
   $fault: "client";
   Message?: string;
 }
@@ -1005,6 +1013,7 @@ export interface OrganizationNotInAllFeaturesModeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationNotInAllFeaturesModeException";
+  name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   Message?: string;
 }
@@ -1093,6 +1102,7 @@ export interface QuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "QuotaExceededException";
+  name: "QuotaExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1307,6 +1317,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -1326,6 +1337,7 @@ export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceException";
+  name: "ServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -1549,6 +1561,7 @@ export interface ServiceQuotaTemplateNotInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceQuotaTemplateNotInUseException";
+  name: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -1569,6 +1582,7 @@ export interface TemplatesNotAvailableInRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TemplatesNotAvailableInRegionException";
+  name: "TemplatesNotAvailableInRegionException";
   $fault: "client";
   Message?: string;
 }
@@ -1589,6 +1603,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }

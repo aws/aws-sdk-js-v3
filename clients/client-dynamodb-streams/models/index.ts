@@ -69,6 +69,7 @@ export interface ExpiredIteratorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredIteratorException";
+  name: "ExpiredIteratorException";
   $fault: "client";
   /**
    *
@@ -775,6 +776,7 @@ export interface TrimmedDataAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TrimmedDataAccessException";
+  name: "TrimmedDataAccessException";
   $fault: "client";
   /**
    *
@@ -884,6 +886,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   /**
    *
@@ -954,6 +957,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -978,6 +982,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *

@@ -943,6 +943,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -960,6 +961,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -977,6 +979,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -994,6 +997,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1015,6 +1019,7 @@ const deserializeAws_restJson1_1NotAcceptableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotAcceptableException> => {
   const contents: NotAcceptableException = {
+    name: "NotAcceptableException",
     __type: "NotAcceptableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1032,6 +1037,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1049,6 +1055,7 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
   context: __SerdeContext
 ): Promise<RequestTimeoutException> => {
   const contents: RequestTimeoutException = {
+    name: "RequestTimeoutException",
     __type: "RequestTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1066,6 +1073,7 @@ const deserializeAws_restJson1_1UnsupportedMediaTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedMediaTypeException> => {
   const contents: UnsupportedMediaTypeException = {
+    name: "UnsupportedMediaTypeException",
     __type: "UnsupportedMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1083,6 +1091,7 @@ const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadGatewayException> => {
   const contents: BadGatewayException = {
+    name: "BadGatewayException",
     __type: "BadGatewayException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -1100,6 +1109,7 @@ const deserializeAws_restJson1_1DependencyFailedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DependencyFailedException> => {
   const contents: DependencyFailedException = {
+    name: "DependencyFailedException",
     __type: "DependencyFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1117,6 +1127,7 @@ const deserializeAws_restJson1_1LoopDetectedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LoopDetectedException> => {
   const contents: LoopDetectedException = {
+    name: "LoopDetectedException",
     __type: "LoopDetectedException",
     $fault: "server",
     $metadata: deserializeMetadata(output),

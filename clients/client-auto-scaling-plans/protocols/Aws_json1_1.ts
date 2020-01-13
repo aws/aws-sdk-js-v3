@@ -654,6 +654,7 @@ const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
     context
   );
   const contents: ConcurrentUpdateException = {
+    name: "ConcurrentUpdateException",
     __type: "ConcurrentUpdateException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -672,6 +673,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
     context
   );
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -690,6 +692,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -708,6 +711,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -726,6 +730,7 @@ const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
     context
   );
   const contents: ObjectNotFoundException = {
+    name: "ObjectNotFoundException",
     __type: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -744,6 +749,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

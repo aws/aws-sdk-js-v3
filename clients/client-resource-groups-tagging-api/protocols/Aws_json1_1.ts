@@ -507,6 +507,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
     context
   );
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -525,6 +526,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -543,6 +545,7 @@ const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
     context
   );
   const contents: PaginationTokenExpiredException = {
+    name: "PaginationTokenExpiredException",
     __type: "PaginationTokenExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -561,6 +564,7 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
     context
   );
   const contents: ThrottledException = {
+    name: "ThrottledException",
     __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

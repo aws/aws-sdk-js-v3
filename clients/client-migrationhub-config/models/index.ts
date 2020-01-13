@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -151,6 +152,7 @@ export interface DryRunOperation
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DryRunOperation";
+  name: "DryRunOperation";
   $fault: "client";
   Message?: string;
 }
@@ -246,6 +248,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   Message?: string;
 }
@@ -266,6 +269,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   Message?: string;
 }
@@ -285,6 +289,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }

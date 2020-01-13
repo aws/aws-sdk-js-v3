@@ -174,6 +174,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -191,6 +192,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -208,6 +210,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -225,6 +228,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

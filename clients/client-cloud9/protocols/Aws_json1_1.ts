@@ -1299,6 +1299,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
     context
   );
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1317,6 +1318,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
     context
   );
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1335,6 +1337,7 @@ const deserializeAws_json1_1ForbiddenExceptionResponse = async (
     context
   );
   const contents: ForbiddenException = {
+    name: "ForbiddenException",
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1353,6 +1356,7 @@ const deserializeAws_json1_1InternalServerErrorExceptionResponse = async (
     context
   );
   const contents: InternalServerErrorException = {
+    name: "InternalServerErrorException",
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1371,6 +1375,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1389,6 +1394,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1407,6 +1413,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

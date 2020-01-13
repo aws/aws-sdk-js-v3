@@ -10596,6 +10596,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
     context
   );
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -10611,6 +10612,7 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUse(body, context);
   const contents: ResourceInUse = {
+    name: "ResourceInUse",
     __type: "ResourceInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -10629,6 +10631,7 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
     context
   );
   const contents: ResourceLimitExceeded = {
+    name: "ResourceLimitExceeded",
     __type: "ResourceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -10647,6 +10650,7 @@ const deserializeAws_json1_1ResourceNotFoundResponse = async (
     context
   );
   const contents: ResourceNotFound = {
+    name: "ResourceNotFound",
     __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -2106,6 +2106,7 @@ export interface DefaultUndefinedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DefaultUndefinedFault";
+  name: "DefaultUndefinedFault";
   $fault: "client";
   message?: string;
 }
@@ -2125,6 +2126,7 @@ export interface DomainAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DomainAlreadyExistsFault";
+  name: "DomainAlreadyExistsFault";
   $fault: "client";
   /**
    *
@@ -2170,6 +2172,7 @@ export interface DomainDeprecatedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DomainDeprecatedFault";
+  name: "DomainDeprecatedFault";
   $fault: "client";
   /**
    *
@@ -3476,6 +3479,7 @@ export interface LimitExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededFault";
+  name: "LimitExceededFault";
   $fault: "client";
   /**
    *
@@ -3537,6 +3541,7 @@ export interface OperationNotPermittedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotPermittedFault";
+  name: "OperationNotPermittedFault";
   $fault: "client";
   /**
    *
@@ -5250,6 +5255,7 @@ export interface TooManyTagsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsFault";
+  name: "TooManyTagsFault";
   $fault: "client";
   message?: string;
 }
@@ -5269,6 +5275,7 @@ export interface TypeAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TypeAlreadyExistsFault";
+  name: "TypeAlreadyExistsFault";
   $fault: "client";
   /**
    *
@@ -5293,6 +5300,7 @@ export interface TypeDeprecatedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TypeDeprecatedFault";
+  name: "TypeDeprecatedFault";
   $fault: "client";
   /**
    *
@@ -5317,6 +5325,7 @@ export interface UnknownResourceFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnknownResourceFault";
+  name: "UnknownResourceFault";
   $fault: "client";
   /**
    *
@@ -5370,6 +5379,7 @@ export interface WorkflowExecutionAlreadyStartedFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "WorkflowExecutionAlreadyStartedFault";
+  name: "WorkflowExecutionAlreadyStartedFault";
   $fault: "client";
   /**
    *

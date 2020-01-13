@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
 }
@@ -158,6 +159,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Message: string | undefined;
   /**
@@ -1426,6 +1428,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
   /**
@@ -1705,6 +1708,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
   /**
@@ -1737,6 +1741,7 @@ export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceQuotaExceededException";
+  name: "ServiceQuotaExceededException";
   $fault: "client";
   /**
    *
@@ -1929,6 +1934,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
   /**
@@ -2328,6 +2334,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   /**
    *

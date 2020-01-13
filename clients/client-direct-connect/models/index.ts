@@ -2392,6 +2392,7 @@ export interface DirectConnectClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectConnectClientException";
+  name: "DirectConnectClientException";
   $fault: "client";
   message?: string;
 }
@@ -2774,6 +2775,7 @@ export interface DirectConnectServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectConnectServerException";
+  name: "DirectConnectServerException";
   $fault: "client";
   message?: string;
 }
@@ -2816,6 +2818,7 @@ export interface DuplicateTagKeysException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateTagKeysException";
+  name: "DuplicateTagKeysException";
   $fault: "client";
   message?: string;
 }
@@ -3952,6 +3955,7 @@ export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsException";
+  name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }

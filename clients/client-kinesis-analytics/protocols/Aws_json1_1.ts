@@ -2230,6 +2230,7 @@ const deserializeAws_json1_1CodeValidationExceptionResponse = async (
     context
   );
   const contents: CodeValidationException = {
+    name: "CodeValidationException",
     __type: "CodeValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2248,6 +2249,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2266,6 +2268,7 @@ const deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse = a
     context
   );
   const contents: InvalidApplicationConfigurationException = {
+    name: "InvalidApplicationConfigurationException",
     __type: "InvalidApplicationConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2284,6 +2287,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
     context
   );
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2302,6 +2306,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2320,6 +2325,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2338,6 +2344,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2356,6 +2363,7 @@ const deserializeAws_json1_1ResourceProvisionedThroughputExceededExceptionRespon
     context
   );
   const contents: ResourceProvisionedThroughputExceededException = {
+    name: "ResourceProvisionedThroughputExceededException",
     __type: "ResourceProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2374,6 +2382,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
     context
   );
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2392,6 +2401,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2410,6 +2420,7 @@ const deserializeAws_json1_1UnableToDetectSchemaExceptionResponse = async (
     context
   );
   const contents: UnableToDetectSchemaException = {
+    name: "UnableToDetectSchemaException",
     __type: "UnableToDetectSchemaException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2428,6 +2439,7 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
     context
   );
   const contents: UnsupportedOperationException = {
+    name: "UnsupportedOperationException",
     __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

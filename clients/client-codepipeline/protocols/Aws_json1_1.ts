@@ -3632,6 +3632,7 @@ const deserializeAws_json1_1ActionNotFoundExceptionResponse = async (
     context
   );
   const contents: ActionNotFoundException = {
+    name: "ActionNotFoundException",
     __type: "ActionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3650,6 +3651,7 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse = async (
     context
   );
   const contents: ApprovalAlreadyCompletedException = {
+    name: "ApprovalAlreadyCompletedException",
     __type: "ApprovalAlreadyCompletedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3668,6 +3670,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3686,6 +3689,7 @@ const deserializeAws_json1_1InvalidActionDeclarationExceptionResponse = async (
     context
   );
   const contents: InvalidActionDeclarationException = {
+    name: "InvalidActionDeclarationException",
     __type: "InvalidActionDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3704,6 +3708,7 @@ const deserializeAws_json1_1InvalidApprovalTokenExceptionResponse = async (
     context
   );
   const contents: InvalidApprovalTokenException = {
+    name: "InvalidApprovalTokenException",
     __type: "InvalidApprovalTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3722,6 +3727,7 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
     context
   );
   const contents: InvalidArnException = {
+    name: "InvalidArnException",
     __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3740,6 +3746,7 @@ const deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse = async (
     context
   );
   const contents: InvalidBlockerDeclarationException = {
+    name: "InvalidBlockerDeclarationException",
     __type: "InvalidBlockerDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3758,6 +3765,7 @@ const deserializeAws_json1_1InvalidClientTokenExceptionResponse = async (
     context
   );
   const contents: InvalidClientTokenException = {
+    name: "InvalidClientTokenException",
     __type: "InvalidClientTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3776,6 +3784,7 @@ const deserializeAws_json1_1InvalidJobExceptionResponse = async (
     context
   );
   const contents: InvalidJobException = {
+    name: "InvalidJobException",
     __type: "InvalidJobException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3794,6 +3803,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3812,6 +3822,7 @@ const deserializeAws_json1_1InvalidStageDeclarationExceptionResponse = async (
     context
   );
   const contents: InvalidStageDeclarationException = {
+    name: "InvalidStageDeclarationException",
     __type: "InvalidStageDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3830,6 +3841,7 @@ const deserializeAws_json1_1InvalidStructureExceptionResponse = async (
     context
   );
   const contents: InvalidStructureException = {
+    name: "InvalidStructureException",
     __type: "InvalidStructureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3848,6 +3860,7 @@ const deserializeAws_json1_1InvalidTagsExceptionResponse = async (
     context
   );
   const contents: InvalidTagsException = {
+    name: "InvalidTagsException",
     __type: "InvalidTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3866,6 +3879,7 @@ const deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionRespo
     context
   );
   const contents: InvalidWebhookAuthenticationParametersException = {
+    name: "InvalidWebhookAuthenticationParametersException",
     __type: "InvalidWebhookAuthenticationParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3884,6 +3898,7 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse = async
     context
   );
   const contents: InvalidWebhookFilterPatternException = {
+    name: "InvalidWebhookFilterPatternException",
     __type: "InvalidWebhookFilterPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3902,6 +3917,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3920,6 +3936,7 @@ const deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse = async 
     context
   );
   const contents: NotLatestPipelineExecutionException = {
+    name: "NotLatestPipelineExecutionException",
     __type: "NotLatestPipelineExecutionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3938,6 +3955,7 @@ const deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse = async (
     context
   );
   const contents: PipelineExecutionNotFoundException = {
+    name: "PipelineExecutionNotFoundException",
     __type: "PipelineExecutionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3956,6 +3974,7 @@ const deserializeAws_json1_1PipelineNameInUseExceptionResponse = async (
     context
   );
   const contents: PipelineNameInUseException = {
+    name: "PipelineNameInUseException",
     __type: "PipelineNameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3974,6 +3993,7 @@ const deserializeAws_json1_1PipelineNotFoundExceptionResponse = async (
     context
   );
   const contents: PipelineNotFoundException = {
+    name: "PipelineNotFoundException",
     __type: "PipelineNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3992,6 +4012,7 @@ const deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse = async (
     context
   );
   const contents: PipelineVersionNotFoundException = {
+    name: "PipelineVersionNotFoundException",
     __type: "PipelineVersionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4010,6 +4031,7 @@ const deserializeAws_json1_1StageNotFoundExceptionResponse = async (
     context
   );
   const contents: StageNotFoundException = {
+    name: "StageNotFoundException",
     __type: "StageNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4028,6 +4050,7 @@ const deserializeAws_json1_1StageNotRetryableExceptionResponse = async (
     context
   );
   const contents: StageNotRetryableException = {
+    name: "StageNotRetryableException",
     __type: "StageNotRetryableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4046,6 +4069,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4064,6 +4088,7 @@ const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
     context
   );
   const contents: WebhookNotFoundException = {
+    name: "WebhookNotFoundException",
     __type: "WebhookNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4082,6 +4107,7 @@ const deserializeAws_json1_1ActionTypeNotFoundExceptionResponse = async (
     context
   );
   const contents: ActionTypeNotFoundException = {
+    name: "ActionTypeNotFoundException",
     __type: "ActionTypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4100,6 +4126,7 @@ const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
     context
   );
   const contents: InvalidJobStateException = {
+    name: "InvalidJobStateException",
     __type: "InvalidJobStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4118,6 +4145,7 @@ const deserializeAws_json1_1InvalidNonceExceptionResponse = async (
     context
   );
   const contents: InvalidNonceException = {
+    name: "InvalidNonceException",
     __type: "InvalidNonceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4136,6 +4164,7 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
     context
   );
   const contents: JobNotFoundException = {
+    name: "JobNotFoundException",
     __type: "JobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4154,6 +4183,7 @@ const deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse = async
     context
   );
   const contents: OutputVariablesSizeExceededException = {
+    name: "OutputVariablesSizeExceededException",
     __type: "OutputVariablesSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4172,6 +4202,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4190,6 +4221,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

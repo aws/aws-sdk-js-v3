@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -30,6 +31,7 @@ export interface AuthorizationPendingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AuthorizationPendingException";
+  name: "AuthorizationPendingException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -165,6 +167,7 @@ export interface ExpiredTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredTokenException";
+  name: "ExpiredTokenException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -185,6 +188,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   error?: string;
   error_description?: string;
@@ -207,6 +211,7 @@ export interface InvalidClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidClientException";
+  name: "InvalidClientException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -227,6 +232,7 @@ export interface InvalidClientMetadataException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidClientMetadataException";
+  name: "InvalidClientMetadataException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -247,6 +253,7 @@ export interface InvalidGrantException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidGrantException";
+  name: "InvalidGrantException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -268,6 +275,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -288,6 +296,7 @@ export interface InvalidScopeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidScopeException";
+  name: "InvalidScopeException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -392,6 +401,7 @@ export interface SlowDownException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SlowDownException";
+  name: "SlowDownException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -500,6 +510,7 @@ export interface UnauthorizedClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedClientException";
+  name: "UnauthorizedClientException";
   $fault: "client";
   error?: string;
   error_description?: string;
@@ -520,6 +531,7 @@ export interface UnsupportedGrantTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedGrantTypeException";
+  name: "UnsupportedGrantTypeException";
   $fault: "client";
   error?: string;
   error_description?: string;

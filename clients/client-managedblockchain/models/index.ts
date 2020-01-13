@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
 }
 
@@ -560,6 +561,7 @@ export interface IllegalActionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IllegalActionException";
+  name: "IllegalActionException";
   $fault: "client";
   Message?: string;
 }
@@ -579,6 +581,7 @@ export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceErrorException";
+  name: "InternalServiceErrorException";
   $fault: "server";
 }
 
@@ -597,6 +600,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -2182,6 +2186,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -2201,6 +2206,7 @@ export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceLimitExceededException";
+  name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -2220,6 +2226,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -2239,6 +2246,7 @@ export interface ResourceNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotReadyException";
+  name: "ResourceNotReadyException";
   $fault: "client";
   Message?: string;
 }
@@ -2263,6 +2271,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
 }
 

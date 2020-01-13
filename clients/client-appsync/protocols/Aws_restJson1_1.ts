@@ -4931,6 +4931,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4948,6 +4949,7 @@ const deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ApiKeyLimitExceededException> => {
   const contents: ApiKeyLimitExceededException = {
+    name: "ApiKeyLimitExceededException",
     __type: "ApiKeyLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4965,6 +4967,7 @@ const deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse = asy
   context: __SerdeContext
 ): Promise<ApiKeyValidityOutOfBoundsException> => {
   const contents: ApiKeyValidityOutOfBoundsException = {
+    name: "ApiKeyValidityOutOfBoundsException",
     __type: "ApiKeyValidityOutOfBoundsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4982,6 +4985,7 @@ const deserializeAws_restJson1_1ApiLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ApiLimitExceededException> => {
   const contents: ApiLimitExceededException = {
+    name: "ApiLimitExceededException",
     __type: "ApiLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -4999,6 +5003,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5016,6 +5021,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5033,6 +5039,7 @@ const deserializeAws_restJson1_1GraphQLSchemaExceptionResponse = async (
   context: __SerdeContext
 ): Promise<GraphQLSchemaException> => {
   const contents: GraphQLSchemaException = {
+    name: "GraphQLSchemaException",
     __type: "GraphQLSchemaException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5050,6 +5057,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const contents: InternalFailureException = {
+    name: "InternalFailureException",
     __type: "InternalFailureException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -5067,6 +5075,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5084,6 +5093,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5101,6 +5111,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
   const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

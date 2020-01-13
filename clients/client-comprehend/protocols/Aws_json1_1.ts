@@ -5614,6 +5614,7 @@ const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
     context
   );
   const contents: BatchSizeLimitExceededException = {
+    name: "BatchSizeLimitExceededException",
     __type: "BatchSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5632,6 +5633,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5650,6 +5652,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5668,6 +5671,7 @@ const deserializeAws_json1_1InvalidFilterExceptionResponse = async (
     context
   );
   const contents: InvalidFilterException = {
+    name: "InvalidFilterException",
     __type: "InvalidFilterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5686,6 +5690,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5704,6 +5709,7 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
     context
   );
   const contents: JobNotFoundException = {
+    name: "JobNotFoundException",
     __type: "JobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5722,6 +5728,7 @@ const deserializeAws_json1_1KmsKeyValidationExceptionResponse = async (
     context
   );
   const contents: KmsKeyValidationException = {
+    name: "KmsKeyValidationException",
     __type: "KmsKeyValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5740,6 +5747,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5758,6 +5766,7 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
     context
   );
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5776,6 +5785,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5794,6 +5804,7 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
     context
   );
   const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5812,6 +5823,7 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
     context
   );
   const contents: TextSizeLimitExceededException = {
+    name: "TextSizeLimitExceededException",
     __type: "TextSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5830,6 +5842,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5848,6 +5861,7 @@ const deserializeAws_json1_1TooManyTagKeysExceptionResponse = async (
     context
   );
   const contents: TooManyTagKeysException = {
+    name: "TooManyTagKeysException",
     __type: "TooManyTagKeysException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5866,6 +5880,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -5884,6 +5899,7 @@ const deserializeAws_json1_1UnsupportedLanguageExceptionResponse = async (
     context
   );
   const contents: UnsupportedLanguageException = {
+    name: "UnsupportedLanguageException",
     __type: "UnsupportedLanguageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

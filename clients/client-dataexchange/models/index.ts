@@ -8,6 +8,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   /**
    * <p>Access to the resource is denied.</p>
@@ -181,6 +182,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   /**
    * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
@@ -1150,6 +1152,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   /**
    * The message identifying the service exception that occurred.
@@ -1548,6 +1551,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    * <p>The resource couldn't be found.</p>
@@ -1686,6 +1690,7 @@ export interface ServiceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceLimitExceededException";
+  name: "ServiceLimitExceededException";
   $fault: "client";
   /**
    * <p>The name of the quota that was exceeded.</p>
@@ -1771,6 +1776,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   /**
    * <p>The limit on the number of requests per second was exceeded.</p>
@@ -2075,6 +2081,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   /**
    * <p>The message that informs you about what was invalid about the request.</p>
