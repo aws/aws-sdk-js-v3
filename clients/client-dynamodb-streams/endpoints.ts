@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "dynamodb.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "dynamodb.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "dynamodb.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "dynamodb.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "dynamodb.{region}.amazonaws.com";
+const AWS_TEMPLATE = "streams.dynamodb.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "streams.dynamodb.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "streams.dynamodb.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "streams.dynamodb.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "streams.dynamodb.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,39 +40,40 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "ap-east-1":
-      regionInfo = {
-        hostname: "dynamodb.ap-east-1.amazonaws.com"
-      };
-      break;
     case "ap-northeast-1":
       regionInfo = {
-        hostname: "dynamodb.ap-northeast-1.amazonaws.com"
+        hostname: "streams.dynamodb.ap-northeast-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ap-northeast-2":
       regionInfo = {
-        hostname: "dynamodb.ap-northeast-2.amazonaws.com"
+        hostname: "streams.dynamodb.ap-northeast-2.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ap-south-1":
       regionInfo = {
-        hostname: "dynamodb.ap-south-1.amazonaws.com"
+        hostname: "streams.dynamodb.ap-south-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
-        hostname: "dynamodb.ap-southeast-1.amazonaws.com"
+        hostname: "streams.dynamodb.ap-southeast-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "dynamodb.ap-southeast-2.amazonaws.com"
+        hostname: "streams.dynamodb.ap-southeast-2.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ca-central-1":
       regionInfo = {
-        hostname: "dynamodb.ca-central-1.amazonaws.com"
+        hostname: "streams.dynamodb.ca-central-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "ca-central-1-fips":
@@ -83,37 +84,44 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "cn-north-1":
       regionInfo = {
-        hostname: "dynamodb.cn-north-1.amazonaws.com.cn"
+        hostname: "streams.dynamodb.cn-north-1.amazonaws.com.cn",
+        signingService: "dynamodb"
       };
       break;
     case "cn-northwest-1":
       regionInfo = {
-        hostname: "dynamodb.cn-northwest-1.amazonaws.com.cn"
+        hostname: "streams.dynamodb.cn-northwest-1.amazonaws.com.cn",
+        signingService: "dynamodb"
       };
       break;
     case "eu-central-1":
       regionInfo = {
-        hostname: "dynamodb.eu-central-1.amazonaws.com"
+        hostname: "streams.dynamodb.eu-central-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "eu-north-1":
       regionInfo = {
-        hostname: "dynamodb.eu-north-1.amazonaws.com"
+        hostname: "streams.dynamodb.eu-north-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "dynamodb.eu-west-1.amazonaws.com"
+        hostname: "streams.dynamodb.eu-west-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "eu-west-2":
       regionInfo = {
-        hostname: "dynamodb.eu-west-2.amazonaws.com"
+        hostname: "streams.dynamodb.eu-west-2.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "eu-west-3":
       regionInfo = {
-        hostname: "dynamodb.eu-west-3.amazonaws.com"
+        hostname: "streams.dynamodb.eu-west-3.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "local":
@@ -124,17 +132,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "me-south-1":
       regionInfo = {
-        hostname: "dynamodb.me-south-1.amazonaws.com"
+        hostname: "streams.dynamodb.me-south-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "sa-east-1":
       regionInfo = {
-        hostname: "dynamodb.sa-east-1.amazonaws.com"
+        hostname: "streams.dynamodb.sa-east-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "dynamodb.us-east-1.amazonaws.com"
+        hostname: "streams.dynamodb.us-east-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-east-1-fips":
@@ -145,7 +156,8 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-east-2":
       regionInfo = {
-        hostname: "dynamodb.us-east-2.amazonaws.com"
+        hostname: "streams.dynamodb.us-east-2.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-east-2-fips":
@@ -156,7 +168,8 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-gov-east-1":
       regionInfo = {
-        hostname: "dynamodb.us-gov-east-1.amazonaws.com"
+        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-gov-east-1-fips":
@@ -167,7 +180,8 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-gov-west-1":
       regionInfo = {
-        hostname: "dynamodb.us-gov-west-1.amazonaws.com"
+        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-gov-west-1-fips":
@@ -178,17 +192,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-iso-east-1":
       regionInfo = {
-        hostname: "dynamodb.us-iso-east-1.c2s.ic.gov"
+        hostname: "streams.dynamodb.us-iso-east-1.c2s.ic.gov",
+        signingService: "dynamodb"
       };
       break;
     case "us-isob-east-1":
       regionInfo = {
-        hostname: "dynamodb.us-isob-east-1.sc2s.sgov.gov"
+        hostname: "streams.dynamodb.us-isob-east-1.sc2s.sgov.gov",
+        signingService: "dynamodb"
       };
       break;
     case "us-west-1":
       regionInfo = {
-        hostname: "dynamodb.us-west-1.amazonaws.com"
+        hostname: "streams.dynamodb.us-west-1.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-west-1-fips":
@@ -199,7 +216,8 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "dynamodb.us-west-2.amazonaws.com"
+        hostname: "streams.dynamodb.us-west-2.amazonaws.com",
+        signingService: "dynamodb"
       };
       break;
     case "us-west-2-fips":
@@ -212,33 +230,39 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
     default:
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_CN_TEMPLATE.replace("{region}", region)
+          hostname: AWS_CN_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_ISO_TEMPLATE.replace("{region}", region)
+          hostname: AWS_ISO_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region)
+          hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region)
+          hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "dynamodb"
         };
       }
   }

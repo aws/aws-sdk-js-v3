@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "mediatailor.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "mediatailor.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "mediatailor.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "mediatailor.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "mediatailor.{region}.amazonaws.com";
+const AWS_TEMPLATE = "api.mediatailor.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "api.mediatailor.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "api.mediatailor.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "api.mediatailor.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "api.mediatailor.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,6 +40,41 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "api.mediatailor.ap-northeast-1.amazonaws.com"
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "api.mediatailor.ap-southeast-1.amazonaws.com"
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "api.mediatailor.ap-southeast-2.amazonaws.com"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "api.mediatailor.eu-central-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "api.mediatailor.eu-west-1.amazonaws.com"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "api.mediatailor.us-east-1.amazonaws.com"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "api.mediatailor.us-west-2.amazonaws.com"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

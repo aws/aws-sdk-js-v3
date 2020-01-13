@@ -63,12 +63,13 @@ final class EndpointGenerator implements Runnable {
         }
     }
 
-    // TODO: This needs to be updated to better figure out the endpoint prefix.
-    // Smithy doesn't currently expose this value, but the endpoints file is keyed off of it.
+    // Get service's endpoint prefix from a known list. If not found, fallback to ArnNamespace
     private String getEndpointPrefix(ServiceShape service) {
-        return service.getTrait(ServiceTrait.class)
-                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()))
-                .getArnNamespace();
+        ObjectNode endpointPrefixData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoint-prefix.json"))
+                .expectObjectNode();
+        ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class)
+                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
+        return endpointPrefixData.getStringMemberOrDefault(serviceTrait.getSdkId(), serviceTrait.getArnNamespace());
     }
 
     private void loadPartitions() {
