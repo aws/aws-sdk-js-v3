@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "forecast.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "forecast.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "forecast.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "forecast.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "forecast.{region}.amazonaws.com";
+const AWS_TEMPLATE = "forecastquery.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "forecastquery.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "forecastquery.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "forecastquery.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "forecastquery.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -42,32 +42,32 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
     // First, try to match exact region names.
     case "ap-northeast-1":
       regionInfo = {
-        hostname: "forecast.ap-northeast-1.amazonaws.com"
+        hostname: "forecastquery.ap-northeast-1.amazonaws.com"
       };
       break;
     case "ap-southeast-1":
       regionInfo = {
-        hostname: "forecast.ap-southeast-1.amazonaws.com"
+        hostname: "forecastquery.ap-southeast-1.amazonaws.com"
       };
       break;
     case "eu-west-1":
       regionInfo = {
-        hostname: "forecast.eu-west-1.amazonaws.com"
+        hostname: "forecastquery.eu-west-1.amazonaws.com"
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "forecast.us-east-1.amazonaws.com"
+        hostname: "forecastquery.us-east-1.amazonaws.com"
       };
       break;
     case "us-east-2":
       regionInfo = {
-        hostname: "forecast.us-east-2.amazonaws.com"
+        hostname: "forecastquery.us-east-2.amazonaws.com"
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "forecast.us-west-2.amazonaws.com"
+        hostname: "forecastquery.us-west-2.amazonaws.com"
       };
       break;
     // Next, try to match partition endpoints.
