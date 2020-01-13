@@ -8054,6 +8054,7 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
     context
   );
   const contents: AlreadyExistsException = {
+    name: "AlreadyExistsException",
     __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8072,6 +8073,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8090,6 +8092,7 @@ const deserializeAws_json1_1DeviceNotRegisteredExceptionResponse = async (
     context
   );
   const contents: DeviceNotRegisteredException = {
+    name: "DeviceNotRegisteredException",
     __type: "DeviceNotRegisteredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8108,6 +8111,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8126,6 +8130,7 @@ const deserializeAws_json1_1NameInUseExceptionResponse = async (
     context
   );
   const contents: NameInUseException = {
+    name: "NameInUseException",
     __type: "NameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8144,6 +8149,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8162,6 +8168,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8180,6 +8187,7 @@ const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
     context
   );
   const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8198,6 +8206,7 @@ const deserializeAws_json1_1InvalidCertificateAuthorityExceptionResponse = async
     context
   );
   const contents: InvalidCertificateAuthorityException = {
+    name: "InvalidCertificateAuthorityException",
     __type: "InvalidCertificateAuthorityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8216,6 +8225,7 @@ const deserializeAws_json1_1InvalidDeviceExceptionResponse = async (
     context
   );
   const contents: InvalidDeviceException = {
+    name: "InvalidDeviceException",
     __type: "InvalidDeviceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8234,6 +8244,7 @@ const deserializeAws_json1_1InvalidSecretsManagerResourceExceptionResponse = asy
     context
   );
   const contents: InvalidSecretsManagerResourceException = {
+    name: "InvalidSecretsManagerResourceException",
     __type: "InvalidSecretsManagerResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8252,6 +8263,7 @@ const deserializeAws_json1_1InvalidServiceLinkedRoleStateExceptionResponse = asy
     context
   );
   const contents: InvalidServiceLinkedRoleStateException = {
+    name: "InvalidServiceLinkedRoleStateException",
     __type: "InvalidServiceLinkedRoleStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8270,6 +8282,7 @@ const deserializeAws_json1_1InvalidUserStatusExceptionResponse = async (
     context
   );
   const contents: InvalidUserStatusException = {
+    name: "InvalidUserStatusException",
     __type: "InvalidUserStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8288,6 +8301,7 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
     context
   );
   const contents: ResourceAssociatedException = {
+    name: "ResourceAssociatedException",
     __type: "ResourceAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -8306,6 +8320,7 @@ const deserializeAws_json1_1SkillNotLinkedExceptionResponse = async (
     context
   );
   const contents: SkillNotLinkedException = {
+    name: "SkillNotLinkedException",
     __type: "SkillNotLinkedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

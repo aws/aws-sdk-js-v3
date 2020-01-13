@@ -408,6 +408,7 @@ export interface AttachmentIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AttachmentIdNotFound";
+  name: "AttachmentIdNotFound";
   $fault: "client";
   /**
    *
@@ -433,6 +434,7 @@ export interface AttachmentLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AttachmentLimitExceeded";
+  name: "AttachmentLimitExceeded";
   $fault: "client";
   /**
    *
@@ -459,6 +461,7 @@ export interface AttachmentSetExpired
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AttachmentSetExpired";
+  name: "AttachmentSetExpired";
   $fault: "client";
   /**
    *
@@ -484,6 +487,7 @@ export interface AttachmentSetIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AttachmentSetIdNotFound";
+  name: "AttachmentSetIdNotFound";
   $fault: "client";
   /**
    *
@@ -509,6 +513,7 @@ export interface AttachmentSetSizeLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AttachmentSetSizeLimitExceeded";
+  name: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
   /**
    *
@@ -534,6 +539,7 @@ export interface CaseCreationLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CaseCreationLimitExceeded";
+  name: "CaseCreationLimitExceeded";
   $fault: "client";
   /**
    *
@@ -559,6 +565,7 @@ export interface CaseIdNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CaseIdNotFound";
+  name: "CaseIdNotFound";
   $fault: "client";
   /**
    *
@@ -584,6 +591,7 @@ export interface DescribeAttachmentLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DescribeAttachmentLimitExceeded";
+  name: "DescribeAttachmentLimitExceeded";
   $fault: "client";
   /**
    *
@@ -609,6 +617,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   /**
    *

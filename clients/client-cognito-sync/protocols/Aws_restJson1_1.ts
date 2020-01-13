@@ -2265,6 +2265,7 @@ const deserializeAws_restJson1_1AlreadyStreamedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AlreadyStreamedException> => {
   const contents: AlreadyStreamedException = {
+    name: "AlreadyStreamedException",
     __type: "AlreadyStreamedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2282,6 +2283,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2299,6 +2301,7 @@ const deserializeAws_restJson1_1DuplicateRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DuplicateRequestException> => {
   const contents: DuplicateRequestException = {
+    name: "DuplicateRequestException",
     __type: "DuplicateRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2316,6 +2319,7 @@ const deserializeAws_restJson1_1InternalErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -2333,6 +2337,7 @@ const deserializeAws_restJson1_1InvalidConfigurationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidConfigurationException> => {
   const contents: InvalidConfigurationException = {
+    name: "InvalidConfigurationException",
     __type: "InvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2350,6 +2355,7 @@ const deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse = a
   context: __SerdeContext
 ): Promise<InvalidLambdaFunctionOutputException> => {
   const contents: InvalidLambdaFunctionOutputException = {
+    name: "InvalidLambdaFunctionOutputException",
     __type: "InvalidLambdaFunctionOutputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2367,6 +2373,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2384,6 +2391,7 @@ const deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LambdaSocketTimeoutException> => {
   const contents: LambdaSocketTimeoutException = {
+    name: "LambdaSocketTimeoutException",
     __type: "LambdaSocketTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2401,6 +2409,7 @@ const deserializeAws_restJson1_1LambdaThrottledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LambdaThrottledException> => {
   const contents: LambdaThrottledException = {
+    name: "LambdaThrottledException",
     __type: "LambdaThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2418,6 +2427,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2435,6 +2445,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
+    name: "NotAuthorizedException",
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2452,6 +2463,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceConflictException> => {
   const contents: ResourceConflictException = {
+    name: "ResourceConflictException",
     __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2469,6 +2481,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2486,6 +2499,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

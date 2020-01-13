@@ -400,6 +400,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
@@ -419,6 +420,7 @@ export interface ConflictingOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictingOperationException";
+  name: "ConflictingOperationException";
   $fault: "client";
   Message?: string;
 }
@@ -806,6 +808,7 @@ export interface CustomMetadataLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomMetadataLimitExceededException";
+  name: "CustomMetadataLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -849,6 +852,7 @@ export interface DeactivatingLastSystemUserException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DeactivatingLastSystemUserException";
+  name: "DeactivatingLastSystemUserException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -1856,6 +1860,7 @@ export interface DocumentLockedForCommentsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DocumentLockedForCommentsException";
+  name: "DocumentLockedForCommentsException";
   $fault: "client";
   Message?: string;
 }
@@ -2071,6 +2076,7 @@ export interface DraftUploadOutOfSyncException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DraftUploadOutOfSyncException";
+  name: "DraftUploadOutOfSyncException";
   $fault: "client";
   Message?: string;
 }
@@ -2090,6 +2096,7 @@ export interface EntityAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityAlreadyExistsException";
+  name: "EntityAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -2109,6 +2116,7 @@ export interface EntityNotExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityNotExistsException";
+  name: "EntityNotExistsException";
   $fault: "client";
   EntityIds?: Array<string>;
   Message?: string;
@@ -2131,6 +2139,7 @@ export interface FailedDependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FailedDependencyException";
+  name: "FailedDependencyException";
   $fault: "client";
   Message?: string;
 }
@@ -2687,6 +2696,7 @@ export interface IllegalUserStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IllegalUserStateException";
+  name: "IllegalUserStateException";
   $fault: "client";
   Message?: string;
 }
@@ -2795,6 +2805,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
 }
@@ -2814,6 +2825,7 @@ export interface InvalidCommentOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCommentOperationException";
+  name: "InvalidCommentOperationException";
   $fault: "client";
   Message?: string;
 }
@@ -2833,6 +2845,7 @@ export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOperationException";
+  name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
 }
@@ -2852,6 +2865,7 @@ export interface InvalidPasswordException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPasswordException";
+  name: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
 }
@@ -2871,6 +2885,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -3037,6 +3052,7 @@ export interface ProhibitedStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProhibitedStateException";
+  name: "ProhibitedStateException";
   $fault: "client";
   Message?: string;
 }
@@ -3118,6 +3134,7 @@ export interface RequestedEntityTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestedEntityTooLargeException";
+  name: "RequestedEntityTooLargeException";
   $fault: "client";
   Message?: string;
 }
@@ -3137,6 +3154,7 @@ export interface ResourceAlreadyCheckedOutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyCheckedOutException";
+  name: "ResourceAlreadyCheckedOutException";
   $fault: "client";
   Message?: string;
 }
@@ -3302,6 +3320,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
@@ -3417,6 +3436,7 @@ export interface StorageLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StorageLimitExceededException";
+  name: "StorageLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -3436,6 +3456,7 @@ export interface StorageLimitWillExceedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StorageLimitWillExceedException";
+  name: "StorageLimitWillExceedException";
   $fault: "client";
   Message?: string;
 }
@@ -3532,6 +3553,7 @@ export interface TooManyLabelsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyLabelsException";
+  name: "TooManyLabelsException";
   $fault: "client";
   Message?: string;
 }
@@ -3552,6 +3574,7 @@ export interface TooManySubscriptionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManySubscriptionsException";
+  name: "TooManySubscriptionsException";
   $fault: "client";
   Message?: string;
 }
@@ -3571,6 +3594,7 @@ export interface UnauthorizedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedOperationException";
+  name: "UnauthorizedOperationException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -3591,6 +3615,7 @@ export interface UnauthorizedResourceAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedResourceAccessException";
+  name: "UnauthorizedResourceAccessException";
   $fault: "client";
   Message?: string;
 }

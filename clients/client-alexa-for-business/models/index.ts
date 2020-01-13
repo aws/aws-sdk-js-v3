@@ -10,6 +10,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -29,6 +30,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
@@ -48,6 +50,7 @@ export interface DeviceNotRegisteredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DeviceNotRegisteredException";
+  name: "DeviceNotRegisteredException";
   $fault: "client";
   Message?: string;
 }
@@ -96,6 +99,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -115,6 +119,7 @@ export interface NameInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NameInUseException";
+  name: "NameInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -134,6 +139,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -153,6 +159,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   /**
    *
@@ -179,6 +186,7 @@ export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedException";
+  name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
 }
@@ -3789,6 +3797,7 @@ export interface InvalidCertificateAuthorityException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCertificateAuthorityException";
+  name: "InvalidCertificateAuthorityException";
   $fault: "client";
   Message?: string;
 }
@@ -3808,6 +3817,7 @@ export interface InvalidDeviceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDeviceException";
+  name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
 }
@@ -3827,6 +3837,7 @@ export interface InvalidSecretsManagerResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSecretsManagerResourceException";
+  name: "InvalidSecretsManagerResourceException";
   $fault: "client";
   Message?: string;
 }
@@ -3846,6 +3857,7 @@ export interface InvalidServiceLinkedRoleStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidServiceLinkedRoleStateException";
+  name: "InvalidServiceLinkedRoleStateException";
   $fault: "client";
   Message?: string;
 }
@@ -3865,6 +3877,7 @@ export interface InvalidUserStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidUserStatusException";
+  name: "InvalidUserStatusException";
   $fault: "client";
   Message?: string;
 }
@@ -5187,6 +5200,7 @@ export interface ResourceAssociatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAssociatedException";
+  name: "ResourceAssociatedException";
   $fault: "client";
   Message?: string;
 }
@@ -6179,6 +6193,7 @@ export interface SkillNotLinkedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SkillNotLinkedException";
+  name: "SkillNotLinkedException";
   $fault: "client";
   Message?: string;
 }

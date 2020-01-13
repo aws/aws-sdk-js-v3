@@ -986,6 +986,7 @@ export interface CloudHsmAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmAccessDeniedException";
+  name: "CloudHsmAccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -1006,6 +1007,7 @@ export interface CloudHsmInternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmInternalFailureException";
+  name: "CloudHsmInternalFailureException";
   $fault: "server";
   Message?: string;
 }
@@ -1025,6 +1027,7 @@ export interface CloudHsmInvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmInvalidRequestException";
+  name: "CloudHsmInvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -1045,6 +1048,7 @@ export interface CloudHsmResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmResourceNotFoundException";
+  name: "CloudHsmResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -1064,6 +1068,7 @@ export interface CloudHsmServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmServiceException";
+  name: "CloudHsmServiceException";
   $fault: "client";
   Message?: string;
 }

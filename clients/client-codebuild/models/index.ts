@@ -10,6 +10,7 @@ export interface AccountLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountLimitExceededException";
+  name: "AccountLimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -1751,6 +1752,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   message?: string;
 }
@@ -2511,6 +2513,7 @@ export interface OAuthProviderException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OAuthProviderException";
+  name: "OAuthProviderException";
   $fault: "client";
   message?: string;
 }
@@ -3960,6 +3963,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -3979,6 +3983,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }

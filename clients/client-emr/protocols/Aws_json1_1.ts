@@ -2640,6 +2640,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2658,6 +2659,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2676,6 +2678,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

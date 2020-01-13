@@ -109,6 +109,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   /**
    * <p>The error message returned by this <code>BadRequestException</code> error.</p>
@@ -682,6 +683,7 @@ export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ForbiddenException";
+  name: "ForbiddenException";
   $fault: "client";
   /**
    * <p>The error message returned by this <code>ForbiddenException</code> error.</p>
@@ -702,6 +704,7 @@ export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerErrorException";
+  name: "InternalServerErrorException";
   $fault: "server";
 }
 
@@ -718,6 +721,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   /**
    * <p>The error message returned by this <code>NotFoundException</code> error.</p>
@@ -846,6 +850,7 @@ export interface ServiceUnavailableError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableError";
+  name: "ServiceUnavailableError";
   $fault: "server";
 }
 
@@ -906,6 +911,7 @@ export interface StatementTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StatementTimeoutException";
+  name: "StatementTimeoutException";
   $fault: "client";
   /**
    * <p>The database connection ID that executed the SQL statement.</p>

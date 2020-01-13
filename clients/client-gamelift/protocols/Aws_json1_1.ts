@@ -7737,6 +7737,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
     context
   );
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7755,6 +7756,7 @@ const deserializeAws_json1_1FleetCapacityExceededExceptionResponse = async (
     context
   );
   const contents: FleetCapacityExceededException = {
+    name: "FleetCapacityExceededException",
     __type: "FleetCapacityExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7773,6 +7775,7 @@ const deserializeAws_json1_1GameSessionFullExceptionResponse = async (
     context
   );
   const contents: GameSessionFullException = {
+    name: "GameSessionFullException",
     __type: "GameSessionFullException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7791,6 +7794,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
     context
   );
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7809,6 +7813,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
     context
   );
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7827,6 +7832,7 @@ const deserializeAws_json1_1InvalidFleetStatusExceptionResponse = async (
     context
   );
   const contents: InvalidFleetStatusException = {
+    name: "InvalidFleetStatusException",
     __type: "InvalidFleetStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7845,6 +7851,7 @@ const deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse = async (
     context
   );
   const contents: InvalidGameSessionStatusException = {
+    name: "InvalidGameSessionStatusException",
     __type: "InvalidGameSessionStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7863,6 +7870,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7881,6 +7889,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7899,6 +7908,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7917,6 +7927,7 @@ const deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse = async (
     context
   );
   const contents: TerminalRoutingStrategyException = {
+    name: "TerminalRoutingStrategyException",
     __type: "TerminalRoutingStrategyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7935,6 +7946,7 @@ const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
     context
   );
   const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7953,6 +7965,7 @@ const deserializeAws_json1_1UnsupportedRegionExceptionResponse = async (
     context
   );
   const contents: UnsupportedRegionException = {
+    name: "UnsupportedRegionException",
     __type: "UnsupportedRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

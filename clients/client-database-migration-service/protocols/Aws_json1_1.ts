@@ -4574,6 +4574,7 @@ const deserializeAws_json1_1AccessDeniedFaultResponse = async (
     context
   );
   const contents: AccessDeniedFault = {
+    name: "AccessDeniedFault",
     __type: "AccessDeniedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4592,6 +4593,7 @@ const deserializeAws_json1_1InsufficientResourceCapacityFaultResponse = async (
     context
   );
   const contents: InsufficientResourceCapacityFault = {
+    name: "InsufficientResourceCapacityFault",
     __type: "InsufficientResourceCapacityFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4610,6 +4612,7 @@ const deserializeAws_json1_1InvalidCertificateFaultResponse = async (
     context
   );
   const contents: InvalidCertificateFault = {
+    name: "InvalidCertificateFault",
     __type: "InvalidCertificateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4628,6 +4631,7 @@ const deserializeAws_json1_1InvalidResourceStateFaultResponse = async (
     context
   );
   const contents: InvalidResourceStateFault = {
+    name: "InvalidResourceStateFault",
     __type: "InvalidResourceStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4643,6 +4647,7 @@ const deserializeAws_json1_1InvalidSubnetResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSubnet(body, context);
   const contents: InvalidSubnet = {
+    name: "InvalidSubnet",
     __type: "InvalidSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4661,6 +4666,7 @@ const deserializeAws_json1_1KMSAccessDeniedFaultResponse = async (
     context
   );
   const contents: KMSAccessDeniedFault = {
+    name: "KMSAccessDeniedFault",
     __type: "KMSAccessDeniedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4679,6 +4685,7 @@ const deserializeAws_json1_1KMSDisabledFaultResponse = async (
     context
   );
   const contents: KMSDisabledFault = {
+    name: "KMSDisabledFault",
     __type: "KMSDisabledFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4697,6 +4704,7 @@ const deserializeAws_json1_1KMSInvalidStateFaultResponse = async (
     context
   );
   const contents: KMSInvalidStateFault = {
+    name: "KMSInvalidStateFault",
     __type: "KMSInvalidStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4715,6 +4723,7 @@ const deserializeAws_json1_1KMSKeyNotAccessibleFaultResponse = async (
     context
   );
   const contents: KMSKeyNotAccessibleFault = {
+    name: "KMSKeyNotAccessibleFault",
     __type: "KMSKeyNotAccessibleFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4733,6 +4742,7 @@ const deserializeAws_json1_1KMSNotFoundFaultResponse = async (
     context
   );
   const contents: KMSNotFoundFault = {
+    name: "KMSNotFoundFault",
     __type: "KMSNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4751,6 +4761,7 @@ const deserializeAws_json1_1KMSThrottlingFaultResponse = async (
     context
   );
   const contents: KMSThrottlingFault = {
+    name: "KMSThrottlingFault",
     __type: "KMSThrottlingFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4769,6 +4780,7 @@ const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZsResponse 
     context
   );
   const contents: ReplicationSubnetGroupDoesNotCoverEnoughAZs = {
+    name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
     __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4787,6 +4799,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsFaultResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsFault = {
+    name: "ResourceAlreadyExistsFault",
     __type: "ResourceAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4805,6 +4818,7 @@ const deserializeAws_json1_1ResourceNotFoundFaultResponse = async (
     context
   );
   const contents: ResourceNotFoundFault = {
+    name: "ResourceNotFoundFault",
     __type: "ResourceNotFoundFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4823,6 +4837,7 @@ const deserializeAws_json1_1ResourceQuotaExceededFaultResponse = async (
     context
   );
   const contents: ResourceQuotaExceededFault = {
+    name: "ResourceQuotaExceededFault",
     __type: "ResourceQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4841,6 +4856,7 @@ const deserializeAws_json1_1SNSInvalidTopicFaultResponse = async (
     context
   );
   const contents: SNSInvalidTopicFault = {
+    name: "SNSInvalidTopicFault",
     __type: "SNSInvalidTopicFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4859,6 +4875,7 @@ const deserializeAws_json1_1SNSNoAuthorizationFaultResponse = async (
     context
   );
   const contents: SNSNoAuthorizationFault = {
+    name: "SNSNoAuthorizationFault",
     __type: "SNSNoAuthorizationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4877,6 +4894,7 @@ const deserializeAws_json1_1StorageQuotaExceededFaultResponse = async (
     context
   );
   const contents: StorageQuotaExceededFault = {
+    name: "StorageQuotaExceededFault",
     __type: "StorageQuotaExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4895,6 +4913,7 @@ const deserializeAws_json1_1SubnetAlreadyInUseResponse = async (
     context
   );
   const contents: SubnetAlreadyInUse = {
+    name: "SubnetAlreadyInUse",
     __type: "SubnetAlreadyInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4913,6 +4932,7 @@ const deserializeAws_json1_1UpgradeDependencyFailureFaultResponse = async (
     context
   );
   const contents: UpgradeDependencyFailureFault = {
+    name: "UpgradeDependencyFailureFault",
     __type: "UpgradeDependencyFailureFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

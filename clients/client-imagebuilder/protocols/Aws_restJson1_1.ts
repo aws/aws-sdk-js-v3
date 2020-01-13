@@ -5727,6 +5727,7 @@ const deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CallRateLimitExceededException> => {
   const contents: CallRateLimitExceededException = {
+    name: "CallRateLimitExceededException",
     __type: "CallRateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5744,6 +5745,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
+    name: "ClientException",
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5761,6 +5763,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
+    name: "ForbiddenException",
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5778,6 +5781,7 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5795,6 +5799,7 @@ const deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse = async 
   context: __SerdeContext
 ): Promise<InvalidPaginationTokenException> => {
   const contents: InvalidPaginationTokenException = {
+    name: "InvalidPaginationTokenException",
     __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5812,6 +5817,7 @@ const deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse = a
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
   const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5829,6 +5835,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5846,6 +5853,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5863,6 +5871,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5880,6 +5889,7 @@ const deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidVersionNumberException> => {
   const contents: InvalidVersionNumberException = {
+    name: "InvalidVersionNumberException",
     __type: "InvalidVersionNumberException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5897,6 +5907,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5914,6 +5925,7 @@ const deserializeAws_restJson1_1ResourceDependencyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceDependencyException> => {
   const contents: ResourceDependencyException = {
+    name: "ResourceDependencyException",
     __type: "ResourceDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5931,6 +5943,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5948,6 +5961,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5965,6 +5979,7 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceException> => {
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -5982,6 +5997,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),

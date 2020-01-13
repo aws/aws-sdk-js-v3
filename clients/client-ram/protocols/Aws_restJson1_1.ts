@@ -3142,6 +3142,7 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3159,6 +3160,7 @@ const deserializeAws_restJson1_1InvalidClientTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidClientTokenException> => {
   const contents: InvalidClientTokenException = {
+    name: "InvalidClientTokenException",
     __type: "InvalidClientTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3176,6 +3178,7 @@ const deserializeAws_restJson1_1InvalidMaxResultsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidMaxResultsException> => {
   const contents: InvalidMaxResultsException = {
+    name: "InvalidMaxResultsException",
     __type: "InvalidMaxResultsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3193,6 +3196,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3210,6 +3214,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3227,6 +3232,7 @@ const deserializeAws_restJson1_1InvalidResourceTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidResourceTypeException> => {
   const contents: InvalidResourceTypeException = {
+    name: "InvalidResourceTypeException",
     __type: "InvalidResourceTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3244,6 +3250,7 @@ const deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse = async 
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
   const contents: InvalidStateTransitionException = {
+    name: "InvalidStateTransitionException",
     __type: "InvalidStateTransitionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3261,6 +3268,7 @@ const deserializeAws_restJson1_1MalformedArnExceptionResponse = async (
   context: __SerdeContext
 ): Promise<MalformedArnException> => {
   const contents: MalformedArnException = {
+    name: "MalformedArnException",
     __type: "MalformedArnException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3278,6 +3286,7 @@ const deserializeAws_restJson1_1MissingRequiredParameterExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
   const contents: MissingRequiredParameterException = {
+    name: "MissingRequiredParameterException",
     __type: "MissingRequiredParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3295,6 +3304,7 @@ const deserializeAws_restJson1_1OperationNotPermittedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
   const contents: OperationNotPermittedException = {
+    name: "OperationNotPermittedException",
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3312,6 +3322,7 @@ const deserializeAws_restJson1_1ResourceArnNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceArnNotFoundException> => {
   const contents: ResourceArnNotFoundException = {
+    name: "ResourceArnNotFoundException",
     __type: "ResourceArnNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3329,6 +3340,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyAcceptedExceptionR
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyAcceptedException> => {
   const contents: ResourceShareInvitationAlreadyAcceptedException = {
+    name: "ResourceShareInvitationAlreadyAcceptedException",
     __type: "ResourceShareInvitationAlreadyAcceptedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3346,6 +3358,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationAlreadyRejectedExceptionR
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyRejectedException> => {
   const contents: ResourceShareInvitationAlreadyRejectedException = {
+    name: "ResourceShareInvitationAlreadyRejectedException",
     __type: "ResourceShareInvitationAlreadyRejectedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3363,6 +3376,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationArnNotFoundExceptionRespo
   context: __SerdeContext
 ): Promise<ResourceShareInvitationArnNotFoundException> => {
   const contents: ResourceShareInvitationArnNotFoundException = {
+    name: "ResourceShareInvitationArnNotFoundException",
     __type: "ResourceShareInvitationArnNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3380,6 +3394,7 @@ const deserializeAws_restJson1_1ResourceShareInvitationExpiredExceptionResponse 
   context: __SerdeContext
 ): Promise<ResourceShareInvitationExpiredException> => {
   const contents: ResourceShareInvitationExpiredException = {
+    name: "ResourceShareInvitationExpiredException",
     __type: "ResourceShareInvitationExpiredException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3397,6 +3412,7 @@ const deserializeAws_restJson1_1ResourceShareLimitExceededExceptionResponse = as
   context: __SerdeContext
 ): Promise<ResourceShareLimitExceededException> => {
   const contents: ResourceShareLimitExceededException = {
+    name: "ResourceShareLimitExceededException",
     __type: "ResourceShareLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3414,6 +3430,7 @@ const deserializeAws_restJson1_1ServerInternalExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServerInternalException> => {
   const contents: ServerInternalException = {
+    name: "ServerInternalException",
     __type: "ServerInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -3431,6 +3448,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -3448,6 +3466,7 @@ const deserializeAws_restJson1_1TagLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const contents: TagLimitExceededException = {
+    name: "TagLimitExceededException",
     __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3465,6 +3484,7 @@ const deserializeAws_restJson1_1TagPolicyViolationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagPolicyViolationException> => {
   const contents: TagPolicyViolationException = {
+    name: "TagPolicyViolationException",
     __type: "TagPolicyViolationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -3482,6 +3502,7 @@ const deserializeAws_restJson1_1UnknownResourceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnknownResourceException> => {
   const contents: UnknownResourceException = {
+    name: "UnknownResourceException",
     __type: "UnknownResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

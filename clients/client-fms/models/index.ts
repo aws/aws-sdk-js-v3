@@ -478,6 +478,7 @@ export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalErrorException";
+  name: "InternalErrorException";
   $fault: "client";
   Message?: string;
 }
@@ -497,6 +498,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   Message?: string;
 }
@@ -518,6 +520,7 @@ export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOperationException";
+  name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
 }
@@ -537,6 +540,7 @@ export interface InvalidTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTypeException";
+  name: "InvalidTypeException";
   $fault: "client";
   Message?: string;
 }
@@ -559,6 +563,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1152,6 +1157,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }

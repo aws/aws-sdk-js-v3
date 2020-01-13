@@ -133,6 +133,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   /**
    *
@@ -157,6 +158,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -181,6 +183,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   /**
    *
@@ -205,6 +208,7 @@ export interface ConcurrentRunsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentRunsExceededException";
+  name: "ConcurrentRunsExceededException";
   $fault: "client";
   /**
    *
@@ -229,6 +233,7 @@ export interface ConditionCheckFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConditionCheckFailureException";
+  name: "ConditionCheckFailureException";
   $fault: "client";
   /**
    *
@@ -253,6 +258,7 @@ export interface EntityNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityNotFoundException";
+  name: "EntityNotFoundException";
   $fault: "client";
   /**
    *
@@ -305,6 +311,7 @@ export interface GlueEncryptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "GlueEncryptionException";
+  name: "GlueEncryptionException";
   $fault: "client";
   /**
    *
@@ -329,6 +336,7 @@ export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
   $fault: "client";
   /**
    *
@@ -353,6 +361,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   /**
    *
@@ -377,6 +386,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   /**
    *
@@ -401,6 +411,7 @@ export interface OperationTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationTimeoutException";
+  name: "OperationTimeoutException";
   $fault: "client";
   /**
    *
@@ -425,6 +436,7 @@ export interface ResourceNumberLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNumberLimitExceededException";
+  name: "ResourceNumberLimitExceededException";
   $fault: "client";
   /**
    *
@@ -449,6 +461,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   /**
    *
@@ -473,6 +486,7 @@ export interface VersionMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "VersionMismatchException";
+  name: "VersionMismatchException";
   $fault: "client";
   /**
    *
@@ -6910,6 +6924,7 @@ export interface MLTransformNotReadyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MLTransformNotReadyException";
+  name: "MLTransformNotReadyException";
   $fault: "client";
   /**
    *
@@ -11275,6 +11290,7 @@ export interface CrawlerNotRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CrawlerNotRunningException";
+  name: "CrawlerNotRunningException";
   $fault: "client";
   /**
    *
@@ -11299,6 +11315,7 @@ export interface CrawlerRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CrawlerRunningException";
+  name: "CrawlerRunningException";
   $fault: "client";
   /**
    *
@@ -11329,6 +11346,7 @@ export interface CrawlerStoppingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CrawlerStoppingException";
+  name: "CrawlerStoppingException";
   $fault: "client";
   /**
    *
@@ -12688,6 +12706,7 @@ export interface NoScheduleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoScheduleException";
+  name: "NoScheduleException";
   $fault: "client";
   /**
    *
@@ -12777,6 +12796,7 @@ export interface SchedulerNotRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SchedulerNotRunningException";
+  name: "SchedulerNotRunningException";
   $fault: "client";
   /**
    *
@@ -12801,6 +12821,7 @@ export interface SchedulerRunningException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SchedulerRunningException";
+  name: "SchedulerRunningException";
   $fault: "client";
   /**
    *
@@ -12825,6 +12846,7 @@ export interface SchedulerTransitioningException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SchedulerTransitioningException";
+  name: "SchedulerTransitioningException";
   $fault: "client";
   /**
    *

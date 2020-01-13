@@ -556,6 +556,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ClientLimitExceededException> => {
   const contents: ClientLimitExceededException = {
+    name: "ClientLimitExceededException",
     __type: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -573,6 +574,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -590,6 +592,7 @@ const deserializeAws_restJson1_1InvalidCodecPrivateDataExceptionResponse = async
   context: __SerdeContext
 ): Promise<InvalidCodecPrivateDataException> => {
   const contents: InvalidCodecPrivateDataException = {
+    name: "InvalidCodecPrivateDataException",
     __type: "InvalidCodecPrivateDataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -607,6 +610,7 @@ const deserializeAws_restJson1_1MissingCodecPrivateDataExceptionResponse = async
   context: __SerdeContext
 ): Promise<MissingCodecPrivateDataException> => {
   const contents: MissingCodecPrivateDataException = {
+    name: "MissingCodecPrivateDataException",
     __type: "MissingCodecPrivateDataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -624,6 +628,7 @@ const deserializeAws_restJson1_1NoDataRetentionExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NoDataRetentionException> => {
   const contents: NoDataRetentionException = {
+    name: "NoDataRetentionException",
     __type: "NoDataRetentionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -641,6 +646,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
   const contents: NotAuthorizedException = {
+    name: "NotAuthorizedException",
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -658,6 +664,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -675,6 +682,7 @@ const deserializeAws_restJson1_1UnsupportedStreamMediaTypeExceptionResponse = as
   context: __SerdeContext
 ): Promise<UnsupportedStreamMediaTypeException> => {
   const contents: UnsupportedStreamMediaTypeException = {
+    name: "UnsupportedStreamMediaTypeException",
     __type: "UnsupportedStreamMediaTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

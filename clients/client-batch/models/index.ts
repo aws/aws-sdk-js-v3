@@ -273,6 +273,7 @@ export interface ClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClientException";
+  name: "ClientException";
   $fault: "client";
   message?: string;
 }
@@ -2678,6 +2679,7 @@ export interface ServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServerException";
+  name: "ServerException";
   $fault: "server";
   message?: string;
 }

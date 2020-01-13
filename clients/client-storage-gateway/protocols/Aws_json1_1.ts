@@ -6718,6 +6718,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6736,6 +6737,7 @@ const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
     context
   );
   const contents: InvalidGatewayRequestException = {
+    name: "InvalidGatewayRequestException",
     __type: "InvalidGatewayRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6754,6 +6756,7 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
     context
   );
   const contents: ServiceUnavailableError = {
+    name: "ServiceUnavailableError",
     __type: "ServiceUnavailableError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

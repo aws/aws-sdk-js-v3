@@ -1806,6 +1806,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1824,6 +1825,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1842,6 +1844,7 @@ const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
     context
   );
   const contents: InvalidServiceRoleException = {
+    name: "InvalidServiceRoleException",
     __type: "InvalidServiceRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1860,6 +1863,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1878,6 +1882,7 @@ const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ProjectAlreadyExistsException = {
+    name: "ProjectAlreadyExistsException",
     __type: "ProjectAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1896,6 +1901,7 @@ const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
     context
   );
   const contents: ProjectConfigurationException = {
+    name: "ProjectConfigurationException",
     __type: "ProjectConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1914,6 +1920,7 @@ const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
     context
   );
   const contents: ProjectCreationFailedException = {
+    name: "ProjectCreationFailedException",
     __type: "ProjectCreationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1932,6 +1939,7 @@ const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
     context
   );
   const contents: ProjectNotFoundException = {
+    name: "ProjectNotFoundException",
     __type: "ProjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1950,6 +1958,7 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async
     context
   );
   const contents: TeamMemberAlreadyAssociatedException = {
+    name: "TeamMemberAlreadyAssociatedException",
     __type: "TeamMemberAlreadyAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1968,6 +1977,7 @@ const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
     context
   );
   const contents: TeamMemberNotFoundException = {
+    name: "TeamMemberNotFoundException",
     __type: "TeamMemberNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1986,6 +1996,7 @@ const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: UserProfileAlreadyExistsException = {
+    name: "UserProfileAlreadyExistsException",
     __type: "UserProfileAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2004,6 +2015,7 @@ const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
     context
   );
   const contents: UserProfileNotFoundException = {
+    name: "UserProfileNotFoundException",
     __type: "UserProfileNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2022,6 +2034,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

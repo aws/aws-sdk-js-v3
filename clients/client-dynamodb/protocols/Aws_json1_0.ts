@@ -4403,6 +4403,7 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
     context
   );
   const contents: InvalidEndpointException = {
+    name: "InvalidEndpointException",
     __type: "InvalidEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4421,6 +4422,7 @@ const deserializeAws_json1_0BackupInUseExceptionResponse = async (
     context
   );
   const contents: BackupInUseException = {
+    name: "BackupInUseException",
     __type: "BackupInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4439,6 +4441,7 @@ const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
     context
   );
   const contents: BackupNotFoundException = {
+    name: "BackupNotFoundException",
     __type: "BackupNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4457,6 +4460,7 @@ const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
     context
   );
   const contents: ConditionalCheckFailedException = {
+    name: "ConditionalCheckFailedException",
     __type: "ConditionalCheckFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4475,6 +4479,7 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
     context
   );
   const contents: ContinuousBackupsUnavailableException = {
+    name: "ContinuousBackupsUnavailableException",
     __type: "ContinuousBackupsUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4493,6 +4498,7 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: GlobalTableAlreadyExistsException = {
+    name: "GlobalTableAlreadyExistsException",
     __type: "GlobalTableAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4511,6 +4517,7 @@ const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
     context
   );
   const contents: GlobalTableNotFoundException = {
+    name: "GlobalTableNotFoundException",
     __type: "GlobalTableNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4529,6 +4536,7 @@ const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async
     context
   );
   const contents: IdempotentParameterMismatchException = {
+    name: "IdempotentParameterMismatchException",
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4547,6 +4555,7 @@ const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
     context
   );
   const contents: IndexNotFoundException = {
+    name: "IndexNotFoundException",
     __type: "IndexNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4565,6 +4574,7 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4583,6 +4593,7 @@ const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
     context
   );
   const contents: InvalidRestoreTimeException = {
+    name: "InvalidRestoreTimeException",
     __type: "InvalidRestoreTimeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4601,6 +4612,7 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = a
     context
   );
   const contents: ItemCollectionSizeLimitExceededException = {
+    name: "ItemCollectionSizeLimitExceededException",
     __type: "ItemCollectionSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4619,6 +4631,7 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4637,6 +4650,7 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = as
     context
   );
   const contents: PointInTimeRecoveryUnavailableException = {
+    name: "PointInTimeRecoveryUnavailableException",
     __type: "PointInTimeRecoveryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4655,6 +4669,7 @@ const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = asy
     context
   );
   const contents: ProvisionedThroughputExceededException = {
+    name: "ProvisionedThroughputExceededException",
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4673,6 +4688,7 @@ const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ReplicaAlreadyExistsException = {
+    name: "ReplicaAlreadyExistsException",
     __type: "ReplicaAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4691,6 +4707,7 @@ const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
     context
   );
   const contents: ReplicaNotFoundException = {
+    name: "ReplicaNotFoundException",
     __type: "ReplicaNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4709,6 +4726,7 @@ const deserializeAws_json1_0RequestLimitExceededResponse = async (
     context
   );
   const contents: RequestLimitExceeded = {
+    name: "RequestLimitExceeded",
     __type: "RequestLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4727,6 +4745,7 @@ const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4745,6 +4764,7 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4763,6 +4783,7 @@ const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: TableAlreadyExistsException = {
+    name: "TableAlreadyExistsException",
     __type: "TableAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4781,6 +4802,7 @@ const deserializeAws_json1_0TableInUseExceptionResponse = async (
     context
   );
   const contents: TableInUseException = {
+    name: "TableInUseException",
     __type: "TableInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4799,6 +4821,7 @@ const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
     context
   );
   const contents: TableNotFoundException = {
+    name: "TableNotFoundException",
     __type: "TableNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4817,6 +4840,7 @@ const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
     context
   );
   const contents: TransactionCanceledException = {
+    name: "TransactionCanceledException",
     __type: "TransactionCanceledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4835,6 +4859,7 @@ const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
     context
   );
   const contents: TransactionConflictException = {
+    name: "TransactionConflictException",
     __type: "TransactionConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4853,6 +4878,7 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
     context
   );
   const contents: TransactionInProgressException = {
+    name: "TransactionInProgressException",
     __type: "TransactionInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

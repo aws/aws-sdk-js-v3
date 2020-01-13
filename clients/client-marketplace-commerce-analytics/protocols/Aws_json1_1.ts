@@ -188,6 +188,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
     context
   );
   const contents: MarketplaceCommerceAnalyticsException = {
+    name: "MarketplaceCommerceAnalyticsException",
     __type: "MarketplaceCommerceAnalyticsException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

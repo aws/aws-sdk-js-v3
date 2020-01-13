@@ -391,6 +391,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Message?: string;
 }
@@ -4078,6 +4079,7 @@ export interface FleetCapacityExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FleetCapacityExceededException";
+  name: "FleetCapacityExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -4586,6 +4588,7 @@ export interface GameSessionFullException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "GameSessionFullException";
+  name: "GameSessionFullException";
   $fault: "client";
   Message?: string;
 }
@@ -5066,6 +5069,7 @@ export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
 }
@@ -5261,6 +5265,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -5282,6 +5287,7 @@ export interface InvalidFleetStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidFleetStatusException";
+  name: "InvalidFleetStatusException";
   $fault: "client";
   Message?: string;
 }
@@ -5303,6 +5309,7 @@ export interface InvalidGameSessionStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidGameSessionStatusException";
+  name: "InvalidGameSessionStatusException";
   $fault: "client";
   Message?: string;
 }
@@ -5323,6 +5330,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -5398,6 +5406,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -6114,6 +6123,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -8228,6 +8238,7 @@ export interface TerminalRoutingStrategyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TerminalRoutingStrategyException";
+  name: "TerminalRoutingStrategyException";
   $fault: "client";
   Message?: string;
 }
@@ -8247,6 +8258,7 @@ export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedException";
+  name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
 }
@@ -8266,6 +8278,7 @@ export interface UnsupportedRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedRegionException";
+  name: "UnsupportedRegionException";
   $fault: "client";
   Message?: string;
 }

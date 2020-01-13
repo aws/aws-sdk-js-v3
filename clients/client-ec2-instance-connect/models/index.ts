@@ -10,6 +10,7 @@ export interface AuthException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AuthException";
+  name: "AuthException";
   $fault: "client";
   Message?: string;
 }
@@ -29,6 +30,7 @@ export interface EC2InstanceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EC2InstanceNotFoundException";
+  name: "EC2InstanceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -48,6 +50,7 @@ export interface InvalidArgsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgsException";
+  name: "InvalidArgsException";
   $fault: "client";
   Message?: string;
 }
@@ -127,6 +130,7 @@ export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceException";
+  name: "ServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -146,6 +150,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }

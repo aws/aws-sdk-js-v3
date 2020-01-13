@@ -184,6 +184,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
 }
@@ -754,6 +755,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
 }
@@ -773,6 +775,7 @@ export interface InvalidServiceRoleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidServiceRoleException";
+  name: "InvalidServiceRoleException";
   $fault: "client";
   message?: string;
 }
@@ -792,6 +795,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -1071,6 +1075,7 @@ export interface ProjectAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProjectAlreadyExistsException";
+  name: "ProjectAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -1090,6 +1095,7 @@ export interface ProjectConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProjectConfigurationException";
+  name: "ProjectConfigurationException";
   $fault: "client";
   message?: string;
 }
@@ -1110,6 +1116,7 @@ export interface ProjectCreationFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProjectCreationFailedException";
+  name: "ProjectCreationFailedException";
   $fault: "client";
   message?: string;
 }
@@ -1129,6 +1136,7 @@ export interface ProjectNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProjectNotFoundException";
+  name: "ProjectNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1335,6 +1343,7 @@ export interface TeamMemberAlreadyAssociatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TeamMemberAlreadyAssociatedException";
+  name: "TeamMemberAlreadyAssociatedException";
   $fault: "client";
   message?: string;
 }
@@ -1354,6 +1363,7 @@ export interface TeamMemberNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TeamMemberNotFoundException";
+  name: "TeamMemberNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1678,6 +1688,7 @@ export interface UserProfileAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UserProfileAlreadyExistsException";
+  name: "UserProfileAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -1697,6 +1708,7 @@ export interface UserProfileNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UserProfileNotFoundException";
+  name: "UserProfileNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1767,6 +1779,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   message?: string;
 }

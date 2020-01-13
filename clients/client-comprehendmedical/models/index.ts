@@ -647,6 +647,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
@@ -667,6 +668,7 @@ export interface InvalidEncodingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEncodingException";
+  name: "InvalidEncodingException";
   $fault: "client";
   Message?: string;
 }
@@ -687,6 +689,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -865,6 +868,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -885,6 +889,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
@@ -1125,6 +1130,7 @@ export interface TextSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TextSizeLimitExceededException";
+  name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1146,6 +1152,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }
@@ -1224,6 +1231,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   Message?: string;
 }

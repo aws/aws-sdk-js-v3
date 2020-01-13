@@ -3370,6 +3370,7 @@ export interface BaseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BaseException";
+  name: "BaseException";
   $fault: "client";
   /**
    *
@@ -3394,6 +3395,7 @@ export interface DisabledOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DisabledOperationException";
+  name: "DisabledOperationException";
   $fault: "client";
   /**
    *
@@ -3418,6 +3420,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   /**
    *
@@ -3442,6 +3445,7 @@ export interface InvalidTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTypeException";
+  name: "InvalidTypeException";
   $fault: "client";
   /**
    *
@@ -3466,6 +3470,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -3490,6 +3495,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -3514,6 +3520,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -3538,6 +3545,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   /**
    *

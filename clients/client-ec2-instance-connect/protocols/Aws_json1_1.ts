@@ -132,6 +132,7 @@ const deserializeAws_json1_1AuthExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AuthException(body, context);
   const contents: AuthException = {
+    name: "AuthException",
     __type: "AuthException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -150,6 +151,7 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
     context
   );
   const contents: EC2InstanceNotFoundException = {
+    name: "EC2InstanceNotFoundException",
     __type: "EC2InstanceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -168,6 +170,7 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
     context
   );
   const contents: InvalidArgsException = {
+    name: "InvalidArgsException",
     __type: "InvalidArgsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -186,6 +189,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
     context
   );
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -204,6 +208,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
     context
   );
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

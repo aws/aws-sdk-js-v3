@@ -14,6 +14,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -37,6 +38,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Message?: string;
 }
@@ -289,6 +291,7 @@ export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalFailureException";
+  name: "InternalFailureException";
   $fault: "server";
   Message?: string;
 }
@@ -343,6 +346,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -559,6 +563,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }

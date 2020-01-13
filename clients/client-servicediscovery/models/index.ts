@@ -249,6 +249,7 @@ export interface CustomHealthNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CustomHealthNotFound";
+  name: "CustomHealthNotFound";
   $fault: "client";
   Message?: string;
 }
@@ -677,6 +678,7 @@ export interface DuplicateRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateRequest";
+  name: "DuplicateRequest";
   $fault: "client";
   /**
    *
@@ -1358,6 +1360,7 @@ export interface InstanceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InstanceNotFound";
+  name: "InstanceNotFound";
   $fault: "client";
   Message?: string;
 }
@@ -1441,6 +1444,7 @@ export namespace InstanceSummary {
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInput";
+  name: "InvalidInput";
   $fault: "client";
   Message?: string;
 }
@@ -1800,6 +1804,7 @@ export interface NamespaceAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NamespaceAlreadyExists";
+  name: "NamespaceAlreadyExists";
   $fault: "client";
   /**
    *
@@ -1890,6 +1895,7 @@ export interface NamespaceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NamespaceNotFound";
+  name: "NamespaceNotFound";
   $fault: "client";
   Message?: string;
 }
@@ -2268,6 +2274,7 @@ export interface OperationNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotFound";
+  name: "OperationNotFound";
   $fault: "client";
   Message?: string;
 }
@@ -2531,6 +2538,7 @@ export interface ResourceInUse
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUse";
+  name: "ResourceInUse";
   $fault: "client";
   Message?: string;
 }
@@ -2550,6 +2558,7 @@ export interface ResourceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceLimitExceeded";
+  name: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
 }
@@ -2676,6 +2685,7 @@ export interface ServiceAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceAlreadyExists";
+  name: "ServiceAlreadyExists";
   $fault: "client";
   /**
    *
@@ -2862,6 +2872,7 @@ export interface ServiceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceNotFound";
+  name: "ServiceNotFound";
   $fault: "client";
   Message?: string;
 }

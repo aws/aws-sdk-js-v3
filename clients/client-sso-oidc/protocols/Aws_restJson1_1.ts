@@ -465,6 +465,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -486,6 +487,7 @@ const deserializeAws_restJson1_1AuthorizationPendingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AuthorizationPendingException> => {
   const contents: AuthorizationPendingException = {
+    name: "AuthorizationPendingException",
     __type: "AuthorizationPendingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -507,6 +509,7 @@ const deserializeAws_restJson1_1ExpiredTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ExpiredTokenException> => {
   const contents: ExpiredTokenException = {
+    name: "ExpiredTokenException",
     __type: "ExpiredTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -528,6 +531,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -549,6 +553,7 @@ const deserializeAws_restJson1_1InvalidClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidClientException> => {
   const contents: InvalidClientException = {
+    name: "InvalidClientException",
     __type: "InvalidClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -570,6 +575,7 @@ const deserializeAws_restJson1_1InvalidClientMetadataExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidClientMetadataException> => {
   const contents: InvalidClientMetadataException = {
+    name: "InvalidClientMetadataException",
     __type: "InvalidClientMetadataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -591,6 +597,7 @@ const deserializeAws_restJson1_1InvalidGrantExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidGrantException> => {
   const contents: InvalidGrantException = {
+    name: "InvalidGrantException",
     __type: "InvalidGrantException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -612,6 +619,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -633,6 +641,7 @@ const deserializeAws_restJson1_1InvalidScopeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidScopeException> => {
   const contents: InvalidScopeException = {
+    name: "InvalidScopeException",
     __type: "InvalidScopeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -654,6 +663,7 @@ const deserializeAws_restJson1_1SlowDownExceptionResponse = async (
   context: __SerdeContext
 ): Promise<SlowDownException> => {
   const contents: SlowDownException = {
+    name: "SlowDownException",
     __type: "SlowDownException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -675,6 +685,7 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedClientException> => {
   const contents: UnauthorizedClientException = {
+    name: "UnauthorizedClientException",
     __type: "UnauthorizedClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -696,6 +707,7 @@ const deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedGrantTypeException> => {
   const contents: UnsupportedGrantTypeException = {
+    name: "UnsupportedGrantTypeException",
     __type: "UnsupportedGrantTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

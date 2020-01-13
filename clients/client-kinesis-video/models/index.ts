@@ -19,6 +19,7 @@ export interface AccountStreamLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountStreamLimitExceededException";
+  name: "AccountStreamLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -39,6 +40,7 @@ export interface ClientLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClientLimitExceededException";
+  name: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -232,6 +234,7 @@ export interface DeviceStreamLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DeviceStreamLimitExceededException";
+  name: "DeviceStreamLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -300,6 +303,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
 }
@@ -319,6 +323,7 @@ export interface InvalidDeviceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDeviceException";
+  name: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
 }
@@ -338,6 +343,7 @@ export interface InvalidResourceFormatException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceFormatException";
+  name: "InvalidResourceFormatException";
   $fault: "client";
   Message?: string;
 }
@@ -472,6 +478,7 @@ export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotAuthorizedException";
+  name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
 }
@@ -491,6 +498,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -510,6 +518,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -689,6 +698,7 @@ export interface TagsPerResourceExceededLimitException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagsPerResourceExceededLimitException";
+  name: "TagsPerResourceExceededLimitException";
   $fault: "client";
   Message?: string;
 }
@@ -881,6 +891,7 @@ export interface VersionMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "VersionMismatchException";
+  name: "VersionMismatchException";
   $fault: "client";
   Message?: string;
 }

@@ -1767,6 +1767,7 @@ const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
     context
   );
   const contents: AcceleratorNotDisabledException = {
+    name: "AcceleratorNotDisabledException",
     __type: "AcceleratorNotDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1785,6 +1786,7 @@ const deserializeAws_json1_1AcceleratorNotFoundExceptionResponse = async (
     context
   );
   const contents: AcceleratorNotFoundException = {
+    name: "AcceleratorNotFoundException",
     __type: "AcceleratorNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1803,6 +1805,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1821,6 +1824,7 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse = asyn
     context
   );
   const contents: AssociatedEndpointGroupFoundException = {
+    name: "AssociatedEndpointGroupFoundException",
     __type: "AssociatedEndpointGroupFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1839,6 +1843,7 @@ const deserializeAws_json1_1AssociatedListenerFoundExceptionResponse = async (
     context
   );
   const contents: AssociatedListenerFoundException = {
+    name: "AssociatedListenerFoundException",
     __type: "AssociatedListenerFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1857,6 +1862,7 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async 
     context
   );
   const contents: EndpointGroupAlreadyExistsException = {
+    name: "EndpointGroupAlreadyExistsException",
     __type: "EndpointGroupAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1875,6 +1881,7 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
     context
   );
   const contents: EndpointGroupNotFoundException = {
+    name: "EndpointGroupNotFoundException",
     __type: "EndpointGroupNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1893,6 +1900,7 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
     context
   );
   const contents: InternalServiceErrorException = {
+    name: "InternalServiceErrorException",
     __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1911,6 +1919,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
     context
   );
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1929,6 +1938,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1947,6 +1957,7 @@ const deserializeAws_json1_1InvalidPortRangeExceptionResponse = async (
     context
   );
   const contents: InvalidPortRangeException = {
+    name: "InvalidPortRangeException",
     __type: "InvalidPortRangeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1965,6 +1976,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1983,6 +1995,7 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
     context
   );
   const contents: ListenerNotFoundException = {
+    name: "ListenerNotFoundException",
     __type: "ListenerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

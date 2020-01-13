@@ -527,6 +527,7 @@ const deserializeAws_restJson1_1ContainerNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ContainerNotFoundException> => {
   const contents: ContainerNotFoundException = {
+    name: "ContainerNotFoundException",
     __type: "ContainerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -544,6 +545,7 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -561,6 +563,7 @@ const deserializeAws_restJson1_1ObjectNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ObjectNotFoundException> => {
   const contents: ObjectNotFoundException = {
+    name: "ObjectNotFoundException",
     __type: "ObjectNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -578,6 +581,7 @@ const deserializeAws_restJson1_1RequestedRangeNotSatisfiableExceptionResponse = 
   context: __SerdeContext
 ): Promise<RequestedRangeNotSatisfiableException> => {
   const contents: RequestedRangeNotSatisfiableException = {
+    name: "RequestedRangeNotSatisfiableException",
     __type: "RequestedRangeNotSatisfiableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

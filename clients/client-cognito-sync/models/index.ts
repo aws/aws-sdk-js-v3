@@ -10,6 +10,7 @@ export interface AlreadyStreamedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyStreamedException";
+  name: "AlreadyStreamedException";
   $fault: "client";
   /**
    *
@@ -133,6 +134,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   /**
    *
@@ -443,6 +445,7 @@ export interface DuplicateRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateRequestException";
+  name: "DuplicateRequestException";
   $fault: "client";
   /**
    *
@@ -743,6 +746,7 @@ export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalErrorException";
+  name: "InternalErrorException";
   $fault: "server";
   /**
    *
@@ -767,6 +771,7 @@ export interface InvalidConfigurationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidConfigurationException";
+  name: "InvalidConfigurationException";
   $fault: "client";
   /**
    *
@@ -791,6 +796,7 @@ export interface InvalidLambdaFunctionOutputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidLambdaFunctionOutputException";
+  name: "InvalidLambdaFunctionOutputException";
   $fault: "client";
   /**
    *
@@ -815,6 +821,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   /**
    *
@@ -841,6 +848,7 @@ export interface LambdaSocketTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LambdaSocketTimeoutException";
+  name: "LambdaSocketTimeoutException";
   $fault: "client";
   message: string | undefined;
 }
@@ -860,6 +868,7 @@ export interface LambdaThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LambdaThrottledException";
+  name: "LambdaThrottledException";
   $fault: "client";
   /**
    *
@@ -884,6 +893,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -1195,6 +1205,7 @@ export interface NotAuthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotAuthorizedException";
+  name: "NotAuthorizedException";
   $fault: "client";
   /**
    *
@@ -1419,6 +1430,7 @@ export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceConflictException";
+  name: "ResourceConflictException";
   $fault: "client";
   /**
    *
@@ -1443,6 +1455,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -1624,6 +1637,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   /**
    *

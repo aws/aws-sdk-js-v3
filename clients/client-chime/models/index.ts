@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -321,6 +322,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -733,6 +735,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -1682,6 +1685,7 @@ export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ForbiddenException";
+  name: "ForbiddenException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -3404,6 +3408,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4196,6 +4201,7 @@ export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceLimitExceededException";
+  name: "ResourceLimitExceededException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4432,6 +4438,7 @@ export interface ServiceFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceFailureException";
+  name: "ServiceFailureException";
   $fault: "server";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4452,6 +4459,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4616,6 +4624,7 @@ export interface ThrottledClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottledClientException";
+  name: "ThrottledClientException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4636,6 +4645,7 @@ export interface UnauthorizedClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedClientException";
+  name: "UnauthorizedClientException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
@@ -4656,6 +4666,7 @@ export interface UnprocessableEntityException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnprocessableEntityException";
+  name: "UnprocessableEntityException";
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;

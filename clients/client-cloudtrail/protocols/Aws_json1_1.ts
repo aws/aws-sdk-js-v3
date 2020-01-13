@@ -2405,6 +2405,7 @@ const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
     context
   );
   const contents: CloudTrailARNInvalidException = {
+    name: "CloudTrailARNInvalidException",
     __type: "CloudTrailARNInvalidException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2423,6 +2424,7 @@ const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async 
     context
   );
   const contents: CloudTrailAccessNotEnabledException = {
+    name: "CloudTrailAccessNotEnabledException",
     __type: "CloudTrailAccessNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2441,6 +2443,7 @@ const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse =
     context
   );
   const contents: CloudWatchLogsDeliveryUnavailableException = {
+    name: "CloudWatchLogsDeliveryUnavailableException",
     __type: "CloudWatchLogsDeliveryUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2459,6 +2462,7 @@ const deserializeAws_json1_1InsightNotEnabledExceptionResponse = async (
     context
   );
   const contents: InsightNotEnabledException = {
+    name: "InsightNotEnabledException",
     __type: "InsightNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2477,6 +2481,7 @@ const deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExcepti
     context
   );
   const contents: InsufficientDependencyServiceAccessPermissionException = {
+    name: "InsufficientDependencyServiceAccessPermissionException",
     __type: "InsufficientDependencyServiceAccessPermissionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2495,6 +2500,7 @@ const deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse = asyn
     context
   );
   const contents: InsufficientEncryptionPolicyException = {
+    name: "InsufficientEncryptionPolicyException",
     __type: "InsufficientEncryptionPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2513,6 +2519,7 @@ const deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse = async 
     context
   );
   const contents: InsufficientS3BucketPolicyException = {
+    name: "InsufficientS3BucketPolicyException",
     __type: "InsufficientS3BucketPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2531,6 +2538,7 @@ const deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse = async 
     context
   );
   const contents: InsufficientSnsTopicPolicyException = {
+    name: "InsufficientSnsTopicPolicyException",
     __type: "InsufficientSnsTopicPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2549,6 +2557,7 @@ const deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse = 
     context
   );
   const contents: InvalidCloudWatchLogsLogGroupArnException = {
+    name: "InvalidCloudWatchLogsLogGroupArnException",
     __type: "InvalidCloudWatchLogsLogGroupArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2567,6 +2576,7 @@ const deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse = asyn
     context
   );
   const contents: InvalidCloudWatchLogsRoleArnException = {
+    name: "InvalidCloudWatchLogsRoleArnException",
     __type: "InvalidCloudWatchLogsRoleArnException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2585,6 +2595,7 @@ const deserializeAws_json1_1InvalidEventCategoryExceptionResponse = async (
     context
   );
   const contents: InvalidEventCategoryException = {
+    name: "InvalidEventCategoryException",
     __type: "InvalidEventCategoryException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2603,6 +2614,7 @@ const deserializeAws_json1_1InvalidEventSelectorsExceptionResponse = async (
     context
   );
   const contents: InvalidEventSelectorsException = {
+    name: "InvalidEventSelectorsException",
     __type: "InvalidEventSelectorsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2621,6 +2633,7 @@ const deserializeAws_json1_1InvalidHomeRegionExceptionResponse = async (
     context
   );
   const contents: InvalidHomeRegionException = {
+    name: "InvalidHomeRegionException",
     __type: "InvalidHomeRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2639,6 +2652,7 @@ const deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse = async (
     context
   );
   const contents: InvalidInsightSelectorsException = {
+    name: "InvalidInsightSelectorsException",
     __type: "InvalidInsightSelectorsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2657,6 +2671,7 @@ const deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse = async (
     context
   );
   const contents: InvalidKmsKeyIdException = {
+    name: "InvalidKmsKeyIdException",
     __type: "InvalidKmsKeyIdException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2675,6 +2690,7 @@ const deserializeAws_json1_1InvalidLookupAttributesExceptionResponse = async (
     context
   );
   const contents: InvalidLookupAttributesException = {
+    name: "InvalidLookupAttributesException",
     __type: "InvalidLookupAttributesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2693,6 +2709,7 @@ const deserializeAws_json1_1InvalidMaxResultsExceptionResponse = async (
     context
   );
   const contents: InvalidMaxResultsException = {
+    name: "InvalidMaxResultsException",
     __type: "InvalidMaxResultsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2711,6 +2728,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2729,6 +2747,7 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
     context
   );
   const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2747,6 +2766,7 @@ const deserializeAws_json1_1InvalidS3BucketNameExceptionResponse = async (
     context
   );
   const contents: InvalidS3BucketNameException = {
+    name: "InvalidS3BucketNameException",
     __type: "InvalidS3BucketNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2765,6 +2785,7 @@ const deserializeAws_json1_1InvalidS3PrefixExceptionResponse = async (
     context
   );
   const contents: InvalidS3PrefixException = {
+    name: "InvalidS3PrefixException",
     __type: "InvalidS3PrefixException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2783,6 +2804,7 @@ const deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse = async (
     context
   );
   const contents: InvalidSnsTopicNameException = {
+    name: "InvalidSnsTopicNameException",
     __type: "InvalidSnsTopicNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2801,6 +2823,7 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
     context
   );
   const contents: InvalidTagParameterException = {
+    name: "InvalidTagParameterException",
     __type: "InvalidTagParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2819,6 +2842,7 @@ const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
     context
   );
   const contents: InvalidTimeRangeException = {
+    name: "InvalidTimeRangeException",
     __type: "InvalidTimeRangeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2837,6 +2861,7 @@ const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
     context
   );
   const contents: InvalidTokenException = {
+    name: "InvalidTokenException",
     __type: "InvalidTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2855,6 +2880,7 @@ const deserializeAws_json1_1InvalidTrailNameExceptionResponse = async (
     context
   );
   const contents: InvalidTrailNameException = {
+    name: "InvalidTrailNameException",
     __type: "InvalidTrailNameException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2870,6 +2896,7 @@ const deserializeAws_json1_1KmsExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsException(body, context);
   const contents: KmsException = {
+    name: "KmsException",
     __type: "KmsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2888,6 +2915,7 @@ const deserializeAws_json1_1KmsKeyDisabledExceptionResponse = async (
     context
   );
   const contents: KmsKeyDisabledException = {
+    name: "KmsKeyDisabledException",
     __type: "KmsKeyDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2906,6 +2934,7 @@ const deserializeAws_json1_1KmsKeyNotFoundExceptionResponse = async (
     context
   );
   const contents: KmsKeyNotFoundException = {
+    name: "KmsKeyNotFoundException",
     __type: "KmsKeyNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2924,6 +2953,7 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse = asy
     context
   );
   const contents: MaximumNumberOfTrailsExceededException = {
+    name: "MaximumNumberOfTrailsExceededException",
     __type: "MaximumNumberOfTrailsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2942,6 +2972,7 @@ const deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse = asyn
     context
   );
   const contents: NotOrganizationMasterAccountException = {
+    name: "NotOrganizationMasterAccountException",
     __type: "NotOrganizationMasterAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2960,6 +2991,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
     context
   );
   const contents: OperationNotPermittedException = {
+    name: "OperationNotPermittedException",
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2978,6 +3010,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = 
     context
   );
   const contents: OrganizationNotInAllFeaturesModeException = {
+    name: "OrganizationNotInAllFeaturesModeException",
     __type: "OrganizationNotInAllFeaturesModeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2996,6 +3029,7 @@ const deserializeAws_json1_1OrganizationsNotInUseExceptionResponse = async (
     context
   );
   const contents: OrganizationsNotInUseException = {
+    name: "OrganizationsNotInUseException",
     __type: "OrganizationsNotInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3014,6 +3048,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3032,6 +3067,7 @@ const deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse = async (
     context
   );
   const contents: ResourceTypeNotSupportedException = {
+    name: "ResourceTypeNotSupportedException",
     __type: "ResourceTypeNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3050,6 +3086,7 @@ const deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse = async (
     context
   );
   const contents: S3BucketDoesNotExistException = {
+    name: "S3BucketDoesNotExistException",
     __type: "S3BucketDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3068,6 +3105,7 @@ const deserializeAws_json1_1TagsLimitExceededExceptionResponse = async (
     context
   );
   const contents: TagsLimitExceededException = {
+    name: "TagsLimitExceededException",
     __type: "TagsLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3086,6 +3124,7 @@ const deserializeAws_json1_1TrailAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: TrailAlreadyExistsException = {
+    name: "TrailAlreadyExistsException",
     __type: "TrailAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3104,6 +3143,7 @@ const deserializeAws_json1_1TrailNotFoundExceptionResponse = async (
     context
   );
   const contents: TrailNotFoundException = {
+    name: "TrailNotFoundException",
     __type: "TrailNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3122,6 +3162,7 @@ const deserializeAws_json1_1TrailNotProvidedExceptionResponse = async (
     context
   );
   const contents: TrailNotProvidedException = {
+    name: "TrailNotProvidedException",
     __type: "TrailNotProvidedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3140,6 +3181,7 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
     context
   );
   const contents: UnsupportedOperationException = {
+    name: "UnsupportedOperationException",
     __type: "UnsupportedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

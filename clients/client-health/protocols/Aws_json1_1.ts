@@ -557,6 +557,7 @@ const deserializeAws_json1_1InvalidPaginationTokenResponse = async (
     context
   );
   const contents: InvalidPaginationToken = {
+    name: "InvalidPaginationToken",
     __type: "InvalidPaginationToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -575,6 +576,7 @@ const deserializeAws_json1_1UnsupportedLocaleResponse = async (
     context
   );
   const contents: UnsupportedLocale = {
+    name: "UnsupportedLocale",
     __type: "UnsupportedLocale",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

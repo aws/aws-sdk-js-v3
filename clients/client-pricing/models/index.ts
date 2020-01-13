@@ -105,6 +105,7 @@ export interface ExpiredNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredNextTokenException";
+  name: "ExpiredNextTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -316,6 +317,7 @@ export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalErrorException";
+  name: "InternalErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -335,6 +337,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -354,6 +357,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
 }
@@ -373,6 +377,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }

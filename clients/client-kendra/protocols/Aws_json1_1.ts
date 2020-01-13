@@ -2310,6 +2310,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2328,6 +2329,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
     context
   );
   const contents: ConflictException = {
+    name: "ConflictException",
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2346,6 +2348,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2364,6 +2367,7 @@ const deserializeAws_json1_1ResourceAlreadyExistExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistException = {
+    name: "ResourceAlreadyExistException",
     __type: "ResourceAlreadyExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2382,6 +2386,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2400,6 +2405,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2418,6 +2424,7 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
     context
   );
   const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2436,6 +2443,7 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
     context
   );
   const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
     __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2454,6 +2462,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
     context
   );
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2472,6 +2481,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

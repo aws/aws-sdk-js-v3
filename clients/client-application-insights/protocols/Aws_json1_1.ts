@@ -2553,6 +2553,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
     context
   );
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2571,6 +2572,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2589,6 +2591,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2607,6 +2610,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2625,6 +2629,7 @@ const deserializeAws_json1_1TagsAlreadyExistExceptionResponse = async (
     context
   );
   const contents: TagsAlreadyExistException = {
+    name: "TagsAlreadyExistException",
     __type: "TagsAlreadyExistException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2643,6 +2648,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2661,6 +2667,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
     context
   );
   const contents: ValidationException = {
+    name: "ValidationException",
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -679,6 +679,7 @@ export interface ContactNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ContactNotFoundException";
+  name: "ContactNotFoundException";
   $fault: "client";
   /**
    *
@@ -984,6 +985,7 @@ export interface DestinationNotAllowedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DestinationNotAllowedException";
+  name: "DestinationNotAllowedException";
   $fault: "client";
   /**
    *
@@ -1008,6 +1010,7 @@ export interface DuplicateResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateResourceException";
+  name: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
 }
@@ -1722,6 +1725,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   /**
    *
@@ -1746,6 +1750,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   /**
    *
@@ -1770,6 +1775,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   /**
    *
@@ -1794,6 +1800,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -2278,6 +2285,7 @@ export interface OutboundContactNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OutboundContactNotPermittedException";
+  name: "OutboundContactNotPermittedException";
   $fault: "client";
   /**
    *
@@ -2393,6 +2401,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -2602,6 +2611,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
@@ -2927,6 +2937,7 @@ export interface UserNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UserNotFoundException";
+  name: "UserNotFoundException";
   $fault: "client";
   Message?: string;
 }

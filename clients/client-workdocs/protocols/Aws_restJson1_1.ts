@@ -5278,6 +5278,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5295,6 +5296,7 @@ const deserializeAws_restJson1_1ConflictingOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictingOperationException> => {
   const contents: ConflictingOperationException = {
+    name: "ConflictingOperationException",
     __type: "ConflictingOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5312,6 +5314,7 @@ const deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse = a
   context: __SerdeContext
 ): Promise<CustomMetadataLimitExceededException> => {
   const contents: CustomMetadataLimitExceededException = {
+    name: "CustomMetadataLimitExceededException",
     __type: "CustomMetadataLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5329,6 +5332,7 @@ const deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse = as
   context: __SerdeContext
 ): Promise<DeactivatingLastSystemUserException> => {
   const contents: DeactivatingLastSystemUserException = {
+    name: "DeactivatingLastSystemUserException",
     __type: "DeactivatingLastSystemUserException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5350,6 +5354,7 @@ const deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse = asy
   context: __SerdeContext
 ): Promise<DocumentLockedForCommentsException> => {
   const contents: DocumentLockedForCommentsException = {
+    name: "DocumentLockedForCommentsException",
     __type: "DocumentLockedForCommentsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5367,6 +5372,7 @@ const deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse = async (
   context: __SerdeContext
 ): Promise<DraftUploadOutOfSyncException> => {
   const contents: DraftUploadOutOfSyncException = {
+    name: "DraftUploadOutOfSyncException",
     __type: "DraftUploadOutOfSyncException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5384,6 +5390,7 @@ const deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EntityAlreadyExistsException> => {
   const contents: EntityAlreadyExistsException = {
+    name: "EntityAlreadyExistsException",
     __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5401,6 +5408,7 @@ const deserializeAws_restJson1_1EntityNotExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EntityNotExistsException> => {
   const contents: EntityNotExistsException = {
+    name: "EntityNotExistsException",
     __type: "EntityNotExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5425,6 +5433,7 @@ const deserializeAws_restJson1_1FailedDependencyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<FailedDependencyException> => {
   const contents: FailedDependencyException = {
+    name: "FailedDependencyException",
     __type: "FailedDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5442,6 +5451,7 @@ const deserializeAws_restJson1_1IllegalUserStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IllegalUserStateException> => {
   const contents: IllegalUserStateException = {
+    name: "IllegalUserStateException",
     __type: "IllegalUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5459,6 +5469,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5476,6 +5487,7 @@ const deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse = async
   context: __SerdeContext
 ): Promise<InvalidCommentOperationException> => {
   const contents: InvalidCommentOperationException = {
+    name: "InvalidCommentOperationException",
     __type: "InvalidCommentOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5493,6 +5505,7 @@ const deserializeAws_restJson1_1InvalidOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const contents: InvalidOperationException = {
+    name: "InvalidOperationException",
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5510,6 +5523,7 @@ const deserializeAws_restJson1_1InvalidPasswordExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
   const contents: InvalidPasswordException = {
+    name: "InvalidPasswordException",
     __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5527,6 +5541,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5544,6 +5559,7 @@ const deserializeAws_restJson1_1ProhibitedStateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ProhibitedStateException> => {
   const contents: ProhibitedStateException = {
+    name: "ProhibitedStateException",
     __type: "ProhibitedStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5561,6 +5577,7 @@ const deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse = async
   context: __SerdeContext
 ): Promise<RequestedEntityTooLargeException> => {
   const contents: RequestedEntityTooLargeException = {
+    name: "RequestedEntityTooLargeException",
     __type: "RequestedEntityTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5578,6 +5595,7 @@ const deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse = asy
   context: __SerdeContext
 ): Promise<ResourceAlreadyCheckedOutException> => {
   const contents: ResourceAlreadyCheckedOutException = {
+    name: "ResourceAlreadyCheckedOutException",
     __type: "ResourceAlreadyCheckedOutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5595,6 +5613,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -5612,6 +5631,7 @@ const deserializeAws_restJson1_1StorageLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<StorageLimitExceededException> => {
   const contents: StorageLimitExceededException = {
+    name: "StorageLimitExceededException",
     __type: "StorageLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5629,6 +5649,7 @@ const deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse = async 
   context: __SerdeContext
 ): Promise<StorageLimitWillExceedException> => {
   const contents: StorageLimitWillExceedException = {
+    name: "StorageLimitWillExceedException",
     __type: "StorageLimitWillExceedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5646,6 +5667,7 @@ const deserializeAws_restJson1_1TooManyLabelsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyLabelsException> => {
   const contents: TooManyLabelsException = {
+    name: "TooManyLabelsException",
     __type: "TooManyLabelsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5663,6 +5685,7 @@ const deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManySubscriptionsException> => {
   const contents: TooManySubscriptionsException = {
+    name: "TooManySubscriptionsException",
     __type: "TooManySubscriptionsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5680,6 +5703,7 @@ const deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<UnauthorizedOperationException> => {
   const contents: UnauthorizedOperationException = {
+    name: "UnauthorizedOperationException",
     __type: "UnauthorizedOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -5701,6 +5725,7 @@ const deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse = as
   context: __SerdeContext
 ): Promise<UnauthorizedResourceAccessException> => {
   const contents: UnauthorizedResourceAccessException = {
+    name: "UnauthorizedResourceAccessException",
     __type: "UnauthorizedResourceAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

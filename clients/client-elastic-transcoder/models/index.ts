@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   message: string | undefined;
 }
@@ -24,6 +25,7 @@ export interface IncompatibleVersionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncompatibleVersionException";
+  name: "IncompatibleVersionException";
   $fault: "client";
   message: string | undefined;
 }
@@ -43,6 +45,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   message: string | undefined;
 }
@@ -63,6 +66,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message: string | undefined;
 }
@@ -83,6 +87,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   message: string | undefined;
 }
@@ -103,6 +108,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
@@ -122,6 +128,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   message: string | undefined;
 }

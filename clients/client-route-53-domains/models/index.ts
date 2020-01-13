@@ -685,6 +685,7 @@ export interface DomainLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DomainLimitExceeded";
+  name: "DomainLimitExceeded";
   $fault: "client";
   /**
    *
@@ -864,6 +865,7 @@ export interface DuplicateRequest
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateRequest";
+  name: "DuplicateRequest";
   $fault: "client";
   /**
    *
@@ -1471,6 +1473,7 @@ export namespace GetOperationDetailResponse {
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInput";
+  name: "InvalidInput";
   $fault: "client";
   /**
    *
@@ -1700,6 +1703,7 @@ export interface OperationLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationLimitExceeded";
+  name: "OperationLimitExceeded";
   $fault: "client";
   /**
    *
@@ -2076,6 +2080,7 @@ export interface TLDRulesViolation
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TLDRulesViolation";
+  name: "TLDRulesViolation";
   $fault: "client";
   /**
    *
@@ -2279,6 +2284,7 @@ export interface UnsupportedTLD
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedTLD";
+  name: "UnsupportedTLD";
   $fault: "client";
   /**
    *

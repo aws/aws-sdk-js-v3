@@ -153,6 +153,7 @@ const deserializeAws_restJson1_1InternalFailureResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailure> => {
   const contents: InternalFailure = {
+    name: "InternalFailure",
     __type: "InternalFailure",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -170,6 +171,7 @@ const deserializeAws_restJson1_1ModelErrorResponse = async (
   context: __SerdeContext
 ): Promise<ModelError> => {
   const contents: ModelError = {
+    name: "ModelError",
     __type: "ModelError",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -199,6 +201,7 @@ const deserializeAws_restJson1_1ServiceUnavailableResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailable> => {
   const contents: ServiceUnavailable = {
+    name: "ServiceUnavailable",
     __type: "ServiceUnavailable",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -216,6 +219,7 @@ const deserializeAws_restJson1_1ValidationErrorResponse = async (
   context: __SerdeContext
 ): Promise<ValidationError> => {
   const contents: ValidationError = {
+    name: "ValidationError",
     __type: "ValidationError",
     $fault: "client",
     $metadata: deserializeMetadata(output),

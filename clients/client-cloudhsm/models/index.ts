@@ -54,6 +54,7 @@ export interface CloudHsmInternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmInternalException";
+  name: "CloudHsmInternalException";
   $fault: "server";
   /**
    *
@@ -91,6 +92,7 @@ export interface CloudHsmServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudHsmServiceException";
+  name: "CloudHsmServiceException";
   $fault: "client";
   /**
    *
@@ -878,6 +880,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   /**
    *

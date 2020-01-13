@@ -383,6 +383,7 @@ export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalFailureException";
+  name: "InternalFailureException";
   $fault: "server";
   code: string | undefined;
   message: string | undefined;
@@ -403,6 +404,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
@@ -741,6 +743,7 @@ export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceConflictException";
+  name: "ResourceConflictException";
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
@@ -761,6 +764,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
   message: string | undefined;
@@ -781,6 +785,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   code: string | undefined;
   message: string | undefined;

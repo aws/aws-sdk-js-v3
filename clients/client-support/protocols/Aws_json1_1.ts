@@ -1323,6 +1323,7 @@ const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
     context
   );
   const contents: AttachmentIdNotFound = {
+    name: "AttachmentIdNotFound",
     __type: "AttachmentIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1341,6 +1342,7 @@ const deserializeAws_json1_1AttachmentLimitExceededResponse = async (
     context
   );
   const contents: AttachmentLimitExceeded = {
+    name: "AttachmentLimitExceeded",
     __type: "AttachmentLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1359,6 +1361,7 @@ const deserializeAws_json1_1AttachmentSetExpiredResponse = async (
     context
   );
   const contents: AttachmentSetExpired = {
+    name: "AttachmentSetExpired",
     __type: "AttachmentSetExpired",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1377,6 +1380,7 @@ const deserializeAws_json1_1AttachmentSetIdNotFoundResponse = async (
     context
   );
   const contents: AttachmentSetIdNotFound = {
+    name: "AttachmentSetIdNotFound",
     __type: "AttachmentSetIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1395,6 +1399,7 @@ const deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse = async (
     context
   );
   const contents: AttachmentSetSizeLimitExceeded = {
+    name: "AttachmentSetSizeLimitExceeded",
     __type: "AttachmentSetSizeLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1413,6 +1418,7 @@ const deserializeAws_json1_1CaseCreationLimitExceededResponse = async (
     context
   );
   const contents: CaseCreationLimitExceeded = {
+    name: "CaseCreationLimitExceeded",
     __type: "CaseCreationLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1428,6 +1434,7 @@ const deserializeAws_json1_1CaseIdNotFoundResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CaseIdNotFound(body, context);
   const contents: CaseIdNotFound = {
+    name: "CaseIdNotFound",
     __type: "CaseIdNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1446,6 +1453,7 @@ const deserializeAws_json1_1DescribeAttachmentLimitExceededResponse = async (
     context
   );
   const contents: DescribeAttachmentLimitExceeded = {
+    name: "DescribeAttachmentLimitExceeded",
     __type: "DescribeAttachmentLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1464,6 +1472,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
     context
   );
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -592,6 +593,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -762,6 +764,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -781,6 +784,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -800,6 +804,7 @@ export interface ResourceNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotSupportedException";
+  name: "ResourceNotSupportedException";
   $fault: "client";
   Message?: string;
 }
@@ -819,6 +824,7 @@ export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceQuotaExceededException";
+  name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -940,6 +946,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
@@ -959,6 +966,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   Message?: string;
 }

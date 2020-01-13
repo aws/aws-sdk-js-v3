@@ -3570,6 +3570,7 @@ export interface DuplicateResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateResourceException";
+  name: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
 }
@@ -3836,6 +3837,7 @@ export interface InvalidParametersException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParametersException";
+  name: "InvalidParametersException";
   $fault: "client";
   Message?: string;
 }
@@ -3856,6 +3858,7 @@ export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidStateException";
+  name: "InvalidStateException";
   $fault: "client";
   Message?: string;
 }
@@ -3918,6 +3921,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -5195,6 +5199,7 @@ export interface OperationNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotSupportedException";
+  name: "OperationNotSupportedException";
   $fault: "client";
   Message?: string;
 }
@@ -7072,6 +7077,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -7091,6 +7097,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -7828,6 +7835,7 @@ export interface TagOptionNotMigratedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagOptionNotMigratedException";
+  name: "TagOptionNotMigratedException";
   $fault: "client";
   Message?: string;
 }

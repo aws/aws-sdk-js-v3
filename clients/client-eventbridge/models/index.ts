@@ -2553,6 +2553,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
 }
@@ -2572,6 +2573,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   message?: string;
 }
@@ -2591,6 +2593,7 @@ export interface InvalidEventPatternException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEventPatternException";
+  name: "InvalidEventPatternException";
   $fault: "client";
   message?: string;
 }
@@ -2610,6 +2613,7 @@ export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidStateException";
+  name: "InvalidStateException";
   $fault: "client";
   message?: string;
 }
@@ -2629,6 +2633,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -2654,6 +2659,7 @@ export interface ManagedRuleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ManagedRuleException";
+  name: "ManagedRuleException";
   $fault: "client";
   message?: string;
 }
@@ -2674,6 +2680,7 @@ export interface PolicyLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyLengthExceededException";
+  name: "PolicyLengthExceededException";
   $fault: "client";
   message?: string;
 }
@@ -2693,6 +2700,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -2712,6 +2720,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }

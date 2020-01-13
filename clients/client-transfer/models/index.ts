@@ -10,6 +10,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
 }
@@ -811,6 +812,7 @@ export interface InternalServiceError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceError";
+  name: "InternalServiceError";
   $fault: "server";
   Message: string | undefined;
 }
@@ -830,6 +832,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message: string | undefined;
 }
@@ -849,6 +852,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message: string | undefined;
 }
@@ -1207,6 +1211,7 @@ export interface ResourceExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceExistsException";
+  name: "ResourceExistsException";
   $fault: "client";
   Message: string | undefined;
   Resource: string | undefined;
@@ -1229,6 +1234,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
   Resource: string | undefined;
@@ -1458,6 +1464,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   RetryAfterSeconds?: string;
 }

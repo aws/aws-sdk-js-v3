@@ -1945,6 +1945,7 @@ const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
     context
   );
   const contents: CustomHealthNotFound = {
+    name: "CustomHealthNotFound",
     __type: "CustomHealthNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1963,6 +1964,7 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
     context
   );
   const contents: DuplicateRequest = {
+    name: "DuplicateRequest",
     __type: "DuplicateRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1981,6 +1983,7 @@ const deserializeAws_json1_1InstanceNotFoundResponse = async (
     context
   );
   const contents: InstanceNotFound = {
+    name: "InstanceNotFound",
     __type: "InstanceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1996,6 +1999,7 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
   const contents: InvalidInput = {
+    name: "InvalidInput",
     __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2014,6 +2018,7 @@ const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
     context
   );
   const contents: NamespaceAlreadyExists = {
+    name: "NamespaceAlreadyExists",
     __type: "NamespaceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2032,6 +2037,7 @@ const deserializeAws_json1_1NamespaceNotFoundResponse = async (
     context
   );
   const contents: NamespaceNotFound = {
+    name: "NamespaceNotFound",
     __type: "NamespaceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2050,6 +2056,7 @@ const deserializeAws_json1_1OperationNotFoundResponse = async (
     context
   );
   const contents: OperationNotFound = {
+    name: "OperationNotFound",
     __type: "OperationNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2065,6 +2072,7 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUse(body, context);
   const contents: ResourceInUse = {
+    name: "ResourceInUse",
     __type: "ResourceInUse",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2083,6 +2091,7 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
     context
   );
   const contents: ResourceLimitExceeded = {
+    name: "ResourceLimitExceeded",
     __type: "ResourceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2101,6 +2110,7 @@ const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
     context
   );
   const contents: ServiceAlreadyExists = {
+    name: "ServiceAlreadyExists",
     __type: "ServiceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2119,6 +2129,7 @@ const deserializeAws_json1_1ServiceNotFoundResponse = async (
     context
   );
   const contents: ServiceNotFound = {
+    name: "ServiceNotFound",
     __type: "ServiceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

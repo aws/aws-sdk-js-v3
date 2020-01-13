@@ -554,6 +554,7 @@ const deserializeAws_json1_1DetectedLanguageLowConfidenceExceptionResponse = asy
     context
   );
   const contents: DetectedLanguageLowConfidenceException = {
+    name: "DetectedLanguageLowConfidenceException",
     __type: "DetectedLanguageLowConfidenceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -572,6 +573,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -590,6 +592,7 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -608,6 +611,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -626,6 +630,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -644,6 +649,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -662,6 +668,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
     context
   );
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -680,6 +687,7 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
     context
   );
   const contents: TextSizeLimitExceededException = {
+    name: "TextSizeLimitExceededException",
     __type: "TextSizeLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -698,6 +706,7 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     context
   );
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -716,6 +725,7 @@ const deserializeAws_json1_1UnsupportedLanguagePairExceptionResponse = async (
     context
   );
   const contents: UnsupportedLanguagePairException = {
+    name: "UnsupportedLanguagePairException",
     __type: "UnsupportedLanguagePairException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

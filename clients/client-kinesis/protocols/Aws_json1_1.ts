@@ -2872,6 +2872,7 @@ const deserializeAws_json1_1ExpiredIteratorExceptionResponse = async (
     context
   );
   const contents: ExpiredIteratorException = {
+    name: "ExpiredIteratorException",
     __type: "ExpiredIteratorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2890,6 +2891,7 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
     context
   );
   const contents: ExpiredNextTokenException = {
+    name: "ExpiredNextTokenException",
     __type: "ExpiredNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2908,6 +2910,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
     context
   );
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2926,6 +2929,7 @@ const deserializeAws_json1_1KMSAccessDeniedExceptionResponse = async (
     context
   );
   const contents: KMSAccessDeniedException = {
+    name: "KMSAccessDeniedException",
     __type: "KMSAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2944,6 +2948,7 @@ const deserializeAws_json1_1KMSDisabledExceptionResponse = async (
     context
   );
   const contents: KMSDisabledException = {
+    name: "KMSDisabledException",
     __type: "KMSDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2962,6 +2967,7 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
     context
   );
   const contents: KMSInvalidStateException = {
+    name: "KMSInvalidStateException",
     __type: "KMSInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2980,6 +2986,7 @@ const deserializeAws_json1_1KMSNotFoundExceptionResponse = async (
     context
   );
   const contents: KMSNotFoundException = {
+    name: "KMSNotFoundException",
     __type: "KMSNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2998,6 +3005,7 @@ const deserializeAws_json1_1KMSOptInRequiredResponse = async (
     context
   );
   const contents: KMSOptInRequired = {
+    name: "KMSOptInRequired",
     __type: "KMSOptInRequired",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3016,6 +3024,7 @@ const deserializeAws_json1_1KMSThrottlingExceptionResponse = async (
     context
   );
   const contents: KMSThrottlingException = {
+    name: "KMSThrottlingException",
     __type: "KMSThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3034,6 +3043,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3052,6 +3062,7 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
     context
   );
   const contents: ProvisionedThroughputExceededException = {
+    name: "ProvisionedThroughputExceededException",
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3070,6 +3081,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3088,6 +3100,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

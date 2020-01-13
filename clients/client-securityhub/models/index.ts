@@ -43,6 +43,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -2440,6 +2441,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   Code?: string;
   Message?: string;
@@ -2460,6 +2462,7 @@ export interface InvalidAccessException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidAccessException";
+  name: "InvalidAccessException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -2481,6 +2484,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -2620,6 +2624,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -3464,6 +3469,7 @@ export interface ResourceConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceConflictException";
+  name: "ResourceConflictException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -3534,6 +3540,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
   Message?: string;

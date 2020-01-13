@@ -3902,6 +3902,7 @@ const deserializeAws_json1_1WAFAssociatedItemExceptionResponse = async (
     context
   );
   const contents: WAFAssociatedItemException = {
+    name: "WAFAssociatedItemException",
     __type: "WAFAssociatedItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3920,6 +3921,7 @@ const deserializeAws_json1_1WAFDuplicateItemExceptionResponse = async (
     context
   );
   const contents: WAFDuplicateItemException = {
+    name: "WAFDuplicateItemException",
     __type: "WAFDuplicateItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3938,6 +3940,7 @@ const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
     context
   );
   const contents: WAFInternalErrorException = {
+    name: "WAFInternalErrorException",
     __type: "WAFInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3956,6 +3959,7 @@ const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
     context
   );
   const contents: WAFInvalidParameterException = {
+    name: "WAFInvalidParameterException",
     __type: "WAFInvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3974,6 +3978,7 @@ const deserializeAws_json1_1WAFInvalidResourceExceptionResponse = async (
     context
   );
   const contents: WAFInvalidResourceException = {
+    name: "WAFInvalidResourceException",
     __type: "WAFInvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3992,6 +3997,7 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
     context
   );
   const contents: WAFLimitsExceededException = {
+    name: "WAFLimitsExceededException",
     __type: "WAFLimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4010,6 +4016,7 @@ const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
     context
   );
   const contents: WAFNonexistentItemException = {
+    name: "WAFNonexistentItemException",
     __type: "WAFNonexistentItemException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4028,6 +4035,7 @@ const deserializeAws_json1_1WAFOptimisticLockExceptionResponse = async (
     context
   );
   const contents: WAFOptimisticLockException = {
+    name: "WAFOptimisticLockException",
     __type: "WAFOptimisticLockException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4046,6 +4054,7 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
     context
   );
   const contents: WAFServiceLinkedRoleErrorException = {
+    name: "WAFServiceLinkedRoleErrorException",
     __type: "WAFServiceLinkedRoleErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4064,6 +4073,7 @@ const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
     context
   );
   const contents: WAFTagOperationException = {
+    name: "WAFTagOperationException",
     __type: "WAFTagOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4082,6 +4092,7 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = asyn
     context
   );
   const contents: WAFTagOperationInternalErrorException = {
+    name: "WAFTagOperationInternalErrorException",
     __type: "WAFTagOperationInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4100,6 +4111,7 @@ const deserializeAws_json1_1WAFUnavailableEntityExceptionResponse = async (
     context
   );
   const contents: WAFUnavailableEntityException = {
+    name: "WAFUnavailableEntityException",
     __type: "WAFUnavailableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

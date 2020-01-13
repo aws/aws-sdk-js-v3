@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
@@ -822,6 +823,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   message?: string;
 }
@@ -841,6 +843,7 @@ export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
 }
@@ -871,6 +874,7 @@ export interface MissingAuthenticationToken
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingAuthenticationToken";
+  name: "MissingAuthenticationToken";
   $fault: "client";
   message?: string;
 }
@@ -890,6 +894,7 @@ export interface OptInRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OptInRequiredException";
+  name: "OptInRequiredException";
   $fault: "client";
   message?: string;
 }
@@ -1057,6 +1062,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1076,6 +1082,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
 }
@@ -1130,6 +1137,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
 }

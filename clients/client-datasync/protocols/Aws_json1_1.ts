@@ -2385,6 +2385,7 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
     context
   );
   const contents: InternalException = {
+    name: "InternalException",
     __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2403,6 +2404,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
     context
   );
   const contents: InvalidRequestException = {
+    name: "InvalidRequestException",
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -10,6 +10,7 @@ export interface ActorDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ActorDoesNotExistException";
+  name: "ActorDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -132,6 +133,7 @@ export interface ApprovalRuleContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleContentRequiredException";
+  name: "ApprovalRuleContentRequiredException";
   $fault: "client";
   /**
    *
@@ -156,6 +158,7 @@ export interface ApprovalRuleDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleDoesNotExistException";
+  name: "ApprovalRuleDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -216,6 +219,7 @@ export interface ApprovalRuleNameAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleNameAlreadyExistsException";
+  name: "ApprovalRuleNameAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -240,6 +244,7 @@ export interface ApprovalRuleNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleNameRequiredException";
+  name: "ApprovalRuleNameRequiredException";
   $fault: "client";
   /**
    *
@@ -362,6 +367,7 @@ export interface ApprovalRuleTemplateContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleTemplateContentRequiredException";
+  name: "ApprovalRuleTemplateContentRequiredException";
   $fault: "client";
   /**
    *
@@ -389,6 +395,7 @@ export interface ApprovalRuleTemplateDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleTemplateDoesNotExistException";
+  name: "ApprovalRuleTemplateDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -414,6 +421,7 @@ export interface ApprovalRuleTemplateInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleTemplateInUseException";
+  name: "ApprovalRuleTemplateInUseException";
   $fault: "client";
   /**
    *
@@ -440,6 +448,7 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleTemplateNameAlreadyExistsException";
+  name: "ApprovalRuleTemplateNameAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -466,6 +475,7 @@ export interface ApprovalRuleTemplateNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalRuleTemplateNameRequiredException";
+  name: "ApprovalRuleTemplateNameRequiredException";
   $fault: "client";
   /**
    *
@@ -523,6 +533,7 @@ export interface ApprovalStateRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ApprovalStateRequiredException";
+  name: "ApprovalStateRequiredException";
   $fault: "client";
   /**
    *
@@ -572,6 +583,7 @@ export interface AuthorDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AuthorDoesNotExistException";
+  name: "AuthorDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1115,6 +1127,7 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BeforeCommitIdAndAfterCommitIdAreSameException";
+  name: "BeforeCommitIdAndAfterCommitIdAreSameException";
   $fault: "client";
   /**
    *
@@ -1141,6 +1154,7 @@ export interface BlobIdDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BlobIdDoesNotExistException";
+  name: "BlobIdDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1165,6 +1179,7 @@ export interface BlobIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BlobIdRequiredException";
+  name: "BlobIdRequiredException";
   $fault: "client";
   /**
    *
@@ -1242,6 +1257,7 @@ export interface BranchDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BranchDoesNotExistException";
+  name: "BranchDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1294,6 +1310,7 @@ export interface BranchNameExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BranchNameExistsException";
+  name: "BranchNameExistsException";
   $fault: "client";
   /**
    *
@@ -1319,6 +1336,7 @@ export interface BranchNameIsTagNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BranchNameIsTagNameException";
+  name: "BranchNameIsTagNameException";
   $fault: "client";
   /**
    *
@@ -1343,6 +1361,7 @@ export interface BranchNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BranchNameRequiredException";
+  name: "BranchNameRequiredException";
   $fault: "client";
   /**
    *
@@ -1368,6 +1387,7 @@ export interface CannotDeleteApprovalRuleFromTemplateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CannotDeleteApprovalRuleFromTemplateException";
+  name: "CannotDeleteApprovalRuleFromTemplateException";
   $fault: "client";
   /**
    *
@@ -1395,6 +1415,7 @@ export interface CannotModifyApprovalRuleFromTemplateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CannotModifyApprovalRuleFromTemplateException";
+  name: "CannotModifyApprovalRuleFromTemplateException";
   $fault: "client";
   /**
    *
@@ -1431,6 +1452,7 @@ export interface ClientRequestTokenRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClientRequestTokenRequiredException";
+  name: "ClientRequestTokenRequiredException";
   $fault: "client";
   /**
    *
@@ -1528,6 +1550,7 @@ export interface CommentContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentContentRequiredException";
+  name: "CommentContentRequiredException";
   $fault: "client";
   /**
    *
@@ -1552,6 +1575,7 @@ export interface CommentContentSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentContentSizeLimitExceededException";
+  name: "CommentContentSizeLimitExceededException";
   $fault: "client";
   /**
    *
@@ -1576,6 +1600,7 @@ export interface CommentDeletedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentDeletedException";
+  name: "CommentDeletedException";
   $fault: "client";
   /**
    *
@@ -1601,6 +1626,7 @@ export interface CommentDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentDoesNotExistException";
+  name: "CommentDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1625,6 +1651,7 @@ export interface CommentIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentIdRequiredException";
+  name: "CommentIdRequiredException";
   $fault: "client";
   /**
    *
@@ -1649,6 +1676,7 @@ export interface CommentNotCreatedByCallerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommentNotCreatedByCallerException";
+  name: "CommentNotCreatedByCallerException";
   $fault: "client";
   /**
    *
@@ -1885,6 +1913,7 @@ export interface CommitDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitDoesNotExistException";
+  name: "CommitDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1909,6 +1938,7 @@ export interface CommitIdDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitIdDoesNotExistException";
+  name: "CommitIdDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -1933,6 +1963,7 @@ export interface CommitIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitIdRequiredException";
+  name: "CommitIdRequiredException";
   $fault: "client";
   /**
    *
@@ -1957,6 +1988,7 @@ export interface CommitIdsLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitIdsLimitExceededException";
+  name: "CommitIdsLimitExceededException";
   $fault: "client";
   /**
    *
@@ -1981,6 +2013,7 @@ export interface CommitIdsListRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitIdsListRequiredException";
+  name: "CommitIdsListRequiredException";
   $fault: "client";
   /**
    *
@@ -2005,6 +2038,7 @@ export interface CommitMessageLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitMessageLengthExceededException";
+  name: "CommitMessageLengthExceededException";
   $fault: "client";
   /**
    *
@@ -2029,6 +2063,7 @@ export interface CommitRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CommitRequiredException";
+  name: "CommitRequiredException";
   $fault: "client";
   /**
    *
@@ -2053,6 +2088,7 @@ export interface ConcurrentReferenceUpdateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentReferenceUpdateException";
+  name: "ConcurrentReferenceUpdateException";
   $fault: "client";
   /**
    *
@@ -2835,6 +2871,7 @@ export interface DefaultBranchCannotBeDeletedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DefaultBranchCannotBeDeletedException";
+  name: "DefaultBranchCannotBeDeletedException";
   $fault: "client";
   /**
    *
@@ -3434,6 +3471,7 @@ export interface DirectoryNameConflictsWithFileNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryNameConflictsWithFileNameException";
+  name: "DirectoryNameConflictsWithFileNameException";
   $fault: "client";
   /**
    *
@@ -3488,6 +3526,7 @@ export interface EncryptionIntegrityChecksFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionIntegrityChecksFailedException";
+  name: "EncryptionIntegrityChecksFailedException";
   $fault: "server";
   /**
    *
@@ -3512,6 +3551,7 @@ export interface EncryptionKeyAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionKeyAccessDeniedException";
+  name: "EncryptionKeyAccessDeniedException";
   $fault: "client";
   /**
    *
@@ -3536,6 +3576,7 @@ export interface EncryptionKeyDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionKeyDisabledException";
+  name: "EncryptionKeyDisabledException";
   $fault: "client";
   /**
    *
@@ -3560,6 +3601,7 @@ export interface EncryptionKeyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionKeyNotFoundException";
+  name: "EncryptionKeyNotFoundException";
   $fault: "client";
   /**
    *
@@ -3584,6 +3626,7 @@ export interface EncryptionKeyUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EncryptionKeyUnavailableException";
+  name: "EncryptionKeyUnavailableException";
   $fault: "client";
   /**
    *
@@ -3737,6 +3780,7 @@ export interface FileContentAndSourceFileSpecifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileContentAndSourceFileSpecifiedException";
+  name: "FileContentAndSourceFileSpecifiedException";
   $fault: "client";
   /**
    *
@@ -3761,6 +3805,7 @@ export interface FileContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileContentRequiredException";
+  name: "FileContentRequiredException";
   $fault: "client";
   /**
    *
@@ -3787,6 +3832,7 @@ export interface FileContentSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileContentSizeLimitExceededException";
+  name: "FileContentSizeLimitExceededException";
   $fault: "client";
   /**
    *
@@ -3812,6 +3858,7 @@ export interface FileDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileDoesNotExistException";
+  name: "FileDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -3836,6 +3883,7 @@ export interface FileEntryRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileEntryRequiredException";
+  name: "FileEntryRequiredException";
   $fault: "client";
   /**
    *
@@ -3897,6 +3945,7 @@ export interface FileModeRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileModeRequiredException";
+  name: "FileModeRequiredException";
   $fault: "client";
   /**
    *
@@ -3963,6 +4012,7 @@ export interface FileNameConflictsWithDirectoryNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileNameConflictsWithDirectoryNameException";
+  name: "FileNameConflictsWithDirectoryNameException";
   $fault: "client";
   /**
    *
@@ -3990,6 +4040,7 @@ export interface FilePathConflictsWithSubmodulePathException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FilePathConflictsWithSubmodulePathException";
+  name: "FilePathConflictsWithSubmodulePathException";
   $fault: "client";
   /**
    *
@@ -4052,6 +4103,7 @@ export interface FileTooLargeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileTooLargeException";
+  name: "FileTooLargeException";
   $fault: "client";
   /**
    *
@@ -4113,6 +4165,7 @@ export interface FolderContentSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FolderContentSizeLimitExceededException";
+  name: "FolderContentSizeLimitExceededException";
   $fault: "client";
   /**
    *
@@ -4138,6 +4191,7 @@ export interface FolderDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FolderDoesNotExistException";
+  name: "FolderDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -5312,6 +5366,7 @@ export interface IdempotencyParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotencyParameterMismatchException";
+  name: "IdempotencyParameterMismatchException";
   $fault: "client";
   /**
    *
@@ -5337,6 +5392,7 @@ export interface InvalidActorArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidActorArnException";
+  name: "InvalidActorArnException";
   $fault: "client";
   /**
    *
@@ -5361,6 +5417,7 @@ export interface InvalidApprovalRuleContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalRuleContentException";
+  name: "InvalidApprovalRuleContentException";
   $fault: "client";
   /**
    *
@@ -5385,6 +5442,7 @@ export interface InvalidApprovalRuleNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalRuleNameException";
+  name: "InvalidApprovalRuleNameException";
   $fault: "client";
   /**
    *
@@ -5409,6 +5467,7 @@ export interface InvalidApprovalRuleTemplateContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateContentException";
+  name: "InvalidApprovalRuleTemplateContentException";
   $fault: "client";
   /**
    *
@@ -5438,6 +5497,7 @@ export interface InvalidApprovalRuleTemplateDescriptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateDescriptionException";
+  name: "InvalidApprovalRuleTemplateDescriptionException";
   $fault: "client";
   /**
    *
@@ -5467,6 +5527,7 @@ export interface InvalidApprovalRuleTemplateNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateNameException";
+  name: "InvalidApprovalRuleTemplateNameException";
   $fault: "client";
   /**
    *
@@ -5491,6 +5552,7 @@ export interface InvalidApprovalStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidApprovalStateException";
+  name: "InvalidApprovalStateException";
   $fault: "client";
   /**
    *
@@ -5515,6 +5577,7 @@ export interface InvalidAuthorArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidAuthorArnException";
+  name: "InvalidAuthorArnException";
   $fault: "client";
   /**
    *
@@ -5539,6 +5602,7 @@ export interface InvalidBlobIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidBlobIdException";
+  name: "InvalidBlobIdException";
   $fault: "client";
   /**
    *
@@ -5563,6 +5627,7 @@ export interface InvalidBranchNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidBranchNameException";
+  name: "InvalidBranchNameException";
   $fault: "client";
   /**
    *
@@ -5587,6 +5652,7 @@ export interface InvalidClientRequestTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidClientRequestTokenException";
+  name: "InvalidClientRequestTokenException";
   $fault: "client";
   /**
    *
@@ -5611,6 +5677,7 @@ export interface InvalidCommentIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCommentIdException";
+  name: "InvalidCommentIdException";
   $fault: "client";
   /**
    *
@@ -5635,6 +5702,7 @@ export interface InvalidCommitException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCommitException";
+  name: "InvalidCommitException";
   $fault: "client";
   /**
    *
@@ -5659,6 +5727,7 @@ export interface InvalidCommitIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCommitIdException";
+  name: "InvalidCommitIdException";
   $fault: "client";
   /**
    *
@@ -5683,6 +5752,7 @@ export interface InvalidConflictDetailLevelException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidConflictDetailLevelException";
+  name: "InvalidConflictDetailLevelException";
   $fault: "client";
   /**
    *
@@ -5707,6 +5777,7 @@ export interface InvalidConflictResolutionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidConflictResolutionException";
+  name: "InvalidConflictResolutionException";
   $fault: "client";
   /**
    *
@@ -5731,6 +5802,7 @@ export interface InvalidConflictResolutionStrategyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidConflictResolutionStrategyException";
+  name: "InvalidConflictResolutionStrategyException";
   $fault: "client";
   /**
    *
@@ -5755,6 +5827,7 @@ export interface InvalidContinuationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidContinuationTokenException";
+  name: "InvalidContinuationTokenException";
   $fault: "client";
   /**
    *
@@ -5779,6 +5852,7 @@ export interface InvalidDeletionParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDeletionParameterException";
+  name: "InvalidDeletionParameterException";
   $fault: "client";
   /**
    *
@@ -5804,6 +5878,7 @@ export interface InvalidDescriptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDescriptionException";
+  name: "InvalidDescriptionException";
   $fault: "client";
   /**
    *
@@ -5828,6 +5903,7 @@ export interface InvalidDestinationCommitSpecifierException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDestinationCommitSpecifierException";
+  name: "InvalidDestinationCommitSpecifierException";
   $fault: "client";
   /**
    *
@@ -5853,6 +5929,7 @@ export interface InvalidEmailException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEmailException";
+  name: "InvalidEmailException";
   $fault: "client";
   /**
    *
@@ -5878,6 +5955,7 @@ export interface InvalidFileLocationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidFileLocationException";
+  name: "InvalidFileLocationException";
   $fault: "client";
   /**
    *
@@ -5902,6 +5980,7 @@ export interface InvalidFileModeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidFileModeException";
+  name: "InvalidFileModeException";
   $fault: "client";
   /**
    *
@@ -5926,6 +6005,7 @@ export interface InvalidFilePositionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidFilePositionException";
+  name: "InvalidFilePositionException";
   $fault: "client";
   /**
    *
@@ -5950,6 +6030,7 @@ export interface InvalidMaxConflictFilesException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMaxConflictFilesException";
+  name: "InvalidMaxConflictFilesException";
   $fault: "client";
   /**
    *
@@ -5974,6 +6055,7 @@ export interface InvalidMaxMergeHunksException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMaxMergeHunksException";
+  name: "InvalidMaxMergeHunksException";
   $fault: "client";
   /**
    *
@@ -5998,6 +6080,7 @@ export interface InvalidMaxResultsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMaxResultsException";
+  name: "InvalidMaxResultsException";
   $fault: "client";
   /**
    *
@@ -6022,6 +6105,7 @@ export interface InvalidMergeOptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMergeOptionException";
+  name: "InvalidMergeOptionException";
   $fault: "client";
   /**
    *
@@ -6046,6 +6130,7 @@ export interface InvalidOrderException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOrderException";
+  name: "InvalidOrderException";
   $fault: "client";
   /**
    *
@@ -6070,6 +6155,7 @@ export interface InvalidOverrideStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOverrideStatusException";
+  name: "InvalidOverrideStatusException";
   $fault: "client";
   /**
    *
@@ -6095,6 +6181,7 @@ export interface InvalidParentCommitIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParentCommitIdException";
+  name: "InvalidParentCommitIdException";
   $fault: "client";
   /**
    *
@@ -6119,6 +6206,7 @@ export interface InvalidPathException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPathException";
+  name: "InvalidPathException";
   $fault: "client";
   /**
    *
@@ -6143,6 +6231,7 @@ export interface InvalidPullRequestEventTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPullRequestEventTypeException";
+  name: "InvalidPullRequestEventTypeException";
   $fault: "client";
   /**
    *
@@ -6167,6 +6256,7 @@ export interface InvalidPullRequestIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPullRequestIdException";
+  name: "InvalidPullRequestIdException";
   $fault: "client";
   /**
    *
@@ -6191,6 +6281,7 @@ export interface InvalidPullRequestStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPullRequestStatusException";
+  name: "InvalidPullRequestStatusException";
   $fault: "client";
   /**
    *
@@ -6215,6 +6306,7 @@ export interface InvalidPullRequestStatusUpdateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPullRequestStatusUpdateException";
+  name: "InvalidPullRequestStatusUpdateException";
   $fault: "client";
   /**
    *
@@ -6241,6 +6333,7 @@ export interface InvalidReferenceNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidReferenceNameException";
+  name: "InvalidReferenceNameException";
   $fault: "client";
   /**
    *
@@ -6266,6 +6359,7 @@ export interface InvalidRelativeFileVersionEnumException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRelativeFileVersionEnumException";
+  name: "InvalidRelativeFileVersionEnumException";
   $fault: "client";
   /**
    *
@@ -6290,6 +6384,7 @@ export interface InvalidReplacementContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidReplacementContentException";
+  name: "InvalidReplacementContentException";
   $fault: "client";
   /**
    *
@@ -6315,6 +6410,7 @@ export interface InvalidReplacementTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidReplacementTypeException";
+  name: "InvalidReplacementTypeException";
   $fault: "client";
   /**
    *
@@ -6339,6 +6435,7 @@ export interface InvalidRepositoryDescriptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryDescriptionException";
+  name: "InvalidRepositoryDescriptionException";
   $fault: "client";
   /**
    *
@@ -6370,6 +6467,7 @@ export interface InvalidRepositoryNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryNameException";
+  name: "InvalidRepositoryNameException";
   $fault: "client";
   /**
    *
@@ -6394,6 +6492,7 @@ export interface InvalidRepositoryTriggerBranchNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerBranchNameException";
+  name: "InvalidRepositoryTriggerBranchNameException";
   $fault: "client";
   /**
    *
@@ -6420,6 +6519,7 @@ export interface InvalidRepositoryTriggerCustomDataException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerCustomDataException";
+  name: "InvalidRepositoryTriggerCustomDataException";
   $fault: "client";
   /**
    *
@@ -6446,6 +6546,7 @@ export interface InvalidRepositoryTriggerDestinationArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerDestinationArnException";
+  name: "InvalidRepositoryTriggerDestinationArnException";
   $fault: "client";
   /**
    *
@@ -6472,6 +6573,7 @@ export interface InvalidRepositoryTriggerEventsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerEventsException";
+  name: "InvalidRepositoryTriggerEventsException";
   $fault: "client";
   /**
    *
@@ -6496,6 +6598,7 @@ export interface InvalidRepositoryTriggerNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerNameException";
+  name: "InvalidRepositoryTriggerNameException";
   $fault: "client";
   /**
    *
@@ -6522,6 +6625,7 @@ export interface InvalidRepositoryTriggerRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRepositoryTriggerRegionException";
+  name: "InvalidRepositoryTriggerRegionException";
   $fault: "client";
   /**
    *
@@ -6548,6 +6652,7 @@ export interface InvalidResourceArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceArnException";
+  name: "InvalidResourceArnException";
   $fault: "client";
   /**
    *
@@ -6572,6 +6677,7 @@ export interface InvalidRevisionIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRevisionIdException";
+  name: "InvalidRevisionIdException";
   $fault: "client";
   /**
    *
@@ -6596,6 +6702,7 @@ export interface InvalidRuleContentSha256Exception
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRuleContentSha256Exception";
+  name: "InvalidRuleContentSha256Exception";
   $fault: "client";
   /**
    *
@@ -6620,6 +6727,7 @@ export interface InvalidSortByException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSortByException";
+  name: "InvalidSortByException";
   $fault: "client";
   /**
    *
@@ -6644,6 +6752,7 @@ export interface InvalidSourceCommitSpecifierException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSourceCommitSpecifierException";
+  name: "InvalidSourceCommitSpecifierException";
   $fault: "client";
   /**
    *
@@ -6668,6 +6777,7 @@ export interface InvalidSystemTagUsageException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSystemTagUsageException";
+  name: "InvalidSystemTagUsageException";
   $fault: "client";
   /**
    *
@@ -6692,6 +6802,7 @@ export interface InvalidTagKeysListException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagKeysListException";
+  name: "InvalidTagKeysListException";
   $fault: "client";
   /**
    *
@@ -6716,6 +6827,7 @@ export interface InvalidTagsMapException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagsMapException";
+  name: "InvalidTagsMapException";
   $fault: "client";
   /**
    *
@@ -6740,6 +6852,7 @@ export interface InvalidTargetBranchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTargetBranchException";
+  name: "InvalidTargetBranchException";
   $fault: "client";
   /**
    *
@@ -6764,6 +6877,7 @@ export interface InvalidTargetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTargetException";
+  name: "InvalidTargetException";
   $fault: "client";
   /**
    *
@@ -6789,6 +6903,7 @@ export interface InvalidTargetsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTargetsException";
+  name: "InvalidTargetsException";
   $fault: "client";
   /**
    *
@@ -6813,6 +6928,7 @@ export interface InvalidTitleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTitleException";
+  name: "InvalidTitleException";
   $fault: "client";
   /**
    *
@@ -7320,6 +7436,7 @@ export interface ManualMergeRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ManualMergeRequiredException";
+  name: "ManualMergeRequiredException";
   $fault: "client";
   /**
    *
@@ -7344,6 +7461,7 @@ export interface MaximumBranchesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumBranchesExceededException";
+  name: "MaximumBranchesExceededException";
   $fault: "client";
   /**
    *
@@ -7368,6 +7486,7 @@ export interface MaximumConflictResolutionEntriesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumConflictResolutionEntriesExceededException";
+  name: "MaximumConflictResolutionEntriesExceededException";
   $fault: "client";
   /**
    *
@@ -7394,6 +7513,7 @@ export interface MaximumFileContentToLoadExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumFileContentToLoadExceededException";
+  name: "MaximumFileContentToLoadExceededException";
   $fault: "client";
   /**
    *
@@ -7419,6 +7539,7 @@ export interface MaximumFileEntriesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumFileEntriesExceededException";
+  name: "MaximumFileEntriesExceededException";
   $fault: "client";
   /**
    *
@@ -7443,6 +7564,7 @@ export interface MaximumItemsToCompareExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumItemsToCompareExceededException";
+  name: "MaximumItemsToCompareExceededException";
   $fault: "client";
   /**
    *
@@ -7467,6 +7589,7 @@ export interface MaximumNumberOfApprovalsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumNumberOfApprovalsExceededException";
+  name: "MaximumNumberOfApprovalsExceededException";
   $fault: "client";
   /**
    *
@@ -7492,6 +7615,7 @@ export interface MaximumOpenPullRequestsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumOpenPullRequestsExceededException";
+  name: "MaximumOpenPullRequestsExceededException";
   $fault: "client";
   /**
    *
@@ -7516,6 +7640,7 @@ export interface MaximumRepositoryNamesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumRepositoryNamesExceededException";
+  name: "MaximumRepositoryNamesExceededException";
   $fault: "client";
   /**
    *
@@ -7540,6 +7665,7 @@ export interface MaximumRepositoryTriggersExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumRepositoryTriggersExceededException";
+  name: "MaximumRepositoryTriggersExceededException";
   $fault: "client";
   /**
    *
@@ -7565,6 +7691,7 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumRuleTemplatesAssociatedWithRepositoryException";
+  name: "MaximumRuleTemplatesAssociatedWithRepositoryException";
   $fault: "client";
   /**
    *
@@ -8052,6 +8179,7 @@ export interface MergeOptionRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MergeOptionRequiredException";
+  name: "MergeOptionRequiredException";
   $fault: "client";
   /**
    *
@@ -8341,6 +8469,7 @@ export interface MultipleConflictResolutionEntriesException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MultipleConflictResolutionEntriesException";
+  name: "MultipleConflictResolutionEntriesException";
   $fault: "client";
   /**
    *
@@ -8365,6 +8494,7 @@ export interface MultipleRepositoriesInPullRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MultipleRepositoriesInPullRequestException";
+  name: "MultipleRepositoriesInPullRequestException";
   $fault: "client";
   /**
    *
@@ -8389,6 +8519,7 @@ export interface NameLengthExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NameLengthExceededException";
+  name: "NameLengthExceededException";
   $fault: "client";
   /**
    *
@@ -8413,6 +8544,7 @@ export interface NoChangeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoChangeException";
+  name: "NoChangeException";
   $fault: "client";
   /**
    *
@@ -8437,6 +8569,7 @@ export interface NumberOfRuleTemplatesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NumberOfRuleTemplatesExceededException";
+  name: "NumberOfRuleTemplatesExceededException";
   $fault: "client";
   /**
    *
@@ -8461,6 +8594,7 @@ export interface NumberOfRulesExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NumberOfRulesExceededException";
+  name: "NumberOfRulesExceededException";
   $fault: "client";
   /**
    *
@@ -8561,6 +8695,7 @@ export interface OverrideAlreadySetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OverrideAlreadySetException";
+  name: "OverrideAlreadySetException";
   $fault: "client";
   /**
    *
@@ -8624,6 +8759,7 @@ export interface OverrideStatusRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OverrideStatusRequiredException";
+  name: "OverrideStatusRequiredException";
   $fault: "client";
   /**
    *
@@ -8648,6 +8784,7 @@ export interface ParentCommitDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParentCommitDoesNotExistException";
+  name: "ParentCommitDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -8673,6 +8810,7 @@ export interface ParentCommitIdOutdatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParentCommitIdOutdatedException";
+  name: "ParentCommitIdOutdatedException";
   $fault: "client";
   /**
    *
@@ -8698,6 +8836,7 @@ export interface ParentCommitIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParentCommitIdRequiredException";
+  name: "ParentCommitIdRequiredException";
   $fault: "client";
   /**
    *
@@ -8722,6 +8861,7 @@ export interface PathDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PathDoesNotExistException";
+  name: "PathDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -8746,6 +8886,7 @@ export interface PathRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PathRequiredException";
+  name: "PathRequiredException";
   $fault: "client";
   /**
    *
@@ -9160,6 +9301,7 @@ export interface PullRequestAlreadyClosedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestAlreadyClosedException";
+  name: "PullRequestAlreadyClosedException";
   $fault: "client";
   /**
    *
@@ -9184,6 +9326,7 @@ export interface PullRequestApprovalRulesNotSatisfiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestApprovalRulesNotSatisfiedException";
+  name: "PullRequestApprovalRulesNotSatisfiedException";
   $fault: "client";
   /**
    *
@@ -9211,6 +9354,7 @@ export interface PullRequestCannotBeApprovedByAuthorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestCannotBeApprovedByAuthorException";
+  name: "PullRequestCannotBeApprovedByAuthorException";
   $fault: "client";
   /**
    *
@@ -9279,6 +9423,7 @@ export interface PullRequestDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestDoesNotExistException";
+  name: "PullRequestDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -9410,6 +9555,7 @@ export interface PullRequestIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestIdRequiredException";
+  name: "PullRequestIdRequiredException";
   $fault: "client";
   /**
    *
@@ -9539,6 +9685,7 @@ export interface PullRequestStatusRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PullRequestStatusRequiredException";
+  name: "PullRequestStatusRequiredException";
   $fault: "client";
   /**
    *
@@ -9672,6 +9819,7 @@ export interface PutFileEntryConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PutFileEntryConflictException";
+  name: "PutFileEntryConflictException";
   $fault: "client";
   /**
    *
@@ -9859,6 +10007,7 @@ export interface ReferenceDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReferenceDoesNotExistException";
+  name: "ReferenceDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -9883,6 +10032,7 @@ export interface ReferenceNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReferenceNameRequiredException";
+  name: "ReferenceNameRequiredException";
   $fault: "client";
   /**
    *
@@ -9907,6 +10057,7 @@ export interface ReferenceTypeNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReferenceTypeNotSupportedException";
+  name: "ReferenceTypeNotSupportedException";
   $fault: "client";
   /**
    *
@@ -9978,6 +10129,7 @@ export interface ReplacementContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplacementContentRequiredException";
+  name: "ReplacementContentRequiredException";
   $fault: "client";
   /**
    *
@@ -10009,6 +10161,7 @@ export interface ReplacementTypeRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplacementTypeRequiredException";
+  name: "ReplacementTypeRequiredException";
   $fault: "client";
   /**
    *
@@ -10033,6 +10186,7 @@ export interface RepositoryDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryDoesNotExistException";
+  name: "RepositoryDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -10057,6 +10211,7 @@ export interface RepositoryLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryLimitExceededException";
+  name: "RepositoryLimitExceededException";
   $fault: "client";
   /**
    *
@@ -10165,6 +10320,7 @@ export interface RepositoryNameExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryNameExistsException";
+  name: "RepositoryNameExistsException";
   $fault: "client";
   /**
    *
@@ -10217,6 +10373,7 @@ export interface RepositoryNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryNameRequiredException";
+  name: "RepositoryNameRequiredException";
   $fault: "client";
   /**
    *
@@ -10241,6 +10398,7 @@ export interface RepositoryNamesRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryNamesRequiredException";
+  name: "RepositoryNamesRequiredException";
   $fault: "client";
   /**
    *
@@ -10265,6 +10423,7 @@ export interface RepositoryNotAssociatedWithPullRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryNotAssociatedWithPullRequestException";
+  name: "RepositoryNotAssociatedWithPullRequestException";
   $fault: "client";
   /**
    *
@@ -10353,6 +10512,7 @@ export interface RepositoryTriggerBranchNameListRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryTriggerBranchNameListRequiredException";
+  name: "RepositoryTriggerBranchNameListRequiredException";
   $fault: "client";
   /**
    *
@@ -10380,6 +10540,7 @@ export interface RepositoryTriggerDestinationArnRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryTriggerDestinationArnRequiredException";
+  name: "RepositoryTriggerDestinationArnRequiredException";
   $fault: "client";
   /**
    *
@@ -10413,6 +10574,7 @@ export interface RepositoryTriggerEventsListRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryTriggerEventsListRequiredException";
+  name: "RepositoryTriggerEventsListRequiredException";
   $fault: "client";
   /**
    *
@@ -10467,6 +10629,7 @@ export interface RepositoryTriggerNameRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryTriggerNameRequiredException";
+  name: "RepositoryTriggerNameRequiredException";
   $fault: "client";
   /**
    *
@@ -10491,6 +10654,7 @@ export interface RepositoryTriggersListRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RepositoryTriggersListRequiredException";
+  name: "RepositoryTriggersListRequiredException";
   $fault: "client";
   /**
    *
@@ -10517,6 +10681,7 @@ export interface ResourceArnRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceArnRequiredException";
+  name: "ResourceArnRequiredException";
   $fault: "client";
   /**
    *
@@ -10541,6 +10706,7 @@ export interface RestrictedSourceFileException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RestrictedSourceFileException";
+  name: "RestrictedSourceFileException";
   $fault: "client";
   /**
    *
@@ -10565,6 +10731,7 @@ export interface RevisionIdRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RevisionIdRequiredException";
+  name: "RevisionIdRequiredException";
   $fault: "client";
   /**
    *
@@ -10589,6 +10756,7 @@ export interface RevisionNotCurrentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RevisionNotCurrentException";
+  name: "RevisionNotCurrentException";
   $fault: "client";
   /**
    *
@@ -10614,6 +10782,7 @@ export interface SameFileContentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SameFileContentException";
+  name: "SameFileContentException";
   $fault: "client";
   /**
    *
@@ -10640,6 +10809,7 @@ export interface SamePathRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SamePathRequestException";
+  name: "SamePathRequestException";
   $fault: "client";
   /**
    *
@@ -10698,6 +10868,7 @@ export interface SourceAndDestinationAreSameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SourceAndDestinationAreSameException";
+  name: "SourceAndDestinationAreSameException";
   $fault: "client";
   /**
    *
@@ -10722,6 +10893,7 @@ export interface SourceFileOrContentRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SourceFileOrContentRequiredException";
+  name: "SourceFileOrContentRequiredException";
   $fault: "client";
   /**
    *
@@ -10851,6 +11023,7 @@ export interface TagKeysListRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagKeysListRequiredException";
+  name: "TagKeysListRequiredException";
   $fault: "client";
   /**
    *
@@ -10875,6 +11048,7 @@ export interface TagPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagPolicyException";
+  name: "TagPolicyException";
   $fault: "client";
   /**
    *
@@ -10922,6 +11096,7 @@ export interface TagsMapRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagsMapRequiredException";
+  name: "TagsMapRequiredException";
   $fault: "client";
   /**
    *
@@ -10982,6 +11157,7 @@ export interface TargetRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TargetRequiredException";
+  name: "TargetRequiredException";
   $fault: "client";
   /**
    *
@@ -11006,6 +11182,7 @@ export interface TargetsRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TargetsRequiredException";
+  name: "TargetsRequiredException";
   $fault: "client";
   /**
    *
@@ -11088,6 +11265,7 @@ export interface TipOfSourceReferenceIsDifferentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TipOfSourceReferenceIsDifferentException";
+  name: "TipOfSourceReferenceIsDifferentException";
   $fault: "client";
   /**
    *
@@ -11113,6 +11291,7 @@ export interface TipsDivergenceExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TipsDivergenceExceededException";
+  name: "TipsDivergenceExceededException";
   $fault: "client";
   /**
    *
@@ -11137,6 +11316,7 @@ export interface TitleRequiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TitleRequiredException";
+  name: "TitleRequiredException";
   $fault: "client";
   /**
    *
@@ -11161,6 +11341,7 @@ export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsException";
+  name: "TooManyTagsException";
   $fault: "client";
   /**
    *

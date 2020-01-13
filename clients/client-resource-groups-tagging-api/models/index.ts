@@ -364,6 +364,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -403,6 +404,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
 }
@@ -423,6 +425,7 @@ export interface PaginationTokenExpiredException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PaginationTokenExpiredException";
+  name: "PaginationTokenExpiredException";
   $fault: "client";
   Message?: string;
 }
@@ -584,6 +587,7 @@ export interface ThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottledException";
+  name: "ThrottledException";
   $fault: "client";
   Message?: string;
 }

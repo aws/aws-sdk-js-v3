@@ -4545,6 +4545,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4563,6 +4564,7 @@ const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
     context
   );
   const contents: IncompatibleImageException = {
+    name: "IncompatibleImageException",
     __type: "IncompatibleImageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4581,6 +4583,7 @@ const deserializeAws_json1_1InvalidAccountStatusExceptionResponse = async (
     context
   );
   const contents: InvalidAccountStatusException = {
+    name: "InvalidAccountStatusException",
     __type: "InvalidAccountStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4599,6 +4602,7 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
     context
   );
   const contents: InvalidParameterCombinationException = {
+    name: "InvalidParameterCombinationException",
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4617,6 +4621,7 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
     context
   );
   const contents: InvalidRoleException = {
+    name: "InvalidRoleException",
     __type: "InvalidRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4635,6 +4640,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4653,6 +4659,7 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
     context
   );
   const contents: OperationNotPermittedException = {
+    name: "OperationNotPermittedException",
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4671,6 +4678,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4689,6 +4697,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4707,6 +4716,7 @@ const deserializeAws_json1_1ResourceNotAvailableExceptionResponse = async (
     context
   );
   const contents: ResourceNotAvailableException = {
+    name: "ResourceNotAvailableException",
     __type: "ResourceNotAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4725,6 +4735,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

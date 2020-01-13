@@ -1744,6 +1744,7 @@ const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
     context
   );
   const contents: ClusterLimitExceededException = {
+    name: "ClusterLimitExceededException",
     __type: "ClusterLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1762,6 +1763,7 @@ const deserializeAws_json1_1Ec2RequestFailedExceptionResponse = async (
     context
   );
   const contents: Ec2RequestFailedException = {
+    name: "Ec2RequestFailedException",
     __type: "Ec2RequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1780,6 +1782,7 @@ const deserializeAws_json1_1InvalidAddressExceptionResponse = async (
     context
   );
   const contents: InvalidAddressException = {
+    name: "InvalidAddressException",
     __type: "InvalidAddressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1798,6 +1801,7 @@ const deserializeAws_json1_1InvalidInputCombinationExceptionResponse = async (
     context
   );
   const contents: InvalidInputCombinationException = {
+    name: "InvalidInputCombinationException",
     __type: "InvalidInputCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1816,6 +1820,7 @@ const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
     context
   );
   const contents: InvalidJobStateException = {
+    name: "InvalidJobStateException",
     __type: "InvalidJobStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1834,6 +1839,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1852,6 +1858,7 @@ const deserializeAws_json1_1InvalidResourceExceptionResponse = async (
     context
   );
   const contents: InvalidResourceException = {
+    name: "InvalidResourceException",
     __type: "InvalidResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1870,6 +1877,7 @@ const deserializeAws_json1_1KMSRequestFailedExceptionResponse = async (
     context
   );
   const contents: KMSRequestFailedException = {
+    name: "KMSRequestFailedException",
     __type: "KMSRequestFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1888,6 +1896,7 @@ const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
     context
   );
   const contents: UnsupportedAddressException = {
+    name: "UnsupportedAddressException",
     __type: "UnsupportedAddressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

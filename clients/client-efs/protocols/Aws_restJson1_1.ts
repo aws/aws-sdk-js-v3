@@ -1758,6 +1758,7 @@ const deserializeAws_restJson1_1BadRequestResponse = async (
   context: __SerdeContext
 ): Promise<BadRequest> => {
   const contents: BadRequest = {
+    name: "BadRequest",
     __type: "BadRequest",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1779,6 +1780,7 @@ const deserializeAws_restJson1_1DependencyTimeoutResponse = async (
   context: __SerdeContext
 ): Promise<DependencyTimeout> => {
   const contents: DependencyTimeout = {
+    name: "DependencyTimeout",
     __type: "DependencyTimeout",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -1800,6 +1802,7 @@ const deserializeAws_restJson1_1FileSystemAlreadyExistsResponse = async (
   context: __SerdeContext
 ): Promise<FileSystemAlreadyExists> => {
   const contents: FileSystemAlreadyExists = {
+    name: "FileSystemAlreadyExists",
     __type: "FileSystemAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1825,6 +1828,7 @@ const deserializeAws_restJson1_1FileSystemInUseResponse = async (
   context: __SerdeContext
 ): Promise<FileSystemInUse> => {
   const contents: FileSystemInUse = {
+    name: "FileSystemInUse",
     __type: "FileSystemInUse",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1846,6 +1850,7 @@ const deserializeAws_restJson1_1FileSystemLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<FileSystemLimitExceeded> => {
   const contents: FileSystemLimitExceeded = {
+    name: "FileSystemLimitExceeded",
     __type: "FileSystemLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1867,6 +1872,7 @@ const deserializeAws_restJson1_1FileSystemNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<FileSystemNotFound> => {
   const contents: FileSystemNotFound = {
+    name: "FileSystemNotFound",
     __type: "FileSystemNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1888,6 +1894,7 @@ const deserializeAws_restJson1_1IncorrectFileSystemLifeCycleStateResponse = asyn
   context: __SerdeContext
 ): Promise<IncorrectFileSystemLifeCycleState> => {
   const contents: IncorrectFileSystemLifeCycleState = {
+    name: "IncorrectFileSystemLifeCycleState",
     __type: "IncorrectFileSystemLifeCycleState",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1909,6 +1916,7 @@ const deserializeAws_restJson1_1IncorrectMountTargetStateResponse = async (
   context: __SerdeContext
 ): Promise<IncorrectMountTargetState> => {
   const contents: IncorrectMountTargetState = {
+    name: "IncorrectMountTargetState",
     __type: "IncorrectMountTargetState",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1930,6 +1938,7 @@ const deserializeAws_restJson1_1InsufficientThroughputCapacityResponse = async (
   context: __SerdeContext
 ): Promise<InsufficientThroughputCapacity> => {
   const contents: InsufficientThroughputCapacity = {
+    name: "InsufficientThroughputCapacity",
     __type: "InsufficientThroughputCapacity",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -1951,6 +1960,7 @@ const deserializeAws_restJson1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const contents: InternalServerError = {
+    name: "InternalServerError",
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -1972,6 +1982,7 @@ const deserializeAws_restJson1_1IpAddressInUseResponse = async (
   context: __SerdeContext
 ): Promise<IpAddressInUse> => {
   const contents: IpAddressInUse = {
+    name: "IpAddressInUse",
     __type: "IpAddressInUse",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1993,6 +2004,7 @@ const deserializeAws_restJson1_1MountTargetConflictResponse = async (
   context: __SerdeContext
 ): Promise<MountTargetConflict> => {
   const contents: MountTargetConflict = {
+    name: "MountTargetConflict",
     __type: "MountTargetConflict",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2014,6 +2026,7 @@ const deserializeAws_restJson1_1MountTargetNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<MountTargetNotFound> => {
   const contents: MountTargetNotFound = {
+    name: "MountTargetNotFound",
     __type: "MountTargetNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2035,6 +2048,7 @@ const deserializeAws_restJson1_1NetworkInterfaceLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<NetworkInterfaceLimitExceeded> => {
   const contents: NetworkInterfaceLimitExceeded = {
+    name: "NetworkInterfaceLimitExceeded",
     __type: "NetworkInterfaceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2056,6 +2070,7 @@ const deserializeAws_restJson1_1NoFreeAddressesInSubnetResponse = async (
   context: __SerdeContext
 ): Promise<NoFreeAddressesInSubnet> => {
   const contents: NoFreeAddressesInSubnet = {
+    name: "NoFreeAddressesInSubnet",
     __type: "NoFreeAddressesInSubnet",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2077,6 +2092,7 @@ const deserializeAws_restJson1_1SecurityGroupLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<SecurityGroupLimitExceeded> => {
   const contents: SecurityGroupLimitExceeded = {
+    name: "SecurityGroupLimitExceeded",
     __type: "SecurityGroupLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2098,6 +2114,7 @@ const deserializeAws_restJson1_1SecurityGroupNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<SecurityGroupNotFound> => {
   const contents: SecurityGroupNotFound = {
+    name: "SecurityGroupNotFound",
     __type: "SecurityGroupNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2119,6 +2136,7 @@ const deserializeAws_restJson1_1SubnetNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<SubnetNotFound> => {
   const contents: SubnetNotFound = {
+    name: "SubnetNotFound",
     __type: "SubnetNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2140,6 +2158,7 @@ const deserializeAws_restJson1_1ThroughputLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<ThroughputLimitExceeded> => {
   const contents: ThroughputLimitExceeded = {
+    name: "ThroughputLimitExceeded",
     __type: "ThroughputLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2161,6 +2180,7 @@ const deserializeAws_restJson1_1TooManyRequestsResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequests> => {
   const contents: TooManyRequests = {
+    name: "TooManyRequests",
     __type: "TooManyRequests",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2182,6 +2202,7 @@ const deserializeAws_restJson1_1UnsupportedAvailabilityZoneResponse = async (
   context: __SerdeContext
 ): Promise<UnsupportedAvailabilityZone> => {
   const contents: UnsupportedAvailabilityZone = {
+    name: "UnsupportedAvailabilityZone",
     __type: "UnsupportedAvailabilityZone",
     $fault: "client",
     $metadata: deserializeMetadata(output),

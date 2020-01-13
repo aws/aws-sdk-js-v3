@@ -6876,6 +6876,7 @@ const deserializeAws_json1_1ArgumentExceptionResponse = async (
     context
   );
   const contents: ArgumentException = {
+    name: "ArgumentException",
     __type: "ArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6894,6 +6895,7 @@ const deserializeAws_json1_1IdempotencyExceptionResponse = async (
     context
   );
   const contents: IdempotencyException = {
+    name: "IdempotencyException",
     __type: "IdempotencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6912,6 +6914,7 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
     context
   );
   const contents: InvalidOperationException = {
+    name: "InvalidOperationException",
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6930,6 +6933,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6948,6 +6952,7 @@ const deserializeAws_json1_1NotEligibleExceptionResponse = async (
     context
   );
   const contents: NotEligibleException = {
+    name: "NotEligibleException",
     __type: "NotEligibleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6966,6 +6971,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -6984,6 +6990,7 @@ const deserializeAws_json1_1ServiceAccountExceptionResponse = async (
     context
   );
   const contents: ServiceAccountException = {
+    name: "ServiceAccountException",
     __type: "ServiceAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7002,6 +7009,7 @@ const deserializeAws_json1_1TagOperationExceptionResponse = async (
     context
   );
   const contents: TagOperationException = {
+    name: "TagOperationException",
     __type: "TagOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7020,6 +7028,7 @@ const deserializeAws_json1_1TagPolicyExceptionResponse = async (
     context
   );
   const contents: TagPolicyException = {
+    name: "TagPolicyException",
     __type: "TagPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7038,6 +7047,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

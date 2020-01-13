@@ -1305,6 +1305,7 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
     context
   );
   const contents: AlreadyExistsException = {
+    name: "AlreadyExistsException",
     __type: "AlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1323,6 +1324,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1341,6 +1343,7 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
     context
   );
   const contents: EntityNotFoundException = {
+    name: "EntityNotFoundException",
     __type: "EntityNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1359,6 +1362,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
     context
   );
   const contents: InternalServiceException = {
+    name: "InternalServiceException",
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1377,6 +1381,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1395,6 +1400,7 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
     context
   );
   const contents: OperationTimeoutException = {
+    name: "OperationTimeoutException",
     __type: "OperationTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

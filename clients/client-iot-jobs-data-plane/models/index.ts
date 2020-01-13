@@ -10,6 +10,7 @@ export interface CertificateValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateValidationException";
+  name: "CertificateValidationException";
   $fault: "client";
   /**
    *
@@ -34,6 +35,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   /**
    *
@@ -60,6 +62,7 @@ export interface InvalidStateTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidStateTransitionException";
+  name: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
 }
@@ -79,6 +82,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -103,6 +107,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   /**
    *
@@ -127,6 +132,7 @@ export interface TerminalStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TerminalStateException";
+  name: "TerminalStateException";
   $fault: "client";
   message?: string;
 }
@@ -157,6 +163,7 @@ export interface ThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottlingException";
+  name: "ThrottlingException";
   $fault: "client";
   /**
    *

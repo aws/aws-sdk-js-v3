@@ -1899,6 +1899,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1917,6 +1918,7 @@ const deserializeAws_json1_1AuthorizationExceptionResponse = async (
     context
   );
   const contents: AuthorizationException = {
+    name: "AuthorizationException",
     __type: "AuthorizationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1935,6 +1937,7 @@ const deserializeAws_json1_1FailedDependencyExceptionResponse = async (
     context
   );
   const contents: FailedDependencyException = {
+    name: "FailedDependencyException",
     __type: "FailedDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1953,6 +1956,7 @@ const deserializeAws_json1_1FilterLimitExceededExceptionResponse = async (
     context
   );
   const contents: FilterLimitExceededException = {
+    name: "FilterLimitExceededException",
     __type: "FilterLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1971,6 +1975,7 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1989,6 +1994,7 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
     context
   );
   const contents: InvalidResourceStateException = {
+    name: "InvalidResourceStateException",
     __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2007,6 +2013,7 @@ const deserializeAws_json1_1LicenseUsageExceptionResponse = async (
     context
   );
   const contents: LicenseUsageException = {
+    name: "LicenseUsageException",
     __type: "LicenseUsageException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2025,6 +2032,7 @@ const deserializeAws_json1_1RateLimitExceededExceptionResponse = async (
     context
   );
   const contents: RateLimitExceededException = {
+    name: "RateLimitExceededException",
     __type: "RateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2043,6 +2051,7 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
     context
   );
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2061,6 +2070,7 @@ const deserializeAws_json1_1ServerInternalExceptionResponse = async (
     context
   );
   const contents: ServerInternalException = {
+    name: "ServerInternalException",
     __type: "ServerInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),

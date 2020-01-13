@@ -3823,6 +3823,7 @@ export namespace WorkerBlock {
  */
 export interface RequestError extends _smithy.SmithyException, $MetadataBearer {
   __type: "RequestError";
+  name: "RequestError";
   $fault: "client";
   Message?: string;
   TurkErrorCode?: string;
@@ -3841,6 +3842,7 @@ export namespace RequestError {
  */
 export interface ServiceFault extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceFault";
+  name: "ServiceFault";
   $fault: "server";
   Message?: string;
   TurkErrorCode?: string;

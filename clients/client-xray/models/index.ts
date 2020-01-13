@@ -1539,6 +1539,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
@@ -1862,6 +1863,7 @@ export interface RuleLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RuleLimitExceededException";
+  name: "RuleLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -2630,6 +2632,7 @@ export interface ThrottledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ThrottledException";
+  name: "ThrottledException";
   $fault: "client";
   Message?: string;
 }

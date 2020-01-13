@@ -2150,6 +2150,7 @@ const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
     context
   );
   const contents: ActivityDoesNotExist = {
+    name: "ActivityDoesNotExist",
     __type: "ActivityDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2168,6 +2169,7 @@ const deserializeAws_json1_0ActivityLimitExceededResponse = async (
     context
   );
   const contents: ActivityLimitExceeded = {
+    name: "ActivityLimitExceeded",
     __type: "ActivityLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2186,6 +2188,7 @@ const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
     context
   );
   const contents: ActivityWorkerLimitExceeded = {
+    name: "ActivityWorkerLimitExceeded",
     __type: "ActivityWorkerLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2204,6 +2207,7 @@ const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
     context
   );
   const contents: ExecutionAlreadyExists = {
+    name: "ExecutionAlreadyExists",
     __type: "ExecutionAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2222,6 +2226,7 @@ const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
     context
   );
   const contents: ExecutionDoesNotExist = {
+    name: "ExecutionDoesNotExist",
     __type: "ExecutionDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2240,6 +2245,7 @@ const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
     context
   );
   const contents: ExecutionLimitExceeded = {
+    name: "ExecutionLimitExceeded",
     __type: "ExecutionLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2255,6 +2261,7 @@ const deserializeAws_json1_0InvalidArnResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidArn(body, context);
   const contents: InvalidArn = {
+    name: "InvalidArn",
     __type: "InvalidArn",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2273,6 +2280,7 @@ const deserializeAws_json1_0InvalidDefinitionResponse = async (
     context
   );
   const contents: InvalidDefinition = {
+    name: "InvalidDefinition",
     __type: "InvalidDefinition",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2291,6 +2299,7 @@ const deserializeAws_json1_0InvalidExecutionInputResponse = async (
     context
   );
   const contents: InvalidExecutionInput = {
+    name: "InvalidExecutionInput",
     __type: "InvalidExecutionInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2309,6 +2318,7 @@ const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
     context
   );
   const contents: InvalidLoggingConfiguration = {
+    name: "InvalidLoggingConfiguration",
     __type: "InvalidLoggingConfiguration",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2324,6 +2334,7 @@ const deserializeAws_json1_0InvalidNameResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidName(body, context);
   const contents: InvalidName = {
+    name: "InvalidName",
     __type: "InvalidName",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2339,6 +2350,7 @@ const deserializeAws_json1_0InvalidOutputResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidOutput(body, context);
   const contents: InvalidOutput = {
+    name: "InvalidOutput",
     __type: "InvalidOutput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2354,6 +2366,7 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidToken(body, context);
   const contents: InvalidToken = {
+    name: "InvalidToken",
     __type: "InvalidToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2372,6 +2385,7 @@ const deserializeAws_json1_0MissingRequiredParameterResponse = async (
     context
   );
   const contents: MissingRequiredParameter = {
+    name: "MissingRequiredParameter",
     __type: "MissingRequiredParameter",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2390,6 +2404,7 @@ const deserializeAws_json1_0ResourceNotFoundResponse = async (
     context
   );
   const contents: ResourceNotFound = {
+    name: "ResourceNotFound",
     __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2408,6 +2423,7 @@ const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
     context
   );
   const contents: StateMachineAlreadyExists = {
+    name: "StateMachineAlreadyExists",
     __type: "StateMachineAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2426,6 +2442,7 @@ const deserializeAws_json1_0StateMachineDeletingResponse = async (
     context
   );
   const contents: StateMachineDeleting = {
+    name: "StateMachineDeleting",
     __type: "StateMachineDeleting",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2444,6 +2461,7 @@ const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
     context
   );
   const contents: StateMachineDoesNotExist = {
+    name: "StateMachineDoesNotExist",
     __type: "StateMachineDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2462,6 +2480,7 @@ const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
     context
   );
   const contents: StateMachineLimitExceeded = {
+    name: "StateMachineLimitExceeded",
     __type: "StateMachineLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2480,6 +2499,7 @@ const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
     context
   );
   const contents: StateMachineTypeNotSupported = {
+    name: "StateMachineTypeNotSupported",
     __type: "StateMachineTypeNotSupported",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2498,6 +2518,7 @@ const deserializeAws_json1_0TaskDoesNotExistResponse = async (
     context
   );
   const contents: TaskDoesNotExist = {
+    name: "TaskDoesNotExist",
     __type: "TaskDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2513,6 +2534,7 @@ const deserializeAws_json1_0TaskTimedOutResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TaskTimedOut(body, context);
   const contents: TaskTimedOut = {
+    name: "TaskTimedOut",
     __type: "TaskTimedOut",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2528,6 +2550,7 @@ const deserializeAws_json1_0TooManyTagsResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TooManyTags(body, context);
   const contents: TooManyTags = {
+    name: "TooManyTags",
     __type: "TooManyTags",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

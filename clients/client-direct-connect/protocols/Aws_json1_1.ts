@@ -4936,6 +4936,7 @@ const deserializeAws_json1_1DirectConnectClientExceptionResponse = async (
     context
   );
   const contents: DirectConnectClientException = {
+    name: "DirectConnectClientException",
     __type: "DirectConnectClientException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4954,6 +4955,7 @@ const deserializeAws_json1_1DirectConnectServerExceptionResponse = async (
     context
   );
   const contents: DirectConnectServerException = {
+    name: "DirectConnectServerException",
     __type: "DirectConnectServerException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4972,6 +4974,7 @@ const deserializeAws_json1_1DuplicateTagKeysExceptionResponse = async (
     context
   );
   const contents: DuplicateTagKeysException = {
+    name: "DuplicateTagKeysException",
     __type: "DuplicateTagKeysException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4990,6 +4993,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
     context
   );
   const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

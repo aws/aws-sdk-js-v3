@@ -10,6 +10,7 @@ export interface InternalFailure
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalFailure";
+  name: "InternalFailure";
   $fault: "server";
   Message?: string;
 }
@@ -139,6 +140,7 @@ export namespace InvokeEndpointOutput {
  */
 export interface ModelError extends _smithy.SmithyException, $MetadataBearer {
   __type: "ModelError";
+  name: "ModelError";
   $fault: "client";
   /**
    *
@@ -178,6 +180,7 @@ export interface ServiceUnavailable
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailable";
+  name: "ServiceUnavailable";
   $fault: "server";
   Message?: string;
 }
@@ -197,6 +200,7 @@ export interface ValidationError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationError";
+  name: "ValidationError";
   $fault: "client";
   Message?: string;
 }

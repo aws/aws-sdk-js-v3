@@ -1003,6 +1003,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -1027,6 +1028,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   /**
    *
@@ -1051,6 +1053,7 @@ export interface EntityNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityNotFoundException";
+  name: "EntityNotFoundException";
   $fault: "client";
   /**
    *
@@ -1103,6 +1106,7 @@ export interface InternalServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceException";
+  name: "InternalServiceException";
   $fault: "server";
   /**
    *
@@ -1127,6 +1131,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   /**
    *
@@ -1151,6 +1156,7 @@ export interface OperationTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationTimeoutException";
+  name: "OperationTimeoutException";
   $fault: "client";
   /**
    *

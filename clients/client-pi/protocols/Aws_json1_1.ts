@@ -227,6 +227,7 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
     context
   );
   const contents: InternalServiceError = {
+    name: "InternalServiceError",
     __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -245,6 +246,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
     context
   );
   const contents: InvalidArgumentException = {
+    name: "InvalidArgumentException",
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -263,6 +265,7 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
     context
   );
   const contents: NotAuthorizedException = {
+    name: "NotAuthorizedException",
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

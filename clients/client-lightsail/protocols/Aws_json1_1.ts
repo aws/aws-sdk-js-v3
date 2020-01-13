@@ -13062,6 +13062,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13080,6 +13081,7 @@ const deserializeAws_json1_1AccountSetupInProgressExceptionResponse = async (
     context
   );
   const contents: AccountSetupInProgressException = {
+    name: "AccountSetupInProgressException",
     __type: "AccountSetupInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13098,6 +13100,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13116,6 +13119,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13134,6 +13138,7 @@ const deserializeAws_json1_1OperationFailureExceptionResponse = async (
     context
   );
   const contents: OperationFailureException = {
+    name: "OperationFailureException",
     __type: "OperationFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13152,6 +13157,7 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
     context
   );
   const contents: ServiceException = {
+    name: "ServiceException",
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -13170,6 +13176,7 @@ const deserializeAws_json1_1UnauthenticatedExceptionResponse = async (
     context
   );
   const contents: UnauthenticatedException = {
+    name: "UnauthenticatedException",
     __type: "UnauthenticatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

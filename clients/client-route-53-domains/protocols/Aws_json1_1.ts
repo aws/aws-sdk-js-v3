@@ -2395,6 +2395,7 @@ const deserializeAws_json1_1DomainLimitExceededResponse = async (
     context
   );
   const contents: DomainLimitExceeded = {
+    name: "DomainLimitExceeded",
     __type: "DomainLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2413,6 +2414,7 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
     context
   );
   const contents: DuplicateRequest = {
+    name: "DuplicateRequest",
     __type: "DuplicateRequest",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2428,6 +2430,7 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
   const contents: InvalidInput = {
+    name: "InvalidInput",
     __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2446,6 +2449,7 @@ const deserializeAws_json1_1OperationLimitExceededResponse = async (
     context
   );
   const contents: OperationLimitExceeded = {
+    name: "OperationLimitExceeded",
     __type: "OperationLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2464,6 +2468,7 @@ const deserializeAws_json1_1TLDRulesViolationResponse = async (
     context
   );
   const contents: TLDRulesViolation = {
+    name: "TLDRulesViolation",
     __type: "TLDRulesViolation",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2479,6 +2484,7 @@ const deserializeAws_json1_1UnsupportedTLDResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedTLD(body, context);
   const contents: UnsupportedTLD = {
+    name: "UnsupportedTLD",
     __type: "UnsupportedTLD",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

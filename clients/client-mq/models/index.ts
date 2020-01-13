@@ -25,6 +25,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   /**
    * The attribute which caused the error.
@@ -325,6 +326,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   /**
    * The attribute which caused the error.
@@ -1138,6 +1140,7 @@ export interface ForbiddenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ForbiddenException";
+  name: "ForbiddenException";
   $fault: "client";
   /**
    * The attribute which caused the error.
@@ -1163,6 +1166,7 @@ export interface InternalServerErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerErrorException";
+  name: "InternalServerErrorException";
   $fault: "server";
   /**
    * The attribute which caused the error.
@@ -1462,6 +1466,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   /**
    * The attribute which caused the error.
@@ -1566,6 +1571,7 @@ export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedException";
+  name: "UnauthorizedException";
   $fault: "client";
   /**
    * The attribute which caused the error.

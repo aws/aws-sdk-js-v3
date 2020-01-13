@@ -3907,6 +3907,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3925,6 +3926,7 @@ const deserializeAws_json1_1InvalidParameterValuesExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValuesException = {
+    name: "InvalidParameterValuesException",
     __type: "InvalidParameterValuesException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3943,6 +3945,7 @@ const deserializeAws_json1_1InvalidResourceStateExceptionResponse = async (
     context
   );
   const contents: InvalidResourceStateException = {
+    name: "InvalidResourceStateException",
     __type: "InvalidResourceStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3961,6 +3964,7 @@ const deserializeAws_json1_1OperationInProgressExceptionResponse = async (
     context
   );
   const contents: OperationInProgressException = {
+    name: "OperationInProgressException",
     __type: "OperationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3979,6 +3983,7 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
     context
   );
   const contents: OperationNotSupportedException = {
+    name: "OperationNotSupportedException",
     __type: "OperationNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3997,6 +4002,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4015,6 +4021,7 @@ const deserializeAws_json1_1ResourceAssociatedExceptionResponse = async (
     context
   );
   const contents: ResourceAssociatedException = {
+    name: "ResourceAssociatedException",
     __type: "ResourceAssociatedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4033,6 +4040,7 @@ const deserializeAws_json1_1ResourceCreationFailedExceptionResponse = async (
     context
   );
   const contents: ResourceCreationFailedException = {
+    name: "ResourceCreationFailedException",
     __type: "ResourceCreationFailedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4051,6 +4059,7 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
     context
   );
   const contents: ResourceLimitExceededException = {
+    name: "ResourceLimitExceededException",
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4069,6 +4078,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4087,6 +4097,7 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
     context
   );
   const contents: ResourceUnavailableException = {
+    name: "ResourceUnavailableException",
     __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4105,6 +4116,7 @@ const deserializeAws_json1_1UnsupportedNetworkConfigurationExceptionResponse = a
     context
   );
   const contents: UnsupportedNetworkConfigurationException = {
+    name: "UnsupportedNetworkConfigurationException",
     __type: "UnsupportedNetworkConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4123,6 +4135,7 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationExceptionResponse =
     context
   );
   const contents: UnsupportedWorkspaceConfigurationException = {
+    name: "UnsupportedWorkspaceConfigurationException",
     __type: "UnsupportedWorkspaceConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -4141,6 +4154,7 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundExceptionResponse = asy
     context
   );
   const contents: WorkspacesDefaultRoleNotFoundException = {
+    name: "WorkspacesDefaultRoleNotFoundException",
     __type: "WorkspacesDefaultRoleNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

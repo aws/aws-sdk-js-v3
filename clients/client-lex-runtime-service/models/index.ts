@@ -11,6 +11,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
@@ -30,6 +31,7 @@ export interface ConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConflictException";
+  name: "ConflictException";
   $fault: "client";
   message?: string;
 }
@@ -49,6 +51,7 @@ export interface InternalFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalFailureException";
+  name: "InternalFailureException";
   $fault: "server";
   message?: string;
 }
@@ -68,6 +71,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
   retryAfterSeconds?: string;
@@ -88,6 +92,7 @@ export interface NotAcceptableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotAcceptableException";
+  name: "NotAcceptableException";
   $fault: "client";
   message?: string;
 }
@@ -108,6 +113,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -127,6 +133,7 @@ export interface RequestTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestTimeoutException";
+  name: "RequestTimeoutException";
   $fault: "client";
   message?: string;
 }
@@ -146,6 +153,7 @@ export interface UnsupportedMediaTypeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedMediaTypeException";
+  name: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
 }
@@ -166,6 +174,7 @@ export interface BadGatewayException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadGatewayException";
+  name: "BadGatewayException";
   $fault: "server";
   Message?: string;
 }
@@ -270,6 +279,7 @@ export interface DependencyFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DependencyFailedException";
+  name: "DependencyFailedException";
   $fault: "client";
   Message?: string;
 }
@@ -658,6 +668,7 @@ export interface LoopDetectedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LoopDetectedException";
+  name: "LoopDetectedException";
   $fault: "server";
   Message?: string;
 }

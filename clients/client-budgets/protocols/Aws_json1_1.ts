@@ -1580,6 +1580,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1598,6 +1599,7 @@ const deserializeAws_json1_1CreationLimitExceededExceptionResponse = async (
     context
   );
   const contents: CreationLimitExceededException = {
+    name: "CreationLimitExceededException",
     __type: "CreationLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1616,6 +1618,7 @@ const deserializeAws_json1_1DuplicateRecordExceptionResponse = async (
     context
   );
   const contents: DuplicateRecordException = {
+    name: "DuplicateRecordException",
     __type: "DuplicateRecordException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1634,6 +1637,7 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
     context
   );
   const contents: ExpiredNextTokenException = {
+    name: "ExpiredNextTokenException",
     __type: "ExpiredNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1652,6 +1656,7 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
     context
   );
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1670,6 +1675,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
     context
   );
   const contents: InvalidNextTokenException = {
+    name: "InvalidNextTokenException",
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1688,6 +1694,7 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
     context
   );
   const contents: InvalidParameterException = {
+    name: "InvalidParameterException",
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1706,6 +1713,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
     context
   );
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

@@ -38,6 +38,7 @@ export interface ActiveDirectoryError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ActiveDirectoryError";
+  name: "ActiveDirectoryError";
   $fault: "client";
   /**
    *
@@ -200,6 +201,7 @@ export interface BackupInProgress
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BackupInProgress";
+  name: "BackupInProgress";
   $fault: "client";
   /**
    *
@@ -231,6 +233,7 @@ export interface BackupNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BackupNotFound";
+  name: "BackupNotFound";
   $fault: "client";
   /**
    *
@@ -256,6 +259,7 @@ export interface BackupRestoring
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BackupRestoring";
+  name: "BackupRestoring";
   $fault: "client";
   /**
    *
@@ -290,6 +294,7 @@ export enum BackupType {
  */
 export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequest";
+  name: "BadRequest";
   $fault: "client";
   /**
    *
@@ -1350,6 +1355,7 @@ export interface FileSystemNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FileSystemNotFound";
+  name: "FileSystemNotFound";
   $fault: "client";
   /**
    *
@@ -1416,6 +1422,7 @@ export interface IncompatibleParameterError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IncompatibleParameterError";
+  name: "IncompatibleParameterError";
   $fault: "client";
   /**
    *
@@ -1447,6 +1454,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   /**
    *
@@ -1471,6 +1479,7 @@ export interface InvalidExportPath
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidExportPath";
+  name: "InvalidExportPath";
   $fault: "client";
   /**
    *
@@ -1495,6 +1504,7 @@ export interface InvalidImportPath
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidImportPath";
+  name: "InvalidImportPath";
   $fault: "client";
   /**
    *
@@ -1524,6 +1534,7 @@ export interface InvalidNetworkSettings
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNetworkSettings";
+  name: "InvalidNetworkSettings";
   $fault: "client";
   /**
    *
@@ -1668,6 +1679,7 @@ export interface MissingFileSystemConfiguration
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingFileSystemConfiguration";
+  name: "MissingFileSystemConfiguration";
   $fault: "client";
   /**
    *
@@ -1693,6 +1705,7 @@ export interface NotServiceResourceError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotServiceResourceError";
+  name: "NotServiceResourceError";
   $fault: "client";
   /**
    *
@@ -1724,6 +1737,7 @@ export interface ResourceDoesNotSupportTagging
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceDoesNotSupportTagging";
+  name: "ResourceDoesNotSupportTagging";
   $fault: "client";
   /**
    *
@@ -1756,6 +1770,7 @@ export interface ResourceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFound";
+  name: "ResourceNotFound";
   $fault: "client";
   /**
    *
@@ -1984,6 +1999,7 @@ export interface ServiceLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceLimitExceeded";
+  name: "ServiceLimitExceeded";
   $fault: "client";
   /**
    *
@@ -2092,6 +2108,7 @@ export interface UnsupportedOperation
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedOperation";
+  name: "UnsupportedOperation";
   $fault: "client";
   /**
    *

@@ -819,6 +819,7 @@ const deserializeAws_json1_0AccessDeniedExceptionResponse = async (
     context
   );
   const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -837,6 +838,7 @@ const deserializeAws_json1_0InternalServerExceptionResponse = async (
     context
   );
   const contents: InternalServerException = {
+    name: "InternalServerException",
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -855,6 +857,7 @@ const deserializeAws_json1_0InvalidParameterValueExceptionResponse = async (
     context
   );
   const contents: InvalidParameterValueException = {
+    name: "InvalidParameterValueException",
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -873,6 +876,7 @@ const deserializeAws_json1_0MissingAuthenticationTokenResponse = async (
     context
   );
   const contents: MissingAuthenticationToken = {
+    name: "MissingAuthenticationToken",
     __type: "MissingAuthenticationToken",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -891,6 +895,7 @@ const deserializeAws_json1_0OptInRequiredExceptionResponse = async (
     context
   );
   const contents: OptInRequiredException = {
+    name: "OptInRequiredException",
     __type: "OptInRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -909,6 +914,7 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -927,6 +933,7 @@ const deserializeAws_json1_0ServiceUnavailableExceptionResponse = async (
     context
   );
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -945,6 +952,7 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
     context
   );
   const contents: ThrottlingException = {
+    name: "ThrottlingException",
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

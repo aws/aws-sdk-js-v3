@@ -1336,6 +1336,7 @@ export interface ActivityDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ActivityDoesNotExist";
+  name: "ActivityDoesNotExist";
   $fault: "client";
   message?: string;
 }
@@ -1356,6 +1357,7 @@ export interface ActivityLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ActivityLimitExceeded";
+  name: "ActivityLimitExceeded";
   $fault: "client";
   message?: string;
 }
@@ -1432,6 +1434,7 @@ export interface ActivityWorkerLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ActivityWorkerLimitExceeded";
+  name: "ActivityWorkerLimitExceeded";
   $fault: "client";
   message?: string;
 }
@@ -2020,6 +2023,7 @@ export interface ExecutionAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExecutionAlreadyExists";
+  name: "ExecutionAlreadyExists";
   $fault: "client";
   message?: string;
 }
@@ -2039,6 +2043,7 @@ export interface ExecutionDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExecutionDoesNotExist";
+  name: "ExecutionDoesNotExist";
   $fault: "client";
   message?: string;
 }
@@ -2059,6 +2064,7 @@ export interface ExecutionLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExecutionLimitExceeded";
+  name: "ExecutionLimitExceeded";
   $fault: "client";
   message?: string;
 }
@@ -2275,6 +2281,7 @@ export namespace GetExecutionHistoryOutput {
  */
 export interface InvalidArn extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArn";
+  name: "InvalidArn";
   $fault: "client";
   message?: string;
 }
@@ -2294,6 +2301,7 @@ export interface InvalidDefinition
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidDefinition";
+  name: "InvalidDefinition";
   $fault: "client";
   message?: string;
 }
@@ -2313,6 +2321,7 @@ export interface InvalidExecutionInput
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidExecutionInput";
+  name: "InvalidExecutionInput";
   $fault: "client";
   message?: string;
 }
@@ -2332,6 +2341,7 @@ export interface InvalidLoggingConfiguration
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidLoggingConfiguration";
+  name: "InvalidLoggingConfiguration";
   $fault: "client";
   message?: string;
 }
@@ -2349,6 +2359,7 @@ export namespace InvalidLoggingConfiguration {
  */
 export interface InvalidName extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidName";
+  name: "InvalidName";
   $fault: "client";
   message?: string;
 }
@@ -2368,6 +2379,7 @@ export interface InvalidOutput
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOutput";
+  name: "InvalidOutput";
   $fault: "client";
   message?: string;
 }
@@ -2385,6 +2397,7 @@ export namespace InvalidOutput {
  */
 export interface InvalidToken extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidToken";
+  name: "InvalidToken";
   $fault: "client";
   message?: string;
 }
@@ -2597,6 +2610,7 @@ export interface MissingRequiredParameter
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingRequiredParameter";
+  name: "MissingRequiredParameter";
   $fault: "client";
   message?: string;
 }
@@ -2617,6 +2631,7 @@ export interface ResourceNotFound
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFound";
+  name: "ResourceNotFound";
   $fault: "client";
   message?: string;
   resourceName?: string;
@@ -2827,6 +2842,7 @@ export interface StateMachineAlreadyExists
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StateMachineAlreadyExists";
+  name: "StateMachineAlreadyExists";
   $fault: "client";
   message?: string;
 }
@@ -2846,6 +2862,7 @@ export interface StateMachineDeleting
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StateMachineDeleting";
+  name: "StateMachineDeleting";
   $fault: "client";
   message?: string;
 }
@@ -2865,6 +2882,7 @@ export interface StateMachineDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StateMachineDoesNotExist";
+  name: "StateMachineDoesNotExist";
   $fault: "client";
   message?: string;
 }
@@ -2885,6 +2903,7 @@ export interface StateMachineLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StateMachineLimitExceeded";
+  name: "StateMachineLimitExceeded";
   $fault: "client";
   message?: string;
 }
@@ -2969,6 +2988,7 @@ export interface StateMachineTypeNotSupported
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "StateMachineTypeNotSupported";
+  name: "StateMachineTypeNotSupported";
   $fault: "client";
   message?: string;
 }
@@ -3097,6 +3117,7 @@ export interface TaskDoesNotExist
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TaskDoesNotExist";
+  name: "TaskDoesNotExist";
   $fault: "client";
   message?: string;
 }
@@ -3109,6 +3130,7 @@ export namespace TaskDoesNotExist {
 
 export interface TaskTimedOut extends _smithy.SmithyException, $MetadataBearer {
   __type: "TaskTimedOut";
+  name: "TaskTimedOut";
   $fault: "client";
   message?: string;
 }
@@ -3127,6 +3149,7 @@ export namespace TaskTimedOut {
  */
 export interface TooManyTags extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTags";
+  name: "TooManyTags";
   $fault: "client";
   message?: string;
   resourceName?: string;

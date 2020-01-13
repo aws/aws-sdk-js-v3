@@ -97,6 +97,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   /**
    *
@@ -1606,6 +1607,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   /**
    *
@@ -1631,6 +1633,7 @@ export interface InvalidKMSResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidKMSResourceException";
+  name: "InvalidKMSResourceException";
   $fault: "client";
   code?: string;
   message?: string;
@@ -1755,6 +1758,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -2735,6 +2739,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   /**
    *
@@ -2759,6 +2764,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -3131,6 +3137,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   /**
    *

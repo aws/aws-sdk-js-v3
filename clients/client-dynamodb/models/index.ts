@@ -59,6 +59,7 @@ export interface InvalidEndpointException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEndpointException";
+  name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
 }
@@ -809,6 +810,7 @@ export interface BackupInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BackupInUseException";
+  name: "BackupInUseException";
   $fault: "client";
   message?: string;
 }
@@ -828,6 +830,7 @@ export interface BackupNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BackupNotFoundException";
+  name: "BackupNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1741,6 +1744,7 @@ export interface ConditionalCheckFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConditionalCheckFailedException";
+  name: "ConditionalCheckFailedException";
   $fault: "client";
   /**
    *
@@ -1866,6 +1870,7 @@ export interface ContinuousBackupsUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ContinuousBackupsUnavailableException";
+  name: "ContinuousBackupsUnavailableException";
   $fault: "client";
   message?: string;
 }
@@ -4176,6 +4181,7 @@ export interface GlobalTableAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "GlobalTableAlreadyExistsException";
+  name: "GlobalTableAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -4301,6 +4307,7 @@ export interface GlobalTableNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "GlobalTableNotFoundException";
+  name: "GlobalTableNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -4323,6 +4330,7 @@ export interface IdempotentParameterMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
 }
@@ -4342,6 +4350,7 @@ export interface IndexNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IndexNotFoundException";
+  name: "IndexNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -4363,6 +4372,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   /**
    *
@@ -4387,6 +4397,7 @@ export interface InvalidRestoreTimeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRestoreTimeException";
+  name: "InvalidRestoreTimeException";
   $fault: "client";
   message?: string;
 }
@@ -4437,6 +4448,7 @@ export interface ItemCollectionSizeLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ItemCollectionSizeLimitExceededException";
+  name: "ItemCollectionSizeLimitExceededException";
   $fault: "client";
   /**
    *
@@ -4642,6 +4654,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -5250,6 +5263,7 @@ export interface PointInTimeRecoveryUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PointInTimeRecoveryUnavailableException";
+  name: "PointInTimeRecoveryUnavailableException";
   $fault: "client";
   message?: string;
 }
@@ -5412,6 +5426,7 @@ export interface ProvisionedThroughputExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
+  name: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
    *
@@ -6307,6 +6322,7 @@ export interface ReplicaAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicaAlreadyExistsException";
+  name: "ReplicaAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -6787,6 +6803,7 @@ export interface ReplicaNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicaNotFoundException";
+  name: "ReplicaNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -7045,6 +7062,7 @@ export interface RequestLimitExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestLimitExceeded";
+  name: "RequestLimitExceeded";
   $fault: "client";
   message?: string;
 }
@@ -7066,6 +7084,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   /**
    *
@@ -7091,6 +7110,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -8034,6 +8054,7 @@ export interface TableAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TableAlreadyExistsException";
+  name: "TableAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -8533,6 +8554,7 @@ export interface TableInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TableInUseException";
+  name: "TableInUseException";
   $fault: "client";
   message?: string;
 }
@@ -8552,6 +8574,7 @@ export interface TableNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TableNotFoundException";
+  name: "TableNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -9136,6 +9159,7 @@ export interface TransactionCanceledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TransactionCanceledException";
+  name: "TransactionCanceledException";
   $fault: "client";
   /**
    *
@@ -9162,6 +9186,7 @@ export interface TransactionConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TransactionConflictException";
+  name: "TransactionConflictException";
   $fault: "client";
   message?: string;
 }
@@ -9181,6 +9206,7 @@ export interface TransactionInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TransactionInProgressException";
+  name: "TransactionInProgressException";
   $fault: "client";
   Message?: string;
 }

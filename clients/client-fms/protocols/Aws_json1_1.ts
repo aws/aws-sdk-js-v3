@@ -1361,6 +1361,7 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
     context
   );
   const contents: InternalErrorException = {
+    name: "InternalErrorException",
     __type: "InternalErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1379,6 +1380,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
     context
   );
   const contents: InvalidInputException = {
+    name: "InvalidInputException",
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1397,6 +1399,7 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
     context
   );
   const contents: InvalidOperationException = {
+    name: "InvalidOperationException",
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1415,6 +1418,7 @@ const deserializeAws_json1_1InvalidTypeExceptionResponse = async (
     context
   );
   const contents: InvalidTypeException = {
+    name: "InvalidTypeException",
     __type: "InvalidTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1433,6 +1437,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -1451,6 +1456,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

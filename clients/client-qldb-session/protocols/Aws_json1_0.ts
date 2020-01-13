@@ -148,6 +148,7 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
     context
   );
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -166,6 +167,7 @@ const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
     context
   );
   const contents: InvalidSessionException = {
+    name: "InvalidSessionException",
     __type: "InvalidSessionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -184,6 +186,7 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -202,6 +205,7 @@ const deserializeAws_json1_0OccConflictExceptionResponse = async (
     context
   );
   const contents: OccConflictException = {
+    name: "OccConflictException",
     __type: "OccConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -220,6 +224,7 @@ const deserializeAws_json1_0RateExceededExceptionResponse = async (
     context
   );
   const contents: RateExceededException = {
+    name: "RateExceededException",
     __type: "RateExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

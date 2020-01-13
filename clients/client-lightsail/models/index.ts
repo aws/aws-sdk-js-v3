@@ -11,6 +11,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   code?: string;
   docs?: string;
@@ -39,6 +40,7 @@ export interface AccountSetupInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountSetupInProgressException";
+  name: "AccountSetupInProgressException";
   $fault: "client";
   code?: string;
   docs?: string;
@@ -7261,6 +7263,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   code?: string;
   docs?: string;
@@ -8186,6 +8189,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   code?: string;
   docs?: string;
@@ -8348,6 +8352,7 @@ export interface OperationFailureException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationFailureException";
+  name: "OperationFailureException";
   $fault: "client";
   code?: string;
   docs?: string;
@@ -9555,6 +9560,7 @@ export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceException";
+  name: "ServiceException";
   $fault: "server";
   code?: string;
   docs?: string;
@@ -9891,6 +9897,7 @@ export interface UnauthenticatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthenticatedException";
+  name: "UnauthenticatedException";
   $fault: "client";
   code?: string;
   docs?: string;

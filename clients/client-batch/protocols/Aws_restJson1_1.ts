@@ -1599,6 +1599,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ClientException> => {
   const contents: ClientException = {
+    name: "ClientException",
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -1616,6 +1617,7 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServerException> => {
   const contents: ServerException = {
+    name: "ServerException",
     __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),

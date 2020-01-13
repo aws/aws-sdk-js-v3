@@ -700,6 +700,7 @@ export interface ExpiredIteratorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredIteratorException";
+  name: "ExpiredIteratorException";
   $fault: "client";
   /**
    *
@@ -724,6 +725,7 @@ export interface ExpiredNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ExpiredNextTokenException";
+  name: "ExpiredNextTokenException";
   $fault: "client";
   message?: string;
 }
@@ -959,6 +961,7 @@ export namespace IncreaseStreamRetentionPeriodInput {
 
 export interface InternalFailureException extends _smithy.SmithyException {
   __type: "InternalFailureException";
+  name: "InternalFailureException";
   $fault: "server";
   message?: string;
 }
@@ -978,6 +981,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   /**
    *
@@ -1002,6 +1006,7 @@ export interface KMSAccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSAccessDeniedException";
+  name: "KMSAccessDeniedException";
   $fault: "client";
   /**
    *
@@ -1027,6 +1032,7 @@ export interface KMSDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSDisabledException";
+  name: "KMSDisabledException";
   $fault: "client";
   /**
    *
@@ -1053,6 +1059,7 @@ export interface KMSInvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSInvalidStateException";
+  name: "KMSInvalidStateException";
   $fault: "client";
   /**
    *
@@ -1078,6 +1085,7 @@ export interface KMSNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSNotFoundException";
+  name: "KMSNotFoundException";
   $fault: "client";
   /**
    *
@@ -1102,6 +1110,7 @@ export interface KMSOptInRequired
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSOptInRequired";
+  name: "KMSOptInRequired";
   $fault: "client";
   /**
    *
@@ -1127,6 +1136,7 @@ export interface KMSThrottlingException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KMSThrottlingException";
+  name: "KMSThrottlingException";
   $fault: "client";
   /**
    *
@@ -1151,6 +1161,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -1567,6 +1578,7 @@ export interface ProvisionedThroughputExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
+  name: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
    *
@@ -2001,6 +2013,7 @@ export interface ResourceInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceInUseException";
+  name: "ResourceInUseException";
   $fault: "client";
   /**
    *
@@ -2025,6 +2038,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *

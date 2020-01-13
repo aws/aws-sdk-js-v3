@@ -3449,6 +3449,7 @@ const deserializeAws_json1_0DefaultUndefinedFaultResponse = async (
     context
   );
   const contents: DefaultUndefinedFault = {
+    name: "DefaultUndefinedFault",
     __type: "DefaultUndefinedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3467,6 +3468,7 @@ const deserializeAws_json1_0DomainAlreadyExistsFaultResponse = async (
     context
   );
   const contents: DomainAlreadyExistsFault = {
+    name: "DomainAlreadyExistsFault",
     __type: "DomainAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3485,6 +3487,7 @@ const deserializeAws_json1_0DomainDeprecatedFaultResponse = async (
     context
   );
   const contents: DomainDeprecatedFault = {
+    name: "DomainDeprecatedFault",
     __type: "DomainDeprecatedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3503,6 +3506,7 @@ const deserializeAws_json1_0LimitExceededFaultResponse = async (
     context
   );
   const contents: LimitExceededFault = {
+    name: "LimitExceededFault",
     __type: "LimitExceededFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3521,6 +3525,7 @@ const deserializeAws_json1_0OperationNotPermittedFaultResponse = async (
     context
   );
   const contents: OperationNotPermittedFault = {
+    name: "OperationNotPermittedFault",
     __type: "OperationNotPermittedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3539,6 +3544,7 @@ const deserializeAws_json1_0TooManyTagsFaultResponse = async (
     context
   );
   const contents: TooManyTagsFault = {
+    name: "TooManyTagsFault",
     __type: "TooManyTagsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3557,6 +3563,7 @@ const deserializeAws_json1_0TypeAlreadyExistsFaultResponse = async (
     context
   );
   const contents: TypeAlreadyExistsFault = {
+    name: "TypeAlreadyExistsFault",
     __type: "TypeAlreadyExistsFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3575,6 +3582,7 @@ const deserializeAws_json1_0TypeDeprecatedFaultResponse = async (
     context
   );
   const contents: TypeDeprecatedFault = {
+    name: "TypeDeprecatedFault",
     __type: "TypeDeprecatedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3593,6 +3601,7 @@ const deserializeAws_json1_0UnknownResourceFaultResponse = async (
     context
   );
   const contents: UnknownResourceFault = {
+    name: "UnknownResourceFault",
     __type: "UnknownResourceFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3611,6 +3620,7 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse = async
     context
   );
   const contents: WorkflowExecutionAlreadyStartedFault = {
+    name: "WorkflowExecutionAlreadyStartedFault",
     __type: "WorkflowExecutionAlreadyStartedFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

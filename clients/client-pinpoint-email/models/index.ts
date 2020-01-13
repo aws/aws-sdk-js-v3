@@ -75,6 +75,7 @@ export interface AccountSuspendedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountSuspendedException";
+  name: "AccountSuspendedException";
   $fault: "client";
   message?: string;
 }
@@ -94,6 +95,7 @@ export interface AlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -113,6 +115,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   message?: string;
 }
@@ -290,6 +293,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
 }
@@ -2521,6 +2525,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -2998,6 +3003,7 @@ export interface MailFromDomainNotVerifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MailFromDomainNotVerifiedException";
+  name: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
 }
@@ -3056,6 +3062,7 @@ export interface MessageRejected
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MessageRejected";
+  name: "MessageRejected";
   $fault: "client";
   message?: string;
 }
@@ -3125,6 +3132,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -4120,6 +4128,7 @@ export interface SendingPausedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SendingPausedException";
+  name: "SendingPausedException";
   $fault: "client";
   message?: string;
 }
@@ -4228,6 +4237,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
 }

@@ -2875,6 +2875,7 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
     context
   );
   const contents: ConcurrentModificationException = {
+    name: "ConcurrentModificationException",
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2893,6 +2894,7 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
     context
   );
   const contents: InternalException = {
+    name: "InternalException",
     __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2911,6 +2913,7 @@ const deserializeAws_json1_1InvalidEventPatternExceptionResponse = async (
     context
   );
   const contents: InvalidEventPatternException = {
+    name: "InvalidEventPatternException",
     __type: "InvalidEventPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2929,6 +2932,7 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
     context
   );
   const contents: InvalidStateException = {
+    name: "InvalidStateException",
     __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2947,6 +2951,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2965,6 +2970,7 @@ const deserializeAws_json1_1ManagedRuleExceptionResponse = async (
     context
   );
   const contents: ManagedRuleException = {
+    name: "ManagedRuleException",
     __type: "ManagedRuleException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -2983,6 +2989,7 @@ const deserializeAws_json1_1PolicyLengthExceededExceptionResponse = async (
     context
   );
   const contents: PolicyLengthExceededException = {
+    name: "PolicyLengthExceededException",
     __type: "PolicyLengthExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3001,6 +3008,7 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
     context
   );
   const contents: ResourceAlreadyExistsException = {
+    name: "ResourceAlreadyExistsException",
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -3019,6 +3027,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),

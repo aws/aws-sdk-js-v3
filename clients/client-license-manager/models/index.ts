@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -30,6 +31,7 @@ export interface AuthorizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AuthorizationException";
+  name: "AuthorizationException";
   $fault: "client";
   Message?: string;
 }
@@ -231,6 +233,7 @@ export interface FailedDependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FailedDependencyException";
+  name: "FailedDependencyException";
   $fault: "client";
   Message?: string;
 }
@@ -280,6 +283,7 @@ export interface FilterLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FilterLimitExceededException";
+  name: "FilterLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -493,6 +497,7 @@ export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
 }
@@ -514,6 +519,7 @@ export interface InvalidResourceStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceStateException";
+  name: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
 }
@@ -899,6 +905,7 @@ export interface LicenseUsageException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LicenseUsageException";
+  name: "LicenseUsageException";
   $fault: "client";
   Message?: string;
 }
@@ -1549,6 +1556,7 @@ export interface RateLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RateLimitExceededException";
+  name: "RateLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1624,6 +1632,7 @@ export interface ResourceLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceLimitExceededException";
+  name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1651,6 +1660,7 @@ export interface ServerInternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServerInternalException";
+  name: "ServerInternalException";
   $fault: "server";
   Message?: string;
 }

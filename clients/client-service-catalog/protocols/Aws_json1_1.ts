@@ -7796,6 +7796,7 @@ const deserializeAws_json1_1DuplicateResourceExceptionResponse = async (
     context
   );
   const contents: DuplicateResourceException = {
+    name: "DuplicateResourceException",
     __type: "DuplicateResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7814,6 +7815,7 @@ const deserializeAws_json1_1InvalidParametersExceptionResponse = async (
     context
   );
   const contents: InvalidParametersException = {
+    name: "InvalidParametersException",
     __type: "InvalidParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7832,6 +7834,7 @@ const deserializeAws_json1_1InvalidStateExceptionResponse = async (
     context
   );
   const contents: InvalidStateException = {
+    name: "InvalidStateException",
     __type: "InvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7850,6 +7853,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
     context
   );
   const contents: LimitExceededException = {
+    name: "LimitExceededException",
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7868,6 +7872,7 @@ const deserializeAws_json1_1OperationNotSupportedExceptionResponse = async (
     context
   );
   const contents: OperationNotSupportedException = {
+    name: "OperationNotSupportedException",
     __type: "OperationNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7886,6 +7891,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
     context
   );
   const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7904,6 +7910,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
     context
   );
   const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
@@ -7922,6 +7929,7 @@ const deserializeAws_json1_1TagOptionNotMigratedExceptionResponse = async (
     context
   );
   const contents: TagOptionNotMigratedException = {
+    name: "TagOptionNotMigratedException",
     __type: "TagOptionNotMigratedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
