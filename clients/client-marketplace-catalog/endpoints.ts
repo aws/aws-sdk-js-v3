@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "aws-marketplace.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "aws-marketplace.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "aws-marketplace.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
+const AWS_TEMPLATE = "catalog.marketplace.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "catalog.marketplace.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "catalog.marketplace.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "catalog.marketplace.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "catalog.marketplace.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([

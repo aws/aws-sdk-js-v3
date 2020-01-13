@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "iot1click.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "iot1click.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "iot1click.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "iot1click.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "iot1click.{region}.amazonaws.com";
+const AWS_TEMPLATE = "projects.iot1click.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "projects.iot1click.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "projects.iot1click.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "projects.iot1click.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "projects.iot1click.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,6 +40,41 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "projects.iot1click.ap-northeast-1.amazonaws.com"
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "projects.iot1click.eu-central-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "projects.iot1click.eu-west-1.amazonaws.com"
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "projects.iot1click.eu-west-2.amazonaws.com"
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "projects.iot1click.us-east-1.amazonaws.com"
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "projects.iot1click.us-east-2.amazonaws.com"
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "projects.iot1click.us-west-2.amazonaws.com"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

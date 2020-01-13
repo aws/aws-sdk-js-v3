@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "iotsecuredtunneling.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "iotsecuredtunneling.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "iotsecuredtunneling.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "iotsecuredtunneling.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "iotsecuredtunneling.{region}.amazonaws.com";
+const AWS_TEMPLATE = "api.tunneling.iot.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "api.tunneling.iot.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "api.tunneling.iot.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "api.tunneling.iot.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "api.tunneling.iot.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([

@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "aws-marketplace.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "aws-marketplace.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "aws-marketplace.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "aws-marketplace.{region}.amazonaws.com";
+const AWS_TEMPLATE = "entitlement.marketplace.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "entitlement.marketplace.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "entitlement.marketplace.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "entitlement.marketplace.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "entitlement.marketplace.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -40,11 +40,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "us-east-1":
+      regionInfo = {
+        hostname: "entitlement.marketplace.us-east-1.amazonaws.com",
+        signingService: "aws-marketplace"
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "aws-marketplace"
         };
       }
       if (AWS_CN_REGIONS.has(region)) {
@@ -70,7 +77,8 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (
       // Finally, assume it's an AWS partition endpoint.
       if (regionInfo === undefined) {
         regionInfo = {
-          hostname: AWS_TEMPLATE.replace("{region}", region)
+          hostname: AWS_TEMPLATE.replace("{region}", region),
+          signingService: "aws-marketplace"
         };
       }
   }

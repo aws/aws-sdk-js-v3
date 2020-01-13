@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "awsmobilehubservice.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "awsmobilehubservice.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "awsmobilehubservice.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "awsmobilehubservice.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "awsmobilehubservice.{region}.amazonaws.com";
+const AWS_TEMPLATE = "mobile.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "mobile.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "mobile.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "mobile.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "mobile.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([

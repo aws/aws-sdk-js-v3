@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "personalize.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "personalize.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "personalize.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "personalize.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "personalize.{region}.amazonaws.com";
+const AWS_TEMPLATE = "personalize-runtime.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "personalize-runtime.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "personalize-runtime.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "personalize-runtime.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "personalize-runtime.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([

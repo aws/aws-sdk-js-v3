@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "sagemaker.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "sagemaker.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "sagemaker.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "sagemaker.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "sagemaker.{region}.amazonaws.com";
+const AWS_TEMPLATE = "a2i-runtime.sagemaker.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "a2i-runtime.sagemaker.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "a2i-runtime.sagemaker.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "a2i-runtime.sagemaker.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "a2i-runtime.sagemaker.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
