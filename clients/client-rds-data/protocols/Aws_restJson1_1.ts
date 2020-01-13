@@ -276,7 +276,7 @@ export async function deserializeAws_restJson1_1BatchExecuteStatementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BatchExecuteStatementCommandError(
       output,
       context
@@ -356,7 +356,7 @@ export async function deserializeAws_restJson1_1BeginTransactionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1BeginTransactionCommandError(
       output,
       context
@@ -433,7 +433,7 @@ export async function deserializeAws_restJson1_1CommitTransactionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CommitTransactionCommandError(
       output,
       context
@@ -510,7 +510,7 @@ export async function deserializeAws_restJson1_1ExecuteSqlCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExecuteSqlCommandError(output, context);
   }
   const contents: ExecuteSqlCommandOutput = {
@@ -580,7 +580,7 @@ export async function deserializeAws_restJson1_1ExecuteStatementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ExecuteStatementCommandError(
       output,
       context
@@ -678,7 +678,7 @@ export async function deserializeAws_restJson1_1RollbackTransactionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RollbackTransactionCommandError(
       output,
       context
