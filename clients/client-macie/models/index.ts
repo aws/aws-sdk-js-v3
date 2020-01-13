@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   message?: string;
   /**
@@ -251,6 +252,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   /**
    *
@@ -278,6 +280,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   /**
    *
@@ -312,6 +315,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *

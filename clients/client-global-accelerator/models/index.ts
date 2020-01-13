@@ -140,6 +140,7 @@ export interface AcceleratorNotDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AcceleratorNotDisabledException";
+  name: "AcceleratorNotDisabledException";
   $fault: "client";
   Message?: string;
 }
@@ -159,6 +160,7 @@ export interface AcceleratorNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AcceleratorNotFoundException";
+  name: "AcceleratorNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -180,6 +182,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -200,6 +203,7 @@ export interface AssociatedEndpointGroupFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AssociatedEndpointGroupFoundException";
+  name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -220,6 +224,7 @@ export interface AssociatedListenerFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AssociatedListenerFoundException";
+  name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -877,6 +882,7 @@ export interface EndpointGroupAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EndpointGroupAlreadyExistsException";
+  name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
@@ -896,6 +902,7 @@ export interface EndpointGroupNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EndpointGroupNotFoundException";
+  name: "EndpointGroupNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -923,6 +930,7 @@ export interface InternalServiceErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServiceErrorException";
+  name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
 }
@@ -942,6 +950,7 @@ export interface InvalidArgumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
 }
@@ -961,6 +970,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
 }
@@ -980,6 +990,7 @@ export interface InvalidPortRangeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPortRangeException";
+  name: "InvalidPortRangeException";
   $fault: "client";
   Message?: string;
 }
@@ -1031,6 +1042,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -1255,6 +1267,7 @@ export interface ListenerNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ListenerNotFoundException";
+  name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
 }

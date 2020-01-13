@@ -93,6 +93,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   message?: string;
 }
@@ -244,6 +245,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -337,6 +339,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   message?: string;
 }
@@ -356,6 +359,7 @@ export interface UnauthorizedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedException";
+  name: "UnauthorizedException";
   $fault: "client";
   message?: string;
 }

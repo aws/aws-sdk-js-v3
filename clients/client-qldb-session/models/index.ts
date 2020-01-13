@@ -40,6 +40,7 @@ export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "BadRequestException";
+  name: "BadRequestException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -254,6 +255,7 @@ export interface InvalidSessionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSessionException";
+  name: "InvalidSessionException";
   $fault: "client";
   Code?: string;
   Message?: string;
@@ -274,6 +276,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -293,6 +296,7 @@ export interface OccConflictException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OccConflictException";
+  name: "OccConflictException";
   $fault: "client";
   Message?: string;
 }
@@ -340,6 +344,7 @@ export interface RateExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RateExceededException";
+  name: "RateExceededException";
   $fault: "client";
   Message?: string;
 }

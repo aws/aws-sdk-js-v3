@@ -42,6 +42,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   /**
    *
@@ -239,6 +240,7 @@ export interface AuthenticationFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AuthenticationFailedException";
+  name: "AuthenticationFailedException";
   $fault: "client";
   /**
    *
@@ -359,6 +361,7 @@ export interface CertificateAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateAlreadyExistsException";
+  name: "CertificateAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -390,6 +393,7 @@ export interface CertificateDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateDoesNotExistException";
+  name: "CertificateDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -422,6 +426,7 @@ export interface CertificateInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateInUseException";
+  name: "CertificateInUseException";
   $fault: "client";
   /**
    *
@@ -488,6 +493,7 @@ export interface CertificateLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateLimitExceededException";
+  name: "CertificateLimitExceededException";
   $fault: "client";
   /**
    *
@@ -528,6 +534,7 @@ export interface ClientException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClientException";
+  name: "ClientException";
   $fault: "client";
   /**
    *
@@ -2070,6 +2077,7 @@ export interface DirectoryAlreadySharedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryAlreadySharedException";
+  name: "DirectoryAlreadySharedException";
   $fault: "client";
   /**
    *
@@ -2410,6 +2418,7 @@ export interface DirectoryDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryDoesNotExistException";
+  name: "DirectoryDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -2448,6 +2457,7 @@ export interface DirectoryLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryLimitExceededException";
+  name: "DirectoryLimitExceededException";
   $fault: "client";
   /**
    *
@@ -2556,6 +2566,7 @@ export interface DirectoryNotSharedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryNotSharedException";
+  name: "DirectoryNotSharedException";
   $fault: "client";
   /**
    *
@@ -2613,6 +2624,7 @@ export interface DirectoryUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DirectoryUnavailableException";
+  name: "DirectoryUnavailableException";
   $fault: "client";
   /**
    *
@@ -2923,6 +2935,7 @@ export interface DomainControllerLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DomainControllerLimitExceededException";
+  name: "DomainControllerLimitExceededException";
   $fault: "client";
   /**
    *
@@ -3096,6 +3109,7 @@ export interface EntityAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityAlreadyExistsException";
+  name: "EntityAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -3127,6 +3141,7 @@ export interface EntityDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EntityDoesNotExistException";
+  name: "EntityDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -3287,6 +3302,7 @@ export interface InsufficientPermissionsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientPermissionsException";
+  name: "InsufficientPermissionsException";
   $fault: "client";
   /**
    *
@@ -3318,6 +3334,7 @@ export interface InvalidCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCertificateException";
+  name: "InvalidCertificateException";
   $fault: "client";
   /**
    *
@@ -3350,6 +3367,7 @@ export interface InvalidLDAPSStatusException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidLDAPSStatusException";
+  name: "InvalidLDAPSStatusException";
   $fault: "client";
   /**
    *
@@ -3381,6 +3399,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   /**
    *
@@ -3412,6 +3431,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   /**
    *
@@ -3443,6 +3463,7 @@ export interface InvalidPasswordException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPasswordException";
+  name: "InvalidPasswordException";
   $fault: "client";
   /**
    *
@@ -3474,6 +3495,7 @@ export interface InvalidTargetException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTargetException";
+  name: "InvalidTargetException";
   $fault: "client";
   /**
    *
@@ -3589,6 +3611,7 @@ export interface IpRouteLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "IpRouteLimitExceededException";
+  name: "IpRouteLimitExceededException";
   $fault: "client";
   /**
    *
@@ -3986,6 +4009,7 @@ export interface NoAvailableCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoAvailableCertificateException";
+  name: "NoAvailableCertificateException";
   $fault: "client";
   /**
    *
@@ -4017,6 +4041,7 @@ export interface OrganizationsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationsException";
+  name: "OrganizationsException";
   $fault: "client";
   /**
    *
@@ -4527,6 +4552,7 @@ export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceException";
+  name: "ServiceException";
   $fault: "server";
   /**
    *
@@ -4616,6 +4642,7 @@ export interface ShareLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ShareLimitExceededException";
+  name: "ShareLimitExceededException";
   $fault: "client";
   /**
    *
@@ -4832,6 +4859,7 @@ export interface SnapshotLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SnapshotLimitExceededException";
+  name: "SnapshotLimitExceededException";
   $fault: "client";
   /**
    *
@@ -4990,6 +5018,7 @@ export interface TagLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagLimitExceededException";
+  name: "TagLimitExceededException";
   $fault: "client";
   /**
    *
@@ -5215,6 +5244,7 @@ export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedOperationException";
+  name: "UnsupportedOperationException";
   $fault: "client";
   /**
    *
@@ -5418,6 +5448,7 @@ export interface UserDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UserDoesNotExistException";
+  name: "UserDoesNotExistException";
   $fault: "client";
   /**
    *

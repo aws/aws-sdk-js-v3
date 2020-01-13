@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -209,6 +210,7 @@ export interface InternalServerException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerException";
+  name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
@@ -320,6 +322,7 @@ export interface NotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotFoundException";
+  name: "NotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -416,6 +419,7 @@ export interface ServiceQuotaExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceQuotaExceededException";
+  name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
@@ -477,6 +481,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   Message?: string;
 }

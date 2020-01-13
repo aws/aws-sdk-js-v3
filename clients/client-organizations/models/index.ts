@@ -11,6 +11,7 @@ export interface AWSOrganizationsNotInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AWSOrganizationsNotInUseException";
+  name: "AWSOrganizationsNotInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -68,6 +69,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
 }
@@ -90,6 +92,7 @@ export interface AccessDeniedForDependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedForDependencyException";
+  name: "AccessDeniedForDependencyException";
   $fault: "client";
   Message?: string;
   Reason?: AccessDeniedForDependencyExceptionReason | string;
@@ -193,6 +196,7 @@ export interface AccountNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountNotFoundException";
+  name: "AccountNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -215,6 +219,7 @@ export interface AccountOwnerNotVerifiedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccountOwnerNotVerifiedException";
+  name: "AccountOwnerNotVerifiedException";
   $fault: "client";
   Message?: string;
 }
@@ -247,6 +252,7 @@ export interface AlreadyInOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AlreadyInOrganizationException";
+  name: "AlreadyInOrganizationException";
   $fault: "client";
   Message?: string;
 }
@@ -389,6 +395,7 @@ export interface ChildNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ChildNotFoundException";
+  name: "ChildNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -414,6 +421,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
 }
@@ -548,6 +556,7 @@ export interface ConstraintViolationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConstraintViolationException";
+  name: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
   Reason?: ConstraintViolationExceptionReason | string;
@@ -798,6 +807,7 @@ export interface CreateAccountStatusNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CreateAccountStatusNotFoundException";
+  name: "CreateAccountStatusNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -1384,6 +1394,7 @@ export interface DestinationParentNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DestinationParentNotFoundException";
+  name: "DestinationParentNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -1511,6 +1522,7 @@ export interface DuplicateAccountException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateAccountException";
+  name: "DuplicateAccountException";
   $fault: "client";
   Message?: string;
 }
@@ -1533,6 +1545,7 @@ export interface DuplicateHandshakeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateHandshakeException";
+  name: "DuplicateHandshakeException";
   $fault: "client";
   Message?: string;
 }
@@ -1552,6 +1565,7 @@ export interface DuplicateOrganizationalUnitException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateOrganizationalUnitException";
+  name: "DuplicateOrganizationalUnitException";
   $fault: "client";
   Message?: string;
 }
@@ -1571,6 +1585,7 @@ export interface DuplicatePolicyAttachmentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicatePolicyAttachmentException";
+  name: "DuplicatePolicyAttachmentException";
   $fault: "client";
   Message?: string;
 }
@@ -1590,6 +1605,7 @@ export interface DuplicatePolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicatePolicyException";
+  name: "DuplicatePolicyException";
   $fault: "client";
   Message?: string;
 }
@@ -1656,6 +1672,7 @@ export interface EffectivePolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "EffectivePolicyNotFoundException";
+  name: "EffectivePolicyNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -1801,6 +1818,7 @@ export interface FinalizingOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "FinalizingOrganizationException";
+  name: "FinalizingOrganizationException";
   $fault: "client";
   Message?: string;
 }
@@ -1967,6 +1985,7 @@ export interface HandshakeAlreadyInStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "HandshakeAlreadyInStateException";
+  name: "HandshakeAlreadyInStateException";
   $fault: "client";
   Message?: string;
 }
@@ -2033,6 +2052,7 @@ export interface HandshakeConstraintViolationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "HandshakeConstraintViolationException";
+  name: "HandshakeConstraintViolationException";
   $fault: "client";
   Message?: string;
   Reason?: HandshakeConstraintViolationExceptionReason | string;
@@ -2099,6 +2119,7 @@ export interface HandshakeNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "HandshakeNotFoundException";
+  name: "HandshakeNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -2249,6 +2270,7 @@ export interface InvalidHandshakeTransitionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidHandshakeTransitionException";
+  name: "InvalidHandshakeTransitionException";
   $fault: "client";
   Message?: string;
 }
@@ -2352,6 +2374,7 @@ export interface InvalidInputException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInputException";
+  name: "InvalidInputException";
   $fault: "client";
   Message?: string;
   Reason?: InvalidInputExceptionReason | string;
@@ -3470,6 +3493,7 @@ export interface MalformedPolicyDocumentException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
+  name: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
 }
@@ -3491,6 +3515,7 @@ export interface MasterCannotLeaveOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MasterCannotLeaveOrganizationException";
+  name: "MasterCannotLeaveOrganizationException";
   $fault: "client";
   Message?: string;
 }
@@ -3667,6 +3692,7 @@ export interface OrganizationNotEmptyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationNotEmptyException";
+  name: "OrganizationNotEmptyException";
   $fault: "client";
   Message?: string;
 }
@@ -3733,6 +3759,7 @@ export interface OrganizationalUnitNotEmptyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationalUnitNotEmptyException";
+  name: "OrganizationalUnitNotEmptyException";
   $fault: "client";
   Message?: string;
 }
@@ -3752,6 +3779,7 @@ export interface OrganizationalUnitNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationalUnitNotFoundException";
+  name: "OrganizationalUnitNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -3813,6 +3841,7 @@ export interface ParentNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParentNotFoundException";
+  name: "ParentNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -3867,6 +3896,7 @@ export interface PolicyChangesInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyChangesInProgressException";
+  name: "PolicyChangesInProgressException";
   $fault: "client";
   Message?: string;
 }
@@ -3887,6 +3917,7 @@ export interface PolicyInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyInUseException";
+  name: "PolicyInUseException";
   $fault: "client";
   Message?: string;
 }
@@ -3906,6 +3937,7 @@ export interface PolicyNotAttachedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyNotAttachedException";
+  name: "PolicyNotAttachedException";
   $fault: "client";
   Message?: string;
 }
@@ -3925,6 +3957,7 @@ export interface PolicyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyNotFoundException";
+  name: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -4078,6 +4111,7 @@ export interface PolicyTypeAlreadyEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyTypeAlreadyEnabledException";
+  name: "PolicyTypeAlreadyEnabledException";
   $fault: "client";
   Message?: string;
 }
@@ -4101,6 +4135,7 @@ export interface PolicyTypeNotAvailableForOrganizationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyTypeNotAvailableForOrganizationException";
+  name: "PolicyTypeNotAvailableForOrganizationException";
   $fault: "client";
   Message?: string;
 }
@@ -4126,6 +4161,7 @@ export interface PolicyTypeNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyTypeNotEnabledException";
+  name: "PolicyTypeNotEnabledException";
   $fault: "client";
   Message?: string;
 }
@@ -4259,6 +4295,7 @@ export interface RootNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RootNotFoundException";
+  name: "RootNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -4279,6 +4316,7 @@ export interface ServiceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceException";
+  name: "ServiceException";
   $fault: "server";
   Message?: string;
 }
@@ -4299,6 +4337,7 @@ export interface SourceParentNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SourceParentNotFoundException";
+  name: "SourceParentNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -4373,6 +4412,7 @@ export interface TargetNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TargetNotFoundException";
+  name: "TargetNotFoundException";
   $fault: "client";
   Message?: string;
 }
@@ -4402,6 +4442,7 @@ export interface TooManyRequestsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
   Type?: string;
@@ -4422,6 +4463,7 @@ export interface UnsupportedAPIEndpointException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedAPIEndpointException";
+  name: "UnsupportedAPIEndpointException";
   $fault: "client";
   Message?: string;
 }

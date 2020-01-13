@@ -1590,6 +1590,7 @@ export interface InternalException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalException";
+  name: "InternalException";
   $fault: "server";
   errorCode?: string;
   message?: string;
@@ -1610,6 +1611,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   errorCode?: string;
   message?: string;

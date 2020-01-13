@@ -59,6 +59,7 @@ export interface CloudTrailARNInvalidException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudTrailARNInvalidException";
+  name: "CloudTrailARNInvalidException";
   $fault: "client";
   /**
    *
@@ -85,6 +86,7 @@ export interface CloudTrailAccessNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudTrailAccessNotEnabledException";
+  name: "CloudTrailAccessNotEnabledException";
   $fault: "client";
   /**
    *
@@ -109,6 +111,7 @@ export interface CloudWatchLogsDeliveryUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CloudWatchLogsDeliveryUnavailableException";
+  name: "CloudWatchLogsDeliveryUnavailableException";
   $fault: "client";
   /**
    *
@@ -1095,6 +1098,7 @@ export interface InsightNotEnabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsightNotEnabledException";
+  name: "InsightNotEnabledException";
   $fault: "client";
   /**
    *
@@ -1146,6 +1150,7 @@ export interface InsufficientDependencyServiceAccessPermissionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientDependencyServiceAccessPermissionException";
+  name: "InsufficientDependencyServiceAccessPermissionException";
   $fault: "client";
   /**
    *
@@ -1175,6 +1180,7 @@ export interface InsufficientEncryptionPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientEncryptionPolicyException";
+  name: "InsufficientEncryptionPolicyException";
   $fault: "client";
   /**
    *
@@ -1199,6 +1205,7 @@ export interface InsufficientS3BucketPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientS3BucketPolicyException";
+  name: "InsufficientS3BucketPolicyException";
   $fault: "client";
   /**
    *
@@ -1223,6 +1230,7 @@ export interface InsufficientSnsTopicPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientSnsTopicPolicyException";
+  name: "InsufficientSnsTopicPolicyException";
   $fault: "client";
   /**
    *
@@ -1247,6 +1255,7 @@ export interface InvalidCloudWatchLogsLogGroupArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCloudWatchLogsLogGroupArnException";
+  name: "InvalidCloudWatchLogsLogGroupArnException";
   $fault: "client";
   /**
    *
@@ -1271,6 +1280,7 @@ export interface InvalidCloudWatchLogsRoleArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidCloudWatchLogsRoleArnException";
+  name: "InvalidCloudWatchLogsRoleArnException";
   $fault: "client";
   /**
    *
@@ -1295,6 +1305,7 @@ export interface InvalidEventCategoryException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEventCategoryException";
+  name: "InvalidEventCategoryException";
   $fault: "client";
   /**
    *
@@ -1337,6 +1348,7 @@ export interface InvalidEventSelectorsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidEventSelectorsException";
+  name: "InvalidEventSelectorsException";
   $fault: "client";
   /**
    *
@@ -1361,6 +1373,7 @@ export interface InvalidHomeRegionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidHomeRegionException";
+  name: "InvalidHomeRegionException";
   $fault: "client";
   /**
    *
@@ -1386,6 +1399,7 @@ export interface InvalidInsightSelectorsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidInsightSelectorsException";
+  name: "InvalidInsightSelectorsException";
   $fault: "client";
   /**
    *
@@ -1410,6 +1424,7 @@ export interface InvalidKmsKeyIdException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidKmsKeyIdException";
+  name: "InvalidKmsKeyIdException";
   $fault: "client";
   /**
    *
@@ -1434,6 +1449,7 @@ export interface InvalidLookupAttributesException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidLookupAttributesException";
+  name: "InvalidLookupAttributesException";
   $fault: "client";
   /**
    *
@@ -1458,6 +1474,7 @@ export interface InvalidMaxResultsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidMaxResultsException";
+  name: "InvalidMaxResultsException";
   $fault: "client";
   /**
    *
@@ -1482,6 +1499,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   /**
    *
@@ -1506,6 +1524,7 @@ export interface InvalidParameterCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
    *
@@ -1530,6 +1549,7 @@ export interface InvalidS3BucketNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidS3BucketNameException";
+  name: "InvalidS3BucketNameException";
   $fault: "client";
   /**
    *
@@ -1554,6 +1574,7 @@ export interface InvalidS3PrefixException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidS3PrefixException";
+  name: "InvalidS3PrefixException";
   $fault: "client";
   /**
    *
@@ -1578,6 +1599,7 @@ export interface InvalidSnsTopicNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSnsTopicNameException";
+  name: "InvalidSnsTopicNameException";
   $fault: "client";
   /**
    *
@@ -1603,6 +1625,7 @@ export interface InvalidTagParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagParameterException";
+  name: "InvalidTagParameterException";
   $fault: "client";
   /**
    *
@@ -1627,6 +1650,7 @@ export interface InvalidTimeRangeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTimeRangeException";
+  name: "InvalidTimeRangeException";
   $fault: "client";
   /**
    *
@@ -1651,6 +1675,7 @@ export interface InvalidTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTokenException";
+  name: "InvalidTokenException";
   $fault: "client";
   /**
    *
@@ -1693,6 +1718,7 @@ export interface InvalidTrailNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTrailNameException";
+  name: "InvalidTrailNameException";
   $fault: "client";
   /**
    *
@@ -1715,6 +1741,7 @@ export namespace InvalidTrailNameException {
  */
 export interface KmsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KmsException";
+  name: "KmsException";
   $fault: "client";
   /**
    *
@@ -1739,6 +1766,7 @@ export interface KmsKeyDisabledException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KmsKeyDisabledException";
+  name: "KmsKeyDisabledException";
   $fault: "client";
   /**
    *
@@ -1763,6 +1791,7 @@ export interface KmsKeyNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "KmsKeyNotFoundException";
+  name: "KmsKeyNotFoundException";
   $fault: "client";
   /**
    *
@@ -2085,6 +2114,7 @@ export interface MaximumNumberOfTrailsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MaximumNumberOfTrailsExceededException";
+  name: "MaximumNumberOfTrailsExceededException";
   $fault: "client";
   /**
    *
@@ -2111,6 +2141,7 @@ export interface NotOrganizationMasterAccountException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NotOrganizationMasterAccountException";
+  name: "NotOrganizationMasterAccountException";
   $fault: "client";
   /**
    *
@@ -2135,6 +2166,7 @@ export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotPermittedException";
+  name: "OperationNotPermittedException";
   $fault: "client";
   /**
    *
@@ -2161,6 +2193,7 @@ export interface OrganizationNotInAllFeaturesModeException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationNotInAllFeaturesModeException";
+  name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   /**
    *
@@ -2186,6 +2219,7 @@ export interface OrganizationsNotInUseException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OrganizationsNotInUseException";
+  name: "OrganizationsNotInUseException";
   $fault: "client";
   /**
    *
@@ -2455,6 +2489,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -2507,6 +2542,7 @@ export interface ResourceTypeNotSupportedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceTypeNotSupportedException";
+  name: "ResourceTypeNotSupportedException";
   $fault: "client";
   /**
    *
@@ -2531,6 +2567,7 @@ export interface S3BucketDoesNotExistException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "S3BucketDoesNotExistException";
+  name: "S3BucketDoesNotExistException";
   $fault: "client";
   /**
    *
@@ -2661,6 +2698,7 @@ export interface TagsLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagsLimitExceededException";
+  name: "TagsLimitExceededException";
   $fault: "client";
   /**
    *
@@ -2827,6 +2865,7 @@ export interface TrailAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TrailAlreadyExistsException";
+  name: "TrailAlreadyExistsException";
   $fault: "client";
   /**
    *
@@ -2886,6 +2925,7 @@ export interface TrailNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TrailNotFoundException";
+  name: "TrailNotFoundException";
   $fault: "client";
   /**
    *
@@ -2910,6 +2950,7 @@ export interface TrailNotProvidedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TrailNotProvidedException";
+  name: "TrailNotProvidedException";
   $fault: "client";
   /**
    *
@@ -2934,6 +2975,7 @@ export interface UnsupportedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnsupportedOperationException";
+  name: "UnsupportedOperationException";
   $fault: "client";
   /**
    *

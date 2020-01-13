@@ -10,6 +10,7 @@ export interface InvalidParameterCombinationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
   $fault: "client";
   message?: string;
 }
@@ -29,6 +30,7 @@ export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
 }
@@ -1993,6 +1995,7 @@ export interface ClusterAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClusterAlreadyExistsFault";
+  name: "ClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
@@ -2012,6 +2015,7 @@ export interface ClusterNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClusterNotFoundFault";
+  name: "ClusterNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2032,6 +2036,7 @@ export interface ClusterQuotaForCustomerExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ClusterQuotaForCustomerExceededFault";
+  name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2052,6 +2057,7 @@ export interface InsufficientClusterCapacityFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientClusterCapacityFault";
+  name: "InsufficientClusterCapacityFault";
   $fault: "client";
   message?: string;
 }
@@ -2071,6 +2077,7 @@ export interface InvalidARNFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidARNFault";
+  name: "InvalidARNFault";
   $fault: "client";
   message?: string;
 }
@@ -2091,6 +2098,7 @@ export interface InvalidClusterStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidClusterStateFault";
+  name: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
 }
@@ -2110,6 +2118,7 @@ export interface InvalidParameterGroupStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterGroupStateFault";
+  name: "InvalidParameterGroupStateFault";
   $fault: "client";
   message?: string;
 }
@@ -2129,6 +2138,7 @@ export interface InvalidSubnet
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidSubnet";
+  name: "InvalidSubnet";
   $fault: "client";
   message?: string;
 }
@@ -2148,6 +2158,7 @@ export interface InvalidVPCNetworkStateFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidVPCNetworkStateFault";
+  name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
 }
@@ -2167,6 +2178,7 @@ export interface NodeNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NodeNotFoundFault";
+  name: "NodeNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2187,6 +2199,7 @@ export interface NodeQuotaForClusterExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NodeQuotaForClusterExceededFault";
+  name: "NodeQuotaForClusterExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2207,6 +2220,7 @@ export interface NodeQuotaForCustomerExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NodeQuotaForCustomerExceededFault";
+  name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2226,6 +2240,7 @@ export interface ParameterGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParameterGroupAlreadyExistsFault";
+  name: "ParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
@@ -2245,6 +2260,7 @@ export interface ParameterGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParameterGroupNotFoundFault";
+  name: "ParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2264,6 +2280,7 @@ export interface ParameterGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ParameterGroupQuotaExceededFault";
+  name: "ParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2283,6 +2300,7 @@ export interface ServiceLinkedRoleNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceLinkedRoleNotFoundFault";
+  name: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2302,6 +2320,7 @@ export interface SubnetGroupAlreadyExistsFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetGroupAlreadyExistsFault";
+  name: "SubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
@@ -2321,6 +2340,7 @@ export interface SubnetGroupInUseFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetGroupInUseFault";
+  name: "SubnetGroupInUseFault";
   $fault: "client";
   message?: string;
 }
@@ -2341,6 +2361,7 @@ export interface SubnetGroupNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetGroupNotFoundFault";
+  name: "SubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2361,6 +2382,7 @@ export interface SubnetGroupQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetGroupQuotaExceededFault";
+  name: "SubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2378,6 +2400,7 @@ export namespace SubnetGroupQuotaExceededFault {
  */
 export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
   __type: "SubnetInUse";
+  name: "SubnetInUse";
   $fault: "client";
   message?: string;
 }
@@ -2398,6 +2421,7 @@ export interface SubnetQuotaExceededFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "SubnetQuotaExceededFault";
+  name: "SubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
@@ -2417,6 +2441,7 @@ export interface TagNotFoundFault
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagNotFoundFault";
+  name: "TagNotFoundFault";
   $fault: "client";
   message?: string;
 }
@@ -2436,6 +2461,7 @@ export interface TagQuotaPerResourceExceeded
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TagQuotaPerResourceExceeded";
+  name: "TagQuotaPerResourceExceeded";
   $fault: "client";
   message?: string;
 }

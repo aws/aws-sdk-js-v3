@@ -942,6 +942,7 @@ export interface InternalServerError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalServerError";
+  name: "InternalServerError";
   $fault: "server";
   /**
    *
@@ -975,6 +976,7 @@ export interface InvalidGatewayRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidGatewayRequestException";
+  name: "InvalidGatewayRequestException";
   $fault: "client";
   /**
    *
@@ -1161,6 +1163,7 @@ export interface ServiceUnavailableError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableError";
+  name: "ServiceUnavailableError";
   $fault: "server";
   /**
    *

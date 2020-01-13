@@ -1987,6 +1987,7 @@ export interface InsufficientCapacityException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InsufficientCapacityException";
+  name: "InsufficientCapacityException";
   $fault: "client";
   code?: string;
   message?: string;
@@ -2008,6 +2009,7 @@ export interface InvalidParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
   $fault: "client";
   /**
    *
@@ -2202,6 +2204,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   /**
    *
@@ -2710,6 +2713,7 @@ export interface MissingParameterValueException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingParameterValueException";
+  name: "MissingParameterValueException";
   $fault: "client";
   /**
    *
@@ -2778,6 +2782,7 @@ export interface PolicyEnforcedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PolicyEnforcedException";
+  name: "PolicyEnforcedException";
   $fault: "client";
   /**
    *
@@ -2926,6 +2931,7 @@ export interface RequestTimeoutException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestTimeoutException";
+  name: "RequestTimeoutException";
   $fault: "client";
   /**
    *
@@ -2966,6 +2972,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   /**
    *
@@ -3005,6 +3012,7 @@ export interface ServiceUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
   $fault: "server";
   /**
    *

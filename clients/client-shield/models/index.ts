@@ -10,6 +10,7 @@ export interface AccessDeniedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedException";
+  name: "AccessDeniedException";
   $fault: "client";
   message?: string;
 }
@@ -29,6 +30,7 @@ export interface AccessDeniedForDependencyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "AccessDeniedForDependencyException";
+  name: "AccessDeniedForDependencyException";
   $fault: "client";
   message?: string;
 }
@@ -795,6 +797,7 @@ export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalErrorException";
+  name: "InternalErrorException";
   $fault: "server";
   message?: string;
 }
@@ -814,6 +817,7 @@ export interface InvalidOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidOperationException";
+  name: "InvalidOperationException";
   $fault: "client";
   message?: string;
 }
@@ -833,6 +837,7 @@ export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPaginationTokenException";
+  name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
 }
@@ -852,6 +857,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   message?: string;
 }
@@ -871,6 +877,7 @@ export interface InvalidResourceException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidResourceException";
+  name: "InvalidResourceException";
   $fault: "client";
   message?: string;
 }
@@ -922,6 +929,7 @@ export interface LimitsExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitsExceededException";
+  name: "LimitsExceededException";
   $fault: "client";
   Limit?: number;
   Type?: string;
@@ -1065,6 +1073,7 @@ export interface LockedSubscriptionException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LockedSubscriptionException";
+  name: "LockedSubscriptionException";
   $fault: "client";
   message?: string;
 }
@@ -1105,6 +1114,7 @@ export interface NoAssociatedRoleException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoAssociatedRoleException";
+  name: "NoAssociatedRoleException";
   $fault: "client";
   message?: string;
 }
@@ -1125,6 +1135,7 @@ export interface OptimisticLockException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OptimisticLockException";
+  name: "OptimisticLockException";
   $fault: "client";
   message?: string;
 }
@@ -1179,6 +1190,7 @@ export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -1198,6 +1210,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }

@@ -135,6 +135,7 @@ export interface DuplicateReportNameException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "DuplicateReportNameException";
+  name: "DuplicateReportNameException";
   $fault: "client";
   /**
    *
@@ -159,6 +160,7 @@ export interface InternalErrorException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalErrorException";
+  name: "InternalErrorException";
   $fault: "server";
   /**
    *
@@ -360,6 +362,7 @@ export interface ReportLimitReachedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReportLimitReachedException";
+  name: "ReportLimitReachedException";
   $fault: "client";
   /**
    *
@@ -398,6 +401,7 @@ export interface ValidationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ValidationException";
+  name: "ValidationException";
   $fault: "client";
   /**
    *

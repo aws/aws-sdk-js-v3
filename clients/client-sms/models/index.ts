@@ -1104,6 +1104,7 @@ export interface InternalError
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InternalError";
+  name: "InternalError";
   $fault: "server";
   message?: string;
 }
@@ -1123,6 +1124,7 @@ export interface InvalidParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidParameterException";
+  name: "InvalidParameterException";
   $fault: "client";
   message?: string;
 }
@@ -1265,6 +1267,7 @@ export interface MissingRequiredParameterException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MissingRequiredParameterException";
+  name: "MissingRequiredParameterException";
   $fault: "client";
   message?: string;
 }
@@ -1284,6 +1287,7 @@ export interface NoConnectorsAvailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "NoConnectorsAvailableException";
+  name: "NoConnectorsAvailableException";
   $fault: "client";
   message?: string;
 }
@@ -1303,6 +1307,7 @@ export interface OperationNotPermittedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "OperationNotPermittedException";
+  name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
 }
@@ -1564,6 +1569,7 @@ export interface ReplicationJobAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicationJobAlreadyExistsException";
+  name: "ReplicationJobAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -1583,6 +1589,7 @@ export interface ReplicationJobNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicationJobNotFoundException";
+  name: "ReplicationJobNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1724,6 +1731,7 @@ export interface ReplicationRunLimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ReplicationRunLimitExceededException";
+  name: "ReplicationRunLimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -1863,6 +1871,7 @@ export interface ServerCannotBeReplicatedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ServerCannotBeReplicatedException";
+  name: "ServerCannotBeReplicatedException";
   $fault: "client";
   message?: string;
 }
@@ -2299,6 +2308,7 @@ export interface TemporarilyUnavailableException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TemporarilyUnavailableException";
+  name: "TemporarilyUnavailableException";
   $fault: "server";
 }
 
@@ -2344,6 +2354,7 @@ export interface UnauthorizedOperationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "UnauthorizedOperationException";
+  name: "UnauthorizedOperationException";
   $fault: "client";
   message?: string;
 }

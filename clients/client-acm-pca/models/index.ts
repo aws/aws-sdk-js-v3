@@ -326,6 +326,7 @@ export interface CertificateMismatchException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "CertificateMismatchException";
+  name: "CertificateMismatchException";
   $fault: "client";
   message?: string;
 }
@@ -345,6 +346,7 @@ export interface ConcurrentModificationException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
 }
@@ -1065,6 +1067,7 @@ export interface InvalidArgsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArgsException";
+  name: "InvalidArgsException";
   $fault: "client";
   message?: string;
 }
@@ -1085,6 +1088,7 @@ export interface InvalidArnException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidArnException";
+  name: "InvalidArnException";
   $fault: "client";
   message?: string;
 }
@@ -1105,6 +1109,7 @@ export interface InvalidNextTokenException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
 }
@@ -1125,6 +1130,7 @@ export interface InvalidPolicyException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidPolicyException";
+  name: "InvalidPolicyException";
   $fault: "client";
   message?: string;
 }
@@ -1144,6 +1150,7 @@ export interface InvalidRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidRequestException";
+  name: "InvalidRequestException";
   $fault: "client";
   message?: string;
 }
@@ -1164,6 +1171,7 @@ export interface InvalidStateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidStateException";
+  name: "InvalidStateException";
   $fault: "client";
   message?: string;
 }
@@ -1184,6 +1192,7 @@ export interface InvalidTagException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "InvalidTagException";
+  name: "InvalidTagException";
   $fault: "client";
   message?: string;
 }
@@ -1331,6 +1340,7 @@ export interface LimitExceededException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "LimitExceededException";
+  name: "LimitExceededException";
   $fault: "client";
   message?: string;
 }
@@ -1530,6 +1540,7 @@ export interface MalformedCSRException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedCSRException";
+  name: "MalformedCSRException";
   $fault: "client";
   message?: string;
 }
@@ -1549,6 +1560,7 @@ export interface MalformedCertificateException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "MalformedCertificateException";
+  name: "MalformedCertificateException";
   $fault: "client";
   message?: string;
 }
@@ -1630,6 +1642,7 @@ export interface PermissionAlreadyExistsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "PermissionAlreadyExistsException";
+  name: "PermissionAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
@@ -1649,6 +1662,7 @@ export interface RequestAlreadyProcessedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestAlreadyProcessedException";
+  name: "RequestAlreadyProcessedException";
   $fault: "client";
   message?: string;
 }
@@ -1668,6 +1682,7 @@ export interface RequestFailedException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestFailedException";
+  name: "RequestFailedException";
   $fault: "client";
   message?: string;
 }
@@ -1687,6 +1702,7 @@ export interface RequestInProgressException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "RequestInProgressException";
+  name: "RequestInProgressException";
   $fault: "client";
   message?: string;
 }
@@ -1707,6 +1723,7 @@ export interface ResourceNotFoundException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
@@ -1895,6 +1912,7 @@ export interface TooManyTagsException
   extends _smithy.SmithyException,
     $MetadataBearer {
   __type: "TooManyTagsException";
+  name: "TooManyTagsException";
   $fault: "client";
   message?: string;
 }
