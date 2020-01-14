@@ -27,6 +27,6 @@ public class AddProtocols implements TypeScriptIntegration {
 
     @Override
     public List<ProtocolGenerator> getProtocolGenerators() {
-        return ListUtils.of(new AwsRestJson1_1(), new AwsJsonRpc1_0(), new AwsJsonRpc1_1());
+        return ListUtils.of(new AwsRestJson1_1(), new AwsJsonRpc1_0(), new AwsJsonRpc1_1(), new AwsRestXml());
     }
 }
