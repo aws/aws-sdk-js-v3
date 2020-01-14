@@ -2,14 +2,14 @@
   "name": "@aws-sdk/signature-v4",
   "version": "1.0.0-alpha.3",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
-  "main": "./build/index.js",
-  "browser": "./dist/es/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "scripts": {
-    "build:cjs": "tsc -p ./tsconfig.json",
-    "build:es": "tsc -p ./tsconfig.es.json",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "build": "node scripts/buildSuiteFixture.js && yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
-    "pretest": "tsc -p tsconfig.test.json",
+    "pretest": "yarn build",
     "test": "jest --coverage"
   },
   "author": {
@@ -25,6 +25,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
+    "@aws-sdk/http-serialization": "^1.0.0-alpha.0",
     "@aws-crypto/sha256-js": "^0.1.0-preview.1",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.3",
     "@aws-sdk/util-buffer-from": "^1.0.0-alpha.2",
@@ -32,5 +33,5 @@
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
   },
-  "types": "./build/index.d.ts"
+  "types": "./dist/cjs/index.d.ts"
 }
