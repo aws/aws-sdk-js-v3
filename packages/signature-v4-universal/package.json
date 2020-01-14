@@ -3,15 +3,15 @@
   "description": "A standalone AWS Signature V4 request signer targeting all JS environments",
   "version": "1.0.0-alpha.3",
   "scripts": {
-    "build:cjs": "tsc -p ./tsconfig.test.json",
-    "build:es": "tsc -p ./tsconfig.es.json",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
-    "pretest": "tsc -p tsconfig.test.json",
+    "pretest": "yarn build",
     "test": "jest"
   },
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "types": "./types/index.d.ts",
   "browser": "./dist/es/index.js",
   "author": {
     "name": "AWS SDK for JavaScript Team",

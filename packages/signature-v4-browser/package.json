@@ -3,16 +3,16 @@
   "description": "A standalone AWS Signature V4 request signer for browser JavaScript",
   "version": "1.0.0-alpha.3",
   "scripts": {
-    "build:cjs": "tsc -p ./tsconfig.test.json",
-    "build:es": "tsc -p ./tsconfig.es.json",
-    "build": "yarn build:es && yarn build:cjs",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build": "yarn build:es",
     "prepublishOnly": "yarn build",
-    "pretest": "tsc -p tsconfig.test.json",
+    "pretest": "tsc -p tsconfig.json",
     "test": "jest"
   },
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
-  "browser": "./dist/es/index.js",
+  "main": "./dist/es/index.js",
+  "types": "./dist/es/index.d.ts",
+  "module": "./dist/es/index.js",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"

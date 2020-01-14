@@ -1,7 +1,6 @@
 /src/
 /coverage/
 /docs/
-/build/
 tsconfig.test.json
 *.tsbuildinfo
 

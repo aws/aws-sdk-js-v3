@@ -2,8 +2,6 @@
 /build/
 /coverage/
 /docs/
-/dist/
-/types/
 *.tsbuildinfo
 *.tgz
 *.log
