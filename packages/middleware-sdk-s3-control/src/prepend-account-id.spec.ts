@@ -27,4 +27,47 @@ describe("prependAccountIdMiddleware", () => {
     expect(request.hostname).toBe("123456789.foo");
     expect(request.headers["x-amz-account-id"]).toBeUndefined();
   });
+
+  for (const accountId of [
+    "",
+    "1234567890123456789012345678901234567890123456789012345678901234567890"
+  ]) {
+    it("should throw if AccountId is the wrong length", async () => {
+      const handler = prependAccountIdMiddleware()(next, {} as any);
+
+      try {
+        await handler({
+          input: {
+            AccountId: accountId
+          },
+          request: new HttpRequest({})
+        });
+      } catch (e) {
+        expect(e).toEqual(
+          new Error(
+            "ValidationError: AccountId length should be between 1 to 63 characters, inclusive."
+          )
+        );
+      }
+    });
+  }
+
+  it("should throw if an AccountId is hostname compatible", async () => {
+    const handler = prependAccountIdMiddleware()(next, {} as any);
+
+    try {
+      await handler({
+        input: {
+          AccountId: "###"
+        },
+        request: new HttpRequest({})
+      });
+    } catch (e) {
+      expect(e).toEqual(
+        new Error(
+          "ValidationError: AccountId should be hostname compatible. AccountId: ###"
+        )
+      );
+    }
+  });
 });

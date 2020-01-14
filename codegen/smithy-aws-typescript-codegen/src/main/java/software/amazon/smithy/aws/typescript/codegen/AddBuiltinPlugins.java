@@ -157,11 +157,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "S3 Control"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "ValidateAccountId",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3 Control"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build()
         );
