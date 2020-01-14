@@ -41,7 +41,9 @@ export function receiveMessageMiddleware(
       }
     }
     if (messageIds.length > 0) {
-      throw new Error("Invalid messages: " + messageIds.join(", "));
+      throw new Error(
+        "Invalid MD5 checksum on messages: " + messageIds.join(", ")
+      );
     }
 
     return next({

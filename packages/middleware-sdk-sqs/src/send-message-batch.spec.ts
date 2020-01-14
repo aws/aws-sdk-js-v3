@@ -62,7 +62,9 @@ describe("sendMessageBatchMiddleware", () => {
         }
       });
     } catch (e) {
-      expect(e).toEqual(new Error("Invalid messages: barMessage"));
+      expect(e).toEqual(
+        new Error("Invalid MD5 checksum on messages: barMessage")
+      );
     }
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
