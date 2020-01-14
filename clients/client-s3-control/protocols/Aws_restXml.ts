@@ -2335,13 +2335,13 @@ const serializeAws_restXmlS3UserMetadata = (
       )
     );
     entryNode.addChildNode(keyNode);
-    const keyNode = new __XmlNode("key");
-    keyNode.addChildNode(
+    const valueNode = new __XmlNode("value");
+    valueNode.addChildNode(
       new __XmlNode("MaxLength1024String").addChildNode(
         new __XmlText(input[key])
       )
     );
-    entryNode.addChildNode(keyNode);
+    entryNode.addChildNode(valueNode);
     collectedNodes.push(entryNode);
   });
   return collectedNodes;
