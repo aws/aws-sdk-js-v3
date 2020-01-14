@@ -1,4 +1,4 @@
-var { ElastiCache } = require("../../../clients/node/client-elasticache-node");
+var { ElastiCache } = require("../../../clients/client-elasticache");
 
 module.exports = function() {
   this.Before("@elasticache", function(callback) {

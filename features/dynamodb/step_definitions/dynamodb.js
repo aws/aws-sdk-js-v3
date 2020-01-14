@@ -1,5 +1,5 @@
 var jmespath = require("jmespath");
-var { DynamoDB } = require("../../../clients/node/client-dynamodb-node");
+var { DynamoDB } = require("../../../clients/client-dynamodb");
 
 function waitForTableExists(tableName, callback) {
   const db = new DynamoDB({});

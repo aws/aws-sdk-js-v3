@@ -1,4 +1,4 @@
-var { SNS } = require("../../../clients/node/client-sns-node");
+var { SNS } = require("../../../clients/client-sns");
 
 module.exports = function() {
   this.Before("@sns", function(callback) {

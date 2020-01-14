@@ -1,6 +1,4 @@
-var {
-  StorageGateway
-} = require("../../../clients/node/client-storage-gateway-node");
+var { StorageGateway } = require("../../../clients/client-storage-gateway");
 
 module.exports = function() {
   this.Before("@storagegateway", function(callback) {

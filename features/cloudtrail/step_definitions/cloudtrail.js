@@ -1,4 +1,4 @@
-var { CloudTrail } = require("../../../clients/node/client-cloudtrail-node");
+var { CloudTrail } = require("../../../clients/client-cloudtrail");
 
 module.exports = function() {
   this.Before("@cloudtrail", function(callback) {

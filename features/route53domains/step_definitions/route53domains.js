@@ -1,6 +1,4 @@
-var {
-  Route53Domains
-} = require("../../../clients/node/client-route-53-domains-node");
+var { Route53Domains } = require("../../../clients/client-route-53-domains");
 
 module.exports = function() {
   this.Before("@route53domains", function(callback) {

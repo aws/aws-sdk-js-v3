@@ -1,6 +1,6 @@
 var {
   DatabaseMigrationService
-} = require("../../../clients/node/client-database-migration-service-node");
+} = require("../../../clients/client-database-migration-service");
 
 module.exports = function() {
   this.Before("@dms", function(callback) {

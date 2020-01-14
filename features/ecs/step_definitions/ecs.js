@@ -1,4 +1,4 @@
-var { ECS } = require("../../../clients/node/client-ecs-node");
+var { ECS } = require("../../../clients/client-ecs");
 
 module.exports = function() {
   this.Before("@ecs", function(callback) {
