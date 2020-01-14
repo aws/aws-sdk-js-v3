@@ -115,10 +115,10 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             Shape valueTarget = model.expectShape(valueMember.getTarget());
             String valueName = valueMember.getTrait(XmlNameTrait.class)
                     .map(XmlNameTrait::getValue)
-                    .orElse("key");
-            writer.write("const keyNode = new __XmlNode($S);", valueName);
-            writer.write("keyNode.addChildNode($L)", valueTarget.accept(getMemberVisitor("input[key]")));
-            writer.write("entryNode.addChildNode(keyNode);");
+                    .orElse("value");
+            writer.write("const valueNode = new __XmlNode($S);", valueName);
+            writer.write("valueNode.addChildNode($L)", valueTarget.accept(getMemberVisitor("input[key]")));
+            writer.write("entryNode.addChildNode(valueNode);");
 
             // Add the entry to the collection.
             writer.write("collectedNodes.push(entryNode);");
