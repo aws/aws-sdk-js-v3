@@ -48,6 +48,7 @@ import {
   getRetryPlugin,
   resolveRetryConfig
 } from "@aws-sdk/middleware-retry";
+import { getPrependAccountIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -243,6 +244,7 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
+    this.middlewareStack.use(getPrependAccountIdPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
