@@ -44,7 +44,9 @@ export const validateAccountIdMiddlewareOptions: InitializeHandlerOptions = {
   name: "validateAccountIdMiddleware"
 };
 
-export const getValidateAccountIdPlugin = (): Pluggable<any, any> => ({
+export const getValidateAccountIdPlugin = (
+  unused: any
+): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(
       validateAccountIdMiddleware(),

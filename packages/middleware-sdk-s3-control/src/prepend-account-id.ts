@@ -5,7 +5,8 @@ import {
   BuildHandlerOutput,
   BuildMiddleware,
   MetadataBearer,
-  Pluggable
+  Pluggable,
+  RelativeLocation
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
@@ -29,17 +30,20 @@ export function prependAccountIdMiddleware(): BuildMiddleware<any, any> {
   };
 }
 
-export const prependAccountIdMiddlewareOptions: BuildHandlerOptions = {
+export const prependAccountIdMiddlewareOptions: BuildHandlerOptions &
+  RelativeLocation<any, any> = {
   step: "build",
   tags: ["PREPEND_ACCOUNT_ID_MIDDLEWARE"],
-  name: "prependAccountIdMiddleware"
+  name: "prependAccountIdMiddleware",
+  relation: "before",
+  toMiddleware: "hostHeaderMiddleware"
 };
 
 export const getPrependAccountIdPlugin = (
   unused: any
 ): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
+    clientStack.addRelativeTo(
       prependAccountIdMiddleware(),
       prependAccountIdMiddlewareOptions
     );
