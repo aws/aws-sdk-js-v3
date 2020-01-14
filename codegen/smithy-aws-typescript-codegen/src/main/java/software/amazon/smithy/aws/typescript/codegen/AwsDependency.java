@@ -37,6 +37,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^1.0.0-alpha.0"),
     GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^1.0.0-alpha.0"),
     MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "^1.0.0-alpha.0"),
+    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3-control", "^1.0.0-alpha.0"),
     SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "^1.0.0-alpha.0"),
     LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint", "^1.0.0-alpha.0"),
     MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "^1.0.0-alpha.0"),
