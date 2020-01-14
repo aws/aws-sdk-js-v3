@@ -1,6 +1,8 @@
+var { Route53 } = require("../../../clients/client-route-53");
+
 module.exports = function() {
   this.Before("@route53", function(callback) {
-    this.service = new this.AWS.Route53();
+    this.service = new Route53({});
     callback();
   });
 
@@ -41,7 +43,14 @@ module.exports = function() {
   this.When(/^I get information about the Route53 change ID$/, function(
     callback
   ) {
-    this.request(null, "getChange", { Id: this.changeInfoId }, callback);
+    this.request(
+      null,
+      "getChange",
+      {
+        Id: this.changeInfoId
+      },
+      callback
+    );
   });
 
   this.Then(/^the change status should be PENDING or INSYNC$/, function(
@@ -54,7 +63,14 @@ module.exports = function() {
   this.When(/^I get information about the Route53 hosted zone ID$/, function(
     callback
   ) {
-    this.request(null, "getHostedZone", { Id: this.hostedZoneId }, callback);
+    this.request(
+      null,
+      "getHostedZone",
+      {
+        Id: this.hostedZoneId
+      },
+      callback
+    );
   });
 
   this.Then(/^the result should contain multiple nameservers$/, function(
@@ -66,7 +82,14 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the Route53 hosted zone$/, function(callback) {
-    this.request(null, "deleteHostedZone", { Id: this.hostedZoneId }, callback);
+    this.request(
+      null,
+      "deleteHostedZone",
+      {
+        Id: this.hostedZoneId
+      },
+      callback
+    );
   });
 
   this.When(
@@ -101,7 +124,9 @@ module.exports = function() {
   this.When(/^I get information about the health check ID$/, function(
     callback
   ) {
-    var params = { HealthCheckId: this.healthCheckId };
+    var params = {
+      HealthCheckId: this.healthCheckId
+    };
     this.request(null, "getHealthCheck", params, callback);
   });
 
@@ -114,7 +139,9 @@ module.exports = function() {
   );
 
   this.Then(/^I delete the Route53 TCP health check$/, function(callback) {
-    var params = { HealthCheckId: this.healthCheckId };
+    var params = {
+      HealthCheckId: this.healthCheckId
+    };
     this.request(null, "deleteHealthCheck", params, callback);
   });
 

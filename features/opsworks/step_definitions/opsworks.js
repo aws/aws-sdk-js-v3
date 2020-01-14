@@ -1,14 +1,19 @@
+var { IAM } = require("../../../clients/client-iam");
+var { OpsWorks } = require("../../../clients/client-ops-works");
+
 module.exports = function() {
   this.Before("@opsworks", function(callback) {
-    this.iam = new this.AWS.IAM();
-    this.service = new this.AWS.OpsWorks();
+    this.iam = new IAM({});
+    this.service = new OpsWorks({});
     callback();
   });
 
   this.Given(
     /^I create an OpsWorks user profile with the IAM user ARN$/,
     function(callback) {
-      var params = { IamUserArn: this.iamUserArn };
+      var params = {
+        IamUserArn: this.iamUserArn
+      };
       this.request(null, "createUserProfile", params, callback, false);
     }
   );
@@ -19,7 +24,9 @@ module.exports = function() {
   });
 
   this.Given(/^I describe the OpsWorks user profiles$/, function(callback) {
-    var params = { IamUserArns: [this.iamUserArn] };
+    var params = {
+      IamUserArns: [this.iamUserArn]
+    };
     this.request(null, "describeUserProfiles", params, callback);
   });
 
@@ -43,7 +50,9 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the OpsWorks user profile$/, function(callback) {
-    var params = { IamUserArn: this.iamUserArn };
+    var params = {
+      IamUserArn: this.iamUserArn
+    };
     this.request(null, "deleteUserProfile", params, callback, false);
   });
 };

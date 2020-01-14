@@ -1,6 +1,8 @@
+var { IAM } = require("../../../clients/client-iam");
+
 module.exports = function() {
   this.Before("@iam", function(callback) {
-    this.iam = new this.AWS.IAM();
+    this.iam = new IAM();
     callback();
   });
 
@@ -18,7 +20,15 @@ module.exports = function() {
       callback();
     };
     next.fail = callback.fail;
-    this.request("iam", "createUser", { UserName: this.iamUser }, next, false);
+    this.request(
+      "iam",
+      "createUser",
+      {
+        UserName: this.iamUser
+      },
+      next,
+      false
+    );
   });
 
   this.Given(/^I list the IAM users$/, function(callback) {
@@ -34,7 +44,14 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the IAM user$/, function(callback) {
-    this.request("iam", "deleteUser", { UserName: this.iamUser }, callback);
+    this.request(
+      "iam",
+      "deleteUser",
+      {
+        UserName: this.iamUser
+      },
+      callback
+    );
   });
 
   this.Given(/^I create an IAM role with name prefix "([^"]*)"$/, function(
@@ -67,6 +84,13 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the IAM role$/, function(callback) {
-    this.request("iam", "deleteRole", { RoleName: this.iamRoleName }, callback);
+    this.request(
+      "iam",
+      "deleteRole",
+      {
+        RoleName: this.iamRoleName
+      },
+      callback
+    );
   });
 };

@@ -1,6 +1,8 @@
+var { MachineLearning } = require("../../../clients/client-machine-learning");
+
 module.exports = function() {
   this.Before("@machinelearning", function(callback) {
-    this.service = new this.AWS.MachineLearning();
+    this.service = new MachineLearning({});
     callback();
   });
 

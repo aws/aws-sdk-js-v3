@@ -1,12 +1,16 @@
+var { Glacier } = require("../../../clients/client-glacier");
+
 module.exports = function() {
   this.Before("@glacier", function(callback) {
-    this.service = new this.AWS.Glacier();
+    this.service = new Glacier({});
     callback();
   });
 
   this.Given(/^I have a Glacier vault$/, function(callback) {
     this.vaultName = "aws-sdk-js-integration";
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.request(null, "createVault", params, callback, false);
   });
 
@@ -15,7 +19,10 @@ module.exports = function() {
     function(size, invalid, callback) {
       var data = Buffer.alloc(parseFloat(size) * 1024 * 1024);
       data.fill("0");
-      var params = { vaultName: this.vaultName, body: data };
+      var params = {
+        vaultName: this.vaultName,
+        body: data
+      };
       if (invalid) {
         if (invalid.match("invalid")) params.checksum = "000";
         else params.checksum = "00000000000000000000000000000000";
@@ -42,17 +49,24 @@ module.exports = function() {
   });
 
   this.When(/^I describe the Glacier vault$/, function(callback) {
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.request(null, "describeVault", params, callback);
   });
 
   this.Then(/^I delete the Glacier archive$/, function(callback) {
-    var params = { vaultName: this.vaultName, archiveId: this.archiveId };
+    var params = {
+      vaultName: this.vaultName,
+      archiveId: this.archiveId
+    };
     this.request(null, "deleteArchive", params, callback);
   });
 
   this.Then(/^I delete the Glacier vault$/, function(callback) {
-    var params = { vaultName: this.vaultName };
+    var params = {
+      vaultName: this.vaultName
+    };
     this.eventually(callback, function(next) {
       this.request(null, "deleteVault", params, next);
     });

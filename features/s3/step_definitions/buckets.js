@@ -1,16 +1,20 @@
+var { S3 } = require("../../../clients/client-s3");
+
 module.exports = function() {
   this.Given(/^I am using the S3 "([^"]*)" region$/, function(
     region,
     callback
   ) {
-    this.s3 = new this.AWS.S3({ region: region });
+    this.s3 = new S3({
+      region: region
+    });
     callback();
   });
 
   this.Given(
     /^I am using the S3 "([^"]*)" region with signatureVersion "([^"]*)"$/,
     function(region, signatureVersion, callback) {
-      this.s3 = new this.AWS.S3({
+      this.s3 = new S3({
         region: region,
         signatureVersion: signatureVersion
       });
@@ -32,7 +36,13 @@ module.exports = function() {
         if (err) {
           return callback(err);
         }
-        this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
+        this.s3.waitFor(
+          "bucketExists",
+          {
+            Bucket: bucket
+          },
+          callback
+        );
       });
     }
   );
@@ -41,11 +51,16 @@ module.exports = function() {
     /^the bucket should have a location constraint of "([^"]*)"$/,
     function(loc, callback) {
       var self = this;
-      self.s3.getBucketLocation({ Bucket: self.bucket }, function(err, data) {
-        if (err) callback.fail(err);
-        self.assert.equal(data.LocationConstraint, loc);
-        callback();
-      });
+      self.s3.getBucketLocation(
+        {
+          Bucket: self.bucket
+        },
+        function(err, data) {
+          if (err) callback.fail(err);
+          self.assert.equal(data.LocationConstraint, loc);
+          callback();
+        }
+      );
     }
   );
 
@@ -59,7 +74,10 @@ module.exports = function() {
             {
               Prefix: prefix,
               Status: "Enabled",
-              Transition: { Days: 0, StorageClass: "GLACIER" }
+              Transition: {
+                Days: 0,
+                StorageClass: "GLACIER"
+              }
             }
           ]
         }
@@ -72,7 +90,14 @@ module.exports = function() {
     /^I get the transition lifecycle configuration on the bucket$/,
     function(callback) {
       this.eventually(callback, function(next) {
-        this.request("s3", "getBucketLifecycle", { Bucket: this.bucket }, next);
+        this.request(
+          "s3",
+          "getBucketLifecycle",
+          {
+            Bucket: this.bucket
+          },
+          next
+        );
       });
     }
   );
@@ -112,7 +137,14 @@ module.exports = function() {
   });
 
   this.When(/^I get the bucket CORS configuration$/, function(callback) {
-    this.request("s3", "getBucketCors", { Bucket: this.bucket }, callback);
+    this.request(
+      "s3",
+      "getBucketCors",
+      {
+        Bucket: this.bucket
+      },
+      callback
+    );
   });
 
   this.Then(/^the AllowedMethods list should inclue "([^"]*)"$/, function(
@@ -164,7 +196,12 @@ module.exports = function() {
       var params = {
         Bucket: this.bucket,
         Tagging: {
-          TagSet: [{ Key: key, Value: value }]
+          TagSet: [
+            {
+              Key: key,
+              Value: value
+            }
+          ]
         }
       };
 
@@ -173,7 +210,14 @@ module.exports = function() {
   );
 
   this.When(/^I get the bucket tagging$/, function(callback) {
-    this.request("s3", "getBucketTagging", { Bucket: this.bucket }, callback);
+    this.request(
+      "s3",
+      "getBucketTagging",
+      {
+        Bucket: this.bucket
+      },
+      callback
+    );
   });
 
   this.Then(
@@ -189,20 +233,32 @@ module.exports = function() {
     /^I create a bucket with a DNS compatible name that contains a dot$/,
     function(callback) {
       var bucket = (this.bucket = this.uniqueName("aws-sdk-js.integration"));
-      this.request("s3", "createBucket", { Bucket: this.bucket }, function(
-        err,
-        data
-      ) {
-        if (err) {
-          return callback(err);
+      this.request(
+        "s3",
+        "createBucket",
+        {
+          Bucket: this.bucket
+        },
+        function(err, data) {
+          if (err) {
+            return callback(err);
+          }
+          this.s3.waitFor(
+            "bucketExists",
+            {
+              Bucket: bucket
+            },
+            callback
+          );
         }
-        this.s3.waitFor("bucketExists", { Bucket: bucket }, callback);
-      });
+      );
     }
   );
 
   this.Given(/^I force path style requests$/, function(callback) {
-    this.s3 = new this.AWS.S3({ s3ForcePathStyle: true });
+    this.s3 = new S3({
+      s3ForcePathStyle: true
+    });
     callback();
   });
 
@@ -227,7 +283,11 @@ module.exports = function() {
     key,
     next
   ) {
-    var params = { Bucket: this.bucket, Key: key, Body: data };
+    var params = {
+      Bucket: this.bucket,
+      Key: key,
+      Body: data
+    };
     this.request("s3", "putObject", params, next, false);
   });
 
@@ -235,7 +295,10 @@ module.exports = function() {
     key,
     next
   ) {
-    var params = { Bucket: this.bucket, Key: key };
+    var params = {
+      Bucket: this.bucket,
+      Key: key
+    };
     this.request("s3", "deleteObject", params, next);
   });
 
@@ -243,7 +306,11 @@ module.exports = function() {
     /^I put a (small|large) buffer to the key "([^"]*)" in the bucket$/,
     function(size, key, next) {
       var body = this.createBuffer(size);
-      var params = { Bucket: this.bucket, Key: key, Body: body };
+      var params = {
+        Bucket: this.bucket,
+        Key: key,
+        Body: body
+      };
       this.request("s3", "putObject", params, next);
     }
   );
@@ -251,7 +318,10 @@ module.exports = function() {
   this.Then(
     /^the object "([^"]*)" should (not )?exist in the bucket$/,
     function(key, shouldNotExist, next) {
-      var params = { Bucket: this.bucket, Key: key };
+      var params = {
+        Bucket: this.bucket,
+        Key: key
+      };
       this.eventually(next, function(retry) {
         retry.condition = function() {
           if (shouldNotExist) {
