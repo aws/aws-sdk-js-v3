@@ -14,7 +14,7 @@
     "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
     "build:all": "yarn build:crypto-dependencies && lerna run pretest --include-dependencies --include-dependents",
     "pretest:all": "yarn build:all",
-    "test:all": "jest --coverage --passWithNoTests",
+    "test:all": "jest --coverage --passWithNoTests && lerna run test --scope @aws-sdk/stream-collector-browser @aws-sdk/hash-blob-browser",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
     "test:integration": "cucumber.js"
   },
@@ -50,10 +50,18 @@
     "typescript": "^3.7.0",
     "yarn": "1.21.1"
   },
-  "workspaces": [
-    "packages/*",
-    "clients/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "clients/*"
+    ],
+    "nohoist": [
+      "**/karma",
+      "**/karma/**",
+      "**/karma-*",
+      "**/karma-*/**"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
