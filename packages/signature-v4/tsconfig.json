@@ -7,7 +7,7 @@
     "strict": true,
     "stripInternal": true,
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./dist/cjs",
     "importHelpers": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
