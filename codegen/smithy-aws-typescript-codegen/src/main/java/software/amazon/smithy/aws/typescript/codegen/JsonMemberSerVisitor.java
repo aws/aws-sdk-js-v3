@@ -26,6 +26,8 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
 /**
  * Overrides the default implementation of BigDecimal and BigInteger shape
  * serialization to throw when encountered in AWS JSON based protocols.
+ *
+ * TODO: Work out support for BigDecimal and BigInteger, natively or through a library.
  */
 final class JsonMemberSerVisitor extends DocumentMemberSerVisitor {
 
