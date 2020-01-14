@@ -1,0 +1,26 @@
+{
+  "name": "@aws-sdk/middleware-sdk-s3-control",
+  "version": "1.0.0-alpha.0",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.3",
+    "@aws-sdk/types": "^1.0.0-alpha.2",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "jest": "^24.7.1",
+    "typescript": "~3.4.0"
+  }
+}
