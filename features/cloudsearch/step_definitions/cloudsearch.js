@@ -1,4 +1,4 @@
-var { CloudSearch } = require("../../../clients/client-cloudsearch");
+// var { CloudSearch } = require("../../../clients/client-cloudsearch");
 
 module.exports = function() {
   this.Before("@cloudsearch", function(callback) {

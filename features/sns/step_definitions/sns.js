@@ -1,4 +1,4 @@
-var { SNS } = require("../../../clients/client-sns");
+// var { SNS } = require("../../../clients/client-sns");
 
 module.exports = function() {
   this.Before("@sns", function(callback) {
@@ -11,9 +11,17 @@ module.exports = function() {
     callback
   ) {
     var world = this;
-    this.request(null, "createTopic", { Name: name }, callback, function(data) {
-      world.topicArn = data.TopicArn;
-    });
+    this.request(
+      null,
+      "createTopic",
+      {
+        Name: name
+      },
+      callback,
+      function(data) {
+        world.topicArn = data.TopicArn;
+      }
+    );
   });
 
   this.Given(/^I list the SNS topics$/, function(callback) {
@@ -29,7 +37,14 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the SNS topic$/, function(callback) {
-    this.request(null, "deleteTopic", { TopicArn: this.topicArn }, callback);
+    this.request(
+      null,
+      "deleteTopic",
+      {
+        TopicArn: this.topicArn
+      },
+      callback
+    );
   });
 
   this.Given(/^I get SNS topic attributes with an invalid ARN$/, function(
@@ -38,7 +53,9 @@ module.exports = function() {
     this.request(
       null,
       "getTopicAttributes",
-      { TopicArn: "INVALID" },
+      {
+        TopicArn: "INVALID"
+      },
       callback,
       false
     );

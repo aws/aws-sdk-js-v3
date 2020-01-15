@@ -1,6 +1,6 @@
-var {
-  ElasticLoadBalancing
-} = require("../../../clients/client-elastic-load-balancing");
+// var {
+//   ElasticLoadBalancing
+// } = require("../../../clients/client-elastic-load-balancing");
 
 module.exports = function() {
   this.Before("@elb", function(callback) {
@@ -16,7 +16,13 @@ module.exports = function() {
 
     var params = {
       LoadBalancerName: this.loadBalancerName,
-      Listeners: [{ Protocol: "TCP", LoadBalancerPort: 80, InstancePort: 80 }],
+      Listeners: [
+        {
+          Protocol: "TCP",
+          LoadBalancerPort: 80,
+          InstancePort: 80
+        }
+      ],
       AvailabilityZones: ["us-east-1a"]
     };
     this.request(null, "createLoadBalancer", params, callback, false);
@@ -25,7 +31,9 @@ module.exports = function() {
   this.Given(
     /^I describe load balancers with the load balancer name$/,
     function(callback) {
-      var params = { LoadBalancerNames: [this.loadBalancerName] };
+      var params = {
+        LoadBalancerNames: [this.loadBalancerName]
+      };
       this.request(null, "describeLoadBalancers", params, callback);
     }
   );
@@ -37,7 +45,9 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the load balancer$/, function(callback) {
-    var params = { LoadBalancerName: this.loadBalancerName };
+    var params = {
+      LoadBalancerName: this.loadBalancerName
+    };
     this.request(null, "deleteLoadBalancer", params, callback);
   });
 

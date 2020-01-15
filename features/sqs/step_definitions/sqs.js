@@ -1,4 +1,4 @@
-var { SQS } = require("../../../clients/client-sqs");
+// var { SQS } = require("../../../clients/client-sqs");
 
 module.exports = function() {
   this.Before("@sqs", function(callback) {

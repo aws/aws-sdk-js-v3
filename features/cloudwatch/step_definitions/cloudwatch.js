@@ -1,4 +1,4 @@
-var { CloudWatch } = require("../../../clients/client-cloudwatch");
+// var { CloudWatch } = require("../../../clients/client-cloudwatch");
 
 module.exports = function() {
   this.Before("@cloudwatch", function(callback) {

@@ -1,4 +1,4 @@
-var { ElastiCache } = require("../../../clients/client-elasticache");
+// var { ElastiCache } = require("../../../clients/client-elasticache");
 
 module.exports = function() {
   this.Before("@elasticache", function(callback) {
@@ -28,7 +28,9 @@ module.exports = function() {
   });
 
   this.Given(/^I describe the cache parameter groups$/, function(callback) {
-    var params = { CacheParameterGroupName: this.cacheGroupName };
+    var params = {
+      CacheParameterGroupName: this.cacheGroupName
+    };
     this.request(null, "describeCacheParameterGroups", params, callback);
   });
 
@@ -41,7 +43,9 @@ module.exports = function() {
   });
 
   this.Then(/^I delete the cache parameter group$/, function(callback) {
-    var params = { CacheParameterGroupName: this.cacheGroupName };
+    var params = {
+      CacheParameterGroupName: this.cacheGroupName
+    };
     this.request(null, "deleteCacheParameterGroup", params, callback);
   });
 };

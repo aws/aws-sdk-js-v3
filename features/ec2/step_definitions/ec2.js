@@ -1,4 +1,4 @@
-var { EC2 } = require("../../../clients/client-ec2");
+// var { EC2 } = require("../../../clients/client-ec2");
 
 const waitForVolumeAvailable = (ec2, params, callback) => {
   // Iterate totalTries times

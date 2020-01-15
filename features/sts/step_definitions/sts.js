@@ -1,4 +1,4 @@
-var { STS } = require("../../../clients/client-sts");
+// var { STS } = require("../../../clients/client-sts");
 
 module.exports = function() {
   this.Before("@sts", function(callback) {
@@ -12,7 +12,9 @@ module.exports = function() {
       this.request(
         null,
         "getSessionToken",
-        { DurationSeconds: parseInt(duration) },
+        {
+          DurationSeconds: parseInt(duration)
+        },
         callback,
         false
       );
@@ -40,7 +42,11 @@ module.exports = function() {
   this.Given(/^I try to assume role with SAML$/, function(callback) {
     var arn = "arn:aws:iam::123456789:role/Role";
     var token = "TOKENVALUETOKENVALUETOKENVALUETOKENVALUE";
-    var params = { RoleArn: arn, PrincipalArn: arn, SAMLAssertion: token };
+    var params = {
+      RoleArn: arn,
+      PrincipalArn: arn,
+      SAMLAssertion: token
+    };
     this.request(null, "assumeRoleWithSAML", params, callback, false);
   });
 };
