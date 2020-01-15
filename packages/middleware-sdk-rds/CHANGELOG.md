@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.1 (2020-01-15)
+
+
+### Features
+
+* migrate and apply crossRegionPresignedUrlMiddleware ([#718](https://github.com/aws/aws-sdk-js-v3/issues/718)) ([3e24d71](https://github.com/aws/aws-sdk-js-v3/commit/3e24d71))
+
+
+
+
+
 # [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/middleware-rds-presignedurl@0.1.0-preview.3...@aws-sdk/middleware-rds-presignedurl@0.1.0-preview.7) (2019-09-19)
 
 
