@@ -35,6 +35,7 @@
     "@aws-sdk/middleware-host-header": "^1.0.0-alpha.0",
     "@aws-sdk/middleware-retry": "^1.0.0-alpha.1",
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.1",
+    "@aws-sdk/middleware-sdk-s3-control": "^1.0.0-alpha.0",
     "@aws-sdk/middleware-signing": "^1.0.0-alpha.0",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.1",
     "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.1",
