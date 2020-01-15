@@ -1,4 +1,4 @@
-var { IoT } = require("../../../clients/client-iot");
+// var { IoT } = require("../../../clients/client-iot");
 
 module.exports = function() {
   this.Before("@iot", function(callback) {

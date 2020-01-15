@@ -39,7 +39,7 @@
 @glacier
 # @iam
 @inspector
-@iot
+# @iot
 @kinesis
 @kms
 @lambda
