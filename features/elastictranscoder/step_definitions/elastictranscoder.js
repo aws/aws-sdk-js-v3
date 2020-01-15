@@ -2,7 +2,7 @@ var {
   ElasticTranscoder
 } = require("../../../clients/client-elastic-transcoder");
 var { S3 } = require("../../../clients/client-s3");
-var { IAM } = require("../../../clients/client-iam");
+// var { IAM } = require("../../../clients/client-iam");
 
 module.exports = function() {
   this.Before("@elastictranscoder", function(callback) {

@@ -30,7 +30,7 @@
 @efs
 # @elasticache
 @elasticbeanstalk
-@elastictranscoder
+# @elastictranscoder
 # @elb
 # @elbv2
 @emr
@@ -45,7 +45,7 @@
 @lambda
 @machinelearning
 @mobileanalytics
-@opsworks
+# @opsworks
 # @rds
 # @redshift
 @route53
