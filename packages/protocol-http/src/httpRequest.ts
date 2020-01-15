@@ -60,7 +60,7 @@ export class HttpRequest implements HttpMessage, Endpoint {
     if (this.port) {
       hostname += `:${this.port}`;
     }
-    let queryString = this.query ? this.buildQueryString() : "";
+    let queryString = this.query ? buildQueryString(this.query) : "";
     if (queryString && queryString[0] !== "?") {
       queryString = `?${queryString}`;
     }
@@ -72,41 +72,45 @@ export class HttpRequest implements HttpMessage, Endpoint {
       ...this,
       headers: { ...this.headers }
     });
-    if (cloned.query) cloned.query = this.cloneQuery(cloned.query);
+    if (cloned.query) cloned.query = cloneQuery(cloned.query);
     return cloned;
   }
+}
 
-  private cloneQuery(query: QueryParameterBag): QueryParameterBag {
-    return Object.keys(query).reduce(
-      (carry: QueryParameterBag, paramName: string) => {
-        const param = query[paramName];
-        return {
-          ...carry,
-          [paramName]: Array.isArray(param) ? [...param] : param
-        };
-      },
-      {}
-    );
-  }
+function cloneQuery(query: QueryParameterBag): QueryParameterBag {
+  return Object.keys(query).reduce(
+    (carry: QueryParameterBag, paramName: string) => {
+      const param = query[paramName];
+      return {
+        ...carry,
+        [paramName]: Array.isArray(param) ? [...param] : param
+      };
+    },
+    {}
+  );
+}
 
-  private buildQueryString(): string {
-    const parts: string[] = [];
-    for (let key of Object.keys(this.query || {}).sort()) {
-      const value = this.query[key];
-      key = escapeUri(key);
+function buildQueryString(query: QueryParameterBag): string {
+  const queryEntries = Object.entries(query || ({} as QueryParameterBag))
+    .map(([key, value]): [string, string | Array<string> | null] => [
+      escapeUri(key),
+      value
+    ])
+    .map(([key, value]) => {
       if (Array.isArray(value)) {
-        for (let i = 0, iLen = value.length; i < iLen; i++) {
-          parts.push(`${key}=${escapeUri(value[i])}`);
-        }
+        return value.map(val => `${key}=${escapeUri(val)}`);
       } else {
         let qsEntry = key;
         if (value || typeof value === "string") {
           qsEntry += `=${escapeUri(value)}`;
         }
-        parts.push(qsEntry);
+        return [qsEntry];
       }
-    }
+    })
+    .reduce((accummulator, entry) => {
+      accummulator.push(...entry);
+      return accummulator;
+    }, [] as Array<String>);
 
-    return parts.join("&");
-  }
+  return queryEntries.join("&");
 }
