@@ -1,4 +1,5 @@
-var { MobileAnalytics } = require("../../../clients/client-mobile-analytics");
+// To be replaced by PinPoint
+// var { MobileAnalytics } = require("../../../clients/client-mobile-analytics");
 
 module.exports = function() {
   this.Before("@mobileanalytics", function(callback) {
