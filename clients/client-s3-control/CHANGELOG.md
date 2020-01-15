@@ -8,4 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* add s3 control middleware ([#723](https://github.com/aws/aws-sdk-js-v3/issues/723)) ([aca1bc0](https://github.com/aws/aws-sdk-js-v3/commit/aca1bc0))
+* add client-s3-control ([#729](https://github.com/aws/aws-sdk-js-v3/issues/729)) ([43794db](https://github.com/aws/aws-sdk-js-v3/commit/43794db))
