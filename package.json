@@ -56,10 +56,8 @@
       "clients/*"
     ],
     "nohoist": [
-      "**/karma",
-      "**/karma/**",
-      "**/karma-*",
-      "**/karma-*/**"
+      "**/karma*",
+      "**/karma*/**"
     ]
   },
   "husky": {
