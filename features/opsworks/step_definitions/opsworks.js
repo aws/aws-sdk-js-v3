@@ -1,5 +1,5 @@
 // var { IAM } = require("../../../clients/client-iam");
-var { OpsWorks } = require("../../../clients/client-ops-works");
+var { OpsWorks } = require("../../../clients/client-opsworks");
 
 module.exports = function() {
   this.Before("@opsworks", function(callback) {
