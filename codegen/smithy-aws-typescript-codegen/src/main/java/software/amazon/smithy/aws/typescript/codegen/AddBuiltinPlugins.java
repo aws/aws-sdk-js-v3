@@ -41,6 +41,13 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static final Set<String> ROUTE_53_ID_MEMBERS = SetUtils.of("DelegationSetId", "HostedZoneId", "Id");
 
+    private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
+        "CopyDBSnapshot",
+        "CreateDBInstanceReadReplica",
+        "CreateDBCluster",
+        "CopyDBClusterSnapshot"
+    );
+
     private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
             "DeleteObjects",
             "PutBucketCors",
@@ -144,6 +151,12 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          "ChangeResourceRecordSets", HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets")
                                             && testServiceId(s, "Route 53"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> RDS_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName())
+                                            && testServiceId(s, "RDS"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency, "IdNormalizer",
