@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-http",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
