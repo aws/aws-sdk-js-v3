@@ -15,9 +15,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "^1.0.0-alpha.7",
-    "@aws-sdk/property-provider": "^1.0.0-alpha.0",
-    "@aws-sdk/protocol-timestamp": "^1.0.0-alpha.0",
-    "@aws-sdk/types": "^1.0.0-alpha.0",
+    "@aws-sdk/property-provider": "^1.0.0-alpha.1",
+    "@aws-sdk/protocol-timestamp": "^1.0.0-alpha.1",
+    "@aws-sdk/types": "^1.0.0-alpha.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
