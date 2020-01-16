@@ -20,7 +20,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "^1.0.0-alpha.0",
+    "@aws-sdk/middleware-stack": "^1.0.0-alpha.1",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.4",
     "@types/jest": "^24.0.12",
     "@types/node": "^10.0.3",
