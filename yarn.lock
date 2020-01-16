@@ -24,9 +24,9 @@
     "@aws-crypto/ie11-detection" "^0.1.0-preview.4"
     "@aws-crypto/sha256-js" "^0.1.0-preview.4"
     "@aws-crypto/supports-web-crypto" "^0.1.0-preview.4"
-    "@aws-sdk/types" "^1.0.0-alpha.0"
-    "@aws-sdk/util-locate-window" "^1.0.0-alpha.0"
-    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
+    "@aws-sdk/types" "^1.0.0-alpha.1"
+    "@aws-sdk/util-locate-window" "^1.0.0-alpha.1"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.1"
     tslib "^1.9.3"
 
 "@aws-crypto/sha256-js@^0.1.0-preview.4":
@@ -34,8 +34,8 @@
   resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.4.tgz#020f238888bbf998ef7b8c5d50a6e9548429c6bf"
   integrity sha512-erEwxKLr+2s2Ni3EMlE2qBNOEExUmXFnpqCBS83SFc7Zg/+EUvcf4K0BBhf4jT/ZPIiZVYFymYz+yM7b4YZXqA==
   dependencies:
-    "@aws-sdk/types" "^1.0.0-alpha.0"
-    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
+    "@aws-sdk/types" "^1.0.0-alpha.1"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.1"
     tslib "^1.9.3"
 
 "@aws-crypto/sha256-universal@^0.1.0-preview.4":
@@ -44,8 +44,8 @@
   integrity sha512-xgN4f3YQm4b0GqE8WOT7qznX4QLl+ztUoxb7pwWo82jHlO6oVXK/8C+KK2IJlnDJ8x+XMtJKphLov5ggdratkw==
   dependencies:
     "@aws-crypto/sha256-browser" "^0.1.0-preview.4"
-    "@aws-sdk/hash-node" "^1.0.0-alpha.0"
-    "@aws-sdk/types" "^1.0.0-alpha.0"
+    "@aws-sdk/hash-node" "^1.0.0-alpha.1"
+    "@aws-sdk/types" "^1.0.0-alpha.1"
     tslib "^1.9.3"
 
 "@aws-crypto/supports-web-crypto@^0.1.0-preview.4":
