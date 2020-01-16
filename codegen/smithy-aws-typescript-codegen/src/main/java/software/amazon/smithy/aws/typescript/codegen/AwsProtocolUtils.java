@@ -101,6 +101,25 @@ final class AwsProtocolUtils {
         writer.write("");
     }
 
+    static void generateXmlParseBody(GenerationContext context) {
+        TypeScriptWriter writer = context.getWriter();
+
+        // Include an XML body parser used to deserialize documents from HTTP responses.
+        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
+        writer.addDependency(AwsDependency.XML_PARSER);
+        writer.addDependency(AwsDependency.XML_PARSER_TYPES);
+        writer.addImport("parse", "pixlParse", "pixl-xml");
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
+            writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
+                writer.openBlock("if (encoded.length) {", "}", () -> {
+                    writer.write("return pixlParse(encoded);");
+                });
+                writer.write("return {};");
+            });
+        });
+        writer.write("");
+    }
+
     /**
      * Writes an attribute containing information about a Shape's optionally specified
      * XML namespace configuration to an attribute of the passed node name.
