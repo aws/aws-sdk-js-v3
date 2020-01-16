@@ -9,31 +9,11 @@
   dependencies:
     tslib "^1.9.3"
 
-"@aws-crypto/ie11-detection@^0.1.0-preview.3":
-  version "0.1.0-preview.3"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-0.1.0-preview.3.tgz#07b70c0e45e96ca48ff711dcbcdd43c07b6e1911"
-  integrity sha512-wgUzeCnKtELqWq/EurWe2EAZ/QwVOsZXHdzOdADlY+0aSCNH+Mm8pvPvvlFwlN/u42MSCo5gCGT1b5mZ7q0Amw==
-  dependencies:
-    tslib "^1.9.3"
-
 "@aws-crypto/ie11-detection@^0.1.0-preview.4":
   version "0.1.0-preview.4"
   resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-0.1.0-preview.4.tgz#e25edd4e1da05df49e010ce2d1592f2f51d4765c"
   integrity sha512-0cOu7FXHpJ7ddUDyjaYgCmEOhSYbMGgjqIuCLXzxOwY02V/RmVvi2bfFx0zsusgBbXCL+nqqS6BP/c5lGkDuYA==
   dependencies:
-    tslib "^1.9.3"
-
-"@aws-crypto/sha256-browser@^0.1.0-preview.1":
-  version "0.1.0-preview.3"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-browser/-/sha256-browser-0.1.0-preview.3.tgz#949b64b5d8bd6087477088385b242b2bf2d665ce"
-  integrity sha512-UWEEeqfBo4EfIiMMjL3QS+86cC15y6f9hyolgQKmV/WR8XGOOppWkJp/dqCqUQnPCiSiagUS66k/mX2G9+6EPQ==
-  dependencies:
-    "@aws-crypto/ie11-detection" "^0.1.0-preview.3"
-    "@aws-crypto/sha256-js" "^0.1.0-preview.3"
-    "@aws-crypto/supports-web-crypto" "^0.1.0-preview.3"
-    "@aws-sdk/types" "^0.1.0-preview.1"
-    "@aws-sdk/util-locate-window" "^0.1.0-preview.1"
-    "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
 "@aws-crypto/sha256-browser@^0.1.0-preview.4":
@@ -47,15 +27,6 @@
     "@aws-sdk/types" "^1.0.0-alpha.0"
     "@aws-sdk/util-locate-window" "^1.0.0-alpha.0"
     "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
-    tslib "^1.9.3"
-
-"@aws-crypto/sha256-js@^0.1.0-preview.3":
-  version "0.1.0-preview.3"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.3.tgz#c3994122288fdd4eaa63f059153e8ff79240ce8d"
-  integrity sha512-iA64dGmIIueeFpy+R9LsTOaTLgcnELx/e3vGhJ2B7zulzo8dh/hQii9kYfwCShceJ0NcOM7OIHI2ou0kVpOPCw==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.1"
-    "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
 "@aws-crypto/sha256-js@^0.1.0-preview.4":
@@ -77,38 +48,12 @@
     "@aws-sdk/types" "^1.0.0-alpha.0"
     tslib "^1.9.3"
 
-"@aws-crypto/supports-web-crypto@^0.1.0-preview.3":
-  version "0.1.0-preview.3"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/supports-web-crypto/-/supports-web-crypto-0.1.0-preview.3.tgz#480cdee0c0c6ae3516344880f88f192aa392348f"
-  integrity sha512-aNaqK9NdX7Ncu73IsoewenRrfM1LdNnb8aCJo/0eefMU5FwLxzAo1l5fOo3ks5TcGTN9x2anANWC1owRJWyBuQ==
-  dependencies:
-    tslib "^1.9.3"
-
 "@aws-crypto/supports-web-crypto@^0.1.0-preview.4":
   version "0.1.0-preview.4"
   resolved "https://registry.yarnpkg.com/@aws-crypto/supports-web-crypto/-/supports-web-crypto-0.1.0-preview.4.tgz#ef38218ce4df59da2d2b3b166c55669857facd18"
   integrity sha512-P/cnFGz3A3SA4in2YVrU8CQAjf0n1WsC9Bv6LUqf5gL8wTaZvBl02ILjOpeOeQidaid+Fo//BLGi/55ksEj9Ug==
   dependencies:
     tslib "^1.9.3"
-
-"@aws-sdk/types@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-0.1.0-preview.1.tgz#6119574f873ec9a8ee2e5c1fbfb3ddcc9059c2f3"
-  integrity sha512-CcZpxyN2G0I7+Jyj0om3LafYX7d30JWJAAQ+53Ysjau7jyL/xLMMkLZgniQPV8BMV7uKLXyf4hwu8JSs0Ejb+w==
-
-"@aws-sdk/util-locate-window@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-locate-window/-/util-locate-window-0.1.0-preview.1.tgz#7863359c64f194f289580843de416b7f66122244"
-  integrity sha512-bGUMCJJwdHQn1jn+BVzi1cYgFvjro3qthfumJbhTFEro5o3kl0HclZETmuHmJsDmYrrR5jNeC1OvYWefdsSocw==
-  dependencies:
-    tslib "^1.8.0"
-
-"@aws-sdk/util-utf8-browser@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-utf8-browser/-/util-utf8-browser-0.1.0-preview.1.tgz#21142dfea0b143f8d73e0aabcbcafd76df1691f0"
-  integrity sha512-FfITKgYgokfxaaNxs3h8FAFMqE8jhHUfVHwY9fRfX0Kl42RhVb4fjopV2pueAAvZmYd8B7sdUrRB37USa0Bvbw==
-  dependencies:
-    tslib "^1.8.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
