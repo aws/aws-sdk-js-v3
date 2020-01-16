@@ -36,8 +36,8 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * Visitor to generate serialization functions for shapes in AWS JSON protocol
  * document bodies.
  *
- * No standard visitation methods are overridden; function body generation for all
- * expected serializers is handled by this class.
+ * This class handles function body generation for all types expected by the {@code
+ * DocumentShapeSerVisitor}. No other shape type serialization is overridden.
  *
  * Timestamps are serialized to {@link Format}.EPOCH_SECONDS by default.
  */

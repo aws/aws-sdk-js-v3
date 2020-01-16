@@ -36,11 +36,11 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVis
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 
 /**
- * Visitor to generate deserialization functions for shapes in XML-document
+ * Visitor to generate serialization functions for shapes in XML-document
  * based document bodies.
  *
- * No standard visitation methods are overridden; function body generation for all
- * expected serializers is handled by this class.
+ * This class handles function body generation for all types expected by the {@code
+ * DocumentShapeSerVisitor}. No other shape type serialization is overridden.
  *
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  *
