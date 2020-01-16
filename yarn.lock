@@ -16,7 +16,14 @@
   dependencies:
     tslib "^1.9.3"
 
-"@aws-crypto/sha256-browser@^0.1.0-preview.1", "@aws-crypto/sha256-browser@^0.1.0-preview.3":
+"@aws-crypto/ie11-detection@^0.1.0-preview.4":
+  version "0.1.0-preview.4"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-0.1.0-preview.4.tgz#e25edd4e1da05df49e010ce2d1592f2f51d4765c"
+  integrity sha512-0cOu7FXHpJ7ddUDyjaYgCmEOhSYbMGgjqIuCLXzxOwY02V/RmVvi2bfFx0zsusgBbXCL+nqqS6BP/c5lGkDuYA==
+  dependencies:
+    tslib "^1.9.3"
+
+"@aws-crypto/sha256-browser@^0.1.0-preview.1":
   version "0.1.0-preview.3"
   resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-browser/-/sha256-browser-0.1.0-preview.3.tgz#949b64b5d8bd6087477088385b242b2bf2d665ce"
   integrity sha512-UWEEeqfBo4EfIiMMjL3QS+86cC15y6f9hyolgQKmV/WR8XGOOppWkJp/dqCqUQnPCiSiagUS66k/mX2G9+6EPQ==
@@ -29,6 +36,19 @@
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
+"@aws-crypto/sha256-browser@^0.1.0-preview.4":
+  version "0.1.0-preview.4"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-browser/-/sha256-browser-0.1.0-preview.4.tgz#d7c2baae74d88508f7336a39feac7c7033c722ec"
+  integrity sha512-wP7hrVfwvJfPuQaHU1W32D0dqHU+MrW14qrqumFIiUEsGFhs0uM8dxy+SA7KKgNy4pdQfpZaNEyjlAwJAmATaQ==
+  dependencies:
+    "@aws-crypto/ie11-detection" "^0.1.0-preview.4"
+    "@aws-crypto/sha256-js" "^0.1.0-preview.4"
+    "@aws-crypto/supports-web-crypto" "^0.1.0-preview.4"
+    "@aws-sdk/types" "^1.0.0-alpha.0"
+    "@aws-sdk/util-locate-window" "^1.0.0-alpha.0"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
+    tslib "^1.9.3"
+
 "@aws-crypto/sha256-js@^0.1.0-preview.1", "@aws-crypto/sha256-js@^0.1.0-preview.3":
   version "0.1.0-preview.3"
   resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.3.tgz#c3994122288fdd4eaa63f059153e8ff79240ce8d"
@@ -38,14 +58,23 @@
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.1"
     tslib "^1.9.3"
 
-"@aws-crypto/sha256-universal@^0.1.0-preview.1":
-  version "0.1.0-preview.3"
-  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-universal/-/sha256-universal-0.1.0-preview.3.tgz#abdd1005e9142a30465e27f758fa74886a22af20"
-  integrity sha512-dMLtv4XsXCB3qcSdF6ufPaqXD4iBjXiw/di3nQGe4jEcJ/Z/EIP7q1q5PKu3jcJ+EH1VnKjqe3DMl23q5h9Unw==
+"@aws-crypto/sha256-js@^0.1.0-preview.4":
+  version "0.1.0-preview.4"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-js/-/sha256-js-0.1.0-preview.4.tgz#020f238888bbf998ef7b8c5d50a6e9548429c6bf"
+  integrity sha512-erEwxKLr+2s2Ni3EMlE2qBNOEExUmXFnpqCBS83SFc7Zg/+EUvcf4K0BBhf4jT/ZPIiZVYFymYz+yM7b4YZXqA==
   dependencies:
-    "@aws-crypto/sha256-browser" "^0.1.0-preview.3"
-    "@aws-sdk/hash-node" "^0.1.0-preview.1"
-    "@aws-sdk/types" "^0.1.0-preview.1"
+    "@aws-sdk/types" "^1.0.0-alpha.0"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
+    tslib "^1.9.3"
+
+"@aws-crypto/sha256-universal@^0.1.0-preview.4":
+  version "0.1.0-preview.4"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/sha256-universal/-/sha256-universal-0.1.0-preview.4.tgz#3b4f8165605833c3ab1c9f1f7cac78d04d57e2d7"
+  integrity sha512-xgN4f3YQm4b0GqE8WOT7qznX4QLl+ztUoxb7pwWo82jHlO6oVXK/8C+KK2IJlnDJ8x+XMtJKphLov5ggdratkw==
+  dependencies:
+    "@aws-crypto/sha256-browser" "^0.1.0-preview.4"
+    "@aws-sdk/hash-node" "^1.0.0-alpha.0"
+    "@aws-sdk/types" "^1.0.0-alpha.0"
     tslib "^1.9.3"
 
 "@aws-crypto/supports-web-crypto@^0.1.0-preview.3":
@@ -55,34 +84,17 @@
   dependencies:
     tslib "^1.9.3"
 
-"@aws-sdk/hash-node@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/hash-node/-/hash-node-0.1.0-preview.1.tgz#24157f7171c318e4c9cbf5e52d7516ae921e2a7c"
-  integrity sha512-wMOhgdPabc+4dzqGqPAYO41l+KkNWGhwbJIDBVTbHF9orwWo283T1YCBsVsLyunG5i/mdWklcXLs9V4P7ocNHw==
+"@aws-crypto/supports-web-crypto@^0.1.0-preview.4":
+  version "0.1.0-preview.4"
+  resolved "https://registry.yarnpkg.com/@aws-crypto/supports-web-crypto/-/supports-web-crypto-0.1.0-preview.4.tgz#ef38218ce4df59da2d2b3b166c55669857facd18"
+  integrity sha512-P/cnFGz3A3SA4in2YVrU8CQAjf0n1WsC9Bv6LUqf5gL8wTaZvBl02ILjOpeOeQidaid+Fo//BLGi/55ksEj9Ug==
   dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.1"
-    "@aws-sdk/util-buffer-from" "^0.1.0-preview.1"
-    tslib "^1.8.0"
-
-"@aws-sdk/is-array-buffer@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/is-array-buffer/-/is-array-buffer-0.1.0-preview.1.tgz#63cd8488faaf1a537817d0ef57fec3aa3bf030c4"
-  integrity sha512-9Qrr9w6sNX19N0eO7JBYjp86OPcOyjDPe580L5ISDKo7XfuzK20IC2TeGTZ77okhRTsm8rF5UgP9scBu59jwoA==
-  dependencies:
-    tslib "^1.8.0"
+    tslib "^1.9.3"
 
 "@aws-sdk/types@^0.1.0-preview.1":
   version "0.1.0-preview.1"
   resolved "https://registry.yarnpkg.com/@aws-sdk/types/-/types-0.1.0-preview.1.tgz#6119574f873ec9a8ee2e5c1fbfb3ddcc9059c2f3"
   integrity sha512-CcZpxyN2G0I7+Jyj0om3LafYX7d30JWJAAQ+53Ysjau7jyL/xLMMkLZgniQPV8BMV7uKLXyf4hwu8JSs0Ejb+w==
-
-"@aws-sdk/util-buffer-from@^0.1.0-preview.1":
-  version "0.1.0-preview.1"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-buffer-from/-/util-buffer-from-0.1.0-preview.1.tgz#b40c674044bf0997e0f170f692fbdaf7f5edd78c"
-  integrity sha512-i46iuFQA05+92L/epK7befgoxw6DM38LnaHjHNxRoJeIYUllZvpJst74FRCJ5UvVOaMDvHO3woWG+dY8/KVABw==
-  dependencies:
-    "@aws-sdk/is-array-buffer" "^0.1.0-preview.1"
-    tslib "^1.8.0"
 
 "@aws-sdk/util-locate-window@^0.1.0-preview.1":
   version "0.1.0-preview.1"
