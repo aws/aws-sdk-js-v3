@@ -87,25 +87,10 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     @Override
     public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
+        AwsProtocolUtils.generateXmlParseBody(context);
 
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.XML_BUILDER);
-
-        // Include an XML body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addDependency(AwsDependency.XML_PARSER_TYPES);
-        writer.addImport("parse", "pixlParse", "pixl-xml");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
-            writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
-                writer.openBlock("if (encoded.length) {", "}", () -> {
-                    writer.write("return pixlParse(encoded);");
-                });
-                writer.write("return {};");
-            });
-        });
-
-        writer.write("");
 
         // Generate a function that handles the complex rules around deserializing
         // an error code from a rest-xml error.
