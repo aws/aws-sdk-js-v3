@@ -88,12 +88,7 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
 
-        // Input documents are wrapped in an input shape named wrapper, build that.
-        writer.openBlock("const wrappedBody: any = {", "};", () -> {
-            writer.write("$L: $L,", inputStructure.getId().getName(),
-                    inputStructure.accept(getMemberSerVisitor(context, "input")));
-        });
-        writer.write("body = JSON.stringify(wrappedBody);");
+        writer.write("body = JSON.stringify($L);", inputStructure.accept(getMemberSerVisitor(context, "input")));
     }
 
     private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
