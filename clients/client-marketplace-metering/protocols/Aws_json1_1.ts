@@ -61,13 +61,9 @@ export async function serializeAws_json1_1BatchMeterUsageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.BatchMeterUsage";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchMeterUsageRequest: serializeAws_json1_1BatchMeterUsageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchMeterUsageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -86,10 +82,7 @@ export async function serializeAws_json1_1MeterUsageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.MeterUsage";
   let body: any = {};
-  const wrappedBody: any = {
-    MeterUsageRequest: serializeAws_json1_1MeterUsageRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1MeterUsageRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -108,13 +101,9 @@ export async function serializeAws_json1_1RegisterUsageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.RegisterUsage";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterUsageRequest: serializeAws_json1_1RegisterUsageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterUsageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -133,13 +122,9 @@ export async function serializeAws_json1_1ResolveCustomerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPMeteringService.ResolveCustomer";
   let body: any = {};
-  const wrappedBody: any = {
-    ResolveCustomerRequest: serializeAws_json1_1ResolveCustomerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResolveCustomerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

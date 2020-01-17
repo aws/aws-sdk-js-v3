@@ -181,10 +181,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.AddTags";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsRequest: serializeAws_json1_1AddTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -203,10 +200,7 @@ export async function serializeAws_json1_1CreateTrailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.CreateTrail";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTrailRequest: serializeAws_json1_1CreateTrailRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTrailRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -225,10 +219,7 @@ export async function serializeAws_json1_1DeleteTrailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.DeleteTrail";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTrailRequest: serializeAws_json1_1DeleteTrailRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -247,13 +238,9 @@ export async function serializeAws_json1_1DescribeTrailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.DescribeTrails";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrailsRequest: serializeAws_json1_1DescribeTrailsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrailsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -272,13 +259,9 @@ export async function serializeAws_json1_1GetEventSelectorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetEventSelectors";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEventSelectorsRequest: serializeAws_json1_1GetEventSelectorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetEventSelectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -297,13 +280,9 @@ export async function serializeAws_json1_1GetInsightSelectorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetInsightSelectors";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInsightSelectorsRequest: serializeAws_json1_1GetInsightSelectorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInsightSelectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -322,10 +301,7 @@ export async function serializeAws_json1_1GetTrailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrail";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTrailRequest: serializeAws_json1_1GetTrailRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTrailRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -344,13 +320,9 @@ export async function serializeAws_json1_1GetTrailStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.GetTrailStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTrailStatusRequest: serializeAws_json1_1GetTrailStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTrailStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +341,9 @@ export async function serializeAws_json1_1ListPublicKeysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListPublicKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPublicKeysRequest: serializeAws_json1_1ListPublicKeysRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPublicKeysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,10 +362,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsRequest: serializeAws_json1_1ListTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -416,10 +381,7 @@ export async function serializeAws_json1_1ListTrailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.ListTrails";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTrailsRequest: serializeAws_json1_1ListTrailsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTrailsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -438,10 +400,9 @@ export async function serializeAws_json1_1LookupEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.LookupEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    LookupEventsRequest: serializeAws_json1_1LookupEventsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1LookupEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -460,13 +421,9 @@ export async function serializeAws_json1_1PutEventSelectorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.PutEventSelectors";
   let body: any = {};
-  const wrappedBody: any = {
-    PutEventSelectorsRequest: serializeAws_json1_1PutEventSelectorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutEventSelectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -485,13 +442,9 @@ export async function serializeAws_json1_1PutInsightSelectorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.PutInsightSelectors";
   let body: any = {};
-  const wrappedBody: any = {
-    PutInsightSelectorsRequest: serializeAws_json1_1PutInsightSelectorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutInsightSelectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -510,10 +463,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.RemoveTags";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsRequest: serializeAws_json1_1RemoveTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RemoveTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -532,10 +482,9 @@ export async function serializeAws_json1_1StartLoggingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.StartLogging";
   let body: any = {};
-  const wrappedBody: any = {
-    StartLoggingRequest: serializeAws_json1_1StartLoggingRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartLoggingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -554,10 +503,7 @@ export async function serializeAws_json1_1StopLoggingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.StopLogging";
   let body: any = {};
-  const wrappedBody: any = {
-    StopLoggingRequest: serializeAws_json1_1StopLoggingRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopLoggingRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,10 +522,7 @@ export async function serializeAws_json1_1UpdateTrailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudTrail_20131101.UpdateTrail";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTrailRequest: serializeAws_json1_1UpdateTrailRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateTrailRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

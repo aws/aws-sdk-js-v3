@@ -158,13 +158,9 @@ export async function serializeAws_json1_1BatchGetNamedQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.BatchGetNamedQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetNamedQueryInput: serializeAws_json1_1BatchGetNamedQueryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetNamedQueryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -183,13 +179,9 @@ export async function serializeAws_json1_1BatchGetQueryExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.BatchGetQueryExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetQueryExecutionInput: serializeAws_json1_1BatchGetQueryExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetQueryExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -208,13 +200,9 @@ export async function serializeAws_json1_1CreateNamedQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.CreateNamedQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNamedQueryInput: serializeAws_json1_1CreateNamedQueryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNamedQueryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -233,13 +221,9 @@ export async function serializeAws_json1_1CreateWorkGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.CreateWorkGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWorkGroupInput: serializeAws_json1_1CreateWorkGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWorkGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -258,13 +242,9 @@ export async function serializeAws_json1_1DeleteNamedQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.DeleteNamedQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNamedQueryInput: serializeAws_json1_1DeleteNamedQueryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNamedQueryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -283,13 +263,9 @@ export async function serializeAws_json1_1DeleteWorkGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.DeleteWorkGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWorkGroupInput: serializeAws_json1_1DeleteWorkGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWorkGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -308,10 +284,7 @@ export async function serializeAws_json1_1GetNamedQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetNamedQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNamedQueryInput: serializeAws_json1_1GetNamedQueryInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetNamedQueryInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -330,13 +303,9 @@ export async function serializeAws_json1_1GetQueryExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetQueryExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    GetQueryExecutionInput: serializeAws_json1_1GetQueryExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetQueryExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -355,13 +324,9 @@ export async function serializeAws_json1_1GetQueryResultsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetQueryResults";
   let body: any = {};
-  const wrappedBody: any = {
-    GetQueryResultsInput: serializeAws_json1_1GetQueryResultsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetQueryResultsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -380,10 +345,7 @@ export async function serializeAws_json1_1GetWorkGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.GetWorkGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkGroupInput: serializeAws_json1_1GetWorkGroupInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetWorkGroupInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -402,13 +364,9 @@ export async function serializeAws_json1_1ListNamedQueriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListNamedQueries";
   let body: any = {};
-  const wrappedBody: any = {
-    ListNamedQueriesInput: serializeAws_json1_1ListNamedQueriesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListNamedQueriesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -427,13 +385,9 @@ export async function serializeAws_json1_1ListQueryExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListQueryExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListQueryExecutionsInput: serializeAws_json1_1ListQueryExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListQueryExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -452,13 +406,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -477,10 +427,9 @@ export async function serializeAws_json1_1ListWorkGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.ListWorkGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkGroupsInput: serializeAws_json1_1ListWorkGroupsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListWorkGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -499,13 +448,9 @@ export async function serializeAws_json1_1StartQueryExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.StartQueryExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartQueryExecutionInput: serializeAws_json1_1StartQueryExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartQueryExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -524,13 +469,9 @@ export async function serializeAws_json1_1StopQueryExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.StopQueryExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StopQueryExecutionInput: serializeAws_json1_1StopQueryExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopQueryExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -549,10 +490,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -571,10 +509,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -593,13 +528,9 @@ export async function serializeAws_json1_1UpdateWorkGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonAthena.UpdateWorkGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateWorkGroupInput: serializeAws_json1_1UpdateWorkGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateWorkGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

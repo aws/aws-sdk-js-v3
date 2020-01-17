@@ -129,13 +129,9 @@ export async function serializeAws_json1_1AddAttachmentsToSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.AddAttachmentsToSet";
   let body: any = {};
-  const wrappedBody: any = {
-    AddAttachmentsToSetRequest: serializeAws_json1_1AddAttachmentsToSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddAttachmentsToSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -154,13 +150,9 @@ export async function serializeAws_json1_1AddCommunicationToCaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.AddCommunicationToCase";
   let body: any = {};
-  const wrappedBody: any = {
-    AddCommunicationToCaseRequest: serializeAws_json1_1AddCommunicationToCaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddCommunicationToCaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -179,10 +171,7 @@ export async function serializeAws_json1_1CreateCaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.CreateCase";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCaseRequest: serializeAws_json1_1CreateCaseRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateCaseRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -201,13 +190,9 @@ export async function serializeAws_json1_1DescribeAttachmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeAttachment";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAttachmentRequest: serializeAws_json1_1DescribeAttachmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAttachmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -226,13 +211,9 @@ export async function serializeAws_json1_1DescribeCasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCases";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCasesRequest: serializeAws_json1_1DescribeCasesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCasesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -251,13 +232,9 @@ export async function serializeAws_json1_1DescribeCommunicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeCommunications";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCommunicationsRequest: serializeAws_json1_1DescribeCommunicationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCommunicationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -276,13 +253,9 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeServices";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServicesRequest: serializeAws_json1_1DescribeServicesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -301,13 +274,9 @@ export async function serializeAws_json1_1DescribeSeverityLevelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeSeverityLevels";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSeverityLevelsRequest: serializeAws_json1_1DescribeSeverityLevelsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSeverityLevelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -326,10 +295,7 @@ export async function serializeAws_json1_1ResolveCaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.ResolveCase";
   let body: any = {};
-  const wrappedBody: any = {
-    ResolveCaseRequest: serializeAws_json1_1ResolveCaseRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ResolveCaseRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -349,13 +315,12 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStat
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrustedAdvisorCheckRefreshStatusesRequest: serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -375,13 +340,9 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckResultComma
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrustedAdvisorCheckResultRequest: serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -401,13 +362,12 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCo
   headers["X-Amz-Target"] =
     "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrustedAdvisorCheckSummariesRequest: serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -426,13 +386,9 @@ export async function serializeAws_json1_1DescribeTrustedAdvisorChecksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.DescribeTrustedAdvisorChecks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrustedAdvisorChecksRequest: serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -451,13 +407,9 @@ export async function serializeAws_json1_1RefreshTrustedAdvisorCheckCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSupport_20130415.RefreshTrustedAdvisorCheck";
   let body: any = {};
-  const wrappedBody: any = {
-    RefreshTrustedAdvisorCheckRequest: serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -344,13 +344,12 @@ export async function serializeAws_json1_1AcceptDirectConnectGatewayAssociationP
   headers["X-Amz-Target"] =
     "OvertureService.AcceptDirectConnectGatewayAssociationProposal";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptDirectConnectGatewayAssociationProposalRequest: serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +368,9 @@ export async function serializeAws_json1_1AllocateConnectionOnInterconnectComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateConnectionOnInterconnect";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocateConnectionOnInterconnectRequest: serializeAws_json1_1AllocateConnectionOnInterconnectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocateConnectionOnInterconnectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +389,9 @@ export async function serializeAws_json1_1AllocateHostedConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateHostedConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocateHostedConnectionRequest: serializeAws_json1_1AllocateHostedConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocateHostedConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +410,9 @@ export async function serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocatePrivateVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocatePrivateVirtualInterfaceRequest: serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -444,13 +431,9 @@ export async function serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocatePublicVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocatePublicVirtualInterfaceRequest: serializeAws_json1_1AllocatePublicVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocatePublicVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -469,13 +452,9 @@ export async function serializeAws_json1_1AllocateTransitVirtualInterfaceCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AllocateTransitVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocateTransitVirtualInterfaceRequest: serializeAws_json1_1AllocateTransitVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocateTransitVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -494,13 +473,9 @@ export async function serializeAws_json1_1AssociateConnectionWithLagCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateConnectionWithLag";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateConnectionWithLagRequest: serializeAws_json1_1AssociateConnectionWithLagRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateConnectionWithLagRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,13 +494,9 @@ export async function serializeAws_json1_1AssociateHostedConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateHostedConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateHostedConnectionRequest: serializeAws_json1_1AssociateHostedConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateHostedConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -544,13 +515,9 @@ export async function serializeAws_json1_1AssociateVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.AssociateVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateVirtualInterfaceRequest: serializeAws_json1_1AssociateVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -569,13 +536,9 @@ export async function serializeAws_json1_1ConfirmConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmConnectionRequest: serializeAws_json1_1ConfirmConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -594,13 +557,9 @@ export async function serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmPrivateVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmPrivateVirtualInterfaceRequest: serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -619,13 +578,9 @@ export async function serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmPublicVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmPublicVirtualInterfaceRequest: serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -644,13 +599,9 @@ export async function serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.ConfirmTransitVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmTransitVirtualInterfaceRequest: serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -669,13 +620,9 @@ export async function serializeAws_json1_1CreateBGPPeerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateBGPPeer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBGPPeerRequest: serializeAws_json1_1CreateBGPPeerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBGPPeerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -694,13 +641,9 @@ export async function serializeAws_json1_1CreateConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateConnectionRequest: serializeAws_json1_1CreateConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -719,13 +662,9 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateDirectConnectGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDirectConnectGatewayRequest: serializeAws_json1_1CreateDirectConnectGatewayRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDirectConnectGatewayRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -745,13 +684,12 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationC
   headers["X-Amz-Target"] =
     "OvertureService.CreateDirectConnectGatewayAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDirectConnectGatewayAssociationRequest: serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -771,13 +709,12 @@ export async function serializeAws_json1_1CreateDirectConnectGatewayAssociationP
   headers["X-Amz-Target"] =
     "OvertureService.CreateDirectConnectGatewayAssociationProposal";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDirectConnectGatewayAssociationProposalRequest: serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -796,13 +733,9 @@ export async function serializeAws_json1_1CreateInterconnectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateInterconnect";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateInterconnectRequest: serializeAws_json1_1CreateInterconnectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInterconnectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -821,10 +754,7 @@ export async function serializeAws_json1_1CreateLagCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateLag";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLagRequest: serializeAws_json1_1CreateLagRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateLagRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -843,13 +773,9 @@ export async function serializeAws_json1_1CreatePrivateVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreatePrivateVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePrivateVirtualInterfaceRequest: serializeAws_json1_1CreatePrivateVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePrivateVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -868,13 +794,9 @@ export async function serializeAws_json1_1CreatePublicVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreatePublicVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePublicVirtualInterfaceRequest: serializeAws_json1_1CreatePublicVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePublicVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -893,13 +815,9 @@ export async function serializeAws_json1_1CreateTransitVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.CreateTransitVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTransitVirtualInterfaceRequest: serializeAws_json1_1CreateTransitVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTransitVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -918,13 +836,9 @@ export async function serializeAws_json1_1DeleteBGPPeerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteBGPPeer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBGPPeerRequest: serializeAws_json1_1DeleteBGPPeerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBGPPeerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -943,13 +857,9 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConnectionRequest: serializeAws_json1_1DeleteConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -968,13 +878,9 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteDirectConnectGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDirectConnectGatewayRequest: serializeAws_json1_1DeleteDirectConnectGatewayRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDirectConnectGatewayRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -994,13 +900,12 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationC
   headers["X-Amz-Target"] =
     "OvertureService.DeleteDirectConnectGatewayAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDirectConnectGatewayAssociationRequest: serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1020,13 +925,12 @@ export async function serializeAws_json1_1DeleteDirectConnectGatewayAssociationP
   headers["X-Amz-Target"] =
     "OvertureService.DeleteDirectConnectGatewayAssociationProposal";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDirectConnectGatewayAssociationProposalRequest: serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1045,13 +949,9 @@ export async function serializeAws_json1_1DeleteInterconnectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteInterconnect";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteInterconnectRequest: serializeAws_json1_1DeleteInterconnectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteInterconnectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1070,10 +970,7 @@ export async function serializeAws_json1_1DeleteLagCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteLag";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLagRequest: serializeAws_json1_1DeleteLagRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteLagRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1092,13 +989,9 @@ export async function serializeAws_json1_1DeleteVirtualInterfaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DeleteVirtualInterface";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVirtualInterfaceRequest: serializeAws_json1_1DeleteVirtualInterfaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVirtualInterfaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1117,13 +1010,9 @@ export async function serializeAws_json1_1DescribeConnectionLoaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnectionLoa";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConnectionLoaRequest: serializeAws_json1_1DescribeConnectionLoaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConnectionLoaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1142,13 +1031,9 @@ export async function serializeAws_json1_1DescribeConnectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnections";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConnectionsRequest: serializeAws_json1_1DescribeConnectionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConnectionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1167,13 +1052,9 @@ export async function serializeAws_json1_1DescribeConnectionsOnInterconnectComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeConnectionsOnInterconnect";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConnectionsOnInterconnectRequest: serializeAws_json1_1DescribeConnectionsOnInterconnectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConnectionsOnInterconnectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1193,13 +1074,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
   headers["X-Amz-Target"] =
     "OvertureService.DescribeDirectConnectGatewayAssociationProposals";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectConnectGatewayAssociationProposalsRequest: serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1219,13 +1099,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAssociatio
   headers["X-Amz-Target"] =
     "OvertureService.DescribeDirectConnectGatewayAssociations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectConnectGatewayAssociationsRequest: serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1245,13 +1124,12 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewayAttachment
   headers["X-Amz-Target"] =
     "OvertureService.DescribeDirectConnectGatewayAttachments";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectConnectGatewayAttachmentsRequest: serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1270,13 +1148,9 @@ export async function serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeDirectConnectGateways";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectConnectGatewaysRequest: serializeAws_json1_1DescribeDirectConnectGatewaysRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectConnectGatewaysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1295,13 +1169,9 @@ export async function serializeAws_json1_1DescribeHostedConnectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeHostedConnections";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHostedConnectionsRequest: serializeAws_json1_1DescribeHostedConnectionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeHostedConnectionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1320,13 +1190,9 @@ export async function serializeAws_json1_1DescribeInterconnectLoaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeInterconnectLoa";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInterconnectLoaRequest: serializeAws_json1_1DescribeInterconnectLoaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInterconnectLoaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1345,13 +1211,9 @@ export async function serializeAws_json1_1DescribeInterconnectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeInterconnects";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInterconnectsRequest: serializeAws_json1_1DescribeInterconnectsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInterconnectsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1370,10 +1232,9 @@ export async function serializeAws_json1_1DescribeLagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeLags";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLagsRequest: serializeAws_json1_1DescribeLagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLagsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1392,10 +1253,7 @@ export async function serializeAws_json1_1DescribeLoaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeLoa";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLoaRequest: serializeAws_json1_1DescribeLoaRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeLoaRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1430,10 +1288,9 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTagsRequest: serializeAws_json1_1DescribeTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTagsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1468,13 +1325,9 @@ export async function serializeAws_json1_1DescribeVirtualInterfacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DescribeVirtualInterfaces";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeVirtualInterfacesRequest: serializeAws_json1_1DescribeVirtualInterfacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeVirtualInterfacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1493,13 +1346,9 @@ export async function serializeAws_json1_1DisassociateConnectionFromLagCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.DisassociateConnectionFromLag";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateConnectionFromLagRequest: serializeAws_json1_1DisassociateConnectionFromLagRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateConnectionFromLagRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1518,10 +1367,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1540,13 +1386,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1566,13 +1408,12 @@ export async function serializeAws_json1_1UpdateDirectConnectGatewayAssociationC
   headers["X-Amz-Target"] =
     "OvertureService.UpdateDirectConnectGatewayAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDirectConnectGatewayAssociationRequest: serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1591,10 +1432,7 @@ export async function serializeAws_json1_1UpdateLagCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UpdateLag";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateLagRequest: serializeAws_json1_1UpdateLagRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateLagRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1613,13 +1451,9 @@ export async function serializeAws_json1_1UpdateVirtualInterfaceAttributesComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OvertureService.UpdateVirtualInterfaceAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateVirtualInterfaceAttributesRequest: serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

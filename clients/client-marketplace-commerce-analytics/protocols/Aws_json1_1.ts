@@ -34,13 +34,9 @@ export async function serializeAws_json1_1GenerateDataSetCommand(
   headers["X-Amz-Target"] =
     "MarketplaceCommerceAnalytics20150701.GenerateDataSet";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateDataSetRequest: serializeAws_json1_1GenerateDataSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateDataSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -60,13 +56,9 @@ export async function serializeAws_json1_1StartSupportDataExportCommand(
   headers["X-Amz-Target"] =
     "MarketplaceCommerceAnalytics20150701.StartSupportDataExport";
   let body: any = {};
-  const wrappedBody: any = {
-    StartSupportDataExportRequest: serializeAws_json1_1StartSupportDataExportRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartSupportDataExportRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

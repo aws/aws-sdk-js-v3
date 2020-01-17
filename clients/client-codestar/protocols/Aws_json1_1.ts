@@ -154,13 +154,9 @@ export async function serializeAws_json1_1AssociateTeamMemberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.AssociateTeamMember";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateTeamMemberRequest: serializeAws_json1_1AssociateTeamMemberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateTeamMemberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -179,13 +175,9 @@ export async function serializeAws_json1_1CreateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.CreateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProjectRequest: serializeAws_json1_1CreateProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -204,13 +196,9 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.CreateUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserProfileRequest: serializeAws_json1_1CreateUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -229,13 +217,9 @@ export async function serializeAws_json1_1DeleteProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.DeleteProject";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProjectRequest: serializeAws_json1_1DeleteProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -254,13 +238,9 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.DeleteUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserProfileRequest: serializeAws_json1_1DeleteUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -279,13 +259,9 @@ export async function serializeAws_json1_1DescribeProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.DescribeProject";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProjectRequest: serializeAws_json1_1DescribeProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -304,13 +280,9 @@ export async function serializeAws_json1_1DescribeUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.DescribeUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserProfileRequest: serializeAws_json1_1DescribeUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,13 +301,9 @@ export async function serializeAws_json1_1DisassociateTeamMemberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.DisassociateTeamMember";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateTeamMemberRequest: serializeAws_json1_1DisassociateTeamMemberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateTeamMemberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -354,10 +322,9 @@ export async function serializeAws_json1_1ListProjectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.ListProjects";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProjectsRequest: serializeAws_json1_1ListProjectsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProjectsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -376,13 +343,9 @@ export async function serializeAws_json1_1ListResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.ListResources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourcesRequest: serializeAws_json1_1ListResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -401,13 +364,9 @@ export async function serializeAws_json1_1ListTagsForProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.ListTagsForProject";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForProjectRequest: serializeAws_json1_1ListTagsForProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -426,13 +385,9 @@ export async function serializeAws_json1_1ListTeamMembersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.ListTeamMembers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTeamMembersRequest: serializeAws_json1_1ListTeamMembersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTeamMembersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -451,13 +406,9 @@ export async function serializeAws_json1_1ListUserProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.ListUserProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUserProfilesRequest: serializeAws_json1_1ListUserProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUserProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -476,10 +427,7 @@ export async function serializeAws_json1_1TagProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.TagProject";
   let body: any = {};
-  const wrappedBody: any = {
-    TagProjectRequest: serializeAws_json1_1TagProjectRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagProjectRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -498,10 +446,9 @@ export async function serializeAws_json1_1UntagProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.UntagProject";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagProjectRequest: serializeAws_json1_1UntagProjectRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -520,13 +467,9 @@ export async function serializeAws_json1_1UpdateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.UpdateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProjectRequest: serializeAws_json1_1UpdateProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -545,13 +488,9 @@ export async function serializeAws_json1_1UpdateTeamMemberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.UpdateTeamMember";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTeamMemberRequest: serializeAws_json1_1UpdateTeamMemberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTeamMemberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -570,13 +509,9 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeStar_20170419.UpdateUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserProfileRequest: serializeAws_json1_1UpdateUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

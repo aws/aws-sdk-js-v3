@@ -161,13 +161,9 @@ export async function serializeAws_json1_1CancelClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelClusterRequest: serializeAws_json1_1CancelClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -186,10 +182,7 @@ export async function serializeAws_json1_1CancelJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelJobRequest: serializeAws_json1_1CancelJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CancelJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -208,13 +201,9 @@ export async function serializeAws_json1_1CreateAddressCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateAddress";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAddressRequest: serializeAws_json1_1CreateAddressRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAddressRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -233,13 +222,9 @@ export async function serializeAws_json1_1CreateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateClusterRequest: serializeAws_json1_1CreateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -258,10 +243,7 @@ export async function serializeAws_json1_1CreateJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateJobRequest: serializeAws_json1_1CreateJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -280,13 +262,9 @@ export async function serializeAws_json1_1DescribeAddressCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeAddress";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAddressRequest: serializeAws_json1_1DescribeAddressRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAddressRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -306,13 +284,9 @@ export async function serializeAws_json1_1DescribeAddressesCommand(
   headers["X-Amz-Target"] =
     "AWSIESnowballJobManagementService.DescribeAddresses";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAddressesRequest: serializeAws_json1_1DescribeAddressesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAddressesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -331,13 +305,9 @@ export async function serializeAws_json1_1DescribeClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClusterRequest: serializeAws_json1_1DescribeClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -356,10 +326,7 @@ export async function serializeAws_json1_1DescribeJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeJobRequest: serializeAws_json1_1DescribeJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -378,13 +345,9 @@ export async function serializeAws_json1_1GetJobManifestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.GetJobManifest";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobManifestRequest: serializeAws_json1_1GetJobManifestRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetJobManifestRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -404,13 +367,9 @@ export async function serializeAws_json1_1GetJobUnlockCodeCommand(
   headers["X-Amz-Target"] =
     "AWSIESnowballJobManagementService.GetJobUnlockCode";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobUnlockCodeRequest: serializeAws_json1_1GetJobUnlockCodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetJobUnlockCodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -430,13 +389,9 @@ export async function serializeAws_json1_1GetSnowballUsageCommand(
   headers["X-Amz-Target"] =
     "AWSIESnowballJobManagementService.GetSnowballUsage";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSnowballUsageRequest: serializeAws_json1_1GetSnowballUsageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSnowballUsageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -456,13 +411,9 @@ export async function serializeAws_json1_1GetSoftwareUpdatesCommand(
   headers["X-Amz-Target"] =
     "AWSIESnowballJobManagementService.GetSoftwareUpdates";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSoftwareUpdatesRequest: serializeAws_json1_1GetSoftwareUpdatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSoftwareUpdatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -481,13 +432,9 @@ export async function serializeAws_json1_1ListClusterJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusterJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListClusterJobsRequest: serializeAws_json1_1ListClusterJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListClusterJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -506,10 +453,9 @@ export async function serializeAws_json1_1ListClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    ListClustersRequest: serializeAws_json1_1ListClustersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListClustersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -529,13 +475,9 @@ export async function serializeAws_json1_1ListCompatibleImagesCommand(
   headers["X-Amz-Target"] =
     "AWSIESnowballJobManagementService.ListCompatibleImages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCompatibleImagesRequest: serializeAws_json1_1ListCompatibleImagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCompatibleImagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -554,10 +496,7 @@ export async function serializeAws_json1_1ListJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListJobsRequest: serializeAws_json1_1ListJobsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,13 +515,9 @@ export async function serializeAws_json1_1UpdateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateClusterRequest: serializeAws_json1_1UpdateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -601,10 +536,7 @@ export async function serializeAws_json1_1UpdateJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateJob";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateJobRequest: serializeAws_json1_1UpdateJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

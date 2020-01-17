@@ -158,13 +158,9 @@ export async function serializeAws_json1_1CreateCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.CreateCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCertificateAuthorityRequest: serializeAws_json1_1CreateCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -184,13 +180,12 @@ export async function serializeAws_json1_1CreateCertificateAuthorityAuditReportC
   headers["X-Amz-Target"] =
     "ACMPrivateCA.CreateCertificateAuthorityAuditReport";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCertificateAuthorityAuditReportRequest: serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -209,13 +204,9 @@ export async function serializeAws_json1_1CreatePermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.CreatePermission";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePermissionRequest: serializeAws_json1_1CreatePermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -234,13 +225,9 @@ export async function serializeAws_json1_1DeleteCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.DeleteCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCertificateAuthorityRequest: serializeAws_json1_1DeleteCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -259,13 +246,9 @@ export async function serializeAws_json1_1DeletePermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.DeletePermission";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePermissionRequest: serializeAws_json1_1DeletePermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -284,13 +267,9 @@ export async function serializeAws_json1_1DescribeCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.DescribeCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCertificateAuthorityRequest: serializeAws_json1_1DescribeCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -310,13 +289,12 @@ export async function serializeAws_json1_1DescribeCertificateAuthorityAuditRepor
   headers["X-Amz-Target"] =
     "ACMPrivateCA.DescribeCertificateAuthorityAuditReport";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCertificateAuthorityAuditReportRequest: serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -335,13 +313,9 @@ export async function serializeAws_json1_1GetCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCertificateRequest: serializeAws_json1_1GetCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -360,13 +334,12 @@ export async function serializeAws_json1_1GetCertificateAuthorityCertificateComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificateAuthorityCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCertificateAuthorityCertificateRequest: serializeAws_json1_1GetCertificateAuthorityCertificateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetCertificateAuthorityCertificateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -385,13 +358,9 @@ export async function serializeAws_json1_1GetCertificateAuthorityCsrCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.GetCertificateAuthorityCsr";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCertificateAuthorityCsrRequest: serializeAws_json1_1GetCertificateAuthorityCsrRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCertificateAuthorityCsrRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -411,13 +380,12 @@ export async function serializeAws_json1_1ImportCertificateAuthorityCertificateC
   headers["X-Amz-Target"] =
     "ACMPrivateCA.ImportCertificateAuthorityCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportCertificateAuthorityCertificateRequest: serializeAws_json1_1ImportCertificateAuthorityCertificateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ImportCertificateAuthorityCertificateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -436,13 +404,9 @@ export async function serializeAws_json1_1IssueCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.IssueCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    IssueCertificateRequest: serializeAws_json1_1IssueCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1IssueCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -461,13 +425,9 @@ export async function serializeAws_json1_1ListCertificateAuthoritiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.ListCertificateAuthorities";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCertificateAuthoritiesRequest: serializeAws_json1_1ListCertificateAuthoritiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCertificateAuthoritiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -486,13 +446,9 @@ export async function serializeAws_json1_1ListPermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.ListPermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPermissionsRequest: serializeAws_json1_1ListPermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -511,10 +467,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsRequest: serializeAws_json1_1ListTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -533,13 +486,9 @@ export async function serializeAws_json1_1RestoreCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.RestoreCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreCertificateAuthorityRequest: serializeAws_json1_1RestoreCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RestoreCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -558,13 +507,9 @@ export async function serializeAws_json1_1RevokeCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.RevokeCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    RevokeCertificateRequest: serializeAws_json1_1RevokeCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RevokeCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -583,13 +528,9 @@ export async function serializeAws_json1_1TagCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.TagCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    TagCertificateAuthorityRequest: serializeAws_json1_1TagCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TagCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -608,13 +549,9 @@ export async function serializeAws_json1_1UntagCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.UntagCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagCertificateAuthorityRequest: serializeAws_json1_1UntagCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -633,13 +570,9 @@ export async function serializeAws_json1_1UpdateCertificateAuthorityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ACMPrivateCA.UpdateCertificateAuthority";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCertificateAuthorityRequest: serializeAws_json1_1UpdateCertificateAuthorityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCertificateAuthorityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
