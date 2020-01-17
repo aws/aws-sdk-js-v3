@@ -140,13 +140,9 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateAccelerator";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAcceleratorRequest: serializeAws_json1_1CreateAcceleratorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAcceleratorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -165,13 +161,9 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEndpointGroupRequest: serializeAws_json1_1CreateEndpointGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEndpointGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -190,13 +182,9 @@ export async function serializeAws_json1_1CreateListenerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateListener";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateListenerRequest: serializeAws_json1_1CreateListenerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateListenerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -215,13 +203,9 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteAccelerator";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAcceleratorRequest: serializeAws_json1_1DeleteAcceleratorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAcceleratorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -240,13 +224,9 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEndpointGroupRequest: serializeAws_json1_1DeleteEndpointGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEndpointGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -265,13 +245,9 @@ export async function serializeAws_json1_1DeleteListenerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteListener";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteListenerRequest: serializeAws_json1_1DeleteListenerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteListenerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -290,13 +266,9 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeAccelerator";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAcceleratorRequest: serializeAws_json1_1DescribeAcceleratorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAcceleratorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -316,13 +288,9 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
   headers["X-Amz-Target"] =
     "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAcceleratorAttributesRequest: serializeAws_json1_1DescribeAcceleratorAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -341,13 +309,9 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEndpointGroupRequest: serializeAws_json1_1DescribeEndpointGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEndpointGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -366,13 +330,9 @@ export async function serializeAws_json1_1DescribeListenerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeListener";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeListenerRequest: serializeAws_json1_1DescribeListenerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeListenerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -391,13 +351,9 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListAccelerators";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAcceleratorsRequest: serializeAws_json1_1ListAcceleratorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAcceleratorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -416,13 +372,9 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListEndpointGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEndpointGroupsRequest: serializeAws_json1_1ListEndpointGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEndpointGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -441,13 +393,9 @@ export async function serializeAws_json1_1ListListenersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListListeners";
   let body: any = {};
-  const wrappedBody: any = {
-    ListListenersRequest: serializeAws_json1_1ListListenersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListListenersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -466,13 +414,9 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateAccelerator";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAcceleratorRequest: serializeAws_json1_1UpdateAcceleratorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAcceleratorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -492,13 +436,9 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
   headers["X-Amz-Target"] =
     "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAcceleratorAttributesRequest: serializeAws_json1_1UpdateAcceleratorAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -517,13 +457,9 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEndpointGroupRequest: serializeAws_json1_1UpdateEndpointGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEndpointGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -542,13 +478,9 @@ export async function serializeAws_json1_1UpdateListenerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateListener";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateListenerRequest: serializeAws_json1_1UpdateListenerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateListenerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

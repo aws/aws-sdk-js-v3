@@ -142,13 +142,9 @@ export async function serializeAws_json1_1CreateLicenseConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.CreateLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLicenseConfigurationRequest: serializeAws_json1_1CreateLicenseConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLicenseConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -167,13 +163,9 @@ export async function serializeAws_json1_1DeleteLicenseConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.DeleteLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLicenseConfigurationRequest: serializeAws_json1_1DeleteLicenseConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -192,13 +184,9 @@ export async function serializeAws_json1_1GetLicenseConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.GetLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLicenseConfigurationRequest: serializeAws_json1_1GetLicenseConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLicenseConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -217,13 +205,9 @@ export async function serializeAws_json1_1GetServiceSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.GetServiceSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServiceSettingsRequest: serializeAws_json1_1GetServiceSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetServiceSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -243,13 +227,12 @@ export async function serializeAws_json1_1ListAssociationsForLicenseConfiguratio
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListAssociationsForLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociationsForLicenseConfigurationRequest: serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -269,13 +252,12 @@ export async function serializeAws_json1_1ListFailuresForLicenseConfigurationOpe
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFailuresForLicenseConfigurationOperationsRequest: serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -294,13 +276,9 @@ export async function serializeAws_json1_1ListLicenseConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListLicenseConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLicenseConfigurationsRequest: serializeAws_json1_1ListLicenseConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLicenseConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -320,13 +298,12 @@ export async function serializeAws_json1_1ListLicenseSpecificationsForResourceCo
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListLicenseSpecificationsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLicenseSpecificationsForResourceRequest: serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -345,13 +322,9 @@ export async function serializeAws_json1_1ListResourceInventoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListResourceInventory";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourceInventoryRequest: serializeAws_json1_1ListResourceInventoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourceInventoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -370,13 +343,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -396,13 +365,9 @@ export async function serializeAws_json1_1ListUsageForLicenseConfigurationComman
   headers["X-Amz-Target"] =
     "AWSLicenseManager.ListUsageForLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUsageForLicenseConfigurationRequest: serializeAws_json1_1ListUsageForLicenseConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -421,10 +386,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -443,13 +405,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -468,13 +426,9 @@ export async function serializeAws_json1_1UpdateLicenseConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UpdateLicenseConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateLicenseConfigurationRequest: serializeAws_json1_1UpdateLicenseConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -494,13 +448,12 @@ export async function serializeAws_json1_1UpdateLicenseSpecificationsForResource
   headers["X-Amz-Target"] =
     "AWSLicenseManager.UpdateLicenseSpecificationsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateLicenseSpecificationsForResourceRequest: serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,13 +472,9 @@ export async function serializeAws_json1_1UpdateServiceSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLicenseManager.UpdateServiceSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServiceSettingsRequest: serializeAws_json1_1UpdateServiceSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServiceSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

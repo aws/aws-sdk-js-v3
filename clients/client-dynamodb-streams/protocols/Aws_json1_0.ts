@@ -58,10 +58,9 @@ export async function serializeAws_json1_0DescribeStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.DescribeStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStreamInput: serializeAws_json1_0DescribeStreamInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -80,10 +79,7 @@ export async function serializeAws_json1_0GetRecordsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetRecords";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRecordsInput: serializeAws_json1_0GetRecordsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -102,13 +98,9 @@ export async function serializeAws_json1_0GetShardIteratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.GetShardIterator";
   let body: any = {};
-  const wrappedBody: any = {
-    GetShardIteratorInput: serializeAws_json1_0GetShardIteratorInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetShardIteratorInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -127,10 +119,7 @@ export async function serializeAws_json1_0ListStreamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDBStreams_20120810.ListStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStreamsInput: serializeAws_json1_0ListStreamsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

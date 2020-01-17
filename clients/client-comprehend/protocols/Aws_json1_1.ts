@@ -390,13 +390,9 @@ export async function serializeAws_json1_1BatchDetectDominantLanguageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectDominantLanguage";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDetectDominantLanguageRequest: serializeAws_json1_1BatchDetectDominantLanguageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDetectDominantLanguageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -415,13 +411,9 @@ export async function serializeAws_json1_1BatchDetectEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDetectEntitiesRequest: serializeAws_json1_1BatchDetectEntitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDetectEntitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -440,13 +432,9 @@ export async function serializeAws_json1_1BatchDetectKeyPhrasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectKeyPhrases";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDetectKeyPhrasesRequest: serializeAws_json1_1BatchDetectKeyPhrasesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDetectKeyPhrasesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -465,13 +453,9 @@ export async function serializeAws_json1_1BatchDetectSentimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSentiment";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDetectSentimentRequest: serializeAws_json1_1BatchDetectSentimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDetectSentimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -490,13 +474,9 @@ export async function serializeAws_json1_1BatchDetectSyntaxCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.BatchDetectSyntax";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDetectSyntaxRequest: serializeAws_json1_1BatchDetectSyntaxRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDetectSyntaxRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -515,13 +495,9 @@ export async function serializeAws_json1_1ClassifyDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ClassifyDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    ClassifyDocumentRequest: serializeAws_json1_1ClassifyDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ClassifyDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -540,13 +516,9 @@ export async function serializeAws_json1_1CreateDocumentClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateDocumentClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDocumentClassifierRequest: serializeAws_json1_1CreateDocumentClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDocumentClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -565,13 +537,9 @@ export async function serializeAws_json1_1CreateEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEndpointRequest: serializeAws_json1_1CreateEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -590,13 +558,9 @@ export async function serializeAws_json1_1CreateEntityRecognizerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.CreateEntityRecognizer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEntityRecognizerRequest: serializeAws_json1_1CreateEntityRecognizerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEntityRecognizerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -615,13 +579,9 @@ export async function serializeAws_json1_1DeleteDocumentClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteDocumentClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDocumentClassifierRequest: serializeAws_json1_1DeleteDocumentClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDocumentClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -640,13 +600,9 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEndpointRequest: serializeAws_json1_1DeleteEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -665,13 +621,9 @@ export async function serializeAws_json1_1DeleteEntityRecognizerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DeleteEntityRecognizer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEntityRecognizerRequest: serializeAws_json1_1DeleteEntityRecognizerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEntityRecognizerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -691,13 +643,9 @@ export async function serializeAws_json1_1DescribeDocumentClassificationJobComma
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeDocumentClassificationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDocumentClassificationJobRequest: serializeAws_json1_1DescribeDocumentClassificationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDocumentClassificationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -716,13 +664,9 @@ export async function serializeAws_json1_1DescribeDocumentClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeDocumentClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDocumentClassifierRequest: serializeAws_json1_1DescribeDocumentClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDocumentClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -742,13 +686,12 @@ export async function serializeAws_json1_1DescribeDominantLanguageDetectionJobCo
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeDominantLanguageDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDominantLanguageDetectionJobRequest: serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDominantLanguageDetectionJobRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -767,13 +710,9 @@ export async function serializeAws_json1_1DescribeEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEndpointRequest: serializeAws_json1_1DescribeEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -792,13 +731,9 @@ export async function serializeAws_json1_1DescribeEntitiesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntitiesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEntitiesDetectionJobRequest: serializeAws_json1_1DescribeEntitiesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEntitiesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -817,13 +752,9 @@ export async function serializeAws_json1_1DescribeEntityRecognizerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeEntityRecognizer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEntityRecognizerRequest: serializeAws_json1_1DescribeEntityRecognizerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEntityRecognizerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -843,13 +774,9 @@ export async function serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand(
   headers["X-Amz-Target"] =
     "Comprehend_20171127.DescribeKeyPhrasesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeKeyPhrasesDetectionJobRequest: serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeKeyPhrasesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -868,13 +795,9 @@ export async function serializeAws_json1_1DescribeSentimentDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeSentimentDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSentimentDetectionJobRequest: serializeAws_json1_1DescribeSentimentDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSentimentDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -893,13 +816,9 @@ export async function serializeAws_json1_1DescribeTopicsDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DescribeTopicsDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTopicsDetectionJobRequest: serializeAws_json1_1DescribeTopicsDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTopicsDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -918,13 +837,9 @@ export async function serializeAws_json1_1DetectDominantLanguageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectDominantLanguage";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectDominantLanguageRequest: serializeAws_json1_1DetectDominantLanguageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectDominantLanguageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -943,13 +858,9 @@ export async function serializeAws_json1_1DetectEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectEntitiesRequest: serializeAws_json1_1DetectEntitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectEntitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -968,13 +879,9 @@ export async function serializeAws_json1_1DetectKeyPhrasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectKeyPhrases";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectKeyPhrasesRequest: serializeAws_json1_1DetectKeyPhrasesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectKeyPhrasesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -993,13 +900,9 @@ export async function serializeAws_json1_1DetectSentimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectSentiment";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectSentimentRequest: serializeAws_json1_1DetectSentimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectSentimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1018,10 +921,9 @@ export async function serializeAws_json1_1DetectSyntaxCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.DetectSyntax";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectSyntaxRequest: serializeAws_json1_1DetectSyntaxRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectSyntaxRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1041,13 +943,9 @@ export async function serializeAws_json1_1ListDocumentClassificationJobsCommand(
   headers["X-Amz-Target"] =
     "Comprehend_20171127.ListDocumentClassificationJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDocumentClassificationJobsRequest: serializeAws_json1_1ListDocumentClassificationJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDocumentClassificationJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1066,13 +964,9 @@ export async function serializeAws_json1_1ListDocumentClassifiersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListDocumentClassifiers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDocumentClassifiersRequest: serializeAws_json1_1ListDocumentClassifiersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDocumentClassifiersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1092,13 +986,9 @@ export async function serializeAws_json1_1ListDominantLanguageDetectionJobsComma
   headers["X-Amz-Target"] =
     "Comprehend_20171127.ListDominantLanguageDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDominantLanguageDetectionJobsRequest: serializeAws_json1_1ListDominantLanguageDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDominantLanguageDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1117,13 +1007,9 @@ export async function serializeAws_json1_1ListEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEndpointsRequest: serializeAws_json1_1ListEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1142,13 +1028,9 @@ export async function serializeAws_json1_1ListEntitiesDetectionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEntitiesDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEntitiesDetectionJobsRequest: serializeAws_json1_1ListEntitiesDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEntitiesDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1167,13 +1049,9 @@ export async function serializeAws_json1_1ListEntityRecognizersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListEntityRecognizers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEntityRecognizersRequest: serializeAws_json1_1ListEntityRecognizersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEntityRecognizersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1192,13 +1070,9 @@ export async function serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListKeyPhrasesDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListKeyPhrasesDetectionJobsRequest: serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1217,13 +1091,9 @@ export async function serializeAws_json1_1ListSentimentDetectionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListSentimentDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSentimentDetectionJobsRequest: serializeAws_json1_1ListSentimentDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSentimentDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1242,13 +1112,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1267,13 +1133,9 @@ export async function serializeAws_json1_1ListTopicsDetectionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.ListTopicsDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTopicsDetectionJobsRequest: serializeAws_json1_1ListTopicsDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTopicsDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1293,13 +1155,9 @@ export async function serializeAws_json1_1StartDocumentClassificationJobCommand(
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StartDocumentClassificationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDocumentClassificationJobRequest: serializeAws_json1_1StartDocumentClassificationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDocumentClassificationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1319,13 +1177,9 @@ export async function serializeAws_json1_1StartDominantLanguageDetectionJobComma
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StartDominantLanguageDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDominantLanguageDetectionJobRequest: serializeAws_json1_1StartDominantLanguageDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDominantLanguageDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1344,13 +1198,9 @@ export async function serializeAws_json1_1StartEntitiesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartEntitiesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartEntitiesDetectionJobRequest: serializeAws_json1_1StartEntitiesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartEntitiesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1369,13 +1219,9 @@ export async function serializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartKeyPhrasesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartKeyPhrasesDetectionJobRequest: serializeAws_json1_1StartKeyPhrasesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartKeyPhrasesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1394,13 +1240,9 @@ export async function serializeAws_json1_1StartSentimentDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartSentimentDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartSentimentDetectionJobRequest: serializeAws_json1_1StartSentimentDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartSentimentDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1419,13 +1261,9 @@ export async function serializeAws_json1_1StartTopicsDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StartTopicsDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartTopicsDetectionJobRequest: serializeAws_json1_1StartTopicsDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartTopicsDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1445,13 +1283,9 @@ export async function serializeAws_json1_1StopDominantLanguageDetectionJobComman
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StopDominantLanguageDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopDominantLanguageDetectionJobRequest: serializeAws_json1_1StopDominantLanguageDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopDominantLanguageDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1470,13 +1304,9 @@ export async function serializeAws_json1_1StopEntitiesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopEntitiesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopEntitiesDetectionJobRequest: serializeAws_json1_1StopEntitiesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopEntitiesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1495,13 +1325,9 @@ export async function serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopKeyPhrasesDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopKeyPhrasesDetectionJobRequest: serializeAws_json1_1StopKeyPhrasesDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopKeyPhrasesDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1520,13 +1346,9 @@ export async function serializeAws_json1_1StopSentimentDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopSentimentDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopSentimentDetectionJobRequest: serializeAws_json1_1StopSentimentDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopSentimentDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1546,13 +1368,9 @@ export async function serializeAws_json1_1StopTrainingDocumentClassifierCommand(
   headers["X-Amz-Target"] =
     "Comprehend_20171127.StopTrainingDocumentClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTrainingDocumentClassifierRequest: serializeAws_json1_1StopTrainingDocumentClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopTrainingDocumentClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1571,13 +1389,9 @@ export async function serializeAws_json1_1StopTrainingEntityRecognizerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.StopTrainingEntityRecognizer";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTrainingEntityRecognizerRequest: serializeAws_json1_1StopTrainingEntityRecognizerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopTrainingEntityRecognizerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1596,10 +1410,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1618,13 +1429,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1643,13 +1450,9 @@ export async function serializeAws_json1_1UpdateEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Comprehend_20171127.UpdateEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEndpointRequest: serializeAws_json1_1UpdateEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

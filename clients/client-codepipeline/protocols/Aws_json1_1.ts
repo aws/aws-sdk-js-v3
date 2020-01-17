@@ -317,10 +317,9 @@ export async function serializeAws_json1_1AcknowledgeJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeJob";
   let body: any = {};
-  const wrappedBody: any = {
-    AcknowledgeJobInput: serializeAws_json1_1AcknowledgeJobInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcknowledgeJobInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -339,13 +338,9 @@ export async function serializeAws_json1_1AcknowledgeThirdPartyJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeThirdPartyJob";
   let body: any = {};
-  const wrappedBody: any = {
-    AcknowledgeThirdPartyJobInput: serializeAws_json1_1AcknowledgeThirdPartyJobInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcknowledgeThirdPartyJobInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -364,13 +359,9 @@ export async function serializeAws_json1_1CreateCustomActionTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.CreateCustomActionType";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCustomActionTypeInput: serializeAws_json1_1CreateCustomActionTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCustomActionTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -389,10 +380,9 @@ export async function serializeAws_json1_1CreatePipelineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.CreatePipeline";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePipelineInput: serializeAws_json1_1CreatePipelineInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePipelineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -411,13 +401,9 @@ export async function serializeAws_json1_1DeleteCustomActionTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteCustomActionType";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCustomActionTypeInput: serializeAws_json1_1DeleteCustomActionTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCustomActionTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -436,10 +422,9 @@ export async function serializeAws_json1_1DeletePipelineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.DeletePipeline";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePipelineInput: serializeAws_json1_1DeletePipelineInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePipelineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -458,10 +443,7 @@ export async function serializeAws_json1_1DeleteWebhookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteWebhook";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWebhookInput: serializeAws_json1_1DeleteWebhookInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -481,13 +463,9 @@ export async function serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand
   headers["X-Amz-Target"] =
     "CodePipeline_20150709.DeregisterWebhookWithThirdParty";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterWebhookWithThirdPartyInput: serializeAws_json1_1DeregisterWebhookWithThirdPartyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterWebhookWithThirdPartyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -506,13 +484,9 @@ export async function serializeAws_json1_1DisableStageTransitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.DisableStageTransition";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableStageTransitionInput: serializeAws_json1_1DisableStageTransitionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableStageTransitionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -531,13 +505,9 @@ export async function serializeAws_json1_1EnableStageTransitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.EnableStageTransition";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableStageTransitionInput: serializeAws_json1_1EnableStageTransitionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableStageTransitionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -556,10 +526,7 @@ export async function serializeAws_json1_1GetJobDetailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.GetJobDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobDetailsInput: serializeAws_json1_1GetJobDetailsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobDetailsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -578,10 +545,7 @@ export async function serializeAws_json1_1GetPipelineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipeline";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPipelineInput: serializeAws_json1_1GetPipelineInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetPipelineInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -600,13 +564,9 @@ export async function serializeAws_json1_1GetPipelineExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPipelineExecutionInput: serializeAws_json1_1GetPipelineExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPipelineExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -625,13 +585,9 @@ export async function serializeAws_json1_1GetPipelineStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineState";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPipelineStateInput: serializeAws_json1_1GetPipelineStateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPipelineStateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -650,13 +606,9 @@ export async function serializeAws_json1_1GetThirdPartyJobDetailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.GetThirdPartyJobDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    GetThirdPartyJobDetailsInput: serializeAws_json1_1GetThirdPartyJobDetailsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetThirdPartyJobDetailsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -675,13 +627,9 @@ export async function serializeAws_json1_1ListActionExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListActionExecutionsInput: serializeAws_json1_1ListActionExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListActionExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -700,13 +648,9 @@ export async function serializeAws_json1_1ListActionTypesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionTypes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListActionTypesInput: serializeAws_json1_1ListActionTypesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListActionTypesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -725,13 +669,9 @@ export async function serializeAws_json1_1ListPipelineExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelineExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPipelineExecutionsInput: serializeAws_json1_1ListPipelineExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPipelineExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -750,10 +690,7 @@ export async function serializeAws_json1_1ListPipelinesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelines";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPipelinesInput: serializeAws_json1_1ListPipelinesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListPipelinesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -772,13 +709,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -797,10 +730,7 @@ export async function serializeAws_json1_1ListWebhooksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.ListWebhooks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWebhooksInput: serializeAws_json1_1ListWebhooksInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListWebhooksInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -819,10 +749,7 @@ export async function serializeAws_json1_1PollForJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PollForJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    PollForJobsInput: serializeAws_json1_1PollForJobsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PollForJobsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -841,13 +768,9 @@ export async function serializeAws_json1_1PollForThirdPartyJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PollForThirdPartyJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    PollForThirdPartyJobsInput: serializeAws_json1_1PollForThirdPartyJobsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PollForThirdPartyJobsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -866,13 +789,9 @@ export async function serializeAws_json1_1PutActionRevisionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PutActionRevision";
   let body: any = {};
-  const wrappedBody: any = {
-    PutActionRevisionInput: serializeAws_json1_1PutActionRevisionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutActionRevisionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -891,13 +810,9 @@ export async function serializeAws_json1_1PutApprovalResultCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PutApprovalResult";
   let body: any = {};
-  const wrappedBody: any = {
-    PutApprovalResultInput: serializeAws_json1_1PutApprovalResultInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutApprovalResultInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -916,13 +831,9 @@ export async function serializeAws_json1_1PutJobFailureResultCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobFailureResult";
   let body: any = {};
-  const wrappedBody: any = {
-    PutJobFailureResultInput: serializeAws_json1_1PutJobFailureResultInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutJobFailureResultInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -941,13 +852,9 @@ export async function serializeAws_json1_1PutJobSuccessResultCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobSuccessResult";
   let body: any = {};
-  const wrappedBody: any = {
-    PutJobSuccessResultInput: serializeAws_json1_1PutJobSuccessResultInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutJobSuccessResultInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -967,13 +874,9 @@ export async function serializeAws_json1_1PutThirdPartyJobFailureResultCommand(
   headers["X-Amz-Target"] =
     "CodePipeline_20150709.PutThirdPartyJobFailureResult";
   let body: any = {};
-  const wrappedBody: any = {
-    PutThirdPartyJobFailureResultInput: serializeAws_json1_1PutThirdPartyJobFailureResultInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutThirdPartyJobFailureResultInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -993,13 +896,9 @@ export async function serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
   headers["X-Amz-Target"] =
     "CodePipeline_20150709.PutThirdPartyJobSuccessResult";
   let body: any = {};
-  const wrappedBody: any = {
-    PutThirdPartyJobSuccessResultInput: serializeAws_json1_1PutThirdPartyJobSuccessResultInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutThirdPartyJobSuccessResultInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1018,10 +917,7 @@ export async function serializeAws_json1_1PutWebhookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.PutWebhook";
   let body: any = {};
-  const wrappedBody: any = {
-    PutWebhookInput: serializeAws_json1_1PutWebhookInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutWebhookInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1041,13 +937,9 @@ export async function serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
   headers["X-Amz-Target"] =
     "CodePipeline_20150709.RegisterWebhookWithThirdParty";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterWebhookWithThirdPartyInput: serializeAws_json1_1RegisterWebhookWithThirdPartyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterWebhookWithThirdPartyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1066,13 +958,9 @@ export async function serializeAws_json1_1RetryStageExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.RetryStageExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    RetryStageExecutionInput: serializeAws_json1_1RetryStageExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RetryStageExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1091,13 +979,9 @@ export async function serializeAws_json1_1StartPipelineExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.StartPipelineExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartPipelineExecutionInput: serializeAws_json1_1StartPipelineExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartPipelineExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1116,10 +1000,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1138,10 +1019,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1160,10 +1038,9 @@ export async function serializeAws_json1_1UpdatePipelineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodePipeline_20150709.UpdatePipeline";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePipelineInput: serializeAws_json1_1UpdatePipelineInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePipelineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

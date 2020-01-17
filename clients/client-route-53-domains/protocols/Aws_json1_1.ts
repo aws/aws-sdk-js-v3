@@ -179,13 +179,9 @@ export async function serializeAws_json1_1CheckDomainAvailabilityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.CheckDomainAvailability";
   let body: any = {};
-  const wrappedBody: any = {
-    CheckDomainAvailabilityRequest: serializeAws_json1_1CheckDomainAvailabilityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CheckDomainAvailabilityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -205,13 +201,9 @@ export async function serializeAws_json1_1CheckDomainTransferabilityCommand(
   headers["X-Amz-Target"] =
     "Route53Domains_v20140515.CheckDomainTransferability";
   let body: any = {};
-  const wrappedBody: any = {
-    CheckDomainTransferabilityRequest: serializeAws_json1_1CheckDomainTransferabilityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CheckDomainTransferabilityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -230,13 +222,9 @@ export async function serializeAws_json1_1DeleteTagsForDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.DeleteTagsForDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagsForDomainRequest: serializeAws_json1_1DeleteTagsForDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTagsForDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -255,13 +243,9 @@ export async function serializeAws_json1_1DisableDomainAutoRenewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.DisableDomainAutoRenew";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableDomainAutoRenewRequest: serializeAws_json1_1DisableDomainAutoRenewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableDomainAutoRenewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -281,13 +265,9 @@ export async function serializeAws_json1_1DisableDomainTransferLockCommand(
   headers["X-Amz-Target"] =
     "Route53Domains_v20140515.DisableDomainTransferLock";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableDomainTransferLockRequest: serializeAws_json1_1DisableDomainTransferLockRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableDomainTransferLockRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -306,13 +286,9 @@ export async function serializeAws_json1_1EnableDomainAutoRenewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainAutoRenew";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableDomainAutoRenewRequest: serializeAws_json1_1EnableDomainAutoRenewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableDomainAutoRenewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -331,13 +307,9 @@ export async function serializeAws_json1_1EnableDomainTransferLockCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.EnableDomainTransferLock";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableDomainTransferLockRequest: serializeAws_json1_1EnableDomainTransferLockRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableDomainTransferLockRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -357,13 +329,9 @@ export async function serializeAws_json1_1GetContactReachabilityStatusCommand(
   headers["X-Amz-Target"] =
     "Route53Domains_v20140515.GetContactReachabilityStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetContactReachabilityStatusRequest: serializeAws_json1_1GetContactReachabilityStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetContactReachabilityStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,13 +350,9 @@ export async function serializeAws_json1_1GetDomainDetailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainDetail";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDomainDetailRequest: serializeAws_json1_1GetDomainDetailRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDomainDetailRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -407,13 +371,9 @@ export async function serializeAws_json1_1GetDomainSuggestionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetDomainSuggestions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDomainSuggestionsRequest: serializeAws_json1_1GetDomainSuggestionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDomainSuggestionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -432,13 +392,9 @@ export async function serializeAws_json1_1GetOperationDetailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.GetOperationDetail";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOperationDetailRequest: serializeAws_json1_1GetOperationDetailRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOperationDetailRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -457,10 +413,7 @@ export async function serializeAws_json1_1ListDomainsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListDomains";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDomainsRequest: serializeAws_json1_1ListDomainsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListDomainsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -479,13 +432,9 @@ export async function serializeAws_json1_1ListOperationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListOperations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOperationsRequest: serializeAws_json1_1ListOperationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOperationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -504,13 +453,9 @@ export async function serializeAws_json1_1ListTagsForDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ListTagsForDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForDomainRequest: serializeAws_json1_1ListTagsForDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -529,13 +474,9 @@ export async function serializeAws_json1_1RegisterDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RegisterDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterDomainRequest: serializeAws_json1_1RegisterDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -554,10 +495,7 @@ export async function serializeAws_json1_1RenewDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RenewDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    RenewDomainRequest: serializeAws_json1_1RenewDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RenewDomainRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -577,13 +515,9 @@ export async function serializeAws_json1_1ResendContactReachabilityEmailCommand(
   headers["X-Amz-Target"] =
     "Route53Domains_v20140515.ResendContactReachabilityEmail";
   let body: any = {};
-  const wrappedBody: any = {
-    ResendContactReachabilityEmailRequest: serializeAws_json1_1ResendContactReachabilityEmailRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -602,13 +536,9 @@ export async function serializeAws_json1_1RetrieveDomainAuthCodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.RetrieveDomainAuthCode";
   let body: any = {};
-  const wrappedBody: any = {
-    RetrieveDomainAuthCodeRequest: serializeAws_json1_1RetrieveDomainAuthCodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RetrieveDomainAuthCodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -627,13 +557,9 @@ export async function serializeAws_json1_1TransferDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.TransferDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    TransferDomainRequest: serializeAws_json1_1TransferDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TransferDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -652,13 +578,9 @@ export async function serializeAws_json1_1UpdateDomainContactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainContact";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDomainContactRequest: serializeAws_json1_1UpdateDomainContactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDomainContactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -678,13 +600,9 @@ export async function serializeAws_json1_1UpdateDomainContactPrivacyCommand(
   headers["X-Amz-Target"] =
     "Route53Domains_v20140515.UpdateDomainContactPrivacy";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDomainContactPrivacyRequest: serializeAws_json1_1UpdateDomainContactPrivacyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDomainContactPrivacyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -703,13 +621,9 @@ export async function serializeAws_json1_1UpdateDomainNameserversCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateDomainNameservers";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDomainNameserversRequest: serializeAws_json1_1UpdateDomainNameserversRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDomainNameserversRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -728,13 +642,9 @@ export async function serializeAws_json1_1UpdateTagsForDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.UpdateTagsForDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTagsForDomainRequest: serializeAws_json1_1UpdateTagsForDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTagsForDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -753,10 +663,7 @@ export async function serializeAws_json1_1ViewBillingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Domains_v20140515.ViewBilling";
   let body: any = {};
-  const wrappedBody: any = {
-    ViewBillingRequest: serializeAws_json1_1ViewBillingRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ViewBillingRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -137,10 +137,9 @@ export async function serializeAws_json1_1CreateServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.CreateServer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateServerRequest: serializeAws_json1_1CreateServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -159,10 +158,7 @@ export async function serializeAws_json1_1CreateUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.CreateUser";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -181,10 +177,9 @@ export async function serializeAws_json1_1DeleteServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.DeleteServer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServerRequest: serializeAws_json1_1DeleteServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -203,13 +198,9 @@ export async function serializeAws_json1_1DeleteSshPublicKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.DeleteSshPublicKey";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSshPublicKeyRequest: serializeAws_json1_1DeleteSshPublicKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSshPublicKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -228,10 +219,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.DeleteUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -250,13 +238,9 @@ export async function serializeAws_json1_1DescribeServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.DescribeServer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServerRequest: serializeAws_json1_1DescribeServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -275,10 +259,9 @@ export async function serializeAws_json1_1DescribeUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.DescribeUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserRequest: serializeAws_json1_1DescribeUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -297,13 +280,9 @@ export async function serializeAws_json1_1ImportSshPublicKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.ImportSshPublicKey";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportSshPublicKeyRequest: serializeAws_json1_1ImportSshPublicKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportSshPublicKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -322,10 +301,7 @@ export async function serializeAws_json1_1ListServersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.ListServers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServersRequest: serializeAws_json1_1ListServersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListServersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -344,13 +320,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,10 +341,7 @@ export async function serializeAws_json1_1ListUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.ListUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -391,10 +360,7 @@ export async function serializeAws_json1_1StartServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.StartServer";
   let body: any = {};
-  const wrappedBody: any = {
-    StartServerRequest: serializeAws_json1_1StartServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartServerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -413,10 +379,7 @@ export async function serializeAws_json1_1StopServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.StopServer";
   let body: any = {};
-  const wrappedBody: any = {
-    StopServerRequest: serializeAws_json1_1StopServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopServerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -435,10 +398,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -457,13 +417,9 @@ export async function serializeAws_json1_1TestIdentityProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.TestIdentityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    TestIdentityProviderRequest: serializeAws_json1_1TestIdentityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TestIdentityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -482,13 +438,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -507,10 +459,9 @@ export async function serializeAws_json1_1UpdateServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.UpdateServer";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServerRequest: serializeAws_json1_1UpdateServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -529,10 +480,7 @@ export async function serializeAws_json1_1UpdateUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TransferService.UpdateUser";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserRequest: serializeAws_json1_1UpdateUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

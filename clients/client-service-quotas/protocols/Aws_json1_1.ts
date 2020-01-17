@@ -139,13 +139,9 @@ export async function serializeAws_json1_1AssociateServiceQuotaTemplateCommand(
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.AssociateServiceQuotaTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateServiceQuotaTemplateRequest: serializeAws_json1_1AssociateServiceQuotaTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateServiceQuotaTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -165,13 +161,12 @@ export async function serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromT
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServiceQuotaIncreaseRequestFromTemplateRequest: serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -191,13 +186,9 @@ export async function serializeAws_json1_1DisassociateServiceQuotaTemplateComman
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateServiceQuotaTemplateRequest: serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateServiceQuotaTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -216,13 +207,9 @@ export async function serializeAws_json1_1GetAWSDefaultServiceQuotaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetAWSDefaultServiceQuota";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAWSDefaultServiceQuotaRequest: serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAWSDefaultServiceQuotaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -242,13 +229,12 @@ export async function serializeAws_json1_1GetAssociationForServiceQuotaTemplateC
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAssociationForServiceQuotaTemplateRequest: serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetAssociationForServiceQuotaTemplateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -268,13 +254,9 @@ export async function serializeAws_json1_1GetRequestedServiceQuotaChangeCommand(
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetRequestedServiceQuotaChange";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRequestedServiceQuotaChangeRequest: serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRequestedServiceQuotaChangeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -293,13 +275,9 @@ export async function serializeAws_json1_1GetServiceQuotaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.GetServiceQuota";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServiceQuotaRequest: serializeAws_json1_1GetServiceQuotaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetServiceQuotaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -319,13 +297,12 @@ export async function serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemp
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServiceQuotaIncreaseRequestFromTemplateRequest: serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -345,13 +322,9 @@ export async function serializeAws_json1_1ListAWSDefaultServiceQuotasCommand(
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAWSDefaultServiceQuotasRequest: serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAWSDefaultServiceQuotasRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -371,13 +344,12 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRequestedServiceQuotaChangeHistoryRequest: serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -397,13 +369,12 @@ export async function serializeAws_json1_1ListRequestedServiceQuotaChangeHistory
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRequestedServiceQuotaChangeHistoryByQuotaRequest: serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -423,13 +394,12 @@ export async function serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemp
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServiceQuotaIncreaseRequestsInTemplateRequest: serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -448,13 +418,9 @@ export async function serializeAws_json1_1ListServiceQuotasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServiceQuotas";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServiceQuotasRequest: serializeAws_json1_1ListServiceQuotasRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServiceQuotasRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -473,10 +439,9 @@ export async function serializeAws_json1_1ListServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ServiceQuotasV20190624.ListServices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServicesRequest: serializeAws_json1_1ListServicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -496,13 +461,12 @@ export async function serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemp
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    PutServiceQuotaIncreaseRequestIntoTemplateRequest: serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -522,13 +486,9 @@ export async function serializeAws_json1_1RequestServiceQuotaIncreaseCommand(
   headers["X-Amz-Target"] =
     "ServiceQuotasV20190624.RequestServiceQuotaIncrease";
   let body: any = {};
-  const wrappedBody: any = {
-    RequestServiceQuotaIncreaseRequest: serializeAws_json1_1RequestServiceQuotaIncreaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

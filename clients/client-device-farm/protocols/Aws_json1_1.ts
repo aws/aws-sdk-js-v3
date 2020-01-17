@@ -476,13 +476,9 @@ export async function serializeAws_json1_1CreateDevicePoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateDevicePool";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDevicePoolRequest: serializeAws_json1_1CreateDevicePoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDevicePoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -501,13 +497,9 @@ export async function serializeAws_json1_1CreateInstanceProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateInstanceProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateInstanceProfileRequest: serializeAws_json1_1CreateInstanceProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInstanceProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -526,13 +518,9 @@ export async function serializeAws_json1_1CreateNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNetworkProfileRequest: serializeAws_json1_1CreateNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -551,13 +539,9 @@ export async function serializeAws_json1_1CreateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProjectRequest: serializeAws_json1_1CreateProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,13 +560,9 @@ export async function serializeAws_json1_1CreateRemoteAccessSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateRemoteAccessSession";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRemoteAccessSessionRequest: serializeAws_json1_1CreateRemoteAccessSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRemoteAccessSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -601,10 +581,9 @@ export async function serializeAws_json1_1CreateUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUploadRequest: serializeAws_json1_1CreateUploadRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUploadRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -623,13 +602,9 @@ export async function serializeAws_json1_1CreateVPCEConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.CreateVPCEConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateVPCEConfigurationRequest: serializeAws_json1_1CreateVPCEConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVPCEConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -648,13 +623,9 @@ export async function serializeAws_json1_1DeleteDevicePoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteDevicePool";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDevicePoolRequest: serializeAws_json1_1DeleteDevicePoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDevicePoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -673,13 +644,9 @@ export async function serializeAws_json1_1DeleteInstanceProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteInstanceProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteInstanceProfileRequest: serializeAws_json1_1DeleteInstanceProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteInstanceProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -698,13 +665,9 @@ export async function serializeAws_json1_1DeleteNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNetworkProfileRequest: serializeAws_json1_1DeleteNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -723,13 +686,9 @@ export async function serializeAws_json1_1DeleteProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteProject";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProjectRequest: serializeAws_json1_1DeleteProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -748,13 +707,9 @@ export async function serializeAws_json1_1DeleteRemoteAccessSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteRemoteAccessSession";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRemoteAccessSessionRequest: serializeAws_json1_1DeleteRemoteAccessSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRemoteAccessSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -773,10 +728,7 @@ export async function serializeAws_json1_1DeleteRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteRun";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRunRequest: serializeAws_json1_1DeleteRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -795,10 +747,9 @@ export async function serializeAws_json1_1DeleteUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUploadRequest: serializeAws_json1_1DeleteUploadRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUploadRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -817,13 +768,9 @@ export async function serializeAws_json1_1DeleteVPCEConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.DeleteVPCEConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVPCEConfigurationRequest: serializeAws_json1_1DeleteVPCEConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVPCEConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -842,13 +789,9 @@ export async function serializeAws_json1_1GetAccountSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetAccountSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAccountSettingsRequest: serializeAws_json1_1GetAccountSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAccountSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -867,10 +810,7 @@ export async function serializeAws_json1_1GetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeviceRequest: serializeAws_json1_1GetDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -889,13 +829,9 @@ export async function serializeAws_json1_1GetDeviceInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDeviceInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeviceInstanceRequest: serializeAws_json1_1GetDeviceInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeviceInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -914,13 +850,9 @@ export async function serializeAws_json1_1GetDevicePoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevicePool";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDevicePoolRequest: serializeAws_json1_1GetDevicePoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDevicePoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -939,13 +871,9 @@ export async function serializeAws_json1_1GetDevicePoolCompatibilityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetDevicePoolCompatibility";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDevicePoolCompatibilityRequest: serializeAws_json1_1GetDevicePoolCompatibilityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDevicePoolCompatibilityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -964,13 +892,9 @@ export async function serializeAws_json1_1GetInstanceProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetInstanceProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceProfileRequest: serializeAws_json1_1GetInstanceProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -989,10 +913,7 @@ export async function serializeAws_json1_1GetJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetJob";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobRequest: serializeAws_json1_1GetJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1011,13 +932,9 @@ export async function serializeAws_json1_1GetNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNetworkProfileRequest: serializeAws_json1_1GetNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1036,13 +953,9 @@ export async function serializeAws_json1_1GetOfferingStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetOfferingStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOfferingStatusRequest: serializeAws_json1_1GetOfferingStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOfferingStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1061,10 +974,7 @@ export async function serializeAws_json1_1GetProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetProject";
   let body: any = {};
-  const wrappedBody: any = {
-    GetProjectRequest: serializeAws_json1_1GetProjectRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetProjectRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1083,13 +993,9 @@ export async function serializeAws_json1_1GetRemoteAccessSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetRemoteAccessSession";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRemoteAccessSessionRequest: serializeAws_json1_1GetRemoteAccessSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRemoteAccessSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1108,10 +1014,7 @@ export async function serializeAws_json1_1GetRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetRun";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRunRequest: serializeAws_json1_1GetRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1130,10 +1033,7 @@ export async function serializeAws_json1_1GetSuiteCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetSuite";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSuiteRequest: serializeAws_json1_1GetSuiteRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetSuiteRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1152,10 +1052,7 @@ export async function serializeAws_json1_1GetTestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetTest";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTestRequest: serializeAws_json1_1GetTestRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTestRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1174,10 +1071,7 @@ export async function serializeAws_json1_1GetUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUploadRequest: serializeAws_json1_1GetUploadRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetUploadRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1196,13 +1090,9 @@ export async function serializeAws_json1_1GetVPCEConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.GetVPCEConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetVPCEConfigurationRequest: serializeAws_json1_1GetVPCEConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetVPCEConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1221,13 +1111,9 @@ export async function serializeAws_json1_1InstallToRemoteAccessSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.InstallToRemoteAccessSession";
   let body: any = {};
-  const wrappedBody: any = {
-    InstallToRemoteAccessSessionRequest: serializeAws_json1_1InstallToRemoteAccessSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InstallToRemoteAccessSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1246,13 +1132,9 @@ export async function serializeAws_json1_1ListArtifactsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListArtifacts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListArtifactsRequest: serializeAws_json1_1ListArtifactsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListArtifactsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1271,13 +1153,9 @@ export async function serializeAws_json1_1ListDeviceInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDeviceInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeviceInstancesRequest: serializeAws_json1_1ListDeviceInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeviceInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1296,13 +1174,9 @@ export async function serializeAws_json1_1ListDevicePoolsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDevicePools";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDevicePoolsRequest: serializeAws_json1_1ListDevicePoolsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDevicePoolsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1321,10 +1195,7 @@ export async function serializeAws_json1_1ListDevicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListDevices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDevicesRequest: serializeAws_json1_1ListDevicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListDevicesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1343,13 +1214,9 @@ export async function serializeAws_json1_1ListInstanceProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListInstanceProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInstanceProfilesRequest: serializeAws_json1_1ListInstanceProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListInstanceProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1368,10 +1235,7 @@ export async function serializeAws_json1_1ListJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListJobsRequest: serializeAws_json1_1ListJobsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1390,13 +1254,9 @@ export async function serializeAws_json1_1ListNetworkProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListNetworkProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    ListNetworkProfilesRequest: serializeAws_json1_1ListNetworkProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListNetworkProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1415,13 +1275,9 @@ export async function serializeAws_json1_1ListOfferingPromotionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferingPromotions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOfferingPromotionsRequest: serializeAws_json1_1ListOfferingPromotionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOfferingPromotionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1440,13 +1296,9 @@ export async function serializeAws_json1_1ListOfferingTransactionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferingTransactions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOfferingTransactionsRequest: serializeAws_json1_1ListOfferingTransactionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOfferingTransactionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1465,13 +1317,9 @@ export async function serializeAws_json1_1ListOfferingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListOfferings";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOfferingsRequest: serializeAws_json1_1ListOfferingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOfferingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1490,10 +1338,9 @@ export async function serializeAws_json1_1ListProjectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListProjects";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProjectsRequest: serializeAws_json1_1ListProjectsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProjectsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1512,13 +1359,9 @@ export async function serializeAws_json1_1ListRemoteAccessSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListRemoteAccessSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRemoteAccessSessionsRequest: serializeAws_json1_1ListRemoteAccessSessionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRemoteAccessSessionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1537,10 +1380,7 @@ export async function serializeAws_json1_1ListRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRunsRequest: serializeAws_json1_1ListRunsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListRunsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1559,10 +1399,7 @@ export async function serializeAws_json1_1ListSamplesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListSamples";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSamplesRequest: serializeAws_json1_1ListSamplesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListSamplesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1581,10 +1418,7 @@ export async function serializeAws_json1_1ListSuitesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListSuites";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSuitesRequest: serializeAws_json1_1ListSuitesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListSuitesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1603,13 +1437,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1628,10 +1458,7 @@ export async function serializeAws_json1_1ListTestsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListTests";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTestsRequest: serializeAws_json1_1ListTestsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTestsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1650,13 +1477,9 @@ export async function serializeAws_json1_1ListUniqueProblemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListUniqueProblems";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUniqueProblemsRequest: serializeAws_json1_1ListUniqueProblemsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUniqueProblemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1675,10 +1498,7 @@ export async function serializeAws_json1_1ListUploadsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListUploads";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUploadsRequest: serializeAws_json1_1ListUploadsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListUploadsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1697,13 +1517,9 @@ export async function serializeAws_json1_1ListVPCEConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ListVPCEConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListVPCEConfigurationsRequest: serializeAws_json1_1ListVPCEConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListVPCEConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1722,13 +1538,9 @@ export async function serializeAws_json1_1PurchaseOfferingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.PurchaseOffering";
   let body: any = {};
-  const wrappedBody: any = {
-    PurchaseOfferingRequest: serializeAws_json1_1PurchaseOfferingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PurchaseOfferingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1747,13 +1559,9 @@ export async function serializeAws_json1_1RenewOfferingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.RenewOffering";
   let body: any = {};
-  const wrappedBody: any = {
-    RenewOfferingRequest: serializeAws_json1_1RenewOfferingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RenewOfferingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1772,10 +1580,7 @@ export async function serializeAws_json1_1ScheduleRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.ScheduleRun";
   let body: any = {};
-  const wrappedBody: any = {
-    ScheduleRunRequest: serializeAws_json1_1ScheduleRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ScheduleRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1794,10 +1599,7 @@ export async function serializeAws_json1_1StopJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.StopJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopJobRequest: serializeAws_json1_1StopJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1816,13 +1618,9 @@ export async function serializeAws_json1_1StopRemoteAccessSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.StopRemoteAccessSession";
   let body: any = {};
-  const wrappedBody: any = {
-    StopRemoteAccessSessionRequest: serializeAws_json1_1StopRemoteAccessSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopRemoteAccessSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1841,10 +1639,7 @@ export async function serializeAws_json1_1StopRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.StopRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StopRunRequest: serializeAws_json1_1StopRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1863,10 +1658,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1885,13 +1677,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1910,13 +1698,9 @@ export async function serializeAws_json1_1UpdateDeviceInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateDeviceInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDeviceInstanceRequest: serializeAws_json1_1UpdateDeviceInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDeviceInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1935,13 +1719,9 @@ export async function serializeAws_json1_1UpdateDevicePoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateDevicePool";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDevicePoolRequest: serializeAws_json1_1UpdateDevicePoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDevicePoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1960,13 +1740,9 @@ export async function serializeAws_json1_1UpdateInstanceProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateInstanceProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateInstanceProfileRequest: serializeAws_json1_1UpdateInstanceProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateInstanceProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1985,13 +1761,9 @@ export async function serializeAws_json1_1UpdateNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNetworkProfileRequest: serializeAws_json1_1UpdateNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2010,13 +1782,9 @@ export async function serializeAws_json1_1UpdateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProjectRequest: serializeAws_json1_1UpdateProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2035,10 +1803,9 @@ export async function serializeAws_json1_1UpdateUploadCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUploadRequest: serializeAws_json1_1UpdateUploadRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUploadRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2057,13 +1824,9 @@ export async function serializeAws_json1_1UpdateVPCEConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DeviceFarm_20150623.UpdateVPCEConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateVPCEConfigurationRequest: serializeAws_json1_1UpdateVPCEConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVPCEConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

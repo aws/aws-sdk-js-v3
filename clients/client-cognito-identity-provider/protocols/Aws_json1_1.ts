@@ -714,13 +714,9 @@ export async function serializeAws_json1_1AddCustomAttributesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AddCustomAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    AddCustomAttributesRequest: serializeAws_json1_1AddCustomAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddCustomAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -740,13 +736,9 @@ export async function serializeAws_json1_1AdminAddUserToGroupCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminAddUserToGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminAddUserToGroupRequest: serializeAws_json1_1AdminAddUserToGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminAddUserToGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -766,13 +758,9 @@ export async function serializeAws_json1_1AdminConfirmSignUpCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminConfirmSignUp";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminConfirmSignUpRequest: serializeAws_json1_1AdminConfirmSignUpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminConfirmSignUpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -791,13 +779,9 @@ export async function serializeAws_json1_1AdminCreateUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminCreateUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminCreateUserRequest: serializeAws_json1_1AdminCreateUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminCreateUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -816,13 +800,9 @@ export async function serializeAws_json1_1AdminDeleteUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminDeleteUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminDeleteUserRequest: serializeAws_json1_1AdminDeleteUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminDeleteUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -842,13 +822,9 @@ export async function serializeAws_json1_1AdminDeleteUserAttributesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminDeleteUserAttributesRequest: serializeAws_json1_1AdminDeleteUserAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminDeleteUserAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -868,13 +844,9 @@ export async function serializeAws_json1_1AdminDisableProviderForUserCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDisableProviderForUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminDisableProviderForUserRequest: serializeAws_json1_1AdminDisableProviderForUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminDisableProviderForUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -894,13 +866,9 @@ export async function serializeAws_json1_1AdminDisableUserCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminDisableUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminDisableUserRequest: serializeAws_json1_1AdminDisableUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminDisableUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -919,13 +887,9 @@ export async function serializeAws_json1_1AdminEnableUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminEnableUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminEnableUserRequest: serializeAws_json1_1AdminEnableUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminEnableUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -945,13 +909,9 @@ export async function serializeAws_json1_1AdminForgetDeviceCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminForgetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminForgetDeviceRequest: serializeAws_json1_1AdminForgetDeviceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminForgetDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -970,13 +930,9 @@ export async function serializeAws_json1_1AdminGetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminGetDeviceRequest: serializeAws_json1_1AdminGetDeviceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminGetDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -995,10 +951,9 @@ export async function serializeAws_json1_1AdminGetUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminGetUserRequest: serializeAws_json1_1AdminGetUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminGetUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1018,13 +973,9 @@ export async function serializeAws_json1_1AdminInitiateAuthCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminInitiateAuth";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminInitiateAuthRequest: serializeAws_json1_1AdminInitiateAuthRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminInitiateAuthRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1044,13 +995,9 @@ export async function serializeAws_json1_1AdminLinkProviderForUserCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminLinkProviderForUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminLinkProviderForUserRequest: serializeAws_json1_1AdminLinkProviderForUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminLinkProviderForUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1070,13 +1017,9 @@ export async function serializeAws_json1_1AdminListDevicesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListDevices";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminListDevicesRequest: serializeAws_json1_1AdminListDevicesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminListDevicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1096,13 +1039,9 @@ export async function serializeAws_json1_1AdminListGroupsForUserCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListGroupsForUser";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminListGroupsForUserRequest: serializeAws_json1_1AdminListGroupsForUserRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminListGroupsForUserRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1122,13 +1061,9 @@ export async function serializeAws_json1_1AdminListUserAuthEventsCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminListUserAuthEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminListUserAuthEventsRequest: serializeAws_json1_1AdminListUserAuthEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminListUserAuthEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1148,13 +1083,9 @@ export async function serializeAws_json1_1AdminRemoveUserFromGroupCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminRemoveUserFromGroupRequest: serializeAws_json1_1AdminRemoveUserFromGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminRemoveUserFromGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1174,13 +1105,9 @@ export async function serializeAws_json1_1AdminResetUserPasswordCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminResetUserPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminResetUserPasswordRequest: serializeAws_json1_1AdminResetUserPasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminResetUserPasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1200,13 +1127,9 @@ export async function serializeAws_json1_1AdminRespondToAuthChallengeCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminRespondToAuthChallengeRequest: serializeAws_json1_1AdminRespondToAuthChallengeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminRespondToAuthChallengeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1226,13 +1149,9 @@ export async function serializeAws_json1_1AdminSetUserMFAPreferenceCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminSetUserMFAPreferenceRequest: serializeAws_json1_1AdminSetUserMFAPreferenceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminSetUserMFAPreferenceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1252,13 +1171,9 @@ export async function serializeAws_json1_1AdminSetUserPasswordCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminSetUserPasswordRequest: serializeAws_json1_1AdminSetUserPasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminSetUserPasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1278,13 +1193,9 @@ export async function serializeAws_json1_1AdminSetUserSettingsCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminSetUserSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminSetUserSettingsRequest: serializeAws_json1_1AdminSetUserSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminSetUserSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1304,13 +1215,9 @@ export async function serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminUpdateAuthEventFeedbackRequest: serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1330,13 +1237,9 @@ export async function serializeAws_json1_1AdminUpdateDeviceStatusCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminUpdateDeviceStatusRequest: serializeAws_json1_1AdminUpdateDeviceStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminUpdateDeviceStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1356,13 +1259,9 @@ export async function serializeAws_json1_1AdminUpdateUserAttributesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminUpdateUserAttributesRequest: serializeAws_json1_1AdminUpdateUserAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminUpdateUserAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1382,13 +1281,9 @@ export async function serializeAws_json1_1AdminUserGlobalSignOutCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut";
   let body: any = {};
-  const wrappedBody: any = {
-    AdminUserGlobalSignOutRequest: serializeAws_json1_1AdminUserGlobalSignOutRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AdminUserGlobalSignOutRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1408,13 +1303,9 @@ export async function serializeAws_json1_1AssociateSoftwareTokenCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.AssociateSoftwareToken";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateSoftwareTokenRequest: serializeAws_json1_1AssociateSoftwareTokenRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateSoftwareTokenRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1433,13 +1324,9 @@ export async function serializeAws_json1_1ChangePasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ChangePassword";
   let body: any = {};
-  const wrappedBody: any = {
-    ChangePasswordRequest: serializeAws_json1_1ChangePasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ChangePasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1458,13 +1345,9 @@ export async function serializeAws_json1_1ConfirmDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmDeviceRequest: serializeAws_json1_1ConfirmDeviceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1484,13 +1367,9 @@ export async function serializeAws_json1_1ConfirmForgotPasswordCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ConfirmForgotPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmForgotPasswordRequest: serializeAws_json1_1ConfirmForgotPasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmForgotPasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1509,13 +1388,9 @@ export async function serializeAws_json1_1ConfirmSignUpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmSignUp";
   let body: any = {};
-  const wrappedBody: any = {
-    ConfirmSignUpRequest: serializeAws_json1_1ConfirmSignUpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConfirmSignUpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1534,10 +1409,7 @@ export async function serializeAws_json1_1CreateGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGroupRequest: serializeAws_json1_1CreateGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1557,13 +1429,9 @@ export async function serializeAws_json1_1CreateIdentityProviderCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateIdentityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateIdentityProviderRequest: serializeAws_json1_1CreateIdentityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateIdentityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1583,13 +1451,9 @@ export async function serializeAws_json1_1CreateResourceServerCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateResourceServer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateResourceServerRequest: serializeAws_json1_1CreateResourceServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateResourceServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1609,13 +1473,9 @@ export async function serializeAws_json1_1CreateUserImportJobCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserImportJobRequest: serializeAws_json1_1CreateUserImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1634,13 +1494,9 @@ export async function serializeAws_json1_1CreateUserPoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateUserPool";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserPoolRequest: serializeAws_json1_1CreateUserPoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserPoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1660,13 +1516,9 @@ export async function serializeAws_json1_1CreateUserPoolClientCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserPoolClient";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserPoolClientRequest: serializeAws_json1_1CreateUserPoolClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserPoolClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1686,13 +1538,9 @@ export async function serializeAws_json1_1CreateUserPoolDomainCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.CreateUserPoolDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserPoolDomainRequest: serializeAws_json1_1CreateUserPoolDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserPoolDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1711,10 +1559,7 @@ export async function serializeAws_json1_1DeleteGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteGroupRequest: serializeAws_json1_1DeleteGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1734,13 +1579,9 @@ export async function serializeAws_json1_1DeleteIdentityProviderCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteIdentityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteIdentityProviderRequest: serializeAws_json1_1DeleteIdentityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteIdentityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1760,13 +1601,9 @@ export async function serializeAws_json1_1DeleteResourceServerCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteResourceServer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResourceServerRequest: serializeAws_json1_1DeleteResourceServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourceServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1785,10 +1622,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1808,13 +1642,9 @@ export async function serializeAws_json1_1DeleteUserAttributesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserAttributesRequest: serializeAws_json1_1DeleteUserAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1833,13 +1663,9 @@ export async function serializeAws_json1_1DeleteUserPoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUserPool";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserPoolRequest: serializeAws_json1_1DeleteUserPoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserPoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1859,13 +1685,9 @@ export async function serializeAws_json1_1DeleteUserPoolClientCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserPoolClient";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserPoolClientRequest: serializeAws_json1_1DeleteUserPoolClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserPoolClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1885,13 +1707,9 @@ export async function serializeAws_json1_1DeleteUserPoolDomainCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DeleteUserPoolDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserPoolDomainRequest: serializeAws_json1_1DeleteUserPoolDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserPoolDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1911,13 +1729,9 @@ export async function serializeAws_json1_1DescribeIdentityProviderCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeIdentityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeIdentityProviderRequest: serializeAws_json1_1DescribeIdentityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeIdentityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1937,13 +1751,9 @@ export async function serializeAws_json1_1DescribeResourceServerCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeResourceServer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeResourceServerRequest: serializeAws_json1_1DescribeResourceServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeResourceServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1963,13 +1773,9 @@ export async function serializeAws_json1_1DescribeRiskConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeRiskConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRiskConfigurationRequest: serializeAws_json1_1DescribeRiskConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRiskConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1989,13 +1795,9 @@ export async function serializeAws_json1_1DescribeUserImportJobCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserImportJobRequest: serializeAws_json1_1DescribeUserImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2015,13 +1817,9 @@ export async function serializeAws_json1_1DescribeUserPoolCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPool";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserPoolRequest: serializeAws_json1_1DescribeUserPoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserPoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2041,13 +1839,9 @@ export async function serializeAws_json1_1DescribeUserPoolClientCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPoolClient";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserPoolClientRequest: serializeAws_json1_1DescribeUserPoolClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserPoolClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2067,13 +1861,9 @@ export async function serializeAws_json1_1DescribeUserPoolDomainCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.DescribeUserPoolDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserPoolDomainRequest: serializeAws_json1_1DescribeUserPoolDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserPoolDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2092,10 +1882,9 @@ export async function serializeAws_json1_1ForgetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    ForgetDeviceRequest: serializeAws_json1_1ForgetDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ForgetDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2114,13 +1903,9 @@ export async function serializeAws_json1_1ForgotPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgotPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    ForgotPasswordRequest: serializeAws_json1_1ForgotPasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ForgotPasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2139,10 +1924,9 @@ export async function serializeAws_json1_1GetCSVHeaderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetCSVHeader";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCSVHeaderRequest: serializeAws_json1_1GetCSVHeaderRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCSVHeaderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2161,10 +1945,7 @@ export async function serializeAws_json1_1GetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeviceRequest: serializeAws_json1_1GetDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2183,10 +1964,7 @@ export async function serializeAws_json1_1GetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetGroupRequest: serializeAws_json1_1GetGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetGroupRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2206,13 +1984,9 @@ export async function serializeAws_json1_1GetIdentityProviderByIdentifierCommand
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier";
   let body: any = {};
-  const wrappedBody: any = {
-    GetIdentityProviderByIdentifierRequest: serializeAws_json1_1GetIdentityProviderByIdentifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetIdentityProviderByIdentifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2232,13 +2006,9 @@ export async function serializeAws_json1_1GetSigningCertificateCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetSigningCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSigningCertificateRequest: serializeAws_json1_1GetSigningCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSigningCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2258,13 +2028,9 @@ export async function serializeAws_json1_1GetUICustomizationCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUICustomization";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUICustomizationRequest: serializeAws_json1_1GetUICustomizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUICustomizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2283,10 +2049,7 @@ export async function serializeAws_json1_1GetUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetUser";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUserRequest: serializeAws_json1_1GetUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2306,13 +2069,9 @@ export async function serializeAws_json1_1GetUserAttributeVerificationCodeComman
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUserAttributeVerificationCodeRequest: serializeAws_json1_1GetUserAttributeVerificationCodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUserAttributeVerificationCodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2332,13 +2091,9 @@ export async function serializeAws_json1_1GetUserPoolMfaConfigCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUserPoolMfaConfigRequest: serializeAws_json1_1GetUserPoolMfaConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUserPoolMfaConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2357,13 +2112,9 @@ export async function serializeAws_json1_1GlobalSignOutCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GlobalSignOut";
   let body: any = {};
-  const wrappedBody: any = {
-    GlobalSignOutRequest: serializeAws_json1_1GlobalSignOutRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GlobalSignOutRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2382,10 +2133,9 @@ export async function serializeAws_json1_1InitiateAuthCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.InitiateAuth";
   let body: any = {};
-  const wrappedBody: any = {
-    InitiateAuthRequest: serializeAws_json1_1InitiateAuthRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InitiateAuthRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2404,10 +2154,7 @@ export async function serializeAws_json1_1ListDevicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListDevices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDevicesRequest: serializeAws_json1_1ListDevicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListDevicesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2426,10 +2173,7 @@ export async function serializeAws_json1_1ListGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGroupsRequest: serializeAws_json1_1ListGroupsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2449,13 +2193,9 @@ export async function serializeAws_json1_1ListIdentityProvidersCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListIdentityProviders";
   let body: any = {};
-  const wrappedBody: any = {
-    ListIdentityProvidersRequest: serializeAws_json1_1ListIdentityProvidersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListIdentityProvidersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2475,13 +2215,9 @@ export async function serializeAws_json1_1ListResourceServersCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListResourceServers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourceServersRequest: serializeAws_json1_1ListResourceServersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourceServersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2501,13 +2237,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2527,13 +2259,9 @@ export async function serializeAws_json1_1ListUserImportJobsCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUserImportJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUserImportJobsRequest: serializeAws_json1_1ListUserImportJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUserImportJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2553,13 +2281,9 @@ export async function serializeAws_json1_1ListUserPoolClientsCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUserPoolClients";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUserPoolClientsRequest: serializeAws_json1_1ListUserPoolClientsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUserPoolClientsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2578,13 +2302,9 @@ export async function serializeAws_json1_1ListUserPoolsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUserPools";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUserPoolsRequest: serializeAws_json1_1ListUserPoolsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUserPoolsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2603,10 +2323,7 @@ export async function serializeAws_json1_1ListUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2626,13 +2343,9 @@ export async function serializeAws_json1_1ListUsersInGroupCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ListUsersInGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUsersInGroupRequest: serializeAws_json1_1ListUsersInGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUsersInGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2652,13 +2365,9 @@ export async function serializeAws_json1_1ResendConfirmationCodeCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.ResendConfirmationCode";
   let body: any = {};
-  const wrappedBody: any = {
-    ResendConfirmationCodeRequest: serializeAws_json1_1ResendConfirmationCodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResendConfirmationCodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2678,13 +2387,9 @@ export async function serializeAws_json1_1RespondToAuthChallengeCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.RespondToAuthChallenge";
   let body: any = {};
-  const wrappedBody: any = {
-    RespondToAuthChallengeRequest: serializeAws_json1_1RespondToAuthChallengeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RespondToAuthChallengeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2704,13 +2409,9 @@ export async function serializeAws_json1_1SetRiskConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetRiskConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    SetRiskConfigurationRequest: serializeAws_json1_1SetRiskConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetRiskConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2730,13 +2431,9 @@ export async function serializeAws_json1_1SetUICustomizationCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUICustomization";
   let body: any = {};
-  const wrappedBody: any = {
-    SetUICustomizationRequest: serializeAws_json1_1SetUICustomizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetUICustomizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2756,13 +2453,9 @@ export async function serializeAws_json1_1SetUserMFAPreferenceCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUserMFAPreference";
   let body: any = {};
-  const wrappedBody: any = {
-    SetUserMFAPreferenceRequest: serializeAws_json1_1SetUserMFAPreferenceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetUserMFAPreferenceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2782,13 +2475,9 @@ export async function serializeAws_json1_1SetUserPoolMfaConfigCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    SetUserPoolMfaConfigRequest: serializeAws_json1_1SetUserPoolMfaConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetUserPoolMfaConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2807,13 +2496,9 @@ export async function serializeAws_json1_1SetUserSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SetUserSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    SetUserSettingsRequest: serializeAws_json1_1SetUserSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetUserSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2832,10 +2517,7 @@ export async function serializeAws_json1_1SignUpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SignUp";
   let body: any = {};
-  const wrappedBody: any = {
-    SignUpRequest: serializeAws_json1_1SignUpRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SignUpRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2855,13 +2537,9 @@ export async function serializeAws_json1_1StartUserImportJobCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.StartUserImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartUserImportJobRequest: serializeAws_json1_1StartUserImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartUserImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2881,13 +2559,9 @@ export async function serializeAws_json1_1StopUserImportJobCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.StopUserImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopUserImportJobRequest: serializeAws_json1_1StopUserImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopUserImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2906,10 +2580,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2928,13 +2599,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2954,13 +2621,9 @@ export async function serializeAws_json1_1UpdateAuthEventFeedbackCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAuthEventFeedbackRequest: serializeAws_json1_1UpdateAuthEventFeedbackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAuthEventFeedbackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2980,13 +2643,9 @@ export async function serializeAws_json1_1UpdateDeviceStatusCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateDeviceStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDeviceStatusRequest: serializeAws_json1_1UpdateDeviceStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDeviceStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3005,10 +2664,7 @@ export async function serializeAws_json1_1UpdateGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGroupRequest: serializeAws_json1_1UpdateGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateGroupRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3028,13 +2684,9 @@ export async function serializeAws_json1_1UpdateIdentityProviderCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateIdentityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateIdentityProviderRequest: serializeAws_json1_1UpdateIdentityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateIdentityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3054,13 +2706,9 @@ export async function serializeAws_json1_1UpdateResourceServerCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateResourceServer";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateResourceServerRequest: serializeAws_json1_1UpdateResourceServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateResourceServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3080,13 +2728,9 @@ export async function serializeAws_json1_1UpdateUserAttributesCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserAttributesRequest: serializeAws_json1_1UpdateUserAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3105,13 +2749,9 @@ export async function serializeAws_json1_1UpdateUserPoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateUserPool";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserPoolRequest: serializeAws_json1_1UpdateUserPoolRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserPoolRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3131,13 +2771,9 @@ export async function serializeAws_json1_1UpdateUserPoolClientCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserPoolClient";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserPoolClientRequest: serializeAws_json1_1UpdateUserPoolClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserPoolClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3157,13 +2793,9 @@ export async function serializeAws_json1_1UpdateUserPoolDomainCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.UpdateUserPoolDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserPoolDomainRequest: serializeAws_json1_1UpdateUserPoolDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserPoolDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3183,13 +2815,9 @@ export async function serializeAws_json1_1VerifySoftwareTokenCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.VerifySoftwareToken";
   let body: any = {};
-  const wrappedBody: any = {
-    VerifySoftwareTokenRequest: serializeAws_json1_1VerifySoftwareTokenRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1VerifySoftwareTokenRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3209,13 +2837,9 @@ export async function serializeAws_json1_1VerifyUserAttributeCommand(
   headers["X-Amz-Target"] =
     "AWSCognitoIdentityProviderService.VerifyUserAttribute";
   let body: any = {};
-  const wrappedBody: any = {
-    VerifyUserAttributeRequest: serializeAws_json1_1VerifyUserAttributeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1VerifyUserAttributeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
