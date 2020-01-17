@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-health",
   "description": "@aws-sdk/client-health client",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
@@ -26,7 +26,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-crypto/sha256-browser": "^0.1.0-preview.4",
-    "@aws-sdk/config-resolver": "^1.0.0-alpha.5",
+    "@aws-sdk/config-resolver": "^1.0.0-alpha.6",
     "@aws-sdk/credential-provider-node": "^1.0.0-alpha.2",
     "@aws-sdk/fetch-http-handler": "^1.0.0-alpha.4",
     "@aws-sdk/hash-node": "^1.0.0-alpha.2",
@@ -35,7 +35,7 @@
     "@aws-sdk/middleware-host-header": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-retry": "^1.0.0-alpha.4",
     "@aws-sdk/middleware-serde": "^1.0.0-alpha.2",
-    "@aws-sdk/middleware-signing": "^1.0.0-alpha.5",
+    "@aws-sdk/middleware-signing": "^1.0.0-alpha.6",
     "@aws-sdk/middleware-stack": "^1.0.0-alpha.2",
     "@aws-sdk/middleware-user-agent": "^1.0.0-alpha.4",
     "@aws-sdk/node-http-handler": "^1.0.0-alpha.4",
