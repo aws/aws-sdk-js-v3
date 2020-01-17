@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-ssm",
   "description": "@aws-sdk/client-ssm client",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
