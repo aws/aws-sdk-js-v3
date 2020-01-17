@@ -10,7 +10,7 @@ export class XmlNode {
   constructor(
     private name: string,
     public readonly children: Stringable[] = []
-  ) { }
+  ) {}
 
   withName(name: string): XmlNode {
     this.name = name;
