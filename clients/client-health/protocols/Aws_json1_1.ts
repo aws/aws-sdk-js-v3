@@ -73,13 +73,9 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAffectedEntitiesRequest: serializeAws_json1_1DescribeAffectedEntitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -98,13 +94,9 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEntityAggregatesRequest: serializeAws_json1_1DescribeEntityAggregatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEntityAggregatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -123,13 +115,9 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventAggregatesRequest: serializeAws_json1_1DescribeEventAggregatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventAggregatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -148,13 +136,9 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventDetailsRequest: serializeAws_json1_1DescribeEventDetailsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventDetailsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -173,13 +157,9 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventTypesRequest: serializeAws_json1_1DescribeEventTypesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventTypesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -198,13 +178,9 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventsRequest: serializeAws_json1_1DescribeEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

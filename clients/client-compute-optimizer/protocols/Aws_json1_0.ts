@@ -78,13 +78,12 @@ export async function serializeAws_json1_0GetAutoScalingGroupRecommendationsComm
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetAutoScalingGroupRecommendations";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAutoScalingGroupRecommendationsRequest: serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -104,13 +103,9 @@ export async function serializeAws_json1_0GetEC2InstanceRecommendationsCommand(
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2InstanceRecommendations";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEC2InstanceRecommendationsRequest: serializeAws_json1_0GetEC2InstanceRecommendationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -130,13 +125,12 @@ export async function serializeAws_json1_0GetEC2RecommendationProjectedMetricsCo
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEC2RecommendationProjectedMetricsRequest: serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -155,13 +149,9 @@ export async function serializeAws_json1_0GetEnrollmentStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.GetEnrollmentStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEnrollmentStatusRequest: serializeAws_json1_0GetEnrollmentStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetEnrollmentStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -181,13 +171,9 @@ export async function serializeAws_json1_0GetRecommendationSummariesCommand(
   headers["X-Amz-Target"] =
     "ComputeOptimizerService.GetRecommendationSummaries";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRecommendationSummariesRequest: serializeAws_json1_0GetRecommendationSummariesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetRecommendationSummariesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -206,13 +192,9 @@ export async function serializeAws_json1_0UpdateEnrollmentStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "ComputeOptimizerService.UpdateEnrollmentStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEnrollmentStatusRequest: serializeAws_json1_0UpdateEnrollmentStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

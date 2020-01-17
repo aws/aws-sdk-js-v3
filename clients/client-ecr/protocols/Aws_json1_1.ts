@@ -240,13 +240,9 @@ export async function serializeAws_json1_1BatchCheckLayerAvailabilityCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchCheckLayerAvailabilityRequest: serializeAws_json1_1BatchCheckLayerAvailabilityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -266,13 +262,9 @@ export async function serializeAws_json1_1BatchDeleteImageCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteImageRequest: serializeAws_json1_1BatchDeleteImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -292,13 +284,9 @@ export async function serializeAws_json1_1BatchGetImageCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.BatchGetImage";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetImageRequest: serializeAws_json1_1BatchGetImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -318,13 +306,9 @@ export async function serializeAws_json1_1CompleteLayerUploadCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    CompleteLayerUploadRequest: serializeAws_json1_1CompleteLayerUploadRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CompleteLayerUploadRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -344,13 +328,9 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.CreateRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRepositoryRequest: serializeAws_json1_1CreateRepositoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRepositoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -370,13 +350,9 @@ export async function serializeAws_json1_1DeleteLifecyclePolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLifecyclePolicyRequest: serializeAws_json1_1DeleteLifecyclePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -396,13 +372,9 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRepositoryRequest: serializeAws_json1_1DeleteRepositoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRepositoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -422,13 +394,9 @@ export async function serializeAws_json1_1DeleteRepositoryPolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRepositoryPolicyRequest: serializeAws_json1_1DeleteRepositoryPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -448,13 +416,9 @@ export async function serializeAws_json1_1DescribeImageScanFindingsCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImageScanFindingsRequest: serializeAws_json1_1DescribeImageScanFindingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImageScanFindingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -474,13 +438,9 @@ export async function serializeAws_json1_1DescribeImagesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeImages";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImagesRequest: serializeAws_json1_1DescribeImagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -500,13 +460,9 @@ export async function serializeAws_json1_1DescribeRepositoriesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRepositoriesRequest: serializeAws_json1_1DescribeRepositoriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRepositoriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -526,13 +482,9 @@ export async function serializeAws_json1_1GetAuthorizationTokenCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAuthorizationTokenRequest: serializeAws_json1_1GetAuthorizationTokenRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAuthorizationTokenRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -552,13 +504,9 @@ export async function serializeAws_json1_1GetDownloadUrlForLayerCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDownloadUrlForLayerRequest: serializeAws_json1_1GetDownloadUrlForLayerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -578,13 +526,9 @@ export async function serializeAws_json1_1GetLifecyclePolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLifecyclePolicyRequest: serializeAws_json1_1GetLifecyclePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLifecyclePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -604,13 +548,9 @@ export async function serializeAws_json1_1GetLifecyclePolicyPreviewCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLifecyclePolicyPreviewRequest: serializeAws_json1_1GetLifecyclePolicyPreviewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -630,13 +570,9 @@ export async function serializeAws_json1_1GetRepositoryPolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRepositoryPolicyRequest: serializeAws_json1_1GetRepositoryPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRepositoryPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -656,13 +592,9 @@ export async function serializeAws_json1_1InitiateLayerUploadCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload";
   let body: any = {};
-  const wrappedBody: any = {
-    InitiateLayerUploadRequest: serializeAws_json1_1InitiateLayerUploadRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InitiateLayerUploadRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -681,10 +613,7 @@ export async function serializeAws_json1_1ListImagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.ListImages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListImagesRequest: serializeAws_json1_1ListImagesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -704,13 +633,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -729,10 +654,7 @@ export async function serializeAws_json1_1PutImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.PutImage";
   let body: any = {};
-  const wrappedBody: any = {
-    PutImageRequest: serializeAws_json1_1PutImageRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -752,13 +674,9 @@ export async function serializeAws_json1_1PutImageScanningConfigurationCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutImageScanningConfigurationRequest: serializeAws_json1_1PutImageScanningConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutImageScanningConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -778,13 +696,9 @@ export async function serializeAws_json1_1PutImageTagMutabilityCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability";
   let body: any = {};
-  const wrappedBody: any = {
-    PutImageTagMutabilityRequest: serializeAws_json1_1PutImageTagMutabilityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutImageTagMutabilityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -804,13 +718,9 @@ export async function serializeAws_json1_1PutLifecyclePolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutLifecyclePolicyRequest: serializeAws_json1_1PutLifecyclePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutLifecyclePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -830,13 +740,9 @@ export async function serializeAws_json1_1SetRepositoryPolicyCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    SetRepositoryPolicyRequest: serializeAws_json1_1SetRepositoryPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetRepositoryPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -856,13 +762,9 @@ export async function serializeAws_json1_1StartImageScanCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartImageScan";
   let body: any = {};
-  const wrappedBody: any = {
-    StartImageScanRequest: serializeAws_json1_1StartImageScanRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartImageScanRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -882,13 +784,9 @@ export async function serializeAws_json1_1StartLifecyclePolicyPreviewCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview";
   let body: any = {};
-  const wrappedBody: any = {
-    StartLifecyclePolicyPreviewRequest: serializeAws_json1_1StartLifecyclePolicyPreviewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -907,10 +805,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerRegistry_V20150921.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -930,13 +825,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -956,13 +847,9 @@ export async function serializeAws_json1_1UploadLayerPartCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart";
   let body: any = {};
-  const wrappedBody: any = {
-    UploadLayerPartRequest: serializeAws_json1_1UploadLayerPartRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UploadLayerPartRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

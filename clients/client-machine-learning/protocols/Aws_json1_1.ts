@@ -213,10 +213,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.AddTags";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -235,13 +232,9 @@ export async function serializeAws_json1_1CreateBatchPredictionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateBatchPrediction";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBatchPredictionInput: serializeAws_json1_1CreateBatchPredictionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBatchPredictionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -260,13 +253,9 @@ export async function serializeAws_json1_1CreateDataSourceFromRDSCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRDS";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDataSourceFromRDSInput: serializeAws_json1_1CreateDataSourceFromRDSInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDataSourceFromRDSInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -285,13 +274,9 @@ export async function serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRedshift";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDataSourceFromRedshiftInput: serializeAws_json1_1CreateDataSourceFromRedshiftInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -310,13 +295,9 @@ export async function serializeAws_json1_1CreateDataSourceFromS3Command(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromS3";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDataSourceFromS3Input: serializeAws_json1_1CreateDataSourceFromS3Input(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDataSourceFromS3Input(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -335,13 +316,9 @@ export async function serializeAws_json1_1CreateEvaluationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateEvaluation";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEvaluationInput: serializeAws_json1_1CreateEvaluationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEvaluationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -360,10 +337,7 @@ export async function serializeAws_json1_1CreateMLModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateMLModel";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMLModelInput: serializeAws_json1_1CreateMLModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateMLModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,13 +356,9 @@ export async function serializeAws_json1_1CreateRealtimeEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.CreateRealtimeEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRealtimeEndpointInput: serializeAws_json1_1CreateRealtimeEndpointInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRealtimeEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -407,13 +377,9 @@ export async function serializeAws_json1_1DeleteBatchPredictionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteBatchPrediction";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBatchPredictionInput: serializeAws_json1_1DeleteBatchPredictionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBatchPredictionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -432,13 +398,9 @@ export async function serializeAws_json1_1DeleteDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDataSourceInput: serializeAws_json1_1DeleteDataSourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDataSourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -457,13 +419,9 @@ export async function serializeAws_json1_1DeleteEvaluationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteEvaluation";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEvaluationInput: serializeAws_json1_1DeleteEvaluationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEvaluationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -482,10 +440,7 @@ export async function serializeAws_json1_1DeleteMLModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteMLModel";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMLModelInput: serializeAws_json1_1DeleteMLModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteMLModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -504,13 +459,9 @@ export async function serializeAws_json1_1DeleteRealtimeEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteRealtimeEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRealtimeEndpointInput: serializeAws_json1_1DeleteRealtimeEndpointInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRealtimeEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -529,10 +480,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DeleteTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagsInput: serializeAws_json1_1DeleteTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -551,13 +499,9 @@ export async function serializeAws_json1_1DescribeBatchPredictionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeBatchPredictions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBatchPredictionsInput: serializeAws_json1_1DescribeBatchPredictionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBatchPredictionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,13 +520,9 @@ export async function serializeAws_json1_1DescribeDataSourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeDataSources";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDataSourcesInput: serializeAws_json1_1DescribeDataSourcesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDataSourcesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -601,13 +541,9 @@ export async function serializeAws_json1_1DescribeEvaluationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeEvaluations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEvaluationsInput: serializeAws_json1_1DescribeEvaluationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEvaluationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -626,13 +562,9 @@ export async function serializeAws_json1_1DescribeMLModelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeMLModels";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMLModelsInput: serializeAws_json1_1DescribeMLModelsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMLModelsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -651,10 +583,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.DescribeTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTagsInput: serializeAws_json1_1DescribeTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -673,13 +602,9 @@ export async function serializeAws_json1_1GetBatchPredictionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetBatchPrediction";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBatchPredictionInput: serializeAws_json1_1GetBatchPredictionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetBatchPredictionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -698,10 +623,7 @@ export async function serializeAws_json1_1GetDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDataSourceInput: serializeAws_json1_1GetDataSourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDataSourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -720,10 +642,7 @@ export async function serializeAws_json1_1GetEvaluationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetEvaluation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEvaluationInput: serializeAws_json1_1GetEvaluationInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetEvaluationInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -742,10 +661,7 @@ export async function serializeAws_json1_1GetMLModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.GetMLModel";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMLModelInput: serializeAws_json1_1GetMLModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetMLModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -764,10 +680,7 @@ export async function serializeAws_json1_1PredictCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.Predict";
   let body: any = {};
-  const wrappedBody: any = {
-    PredictInput: serializeAws_json1_1PredictInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PredictInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -786,13 +699,9 @@ export async function serializeAws_json1_1UpdateBatchPredictionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateBatchPrediction";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateBatchPredictionInput: serializeAws_json1_1UpdateBatchPredictionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateBatchPredictionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -811,13 +720,9 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDataSourceInput: serializeAws_json1_1UpdateDataSourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDataSourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -836,13 +741,9 @@ export async function serializeAws_json1_1UpdateEvaluationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateEvaluation";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEvaluationInput: serializeAws_json1_1UpdateEvaluationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEvaluationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -861,10 +762,7 @@ export async function serializeAws_json1_1UpdateMLModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonML_20141212.UpdateMLModel";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMLModelInput: serializeAws_json1_1UpdateMLModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateMLModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

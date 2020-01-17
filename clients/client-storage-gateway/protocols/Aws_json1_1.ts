@@ -494,13 +494,9 @@ export async function serializeAws_json1_1ActivateGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ActivateGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    ActivateGatewayInput: serializeAws_json1_1ActivateGatewayInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ActivateGatewayInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,10 +515,7 @@ export async function serializeAws_json1_1AddCacheCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddCache";
   let body: any = {};
-  const wrappedBody: any = {
-    AddCacheInput: serializeAws_json1_1AddCacheInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddCacheInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -541,13 +534,9 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddTagsToResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToResourceInput: serializeAws_json1_1AddTagsToResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -566,13 +555,9 @@ export async function serializeAws_json1_1AddUploadBufferCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddUploadBuffer";
   let body: any = {};
-  const wrappedBody: any = {
-    AddUploadBufferInput: serializeAws_json1_1AddUploadBufferInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddUploadBufferInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -591,13 +576,9 @@ export async function serializeAws_json1_1AddWorkingStorageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AddWorkingStorage";
   let body: any = {};
-  const wrappedBody: any = {
-    AddWorkingStorageInput: serializeAws_json1_1AddWorkingStorageInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddWorkingStorageInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -616,10 +597,9 @@ export async function serializeAws_json1_1AssignTapePoolCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AssignTapePool";
   let body: any = {};
-  const wrappedBody: any = {
-    AssignTapePoolInput: serializeAws_json1_1AssignTapePoolInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssignTapePoolInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -638,10 +618,7 @@ export async function serializeAws_json1_1AttachVolumeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.AttachVolume";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachVolumeInput: serializeAws_json1_1AttachVolumeInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AttachVolumeInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -660,10 +637,9 @@ export async function serializeAws_json1_1CancelArchivalCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CancelArchival";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelArchivalInput: serializeAws_json1_1CancelArchivalInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelArchivalInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -682,13 +658,9 @@ export async function serializeAws_json1_1CancelRetrievalCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CancelRetrieval";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelRetrievalInput: serializeAws_json1_1CancelRetrievalInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelRetrievalInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -707,13 +679,9 @@ export async function serializeAws_json1_1CreateCachediSCSIVolumeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateCachediSCSIVolume";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCachediSCSIVolumeInput: serializeAws_json1_1CreateCachediSCSIVolumeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCachediSCSIVolumeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -732,13 +700,9 @@ export async function serializeAws_json1_1CreateNFSFileShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateNFSFileShare";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNFSFileShareInput: serializeAws_json1_1CreateNFSFileShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNFSFileShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -757,13 +721,9 @@ export async function serializeAws_json1_1CreateSMBFileShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSMBFileShare";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSMBFileShareInput: serializeAws_json1_1CreateSMBFileShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSMBFileShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -782,10 +742,9 @@ export async function serializeAws_json1_1CreateSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSnapshotInput: serializeAws_json1_1CreateSnapshotInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSnapshotInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -805,13 +764,12 @@ export async function serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointC
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSnapshotFromVolumeRecoveryPointInput: serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -830,13 +788,9 @@ export async function serializeAws_json1_1CreateStorediSCSIVolumeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateStorediSCSIVolume";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStorediSCSIVolumeInput: serializeAws_json1_1CreateStorediSCSIVolumeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateStorediSCSIVolumeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -855,13 +809,9 @@ export async function serializeAws_json1_1CreateTapeWithBarcodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapeWithBarcode";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTapeWithBarcodeInput: serializeAws_json1_1CreateTapeWithBarcodeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTapeWithBarcodeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -880,10 +830,7 @@ export async function serializeAws_json1_1CreateTapesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.CreateTapes";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTapesInput: serializeAws_json1_1CreateTapesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTapesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -902,13 +849,9 @@ export async function serializeAws_json1_1DeleteBandwidthRateLimitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteBandwidthRateLimit";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBandwidthRateLimitInput: serializeAws_json1_1DeleteBandwidthRateLimitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBandwidthRateLimitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -927,13 +870,9 @@ export async function serializeAws_json1_1DeleteChapCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteChapCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteChapCredentialsInput: serializeAws_json1_1DeleteChapCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteChapCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -952,13 +891,9 @@ export async function serializeAws_json1_1DeleteFileShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteFileShare";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFileShareInput: serializeAws_json1_1DeleteFileShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteFileShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -977,10 +912,7 @@ export async function serializeAws_json1_1DeleteGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteGatewayInput: serializeAws_json1_1DeleteGatewayInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteGatewayInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -999,13 +931,9 @@ export async function serializeAws_json1_1DeleteSnapshotScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteSnapshotSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSnapshotScheduleInput: serializeAws_json1_1DeleteSnapshotScheduleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSnapshotScheduleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1024,10 +952,7 @@ export async function serializeAws_json1_1DeleteTapeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTape";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTapeInput: serializeAws_json1_1DeleteTapeInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTapeInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1046,13 +971,9 @@ export async function serializeAws_json1_1DeleteTapeArchiveCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteTapeArchive";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTapeArchiveInput: serializeAws_json1_1DeleteTapeArchiveInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTapeArchiveInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1071,10 +992,7 @@ export async function serializeAws_json1_1DeleteVolumeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DeleteVolume";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVolumeInput: serializeAws_json1_1DeleteVolumeInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteVolumeInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1094,13 +1012,9 @@ export async function serializeAws_json1_1DescribeAvailabilityMonitorTestCommand
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeAvailabilityMonitorTest";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAvailabilityMonitorTestInput: serializeAws_json1_1DescribeAvailabilityMonitorTestInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAvailabilityMonitorTestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1120,13 +1034,9 @@ export async function serializeAws_json1_1DescribeBandwidthRateLimitCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeBandwidthRateLimit";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBandwidthRateLimitInput: serializeAws_json1_1DescribeBandwidthRateLimitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBandwidthRateLimitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1145,10 +1055,7 @@ export async function serializeAws_json1_1DescribeCacheCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeCache";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCacheInput: serializeAws_json1_1DescribeCacheInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeCacheInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1168,13 +1075,9 @@ export async function serializeAws_json1_1DescribeCachediSCSIVolumesCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeCachediSCSIVolumes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCachediSCSIVolumesInput: serializeAws_json1_1DescribeCachediSCSIVolumesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCachediSCSIVolumesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1193,13 +1096,9 @@ export async function serializeAws_json1_1DescribeChapCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeChapCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeChapCredentialsInput: serializeAws_json1_1DescribeChapCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeChapCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1219,13 +1118,9 @@ export async function serializeAws_json1_1DescribeGatewayInformationCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeGatewayInformation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGatewayInformationInput: serializeAws_json1_1DescribeGatewayInformationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeGatewayInformationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1245,13 +1140,9 @@ export async function serializeAws_json1_1DescribeMaintenanceStartTimeCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeMaintenanceStartTime";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceStartTimeInput: serializeAws_json1_1DescribeMaintenanceStartTimeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceStartTimeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1270,13 +1161,9 @@ export async function serializeAws_json1_1DescribeNFSFileSharesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeNFSFileShares";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNFSFileSharesInput: serializeAws_json1_1DescribeNFSFileSharesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNFSFileSharesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1295,13 +1182,9 @@ export async function serializeAws_json1_1DescribeSMBFileSharesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBFileShares";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSMBFileSharesInput: serializeAws_json1_1DescribeSMBFileSharesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSMBFileSharesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1320,13 +1203,9 @@ export async function serializeAws_json1_1DescribeSMBSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSMBSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSMBSettingsInput: serializeAws_json1_1DescribeSMBSettingsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSMBSettingsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1345,13 +1224,9 @@ export async function serializeAws_json1_1DescribeSnapshotScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeSnapshotSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSnapshotScheduleInput: serializeAws_json1_1DescribeSnapshotScheduleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSnapshotScheduleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1371,13 +1246,9 @@ export async function serializeAws_json1_1DescribeStorediSCSIVolumesCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeStorediSCSIVolumes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStorediSCSIVolumesInput: serializeAws_json1_1DescribeStorediSCSIVolumesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStorediSCSIVolumesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1396,13 +1267,9 @@ export async function serializeAws_json1_1DescribeTapeArchivesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapeArchives";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTapeArchivesInput: serializeAws_json1_1DescribeTapeArchivesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTapeArchivesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1422,13 +1289,9 @@ export async function serializeAws_json1_1DescribeTapeRecoveryPointsCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.DescribeTapeRecoveryPoints";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTapeRecoveryPointsInput: serializeAws_json1_1DescribeTapeRecoveryPointsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTapeRecoveryPointsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1447,10 +1310,7 @@ export async function serializeAws_json1_1DescribeTapesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeTapes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTapesInput: serializeAws_json1_1DescribeTapesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeTapesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1469,13 +1329,9 @@ export async function serializeAws_json1_1DescribeUploadBufferCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeUploadBuffer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUploadBufferInput: serializeAws_json1_1DescribeUploadBufferInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUploadBufferInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1494,13 +1350,9 @@ export async function serializeAws_json1_1DescribeVTLDevicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeVTLDevices";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeVTLDevicesInput: serializeAws_json1_1DescribeVTLDevicesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeVTLDevicesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1519,13 +1371,9 @@ export async function serializeAws_json1_1DescribeWorkingStorageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DescribeWorkingStorage";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkingStorageInput: serializeAws_json1_1DescribeWorkingStorageInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkingStorageInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1544,10 +1392,7 @@ export async function serializeAws_json1_1DetachVolumeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DetachVolume";
   let body: any = {};
-  const wrappedBody: any = {
-    DetachVolumeInput: serializeAws_json1_1DetachVolumeInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DetachVolumeInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1566,10 +1411,9 @@ export async function serializeAws_json1_1DisableGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.DisableGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableGatewayInput: serializeAws_json1_1DisableGatewayInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableGatewayInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1588,10 +1432,7 @@ export async function serializeAws_json1_1JoinDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.JoinDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    JoinDomainInput: serializeAws_json1_1JoinDomainInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1JoinDomainInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1610,10 +1451,9 @@ export async function serializeAws_json1_1ListFileSharesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListFileShares";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFileSharesInput: serializeAws_json1_1ListFileSharesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListFileSharesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1632,10 +1472,7 @@ export async function serializeAws_json1_1ListGatewaysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListGateways";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGatewaysInput: serializeAws_json1_1ListGatewaysInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListGatewaysInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1654,10 +1491,9 @@ export async function serializeAws_json1_1ListLocalDisksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListLocalDisks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLocalDisksInput: serializeAws_json1_1ListLocalDisksInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLocalDisksInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1676,13 +1512,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1701,10 +1533,7 @@ export async function serializeAws_json1_1ListTapesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListTapes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTapesInput: serializeAws_json1_1ListTapesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTapesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1723,13 +1552,9 @@ export async function serializeAws_json1_1ListVolumeInitiatorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeInitiators";
   let body: any = {};
-  const wrappedBody: any = {
-    ListVolumeInitiatorsInput: serializeAws_json1_1ListVolumeInitiatorsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListVolumeInitiatorsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1748,13 +1573,9 @@ export async function serializeAws_json1_1ListVolumeRecoveryPointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumeRecoveryPoints";
   let body: any = {};
-  const wrappedBody: any = {
-    ListVolumeRecoveryPointsInput: serializeAws_json1_1ListVolumeRecoveryPointsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListVolumeRecoveryPointsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1773,10 +1594,7 @@ export async function serializeAws_json1_1ListVolumesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ListVolumes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListVolumesInput: serializeAws_json1_1ListVolumesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListVolumesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1795,13 +1613,9 @@ export async function serializeAws_json1_1NotifyWhenUploadedCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.NotifyWhenUploaded";
   let body: any = {};
-  const wrappedBody: any = {
-    NotifyWhenUploadedInput: serializeAws_json1_1NotifyWhenUploadedInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1NotifyWhenUploadedInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1820,10 +1634,7 @@ export async function serializeAws_json1_1RefreshCacheCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RefreshCache";
   let body: any = {};
-  const wrappedBody: any = {
-    RefreshCacheInput: serializeAws_json1_1RefreshCacheInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RefreshCacheInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1842,13 +1653,9 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RemoveTagsFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromResourceInput: serializeAws_json1_1RemoveTagsFromResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1867,10 +1674,7 @@ export async function serializeAws_json1_1ResetCacheCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ResetCache";
   let body: any = {};
-  const wrappedBody: any = {
-    ResetCacheInput: serializeAws_json1_1ResetCacheInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ResetCacheInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1889,13 +1693,9 @@ export async function serializeAws_json1_1RetrieveTapeArchiveCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeArchive";
   let body: any = {};
-  const wrappedBody: any = {
-    RetrieveTapeArchiveInput: serializeAws_json1_1RetrieveTapeArchiveInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RetrieveTapeArchiveInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1914,13 +1714,9 @@ export async function serializeAws_json1_1RetrieveTapeRecoveryPointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.RetrieveTapeRecoveryPoint";
   let body: any = {};
-  const wrappedBody: any = {
-    RetrieveTapeRecoveryPointInput: serializeAws_json1_1RetrieveTapeRecoveryPointInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RetrieveTapeRecoveryPointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1939,13 +1735,9 @@ export async function serializeAws_json1_1SetLocalConsolePasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.SetLocalConsolePassword";
   let body: any = {};
-  const wrappedBody: any = {
-    SetLocalConsolePasswordInput: serializeAws_json1_1SetLocalConsolePasswordInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetLocalConsolePasswordInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1964,13 +1756,9 @@ export async function serializeAws_json1_1SetSMBGuestPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.SetSMBGuestPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    SetSMBGuestPasswordInput: serializeAws_json1_1SetSMBGuestPasswordInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetSMBGuestPasswordInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1989,13 +1777,9 @@ export async function serializeAws_json1_1ShutdownGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.ShutdownGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    ShutdownGatewayInput: serializeAws_json1_1ShutdownGatewayInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ShutdownGatewayInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2015,13 +1799,9 @@ export async function serializeAws_json1_1StartAvailabilityMonitorTestCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.StartAvailabilityMonitorTest";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAvailabilityMonitorTestInput: serializeAws_json1_1StartAvailabilityMonitorTestInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAvailabilityMonitorTestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2040,10 +1820,7 @@ export async function serializeAws_json1_1StartGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.StartGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    StartGatewayInput: serializeAws_json1_1StartGatewayInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartGatewayInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2062,13 +1839,9 @@ export async function serializeAws_json1_1UpdateBandwidthRateLimitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateBandwidthRateLimit";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateBandwidthRateLimitInput: serializeAws_json1_1UpdateBandwidthRateLimitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateBandwidthRateLimitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2087,13 +1860,9 @@ export async function serializeAws_json1_1UpdateChapCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateChapCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateChapCredentialsInput: serializeAws_json1_1UpdateChapCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateChapCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2112,13 +1881,9 @@ export async function serializeAws_json1_1UpdateGatewayInformationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewayInformation";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGatewayInformationInput: serializeAws_json1_1UpdateGatewayInformationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGatewayInformationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2137,13 +1902,9 @@ export async function serializeAws_json1_1UpdateGatewaySoftwareNowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateGatewaySoftwareNow";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGatewaySoftwareNowInput: serializeAws_json1_1UpdateGatewaySoftwareNowInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGatewaySoftwareNowInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2163,13 +1924,9 @@ export async function serializeAws_json1_1UpdateMaintenanceStartTimeCommand(
   headers["X-Amz-Target"] =
     "StorageGateway_20130630.UpdateMaintenanceStartTime";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMaintenanceStartTimeInput: serializeAws_json1_1UpdateMaintenanceStartTimeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMaintenanceStartTimeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2188,13 +1945,9 @@ export async function serializeAws_json1_1UpdateNFSFileShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateNFSFileShare";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNFSFileShareInput: serializeAws_json1_1UpdateNFSFileShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNFSFileShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2213,13 +1966,9 @@ export async function serializeAws_json1_1UpdateSMBFileShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBFileShare";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSMBFileShareInput: serializeAws_json1_1UpdateSMBFileShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSMBFileShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2238,13 +1987,9 @@ export async function serializeAws_json1_1UpdateSMBSecurityStrategyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSMBSecurityStrategy";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSMBSecurityStrategyInput: serializeAws_json1_1UpdateSMBSecurityStrategyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSMBSecurityStrategyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2263,13 +2008,9 @@ export async function serializeAws_json1_1UpdateSnapshotScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateSnapshotSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSnapshotScheduleInput: serializeAws_json1_1UpdateSnapshotScheduleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSnapshotScheduleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2288,13 +2029,9 @@ export async function serializeAws_json1_1UpdateVTLDeviceTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StorageGateway_20130630.UpdateVTLDeviceType";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateVTLDeviceTypeInput: serializeAws_json1_1UpdateVTLDeviceTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVTLDeviceTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

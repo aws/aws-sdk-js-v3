@@ -121,13 +121,9 @@ export async function serializeAws_json1_1BatchGrantPermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.BatchGrantPermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGrantPermissionsRequest: serializeAws_json1_1BatchGrantPermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGrantPermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -146,13 +142,9 @@ export async function serializeAws_json1_1BatchRevokePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.BatchRevokePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchRevokePermissionsRequest: serializeAws_json1_1BatchRevokePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchRevokePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -171,13 +163,9 @@ export async function serializeAws_json1_1DeregisterResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.DeregisterResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterResourceRequest: serializeAws_json1_1DeregisterResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -196,13 +184,9 @@ export async function serializeAws_json1_1DescribeResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.DescribeResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeResourceRequest: serializeAws_json1_1DescribeResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -221,13 +205,9 @@ export async function serializeAws_json1_1GetDataLakeSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GetDataLakeSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDataLakeSettingsRequest: serializeAws_json1_1GetDataLakeSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDataLakeSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -246,13 +226,9 @@ export async function serializeAws_json1_1GetEffectivePermissionsForPathCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GetEffectivePermissionsForPath";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEffectivePermissionsForPathRequest: serializeAws_json1_1GetEffectivePermissionsForPathRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetEffectivePermissionsForPathRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -271,13 +247,9 @@ export async function serializeAws_json1_1GrantPermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.GrantPermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    GrantPermissionsRequest: serializeAws_json1_1GrantPermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GrantPermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -296,13 +268,9 @@ export async function serializeAws_json1_1ListPermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.ListPermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPermissionsRequest: serializeAws_json1_1ListPermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -321,13 +289,9 @@ export async function serializeAws_json1_1ListResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.ListResources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourcesRequest: serializeAws_json1_1ListResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -346,13 +310,9 @@ export async function serializeAws_json1_1PutDataLakeSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.PutDataLakeSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDataLakeSettingsRequest: serializeAws_json1_1PutDataLakeSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutDataLakeSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -371,13 +331,9 @@ export async function serializeAws_json1_1RegisterResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.RegisterResource";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterResourceRequest: serializeAws_json1_1RegisterResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -396,13 +352,9 @@ export async function serializeAws_json1_1RevokePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.RevokePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    RevokePermissionsRequest: serializeAws_json1_1RevokePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RevokePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -421,13 +373,9 @@ export async function serializeAws_json1_1UpdateResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSLakeFormation.UpdateResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateResourceRequest: serializeAws_json1_1UpdateResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

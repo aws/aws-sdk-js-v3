@@ -92,13 +92,9 @@ export async function serializeAws_json1_1CreateEnvironmentEC2Command(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEnvironmentEC2Request: serializeAws_json1_1CreateEnvironmentEC2Request(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEnvironmentEC2Request(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -118,13 +114,9 @@ export async function serializeAws_json1_1CreateEnvironmentMembershipCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEnvironmentMembershipRequest: serializeAws_json1_1CreateEnvironmentMembershipRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -144,13 +136,9 @@ export async function serializeAws_json1_1DeleteEnvironmentCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironment";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEnvironmentRequest: serializeAws_json1_1DeleteEnvironmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEnvironmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -170,13 +158,9 @@ export async function serializeAws_json1_1DeleteEnvironmentMembershipCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEnvironmentMembershipRequest: serializeAws_json1_1DeleteEnvironmentMembershipRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -196,13 +180,9 @@ export async function serializeAws_json1_1DescribeEnvironmentMembershipsCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEnvironmentMembershipsRequest: serializeAws_json1_1DescribeEnvironmentMembershipsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -222,13 +202,9 @@ export async function serializeAws_json1_1DescribeEnvironmentStatusCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEnvironmentStatusRequest: serializeAws_json1_1DescribeEnvironmentStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -248,13 +224,9 @@ export async function serializeAws_json1_1DescribeEnvironmentsCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.DescribeEnvironments";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEnvironmentsRequest: serializeAws_json1_1DescribeEnvironmentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEnvironmentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -274,13 +246,9 @@ export async function serializeAws_json1_1ListEnvironmentsCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.ListEnvironments";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEnvironmentsRequest: serializeAws_json1_1ListEnvironmentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEnvironmentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -300,13 +268,9 @@ export async function serializeAws_json1_1UpdateEnvironmentCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironment";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEnvironmentRequest: serializeAws_json1_1UpdateEnvironmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEnvironmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -326,13 +290,9 @@ export async function serializeAws_json1_1UpdateEnvironmentMembershipCommand(
   headers["X-Amz-Target"] =
     "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEnvironmentMembershipRequest: serializeAws_json1_1UpdateEnvironmentMembershipRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

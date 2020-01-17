@@ -510,10 +510,7 @@ export async function serializeAws_json1_1AcceptMatchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.AcceptMatch";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptMatchInput: serializeAws_json1_1AcceptMatchInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AcceptMatchInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -532,10 +529,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAliasInput: serializeAws_json1_1CreateAliasInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAliasInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -554,10 +548,7 @@ export async function serializeAws_json1_1CreateBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBuildInput: serializeAws_json1_1CreateBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,10 +567,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFleetInput: serializeAws_json1_1CreateFleetInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateFleetInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -598,13 +586,9 @@ export async function serializeAws_json1_1CreateGameSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateGameSession";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGameSessionInput: serializeAws_json1_1CreateGameSessionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateGameSessionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -623,13 +607,9 @@ export async function serializeAws_json1_1CreateGameSessionQueueCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateGameSessionQueue";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGameSessionQueueInput: serializeAws_json1_1CreateGameSessionQueueInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateGameSessionQueueInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -648,13 +628,9 @@ export async function serializeAws_json1_1CreateMatchmakingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateMatchmakingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMatchmakingConfigurationInput: serializeAws_json1_1CreateMatchmakingConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMatchmakingConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -673,13 +649,9 @@ export async function serializeAws_json1_1CreateMatchmakingRuleSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateMatchmakingRuleSet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMatchmakingRuleSetInput: serializeAws_json1_1CreateMatchmakingRuleSetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMatchmakingRuleSetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -698,13 +670,9 @@ export async function serializeAws_json1_1CreatePlayerSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreatePlayerSession";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePlayerSessionInput: serializeAws_json1_1CreatePlayerSessionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePlayerSessionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -723,13 +691,9 @@ export async function serializeAws_json1_1CreatePlayerSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreatePlayerSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePlayerSessionsInput: serializeAws_json1_1CreatePlayerSessionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePlayerSessionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -748,10 +712,7 @@ export async function serializeAws_json1_1CreateScriptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateScript";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateScriptInput: serializeAws_json1_1CreateScriptInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateScriptInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -770,13 +731,9 @@ export async function serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateVpcPeeringAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateVpcPeeringAuthorizationInput: serializeAws_json1_1CreateVpcPeeringAuthorizationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVpcPeeringAuthorizationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -795,13 +752,9 @@ export async function serializeAws_json1_1CreateVpcPeeringConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.CreateVpcPeeringConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateVpcPeeringConnectionInput: serializeAws_json1_1CreateVpcPeeringConnectionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVpcPeeringConnectionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -820,10 +773,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAliasInput: serializeAws_json1_1DeleteAliasInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteAliasInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -842,10 +792,7 @@ export async function serializeAws_json1_1DeleteBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBuildInput: serializeAws_json1_1DeleteBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -864,10 +811,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFleetInput: serializeAws_json1_1DeleteFleetInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteFleetInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -886,13 +830,9 @@ export async function serializeAws_json1_1DeleteGameSessionQueueCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteGameSessionQueue";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteGameSessionQueueInput: serializeAws_json1_1DeleteGameSessionQueueInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteGameSessionQueueInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -911,13 +851,9 @@ export async function serializeAws_json1_1DeleteMatchmakingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteMatchmakingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMatchmakingConfigurationInput: serializeAws_json1_1DeleteMatchmakingConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMatchmakingConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -936,13 +872,9 @@ export async function serializeAws_json1_1DeleteMatchmakingRuleSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteMatchmakingRuleSet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMatchmakingRuleSetInput: serializeAws_json1_1DeleteMatchmakingRuleSetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMatchmakingRuleSetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -961,13 +893,9 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteScalingPolicyInput: serializeAws_json1_1DeleteScalingPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteScalingPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -986,10 +914,7 @@ export async function serializeAws_json1_1DeleteScriptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteScript";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteScriptInput: serializeAws_json1_1DeleteScriptInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteScriptInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1008,13 +933,9 @@ export async function serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteVpcPeeringAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVpcPeeringAuthorizationInput: serializeAws_json1_1DeleteVpcPeeringAuthorizationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVpcPeeringAuthorizationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1033,13 +954,9 @@ export async function serializeAws_json1_1DeleteVpcPeeringConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DeleteVpcPeeringConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVpcPeeringConnectionInput: serializeAws_json1_1DeleteVpcPeeringConnectionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVpcPeeringConnectionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1058,10 +975,7 @@ export async function serializeAws_json1_1DescribeAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAliasInput: serializeAws_json1_1DescribeAliasInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeAliasInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1080,10 +994,7 @@ export async function serializeAws_json1_1DescribeBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBuildInput: serializeAws_json1_1DescribeBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1102,13 +1013,9 @@ export async function serializeAws_json1_1DescribeEC2InstanceLimitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeEC2InstanceLimits";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEC2InstanceLimitsInput: serializeAws_json1_1DescribeEC2InstanceLimitsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEC2InstanceLimitsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1127,13 +1034,9 @@ export async function serializeAws_json1_1DescribeFleetAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeFleetAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetAttributesInput: serializeAws_json1_1DescribeFleetAttributesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetAttributesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1152,13 +1055,9 @@ export async function serializeAws_json1_1DescribeFleetCapacityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeFleetCapacity";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetCapacityInput: serializeAws_json1_1DescribeFleetCapacityInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetCapacityInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1177,13 +1076,9 @@ export async function serializeAws_json1_1DescribeFleetEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeFleetEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetEventsInput: serializeAws_json1_1DescribeFleetEventsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetEventsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1202,13 +1097,9 @@ export async function serializeAws_json1_1DescribeFleetPortSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeFleetPortSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetPortSettingsInput: serializeAws_json1_1DescribeFleetPortSettingsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetPortSettingsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1227,13 +1118,9 @@ export async function serializeAws_json1_1DescribeFleetUtilizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeFleetUtilization";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetUtilizationInput: serializeAws_json1_1DescribeFleetUtilizationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetUtilizationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1252,13 +1139,9 @@ export async function serializeAws_json1_1DescribeGameSessionDetailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeGameSessionDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGameSessionDetailsInput: serializeAws_json1_1DescribeGameSessionDetailsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeGameSessionDetailsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1277,13 +1160,9 @@ export async function serializeAws_json1_1DescribeGameSessionPlacementCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeGameSessionPlacement";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGameSessionPlacementInput: serializeAws_json1_1DescribeGameSessionPlacementInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeGameSessionPlacementInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1302,13 +1181,9 @@ export async function serializeAws_json1_1DescribeGameSessionQueuesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeGameSessionQueues";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGameSessionQueuesInput: serializeAws_json1_1DescribeGameSessionQueuesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeGameSessionQueuesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1327,13 +1202,9 @@ export async function serializeAws_json1_1DescribeGameSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeGameSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGameSessionsInput: serializeAws_json1_1DescribeGameSessionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeGameSessionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1352,13 +1223,9 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstancesInput: serializeAws_json1_1DescribeInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1377,13 +1244,9 @@ export async function serializeAws_json1_1DescribeMatchmakingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeMatchmaking";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMatchmakingInput: serializeAws_json1_1DescribeMatchmakingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMatchmakingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1402,13 +1265,9 @@ export async function serializeAws_json1_1DescribeMatchmakingConfigurationsComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeMatchmakingConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMatchmakingConfigurationsInput: serializeAws_json1_1DescribeMatchmakingConfigurationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMatchmakingConfigurationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1427,13 +1286,9 @@ export async function serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeMatchmakingRuleSets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMatchmakingRuleSetsInput: serializeAws_json1_1DescribeMatchmakingRuleSetsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMatchmakingRuleSetsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1452,13 +1307,9 @@ export async function serializeAws_json1_1DescribePlayerSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribePlayerSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePlayerSessionsInput: serializeAws_json1_1DescribePlayerSessionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePlayerSessionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1477,13 +1328,9 @@ export async function serializeAws_json1_1DescribeRuntimeConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeRuntimeConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRuntimeConfigurationInput: serializeAws_json1_1DescribeRuntimeConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRuntimeConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1502,13 +1349,9 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeScalingPolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalingPoliciesInput: serializeAws_json1_1DescribeScalingPoliciesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalingPoliciesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1527,10 +1370,9 @@ export async function serializeAws_json1_1DescribeScriptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeScript";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScriptInput: serializeAws_json1_1DescribeScriptInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScriptInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1549,13 +1391,9 @@ export async function serializeAws_json1_1DescribeVpcPeeringAuthorizationsComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeVpcPeeringAuthorizations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeVpcPeeringAuthorizationsInput: serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1574,13 +1412,9 @@ export async function serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.DescribeVpcPeeringConnections";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeVpcPeeringConnectionsInput: serializeAws_json1_1DescribeVpcPeeringConnectionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeVpcPeeringConnectionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1599,13 +1433,9 @@ export async function serializeAws_json1_1GetGameSessionLogUrlCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.GetGameSessionLogUrl";
   let body: any = {};
-  const wrappedBody: any = {
-    GetGameSessionLogUrlInput: serializeAws_json1_1GetGameSessionLogUrlInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetGameSessionLogUrlInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1624,13 +1454,9 @@ export async function serializeAws_json1_1GetInstanceAccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.GetInstanceAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceAccessInput: serializeAws_json1_1GetInstanceAccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceAccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1649,10 +1475,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ListAliases";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAliasesInput: serializeAws_json1_1ListAliasesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAliasesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1671,10 +1494,7 @@ export async function serializeAws_json1_1ListBuildsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ListBuilds";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBuildsInput: serializeAws_json1_1ListBuildsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1693,10 +1513,7 @@ export async function serializeAws_json1_1ListFleetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ListFleets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFleetsInput: serializeAws_json1_1ListFleetsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListFleetsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1715,10 +1532,7 @@ export async function serializeAws_json1_1ListScriptsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ListScripts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListScriptsInput: serializeAws_json1_1ListScriptsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListScriptsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1737,13 +1551,9 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.PutScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutScalingPolicyInput: serializeAws_json1_1PutScalingPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutScalingPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1762,13 +1572,9 @@ export async function serializeAws_json1_1RequestUploadCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.RequestUploadCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    RequestUploadCredentialsInput: serializeAws_json1_1RequestUploadCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RequestUploadCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1787,10 +1593,7 @@ export async function serializeAws_json1_1ResolveAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ResolveAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    ResolveAliasInput: serializeAws_json1_1ResolveAliasInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ResolveAliasInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1809,13 +1612,9 @@ export async function serializeAws_json1_1SearchGameSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.SearchGameSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchGameSessionsInput: serializeAws_json1_1SearchGameSessionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchGameSessionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1834,13 +1633,9 @@ export async function serializeAws_json1_1StartFleetActionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StartFleetActions";
   let body: any = {};
-  const wrappedBody: any = {
-    StartFleetActionsInput: serializeAws_json1_1StartFleetActionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartFleetActionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1859,13 +1654,9 @@ export async function serializeAws_json1_1StartGameSessionPlacementCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StartGameSessionPlacement";
   let body: any = {};
-  const wrappedBody: any = {
-    StartGameSessionPlacementInput: serializeAws_json1_1StartGameSessionPlacementInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartGameSessionPlacementInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1884,13 +1675,9 @@ export async function serializeAws_json1_1StartMatchBackfillCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StartMatchBackfill";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMatchBackfillInput: serializeAws_json1_1StartMatchBackfillInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartMatchBackfillInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1909,13 +1696,9 @@ export async function serializeAws_json1_1StartMatchmakingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StartMatchmaking";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMatchmakingInput: serializeAws_json1_1StartMatchmakingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartMatchmakingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1934,13 +1717,9 @@ export async function serializeAws_json1_1StopFleetActionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StopFleetActions";
   let body: any = {};
-  const wrappedBody: any = {
-    StopFleetActionsInput: serializeAws_json1_1StopFleetActionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopFleetActionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1959,13 +1738,9 @@ export async function serializeAws_json1_1StopGameSessionPlacementCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StopGameSessionPlacement";
   let body: any = {};
-  const wrappedBody: any = {
-    StopGameSessionPlacementInput: serializeAws_json1_1StopGameSessionPlacementInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopGameSessionPlacementInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1984,13 +1759,9 @@ export async function serializeAws_json1_1StopMatchmakingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.StopMatchmaking";
   let body: any = {};
-  const wrappedBody: any = {
-    StopMatchmakingInput: serializeAws_json1_1StopMatchmakingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopMatchmakingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2009,10 +1780,7 @@ export async function serializeAws_json1_1UpdateAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAliasInput: serializeAws_json1_1UpdateAliasInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateAliasInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2031,10 +1799,7 @@ export async function serializeAws_json1_1UpdateBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateBuildInput: serializeAws_json1_1UpdateBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2053,13 +1818,9 @@ export async function serializeAws_json1_1UpdateFleetAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateFleetAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFleetAttributesInput: serializeAws_json1_1UpdateFleetAttributesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateFleetAttributesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2078,13 +1839,9 @@ export async function serializeAws_json1_1UpdateFleetCapacityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateFleetCapacity";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFleetCapacityInput: serializeAws_json1_1UpdateFleetCapacityInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateFleetCapacityInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2103,13 +1860,9 @@ export async function serializeAws_json1_1UpdateFleetPortSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateFleetPortSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFleetPortSettingsInput: serializeAws_json1_1UpdateFleetPortSettingsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateFleetPortSettingsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2128,13 +1881,9 @@ export async function serializeAws_json1_1UpdateGameSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateGameSession";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGameSessionInput: serializeAws_json1_1UpdateGameSessionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGameSessionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2153,13 +1902,9 @@ export async function serializeAws_json1_1UpdateGameSessionQueueCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateGameSessionQueue";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGameSessionQueueInput: serializeAws_json1_1UpdateGameSessionQueueInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGameSessionQueueInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2178,13 +1923,9 @@ export async function serializeAws_json1_1UpdateMatchmakingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateMatchmakingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMatchmakingConfigurationInput: serializeAws_json1_1UpdateMatchmakingConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMatchmakingConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2203,13 +1944,9 @@ export async function serializeAws_json1_1UpdateRuntimeConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateRuntimeConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRuntimeConfigurationInput: serializeAws_json1_1UpdateRuntimeConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRuntimeConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2228,10 +1965,7 @@ export async function serializeAws_json1_1UpdateScriptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.UpdateScript";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateScriptInput: serializeAws_json1_1UpdateScriptInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateScriptInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2250,13 +1984,9 @@ export async function serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "GameLift.ValidateMatchmakingRuleSet";
   let body: any = {};
-  const wrappedBody: any = {
-    ValidateMatchmakingRuleSetInput: serializeAws_json1_1ValidateMatchmakingRuleSetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ValidateMatchmakingRuleSetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

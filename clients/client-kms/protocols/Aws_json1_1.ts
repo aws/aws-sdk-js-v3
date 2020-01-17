@@ -320,13 +320,9 @@ export async function serializeAws_json1_1CancelKeyDeletionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.CancelKeyDeletion";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelKeyDeletionRequest: serializeAws_json1_1CancelKeyDeletionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelKeyDeletionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -345,13 +341,9 @@ export async function serializeAws_json1_1ConnectCustomKeyStoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ConnectCustomKeyStore";
   let body: any = {};
-  const wrappedBody: any = {
-    ConnectCustomKeyStoreRequest: serializeAws_json1_1ConnectCustomKeyStoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConnectCustomKeyStoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -370,10 +362,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.CreateAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAliasRequest: serializeAws_json1_1CreateAliasRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -392,13 +381,9 @@ export async function serializeAws_json1_1CreateCustomKeyStoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.CreateCustomKeyStore";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCustomKeyStoreRequest: serializeAws_json1_1CreateCustomKeyStoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCustomKeyStoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -417,10 +402,7 @@ export async function serializeAws_json1_1CreateGrantCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.CreateGrant";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGrantRequest: serializeAws_json1_1CreateGrantRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateGrantRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -439,10 +421,7 @@ export async function serializeAws_json1_1CreateKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.CreateKey";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateKeyRequest: serializeAws_json1_1CreateKeyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateKeyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -461,10 +440,7 @@ export async function serializeAws_json1_1DecryptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.Decrypt";
   let body: any = {};
-  const wrappedBody: any = {
-    DecryptRequest: serializeAws_json1_1DecryptRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DecryptRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -483,10 +459,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DeleteAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAliasRequest: serializeAws_json1_1DeleteAliasRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -505,13 +478,9 @@ export async function serializeAws_json1_1DeleteCustomKeyStoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DeleteCustomKeyStore";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCustomKeyStoreRequest: serializeAws_json1_1DeleteCustomKeyStoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCustomKeyStoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -530,13 +499,9 @@ export async function serializeAws_json1_1DeleteImportedKeyMaterialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DeleteImportedKeyMaterial";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteImportedKeyMaterialRequest: serializeAws_json1_1DeleteImportedKeyMaterialRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteImportedKeyMaterialRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -555,13 +520,9 @@ export async function serializeAws_json1_1DescribeCustomKeyStoresCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DescribeCustomKeyStores";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCustomKeyStoresRequest: serializeAws_json1_1DescribeCustomKeyStoresRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCustomKeyStoresRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -580,10 +541,7 @@ export async function serializeAws_json1_1DescribeKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DescribeKey";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeKeyRequest: serializeAws_json1_1DescribeKeyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeKeyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -602,10 +560,7 @@ export async function serializeAws_json1_1DisableKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DisableKey";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableKeyRequest: serializeAws_json1_1DisableKeyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DisableKeyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -624,13 +579,9 @@ export async function serializeAws_json1_1DisableKeyRotationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DisableKeyRotation";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableKeyRotationRequest: serializeAws_json1_1DisableKeyRotationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableKeyRotationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -649,13 +600,9 @@ export async function serializeAws_json1_1DisconnectCustomKeyStoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.DisconnectCustomKeyStore";
   let body: any = {};
-  const wrappedBody: any = {
-    DisconnectCustomKeyStoreRequest: serializeAws_json1_1DisconnectCustomKeyStoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisconnectCustomKeyStoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -674,10 +621,7 @@ export async function serializeAws_json1_1EnableKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.EnableKey";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableKeyRequest: serializeAws_json1_1EnableKeyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableKeyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -696,13 +640,9 @@ export async function serializeAws_json1_1EnableKeyRotationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.EnableKeyRotation";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableKeyRotationRequest: serializeAws_json1_1EnableKeyRotationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableKeyRotationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -721,10 +661,7 @@ export async function serializeAws_json1_1EncryptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.Encrypt";
   let body: any = {};
-  const wrappedBody: any = {
-    EncryptRequest: serializeAws_json1_1EncryptRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EncryptRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -743,13 +680,9 @@ export async function serializeAws_json1_1GenerateDataKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GenerateDataKey";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateDataKeyRequest: serializeAws_json1_1GenerateDataKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateDataKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -768,13 +701,9 @@ export async function serializeAws_json1_1GenerateDataKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GenerateDataKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateDataKeyPairRequest: serializeAws_json1_1GenerateDataKeyPairRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateDataKeyPairRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -793,13 +722,12 @@ export async function serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GenerateDataKeyPairWithoutPlaintext";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateDataKeyPairWithoutPlaintextRequest: serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -818,13 +746,9 @@ export async function serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GenerateDataKeyWithoutPlaintext";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateDataKeyWithoutPlaintextRequest: serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateDataKeyWithoutPlaintextRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -843,13 +767,9 @@ export async function serializeAws_json1_1GenerateRandomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GenerateRandom";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateRandomRequest: serializeAws_json1_1GenerateRandomRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateRandomRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -868,10 +788,9 @@ export async function serializeAws_json1_1GetKeyPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GetKeyPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetKeyPolicyRequest: serializeAws_json1_1GetKeyPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetKeyPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -890,13 +809,9 @@ export async function serializeAws_json1_1GetKeyRotationStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GetKeyRotationStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetKeyRotationStatusRequest: serializeAws_json1_1GetKeyRotationStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetKeyRotationStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -915,13 +830,9 @@ export async function serializeAws_json1_1GetParametersForImportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GetParametersForImport";
   let body: any = {};
-  const wrappedBody: any = {
-    GetParametersForImportRequest: serializeAws_json1_1GetParametersForImportRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetParametersForImportRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -940,10 +851,9 @@ export async function serializeAws_json1_1GetPublicKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.GetPublicKey";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPublicKeyRequest: serializeAws_json1_1GetPublicKeyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPublicKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -962,13 +872,9 @@ export async function serializeAws_json1_1ImportKeyMaterialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ImportKeyMaterial";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportKeyMaterialRequest: serializeAws_json1_1ImportKeyMaterialRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportKeyMaterialRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -987,10 +893,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListAliases";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAliasesRequest: serializeAws_json1_1ListAliasesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1009,10 +912,7 @@ export async function serializeAws_json1_1ListGrantsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListGrants";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGrantsRequest: serializeAws_json1_1ListGrantsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListGrantsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1031,13 +931,9 @@ export async function serializeAws_json1_1ListKeyPoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListKeyPolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListKeyPoliciesRequest: serializeAws_json1_1ListKeyPoliciesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListKeyPoliciesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1056,10 +952,7 @@ export async function serializeAws_json1_1ListKeysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    ListKeysRequest: serializeAws_json1_1ListKeysRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListKeysRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1078,13 +971,9 @@ export async function serializeAws_json1_1ListResourceTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListResourceTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourceTagsRequest: serializeAws_json1_1ListResourceTagsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourceTagsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1103,13 +992,9 @@ export async function serializeAws_json1_1ListRetirableGrantsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ListRetirableGrants";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRetirableGrantsRequest: serializeAws_json1_1ListRetirableGrantsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRetirableGrantsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1128,10 +1013,9 @@ export async function serializeAws_json1_1PutKeyPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.PutKeyPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutKeyPolicyRequest: serializeAws_json1_1PutKeyPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutKeyPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1150,10 +1034,7 @@ export async function serializeAws_json1_1ReEncryptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ReEncrypt";
   let body: any = {};
-  const wrappedBody: any = {
-    ReEncryptRequest: serializeAws_json1_1ReEncryptRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ReEncryptRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1172,10 +1053,7 @@ export async function serializeAws_json1_1RetireGrantCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.RetireGrant";
   let body: any = {};
-  const wrappedBody: any = {
-    RetireGrantRequest: serializeAws_json1_1RetireGrantRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RetireGrantRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1194,10 +1072,7 @@ export async function serializeAws_json1_1RevokeGrantCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.RevokeGrant";
   let body: any = {};
-  const wrappedBody: any = {
-    RevokeGrantRequest: serializeAws_json1_1RevokeGrantRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RevokeGrantRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1216,13 +1091,9 @@ export async function serializeAws_json1_1ScheduleKeyDeletionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.ScheduleKeyDeletion";
   let body: any = {};
-  const wrappedBody: any = {
-    ScheduleKeyDeletionRequest: serializeAws_json1_1ScheduleKeyDeletionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ScheduleKeyDeletionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1241,10 +1112,7 @@ export async function serializeAws_json1_1SignCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.Sign";
   let body: any = {};
-  const wrappedBody: any = {
-    SignRequest: serializeAws_json1_1SignRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SignRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1263,10 +1131,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1285,13 +1150,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1310,10 +1171,7 @@ export async function serializeAws_json1_1UpdateAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.UpdateAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAliasRequest: serializeAws_json1_1UpdateAliasRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateAliasRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1332,13 +1190,9 @@ export async function serializeAws_json1_1UpdateCustomKeyStoreCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.UpdateCustomKeyStore";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCustomKeyStoreRequest: serializeAws_json1_1UpdateCustomKeyStoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCustomKeyStoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1357,13 +1211,9 @@ export async function serializeAws_json1_1UpdateKeyDescriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.UpdateKeyDescription";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateKeyDescriptionRequest: serializeAws_json1_1UpdateKeyDescriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateKeyDescriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1382,10 +1232,7 @@ export async function serializeAws_json1_1VerifyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "TrentService.Verify";
   let body: any = {};
-  const wrappedBody: any = {
-    VerifyRequest: serializeAws_json1_1VerifyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1VerifyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

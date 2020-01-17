@@ -188,13 +188,9 @@ export async function serializeAws_json1_1CreateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateClusterRequest: serializeAws_json1_1CreateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -213,13 +209,9 @@ export async function serializeAws_json1_1CreateParameterGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateParameterGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateParameterGroupRequest: serializeAws_json1_1CreateParameterGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateParameterGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -238,13 +230,9 @@ export async function serializeAws_json1_1CreateSubnetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.CreateSubnetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSubnetGroupRequest: serializeAws_json1_1CreateSubnetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSubnetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -263,13 +251,9 @@ export async function serializeAws_json1_1DecreaseReplicationFactorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DecreaseReplicationFactor";
   let body: any = {};
-  const wrappedBody: any = {
-    DecreaseReplicationFactorRequest: serializeAws_json1_1DecreaseReplicationFactorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DecreaseReplicationFactorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -288,13 +272,9 @@ export async function serializeAws_json1_1DeleteClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteClusterRequest: serializeAws_json1_1DeleteClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -313,13 +293,9 @@ export async function serializeAws_json1_1DeleteParameterGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteParameterGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteParameterGroupRequest: serializeAws_json1_1DeleteParameterGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteParameterGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -338,13 +314,9 @@ export async function serializeAws_json1_1DeleteSubnetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DeleteSubnetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSubnetGroupRequest: serializeAws_json1_1DeleteSubnetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSubnetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -363,13 +335,9 @@ export async function serializeAws_json1_1DescribeClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClustersRequest: serializeAws_json1_1DescribeClustersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClustersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -388,13 +356,9 @@ export async function serializeAws_json1_1DescribeDefaultParametersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeDefaultParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDefaultParametersRequest: serializeAws_json1_1DescribeDefaultParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDefaultParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -413,13 +377,9 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventsRequest: serializeAws_json1_1DescribeEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -438,13 +398,9 @@ export async function serializeAws_json1_1DescribeParameterGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameterGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeParameterGroupsRequest: serializeAws_json1_1DescribeParameterGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeParameterGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -463,13 +419,9 @@ export async function serializeAws_json1_1DescribeParametersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeParametersRequest: serializeAws_json1_1DescribeParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -488,13 +440,9 @@ export async function serializeAws_json1_1DescribeSubnetGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.DescribeSubnetGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSubnetGroupsRequest: serializeAws_json1_1DescribeSubnetGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSubnetGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -513,13 +461,9 @@ export async function serializeAws_json1_1IncreaseReplicationFactorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.IncreaseReplicationFactor";
   let body: any = {};
-  const wrappedBody: any = {
-    IncreaseReplicationFactorRequest: serializeAws_json1_1IncreaseReplicationFactorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1IncreaseReplicationFactorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -538,10 +482,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsRequest: serializeAws_json1_1ListTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -560,10 +501,7 @@ export async function serializeAws_json1_1RebootNodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.RebootNode";
   let body: any = {};
-  const wrappedBody: any = {
-    RebootNodeRequest: serializeAws_json1_1RebootNodeRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RebootNodeRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -582,10 +520,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -604,13 +539,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -629,13 +560,9 @@ export async function serializeAws_json1_1UpdateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateClusterRequest: serializeAws_json1_1UpdateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -654,13 +581,9 @@ export async function serializeAws_json1_1UpdateParameterGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateParameterGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateParameterGroupRequest: serializeAws_json1_1UpdateParameterGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateParameterGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -679,13 +602,9 @@ export async function serializeAws_json1_1UpdateSubnetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonDAXV3.UpdateSubnetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSubnetGroupRequest: serializeAws_json1_1UpdateSubnetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSubnetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

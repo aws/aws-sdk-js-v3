@@ -257,13 +257,9 @@ export async function serializeAws_json1_1AssociateEntityToThingCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.AssociateEntityToThing";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateEntityToThingRequest: serializeAws_json1_1AssociateEntityToThingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateEntityToThingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -282,13 +278,9 @@ export async function serializeAws_json1_1CreateFlowTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.CreateFlowTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFlowTemplateRequest: serializeAws_json1_1CreateFlowTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateFlowTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -308,13 +300,9 @@ export async function serializeAws_json1_1CreateSystemInstanceCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.CreateSystemInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSystemInstanceRequest: serializeAws_json1_1CreateSystemInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSystemInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -334,13 +322,9 @@ export async function serializeAws_json1_1CreateSystemTemplateCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.CreateSystemTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSystemTemplateRequest: serializeAws_json1_1CreateSystemTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSystemTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -359,13 +343,9 @@ export async function serializeAws_json1_1DeleteFlowTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteFlowTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFlowTemplateRequest: serializeAws_json1_1DeleteFlowTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteFlowTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -384,13 +364,9 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DeleteNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNamespaceRequest: serializeAws_json1_1DeleteNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -410,13 +386,9 @@ export async function serializeAws_json1_1DeleteSystemInstanceCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeleteSystemInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSystemInstanceRequest: serializeAws_json1_1DeleteSystemInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSystemInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -436,13 +408,9 @@ export async function serializeAws_json1_1DeleteSystemTemplateCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeleteSystemTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSystemTemplateRequest: serializeAws_json1_1DeleteSystemTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSystemTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -462,13 +430,9 @@ export async function serializeAws_json1_1DeploySystemInstanceCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeploySystemInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeploySystemInstanceRequest: serializeAws_json1_1DeploySystemInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeploySystemInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -488,13 +452,9 @@ export async function serializeAws_json1_1DeprecateFlowTemplateCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeprecateFlowTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeprecateFlowTemplateRequest: serializeAws_json1_1DeprecateFlowTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeprecateFlowTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -514,13 +474,9 @@ export async function serializeAws_json1_1DeprecateSystemTemplateCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DeprecateSystemTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeprecateSystemTemplateRequest: serializeAws_json1_1DeprecateSystemTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeprecateSystemTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -539,13 +495,9 @@ export async function serializeAws_json1_1DescribeNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.DescribeNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNamespaceRequest: serializeAws_json1_1DescribeNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -565,13 +517,9 @@ export async function serializeAws_json1_1DissociateEntityFromThingCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.DissociateEntityFromThing";
   let body: any = {};
-  const wrappedBody: any = {
-    DissociateEntityFromThingRequest: serializeAws_json1_1DissociateEntityFromThingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DissociateEntityFromThingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -590,10 +538,7 @@ export async function serializeAws_json1_1GetEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEntitiesRequest: serializeAws_json1_1GetEntitiesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetEntitiesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -612,13 +557,9 @@ export async function serializeAws_json1_1GetFlowTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetFlowTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFlowTemplateRequest: serializeAws_json1_1GetFlowTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetFlowTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -638,13 +579,9 @@ export async function serializeAws_json1_1GetFlowTemplateRevisionsCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetFlowTemplateRevisions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFlowTemplateRevisionsRequest: serializeAws_json1_1GetFlowTemplateRevisionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetFlowTemplateRevisionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -664,13 +601,9 @@ export async function serializeAws_json1_1GetNamespaceDeletionStatusCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetNamespaceDeletionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNamespaceDeletionStatusRequest: serializeAws_json1_1GetNamespaceDeletionStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetNamespaceDeletionStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -689,13 +622,9 @@ export async function serializeAws_json1_1GetSystemInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSystemInstanceRequest: serializeAws_json1_1GetSystemInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSystemInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -714,13 +643,9 @@ export async function serializeAws_json1_1GetSystemTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetSystemTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSystemTemplateRequest: serializeAws_json1_1GetSystemTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSystemTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -740,13 +665,9 @@ export async function serializeAws_json1_1GetSystemTemplateRevisionsCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.GetSystemTemplateRevisions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSystemTemplateRevisionsRequest: serializeAws_json1_1GetSystemTemplateRevisionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSystemTemplateRevisionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -765,13 +686,9 @@ export async function serializeAws_json1_1GetUploadStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.GetUploadStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUploadStatusRequest: serializeAws_json1_1GetUploadStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUploadStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -791,13 +708,9 @@ export async function serializeAws_json1_1ListFlowExecutionMessagesCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.ListFlowExecutionMessages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFlowExecutionMessagesRequest: serializeAws_json1_1ListFlowExecutionMessagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListFlowExecutionMessagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -816,13 +729,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -841,13 +750,9 @@ export async function serializeAws_json1_1SearchEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchEntitiesRequest: serializeAws_json1_1SearchEntitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchEntitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -867,13 +772,9 @@ export async function serializeAws_json1_1SearchFlowExecutionsCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchFlowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchFlowExecutionsRequest: serializeAws_json1_1SearchFlowExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchFlowExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -892,13 +793,9 @@ export async function serializeAws_json1_1SearchFlowTemplatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchFlowTemplates";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchFlowTemplatesRequest: serializeAws_json1_1SearchFlowTemplatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchFlowTemplatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -918,13 +815,9 @@ export async function serializeAws_json1_1SearchSystemInstancesCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchSystemInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchSystemInstancesRequest: serializeAws_json1_1SearchSystemInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchSystemInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -944,13 +837,9 @@ export async function serializeAws_json1_1SearchSystemTemplatesCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.SearchSystemTemplates";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchSystemTemplatesRequest: serializeAws_json1_1SearchSystemTemplatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchSystemTemplatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -969,10 +858,9 @@ export async function serializeAws_json1_1SearchThingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.SearchThings";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchThingsRequest: serializeAws_json1_1SearchThingsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchThingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -991,10 +879,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1014,13 +899,9 @@ export async function serializeAws_json1_1UndeploySystemInstanceCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UndeploySystemInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    UndeploySystemInstanceRequest: serializeAws_json1_1UndeploySystemInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UndeploySystemInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1039,13 +920,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1064,13 +941,9 @@ export async function serializeAws_json1_1UpdateFlowTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "IotThingsGraphFrontEndService.UpdateFlowTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFlowTemplateRequest: serializeAws_json1_1UpdateFlowTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateFlowTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1090,13 +963,9 @@ export async function serializeAws_json1_1UpdateSystemTemplateCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UpdateSystemTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSystemTemplateRequest: serializeAws_json1_1UpdateSystemTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSystemTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1116,13 +985,9 @@ export async function serializeAws_json1_1UploadEntityDefinitionsCommand(
   headers["X-Amz-Target"] =
     "IotThingsGraphFrontEndService.UploadEntityDefinitions";
   let body: any = {};
-  const wrappedBody: any = {
-    UploadEntityDefinitionsRequest: serializeAws_json1_1UploadEntityDefinitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UploadEntityDefinitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

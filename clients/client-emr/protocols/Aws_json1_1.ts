@@ -279,13 +279,9 @@ export async function serializeAws_json1_1AddInstanceFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    AddInstanceFleetInput: serializeAws_json1_1AddInstanceFleetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddInstanceFleetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -304,13 +300,9 @@ export async function serializeAws_json1_1AddInstanceGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    AddInstanceGroupsInput: serializeAws_json1_1AddInstanceGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddInstanceGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,13 +321,9 @@ export async function serializeAws_json1_1AddJobFlowStepsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddJobFlowSteps";
   let body: any = {};
-  const wrappedBody: any = {
-    AddJobFlowStepsInput: serializeAws_json1_1AddJobFlowStepsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddJobFlowStepsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -354,10 +342,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.AddTags";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -376,10 +361,7 @@ export async function serializeAws_json1_1CancelStepsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.CancelSteps";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelStepsInput: serializeAws_json1_1CancelStepsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CancelStepsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -398,13 +380,9 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.CreateSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSecurityConfigurationInput: serializeAws_json1_1CreateSecurityConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSecurityConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -423,13 +401,9 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DeleteSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSecurityConfigurationInput: serializeAws_json1_1DeleteSecurityConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSecurityConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -448,13 +422,9 @@ export async function serializeAws_json1_1DescribeClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClusterInput: serializeAws_json1_1DescribeClusterInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClusterInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -473,13 +443,9 @@ export async function serializeAws_json1_1DescribeJobFlowsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeJobFlows";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeJobFlowsInput: serializeAws_json1_1DescribeJobFlowsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeJobFlowsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -498,13 +464,9 @@ export async function serializeAws_json1_1DescribeSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSecurityConfigurationInput: serializeAws_json1_1DescribeSecurityConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSecurityConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -523,10 +485,7 @@ export async function serializeAws_json1_1DescribeStepCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.DescribeStep";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStepInput: serializeAws_json1_1DescribeStepInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeStepInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -546,13 +505,9 @@ export async function serializeAws_json1_1GetBlockPublicAccessConfigurationComma
   headers["X-Amz-Target"] =
     "ElasticMapReduce.GetBlockPublicAccessConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBlockPublicAccessConfigurationInput: serializeAws_json1_1GetBlockPublicAccessConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -571,13 +526,9 @@ export async function serializeAws_json1_1ListBootstrapActionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListBootstrapActions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBootstrapActionsInput: serializeAws_json1_1ListBootstrapActionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBootstrapActionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -596,10 +547,7 @@ export async function serializeAws_json1_1ListClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    ListClustersInput: serializeAws_json1_1ListClustersInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListClustersInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -618,13 +566,9 @@ export async function serializeAws_json1_1ListInstanceFleetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceFleets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInstanceFleetsInput: serializeAws_json1_1ListInstanceFleetsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListInstanceFleetsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -643,13 +587,9 @@ export async function serializeAws_json1_1ListInstanceGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInstanceGroupsInput: serializeAws_json1_1ListInstanceGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListInstanceGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -668,10 +608,7 @@ export async function serializeAws_json1_1ListInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInstancesInput: serializeAws_json1_1ListInstancesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListInstancesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -690,13 +627,9 @@ export async function serializeAws_json1_1ListSecurityConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListSecurityConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSecurityConfigurationsInput: serializeAws_json1_1ListSecurityConfigurationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSecurityConfigurationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -715,10 +648,7 @@ export async function serializeAws_json1_1ListStepsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ListSteps";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStepsInput: serializeAws_json1_1ListStepsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListStepsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -737,10 +667,7 @@ export async function serializeAws_json1_1ModifyClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyClusterInput: serializeAws_json1_1ModifyClusterInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ModifyClusterInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -759,13 +686,9 @@ export async function serializeAws_json1_1ModifyInstanceFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyInstanceFleetInput: serializeAws_json1_1ModifyInstanceFleetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyInstanceFleetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -784,13 +707,9 @@ export async function serializeAws_json1_1ModifyInstanceGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyInstanceGroupsInput: serializeAws_json1_1ModifyInstanceGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyInstanceGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -809,13 +728,9 @@ export async function serializeAws_json1_1PutAutoScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.PutAutoScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAutoScalingPolicyInput: serializeAws_json1_1PutAutoScalingPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAutoScalingPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -835,13 +750,9 @@ export async function serializeAws_json1_1PutBlockPublicAccessConfigurationComma
   headers["X-Amz-Target"] =
     "ElasticMapReduce.PutBlockPublicAccessConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutBlockPublicAccessConfigurationInput: serializeAws_json1_1PutBlockPublicAccessConfigurationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -860,13 +771,9 @@ export async function serializeAws_json1_1RemoveAutoScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RemoveAutoScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveAutoScalingPolicyInput: serializeAws_json1_1RemoveAutoScalingPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -885,10 +792,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RemoveTags";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsInput: serializeAws_json1_1RemoveTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RemoveTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -907,10 +811,7 @@ export async function serializeAws_json1_1RunJobFlowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.RunJobFlow";
   let body: any = {};
-  const wrappedBody: any = {
-    RunJobFlowInput: serializeAws_json1_1RunJobFlowInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RunJobFlowInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -929,13 +830,9 @@ export async function serializeAws_json1_1SetTerminationProtectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.SetTerminationProtection";
   let body: any = {};
-  const wrappedBody: any = {
-    SetTerminationProtectionInput: serializeAws_json1_1SetTerminationProtectionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetTerminationProtectionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -954,13 +851,9 @@ export async function serializeAws_json1_1SetVisibleToAllUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.SetVisibleToAllUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    SetVisibleToAllUsersInput: serializeAws_json1_1SetVisibleToAllUsersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetVisibleToAllUsersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -979,13 +872,9 @@ export async function serializeAws_json1_1TerminateJobFlowsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ElasticMapReduce.TerminateJobFlows";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateJobFlowsInput: serializeAws_json1_1TerminateJobFlowsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TerminateJobFlowsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

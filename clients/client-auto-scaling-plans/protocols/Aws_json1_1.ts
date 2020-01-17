@@ -76,13 +76,9 @@ export async function serializeAws_json1_1CreateScalingPlanCommand(
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.CreateScalingPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateScalingPlanRequest: serializeAws_json1_1CreateScalingPlanRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateScalingPlanRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -102,13 +98,9 @@ export async function serializeAws_json1_1DeleteScalingPlanCommand(
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteScalingPlanRequest: serializeAws_json1_1DeleteScalingPlanRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteScalingPlanRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -128,13 +120,9 @@ export async function serializeAws_json1_1DescribeScalingPlanResourcesCommand(
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalingPlanResourcesRequest: serializeAws_json1_1DescribeScalingPlanResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -154,13 +142,9 @@ export async function serializeAws_json1_1DescribeScalingPlansCommand(
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalingPlansRequest: serializeAws_json1_1DescribeScalingPlansRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalingPlansRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -180,13 +164,12 @@ export async function serializeAws_json1_1GetScalingPlanResourceForecastDataComm
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData";
   let body: any = {};
-  const wrappedBody: any = {
-    GetScalingPlanResourceForecastDataRequest: serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -206,13 +189,9 @@ export async function serializeAws_json1_1UpdateScalingPlanCommand(
   headers["X-Amz-Target"] =
     "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateScalingPlanRequest: serializeAws_json1_1UpdateScalingPlanRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateScalingPlanRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

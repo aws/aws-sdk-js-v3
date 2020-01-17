@@ -374,13 +374,9 @@ export async function serializeAws_json1_0DescribeEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEndpointsRequest: serializeAws_json1_0DescribeEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -399,10 +395,7 @@ export async function serializeAws_json1_0BatchGetItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.BatchGetItem";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetItemInput: serializeAws_json1_0BatchGetItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0BatchGetItemInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -421,10 +414,9 @@ export async function serializeAws_json1_0BatchWriteItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.BatchWriteItem";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchWriteItemInput: serializeAws_json1_0BatchWriteItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0BatchWriteItemInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -443,10 +435,7 @@ export async function serializeAws_json1_0CreateBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.CreateBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBackupInput: serializeAws_json1_0CreateBackupInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0CreateBackupInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -465,13 +454,9 @@ export async function serializeAws_json1_0CreateGlobalTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.CreateGlobalTable";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGlobalTableInput: serializeAws_json1_0CreateGlobalTableInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CreateGlobalTableInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -490,10 +475,7 @@ export async function serializeAws_json1_0CreateTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.CreateTable";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTableInput: serializeAws_json1_0CreateTableInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0CreateTableInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -512,10 +494,7 @@ export async function serializeAws_json1_0DeleteBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBackupInput: serializeAws_json1_0DeleteBackupInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0DeleteBackupInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -534,10 +513,7 @@ export async function serializeAws_json1_0DeleteItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteItem";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteItemInput: serializeAws_json1_0DeleteItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0DeleteItemInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -556,10 +532,7 @@ export async function serializeAws_json1_0DeleteTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DeleteTable";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTableInput: serializeAws_json1_0DeleteTableInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0DeleteTableInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -578,10 +551,9 @@ export async function serializeAws_json1_0DescribeBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBackupInput: serializeAws_json1_0DescribeBackupInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeBackupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -600,13 +572,9 @@ export async function serializeAws_json1_0DescribeContinuousBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContinuousBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeContinuousBackupsInput: serializeAws_json1_0DescribeContinuousBackupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeContinuousBackupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -625,13 +593,9 @@ export async function serializeAws_json1_0DescribeContributorInsightsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeContributorInsights";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeContributorInsightsInput: serializeAws_json1_0DescribeContributorInsightsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeContributorInsightsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -650,13 +614,9 @@ export async function serializeAws_json1_0DescribeGlobalTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTable";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGlobalTableInput: serializeAws_json1_0DescribeGlobalTableInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeGlobalTableInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -675,13 +635,9 @@ export async function serializeAws_json1_0DescribeGlobalTableSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeGlobalTableSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeGlobalTableSettingsInput: serializeAws_json1_0DescribeGlobalTableSettingsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -700,10 +656,9 @@ export async function serializeAws_json1_0DescribeLimitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeLimits";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLimitsInput: serializeAws_json1_0DescribeLimitsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeLimitsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -722,10 +677,7 @@ export async function serializeAws_json1_0DescribeTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTable";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTableInput: serializeAws_json1_0DescribeTableInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0DescribeTableInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -744,13 +696,9 @@ export async function serializeAws_json1_0DescribeTableReplicaAutoScalingCommand
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTableReplicaAutoScaling";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTableReplicaAutoScalingInput: serializeAws_json1_0DescribeTableReplicaAutoScalingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -769,13 +717,9 @@ export async function serializeAws_json1_0DescribeTimeToLiveCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.DescribeTimeToLive";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTimeToLiveInput: serializeAws_json1_0DescribeTimeToLiveInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeTimeToLiveInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -794,10 +738,7 @@ export async function serializeAws_json1_0GetItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.GetItem";
   let body: any = {};
-  const wrappedBody: any = {
-    GetItemInput: serializeAws_json1_0GetItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0GetItemInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -816,10 +757,7 @@ export async function serializeAws_json1_0ListBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.ListBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBackupsInput: serializeAws_json1_0ListBackupsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0ListBackupsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -838,13 +776,9 @@ export async function serializeAws_json1_0ListContributorInsightsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.ListContributorInsights";
   let body: any = {};
-  const wrappedBody: any = {
-    ListContributorInsightsInput: serializeAws_json1_0ListContributorInsightsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListContributorInsightsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -863,13 +797,9 @@ export async function serializeAws_json1_0ListGlobalTablesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.ListGlobalTables";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGlobalTablesInput: serializeAws_json1_0ListGlobalTablesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListGlobalTablesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -888,10 +818,7 @@ export async function serializeAws_json1_0ListTablesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.ListTables";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTablesInput: serializeAws_json1_0ListTablesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0ListTablesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -910,13 +837,9 @@ export async function serializeAws_json1_0ListTagsOfResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.ListTagsOfResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsOfResourceInput: serializeAws_json1_0ListTagsOfResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListTagsOfResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -935,10 +858,7 @@ export async function serializeAws_json1_0PutItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.PutItem";
   let body: any = {};
-  const wrappedBody: any = {
-    PutItemInput: serializeAws_json1_0PutItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0PutItemInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -957,10 +877,7 @@ export async function serializeAws_json1_0QueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.Query";
   let body: any = {};
-  const wrappedBody: any = {
-    QueryInput: serializeAws_json1_0QueryInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0QueryInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -979,13 +896,9 @@ export async function serializeAws_json1_0RestoreTableFromBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableFromBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreTableFromBackupInput: serializeAws_json1_0RestoreTableFromBackupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RestoreTableFromBackupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1004,13 +917,9 @@ export async function serializeAws_json1_0RestoreTableToPointInTimeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.RestoreTableToPointInTime";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreTableToPointInTimeInput: serializeAws_json1_0RestoreTableToPointInTimeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RestoreTableToPointInTimeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1029,10 +938,7 @@ export async function serializeAws_json1_0ScanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.Scan";
   let body: any = {};
-  const wrappedBody: any = {
-    ScanInput: serializeAws_json1_0ScanInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0ScanInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1051,10 +957,7 @@ export async function serializeAws_json1_0TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_0TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1073,13 +976,9 @@ export async function serializeAws_json1_0TransactGetItemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.TransactGetItems";
   let body: any = {};
-  const wrappedBody: any = {
-    TransactGetItemsInput: serializeAws_json1_0TransactGetItemsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0TransactGetItemsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1098,13 +997,9 @@ export async function serializeAws_json1_0TransactWriteItemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.TransactWriteItems";
   let body: any = {};
-  const wrappedBody: any = {
-    TransactWriteItemsInput: serializeAws_json1_0TransactWriteItemsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0TransactWriteItemsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1123,10 +1018,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_0UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1145,13 +1037,9 @@ export async function serializeAws_json1_0UpdateContinuousBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContinuousBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateContinuousBackupsInput: serializeAws_json1_0UpdateContinuousBackupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateContinuousBackupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1170,13 +1058,9 @@ export async function serializeAws_json1_0UpdateContributorInsightsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateContributorInsights";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateContributorInsightsInput: serializeAws_json1_0UpdateContributorInsightsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateContributorInsightsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1195,13 +1079,9 @@ export async function serializeAws_json1_0UpdateGlobalTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTable";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGlobalTableInput: serializeAws_json1_0UpdateGlobalTableInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateGlobalTableInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1220,13 +1100,9 @@ export async function serializeAws_json1_0UpdateGlobalTableSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateGlobalTableSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGlobalTableSettingsInput: serializeAws_json1_0UpdateGlobalTableSettingsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1245,10 +1121,7 @@ export async function serializeAws_json1_0UpdateItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateItem";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateItemInput: serializeAws_json1_0UpdateItemInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0UpdateItemInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1267,10 +1140,7 @@ export async function serializeAws_json1_0UpdateTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTable";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTableInput: serializeAws_json1_0UpdateTableInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0UpdateTableInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1289,13 +1159,9 @@ export async function serializeAws_json1_0UpdateTableReplicaAutoScalingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTableReplicaAutoScaling";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTableReplicaAutoScalingInput: serializeAws_json1_0UpdateTableReplicaAutoScalingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1314,13 +1180,9 @@ export async function serializeAws_json1_0UpdateTimeToLiveCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "DynamoDB_20120810.UpdateTimeToLive";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTimeToLiveInput: serializeAws_json1_0UpdateTimeToLiveInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateTimeToLiveInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -208,13 +208,9 @@ export async function serializeAws_json1_1CreateDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetRequest: serializeAws_json1_1CreateDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -233,13 +229,9 @@ export async function serializeAws_json1_1CreateDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetGroupRequest: serializeAws_json1_1CreateDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -258,13 +250,9 @@ export async function serializeAws_json1_1CreateDatasetImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateDatasetImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetImportJobRequest: serializeAws_json1_1CreateDatasetImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -283,13 +271,9 @@ export async function serializeAws_json1_1CreateForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateForecastRequest: serializeAws_json1_1CreateForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -308,13 +292,9 @@ export async function serializeAws_json1_1CreateForecastExportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreateForecastExportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateForecastExportJobRequest: serializeAws_json1_1CreateForecastExportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateForecastExportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -333,13 +313,9 @@ export async function serializeAws_json1_1CreatePredictorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.CreatePredictor";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePredictorRequest: serializeAws_json1_1CreatePredictorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePredictorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -358,13 +334,9 @@ export async function serializeAws_json1_1DeleteDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatasetRequest: serializeAws_json1_1DeleteDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -383,13 +355,9 @@ export async function serializeAws_json1_1DeleteDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatasetGroupRequest: serializeAws_json1_1DeleteDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -408,13 +376,9 @@ export async function serializeAws_json1_1DeleteDatasetImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteDatasetImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatasetImportJobRequest: serializeAws_json1_1DeleteDatasetImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatasetImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -433,13 +397,9 @@ export async function serializeAws_json1_1DeleteForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteForecastRequest: serializeAws_json1_1DeleteForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -458,13 +418,9 @@ export async function serializeAws_json1_1DeleteForecastExportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeleteForecastExportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteForecastExportJobRequest: serializeAws_json1_1DeleteForecastExportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteForecastExportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -483,13 +439,9 @@ export async function serializeAws_json1_1DeletePredictorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DeletePredictor";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePredictorRequest: serializeAws_json1_1DeletePredictorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePredictorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -508,13 +460,9 @@ export async function serializeAws_json1_1DescribeDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetRequest: serializeAws_json1_1DescribeDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -533,13 +481,9 @@ export async function serializeAws_json1_1DescribeDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetGroupRequest: serializeAws_json1_1DescribeDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -558,13 +502,9 @@ export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeDatasetImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetImportJobRequest: serializeAws_json1_1DescribeDatasetImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -583,13 +523,9 @@ export async function serializeAws_json1_1DescribeForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeForecastRequest: serializeAws_json1_1DescribeForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -608,13 +544,9 @@ export async function serializeAws_json1_1DescribeForecastExportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribeForecastExportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeForecastExportJobRequest: serializeAws_json1_1DescribeForecastExportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeForecastExportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -633,13 +565,9 @@ export async function serializeAws_json1_1DescribePredictorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.DescribePredictor";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePredictorRequest: serializeAws_json1_1DescribePredictorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePredictorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -658,13 +586,9 @@ export async function serializeAws_json1_1GetAccuracyMetricsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.GetAccuracyMetrics";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAccuracyMetricsRequest: serializeAws_json1_1GetAccuracyMetricsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAccuracyMetricsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -683,13 +607,9 @@ export async function serializeAws_json1_1ListDatasetGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasetGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetGroupsRequest: serializeAws_json1_1ListDatasetGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -708,13 +628,9 @@ export async function serializeAws_json1_1ListDatasetImportJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasetImportJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetImportJobsRequest: serializeAws_json1_1ListDatasetImportJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -733,10 +649,9 @@ export async function serializeAws_json1_1ListDatasetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListDatasets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetsRequest: serializeAws_json1_1ListDatasetsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -755,13 +670,9 @@ export async function serializeAws_json1_1ListForecastExportJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListForecastExportJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListForecastExportJobsRequest: serializeAws_json1_1ListForecastExportJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListForecastExportJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -780,13 +691,9 @@ export async function serializeAws_json1_1ListForecastsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListForecasts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListForecastsRequest: serializeAws_json1_1ListForecastsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListForecastsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -805,13 +712,9 @@ export async function serializeAws_json1_1ListPredictorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.ListPredictors";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPredictorsRequest: serializeAws_json1_1ListPredictorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPredictorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -830,13 +733,9 @@ export async function serializeAws_json1_1UpdateDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecast.UpdateDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDatasetGroupRequest: serializeAws_json1_1UpdateDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -144,13 +144,9 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.AddTagsToResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToResourceRequest: serializeAws_json1_1AddTagsToResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -169,10 +165,7 @@ export async function serializeAws_json1_1CreateHapgCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHapg";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHapgRequest: serializeAws_json1_1CreateHapgRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateHapgRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -191,10 +184,7 @@ export async function serializeAws_json1_1CreateHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHsmRequest: serializeAws_json1_1CreateHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -213,13 +203,9 @@ export async function serializeAws_json1_1CreateLunaClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateLunaClient";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLunaClientRequest: serializeAws_json1_1CreateLunaClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLunaClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -238,10 +224,7 @@ export async function serializeAws_json1_1DeleteHapgCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHapg";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteHapgRequest: serializeAws_json1_1DeleteHapgRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteHapgRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -260,10 +243,7 @@ export async function serializeAws_json1_1DeleteHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteHsmRequest: serializeAws_json1_1DeleteHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -282,13 +262,9 @@ export async function serializeAws_json1_1DeleteLunaClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteLunaClient";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLunaClientRequest: serializeAws_json1_1DeleteLunaClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLunaClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -307,10 +283,9 @@ export async function serializeAws_json1_1DescribeHapgCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHapg";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHapgRequest: serializeAws_json1_1DescribeHapgRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeHapgRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,10 +304,7 @@ export async function serializeAws_json1_1DescribeHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHsmRequest: serializeAws_json1_1DescribeHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -351,13 +323,9 @@ export async function serializeAws_json1_1DescribeLunaClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeLunaClient";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLunaClientRequest: serializeAws_json1_1DescribeLunaClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLunaClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -376,10 +344,7 @@ export async function serializeAws_json1_1GetConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.GetConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConfigRequest: serializeAws_json1_1GetConfigRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetConfigRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -398,13 +363,9 @@ export async function serializeAws_json1_1ListAvailableZonesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ListAvailableZones";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAvailableZonesRequest: serializeAws_json1_1ListAvailableZonesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAvailableZonesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -423,10 +384,7 @@ export async function serializeAws_json1_1ListHapgsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHapgs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHapgsRequest: serializeAws_json1_1ListHapgsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListHapgsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,10 +403,7 @@ export async function serializeAws_json1_1ListHsmsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHsms";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHsmsRequest: serializeAws_json1_1ListHsmsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListHsmsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -467,13 +422,9 @@ export async function serializeAws_json1_1ListLunaClientsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ListLunaClients";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLunaClientsRequest: serializeAws_json1_1ListLunaClientsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLunaClientsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -492,13 +443,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -517,10 +464,7 @@ export async function serializeAws_json1_1ModifyHapgCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHapg";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyHapgRequest: serializeAws_json1_1ModifyHapgRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ModifyHapgRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -539,10 +483,7 @@ export async function serializeAws_json1_1ModifyHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyHsmRequest: serializeAws_json1_1ModifyHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ModifyHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -561,13 +502,9 @@ export async function serializeAws_json1_1ModifyLunaClientCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyLunaClient";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyLunaClientRequest: serializeAws_json1_1ModifyLunaClientRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyLunaClientRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -586,13 +523,9 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CloudHsmFrontendService.RemoveTagsFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromResourceRequest: serializeAws_json1_1RemoveTagsFromResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -506,7 +506,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -550,7 +550,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -738,7 +738,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -931,7 +931,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -1304,7 +1304,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -1345,7 +1345,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2031,7 +2031,7 @@ export async function serializeAws_restXmlGetObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2102,7 +2102,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2146,7 +2146,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2219,7 +2219,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2260,7 +2260,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2304,7 +2304,7 @@ export async function serializeAws_restXmlGetObjectTorrentCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2429,7 +2429,7 @@ export async function serializeAws_restXmlHeadObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -2781,7 +2781,7 @@ export async function serializeAws_restXmlListPartsCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -3650,7 +3650,7 @@ export async function serializeAws_restXmlPutObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -3719,7 +3719,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -3778,7 +3778,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -3892,7 +3892,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -3948,7 +3948,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -4045,7 +4045,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -4113,7 +4113,7 @@ export async function serializeAws_restXmlSelectObjectContentCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -4219,7 +4219,7 @@ export async function serializeAws_restXmlUploadPartCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }
@@ -4327,7 +4327,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Key.");
     }
-    resolvedPath = resolvedPath.replace("{Key}", labelValue);
+    resolvedPath = resolvedPath.replace("{Key+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Key.");
   }

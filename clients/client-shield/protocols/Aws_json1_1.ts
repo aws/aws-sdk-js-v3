@@ -155,13 +155,9 @@ export async function serializeAws_json1_1AssociateDRTLogBucketCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.AssociateDRTLogBucket";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateDRTLogBucketRequest: serializeAws_json1_1AssociateDRTLogBucketRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateDRTLogBucketRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -180,13 +176,9 @@ export async function serializeAws_json1_1AssociateDRTRoleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.AssociateDRTRole";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateDRTRoleRequest: serializeAws_json1_1AssociateDRTRoleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateDRTRoleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -205,13 +197,9 @@ export async function serializeAws_json1_1CreateProtectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.CreateProtection";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProtectionRequest: serializeAws_json1_1CreateProtectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProtectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -230,13 +218,9 @@ export async function serializeAws_json1_1CreateSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.CreateSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSubscriptionRequest: serializeAws_json1_1CreateSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -255,13 +239,9 @@ export async function serializeAws_json1_1DeleteProtectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DeleteProtection";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProtectionRequest: serializeAws_json1_1DeleteProtectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProtectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -280,13 +260,9 @@ export async function serializeAws_json1_1DeleteSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DeleteSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSubscriptionRequest: serializeAws_json1_1DeleteSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -305,13 +281,9 @@ export async function serializeAws_json1_1DescribeAttackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DescribeAttack";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAttackRequest: serializeAws_json1_1DescribeAttackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAttackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -330,13 +302,9 @@ export async function serializeAws_json1_1DescribeDRTAccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DescribeDRTAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDRTAccessRequest: serializeAws_json1_1DescribeDRTAccessRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDRTAccessRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -356,13 +324,9 @@ export async function serializeAws_json1_1DescribeEmergencyContactSettingsComman
   headers["X-Amz-Target"] =
     "AWSShield_20160616.DescribeEmergencyContactSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEmergencyContactSettingsRequest: serializeAws_json1_1DescribeEmergencyContactSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEmergencyContactSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -381,13 +345,9 @@ export async function serializeAws_json1_1DescribeProtectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DescribeProtection";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProtectionRequest: serializeAws_json1_1DescribeProtectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProtectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -406,13 +366,9 @@ export async function serializeAws_json1_1DescribeSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DescribeSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSubscriptionRequest: serializeAws_json1_1DescribeSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -431,13 +387,9 @@ export async function serializeAws_json1_1DisassociateDRTLogBucketCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DisassociateDRTLogBucket";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateDRTLogBucketRequest: serializeAws_json1_1DisassociateDRTLogBucketRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateDRTLogBucketRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -456,13 +408,9 @@ export async function serializeAws_json1_1DisassociateDRTRoleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.DisassociateDRTRole";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateDRTRoleRequest: serializeAws_json1_1DisassociateDRTRoleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateDRTRoleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -481,13 +429,9 @@ export async function serializeAws_json1_1GetSubscriptionStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.GetSubscriptionState";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSubscriptionStateRequest: serializeAws_json1_1GetSubscriptionStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSubscriptionStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -506,10 +450,7 @@ export async function serializeAws_json1_1ListAttacksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.ListAttacks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAttacksRequest: serializeAws_json1_1ListAttacksRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAttacksRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -528,13 +469,9 @@ export async function serializeAws_json1_1ListProtectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.ListProtections";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProtectionsRequest: serializeAws_json1_1ListProtectionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProtectionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -553,13 +490,9 @@ export async function serializeAws_json1_1UpdateEmergencyContactSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.UpdateEmergencyContactSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEmergencyContactSettingsRequest: serializeAws_json1_1UpdateEmergencyContactSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEmergencyContactSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -578,13 +511,9 @@ export async function serializeAws_json1_1UpdateSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShield_20160616.UpdateSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSubscriptionRequest: serializeAws_json1_1UpdateSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

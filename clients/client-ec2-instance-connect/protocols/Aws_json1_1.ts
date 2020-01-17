@@ -31,13 +31,9 @@ export async function serializeAws_json1_1SendSSHPublicKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEC2InstanceConnectService.SendSSHPublicKey";
   let body: any = {};
-  const wrappedBody: any = {
-    SendSSHPublicKeyRequest: serializeAws_json1_1SendSSHPublicKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SendSSHPublicKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

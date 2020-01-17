@@ -403,13 +403,9 @@ export async function serializeAws_json1_1CreateCapacityProviderCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCapacityProviderRequest: serializeAws_json1_1CreateCapacityProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCapacityProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -428,13 +424,9 @@ export async function serializeAws_json1_1CreateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateClusterRequest: serializeAws_json1_1CreateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -453,13 +445,9 @@ export async function serializeAws_json1_1CreateServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateService";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateServiceRequest: serializeAws_json1_1CreateServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -478,13 +466,9 @@ export async function serializeAws_json1_1CreateTaskSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.CreateTaskSet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTaskSetRequest: serializeAws_json1_1CreateTaskSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTaskSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -504,13 +488,9 @@ export async function serializeAws_json1_1DeleteAccountSettingCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAccountSettingRequest: serializeAws_json1_1DeleteAccountSettingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAccountSettingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -530,13 +510,9 @@ export async function serializeAws_json1_1DeleteAttributesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeleteAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAttributesRequest: serializeAws_json1_1DeleteAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -555,13 +531,9 @@ export async function serializeAws_json1_1DeleteClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteClusterRequest: serializeAws_json1_1DeleteClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -580,13 +552,9 @@ export async function serializeAws_json1_1DeleteServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteService";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServiceRequest: serializeAws_json1_1DeleteServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -605,13 +573,9 @@ export async function serializeAws_json1_1DeleteTaskSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DeleteTaskSet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTaskSetRequest: serializeAws_json1_1DeleteTaskSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTaskSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -631,13 +595,9 @@ export async function serializeAws_json1_1DeregisterContainerInstanceCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterContainerInstanceRequest: serializeAws_json1_1DeregisterContainerInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterContainerInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -657,13 +617,9 @@ export async function serializeAws_json1_1DeregisterTaskDefinitionCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterTaskDefinitionRequest: serializeAws_json1_1DeregisterTaskDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterTaskDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -683,13 +639,9 @@ export async function serializeAws_json1_1DescribeCapacityProvidersCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCapacityProvidersRequest: serializeAws_json1_1DescribeCapacityProvidersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCapacityProvidersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -709,13 +661,9 @@ export async function serializeAws_json1_1DescribeClustersCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClustersRequest: serializeAws_json1_1DescribeClustersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClustersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -735,13 +683,9 @@ export async function serializeAws_json1_1DescribeContainerInstancesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeContainerInstancesRequest: serializeAws_json1_1DescribeContainerInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeContainerInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -761,13 +705,9 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeServices";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServicesRequest: serializeAws_json1_1DescribeServicesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -787,13 +727,9 @@ export async function serializeAws_json1_1DescribeTaskDefinitionCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTaskDefinitionRequest: serializeAws_json1_1DescribeTaskDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTaskDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -813,13 +749,9 @@ export async function serializeAws_json1_1DescribeTaskSetsCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DescribeTaskSets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTaskSetsRequest: serializeAws_json1_1DescribeTaskSetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTaskSetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -838,13 +770,9 @@ export async function serializeAws_json1_1DescribeTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.DescribeTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTasksRequest: serializeAws_json1_1DescribeTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -864,13 +792,9 @@ export async function serializeAws_json1_1DiscoverPollEndpointCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DiscoverPollEndpointRequest: serializeAws_json1_1DiscoverPollEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DiscoverPollEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -890,13 +814,9 @@ export async function serializeAws_json1_1ListAccountSettingsCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListAccountSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAccountSettingsRequest: serializeAws_json1_1ListAccountSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAccountSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -915,13 +835,9 @@ export async function serializeAws_json1_1ListAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAttributesRequest: serializeAws_json1_1ListAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -940,10 +856,9 @@ export async function serializeAws_json1_1ListClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    ListClustersRequest: serializeAws_json1_1ListClustersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListClustersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -963,13 +878,9 @@ export async function serializeAws_json1_1ListContainerInstancesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListContainerInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListContainerInstancesRequest: serializeAws_json1_1ListContainerInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListContainerInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -988,10 +899,9 @@ export async function serializeAws_json1_1ListServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListServices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServicesRequest: serializeAws_json1_1ListServicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1011,13 +921,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1037,13 +943,9 @@ export async function serializeAws_json1_1ListTaskDefinitionFamiliesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTaskDefinitionFamiliesRequest: serializeAws_json1_1ListTaskDefinitionFamiliesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTaskDefinitionFamiliesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1063,13 +965,9 @@ export async function serializeAws_json1_1ListTaskDefinitionsCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTaskDefinitionsRequest: serializeAws_json1_1ListTaskDefinitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTaskDefinitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1088,10 +986,7 @@ export async function serializeAws_json1_1ListTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.ListTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTasksRequest: serializeAws_json1_1ListTasksRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTasksRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1111,13 +1006,9 @@ export async function serializeAws_json1_1PutAccountSettingCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutAccountSetting";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAccountSettingRequest: serializeAws_json1_1PutAccountSettingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAccountSettingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1137,13 +1028,9 @@ export async function serializeAws_json1_1PutAccountSettingDefaultCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAccountSettingDefaultRequest: serializeAws_json1_1PutAccountSettingDefaultRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAccountSettingDefaultRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1162,13 +1049,9 @@ export async function serializeAws_json1_1PutAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.PutAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAttributesRequest: serializeAws_json1_1PutAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1188,13 +1071,9 @@ export async function serializeAws_json1_1PutClusterCapacityProvidersCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders";
   let body: any = {};
-  const wrappedBody: any = {
-    PutClusterCapacityProvidersRequest: serializeAws_json1_1PutClusterCapacityProvidersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutClusterCapacityProvidersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1214,13 +1093,9 @@ export async function serializeAws_json1_1RegisterContainerInstanceCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterContainerInstanceRequest: serializeAws_json1_1RegisterContainerInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterContainerInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1240,13 +1115,9 @@ export async function serializeAws_json1_1RegisterTaskDefinitionCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterTaskDefinitionRequest: serializeAws_json1_1RegisterTaskDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterTaskDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1265,10 +1136,7 @@ export async function serializeAws_json1_1RunTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.RunTask";
   let body: any = {};
-  const wrappedBody: any = {
-    RunTaskRequest: serializeAws_json1_1RunTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RunTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1287,10 +1155,7 @@ export async function serializeAws_json1_1StartTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StartTask";
   let body: any = {};
-  const wrappedBody: any = {
-    StartTaskRequest: serializeAws_json1_1StartTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1309,10 +1174,7 @@ export async function serializeAws_json1_1StopTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.StopTask";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTaskRequest: serializeAws_json1_1StopTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1332,13 +1194,9 @@ export async function serializeAws_json1_1SubmitAttachmentStateChangesCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges";
   let body: any = {};
-  const wrappedBody: any = {
-    SubmitAttachmentStateChangesRequest: serializeAws_json1_1SubmitAttachmentStateChangesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubmitAttachmentStateChangesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1358,13 +1216,9 @@ export async function serializeAws_json1_1SubmitContainerStateChangeCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange";
   let body: any = {};
-  const wrappedBody: any = {
-    SubmitContainerStateChangeRequest: serializeAws_json1_1SubmitContainerStateChangeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubmitContainerStateChangeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1384,13 +1238,9 @@ export async function serializeAws_json1_1SubmitTaskStateChangeCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange";
   let body: any = {};
-  const wrappedBody: any = {
-    SubmitTaskStateChangeRequest: serializeAws_json1_1SubmitTaskStateChangeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubmitTaskStateChangeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1409,10 +1259,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1431,13 +1278,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1457,13 +1300,9 @@ export async function serializeAws_json1_1UpdateClusterSettingsCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateClusterSettingsRequest: serializeAws_json1_1UpdateClusterSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateClusterSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1483,13 +1322,9 @@ export async function serializeAws_json1_1UpdateContainerAgentCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateContainerAgentRequest: serializeAws_json1_1UpdateContainerAgentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateContainerAgentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1509,13 +1344,9 @@ export async function serializeAws_json1_1UpdateContainerInstancesStateCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateContainerInstancesStateRequest: serializeAws_json1_1UpdateContainerInstancesStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateContainerInstancesStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1534,13 +1365,9 @@ export async function serializeAws_json1_1UpdateServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateService";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServiceRequest: serializeAws_json1_1UpdateServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1560,13 +1387,9 @@ export async function serializeAws_json1_1UpdateServicePrimaryTaskSetCommand(
   headers["X-Amz-Target"] =
     "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServicePrimaryTaskSetRequest: serializeAws_json1_1UpdateServicePrimaryTaskSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServicePrimaryTaskSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1585,13 +1408,9 @@ export async function serializeAws_json1_1UpdateTaskSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonEC2ContainerServiceV20141113.UpdateTaskSet";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTaskSetRequest: serializeAws_json1_1UpdateTaskSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTaskSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

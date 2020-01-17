@@ -278,13 +278,9 @@ export async function serializeAws_json1_1AcceptQualificationRequestCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AcceptQualificationRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptQualificationRequestRequest: serializeAws_json1_1AcceptQualificationRequestRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcceptQualificationRequestRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -303,13 +299,9 @@ export async function serializeAws_json1_1ApproveAssignmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ApproveAssignment";
   let body: any = {};
-  const wrappedBody: any = {
-    ApproveAssignmentRequest: serializeAws_json1_1ApproveAssignmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ApproveAssignmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,13 +321,9 @@ export async function serializeAws_json1_1AssociateQualificationWithWorkerComman
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateQualificationWithWorkerRequest: serializeAws_json1_1AssociateQualificationWithWorkerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateQualificationWithWorkerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -355,13 +343,9 @@ export async function serializeAws_json1_1CreateAdditionalAssignmentsForHITComma
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAdditionalAssignmentsForHITRequest: serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -380,10 +364,7 @@ export async function serializeAws_json1_1CreateHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHITRequest: serializeAws_json1_1CreateHITRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateHITRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -402,13 +383,9 @@ export async function serializeAws_json1_1CreateHITTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateHITType";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHITTypeRequest: serializeAws_json1_1CreateHITTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateHITTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -428,13 +405,9 @@ export async function serializeAws_json1_1CreateHITWithHITTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateHITWithHITType";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHITWithHITTypeRequest: serializeAws_json1_1CreateHITWithHITTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateHITWithHITTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -454,13 +427,9 @@ export async function serializeAws_json1_1CreateQualificationTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.CreateQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateQualificationTypeRequest: serializeAws_json1_1CreateQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -479,13 +448,9 @@ export async function serializeAws_json1_1CreateWorkerBlockCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.CreateWorkerBlock";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWorkerBlockRequest: serializeAws_json1_1CreateWorkerBlockRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWorkerBlockRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -504,10 +469,7 @@ export async function serializeAws_json1_1DeleteHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteHITRequest: serializeAws_json1_1DeleteHITRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteHITRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -527,13 +489,9 @@ export async function serializeAws_json1_1DeleteQualificationTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DeleteQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteQualificationTypeRequest: serializeAws_json1_1DeleteQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -552,13 +510,9 @@ export async function serializeAws_json1_1DeleteWorkerBlockCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.DeleteWorkerBlock";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWorkerBlockRequest: serializeAws_json1_1DeleteWorkerBlockRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWorkerBlockRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -578,13 +532,12 @@ export async function serializeAws_json1_1DisassociateQualificationFromWorkerCom
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateQualificationFromWorkerRequest: serializeAws_json1_1DisassociateQualificationFromWorkerRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateQualificationFromWorkerRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -603,13 +556,9 @@ export async function serializeAws_json1_1GetAccountBalanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAccountBalance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAccountBalanceRequest: serializeAws_json1_1GetAccountBalanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAccountBalanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -628,13 +577,9 @@ export async function serializeAws_json1_1GetAssignmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetAssignment";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAssignmentRequest: serializeAws_json1_1GetAssignmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAssignmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -653,13 +598,9 @@ export async function serializeAws_json1_1GetFileUploadURLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetFileUploadURL";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFileUploadURLRequest: serializeAws_json1_1GetFileUploadURLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetFileUploadURLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -678,10 +619,7 @@ export async function serializeAws_json1_1GetHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.GetHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    GetHITRequest: serializeAws_json1_1GetHITRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetHITRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -701,13 +639,9 @@ export async function serializeAws_json1_1GetQualificationScoreCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationScore";
   let body: any = {};
-  const wrappedBody: any = {
-    GetQualificationScoreRequest: serializeAws_json1_1GetQualificationScoreRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetQualificationScoreRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -727,13 +661,9 @@ export async function serializeAws_json1_1GetQualificationTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.GetQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    GetQualificationTypeRequest: serializeAws_json1_1GetQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -753,13 +683,9 @@ export async function serializeAws_json1_1ListAssignmentsForHITCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListAssignmentsForHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssignmentsForHITRequest: serializeAws_json1_1ListAssignmentsForHITRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssignmentsForHITRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -778,13 +704,9 @@ export async function serializeAws_json1_1ListBonusPaymentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListBonusPayments";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBonusPaymentsRequest: serializeAws_json1_1ListBonusPaymentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBonusPaymentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -803,10 +725,7 @@ export async function serializeAws_json1_1ListHITsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListHITs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHITsRequest: serializeAws_json1_1ListHITsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListHITsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -826,13 +745,9 @@ export async function serializeAws_json1_1ListHITsForQualificationTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListHITsForQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHITsForQualificationTypeRequest: serializeAws_json1_1ListHITsForQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListHITsForQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -852,13 +767,9 @@ export async function serializeAws_json1_1ListQualificationRequestsCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationRequests";
   let body: any = {};
-  const wrappedBody: any = {
-    ListQualificationRequestsRequest: serializeAws_json1_1ListQualificationRequestsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListQualificationRequestsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -878,13 +789,9 @@ export async function serializeAws_json1_1ListQualificationTypesCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListQualificationTypes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListQualificationTypesRequest: serializeAws_json1_1ListQualificationTypesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListQualificationTypesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -904,13 +811,9 @@ export async function serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    ListReviewPolicyResultsForHITRequest: serializeAws_json1_1ListReviewPolicyResultsForHITRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListReviewPolicyResultsForHITRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -929,13 +832,9 @@ export async function serializeAws_json1_1ListReviewableHITsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListReviewableHITs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListReviewableHITsRequest: serializeAws_json1_1ListReviewableHITsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListReviewableHITsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -954,13 +853,9 @@ export async function serializeAws_json1_1ListWorkerBlocksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.ListWorkerBlocks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkerBlocksRequest: serializeAws_json1_1ListWorkerBlocksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListWorkerBlocksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -980,13 +875,9 @@ export async function serializeAws_json1_1ListWorkersWithQualificationTypeComman
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkersWithQualificationTypeRequest: serializeAws_json1_1ListWorkersWithQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListWorkersWithQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1005,13 +896,9 @@ export async function serializeAws_json1_1NotifyWorkersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.NotifyWorkers";
   let body: any = {};
-  const wrappedBody: any = {
-    NotifyWorkersRequest: serializeAws_json1_1NotifyWorkersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1NotifyWorkersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1030,13 +917,9 @@ export async function serializeAws_json1_1RejectAssignmentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.RejectAssignment";
   let body: any = {};
-  const wrappedBody: any = {
-    RejectAssignmentRequest: serializeAws_json1_1RejectAssignmentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RejectAssignmentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1056,13 +939,9 @@ export async function serializeAws_json1_1RejectQualificationRequestCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.RejectQualificationRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    RejectQualificationRequestRequest: serializeAws_json1_1RejectQualificationRequestRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RejectQualificationRequestRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1081,10 +960,7 @@ export async function serializeAws_json1_1SendBonusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.SendBonus";
   let body: any = {};
-  const wrappedBody: any = {
-    SendBonusRequest: serializeAws_json1_1SendBonusRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SendBonusRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1104,13 +980,9 @@ export async function serializeAws_json1_1SendTestEventNotificationCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.SendTestEventNotification";
   let body: any = {};
-  const wrappedBody: any = {
-    SendTestEventNotificationRequest: serializeAws_json1_1SendTestEventNotificationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SendTestEventNotificationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1130,13 +1002,9 @@ export async function serializeAws_json1_1UpdateExpirationForHITCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateExpirationForHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateExpirationForHITRequest: serializeAws_json1_1UpdateExpirationForHITRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateExpirationForHITRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1156,13 +1024,9 @@ export async function serializeAws_json1_1UpdateHITReviewStatusCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateHITReviewStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateHITReviewStatusRequest: serializeAws_json1_1UpdateHITReviewStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateHITReviewStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1181,13 +1045,9 @@ export async function serializeAws_json1_1UpdateHITTypeOfHITCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateHITTypeOfHITRequest: serializeAws_json1_1UpdateHITTypeOfHITRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateHITTypeOfHITRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1207,13 +1067,9 @@ export async function serializeAws_json1_1UpdateNotificationSettingsCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateNotificationSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNotificationSettingsRequest: serializeAws_json1_1UpdateNotificationSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNotificationSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1233,13 +1089,9 @@ export async function serializeAws_json1_1UpdateQualificationTypeCommand(
   headers["X-Amz-Target"] =
     "MTurkRequesterServiceV20170117.UpdateQualificationType";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateQualificationTypeRequest: serializeAws_json1_1UpdateQualificationTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateQualificationTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

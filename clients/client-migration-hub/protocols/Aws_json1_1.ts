@@ -132,13 +132,9 @@ export async function serializeAws_json1_1AssociateCreatedArtifactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.AssociateCreatedArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateCreatedArtifactRequest: serializeAws_json1_1AssociateCreatedArtifactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateCreatedArtifactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -157,13 +153,9 @@ export async function serializeAws_json1_1AssociateDiscoveredResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.AssociateDiscoveredResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateDiscoveredResourceRequest: serializeAws_json1_1AssociateDiscoveredResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateDiscoveredResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -182,13 +174,9 @@ export async function serializeAws_json1_1CreateProgressUpdateStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.CreateProgressUpdateStream";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProgressUpdateStreamRequest: serializeAws_json1_1CreateProgressUpdateStreamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProgressUpdateStreamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -207,13 +195,9 @@ export async function serializeAws_json1_1DeleteProgressUpdateStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DeleteProgressUpdateStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProgressUpdateStreamRequest: serializeAws_json1_1DeleteProgressUpdateStreamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProgressUpdateStreamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -232,13 +216,9 @@ export async function serializeAws_json1_1DescribeApplicationStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DescribeApplicationState";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeApplicationStateRequest: serializeAws_json1_1DescribeApplicationStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeApplicationStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -257,13 +237,9 @@ export async function serializeAws_json1_1DescribeMigrationTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DescribeMigrationTask";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMigrationTaskRequest: serializeAws_json1_1DescribeMigrationTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMigrationTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -282,13 +258,9 @@ export async function serializeAws_json1_1DisassociateCreatedArtifactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateCreatedArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateCreatedArtifactRequest: serializeAws_json1_1DisassociateCreatedArtifactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateCreatedArtifactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -307,13 +279,9 @@ export async function serializeAws_json1_1DisassociateDiscoveredResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.DisassociateDiscoveredResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateDiscoveredResourceRequest: serializeAws_json1_1DisassociateDiscoveredResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateDiscoveredResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -332,13 +300,9 @@ export async function serializeAws_json1_1ImportMigrationTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ImportMigrationTask";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportMigrationTaskRequest: serializeAws_json1_1ImportMigrationTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportMigrationTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -357,13 +321,9 @@ export async function serializeAws_json1_1ListCreatedArtifactsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListCreatedArtifacts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCreatedArtifactsRequest: serializeAws_json1_1ListCreatedArtifactsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCreatedArtifactsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,13 +342,9 @@ export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListDiscoveredResources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDiscoveredResourcesRequest: serializeAws_json1_1ListDiscoveredResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -407,13 +363,9 @@ export async function serializeAws_json1_1ListMigrationTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListMigrationTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListMigrationTasksRequest: serializeAws_json1_1ListMigrationTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListMigrationTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -432,13 +384,9 @@ export async function serializeAws_json1_1ListProgressUpdateStreamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.ListProgressUpdateStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProgressUpdateStreamsRequest: serializeAws_json1_1ListProgressUpdateStreamsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProgressUpdateStreamsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -457,13 +405,9 @@ export async function serializeAws_json1_1NotifyApplicationStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.NotifyApplicationState";
   let body: any = {};
-  const wrappedBody: any = {
-    NotifyApplicationStateRequest: serializeAws_json1_1NotifyApplicationStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1NotifyApplicationStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -482,13 +426,9 @@ export async function serializeAws_json1_1NotifyMigrationTaskStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.NotifyMigrationTaskState";
   let body: any = {};
-  const wrappedBody: any = {
-    NotifyMigrationTaskStateRequest: serializeAws_json1_1NotifyMigrationTaskStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1NotifyMigrationTaskStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -507,13 +447,9 @@ export async function serializeAws_json1_1PutResourceAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMigrationHub.PutResourceAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    PutResourceAttributesRequest: serializeAws_json1_1PutResourceAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutResourceAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -3499,7 +3499,7 @@ export async function deserializeAws_restJson1_1AssociateRoleToGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateRoleToGroupCommandError(
       output,
       context
@@ -3542,20 +3542,25 @@ async function deserializeAws_restJson1_1AssociateRoleToGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1AssociateServiceRoleToAccountCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AssociateServiceRoleToAccountCommandError(
       output,
       context
@@ -3598,20 +3603,25 @@ async function deserializeAws_restJson1_1AssociateServiceRoleToAccountCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateConnectorDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConnectorDefinitionCommandError(
       output,
       context
@@ -3671,20 +3681,25 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommandError(
       output,
       context
@@ -3732,20 +3747,25 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateCoreDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCoreDefinitionCommandError(
       output,
       context
@@ -3805,20 +3825,25 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateCoreDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateCoreDefinitionVersionCommandError(
       output,
       context
@@ -3866,20 +3891,25 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionVersionCommandError
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeploymentCommandError(
       output,
       context
@@ -3919,20 +3949,25 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDeviceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeviceDefinitionCommandError(
       output,
       context
@@ -3992,20 +4027,25 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommandError(
       output,
       context
@@ -4053,20 +4093,25 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateFunctionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFunctionDefinitionCommandError(
       output,
       context
@@ -4126,20 +4171,25 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommandError(
       output,
       context
@@ -4187,20 +4237,25 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupCommandError(output, context);
   }
   const contents: CreateGroupCommandOutput = {
@@ -4257,20 +4312,25 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommandError(
       output,
       context
@@ -4313,20 +4373,25 @@ async function deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateGroupVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateGroupVersionCommandError(
       output,
       context
@@ -4374,20 +4439,25 @@ async function deserializeAws_restJson1_1CreateGroupVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateLoggerDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLoggerDefinitionCommandError(
       output,
       context
@@ -4447,20 +4517,25 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommandError(
       output,
       context
@@ -4508,20 +4583,25 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateResourceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateResourceDefinitionCommandError(
       output,
       context
@@ -4581,20 +4661,25 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateResourceDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateResourceDefinitionVersionCommandError(
       output,
       context
@@ -4642,20 +4727,25 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionVersionCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateSoftwareUpdateJobCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSoftwareUpdateJobCommandError(
       output,
       context
@@ -4706,20 +4796,25 @@ async function deserializeAws_restJson1_1CreateSoftwareUpdateJobCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateSubscriptionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSubscriptionDefinitionCommandError(
       output,
       context
@@ -4779,20 +4874,25 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommandError(
       output,
       context
@@ -4840,20 +4940,25 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionComm
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteConnectorDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteConnectorDefinitionCommandError(
       output,
       context
@@ -4884,20 +4989,25 @@ async function deserializeAws_restJson1_1DeleteConnectorDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteCoreDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteCoreDefinitionCommandError(
       output,
       context
@@ -4928,20 +5038,25 @@ async function deserializeAws_restJson1_1DeleteCoreDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteDeviceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteDeviceDefinitionCommandError(
       output,
       context
@@ -4972,20 +5087,25 @@ async function deserializeAws_restJson1_1DeleteDeviceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteFunctionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFunctionDefinitionCommandError(
       output,
       context
@@ -5016,20 +5136,25 @@ async function deserializeAws_restJson1_1DeleteFunctionDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteGroupCommandError(output, context);
   }
   const contents: DeleteGroupCommandOutput = {
@@ -5057,20 +5182,25 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteLoggerDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteLoggerDefinitionCommandError(
       output,
       context
@@ -5101,20 +5231,25 @@ async function deserializeAws_restJson1_1DeleteLoggerDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteResourceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteResourceDefinitionCommandError(
       output,
       context
@@ -5145,20 +5280,25 @@ async function deserializeAws_restJson1_1DeleteResourceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommandError(
       output,
       context
@@ -5189,20 +5329,25 @@ async function deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DisassociateRoleFromGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateRoleFromGroupCommandError(
       output,
       context
@@ -5245,20 +5390,25 @@ async function deserializeAws_restJson1_1DisassociateRoleFromGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DisassociateServiceRoleFromAccountCommandError(
       output,
       context
@@ -5294,20 +5444,25 @@ async function deserializeAws_restJson1_1DisassociateServiceRoleFromAccountComma
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetAssociatedRoleCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetAssociatedRoleCommandError(
       output,
       context
@@ -5354,20 +5509,25 @@ async function deserializeAws_restJson1_1GetAssociatedRoleCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetBulkDeploymentStatusCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetBulkDeploymentStatusCommandError(
       output,
       context
@@ -5429,20 +5589,25 @@ async function deserializeAws_restJson1_1GetBulkDeploymentStatusCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetConnectivityInfoCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConnectivityInfoCommandError(
       output,
       context
@@ -5492,20 +5657,25 @@ async function deserializeAws_restJson1_1GetConnectivityInfoCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetConnectorDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConnectorDefinitionCommandError(
       output,
       context
@@ -5569,20 +5739,25 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetConnectorDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetConnectorDefinitionVersionCommandError(
       output,
       context
@@ -5641,20 +5816,25 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionVersionCommandErr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetCoreDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCoreDefinitionCommandError(
       output,
       context
@@ -5718,20 +5898,25 @@ async function deserializeAws_restJson1_1GetCoreDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetCoreDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetCoreDefinitionVersionCommandError(
       output,
       context
@@ -5790,20 +5975,25 @@ async function deserializeAws_restJson1_1GetCoreDefinitionVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetDeploymentStatusCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeploymentStatusCommandError(
       output,
       context
@@ -5858,20 +6048,25 @@ async function deserializeAws_restJson1_1GetDeploymentStatusCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetDeviceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeviceDefinitionCommandError(
       output,
       context
@@ -5935,20 +6130,25 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetDeviceDefinitionVersionCommandError(
       output,
       context
@@ -6007,20 +6207,25 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionDefinitionCommandError(
       output,
       context
@@ -6084,20 +6289,25 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetFunctionDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetFunctionDefinitionVersionCommandError(
       output,
       context
@@ -6156,20 +6366,25 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionVersionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupCommandError(output, context);
   }
   const contents: GetGroupCommandOutput = {
@@ -6230,20 +6445,25 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetGroupCertificateAuthorityCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupCertificateAuthorityCommandError(
       output,
       context
@@ -6294,20 +6514,25 @@ async function deserializeAws_restJson1_1GetGroupCertificateAuthorityCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupCertificateConfigurationCommandError(
       output,
       context
@@ -6360,20 +6585,25 @@ async function deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetGroupVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetGroupVersionCommandError(
       output,
       context
@@ -6428,20 +6658,25 @@ async function deserializeAws_restJson1_1GetGroupVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetLoggerDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLoggerDefinitionCommandError(
       output,
       context
@@ -6505,20 +6740,25 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetLoggerDefinitionVersionCommandError(
       output,
       context
@@ -6573,20 +6813,25 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionVersionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceDefinitionCommandError(
       output,
       context
@@ -6650,20 +6895,25 @@ async function deserializeAws_restJson1_1GetResourceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetResourceDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetResourceDefinitionVersionCommandError(
       output,
       context
@@ -6718,20 +6968,25 @@ async function deserializeAws_restJson1_1GetResourceDefinitionVersionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetServiceRoleForAccountCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetServiceRoleForAccountCommandError(
       output,
       context
@@ -6771,20 +7026,25 @@ async function deserializeAws_restJson1_1GetServiceRoleForAccountCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetSubscriptionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSubscriptionDefinitionCommandError(
       output,
       context
@@ -6848,20 +7108,25 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommandError(
       output,
       context
@@ -6920,20 +7185,25 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsCommandError(
       output,
       context
@@ -6976,20 +7246,25 @@ async function deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsComman
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListBulkDeploymentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListBulkDeploymentsCommandError(
       output,
       context
@@ -7032,20 +7307,25 @@ async function deserializeAws_restJson1_1ListBulkDeploymentsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommandError(
       output,
       context
@@ -7088,20 +7368,25 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListConnectorDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListConnectorDefinitionsCommandError(
       output,
       context
@@ -7137,20 +7422,25 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListCoreDefinitionVersionsCommandError(
       output,
       context
@@ -7193,20 +7483,25 @@ async function deserializeAws_restJson1_1ListCoreDefinitionVersionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListCoreDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListCoreDefinitionsCommandError(
       output,
       context
@@ -7242,20 +7537,25 @@ async function deserializeAws_restJson1_1ListCoreDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListDeploymentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeploymentsCommandError(
       output,
       context
@@ -7298,20 +7598,25 @@ async function deserializeAws_restJson1_1ListDeploymentsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommandError(
       output,
       context
@@ -7354,20 +7659,25 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListDeviceDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListDeviceDefinitionsCommandError(
       output,
       context
@@ -7403,20 +7713,25 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommandError(
       output,
       context
@@ -7459,20 +7774,25 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommandEr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListFunctionDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFunctionDefinitionsCommandError(
       output,
       context
@@ -7508,20 +7828,25 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommandError(
       output,
       context
@@ -7567,20 +7892,25 @@ async function deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommandE
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListGroupVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGroupVersionsCommandError(
       output,
       context
@@ -7623,20 +7953,25 @@ async function deserializeAws_restJson1_1ListGroupVersionsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListGroupsCommandError(output, context);
   }
   const contents: ListGroupsCommandOutput = {
@@ -7669,20 +8004,25 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommandError(
       output,
       context
@@ -7725,20 +8065,25 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListLoggerDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListLoggerDefinitionsCommandError(
       output,
       context
@@ -7774,20 +8119,25 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListResourceDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourceDefinitionVersionsCommandError(
       output,
       context
@@ -7830,20 +8180,25 @@ async function deserializeAws_restJson1_1ListResourceDefinitionVersionsCommandEr
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListResourceDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListResourceDefinitionsCommandError(
       output,
       context
@@ -7879,20 +8234,25 @@ async function deserializeAws_restJson1_1ListResourceDefinitionsCommandError(
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsCommandError(
       output,
       context
@@ -7935,20 +8295,25 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsComma
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListSubscriptionDefinitionsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListSubscriptionDefinitionsCommandError(
       output,
       context
@@ -7984,20 +8349,25 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionsCommandError
   }
   switch (errorCode) {
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -8033,20 +8403,25 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ResetDeploymentsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ResetDeploymentsCommandError(
       output,
       context
@@ -8086,20 +8461,25 @@ async function deserializeAws_restJson1_1ResetDeploymentsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1StartBulkDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartBulkDeploymentCommandError(
       output,
       context
@@ -8139,20 +8519,25 @@ async function deserializeAws_restJson1_1StartBulkDeploymentCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1StopBulkDeploymentCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopBulkDeploymentCommandError(
       output,
       context
@@ -8183,20 +8568,25 @@ async function deserializeAws_restJson1_1StopBulkDeploymentCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -8223,20 +8613,25 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -8263,20 +8658,25 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateConnectivityInfoCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConnectivityInfoCommandError(
       output,
       context
@@ -8323,20 +8723,25 @@ async function deserializeAws_restJson1_1UpdateConnectivityInfoCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateConnectorDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateConnectorDefinitionCommandError(
       output,
       context
@@ -8367,20 +8772,25 @@ async function deserializeAws_restJson1_1UpdateConnectorDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateCoreDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateCoreDefinitionCommandError(
       output,
       context
@@ -8411,20 +8821,25 @@ async function deserializeAws_restJson1_1UpdateCoreDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateDeviceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateDeviceDefinitionCommandError(
       output,
       context
@@ -8455,20 +8870,25 @@ async function deserializeAws_restJson1_1UpdateDeviceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFunctionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFunctionDefinitionCommandError(
       output,
       context
@@ -8499,20 +8919,25 @@ async function deserializeAws_restJson1_1UpdateFunctionDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateGroupCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGroupCommandError(output, context);
   }
   const contents: UpdateGroupCommandOutput = {
@@ -8540,20 +8965,25 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateGroupCertificateConfigurationCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateGroupCertificateConfigurationCommandError(
       output,
       context
@@ -8606,20 +9036,25 @@ async function deserializeAws_restJson1_1UpdateGroupCertificateConfigurationComm
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateLoggerDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateLoggerDefinitionCommandError(
       output,
       context
@@ -8650,20 +9085,25 @@ async function deserializeAws_restJson1_1UpdateLoggerDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateResourceDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateResourceDefinitionCommandError(
       output,
       context
@@ -8694,20 +9134,25 @@ async function deserializeAws_restJson1_1UpdateResourceDefinitionCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommandError(
       output,
       context
@@ -8738,13 +9183,18 @@ async function deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommandErro
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.greengrass#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
@@ -8752,6 +9202,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -8776,6 +9227,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
+    name: "InternalServerErrorException",
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),

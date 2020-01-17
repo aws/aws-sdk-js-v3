@@ -603,13 +603,9 @@ export async function serializeAws_json1_1BatchGetAggregateResourceConfigCommand
   headers["X-Amz-Target"] =
     "StarlingDoveService.BatchGetAggregateResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetAggregateResourceConfigRequest: serializeAws_json1_1BatchGetAggregateResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetAggregateResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -628,13 +624,9 @@ export async function serializeAws_json1_1BatchGetResourceConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.BatchGetResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetResourceConfigRequest: serializeAws_json1_1BatchGetResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -654,13 +646,9 @@ export async function serializeAws_json1_1DeleteAggregationAuthorizationCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteAggregationAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAggregationAuthorizationRequest: serializeAws_json1_1DeleteAggregationAuthorizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAggregationAuthorizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -679,13 +667,9 @@ export async function serializeAws_json1_1DeleteConfigRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConfigRuleRequest: serializeAws_json1_1DeleteConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -704,13 +688,9 @@ export async function serializeAws_json1_1DeleteConfigurationAggregatorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationAggregator";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConfigurationAggregatorRequest: serializeAws_json1_1DeleteConfigurationAggregatorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConfigurationAggregatorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -729,13 +709,9 @@ export async function serializeAws_json1_1DeleteConfigurationRecorderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationRecorder";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConfigurationRecorderRequest: serializeAws_json1_1DeleteConfigurationRecorderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConfigurationRecorderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -754,13 +730,9 @@ export async function serializeAws_json1_1DeleteConformancePackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteConformancePack";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConformancePackRequest: serializeAws_json1_1DeleteConformancePackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConformancePackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -779,13 +751,9 @@ export async function serializeAws_json1_1DeleteDeliveryChannelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteDeliveryChannel";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeliveryChannelRequest: serializeAws_json1_1DeleteDeliveryChannelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeliveryChannelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -804,13 +772,9 @@ export async function serializeAws_json1_1DeleteEvaluationResultsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteEvaluationResults";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEvaluationResultsRequest: serializeAws_json1_1DeleteEvaluationResultsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEvaluationResultsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -829,13 +793,9 @@ export async function serializeAws_json1_1DeleteOrganizationConfigRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteOrganizationConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteOrganizationConfigRuleRequest: serializeAws_json1_1DeleteOrganizationConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteOrganizationConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -855,13 +815,9 @@ export async function serializeAws_json1_1DeleteOrganizationConformancePackComma
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteOrganizationConformancePack";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteOrganizationConformancePackRequest: serializeAws_json1_1DeleteOrganizationConformancePackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteOrganizationConformancePackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -881,13 +837,9 @@ export async function serializeAws_json1_1DeletePendingAggregationRequestCommand
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeletePendingAggregationRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePendingAggregationRequestRequest: serializeAws_json1_1DeletePendingAggregationRequestRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePendingAggregationRequestRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -907,13 +859,9 @@ export async function serializeAws_json1_1DeleteRemediationConfigurationCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.DeleteRemediationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRemediationConfigurationRequest: serializeAws_json1_1DeleteRemediationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRemediationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -932,13 +880,9 @@ export async function serializeAws_json1_1DeleteRemediationExceptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteRemediationExceptions";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRemediationExceptionsRequest: serializeAws_json1_1DeleteRemediationExceptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRemediationExceptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -957,13 +901,9 @@ export async function serializeAws_json1_1DeleteResourceConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResourceConfigRequest: serializeAws_json1_1DeleteResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -982,13 +922,9 @@ export async function serializeAws_json1_1DeleteRetentionConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeleteRetentionConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRetentionConfigurationRequest: serializeAws_json1_1DeleteRetentionConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRetentionConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1007,13 +943,9 @@ export async function serializeAws_json1_1DeliverConfigSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DeliverConfigSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeliverConfigSnapshotRequest: serializeAws_json1_1DeliverConfigSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeliverConfigSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1033,13 +965,12 @@ export async function serializeAws_json1_1DescribeAggregateComplianceByConfigRul
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeAggregateComplianceByConfigRules";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAggregateComplianceByConfigRulesRequest: serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1059,13 +990,9 @@ export async function serializeAws_json1_1DescribeAggregationAuthorizationsComma
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeAggregationAuthorizations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAggregationAuthorizationsRequest: serializeAws_json1_1DescribeAggregationAuthorizationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAggregationAuthorizationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1085,13 +1012,9 @@ export async function serializeAws_json1_1DescribeComplianceByConfigRuleCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeComplianceByConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeComplianceByConfigRuleRequest: serializeAws_json1_1DescribeComplianceByConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeComplianceByConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1110,13 +1033,9 @@ export async function serializeAws_json1_1DescribeComplianceByResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeComplianceByResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeComplianceByResourceRequest: serializeAws_json1_1DescribeComplianceByResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeComplianceByResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1136,13 +1055,12 @@ export async function serializeAws_json1_1DescribeConfigRuleEvaluationStatusComm
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigRuleEvaluationStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigRuleEvaluationStatusRequest: serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1161,13 +1079,9 @@ export async function serializeAws_json1_1DescribeConfigRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConfigRules";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigRulesRequest: serializeAws_json1_1DescribeConfigRulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigRulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1187,13 +1101,12 @@ export async function serializeAws_json1_1DescribeConfigurationAggregatorSources
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigurationAggregatorSourcesStatusRequest: serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1213,13 +1126,9 @@ export async function serializeAws_json1_1DescribeConfigurationAggregatorsComman
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationAggregators";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigurationAggregatorsRequest: serializeAws_json1_1DescribeConfigurationAggregatorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationAggregatorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1239,13 +1148,12 @@ export async function serializeAws_json1_1DescribeConfigurationRecorderStatusCom
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationRecorderStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigurationRecorderStatusRequest: serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1265,13 +1173,9 @@ export async function serializeAws_json1_1DescribeConfigurationRecordersCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConfigurationRecorders";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigurationRecordersRequest: serializeAws_json1_1DescribeConfigurationRecordersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationRecordersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1291,13 +1195,9 @@ export async function serializeAws_json1_1DescribeConformancePackComplianceComma
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeConformancePackCompliance";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConformancePackComplianceRequest: serializeAws_json1_1DescribeConformancePackComplianceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConformancePackComplianceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1316,13 +1216,9 @@ export async function serializeAws_json1_1DescribeConformancePackStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePackStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConformancePackStatusRequest: serializeAws_json1_1DescribeConformancePackStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConformancePackStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1341,13 +1237,9 @@ export async function serializeAws_json1_1DescribeConformancePacksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePacks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConformancePacksRequest: serializeAws_json1_1DescribeConformancePacksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConformancePacksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1366,13 +1258,9 @@ export async function serializeAws_json1_1DescribeDeliveryChannelStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannelStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDeliveryChannelStatusRequest: serializeAws_json1_1DescribeDeliveryChannelStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDeliveryChannelStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1391,13 +1279,9 @@ export async function serializeAws_json1_1DescribeDeliveryChannelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannels";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDeliveryChannelsRequest: serializeAws_json1_1DescribeDeliveryChannelsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDeliveryChannelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1417,13 +1301,12 @@ export async function serializeAws_json1_1DescribeOrganizationConfigRuleStatuses
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConfigRuleStatuses";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOrganizationConfigRuleStatusesRequest: serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1443,13 +1326,9 @@ export async function serializeAws_json1_1DescribeOrganizationConfigRulesCommand
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConfigRules";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOrganizationConfigRulesRequest: serializeAws_json1_1DescribeOrganizationConfigRulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationConfigRulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1469,13 +1348,12 @@ export async function serializeAws_json1_1DescribeOrganizationConformancePackSta
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConformancePackStatuses";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOrganizationConformancePackStatusesRequest: serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1495,13 +1373,12 @@ export async function serializeAws_json1_1DescribeOrganizationConformancePacksCo
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeOrganizationConformancePacks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOrganizationConformancePacksRequest: serializeAws_json1_1DescribeOrganizationConformancePacksRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationConformancePacksRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1521,13 +1398,12 @@ export async function serializeAws_json1_1DescribePendingAggregationRequestsComm
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribePendingAggregationRequests";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePendingAggregationRequestsRequest: serializeAws_json1_1DescribePendingAggregationRequestsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePendingAggregationRequestsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1547,13 +1423,9 @@ export async function serializeAws_json1_1DescribeRemediationConfigurationsComma
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRemediationConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRemediationConfigurationsRequest: serializeAws_json1_1DescribeRemediationConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRemediationConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1572,13 +1444,9 @@ export async function serializeAws_json1_1DescribeRemediationExceptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.DescribeRemediationExceptions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRemediationExceptionsRequest: serializeAws_json1_1DescribeRemediationExceptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRemediationExceptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1598,13 +1466,12 @@ export async function serializeAws_json1_1DescribeRemediationExecutionStatusComm
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRemediationExecutionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRemediationExecutionStatusRequest: serializeAws_json1_1DescribeRemediationExecutionStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRemediationExecutionStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1624,13 +1491,9 @@ export async function serializeAws_json1_1DescribeRetentionConfigurationsCommand
   headers["X-Amz-Target"] =
     "StarlingDoveService.DescribeRetentionConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRetentionConfigurationsRequest: serializeAws_json1_1DescribeRetentionConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRetentionConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1650,13 +1513,12 @@ export async function serializeAws_json1_1GetAggregateComplianceDetailsByConfigR
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAggregateComplianceDetailsByConfigRuleRequest: serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1676,13 +1538,12 @@ export async function serializeAws_json1_1GetAggregateConfigRuleComplianceSummar
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateConfigRuleComplianceSummary";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAggregateConfigRuleComplianceSummaryRequest: serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1702,13 +1563,12 @@ export async function serializeAws_json1_1GetAggregateDiscoveredResourceCountsCo
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetAggregateDiscoveredResourceCounts";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAggregateDiscoveredResourceCountsRequest: serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1727,13 +1587,9 @@ export async function serializeAws_json1_1GetAggregateResourceConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetAggregateResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAggregateResourceConfigRequest: serializeAws_json1_1GetAggregateResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAggregateResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1753,13 +1609,9 @@ export async function serializeAws_json1_1GetComplianceDetailsByConfigRuleComman
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceDetailsByConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    GetComplianceDetailsByConfigRuleRequest: serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1779,13 +1631,9 @@ export async function serializeAws_json1_1GetComplianceDetailsByResourceCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceDetailsByResource";
   let body: any = {};
-  const wrappedBody: any = {
-    GetComplianceDetailsByResourceRequest: serializeAws_json1_1GetComplianceDetailsByResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetComplianceDetailsByResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1822,13 +1670,12 @@ export async function serializeAws_json1_1GetComplianceSummaryByResourceTypeComm
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetComplianceSummaryByResourceType";
   let body: any = {};
-  const wrappedBody: any = {
-    GetComplianceSummaryByResourceTypeRequest: serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1848,13 +1695,12 @@ export async function serializeAws_json1_1GetConformancePackComplianceDetailsCom
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetConformancePackComplianceDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConformancePackComplianceDetailsRequest: serializeAws_json1_1GetConformancePackComplianceDetailsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetConformancePackComplianceDetailsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1874,13 +1720,12 @@ export async function serializeAws_json1_1GetConformancePackComplianceSummaryCom
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetConformancePackComplianceSummary";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConformancePackComplianceSummaryRequest: serializeAws_json1_1GetConformancePackComplianceSummaryRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetConformancePackComplianceSummaryRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1899,13 +1744,9 @@ export async function serializeAws_json1_1GetDiscoveredResourceCountsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetDiscoveredResourceCounts";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDiscoveredResourceCountsRequest: serializeAws_json1_1GetDiscoveredResourceCountsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDiscoveredResourceCountsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1925,13 +1766,12 @@ export async function serializeAws_json1_1GetOrganizationConfigRuleDetailedStatu
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOrganizationConfigRuleDetailedStatusRequest: serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1951,13 +1791,12 @@ export async function serializeAws_json1_1GetOrganizationConformancePackDetailed
   headers["X-Amz-Target"] =
     "StarlingDoveService.GetOrganizationConformancePackDetailedStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOrganizationConformancePackDetailedStatusRequest: serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1976,13 +1815,9 @@ export async function serializeAws_json1_1GetResourceConfigHistoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.GetResourceConfigHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResourceConfigHistoryRequest: serializeAws_json1_1GetResourceConfigHistoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResourceConfigHistoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2002,13 +1837,9 @@ export async function serializeAws_json1_1ListAggregateDiscoveredResourcesComman
   headers["X-Amz-Target"] =
     "StarlingDoveService.ListAggregateDiscoveredResources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAggregateDiscoveredResourcesRequest: serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2027,13 +1858,9 @@ export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.ListDiscoveredResources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDiscoveredResourcesRequest: serializeAws_json1_1ListDiscoveredResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDiscoveredResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2052,13 +1879,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2077,13 +1900,9 @@ export async function serializeAws_json1_1PutAggregationAuthorizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutAggregationAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAggregationAuthorizationRequest: serializeAws_json1_1PutAggregationAuthorizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAggregationAuthorizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2102,13 +1921,9 @@ export async function serializeAws_json1_1PutConfigRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    PutConfigRuleRequest: serializeAws_json1_1PutConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2127,13 +1942,9 @@ export async function serializeAws_json1_1PutConfigurationAggregatorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationAggregator";
   let body: any = {};
-  const wrappedBody: any = {
-    PutConfigurationAggregatorRequest: serializeAws_json1_1PutConfigurationAggregatorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutConfigurationAggregatorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2152,13 +1963,9 @@ export async function serializeAws_json1_1PutConfigurationRecorderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationRecorder";
   let body: any = {};
-  const wrappedBody: any = {
-    PutConfigurationRecorderRequest: serializeAws_json1_1PutConfigurationRecorderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutConfigurationRecorderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2177,13 +1984,9 @@ export async function serializeAws_json1_1PutConformancePackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutConformancePack";
   let body: any = {};
-  const wrappedBody: any = {
-    PutConformancePackRequest: serializeAws_json1_1PutConformancePackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutConformancePackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2202,13 +2005,9 @@ export async function serializeAws_json1_1PutDeliveryChannelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutDeliveryChannel";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDeliveryChannelRequest: serializeAws_json1_1PutDeliveryChannelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutDeliveryChannelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2227,13 +2026,9 @@ export async function serializeAws_json1_1PutEvaluationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutEvaluations";
   let body: any = {};
-  const wrappedBody: any = {
-    PutEvaluationsRequest: serializeAws_json1_1PutEvaluationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutEvaluationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2252,13 +2047,9 @@ export async function serializeAws_json1_1PutOrganizationConfigRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutOrganizationConfigRule";
   let body: any = {};
-  const wrappedBody: any = {
-    PutOrganizationConfigRuleRequest: serializeAws_json1_1PutOrganizationConfigRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutOrganizationConfigRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2278,13 +2069,9 @@ export async function serializeAws_json1_1PutOrganizationConformancePackCommand(
   headers["X-Amz-Target"] =
     "StarlingDoveService.PutOrganizationConformancePack";
   let body: any = {};
-  const wrappedBody: any = {
-    PutOrganizationConformancePackRequest: serializeAws_json1_1PutOrganizationConformancePackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutOrganizationConformancePackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2303,13 +2090,9 @@ export async function serializeAws_json1_1PutRemediationConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRemediationConfigurationsRequest: serializeAws_json1_1PutRemediationConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRemediationConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2328,13 +2111,9 @@ export async function serializeAws_json1_1PutRemediationExceptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationExceptions";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRemediationExceptionsRequest: serializeAws_json1_1PutRemediationExceptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRemediationExceptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2353,13 +2132,9 @@ export async function serializeAws_json1_1PutResourceConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    PutResourceConfigRequest: serializeAws_json1_1PutResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2378,13 +2153,9 @@ export async function serializeAws_json1_1PutRetentionConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.PutRetentionConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRetentionConfigurationRequest: serializeAws_json1_1PutRetentionConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRetentionConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2403,13 +2174,9 @@ export async function serializeAws_json1_1SelectResourceConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.SelectResourceConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    SelectResourceConfigRequest: serializeAws_json1_1SelectResourceConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SelectResourceConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2428,13 +2195,9 @@ export async function serializeAws_json1_1StartConfigRulesEvaluationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartConfigRulesEvaluation";
   let body: any = {};
-  const wrappedBody: any = {
-    StartConfigRulesEvaluationRequest: serializeAws_json1_1StartConfigRulesEvaluationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartConfigRulesEvaluationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2453,13 +2216,9 @@ export async function serializeAws_json1_1StartConfigurationRecorderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartConfigurationRecorder";
   let body: any = {};
-  const wrappedBody: any = {
-    StartConfigurationRecorderRequest: serializeAws_json1_1StartConfigurationRecorderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartConfigurationRecorderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2478,13 +2237,9 @@ export async function serializeAws_json1_1StartRemediationExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StartRemediationExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartRemediationExecutionRequest: serializeAws_json1_1StartRemediationExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartRemediationExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2503,13 +2258,9 @@ export async function serializeAws_json1_1StopConfigurationRecorderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.StopConfigurationRecorder";
   let body: any = {};
-  const wrappedBody: any = {
-    StopConfigurationRecorderRequest: serializeAws_json1_1StopConfigurationRecorderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopConfigurationRecorderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2528,10 +2279,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2550,13 +2298,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "StarlingDoveService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

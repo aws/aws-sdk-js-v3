@@ -997,10 +997,7 @@ export async function serializeAws_json1_1AddTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.AddTags";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1019,13 +1016,9 @@ export async function serializeAws_json1_1AssociateTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.AssociateTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateTrialComponentRequest: serializeAws_json1_1AssociateTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1044,13 +1037,9 @@ export async function serializeAws_json1_1CreateAlgorithmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateAlgorithm";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAlgorithmInput: serializeAws_json1_1CreateAlgorithmInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAlgorithmInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1069,10 +1058,7 @@ export async function serializeAws_json1_1CreateAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateApp";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAppRequest: serializeAws_json1_1CreateAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1091,13 +1077,9 @@ export async function serializeAws_json1_1CreateAutoMLJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateAutoMLJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAutoMLJobRequest: serializeAws_json1_1CreateAutoMLJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAutoMLJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1116,13 +1098,9 @@ export async function serializeAws_json1_1CreateCodeRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateCodeRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCodeRepositoryInput: serializeAws_json1_1CreateCodeRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCodeRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1141,13 +1119,9 @@ export async function serializeAws_json1_1CreateCompilationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateCompilationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCompilationJobRequest: serializeAws_json1_1CreateCompilationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCompilationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1166,10 +1140,9 @@ export async function serializeAws_json1_1CreateDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDomainRequest: serializeAws_json1_1CreateDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1188,10 +1161,9 @@ export async function serializeAws_json1_1CreateEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEndpointInput: serializeAws_json1_1CreateEndpointInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1210,13 +1182,9 @@ export async function serializeAws_json1_1CreateEndpointConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateEndpointConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEndpointConfigInput: serializeAws_json1_1CreateEndpointConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEndpointConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1235,13 +1203,9 @@ export async function serializeAws_json1_1CreateExperimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateExperiment";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateExperimentRequest: serializeAws_json1_1CreateExperimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateExperimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1260,13 +1224,9 @@ export async function serializeAws_json1_1CreateFlowDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateFlowDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFlowDefinitionRequest: serializeAws_json1_1CreateFlowDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateFlowDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1285,13 +1245,9 @@ export async function serializeAws_json1_1CreateHumanTaskUiCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateHumanTaskUi";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHumanTaskUiRequest: serializeAws_json1_1CreateHumanTaskUiRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateHumanTaskUiRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1310,13 +1266,9 @@ export async function serializeAws_json1_1CreateHyperParameterTuningJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateHyperParameterTuningJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHyperParameterTuningJobRequest: serializeAws_json1_1CreateHyperParameterTuningJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateHyperParameterTuningJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1335,13 +1287,9 @@ export async function serializeAws_json1_1CreateLabelingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateLabelingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLabelingJobRequest: serializeAws_json1_1CreateLabelingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLabelingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1360,10 +1308,7 @@ export async function serializeAws_json1_1CreateModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateModel";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateModelInput: serializeAws_json1_1CreateModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1382,13 +1327,9 @@ export async function serializeAws_json1_1CreateModelPackageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateModelPackage";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateModelPackageInput: serializeAws_json1_1CreateModelPackageInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateModelPackageInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1407,13 +1348,9 @@ export async function serializeAws_json1_1CreateMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMonitoringScheduleRequest: serializeAws_json1_1CreateMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1432,13 +1369,9 @@ export async function serializeAws_json1_1CreateNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNotebookInstanceInput: serializeAws_json1_1CreateNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1457,13 +1390,12 @@ export async function serializeAws_json1_1CreateNotebookInstanceLifecycleConfigC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateNotebookInstanceLifecycleConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNotebookInstanceLifecycleConfigInput: serializeAws_json1_1CreateNotebookInstanceLifecycleConfigInput(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNotebookInstanceLifecycleConfigInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1482,13 +1414,9 @@ export async function serializeAws_json1_1CreatePresignedDomainUrlCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreatePresignedDomainUrl";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePresignedDomainUrlRequest: serializeAws_json1_1CreatePresignedDomainUrlRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePresignedDomainUrlRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1507,13 +1435,9 @@ export async function serializeAws_json1_1CreatePresignedNotebookInstanceUrlComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreatePresignedNotebookInstanceUrl";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePresignedNotebookInstanceUrlInput: serializeAws_json1_1CreatePresignedNotebookInstanceUrlInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePresignedNotebookInstanceUrlInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1532,13 +1456,9 @@ export async function serializeAws_json1_1CreateProcessingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateProcessingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProcessingJobRequest: serializeAws_json1_1CreateProcessingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProcessingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1557,13 +1477,9 @@ export async function serializeAws_json1_1CreateTrainingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrainingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTrainingJobRequest: serializeAws_json1_1CreateTrainingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTrainingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1582,13 +1498,9 @@ export async function serializeAws_json1_1CreateTransformJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTransformJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTransformJobRequest: serializeAws_json1_1CreateTransformJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTransformJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1607,10 +1519,7 @@ export async function serializeAws_json1_1CreateTrialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrial";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTrialRequest: serializeAws_json1_1CreateTrialRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTrialRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1629,13 +1538,9 @@ export async function serializeAws_json1_1CreateTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTrialComponentRequest: serializeAws_json1_1CreateTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1654,13 +1559,9 @@ export async function serializeAws_json1_1CreateUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserProfileRequest: serializeAws_json1_1CreateUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1679,13 +1580,9 @@ export async function serializeAws_json1_1CreateWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.CreateWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWorkteamRequest: serializeAws_json1_1CreateWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1704,13 +1601,9 @@ export async function serializeAws_json1_1DeleteAlgorithmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteAlgorithm";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAlgorithmInput: serializeAws_json1_1DeleteAlgorithmInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAlgorithmInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1729,10 +1622,7 @@ export async function serializeAws_json1_1DeleteAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteApp";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAppRequest: serializeAws_json1_1DeleteAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1751,13 +1641,9 @@ export async function serializeAws_json1_1DeleteCodeRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteCodeRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCodeRepositoryInput: serializeAws_json1_1DeleteCodeRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCodeRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1776,10 +1662,9 @@ export async function serializeAws_json1_1DeleteDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDomainRequest: serializeAws_json1_1DeleteDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1798,10 +1683,9 @@ export async function serializeAws_json1_1DeleteEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEndpointInput: serializeAws_json1_1DeleteEndpointInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1820,13 +1704,9 @@ export async function serializeAws_json1_1DeleteEndpointConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteEndpointConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEndpointConfigInput: serializeAws_json1_1DeleteEndpointConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEndpointConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1845,13 +1725,9 @@ export async function serializeAws_json1_1DeleteExperimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteExperiment";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteExperimentRequest: serializeAws_json1_1DeleteExperimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteExperimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1870,13 +1746,9 @@ export async function serializeAws_json1_1DeleteFlowDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteFlowDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFlowDefinitionRequest: serializeAws_json1_1DeleteFlowDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteFlowDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1895,10 +1767,7 @@ export async function serializeAws_json1_1DeleteModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteModel";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteModelInput: serializeAws_json1_1DeleteModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1917,13 +1786,9 @@ export async function serializeAws_json1_1DeleteModelPackageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteModelPackage";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteModelPackageInput: serializeAws_json1_1DeleteModelPackageInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteModelPackageInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1942,13 +1807,9 @@ export async function serializeAws_json1_1DeleteMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMonitoringScheduleRequest: serializeAws_json1_1DeleteMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1967,13 +1828,9 @@ export async function serializeAws_json1_1DeleteNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNotebookInstanceInput: serializeAws_json1_1DeleteNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1992,13 +1849,12 @@ export async function serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteNotebookInstanceLifecycleConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNotebookInstanceLifecycleConfigInput: serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigInput(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2017,10 +1873,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagsInput: serializeAws_json1_1DeleteTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2039,10 +1892,7 @@ export async function serializeAws_json1_1DeleteTrialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTrial";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTrialRequest: serializeAws_json1_1DeleteTrialRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTrialRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2061,13 +1911,9 @@ export async function serializeAws_json1_1DeleteTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTrialComponentRequest: serializeAws_json1_1DeleteTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2086,13 +1932,9 @@ export async function serializeAws_json1_1DeleteUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserProfileRequest: serializeAws_json1_1DeleteUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2111,13 +1953,9 @@ export async function serializeAws_json1_1DeleteWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DeleteWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWorkteamRequest: serializeAws_json1_1DeleteWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2136,13 +1974,9 @@ export async function serializeAws_json1_1DescribeAlgorithmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeAlgorithm";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAlgorithmInput: serializeAws_json1_1DescribeAlgorithmInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAlgorithmInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2161,10 +1995,7 @@ export async function serializeAws_json1_1DescribeAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeApp";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAppRequest: serializeAws_json1_1DescribeAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2183,13 +2014,9 @@ export async function serializeAws_json1_1DescribeAutoMLJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeAutoMLJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAutoMLJobRequest: serializeAws_json1_1DescribeAutoMLJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAutoMLJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2208,13 +2035,9 @@ export async function serializeAws_json1_1DescribeCodeRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeCodeRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCodeRepositoryInput: serializeAws_json1_1DescribeCodeRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCodeRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2233,13 +2056,9 @@ export async function serializeAws_json1_1DescribeCompilationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeCompilationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCompilationJobRequest: serializeAws_json1_1DescribeCompilationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCompilationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2258,13 +2077,9 @@ export async function serializeAws_json1_1DescribeDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDomainRequest: serializeAws_json1_1DescribeDomainRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2283,13 +2098,9 @@ export async function serializeAws_json1_1DescribeEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEndpointInput: serializeAws_json1_1DescribeEndpointInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2308,13 +2119,9 @@ export async function serializeAws_json1_1DescribeEndpointConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeEndpointConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEndpointConfigInput: serializeAws_json1_1DescribeEndpointConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEndpointConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2333,13 +2140,9 @@ export async function serializeAws_json1_1DescribeExperimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeExperiment";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExperimentRequest: serializeAws_json1_1DescribeExperimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeExperimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2358,13 +2161,9 @@ export async function serializeAws_json1_1DescribeFlowDefinitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeFlowDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFlowDefinitionRequest: serializeAws_json1_1DescribeFlowDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFlowDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2383,13 +2182,9 @@ export async function serializeAws_json1_1DescribeHumanTaskUiCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeHumanTaskUi";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHumanTaskUiRequest: serializeAws_json1_1DescribeHumanTaskUiRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeHumanTaskUiRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2408,13 +2203,9 @@ export async function serializeAws_json1_1DescribeHyperParameterTuningJobCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeHyperParameterTuningJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHyperParameterTuningJobRequest: serializeAws_json1_1DescribeHyperParameterTuningJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeHyperParameterTuningJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2433,13 +2224,9 @@ export async function serializeAws_json1_1DescribeLabelingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeLabelingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLabelingJobRequest: serializeAws_json1_1DescribeLabelingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLabelingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2458,10 +2245,7 @@ export async function serializeAws_json1_1DescribeModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeModel";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeModelInput: serializeAws_json1_1DescribeModelInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeModelInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2480,13 +2264,9 @@ export async function serializeAws_json1_1DescribeModelPackageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeModelPackage";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeModelPackageInput: serializeAws_json1_1DescribeModelPackageInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeModelPackageInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2505,13 +2285,9 @@ export async function serializeAws_json1_1DescribeMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMonitoringScheduleRequest: serializeAws_json1_1DescribeMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2530,13 +2306,9 @@ export async function serializeAws_json1_1DescribeNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNotebookInstanceInput: serializeAws_json1_1DescribeNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2555,13 +2327,12 @@ export async function serializeAws_json1_1DescribeNotebookInstanceLifecycleConfi
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeNotebookInstanceLifecycleConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNotebookInstanceLifecycleConfigInput: serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigInput(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2580,13 +2351,9 @@ export async function serializeAws_json1_1DescribeProcessingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeProcessingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProcessingJobRequest: serializeAws_json1_1DescribeProcessingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProcessingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2605,13 +2372,9 @@ export async function serializeAws_json1_1DescribeSubscribedWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeSubscribedWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSubscribedWorkteamRequest: serializeAws_json1_1DescribeSubscribedWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSubscribedWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2630,13 +2393,9 @@ export async function serializeAws_json1_1DescribeTrainingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrainingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrainingJobRequest: serializeAws_json1_1DescribeTrainingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrainingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2655,13 +2414,9 @@ export async function serializeAws_json1_1DescribeTransformJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTransformJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTransformJobRequest: serializeAws_json1_1DescribeTransformJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTransformJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2680,13 +2435,9 @@ export async function serializeAws_json1_1DescribeTrialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrial";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrialRequest: serializeAws_json1_1DescribeTrialRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrialRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2705,13 +2456,9 @@ export async function serializeAws_json1_1DescribeTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrialComponentRequest: serializeAws_json1_1DescribeTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2730,13 +2477,9 @@ export async function serializeAws_json1_1DescribeUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserProfileRequest: serializeAws_json1_1DescribeUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2755,13 +2498,9 @@ export async function serializeAws_json1_1DescribeWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DescribeWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkteamRequest: serializeAws_json1_1DescribeWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2780,13 +2519,9 @@ export async function serializeAws_json1_1DisassociateTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.DisassociateTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateTrialComponentRequest: serializeAws_json1_1DisassociateTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2805,13 +2540,9 @@ export async function serializeAws_json1_1GetSearchSuggestionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.GetSearchSuggestions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSearchSuggestionsRequest: serializeAws_json1_1GetSearchSuggestionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSearchSuggestionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2830,10 +2561,9 @@ export async function serializeAws_json1_1ListAlgorithmsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListAlgorithms";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAlgorithmsInput: serializeAws_json1_1ListAlgorithmsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAlgorithmsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2852,10 +2582,7 @@ export async function serializeAws_json1_1ListAppsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListApps";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAppsRequest: serializeAws_json1_1ListAppsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAppsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2874,13 +2601,9 @@ export async function serializeAws_json1_1ListAutoMLJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListAutoMLJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAutoMLJobsRequest: serializeAws_json1_1ListAutoMLJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAutoMLJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2899,13 +2622,9 @@ export async function serializeAws_json1_1ListCandidatesForAutoMLJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCandidatesForAutoMLJob";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCandidatesForAutoMLJobRequest: serializeAws_json1_1ListCandidatesForAutoMLJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCandidatesForAutoMLJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2924,13 +2643,9 @@ export async function serializeAws_json1_1ListCodeRepositoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCodeRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCodeRepositoriesInput: serializeAws_json1_1ListCodeRepositoriesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCodeRepositoriesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2949,13 +2664,9 @@ export async function serializeAws_json1_1ListCompilationJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListCompilationJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCompilationJobsRequest: serializeAws_json1_1ListCompilationJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCompilationJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2974,10 +2685,7 @@ export async function serializeAws_json1_1ListDomainsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListDomains";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDomainsRequest: serializeAws_json1_1ListDomainsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListDomainsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2996,13 +2704,9 @@ export async function serializeAws_json1_1ListEndpointConfigsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListEndpointConfigs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEndpointConfigsInput: serializeAws_json1_1ListEndpointConfigsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEndpointConfigsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3021,10 +2725,7 @@ export async function serializeAws_json1_1ListEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEndpointsInput: serializeAws_json1_1ListEndpointsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListEndpointsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3043,13 +2744,9 @@ export async function serializeAws_json1_1ListExperimentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListExperiments";
   let body: any = {};
-  const wrappedBody: any = {
-    ListExperimentsRequest: serializeAws_json1_1ListExperimentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListExperimentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3068,13 +2765,9 @@ export async function serializeAws_json1_1ListFlowDefinitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListFlowDefinitions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFlowDefinitionsRequest: serializeAws_json1_1ListFlowDefinitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListFlowDefinitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3093,13 +2786,9 @@ export async function serializeAws_json1_1ListHumanTaskUisCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListHumanTaskUis";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHumanTaskUisRequest: serializeAws_json1_1ListHumanTaskUisRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListHumanTaskUisRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3118,13 +2807,9 @@ export async function serializeAws_json1_1ListHyperParameterTuningJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListHyperParameterTuningJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHyperParameterTuningJobsRequest: serializeAws_json1_1ListHyperParameterTuningJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListHyperParameterTuningJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3143,13 +2828,9 @@ export async function serializeAws_json1_1ListLabelingJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListLabelingJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLabelingJobsRequest: serializeAws_json1_1ListLabelingJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLabelingJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3168,13 +2849,9 @@ export async function serializeAws_json1_1ListLabelingJobsForWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListLabelingJobsForWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLabelingJobsForWorkteamRequest: serializeAws_json1_1ListLabelingJobsForWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLabelingJobsForWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3193,13 +2870,9 @@ export async function serializeAws_json1_1ListModelPackagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListModelPackages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListModelPackagesInput: serializeAws_json1_1ListModelPackagesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListModelPackagesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3218,10 +2891,7 @@ export async function serializeAws_json1_1ListModelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListModels";
   let body: any = {};
-  const wrappedBody: any = {
-    ListModelsInput: serializeAws_json1_1ListModelsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListModelsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3240,13 +2910,9 @@ export async function serializeAws_json1_1ListMonitoringExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListMonitoringExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListMonitoringExecutionsRequest: serializeAws_json1_1ListMonitoringExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListMonitoringExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3265,13 +2931,9 @@ export async function serializeAws_json1_1ListMonitoringSchedulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListMonitoringSchedules";
   let body: any = {};
-  const wrappedBody: any = {
-    ListMonitoringSchedulesRequest: serializeAws_json1_1ListMonitoringSchedulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListMonitoringSchedulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3290,13 +2952,12 @@ export async function serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListNotebookInstanceLifecycleConfigs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListNotebookInstanceLifecycleConfigsInput: serializeAws_json1_1ListNotebookInstanceLifecycleConfigsInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListNotebookInstanceLifecycleConfigsInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3315,13 +2976,9 @@ export async function serializeAws_json1_1ListNotebookInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListNotebookInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListNotebookInstancesInput: serializeAws_json1_1ListNotebookInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListNotebookInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3340,13 +2997,9 @@ export async function serializeAws_json1_1ListProcessingJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListProcessingJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProcessingJobsRequest: serializeAws_json1_1ListProcessingJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProcessingJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3365,13 +3018,9 @@ export async function serializeAws_json1_1ListSubscribedWorkteamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListSubscribedWorkteams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSubscribedWorkteamsRequest: serializeAws_json1_1ListSubscribedWorkteamsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSubscribedWorkteamsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3390,10 +3039,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsInput: serializeAws_json1_1ListTagsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3412,13 +3058,9 @@ export async function serializeAws_json1_1ListTrainingJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrainingJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTrainingJobsRequest: serializeAws_json1_1ListTrainingJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTrainingJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3438,13 +3080,12 @@ export async function serializeAws_json1_1ListTrainingJobsForHyperParameterTunin
   headers["X-Amz-Target"] =
     "SageMaker.ListTrainingJobsForHyperParameterTuningJob";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTrainingJobsForHyperParameterTuningJobRequest: serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3463,13 +3104,9 @@ export async function serializeAws_json1_1ListTransformJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTransformJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTransformJobsRequest: serializeAws_json1_1ListTransformJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTransformJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3488,13 +3125,9 @@ export async function serializeAws_json1_1ListTrialComponentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrialComponents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTrialComponentsRequest: serializeAws_json1_1ListTrialComponentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTrialComponentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3513,10 +3146,7 @@ export async function serializeAws_json1_1ListTrialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListTrials";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTrialsRequest: serializeAws_json1_1ListTrialsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTrialsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3535,13 +3165,9 @@ export async function serializeAws_json1_1ListUserProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListUserProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    ListUserProfilesRequest: serializeAws_json1_1ListUserProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListUserProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3560,13 +3186,9 @@ export async function serializeAws_json1_1ListWorkteamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.ListWorkteams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkteamsRequest: serializeAws_json1_1ListWorkteamsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListWorkteamsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3585,13 +3207,9 @@ export async function serializeAws_json1_1RenderUiTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.RenderUiTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    RenderUiTemplateRequest: serializeAws_json1_1RenderUiTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RenderUiTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3610,10 +3228,7 @@ export async function serializeAws_json1_1SearchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.Search";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchRequest: serializeAws_json1_1SearchRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SearchRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3632,13 +3247,9 @@ export async function serializeAws_json1_1StartMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StartMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMonitoringScheduleRequest: serializeAws_json1_1StartMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3657,13 +3268,9 @@ export async function serializeAws_json1_1StartNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StartNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    StartNotebookInstanceInput: serializeAws_json1_1StartNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3682,13 +3289,9 @@ export async function serializeAws_json1_1StopAutoMLJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopAutoMLJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopAutoMLJobRequest: serializeAws_json1_1StopAutoMLJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopAutoMLJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3707,13 +3310,9 @@ export async function serializeAws_json1_1StopCompilationJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopCompilationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopCompilationJobRequest: serializeAws_json1_1StopCompilationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopCompilationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3732,13 +3331,9 @@ export async function serializeAws_json1_1StopHyperParameterTuningJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopHyperParameterTuningJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopHyperParameterTuningJobRequest: serializeAws_json1_1StopHyperParameterTuningJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopHyperParameterTuningJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3757,13 +3352,9 @@ export async function serializeAws_json1_1StopLabelingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopLabelingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopLabelingJobRequest: serializeAws_json1_1StopLabelingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopLabelingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3782,13 +3373,9 @@ export async function serializeAws_json1_1StopMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    StopMonitoringScheduleRequest: serializeAws_json1_1StopMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3807,13 +3394,9 @@ export async function serializeAws_json1_1StopNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    StopNotebookInstanceInput: serializeAws_json1_1StopNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3832,13 +3415,9 @@ export async function serializeAws_json1_1StopProcessingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopProcessingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopProcessingJobRequest: serializeAws_json1_1StopProcessingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopProcessingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3857,13 +3436,9 @@ export async function serializeAws_json1_1StopTrainingJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopTrainingJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTrainingJobRequest: serializeAws_json1_1StopTrainingJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopTrainingJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3882,13 +3457,9 @@ export async function serializeAws_json1_1StopTransformJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.StopTransformJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTransformJobRequest: serializeAws_json1_1StopTransformJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopTransformJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3907,13 +3478,9 @@ export async function serializeAws_json1_1UpdateCodeRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateCodeRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCodeRepositoryInput: serializeAws_json1_1UpdateCodeRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCodeRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3932,10 +3499,9 @@ export async function serializeAws_json1_1UpdateDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDomainRequest: serializeAws_json1_1UpdateDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3954,10 +3520,9 @@ export async function serializeAws_json1_1UpdateEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEndpointInput: serializeAws_json1_1UpdateEndpointInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEndpointInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3976,13 +3541,9 @@ export async function serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateEndpointWeightsAndCapacities";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateEndpointWeightsAndCapacitiesInput: serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4001,13 +3562,9 @@ export async function serializeAws_json1_1UpdateExperimentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateExperiment";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateExperimentRequest: serializeAws_json1_1UpdateExperimentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateExperimentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4026,13 +3583,9 @@ export async function serializeAws_json1_1UpdateMonitoringScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateMonitoringSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMonitoringScheduleRequest: serializeAws_json1_1UpdateMonitoringScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMonitoringScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4051,13 +3604,9 @@ export async function serializeAws_json1_1UpdateNotebookInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateNotebookInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNotebookInstanceInput: serializeAws_json1_1UpdateNotebookInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNotebookInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4076,13 +3625,12 @@ export async function serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateNotebookInstanceLifecycleConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNotebookInstanceLifecycleConfigInput: serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigInput(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4101,10 +3649,7 @@ export async function serializeAws_json1_1UpdateTrialCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateTrial";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTrialRequest: serializeAws_json1_1UpdateTrialRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateTrialRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4123,13 +3668,9 @@ export async function serializeAws_json1_1UpdateTrialComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateTrialComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTrialComponentRequest: serializeAws_json1_1UpdateTrialComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTrialComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4148,13 +3689,9 @@ export async function serializeAws_json1_1UpdateUserProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateUserProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserProfileRequest: serializeAws_json1_1UpdateUserProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -4173,13 +3710,9 @@ export async function serializeAws_json1_1UpdateWorkteamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "SageMaker.UpdateWorkteam";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateWorkteamRequest: serializeAws_json1_1UpdateWorkteamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateWorkteamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

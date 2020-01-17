@@ -43,13 +43,9 @@ export async function serializeAws_json1_1DescribeDimensionKeysCommand(
   headers["X-Amz-Target"] =
     "PerformanceInsightsv20180227.DescribeDimensionKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDimensionKeysRequest: serializeAws_json1_1DescribeDimensionKeysRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDimensionKeysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -68,13 +64,9 @@ export async function serializeAws_json1_1GetResourceMetricsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PerformanceInsightsv20180227.GetResourceMetrics";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResourceMetricsRequest: serializeAws_json1_1GetResourceMetricsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResourceMetricsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

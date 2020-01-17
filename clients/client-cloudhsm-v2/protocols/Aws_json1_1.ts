@@ -109,13 +109,9 @@ export async function serializeAws_json1_1CopyBackupToRegionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.CopyBackupToRegion";
   let body: any = {};
-  const wrappedBody: any = {
-    CopyBackupToRegionRequest: serializeAws_json1_1CopyBackupToRegionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CopyBackupToRegionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -134,13 +130,9 @@ export async function serializeAws_json1_1CreateClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.CreateCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateClusterRequest: serializeAws_json1_1CreateClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -159,10 +151,7 @@ export async function serializeAws_json1_1CreateHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.CreateHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHsmRequest: serializeAws_json1_1CreateHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -181,10 +170,9 @@ export async function serializeAws_json1_1DeleteBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.DeleteBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBackupRequest: serializeAws_json1_1DeleteBackupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -203,13 +191,9 @@ export async function serializeAws_json1_1DeleteClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.DeleteCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteClusterRequest: serializeAws_json1_1DeleteClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -228,10 +212,7 @@ export async function serializeAws_json1_1DeleteHsmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.DeleteHsm";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteHsmRequest: serializeAws_json1_1DeleteHsmRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteHsmRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -250,13 +231,9 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.DescribeBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBackupsRequest: serializeAws_json1_1DescribeBackupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBackupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -275,13 +252,9 @@ export async function serializeAws_json1_1DescribeClustersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.DescribeClusters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClustersRequest: serializeAws_json1_1DescribeClustersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClustersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -300,13 +273,9 @@ export async function serializeAws_json1_1InitializeClusterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.InitializeCluster";
   let body: any = {};
-  const wrappedBody: any = {
-    InitializeClusterRequest: serializeAws_json1_1InitializeClusterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InitializeClusterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -325,10 +294,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsRequest: serializeAws_json1_1ListTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -347,13 +313,9 @@ export async function serializeAws_json1_1RestoreBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.RestoreBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreBackupRequest: serializeAws_json1_1RestoreBackupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RestoreBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -372,10 +334,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +353,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "BaldrApiService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

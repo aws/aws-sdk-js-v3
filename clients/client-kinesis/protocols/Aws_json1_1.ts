@@ -206,13 +206,9 @@ export async function serializeAws_json1_1AddTagsToStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.AddTagsToStream";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToStreamInput: serializeAws_json1_1AddTagsToStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -231,10 +227,7 @@ export async function serializeAws_json1_1CreateStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.CreateStream";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStreamInput: serializeAws_json1_1CreateStreamInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateStreamInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -253,13 +246,9 @@ export async function serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DecreaseStreamRetentionPeriod";
   let body: any = {};
-  const wrappedBody: any = {
-    DecreaseStreamRetentionPeriodInput: serializeAws_json1_1DecreaseStreamRetentionPeriodInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DecreaseStreamRetentionPeriodInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -278,10 +267,7 @@ export async function serializeAws_json1_1DeleteStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DeleteStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteStreamInput: serializeAws_json1_1DeleteStreamInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteStreamInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -300,13 +286,9 @@ export async function serializeAws_json1_1DeregisterStreamConsumerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DeregisterStreamConsumer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterStreamConsumerInput: serializeAws_json1_1DeregisterStreamConsumerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterStreamConsumerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -325,10 +307,9 @@ export async function serializeAws_json1_1DescribeLimitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DescribeLimits";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLimitsInput: serializeAws_json1_1DescribeLimitsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLimitsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -347,10 +328,9 @@ export async function serializeAws_json1_1DescribeStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStreamInput: serializeAws_json1_1DescribeStreamInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +349,9 @@ export async function serializeAws_json1_1DescribeStreamConsumerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStreamConsumer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStreamConsumerInput: serializeAws_json1_1DescribeStreamConsumerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStreamConsumerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +370,9 @@ export async function serializeAws_json1_1DescribeStreamSummaryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStreamSummary";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStreamSummaryInput: serializeAws_json1_1DescribeStreamSummaryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStreamSummaryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +391,9 @@ export async function serializeAws_json1_1DisableEnhancedMonitoringCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.DisableEnhancedMonitoring";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableEnhancedMonitoringInput: serializeAws_json1_1DisableEnhancedMonitoringInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableEnhancedMonitoringInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -444,13 +412,9 @@ export async function serializeAws_json1_1EnableEnhancedMonitoringCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.EnableEnhancedMonitoring";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableEnhancedMonitoringInput: serializeAws_json1_1EnableEnhancedMonitoringInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableEnhancedMonitoringInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -469,10 +433,7 @@ export async function serializeAws_json1_1GetRecordsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.GetRecords";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRecordsInput: serializeAws_json1_1GetRecordsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRecordsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -491,13 +452,9 @@ export async function serializeAws_json1_1GetShardIteratorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.GetShardIterator";
   let body: any = {};
-  const wrappedBody: any = {
-    GetShardIteratorInput: serializeAws_json1_1GetShardIteratorInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetShardIteratorInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -516,13 +473,9 @@ export async function serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.IncreaseStreamRetentionPeriod";
   let body: any = {};
-  const wrappedBody: any = {
-    IncreaseStreamRetentionPeriodInput: serializeAws_json1_1IncreaseStreamRetentionPeriodInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1IncreaseStreamRetentionPeriodInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -541,10 +494,7 @@ export async function serializeAws_json1_1ListShardsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.ListShards";
   let body: any = {};
-  const wrappedBody: any = {
-    ListShardsInput: serializeAws_json1_1ListShardsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListShardsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -563,13 +513,9 @@ export async function serializeAws_json1_1ListStreamConsumersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.ListStreamConsumers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStreamConsumersInput: serializeAws_json1_1ListStreamConsumersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListStreamConsumersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -588,10 +534,7 @@ export async function serializeAws_json1_1ListStreamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.ListStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStreamsInput: serializeAws_json1_1ListStreamsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListStreamsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -610,13 +553,9 @@ export async function serializeAws_json1_1ListTagsForStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.ListTagsForStream";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForStreamInput: serializeAws_json1_1ListTagsForStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -635,10 +574,7 @@ export async function serializeAws_json1_1MergeShardsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.MergeShards";
   let body: any = {};
-  const wrappedBody: any = {
-    MergeShardsInput: serializeAws_json1_1MergeShardsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1MergeShardsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -657,10 +593,7 @@ export async function serializeAws_json1_1PutRecordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.PutRecord";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutRecordInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -679,10 +612,7 @@ export async function serializeAws_json1_1PutRecordsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.PutRecords";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRecordsInput: serializeAws_json1_1PutRecordsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutRecordsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -701,13 +631,9 @@ export async function serializeAws_json1_1RegisterStreamConsumerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.RegisterStreamConsumer";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterStreamConsumerInput: serializeAws_json1_1RegisterStreamConsumerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterStreamConsumerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -726,13 +652,9 @@ export async function serializeAws_json1_1RemoveTagsFromStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.RemoveTagsFromStream";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromStreamInput: serializeAws_json1_1RemoveTagsFromStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -751,10 +673,7 @@ export async function serializeAws_json1_1SplitShardCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.SplitShard";
   let body: any = {};
-  const wrappedBody: any = {
-    SplitShardInput: serializeAws_json1_1SplitShardInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SplitShardInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -773,13 +692,9 @@ export async function serializeAws_json1_1StartStreamEncryptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.StartStreamEncryption";
   let body: any = {};
-  const wrappedBody: any = {
-    StartStreamEncryptionInput: serializeAws_json1_1StartStreamEncryptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartStreamEncryptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -798,13 +713,9 @@ export async function serializeAws_json1_1StopStreamEncryptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.StopStreamEncryption";
   let body: any = {};
-  const wrappedBody: any = {
-    StopStreamEncryptionInput: serializeAws_json1_1StopStreamEncryptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopStreamEncryptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -823,13 +734,9 @@ export async function serializeAws_json1_1SubscribeToShardCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.SubscribeToShard";
   let body: any = {};
-  const wrappedBody: any = {
-    SubscribeToShardInput: serializeAws_json1_1SubscribeToShardInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubscribeToShardInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -848,13 +755,9 @@ export async function serializeAws_json1_1UpdateShardCountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Kinesis_20131202.UpdateShardCount";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateShardCountInput: serializeAws_json1_1UpdateShardCountInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateShardCountInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

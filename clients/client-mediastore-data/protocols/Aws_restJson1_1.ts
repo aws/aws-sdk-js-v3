@@ -49,7 +49,7 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path}", labelValue);
+    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -74,7 +74,7 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path}", labelValue);
+    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -102,7 +102,7 @@ export async function serializeAws_restJson1_1GetObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path}", labelValue);
+    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }
@@ -164,7 +164,7 @@ export async function serializeAws_restJson1_1PutObjectCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
-    resolvedPath = resolvedPath.replace("{Path}", labelValue);
+    resolvedPath = resolvedPath.replace("{Path+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: Path.");
   }

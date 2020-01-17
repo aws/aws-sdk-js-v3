@@ -71,13 +71,9 @@ export async function serializeAws_json1_1AssociateMemberAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateMemberAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateMemberAccountRequest: serializeAws_json1_1AssociateMemberAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateMemberAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -96,13 +92,9 @@ export async function serializeAws_json1_1AssociateS3ResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.AssociateS3Resources";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateS3ResourcesRequest: serializeAws_json1_1AssociateS3ResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateS3ResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -121,13 +113,9 @@ export async function serializeAws_json1_1DisassociateMemberAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateMemberAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateMemberAccountRequest: serializeAws_json1_1DisassociateMemberAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateMemberAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -146,13 +134,9 @@ export async function serializeAws_json1_1DisassociateS3ResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.DisassociateS3Resources";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateS3ResourcesRequest: serializeAws_json1_1DisassociateS3ResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateS3ResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -171,13 +155,9 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListMemberAccounts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListMemberAccountsRequest: serializeAws_json1_1ListMemberAccountsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListMemberAccountsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -196,13 +176,9 @@ export async function serializeAws_json1_1ListS3ResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.ListS3Resources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListS3ResourcesRequest: serializeAws_json1_1ListS3ResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListS3ResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -221,13 +197,9 @@ export async function serializeAws_json1_1UpdateS3ResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MacieService.UpdateS3Resources";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateS3ResourcesRequest: serializeAws_json1_1UpdateS3ResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateS3ResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

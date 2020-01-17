@@ -83,13 +83,9 @@ export async function serializeAws_json1_1CreateVocabularyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.CreateVocabulary";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateVocabularyRequest: serializeAws_json1_1CreateVocabularyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVocabularyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -108,13 +104,9 @@ export async function serializeAws_json1_1DeleteTranscriptionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteTranscriptionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTranscriptionJobRequest: serializeAws_json1_1DeleteTranscriptionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTranscriptionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -133,13 +125,9 @@ export async function serializeAws_json1_1DeleteVocabularyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.DeleteVocabulary";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteVocabularyRequest: serializeAws_json1_1DeleteVocabularyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVocabularyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -158,13 +146,9 @@ export async function serializeAws_json1_1GetTranscriptionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetTranscriptionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTranscriptionJobRequest: serializeAws_json1_1GetTranscriptionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTranscriptionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -183,13 +167,9 @@ export async function serializeAws_json1_1GetVocabularyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.GetVocabulary";
   let body: any = {};
-  const wrappedBody: any = {
-    GetVocabularyRequest: serializeAws_json1_1GetVocabularyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetVocabularyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -208,13 +188,9 @@ export async function serializeAws_json1_1ListTranscriptionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListTranscriptionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTranscriptionJobsRequest: serializeAws_json1_1ListTranscriptionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTranscriptionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -233,13 +209,9 @@ export async function serializeAws_json1_1ListVocabulariesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.ListVocabularies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListVocabulariesRequest: serializeAws_json1_1ListVocabulariesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListVocabulariesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -258,13 +230,9 @@ export async function serializeAws_json1_1StartTranscriptionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.StartTranscriptionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartTranscriptionJobRequest: serializeAws_json1_1StartTranscriptionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartTranscriptionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -283,13 +251,9 @@ export async function serializeAws_json1_1UpdateVocabularyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Transcribe.UpdateVocabulary";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateVocabularyRequest: serializeAws_json1_1UpdateVocabularyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVocabularyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

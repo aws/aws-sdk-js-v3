@@ -197,13 +197,12 @@ export async function serializeAws_json1_1AssociateConfigurationItemsToApplicati
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateConfigurationItemsToApplicationRequest: serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateConfigurationItemsToApplicationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -223,13 +222,9 @@ export async function serializeAws_json1_1BatchDeleteImportDataCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.BatchDeleteImportData";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteImportDataRequest: serializeAws_json1_1BatchDeleteImportDataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteImportDataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -248,13 +243,9 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateApplicationRequest: serializeAws_json1_1CreateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -273,10 +264,7 @@ export async function serializeAws_json1_1CreateTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.CreateTags";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTagsRequest: serializeAws_json1_1CreateTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -295,13 +283,9 @@ export async function serializeAws_json1_1DeleteApplicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteApplications";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationsRequest: serializeAws_json1_1DeleteApplicationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -320,10 +304,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DeleteTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagsRequest: serializeAws_json1_1DeleteTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -342,13 +323,9 @@ export async function serializeAws_json1_1DescribeAgentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeAgents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAgentsRequest: serializeAws_json1_1DescribeAgentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAgentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -368,13 +345,9 @@ export async function serializeAws_json1_1DescribeConfigurationsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConfigurationsRequest: serializeAws_json1_1DescribeConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +367,9 @@ export async function serializeAws_json1_1DescribeContinuousExportsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeContinuousExports";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeContinuousExportsRequest: serializeAws_json1_1DescribeContinuousExportsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeContinuousExportsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -420,13 +389,9 @@ export async function serializeAws_json1_1DescribeExportConfigurationsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeExportConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExportConfigurationsRequest: serializeAws_json1_1DescribeExportConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeExportConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -446,13 +411,9 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeExportTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExportTasksRequest: serializeAws_json1_1DescribeExportTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeExportTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -472,13 +433,9 @@ export async function serializeAws_json1_1DescribeImportTasksCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DescribeImportTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImportTasksRequest: serializeAws_json1_1DescribeImportTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImportTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -497,10 +454,9 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.DescribeTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTagsRequest: serializeAws_json1_1DescribeTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTagsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -520,13 +476,12 @@ export async function serializeAws_json1_1DisassociateConfigurationItemsFromAppl
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateConfigurationItemsFromApplicationRequest: serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -563,13 +518,9 @@ export async function serializeAws_json1_1GetDiscoverySummaryCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.GetDiscoverySummary";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDiscoverySummaryRequest: serializeAws_json1_1GetDiscoverySummaryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDiscoverySummaryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -588,13 +539,9 @@ export async function serializeAws_json1_1ListConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.ListConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListConfigurationsRequest: serializeAws_json1_1ListConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -614,13 +561,9 @@ export async function serializeAws_json1_1ListServerNeighborsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.ListServerNeighbors";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServerNeighborsRequest: serializeAws_json1_1ListServerNeighborsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServerNeighborsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -640,13 +583,9 @@ export async function serializeAws_json1_1StartContinuousExportCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StartContinuousExport";
   let body: any = {};
-  const wrappedBody: any = {
-    StartContinuousExportRequest: serializeAws_json1_1StartContinuousExportRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartContinuousExportRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -666,13 +605,9 @@ export async function serializeAws_json1_1StartDataCollectionByAgentIdsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDataCollectionByAgentIdsRequest: serializeAws_json1_1StartDataCollectionByAgentIdsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDataCollectionByAgentIdsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -691,13 +626,9 @@ export async function serializeAws_json1_1StartExportTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartExportTask";
   let body: any = {};
-  const wrappedBody: any = {
-    StartExportTaskRequest: serializeAws_json1_1StartExportTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartExportTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -716,13 +647,9 @@ export async function serializeAws_json1_1StartImportTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.StartImportTask";
   let body: any = {};
-  const wrappedBody: any = {
-    StartImportTaskRequest: serializeAws_json1_1StartImportTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartImportTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -742,13 +669,9 @@ export async function serializeAws_json1_1StopContinuousExportCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StopContinuousExport";
   let body: any = {};
-  const wrappedBody: any = {
-    StopContinuousExportRequest: serializeAws_json1_1StopContinuousExportRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopContinuousExportRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -768,13 +691,9 @@ export async function serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
   headers["X-Amz-Target"] =
     "AWSPoseidonService_V2015_11_01.StopDataCollectionByAgentIds";
   let body: any = {};
-  const wrappedBody: any = {
-    StopDataCollectionByAgentIdsRequest: serializeAws_json1_1StopDataCollectionByAgentIdsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopDataCollectionByAgentIdsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -793,13 +712,9 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPoseidonService_V2015_11_01.UpdateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApplicationRequest: serializeAws_json1_1UpdateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

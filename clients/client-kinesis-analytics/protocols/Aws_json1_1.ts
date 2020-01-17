@@ -206,13 +206,12 @@ export async function serializeAws_json1_1AddApplicationCloudWatchLoggingOptionC
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.AddApplicationCloudWatchLoggingOption";
   let body: any = {};
-  const wrappedBody: any = {
-    AddApplicationCloudWatchLoggingOptionRequest: serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -231,13 +230,9 @@ export async function serializeAws_json1_1AddApplicationInputCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.AddApplicationInput";
   let body: any = {};
-  const wrappedBody: any = {
-    AddApplicationInputRequest: serializeAws_json1_1AddApplicationInputRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddApplicationInputRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -257,13 +252,12 @@ export async function serializeAws_json1_1AddApplicationInputProcessingConfigura
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    AddApplicationInputProcessingConfigurationRequest: serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1AddApplicationInputProcessingConfigurationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -282,13 +276,9 @@ export async function serializeAws_json1_1AddApplicationOutputCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.AddApplicationOutput";
   let body: any = {};
-  const wrappedBody: any = {
-    AddApplicationOutputRequest: serializeAws_json1_1AddApplicationOutputRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddApplicationOutputRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -308,13 +298,9 @@ export async function serializeAws_json1_1AddApplicationReferenceDataSourceComma
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.AddApplicationReferenceDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    AddApplicationReferenceDataSourceRequest: serializeAws_json1_1AddApplicationReferenceDataSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddApplicationReferenceDataSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -333,13 +319,9 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.CreateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateApplicationRequest: serializeAws_json1_1CreateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -358,13 +340,9 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.DeleteApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationRequest: serializeAws_json1_1DeleteApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -384,13 +362,12 @@ export async function serializeAws_json1_1DeleteApplicationCloudWatchLoggingOpti
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.DeleteApplicationCloudWatchLoggingOption";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationCloudWatchLoggingOptionRequest: serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -410,13 +387,12 @@ export async function serializeAws_json1_1DeleteApplicationInputProcessingConfig
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.DeleteApplicationInputProcessingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationInputProcessingConfigurationRequest: serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationInputProcessingConfigurationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -435,13 +411,9 @@ export async function serializeAws_json1_1DeleteApplicationOutputCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.DeleteApplicationOutput";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationOutputRequest: serializeAws_json1_1DeleteApplicationOutputRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationOutputRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -461,13 +433,12 @@ export async function serializeAws_json1_1DeleteApplicationReferenceDataSourceCo
   headers["X-Amz-Target"] =
     "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationReferenceDataSourceRequest: serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationReferenceDataSourceRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -486,13 +457,9 @@ export async function serializeAws_json1_1DescribeApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.DescribeApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeApplicationRequest: serializeAws_json1_1DescribeApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -511,13 +478,9 @@ export async function serializeAws_json1_1DiscoverInputSchemaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.DiscoverInputSchema";
   let body: any = {};
-  const wrappedBody: any = {
-    DiscoverInputSchemaRequest: serializeAws_json1_1DiscoverInputSchemaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DiscoverInputSchemaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -536,13 +499,9 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.ListApplications";
   let body: any = {};
-  const wrappedBody: any = {
-    ListApplicationsRequest: serializeAws_json1_1ListApplicationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -561,13 +520,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -586,13 +541,9 @@ export async function serializeAws_json1_1StartApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.StartApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    StartApplicationRequest: serializeAws_json1_1StartApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -611,13 +562,9 @@ export async function serializeAws_json1_1StopApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.StopApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    StopApplicationRequest: serializeAws_json1_1StopApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -636,10 +583,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -658,13 +602,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -683,13 +623,9 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "KinesisAnalytics_20150814.UpdateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApplicationRequest: serializeAws_json1_1UpdateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

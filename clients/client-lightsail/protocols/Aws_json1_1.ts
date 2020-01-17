@@ -718,13 +718,9 @@ export async function serializeAws_json1_1AllocateStaticIpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.AllocateStaticIp";
   let body: any = {};
-  const wrappedBody: any = {
-    AllocateStaticIpRequest: serializeAws_json1_1AllocateStaticIpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AllocateStaticIpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -743,10 +739,7 @@ export async function serializeAws_json1_1AttachDiskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.AttachDisk";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachDiskRequest: serializeAws_json1_1AttachDiskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AttachDiskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -765,13 +758,9 @@ export async function serializeAws_json1_1AttachInstancesToLoadBalancerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.AttachInstancesToLoadBalancer";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachInstancesToLoadBalancerRequest: serializeAws_json1_1AttachInstancesToLoadBalancerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AttachInstancesToLoadBalancerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -791,13 +780,9 @@ export async function serializeAws_json1_1AttachLoadBalancerTlsCertificateComman
   headers["X-Amz-Target"] =
     "Lightsail_20161128.AttachLoadBalancerTlsCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachLoadBalancerTlsCertificateRequest: serializeAws_json1_1AttachLoadBalancerTlsCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AttachLoadBalancerTlsCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -816,13 +801,9 @@ export async function serializeAws_json1_1AttachStaticIpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.AttachStaticIp";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachStaticIpRequest: serializeAws_json1_1AttachStaticIpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AttachStaticIpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -841,13 +822,9 @@ export async function serializeAws_json1_1CloseInstancePublicPortsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CloseInstancePublicPorts";
   let body: any = {};
-  const wrappedBody: any = {
-    CloseInstancePublicPortsRequest: serializeAws_json1_1CloseInstancePublicPortsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CloseInstancePublicPortsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -866,10 +843,9 @@ export async function serializeAws_json1_1CopySnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CopySnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CopySnapshotRequest: serializeAws_json1_1CopySnapshotRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CopySnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -888,13 +864,9 @@ export async function serializeAws_json1_1CreateCloudFormationStackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateCloudFormationStack";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCloudFormationStackRequest: serializeAws_json1_1CreateCloudFormationStackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCloudFormationStackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -913,10 +885,7 @@ export async function serializeAws_json1_1CreateDiskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateDisk";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDiskRequest: serializeAws_json1_1CreateDiskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateDiskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -935,13 +904,9 @@ export async function serializeAws_json1_1CreateDiskFromSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateDiskFromSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDiskFromSnapshotRequest: serializeAws_json1_1CreateDiskFromSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDiskFromSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -960,13 +925,9 @@ export async function serializeAws_json1_1CreateDiskSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateDiskSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDiskSnapshotRequest: serializeAws_json1_1CreateDiskSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDiskSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -985,10 +946,9 @@ export async function serializeAws_json1_1CreateDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDomainRequest: serializeAws_json1_1CreateDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1007,13 +967,9 @@ export async function serializeAws_json1_1CreateDomainEntryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateDomainEntry";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDomainEntryRequest: serializeAws_json1_1CreateDomainEntryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDomainEntryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1032,13 +988,9 @@ export async function serializeAws_json1_1CreateInstanceSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateInstanceSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateInstanceSnapshotRequest: serializeAws_json1_1CreateInstanceSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInstanceSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1057,13 +1009,9 @@ export async function serializeAws_json1_1CreateInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateInstancesRequest: serializeAws_json1_1CreateInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1082,13 +1030,9 @@ export async function serializeAws_json1_1CreateInstancesFromSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateInstancesFromSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateInstancesFromSnapshotRequest: serializeAws_json1_1CreateInstancesFromSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateInstancesFromSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1107,13 +1051,9 @@ export async function serializeAws_json1_1CreateKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateKeyPairRequest: serializeAws_json1_1CreateKeyPairRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateKeyPairRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1132,13 +1072,9 @@ export async function serializeAws_json1_1CreateLoadBalancerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateLoadBalancer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLoadBalancerRequest: serializeAws_json1_1CreateLoadBalancerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLoadBalancerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1158,13 +1094,9 @@ export async function serializeAws_json1_1CreateLoadBalancerTlsCertificateComman
   headers["X-Amz-Target"] =
     "Lightsail_20161128.CreateLoadBalancerTlsCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLoadBalancerTlsCertificateRequest: serializeAws_json1_1CreateLoadBalancerTlsCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLoadBalancerTlsCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1183,13 +1115,9 @@ export async function serializeAws_json1_1CreateRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.CreateRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRelationalDatabaseRequest: serializeAws_json1_1CreateRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1209,13 +1137,12 @@ export async function serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCo
   headers["X-Amz-Target"] =
     "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRelationalDatabaseFromSnapshotRequest: serializeAws_json1_1CreateRelationalDatabaseFromSnapshotRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRelationalDatabaseFromSnapshotRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1235,13 +1162,9 @@ export async function serializeAws_json1_1CreateRelationalDatabaseSnapshotComman
   headers["X-Amz-Target"] =
     "Lightsail_20161128.CreateRelationalDatabaseSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRelationalDatabaseSnapshotRequest: serializeAws_json1_1CreateRelationalDatabaseSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRelationalDatabaseSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1260,13 +1183,9 @@ export async function serializeAws_json1_1DeleteAutoSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteAutoSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAutoSnapshotRequest: serializeAws_json1_1DeleteAutoSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAutoSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1285,10 +1204,7 @@ export async function serializeAws_json1_1DeleteDiskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteDisk";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDiskRequest: serializeAws_json1_1DeleteDiskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteDiskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1307,13 +1223,9 @@ export async function serializeAws_json1_1DeleteDiskSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteDiskSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDiskSnapshotRequest: serializeAws_json1_1DeleteDiskSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDiskSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1332,10 +1244,9 @@ export async function serializeAws_json1_1DeleteDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDomainRequest: serializeAws_json1_1DeleteDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDomainRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1354,13 +1265,9 @@ export async function serializeAws_json1_1DeleteDomainEntryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteDomainEntry";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDomainEntryRequest: serializeAws_json1_1DeleteDomainEntryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDomainEntryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1379,13 +1286,9 @@ export async function serializeAws_json1_1DeleteInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteInstanceRequest: serializeAws_json1_1DeleteInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1404,13 +1307,9 @@ export async function serializeAws_json1_1DeleteInstanceSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteInstanceSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteInstanceSnapshotRequest: serializeAws_json1_1DeleteInstanceSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteInstanceSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1429,13 +1328,9 @@ export async function serializeAws_json1_1DeleteKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteKeyPairRequest: serializeAws_json1_1DeleteKeyPairRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteKeyPairRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1454,13 +1349,9 @@ export async function serializeAws_json1_1DeleteKnownHostKeysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteKnownHostKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteKnownHostKeysRequest: serializeAws_json1_1DeleteKnownHostKeysRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteKnownHostKeysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1479,13 +1370,9 @@ export async function serializeAws_json1_1DeleteLoadBalancerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteLoadBalancer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLoadBalancerRequest: serializeAws_json1_1DeleteLoadBalancerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLoadBalancerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1505,13 +1392,9 @@ export async function serializeAws_json1_1DeleteLoadBalancerTlsCertificateComman
   headers["X-Amz-Target"] =
     "Lightsail_20161128.DeleteLoadBalancerTlsCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLoadBalancerTlsCertificateRequest: serializeAws_json1_1DeleteLoadBalancerTlsCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLoadBalancerTlsCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1530,13 +1413,9 @@ export async function serializeAws_json1_1DeleteRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DeleteRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRelationalDatabaseRequest: serializeAws_json1_1DeleteRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1556,13 +1435,9 @@ export async function serializeAws_json1_1DeleteRelationalDatabaseSnapshotComman
   headers["X-Amz-Target"] =
     "Lightsail_20161128.DeleteRelationalDatabaseSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRelationalDatabaseSnapshotRequest: serializeAws_json1_1DeleteRelationalDatabaseSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRelationalDatabaseSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1581,10 +1456,7 @@ export async function serializeAws_json1_1DetachDiskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DetachDisk";
   let body: any = {};
-  const wrappedBody: any = {
-    DetachDiskRequest: serializeAws_json1_1DetachDiskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DetachDiskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1604,13 +1476,9 @@ export async function serializeAws_json1_1DetachInstancesFromLoadBalancerCommand
   headers["X-Amz-Target"] =
     "Lightsail_20161128.DetachInstancesFromLoadBalancer";
   let body: any = {};
-  const wrappedBody: any = {
-    DetachInstancesFromLoadBalancerRequest: serializeAws_json1_1DetachInstancesFromLoadBalancerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetachInstancesFromLoadBalancerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1629,13 +1497,9 @@ export async function serializeAws_json1_1DetachStaticIpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DetachStaticIp";
   let body: any = {};
-  const wrappedBody: any = {
-    DetachStaticIpRequest: serializeAws_json1_1DetachStaticIpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetachStaticIpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1654,10 +1518,9 @@ export async function serializeAws_json1_1DisableAddOnCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DisableAddOn";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableAddOnRequest: serializeAws_json1_1DisableAddOnRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableAddOnRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1676,13 +1539,9 @@ export async function serializeAws_json1_1DownloadDefaultKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.DownloadDefaultKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    DownloadDefaultKeyPairRequest: serializeAws_json1_1DownloadDefaultKeyPairRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DownloadDefaultKeyPairRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1701,10 +1560,7 @@ export async function serializeAws_json1_1EnableAddOnCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.EnableAddOn";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableAddOnRequest: serializeAws_json1_1EnableAddOnRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableAddOnRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1723,13 +1579,9 @@ export async function serializeAws_json1_1ExportSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.ExportSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    ExportSnapshotRequest: serializeAws_json1_1ExportSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ExportSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1748,13 +1600,9 @@ export async function serializeAws_json1_1GetActiveNamesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetActiveNames";
   let body: any = {};
-  const wrappedBody: any = {
-    GetActiveNamesRequest: serializeAws_json1_1GetActiveNamesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetActiveNamesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1773,13 +1621,9 @@ export async function serializeAws_json1_1GetAutoSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetAutoSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAutoSnapshotsRequest: serializeAws_json1_1GetAutoSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAutoSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1798,13 +1642,9 @@ export async function serializeAws_json1_1GetBlueprintsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetBlueprints";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBlueprintsRequest: serializeAws_json1_1GetBlueprintsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetBlueprintsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1823,10 +1663,7 @@ export async function serializeAws_json1_1GetBundlesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetBundles";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBundlesRequest: serializeAws_json1_1GetBundlesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetBundlesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1845,13 +1682,9 @@ export async function serializeAws_json1_1GetCloudFormationStackRecordsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetCloudFormationStackRecords";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCloudFormationStackRecordsRequest: serializeAws_json1_1GetCloudFormationStackRecordsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCloudFormationStackRecordsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1870,10 +1703,7 @@ export async function serializeAws_json1_1GetDiskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDisk";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDiskRequest: serializeAws_json1_1GetDiskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDiskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1892,13 +1722,9 @@ export async function serializeAws_json1_1GetDiskSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDiskSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDiskSnapshotRequest: serializeAws_json1_1GetDiskSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDiskSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1917,13 +1743,9 @@ export async function serializeAws_json1_1GetDiskSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDiskSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDiskSnapshotsRequest: serializeAws_json1_1GetDiskSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDiskSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1942,10 +1764,7 @@ export async function serializeAws_json1_1GetDisksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDisks";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDisksRequest: serializeAws_json1_1GetDisksRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDisksRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1964,10 +1783,7 @@ export async function serializeAws_json1_1GetDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDomainRequest: serializeAws_json1_1GetDomainRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDomainRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1986,10 +1802,7 @@ export async function serializeAws_json1_1GetDomainsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetDomains";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDomainsRequest: serializeAws_json1_1GetDomainsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDomainsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2008,13 +1821,9 @@ export async function serializeAws_json1_1GetExportSnapshotRecordsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetExportSnapshotRecords";
   let body: any = {};
-  const wrappedBody: any = {
-    GetExportSnapshotRecordsRequest: serializeAws_json1_1GetExportSnapshotRecordsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetExportSnapshotRecordsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2033,10 +1842,7 @@ export async function serializeAws_json1_1GetInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceRequest: serializeAws_json1_1GetInstanceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2055,13 +1861,9 @@ export async function serializeAws_json1_1GetInstanceAccessDetailsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstanceAccessDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceAccessDetailsRequest: serializeAws_json1_1GetInstanceAccessDetailsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceAccessDetailsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2080,13 +1882,9 @@ export async function serializeAws_json1_1GetInstanceMetricDataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstanceMetricData";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceMetricDataRequest: serializeAws_json1_1GetInstanceMetricDataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceMetricDataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2105,13 +1903,9 @@ export async function serializeAws_json1_1GetInstancePortStatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstancePortStates";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstancePortStatesRequest: serializeAws_json1_1GetInstancePortStatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstancePortStatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2130,13 +1924,9 @@ export async function serializeAws_json1_1GetInstanceSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstanceSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceSnapshotRequest: serializeAws_json1_1GetInstanceSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2155,13 +1945,9 @@ export async function serializeAws_json1_1GetInstanceSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstanceSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceSnapshotsRequest: serializeAws_json1_1GetInstanceSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2180,13 +1966,9 @@ export async function serializeAws_json1_1GetInstanceStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstanceState";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceStateRequest: serializeAws_json1_1GetInstanceStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstanceStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2205,10 +1987,9 @@ export async function serializeAws_json1_1GetInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstancesRequest: serializeAws_json1_1GetInstancesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2227,10 +2008,7 @@ export async function serializeAws_json1_1GetKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    GetKeyPairRequest: serializeAws_json1_1GetKeyPairRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetKeyPairRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2249,10 +2027,7 @@ export async function serializeAws_json1_1GetKeyPairsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetKeyPairs";
   let body: any = {};
-  const wrappedBody: any = {
-    GetKeyPairsRequest: serializeAws_json1_1GetKeyPairsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetKeyPairsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2271,13 +2046,9 @@ export async function serializeAws_json1_1GetLoadBalancerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetLoadBalancer";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLoadBalancerRequest: serializeAws_json1_1GetLoadBalancerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoadBalancerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2296,13 +2067,9 @@ export async function serializeAws_json1_1GetLoadBalancerMetricDataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetLoadBalancerMetricData";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLoadBalancerMetricDataRequest: serializeAws_json1_1GetLoadBalancerMetricDataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoadBalancerMetricDataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2321,13 +2088,9 @@ export async function serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetLoadBalancerTlsCertificates";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLoadBalancerTlsCertificatesRequest: serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2346,13 +2109,9 @@ export async function serializeAws_json1_1GetLoadBalancersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetLoadBalancers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLoadBalancersRequest: serializeAws_json1_1GetLoadBalancersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoadBalancersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2371,10 +2130,9 @@ export async function serializeAws_json1_1GetOperationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetOperation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOperationRequest: serializeAws_json1_1GetOperationRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOperationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2393,13 +2151,9 @@ export async function serializeAws_json1_1GetOperationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetOperations";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOperationsRequest: serializeAws_json1_1GetOperationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOperationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2418,13 +2172,9 @@ export async function serializeAws_json1_1GetOperationsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetOperationsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOperationsForResourceRequest: serializeAws_json1_1GetOperationsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOperationsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2443,10 +2193,7 @@ export async function serializeAws_json1_1GetRegionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRegions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRegionsRequest: serializeAws_json1_1GetRegionsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRegionsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2465,13 +2212,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseRequest: serializeAws_json1_1GetRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2491,13 +2234,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand
   headers["X-Amz-Target"] =
     "Lightsail_20161128.GetRelationalDatabaseBlueprints";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseBlueprintsRequest: serializeAws_json1_1GetRelationalDatabaseBlueprintsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseBlueprintsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2516,13 +2255,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseBundlesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabaseBundles";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseBundlesRequest: serializeAws_json1_1GetRelationalDatabaseBundlesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseBundlesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2541,13 +2276,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabaseEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseEventsRequest: serializeAws_json1_1GetRelationalDatabaseEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2566,13 +2297,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseLogEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabaseLogEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseLogEventsRequest: serializeAws_json1_1GetRelationalDatabaseLogEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseLogEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2592,13 +2319,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand
   headers["X-Amz-Target"] =
     "Lightsail_20161128.GetRelationalDatabaseLogStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseLogStreamsRequest: serializeAws_json1_1GetRelationalDatabaseLogStreamsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseLogStreamsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2618,13 +2341,12 @@ export async function serializeAws_json1_1GetRelationalDatabaseMasterUserPasswor
   headers["X-Amz-Target"] =
     "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseMasterUserPasswordRequest: serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2644,13 +2366,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseMetricDataCommand
   headers["X-Amz-Target"] =
     "Lightsail_20161128.GetRelationalDatabaseMetricData";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseMetricDataRequest: serializeAws_json1_1GetRelationalDatabaseMetricDataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseMetricDataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2670,13 +2388,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseParametersCommand
   headers["X-Amz-Target"] =
     "Lightsail_20161128.GetRelationalDatabaseParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseParametersRequest: serializeAws_json1_1GetRelationalDatabaseParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2695,13 +2409,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabaseSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseSnapshotRequest: serializeAws_json1_1GetRelationalDatabaseSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2720,13 +2430,9 @@ export async function serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabaseSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabaseSnapshotsRequest: serializeAws_json1_1GetRelationalDatabaseSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabaseSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2745,13 +2451,9 @@ export async function serializeAws_json1_1GetRelationalDatabasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetRelationalDatabases";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRelationalDatabasesRequest: serializeAws_json1_1GetRelationalDatabasesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRelationalDatabasesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2770,10 +2472,7 @@ export async function serializeAws_json1_1GetStaticIpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetStaticIp";
   let body: any = {};
-  const wrappedBody: any = {
-    GetStaticIpRequest: serializeAws_json1_1GetStaticIpRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetStaticIpRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2792,10 +2491,9 @@ export async function serializeAws_json1_1GetStaticIpsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.GetStaticIps";
   let body: any = {};
-  const wrappedBody: any = {
-    GetStaticIpsRequest: serializeAws_json1_1GetStaticIpsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetStaticIpsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2814,13 +2512,9 @@ export async function serializeAws_json1_1ImportKeyPairCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.ImportKeyPair";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportKeyPairRequest: serializeAws_json1_1ImportKeyPairRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportKeyPairRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2839,10 +2533,7 @@ export async function serializeAws_json1_1IsVpcPeeredCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.IsVpcPeered";
   let body: any = {};
-  const wrappedBody: any = {
-    IsVpcPeeredRequest: serializeAws_json1_1IsVpcPeeredRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1IsVpcPeeredRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2861,13 +2552,9 @@ export async function serializeAws_json1_1OpenInstancePublicPortsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.OpenInstancePublicPorts";
   let body: any = {};
-  const wrappedBody: any = {
-    OpenInstancePublicPortsRequest: serializeAws_json1_1OpenInstancePublicPortsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1OpenInstancePublicPortsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2886,10 +2573,7 @@ export async function serializeAws_json1_1PeerVpcCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.PeerVpc";
   let body: any = {};
-  const wrappedBody: any = {
-    PeerVpcRequest: serializeAws_json1_1PeerVpcRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PeerVpcRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2908,13 +2592,9 @@ export async function serializeAws_json1_1PutInstancePublicPortsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.PutInstancePublicPorts";
   let body: any = {};
-  const wrappedBody: any = {
-    PutInstancePublicPortsRequest: serializeAws_json1_1PutInstancePublicPortsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutInstancePublicPortsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2933,13 +2613,9 @@ export async function serializeAws_json1_1RebootInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.RebootInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    RebootInstanceRequest: serializeAws_json1_1RebootInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RebootInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2958,13 +2634,9 @@ export async function serializeAws_json1_1RebootRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.RebootRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    RebootRelationalDatabaseRequest: serializeAws_json1_1RebootRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RebootRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2983,13 +2655,9 @@ export async function serializeAws_json1_1ReleaseStaticIpCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.ReleaseStaticIp";
   let body: any = {};
-  const wrappedBody: any = {
-    ReleaseStaticIpRequest: serializeAws_json1_1ReleaseStaticIpRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ReleaseStaticIpRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3008,13 +2676,9 @@ export async function serializeAws_json1_1StartInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.StartInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    StartInstanceRequest: serializeAws_json1_1StartInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3033,13 +2697,9 @@ export async function serializeAws_json1_1StartRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.StartRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    StartRelationalDatabaseRequest: serializeAws_json1_1StartRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3058,10 +2718,9 @@ export async function serializeAws_json1_1StopInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.StopInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    StopInstanceRequest: serializeAws_json1_1StopInstanceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3080,13 +2739,9 @@ export async function serializeAws_json1_1StopRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.StopRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    StopRelationalDatabaseRequest: serializeAws_json1_1StopRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3105,10 +2760,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3127,10 +2779,7 @@ export async function serializeAws_json1_1UnpeerVpcCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.UnpeerVpc";
   let body: any = {};
-  const wrappedBody: any = {
-    UnpeerVpcRequest: serializeAws_json1_1UnpeerVpcRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UnpeerVpcRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3149,13 +2798,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3174,13 +2819,9 @@ export async function serializeAws_json1_1UpdateDomainEntryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.UpdateDomainEntry";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDomainEntryRequest: serializeAws_json1_1UpdateDomainEntryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDomainEntryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3199,13 +2840,9 @@ export async function serializeAws_json1_1UpdateLoadBalancerAttributeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.UpdateLoadBalancerAttribute";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateLoadBalancerAttributeRequest: serializeAws_json1_1UpdateLoadBalancerAttributeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateLoadBalancerAttributeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3224,13 +2861,9 @@ export async function serializeAws_json1_1UpdateRelationalDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Lightsail_20161128.UpdateRelationalDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRelationalDatabaseRequest: serializeAws_json1_1UpdateRelationalDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRelationalDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3250,13 +2883,12 @@ export async function serializeAws_json1_1UpdateRelationalDatabaseParametersComm
   headers["X-Amz-Target"] =
     "Lightsail_20161128.UpdateRelationalDatabaseParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRelationalDatabaseParametersRequest: serializeAws_json1_1UpdateRelationalDatabaseParametersRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRelationalDatabaseParametersRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

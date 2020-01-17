@@ -127,13 +127,9 @@ export async function serializeAws_json1_1AssociateNodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.AssociateNode";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateNodeRequest: serializeAws_json1_1AssociateNodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateNodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -152,10 +148,9 @@ export async function serializeAws_json1_1CreateBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.CreateBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBackupRequest: serializeAws_json1_1CreateBackupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -174,10 +169,9 @@ export async function serializeAws_json1_1CreateServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.CreateServer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateServerRequest: serializeAws_json1_1CreateServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -196,10 +190,9 @@ export async function serializeAws_json1_1DeleteBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DeleteBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBackupRequest: serializeAws_json1_1DeleteBackupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -218,10 +211,9 @@ export async function serializeAws_json1_1DeleteServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DeleteServer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServerRequest: serializeAws_json1_1DeleteServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -240,13 +232,9 @@ export async function serializeAws_json1_1DescribeAccountAttributesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeAccountAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAccountAttributesRequest: serializeAws_json1_1DescribeAccountAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAccountAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -265,13 +253,9 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBackupsRequest: serializeAws_json1_1DescribeBackupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBackupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -290,13 +274,9 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventsRequest: serializeAws_json1_1DescribeEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -316,13 +296,9 @@ export async function serializeAws_json1_1DescribeNodeAssociationStatusCommand(
   headers["X-Amz-Target"] =
     "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNodeAssociationStatusRequest: serializeAws_json1_1DescribeNodeAssociationStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNodeAssociationStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -341,13 +317,9 @@ export async function serializeAws_json1_1DescribeServersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DescribeServers";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServersRequest: serializeAws_json1_1DescribeServersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -366,13 +338,9 @@ export async function serializeAws_json1_1DisassociateNodeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.DisassociateNode";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateNodeRequest: serializeAws_json1_1DisassociateNodeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateNodeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -392,13 +360,9 @@ export async function serializeAws_json1_1ExportServerEngineAttributeCommand(
   headers["X-Amz-Target"] =
     "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute";
   let body: any = {};
-  const wrappedBody: any = {
-    ExportServerEngineAttributeRequest: serializeAws_json1_1ExportServerEngineAttributeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ExportServerEngineAttributeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -417,13 +381,9 @@ export async function serializeAws_json1_1RestoreServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.RestoreServer";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreServerRequest: serializeAws_json1_1RestoreServerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RestoreServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -442,13 +402,9 @@ export async function serializeAws_json1_1StartMaintenanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.StartMaintenance";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMaintenanceRequest: serializeAws_json1_1StartMaintenanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartMaintenanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -467,10 +423,9 @@ export async function serializeAws_json1_1UpdateServerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "OpsWorksCM_V2016_11_01.UpdateServer";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServerRequest: serializeAws_json1_1UpdateServerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -490,13 +445,9 @@ export async function serializeAws_json1_1UpdateServerEngineAttributesCommand(
   headers["X-Amz-Target"] =
     "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServerEngineAttributesRequest: serializeAws_json1_1UpdateServerEngineAttributesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServerEngineAttributesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

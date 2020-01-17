@@ -86,13 +86,9 @@ export async function serializeAws_json1_1AnalyzeDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.AnalyzeDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    AnalyzeDocumentRequest: serializeAws_json1_1AnalyzeDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AnalyzeDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -111,13 +107,9 @@ export async function serializeAws_json1_1DetectDocumentTextCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.DetectDocumentText";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectDocumentTextRequest: serializeAws_json1_1DetectDocumentTextRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectDocumentTextRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -136,13 +128,9 @@ export async function serializeAws_json1_1GetDocumentAnalysisCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.GetDocumentAnalysis";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDocumentAnalysisRequest: serializeAws_json1_1GetDocumentAnalysisRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDocumentAnalysisRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -161,13 +149,9 @@ export async function serializeAws_json1_1GetDocumentTextDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.GetDocumentTextDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDocumentTextDetectionRequest: serializeAws_json1_1GetDocumentTextDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDocumentTextDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -186,13 +170,9 @@ export async function serializeAws_json1_1StartDocumentAnalysisCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.StartDocumentAnalysis";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDocumentAnalysisRequest: serializeAws_json1_1StartDocumentAnalysisRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDocumentAnalysisRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -211,13 +191,9 @@ export async function serializeAws_json1_1StartDocumentTextDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Textract.StartDocumentTextDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDocumentTextDetectionRequest: serializeAws_json1_1StartDocumentTextDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDocumentTextDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

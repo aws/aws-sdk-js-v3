@@ -345,13 +345,9 @@ export async function serializeAws_json1_1AssociateFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.AssociateFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateFleetRequest: serializeAws_json1_1AssociateFleetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateFleetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -370,13 +366,9 @@ export async function serializeAws_json1_1BatchAssociateUserStackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.BatchAssociateUserStack";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchAssociateUserStackRequest: serializeAws_json1_1BatchAssociateUserStackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchAssociateUserStackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -396,13 +388,9 @@ export async function serializeAws_json1_1BatchDisassociateUserStackCommand(
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.BatchDisassociateUserStack";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDisassociateUserStackRequest: serializeAws_json1_1BatchDisassociateUserStackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDisassociateUserStackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -421,10 +409,7 @@ export async function serializeAws_json1_1CopyImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CopyImage";
   let body: any = {};
-  const wrappedBody: any = {
-    CopyImageRequest: serializeAws_json1_1CopyImageRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CopyImageRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -443,13 +428,9 @@ export async function serializeAws_json1_1CreateDirectoryConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateDirectoryConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDirectoryConfigRequest: serializeAws_json1_1CreateDirectoryConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDirectoryConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -468,10 +449,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFleetRequest: serializeAws_json1_1CreateFleetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateFleetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -490,13 +468,9 @@ export async function serializeAws_json1_1CreateImageBuilderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateImageBuilder";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateImageBuilderRequest: serializeAws_json1_1CreateImageBuilderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateImageBuilderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -516,13 +490,9 @@ export async function serializeAws_json1_1CreateImageBuilderStreamingURLCommand(
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.CreateImageBuilderStreamingURL";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateImageBuilderStreamingURLRequest: serializeAws_json1_1CreateImageBuilderStreamingURLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -541,10 +511,7 @@ export async function serializeAws_json1_1CreateStackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateStack";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStackRequest: serializeAws_json1_1CreateStackRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateStackRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -563,13 +530,9 @@ export async function serializeAws_json1_1CreateStreamingURLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateStreamingURL";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStreamingURLRequest: serializeAws_json1_1CreateStreamingURLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateStreamingURLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -589,13 +552,9 @@ export async function serializeAws_json1_1CreateUsageReportSubscriptionCommand(
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.CreateUsageReportSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUsageReportSubscriptionRequest: serializeAws_json1_1CreateUsageReportSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -614,10 +573,7 @@ export async function serializeAws_json1_1CreateUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateUser";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -636,13 +592,9 @@ export async function serializeAws_json1_1DeleteDirectoryConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteDirectoryConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDirectoryConfigRequest: serializeAws_json1_1DeleteDirectoryConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDirectoryConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -661,10 +613,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFleetRequest: serializeAws_json1_1DeleteFleetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteFleetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -683,10 +632,7 @@ export async function serializeAws_json1_1DeleteImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImage";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteImageRequest: serializeAws_json1_1DeleteImageRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteImageRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -705,13 +651,9 @@ export async function serializeAws_json1_1DeleteImageBuilderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImageBuilder";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteImageBuilderRequest: serializeAws_json1_1DeleteImageBuilderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteImageBuilderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -730,13 +672,9 @@ export async function serializeAws_json1_1DeleteImagePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImagePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteImagePermissionsRequest: serializeAws_json1_1DeleteImagePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteImagePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -755,10 +693,7 @@ export async function serializeAws_json1_1DeleteStackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteStack";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteStackRequest: serializeAws_json1_1DeleteStackRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteStackRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -778,13 +713,9 @@ export async function serializeAws_json1_1DeleteUsageReportSubscriptionCommand(
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.DeleteUsageReportSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUsageReportSubscriptionRequest: serializeAws_json1_1DeleteUsageReportSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -803,10 +734,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -825,13 +753,9 @@ export async function serializeAws_json1_1DescribeDirectoryConfigsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeDirectoryConfigs";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectoryConfigsRequest: serializeAws_json1_1DescribeDirectoryConfigsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -850,13 +774,9 @@ export async function serializeAws_json1_1DescribeFleetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeFleets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFleetsRequest: serializeAws_json1_1DescribeFleetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFleetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -875,13 +795,9 @@ export async function serializeAws_json1_1DescribeImageBuildersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImageBuilders";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImageBuildersRequest: serializeAws_json1_1DescribeImageBuildersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImageBuildersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -900,13 +816,9 @@ export async function serializeAws_json1_1DescribeImagePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImagePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImagePermissionsRequest: serializeAws_json1_1DescribeImagePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImagePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -925,13 +837,9 @@ export async function serializeAws_json1_1DescribeImagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImages";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeImagesRequest: serializeAws_json1_1DescribeImagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeImagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -950,13 +858,9 @@ export async function serializeAws_json1_1DescribeSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSessionsRequest: serializeAws_json1_1DescribeSessionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSessionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -975,13 +879,9 @@ export async function serializeAws_json1_1DescribeStacksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeStacks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStacksRequest: serializeAws_json1_1DescribeStacksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStacksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1001,13 +901,9 @@ export async function serializeAws_json1_1DescribeUsageReportSubscriptionsComman
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.DescribeUsageReportSubscriptions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUsageReportSubscriptionsRequest: serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1027,13 +923,9 @@ export async function serializeAws_json1_1DescribeUserStackAssociationsCommand(
   headers["X-Amz-Target"] =
     "PhotonAdminProxyService.DescribeUserStackAssociations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUserStackAssociationsRequest: serializeAws_json1_1DescribeUserStackAssociationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1052,13 +944,9 @@ export async function serializeAws_json1_1DescribeUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeUsersRequest: serializeAws_json1_1DescribeUsersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeUsersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1077,10 +965,7 @@ export async function serializeAws_json1_1DisableUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DisableUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableUserRequest: serializeAws_json1_1DisableUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DisableUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1099,13 +984,9 @@ export async function serializeAws_json1_1DisassociateFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.DisassociateFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateFleetRequest: serializeAws_json1_1DisassociateFleetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateFleetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1124,10 +1005,7 @@ export async function serializeAws_json1_1EnableUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.EnableUser";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableUserRequest: serializeAws_json1_1EnableUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1146,13 +1024,9 @@ export async function serializeAws_json1_1ExpireSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.ExpireSession";
   let body: any = {};
-  const wrappedBody: any = {
-    ExpireSessionRequest: serializeAws_json1_1ExpireSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ExpireSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1171,13 +1045,9 @@ export async function serializeAws_json1_1ListAssociatedFleetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.ListAssociatedFleets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociatedFleetsRequest: serializeAws_json1_1ListAssociatedFleetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociatedFleetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1196,13 +1066,9 @@ export async function serializeAws_json1_1ListAssociatedStacksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.ListAssociatedStacks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociatedStacksRequest: serializeAws_json1_1ListAssociatedStacksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociatedStacksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1221,13 +1087,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1246,10 +1108,7 @@ export async function serializeAws_json1_1StartFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.StartFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    StartFleetRequest: serializeAws_json1_1StartFleetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartFleetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1268,13 +1127,9 @@ export async function serializeAws_json1_1StartImageBuilderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.StartImageBuilder";
   let body: any = {};
-  const wrappedBody: any = {
-    StartImageBuilderRequest: serializeAws_json1_1StartImageBuilderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartImageBuilderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1293,10 +1148,7 @@ export async function serializeAws_json1_1StopFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.StopFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    StopFleetRequest: serializeAws_json1_1StopFleetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopFleetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1315,13 +1167,9 @@ export async function serializeAws_json1_1StopImageBuilderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.StopImageBuilder";
   let body: any = {};
-  const wrappedBody: any = {
-    StopImageBuilderRequest: serializeAws_json1_1StopImageBuilderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopImageBuilderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1340,10 +1188,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1362,13 +1207,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1387,13 +1228,9 @@ export async function serializeAws_json1_1UpdateDirectoryConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateDirectoryConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDirectoryConfigRequest: serializeAws_json1_1UpdateDirectoryConfigRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDirectoryConfigRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1412,10 +1249,7 @@ export async function serializeAws_json1_1UpdateFleetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateFleet";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFleetRequest: serializeAws_json1_1UpdateFleetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateFleetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1434,13 +1268,9 @@ export async function serializeAws_json1_1UpdateImagePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateImagePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateImagePermissionsRequest: serializeAws_json1_1UpdateImagePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateImagePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1459,10 +1289,7 @@ export async function serializeAws_json1_1UpdateStackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateStack";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateStackRequest: serializeAws_json1_1UpdateStackRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

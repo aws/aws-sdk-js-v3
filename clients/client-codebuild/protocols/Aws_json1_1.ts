@@ -238,13 +238,9 @@ export async function serializeAws_json1_1BatchDeleteBuildsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.BatchDeleteBuilds";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteBuildsInput: serializeAws_json1_1BatchDeleteBuildsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteBuildsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -263,10 +259,9 @@ export async function serializeAws_json1_1BatchGetBuildsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetBuilds";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetBuildsInput: serializeAws_json1_1BatchGetBuildsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetBuildsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -285,13 +280,9 @@ export async function serializeAws_json1_1BatchGetProjectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetProjects";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetProjectsInput: serializeAws_json1_1BatchGetProjectsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetProjectsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -310,13 +301,9 @@ export async function serializeAws_json1_1BatchGetReportGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetReportGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetReportGroupsInput: serializeAws_json1_1BatchGetReportGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetReportGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -335,13 +322,9 @@ export async function serializeAws_json1_1BatchGetReportsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.BatchGetReports";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetReportsInput: serializeAws_json1_1BatchGetReportsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetReportsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -360,10 +343,7 @@ export async function serializeAws_json1_1CreateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.CreateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProjectInput: serializeAws_json1_1CreateProjectInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,13 +362,9 @@ export async function serializeAws_json1_1CreateReportGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.CreateReportGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateReportGroupInput: serializeAws_json1_1CreateReportGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateReportGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -407,10 +383,7 @@ export async function serializeAws_json1_1CreateWebhookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.CreateWebhook";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWebhookInput: serializeAws_json1_1CreateWebhookInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateWebhookInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -429,10 +402,7 @@ export async function serializeAws_json1_1DeleteProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteProject";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProjectInput: serializeAws_json1_1DeleteProjectInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -451,10 +421,7 @@ export async function serializeAws_json1_1DeleteReportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteReport";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteReportInput: serializeAws_json1_1DeleteReportInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteReportInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -473,13 +440,9 @@ export async function serializeAws_json1_1DeleteReportGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteReportGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteReportGroupInput: serializeAws_json1_1DeleteReportGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteReportGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -498,13 +461,9 @@ export async function serializeAws_json1_1DeleteSourceCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteSourceCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSourceCredentialsInput: serializeAws_json1_1DeleteSourceCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSourceCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -523,10 +482,7 @@ export async function serializeAws_json1_1DeleteWebhookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DeleteWebhook";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWebhookInput: serializeAws_json1_1DeleteWebhookInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -545,13 +501,9 @@ export async function serializeAws_json1_1DescribeTestCasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.DescribeTestCases";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTestCasesInput: serializeAws_json1_1DescribeTestCasesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTestCasesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -570,13 +522,9 @@ export async function serializeAws_json1_1ImportSourceCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ImportSourceCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportSourceCredentialsInput: serializeAws_json1_1ImportSourceCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportSourceCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -595,13 +543,9 @@ export async function serializeAws_json1_1InvalidateProjectCacheCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.InvalidateProjectCache";
   let body: any = {};
-  const wrappedBody: any = {
-    InvalidateProjectCacheInput: serializeAws_json1_1InvalidateProjectCacheInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InvalidateProjectCacheInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -620,10 +564,7 @@ export async function serializeAws_json1_1ListBuildsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListBuilds";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBuildsInput: serializeAws_json1_1ListBuildsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -642,13 +583,9 @@ export async function serializeAws_json1_1ListBuildsForProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListBuildsForProject";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBuildsForProjectInput: serializeAws_json1_1ListBuildsForProjectInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBuildsForProjectInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -667,13 +604,9 @@ export async function serializeAws_json1_1ListCuratedEnvironmentImagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListCuratedEnvironmentImages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCuratedEnvironmentImagesInput: serializeAws_json1_1ListCuratedEnvironmentImagesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCuratedEnvironmentImagesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -692,10 +625,7 @@ export async function serializeAws_json1_1ListProjectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListProjects";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProjectsInput: serializeAws_json1_1ListProjectsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -714,13 +644,9 @@ export async function serializeAws_json1_1ListReportGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListReportGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListReportGroupsInput: serializeAws_json1_1ListReportGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListReportGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -739,10 +665,7 @@ export async function serializeAws_json1_1ListReportsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListReports";
   let body: any = {};
-  const wrappedBody: any = {
-    ListReportsInput: serializeAws_json1_1ListReportsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListReportsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -761,13 +684,9 @@ export async function serializeAws_json1_1ListReportsForReportGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListReportsForReportGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    ListReportsForReportGroupInput: serializeAws_json1_1ListReportsForReportGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListReportsForReportGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -786,13 +705,9 @@ export async function serializeAws_json1_1ListSourceCredentialsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.ListSourceCredentials";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSourceCredentialsInput: serializeAws_json1_1ListSourceCredentialsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSourceCredentialsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -811,10 +726,7 @@ export async function serializeAws_json1_1StartBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.StartBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    StartBuildInput: serializeAws_json1_1StartBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -833,10 +745,7 @@ export async function serializeAws_json1_1StopBuildCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.StopBuild";
   let body: any = {};
-  const wrappedBody: any = {
-    StopBuildInput: serializeAws_json1_1StopBuildInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopBuildInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -855,10 +764,7 @@ export async function serializeAws_json1_1UpdateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProjectInput: serializeAws_json1_1UpdateProjectInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -877,13 +783,9 @@ export async function serializeAws_json1_1UpdateReportGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateReportGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateReportGroupInput: serializeAws_json1_1UpdateReportGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateReportGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -902,10 +804,7 @@ export async function serializeAws_json1_1UpdateWebhookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeBuild_20161006.UpdateWebhook";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateWebhookInput: serializeAws_json1_1UpdateWebhookInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateWebhookInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

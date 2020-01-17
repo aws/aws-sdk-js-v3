@@ -138,13 +138,9 @@ export async function serializeAws_json1_1CreateContainerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.CreateContainer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateContainerInput: serializeAws_json1_1CreateContainerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateContainerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -163,13 +159,9 @@ export async function serializeAws_json1_1DeleteContainerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.DeleteContainer";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteContainerInput: serializeAws_json1_1DeleteContainerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteContainerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -188,13 +180,9 @@ export async function serializeAws_json1_1DeleteContainerPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.DeleteContainerPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteContainerPolicyInput: serializeAws_json1_1DeleteContainerPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteContainerPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -213,13 +201,9 @@ export async function serializeAws_json1_1DeleteCorsPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.DeleteCorsPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCorsPolicyInput: serializeAws_json1_1DeleteCorsPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCorsPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -238,13 +222,9 @@ export async function serializeAws_json1_1DeleteLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.DeleteLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLifecyclePolicyInput: serializeAws_json1_1DeleteLifecyclePolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLifecyclePolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -263,13 +243,9 @@ export async function serializeAws_json1_1DescribeContainerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.DescribeContainer";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeContainerInput: serializeAws_json1_1DescribeContainerInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeContainerInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -288,13 +264,9 @@ export async function serializeAws_json1_1GetContainerPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.GetContainerPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetContainerPolicyInput: serializeAws_json1_1GetContainerPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetContainerPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -313,10 +285,7 @@ export async function serializeAws_json1_1GetCorsPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.GetCorsPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCorsPolicyInput: serializeAws_json1_1GetCorsPolicyInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetCorsPolicyInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -335,13 +304,9 @@ export async function serializeAws_json1_1GetLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.GetLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLifecyclePolicyInput: serializeAws_json1_1GetLifecyclePolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLifecyclePolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -360,10 +325,9 @@ export async function serializeAws_json1_1ListContainersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.ListContainers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListContainersInput: serializeAws_json1_1ListContainersInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListContainersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,13 +346,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -407,13 +367,9 @@ export async function serializeAws_json1_1PutContainerPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.PutContainerPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutContainerPolicyInput: serializeAws_json1_1PutContainerPolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutContainerPolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -432,10 +388,7 @@ export async function serializeAws_json1_1PutCorsPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.PutCorsPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutCorsPolicyInput: serializeAws_json1_1PutCorsPolicyInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutCorsPolicyInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -454,13 +407,9 @@ export async function serializeAws_json1_1PutLifecyclePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.PutLifecyclePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutLifecyclePolicyInput: serializeAws_json1_1PutLifecyclePolicyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutLifecyclePolicyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -479,13 +428,9 @@ export async function serializeAws_json1_1StartAccessLoggingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.StartAccessLogging";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAccessLoggingInput: serializeAws_json1_1StartAccessLoggingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAccessLoggingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -504,13 +449,9 @@ export async function serializeAws_json1_1StopAccessLoggingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.StopAccessLogging";
   let body: any = {};
-  const wrappedBody: any = {
-    StopAccessLoggingInput: serializeAws_json1_1StopAccessLoggingInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopAccessLoggingInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -529,10 +470,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -551,10 +489,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "MediaStore_20170901.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

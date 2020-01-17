@@ -445,7 +445,7 @@ export async function serializeAws_restJson1_1DeleteActionTargetCommand(
         "Empty value provided for input HTTP label: ActionTargetArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ActionTargetArn}", labelValue);
+    resolvedPath = resolvedPath.replace("{ActionTargetArn+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
   }
@@ -470,7 +470,7 @@ export async function serializeAws_restJson1_1DeleteInsightCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
-    resolvedPath = resolvedPath.replace("{InsightArn}", labelValue);
+    resolvedPath = resolvedPath.replace("{InsightArn+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
@@ -626,7 +626,10 @@ export async function serializeAws_restJson1_1DisableImportFindingsForProductCom
         "Empty value provided for input HTTP label: ProductSubscriptionArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ProductSubscriptionArn}", labelValue);
+    resolvedPath = resolvedPath.replace(
+      "{ProductSubscriptionArn+}",
+      labelValue
+    );
   } else {
     throw new Error(
       "No value provided for input HTTP label: ProductSubscriptionArn."
@@ -829,7 +832,7 @@ export async function serializeAws_restJson1_1GetInsightResultsCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
-    resolvedPath = resolvedPath.replace("{InsightArn}", labelValue);
+    resolvedPath = resolvedPath.replace("{InsightArn+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
@@ -1140,7 +1143,7 @@ export async function serializeAws_restJson1_1UpdateActionTargetCommand(
         "Empty value provided for input HTTP label: ActionTargetArn."
       );
     }
-    resolvedPath = resolvedPath.replace("{ActionTargetArn}", labelValue);
+    resolvedPath = resolvedPath.replace("{ActionTargetArn+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
   }
@@ -1210,7 +1213,7 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InsightArn.");
     }
-    resolvedPath = resolvedPath.replace("{InsightArn}", labelValue);
+    resolvedPath = resolvedPath.replace("{InsightArn+}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }

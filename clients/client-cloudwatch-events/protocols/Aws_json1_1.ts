@@ -231,13 +231,9 @@ export async function serializeAws_json1_1ActivateEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ActivateEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    ActivateEventSourceRequest: serializeAws_json1_1ActivateEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ActivateEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -256,13 +252,9 @@ export async function serializeAws_json1_1CreateEventBusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.CreateEventBus";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEventBusRequest: serializeAws_json1_1CreateEventBusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEventBusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -281,13 +273,9 @@ export async function serializeAws_json1_1CreatePartnerEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.CreatePartnerEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePartnerEventSourceRequest: serializeAws_json1_1CreatePartnerEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePartnerEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -306,13 +294,9 @@ export async function serializeAws_json1_1DeactivateEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DeactivateEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DeactivateEventSourceRequest: serializeAws_json1_1DeactivateEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeactivateEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -331,13 +315,9 @@ export async function serializeAws_json1_1DeleteEventBusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DeleteEventBus";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEventBusRequest: serializeAws_json1_1DeleteEventBusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEventBusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -356,13 +336,9 @@ export async function serializeAws_json1_1DeletePartnerEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DeletePartnerEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePartnerEventSourceRequest: serializeAws_json1_1DeletePartnerEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePartnerEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -381,10 +357,7 @@ export async function serializeAws_json1_1DeleteRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DeleteRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRuleRequest: serializeAws_json1_1DeleteRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteRuleRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -403,13 +376,9 @@ export async function serializeAws_json1_1DescribeEventBusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DescribeEventBus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventBusRequest: serializeAws_json1_1DescribeEventBusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventBusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -428,13 +397,9 @@ export async function serializeAws_json1_1DescribeEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DescribeEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventSourceRequest: serializeAws_json1_1DescribeEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -453,13 +418,9 @@ export async function serializeAws_json1_1DescribePartnerEventSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DescribePartnerEventSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePartnerEventSourceRequest: serializeAws_json1_1DescribePartnerEventSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePartnerEventSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -478,10 +439,9 @@ export async function serializeAws_json1_1DescribeRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DescribeRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRuleRequest: serializeAws_json1_1DescribeRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -500,10 +460,7 @@ export async function serializeAws_json1_1DisableRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.DisableRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableRuleRequest: serializeAws_json1_1DisableRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DisableRuleRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -522,10 +479,7 @@ export async function serializeAws_json1_1EnableRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.EnableRule";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableRuleRequest: serializeAws_json1_1EnableRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableRuleRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -544,13 +498,9 @@ export async function serializeAws_json1_1ListEventBusesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListEventBuses";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEventBusesRequest: serializeAws_json1_1ListEventBusesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEventBusesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -569,13 +519,9 @@ export async function serializeAws_json1_1ListEventSourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListEventSources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEventSourcesRequest: serializeAws_json1_1ListEventSourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEventSourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -594,13 +540,9 @@ export async function serializeAws_json1_1ListPartnerEventSourceAccountsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListPartnerEventSourceAccounts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPartnerEventSourceAccountsRequest: serializeAws_json1_1ListPartnerEventSourceAccountsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPartnerEventSourceAccountsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -619,13 +561,9 @@ export async function serializeAws_json1_1ListPartnerEventSourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListPartnerEventSources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPartnerEventSourcesRequest: serializeAws_json1_1ListPartnerEventSourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPartnerEventSourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -644,13 +582,9 @@ export async function serializeAws_json1_1ListRuleNamesByTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListRuleNamesByTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRuleNamesByTargetRequest: serializeAws_json1_1ListRuleNamesByTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRuleNamesByTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -669,10 +603,7 @@ export async function serializeAws_json1_1ListRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListRules";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRulesRequest: serializeAws_json1_1ListRulesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListRulesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -691,13 +622,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -716,13 +643,9 @@ export async function serializeAws_json1_1ListTargetsByRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.ListTargetsByRule";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTargetsByRuleRequest: serializeAws_json1_1ListTargetsByRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTargetsByRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -741,10 +664,7 @@ export async function serializeAws_json1_1PutEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.PutEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    PutEventsRequest: serializeAws_json1_1PutEventsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutEventsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -763,13 +683,9 @@ export async function serializeAws_json1_1PutPartnerEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.PutPartnerEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    PutPartnerEventsRequest: serializeAws_json1_1PutPartnerEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutPartnerEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -788,13 +704,9 @@ export async function serializeAws_json1_1PutPermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.PutPermission";
   let body: any = {};
-  const wrappedBody: any = {
-    PutPermissionRequest: serializeAws_json1_1PutPermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutPermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -813,10 +725,7 @@ export async function serializeAws_json1_1PutRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.PutRule";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRuleRequest: serializeAws_json1_1PutRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutRuleRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -835,10 +744,7 @@ export async function serializeAws_json1_1PutTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.PutTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    PutTargetsRequest: serializeAws_json1_1PutTargetsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutTargetsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -857,13 +763,9 @@ export async function serializeAws_json1_1RemovePermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.RemovePermission";
   let body: any = {};
-  const wrappedBody: any = {
-    RemovePermissionRequest: serializeAws_json1_1RemovePermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemovePermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -882,13 +784,9 @@ export async function serializeAws_json1_1RemoveTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.RemoveTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTargetsRequest: serializeAws_json1_1RemoveTargetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTargetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -907,10 +805,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -929,13 +824,9 @@ export async function serializeAws_json1_1TestEventPatternCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.TestEventPattern";
   let body: any = {};
-  const wrappedBody: any = {
-    TestEventPatternRequest: serializeAws_json1_1TestEventPatternRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TestEventPatternRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -954,13 +845,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSEvents.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

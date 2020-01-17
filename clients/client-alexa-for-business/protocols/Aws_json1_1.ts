@@ -655,13 +655,9 @@ export async function serializeAws_json1_1SendAnnouncementCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SendAnnouncement";
   let body: any = {};
-  const wrappedBody: any = {
-    SendAnnouncementRequest: serializeAws_json1_1SendAnnouncementRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SendAnnouncementRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -680,13 +676,9 @@ export async function serializeAws_json1_1DeleteDeviceUsageDataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteDeviceUsageData";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeviceUsageDataRequest: serializeAws_json1_1DeleteDeviceUsageDataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeviceUsageDataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -705,10 +697,9 @@ export async function serializeAws_json1_1ApproveSkillCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ApproveSkill";
   let body: any = {};
-  const wrappedBody: any = {
-    ApproveSkillRequest: serializeAws_json1_1ApproveSkillRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ApproveSkillRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -727,13 +718,9 @@ export async function serializeAws_json1_1AssociateContactWithAddressBookCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.AssociateContactWithAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateContactWithAddressBookRequest: serializeAws_json1_1AssociateContactWithAddressBookRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateContactWithAddressBookRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -753,13 +740,9 @@ export async function serializeAws_json1_1AssociateDeviceWithNetworkProfileComma
   headers["X-Amz-Target"] =
     "AlexaForBusiness.AssociateDeviceWithNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateDeviceWithNetworkProfileRequest: serializeAws_json1_1AssociateDeviceWithNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateDeviceWithNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -778,13 +761,9 @@ export async function serializeAws_json1_1AssociateDeviceWithRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.AssociateDeviceWithRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateDeviceWithRoomRequest: serializeAws_json1_1AssociateDeviceWithRoomRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateDeviceWithRoomRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -803,13 +782,9 @@ export async function serializeAws_json1_1AssociateSkillGroupWithRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillGroupWithRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateSkillGroupWithRoomRequest: serializeAws_json1_1AssociateSkillGroupWithRoomRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateSkillGroupWithRoomRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -828,13 +803,9 @@ export async function serializeAws_json1_1AssociateSkillWithSkillGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillWithSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateSkillWithSkillGroupRequest: serializeAws_json1_1AssociateSkillWithSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateSkillWithSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -853,13 +824,9 @@ export async function serializeAws_json1_1AssociateSkillWithUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.AssociateSkillWithUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateSkillWithUsersRequest: serializeAws_json1_1AssociateSkillWithUsersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateSkillWithUsersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -878,13 +845,9 @@ export async function serializeAws_json1_1CreateAddressBookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAddressBookRequest: serializeAws_json1_1CreateAddressBookRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAddressBookRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -903,13 +866,9 @@ export async function serializeAws_json1_1CreateBusinessReportScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateBusinessReportSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBusinessReportScheduleRequest: serializeAws_json1_1CreateBusinessReportScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBusinessReportScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -928,13 +887,9 @@ export async function serializeAws_json1_1CreateConferenceProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateConferenceProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateConferenceProviderRequest: serializeAws_json1_1CreateConferenceProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateConferenceProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -953,13 +908,9 @@ export async function serializeAws_json1_1CreateContactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateContact";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateContactRequest: serializeAws_json1_1CreateContactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateContactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -978,13 +929,9 @@ export async function serializeAws_json1_1CreateGatewayGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateGatewayGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGatewayGroupRequest: serializeAws_json1_1CreateGatewayGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateGatewayGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1003,13 +950,9 @@ export async function serializeAws_json1_1CreateNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNetworkProfileRequest: serializeAws_json1_1CreateNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1028,13 +971,9 @@ export async function serializeAws_json1_1CreateProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProfileRequest: serializeAws_json1_1CreateProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1053,10 +992,7 @@ export async function serializeAws_json1_1CreateRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRoomRequest: serializeAws_json1_1CreateRoomRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateRoomRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1075,13 +1011,9 @@ export async function serializeAws_json1_1CreateSkillGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSkillGroupRequest: serializeAws_json1_1CreateSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1100,10 +1032,7 @@ export async function serializeAws_json1_1CreateUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.CreateUser";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1122,13 +1051,9 @@ export async function serializeAws_json1_1DeleteAddressBookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAddressBookRequest: serializeAws_json1_1DeleteAddressBookRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAddressBookRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1147,13 +1072,9 @@ export async function serializeAws_json1_1DeleteBusinessReportScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteBusinessReportSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBusinessReportScheduleRequest: serializeAws_json1_1DeleteBusinessReportScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBusinessReportScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1172,13 +1093,9 @@ export async function serializeAws_json1_1DeleteConferenceProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteConferenceProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConferenceProviderRequest: serializeAws_json1_1DeleteConferenceProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConferenceProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1197,13 +1114,9 @@ export async function serializeAws_json1_1DeleteContactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteContact";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteContactRequest: serializeAws_json1_1DeleteContactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteContactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1222,10 +1135,9 @@ export async function serializeAws_json1_1DeleteDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeviceRequest: serializeAws_json1_1DeleteDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1244,13 +1156,9 @@ export async function serializeAws_json1_1DeleteGatewayGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteGatewayGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteGatewayGroupRequest: serializeAws_json1_1DeleteGatewayGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteGatewayGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1269,13 +1177,9 @@ export async function serializeAws_json1_1DeleteNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNetworkProfileRequest: serializeAws_json1_1DeleteNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1294,13 +1198,9 @@ export async function serializeAws_json1_1DeleteProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProfileRequest: serializeAws_json1_1DeleteProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1319,10 +1219,7 @@ export async function serializeAws_json1_1DeleteRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRoomRequest: serializeAws_json1_1DeleteRoomRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteRoomRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1341,13 +1238,9 @@ export async function serializeAws_json1_1DeleteRoomSkillParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteRoomSkillParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRoomSkillParameterRequest: serializeAws_json1_1DeleteRoomSkillParameterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRoomSkillParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1366,13 +1259,9 @@ export async function serializeAws_json1_1DeleteSkillAuthorizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteSkillAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSkillAuthorizationRequest: serializeAws_json1_1DeleteSkillAuthorizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSkillAuthorizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1391,13 +1280,9 @@ export async function serializeAws_json1_1DeleteSkillGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSkillGroupRequest: serializeAws_json1_1DeleteSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1416,10 +1301,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DeleteUser";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1439,13 +1321,12 @@ export async function serializeAws_json1_1DisassociateContactFromAddressBookComm
   headers["X-Amz-Target"] =
     "AlexaForBusiness.DisassociateContactFromAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateContactFromAddressBookRequest: serializeAws_json1_1DisassociateContactFromAddressBookRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateContactFromAddressBookRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1464,13 +1345,9 @@ export async function serializeAws_json1_1DisassociateDeviceFromRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateDeviceFromRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateDeviceFromRoomRequest: serializeAws_json1_1DisassociateDeviceFromRoomRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateDeviceFromRoomRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1489,13 +1366,9 @@ export async function serializeAws_json1_1DisassociateSkillFromSkillGroupCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillFromSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateSkillFromSkillGroupRequest: serializeAws_json1_1DisassociateSkillFromSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateSkillFromSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1514,13 +1387,9 @@ export async function serializeAws_json1_1DisassociateSkillFromUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillFromUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateSkillFromUsersRequest: serializeAws_json1_1DisassociateSkillFromUsersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateSkillFromUsersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1539,13 +1408,9 @@ export async function serializeAws_json1_1DisassociateSkillGroupFromRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.DisassociateSkillGroupFromRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateSkillGroupFromRoomRequest: serializeAws_json1_1DisassociateSkillGroupFromRoomRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateSkillGroupFromRoomRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1564,13 +1429,9 @@ export async function serializeAws_json1_1ForgetSmartHomeAppliancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ForgetSmartHomeAppliances";
   let body: any = {};
-  const wrappedBody: any = {
-    ForgetSmartHomeAppliancesRequest: serializeAws_json1_1ForgetSmartHomeAppliancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ForgetSmartHomeAppliancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1589,13 +1450,9 @@ export async function serializeAws_json1_1GetAddressBookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAddressBookRequest: serializeAws_json1_1GetAddressBookRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAddressBookRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1614,13 +1471,9 @@ export async function serializeAws_json1_1GetConferencePreferenceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetConferencePreference";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConferencePreferenceRequest: serializeAws_json1_1GetConferencePreferenceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConferencePreferenceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1639,13 +1492,9 @@ export async function serializeAws_json1_1GetConferenceProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetConferenceProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConferenceProviderRequest: serializeAws_json1_1GetConferenceProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConferenceProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1664,10 +1513,7 @@ export async function serializeAws_json1_1GetContactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetContact";
   let body: any = {};
-  const wrappedBody: any = {
-    GetContactRequest: serializeAws_json1_1GetContactRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetContactRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1686,10 +1532,7 @@ export async function serializeAws_json1_1GetDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeviceRequest: serializeAws_json1_1GetDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDeviceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1708,10 +1551,7 @@ export async function serializeAws_json1_1GetGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    GetGatewayRequest: serializeAws_json1_1GetGatewayRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetGatewayRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1730,13 +1570,9 @@ export async function serializeAws_json1_1GetGatewayGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetGatewayGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetGatewayGroupRequest: serializeAws_json1_1GetGatewayGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetGatewayGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1755,13 +1591,9 @@ export async function serializeAws_json1_1GetInvitationConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetInvitationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInvitationConfigurationRequest: serializeAws_json1_1GetInvitationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInvitationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1780,13 +1612,9 @@ export async function serializeAws_json1_1GetNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNetworkProfileRequest: serializeAws_json1_1GetNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1805,10 +1633,7 @@ export async function serializeAws_json1_1GetProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    GetProfileRequest: serializeAws_json1_1GetProfileRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetProfileRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1827,10 +1652,7 @@ export async function serializeAws_json1_1GetRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRoomRequest: serializeAws_json1_1GetRoomRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRoomRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1849,13 +1671,9 @@ export async function serializeAws_json1_1GetRoomSkillParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetRoomSkillParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRoomSkillParameterRequest: serializeAws_json1_1GetRoomSkillParameterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRoomSkillParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1874,13 +1692,9 @@ export async function serializeAws_json1_1GetSkillGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.GetSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSkillGroupRequest: serializeAws_json1_1GetSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1899,13 +1713,9 @@ export async function serializeAws_json1_1ListBusinessReportSchedulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListBusinessReportSchedules";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBusinessReportSchedulesRequest: serializeAws_json1_1ListBusinessReportSchedulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBusinessReportSchedulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1924,13 +1734,9 @@ export async function serializeAws_json1_1ListConferenceProvidersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListConferenceProviders";
   let body: any = {};
-  const wrappedBody: any = {
-    ListConferenceProvidersRequest: serializeAws_json1_1ListConferenceProvidersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListConferenceProvidersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1949,13 +1755,9 @@ export async function serializeAws_json1_1ListDeviceEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListDeviceEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeviceEventsRequest: serializeAws_json1_1ListDeviceEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeviceEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1974,13 +1776,9 @@ export async function serializeAws_json1_1ListGatewayGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListGatewayGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGatewayGroupsRequest: serializeAws_json1_1ListGatewayGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListGatewayGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1999,10 +1797,9 @@ export async function serializeAws_json1_1ListGatewaysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListGateways";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGatewaysRequest: serializeAws_json1_1ListGatewaysRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListGatewaysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2021,10 +1818,7 @@ export async function serializeAws_json1_1ListSkillsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListSkills";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSkillsRequest: serializeAws_json1_1ListSkillsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListSkillsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2043,13 +1837,9 @@ export async function serializeAws_json1_1ListSkillsStoreCategoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListSkillsStoreCategories";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSkillsStoreCategoriesRequest: serializeAws_json1_1ListSkillsStoreCategoriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSkillsStoreCategoriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2068,13 +1858,9 @@ export async function serializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListSkillsStoreSkillsByCategory";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSkillsStoreSkillsByCategoryRequest: serializeAws_json1_1ListSkillsStoreSkillsByCategoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSkillsStoreSkillsByCategoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2093,13 +1879,9 @@ export async function serializeAws_json1_1ListSmartHomeAppliancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListSmartHomeAppliances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSmartHomeAppliancesRequest: serializeAws_json1_1ListSmartHomeAppliancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSmartHomeAppliancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2118,10 +1900,7 @@ export async function serializeAws_json1_1ListTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ListTags";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsRequest: serializeAws_json1_1ListTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2140,13 +1919,9 @@ export async function serializeAws_json1_1PutConferencePreferenceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.PutConferencePreference";
   let body: any = {};
-  const wrappedBody: any = {
-    PutConferencePreferenceRequest: serializeAws_json1_1PutConferencePreferenceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutConferencePreferenceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2165,13 +1940,9 @@ export async function serializeAws_json1_1PutInvitationConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.PutInvitationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutInvitationConfigurationRequest: serializeAws_json1_1PutInvitationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutInvitationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2190,13 +1961,9 @@ export async function serializeAws_json1_1PutRoomSkillParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.PutRoomSkillParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRoomSkillParameterRequest: serializeAws_json1_1PutRoomSkillParameterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRoomSkillParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2215,13 +1982,9 @@ export async function serializeAws_json1_1PutSkillAuthorizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.PutSkillAuthorization";
   let body: any = {};
-  const wrappedBody: any = {
-    PutSkillAuthorizationRequest: serializeAws_json1_1PutSkillAuthorizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutSkillAuthorizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2240,13 +2003,9 @@ export async function serializeAws_json1_1RegisterAVSDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.RegisterAVSDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterAVSDeviceRequest: serializeAws_json1_1RegisterAVSDeviceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterAVSDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2265,10 +2024,7 @@ export async function serializeAws_json1_1RejectSkillCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.RejectSkill";
   let body: any = {};
-  const wrappedBody: any = {
-    RejectSkillRequest: serializeAws_json1_1RejectSkillRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1RejectSkillRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2287,10 +2043,7 @@ export async function serializeAws_json1_1ResolveRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.ResolveRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    ResolveRoomRequest: serializeAws_json1_1ResolveRoomRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ResolveRoomRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2309,13 +2062,9 @@ export async function serializeAws_json1_1RevokeInvitationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.RevokeInvitation";
   let body: any = {};
-  const wrappedBody: any = {
-    RevokeInvitationRequest: serializeAws_json1_1RevokeInvitationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RevokeInvitationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2334,13 +2083,9 @@ export async function serializeAws_json1_1SearchAddressBooksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchAddressBooks";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchAddressBooksRequest: serializeAws_json1_1SearchAddressBooksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchAddressBooksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2359,13 +2104,9 @@ export async function serializeAws_json1_1SearchContactsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchContacts";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchContactsRequest: serializeAws_json1_1SearchContactsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchContactsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2384,13 +2125,9 @@ export async function serializeAws_json1_1SearchDevicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchDevices";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchDevicesRequest: serializeAws_json1_1SearchDevicesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchDevicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2409,13 +2146,9 @@ export async function serializeAws_json1_1SearchNetworkProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchNetworkProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchNetworkProfilesRequest: serializeAws_json1_1SearchNetworkProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchNetworkProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2434,13 +2167,9 @@ export async function serializeAws_json1_1SearchProfilesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchProfiles";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchProfilesRequest: serializeAws_json1_1SearchProfilesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchProfilesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2459,10 +2188,7 @@ export async function serializeAws_json1_1SearchRoomsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchRooms";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchRoomsRequest: serializeAws_json1_1SearchRoomsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SearchRoomsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2481,13 +2207,9 @@ export async function serializeAws_json1_1SearchSkillGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchSkillGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchSkillGroupsRequest: serializeAws_json1_1SearchSkillGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchSkillGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2506,10 +2228,7 @@ export async function serializeAws_json1_1SearchUsersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SearchUsers";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchUsersRequest: serializeAws_json1_1SearchUsersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SearchUsersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2528,13 +2247,9 @@ export async function serializeAws_json1_1SendInvitationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.SendInvitation";
   let body: any = {};
-  const wrappedBody: any = {
-    SendInvitationRequest: serializeAws_json1_1SendInvitationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SendInvitationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2553,13 +2268,9 @@ export async function serializeAws_json1_1StartDeviceSyncCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.StartDeviceSync";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDeviceSyncRequest: serializeAws_json1_1StartDeviceSyncRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDeviceSyncRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2578,13 +2289,9 @@ export async function serializeAws_json1_1StartSmartHomeApplianceDiscoveryComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.StartSmartHomeApplianceDiscovery";
   let body: any = {};
-  const wrappedBody: any = {
-    StartSmartHomeApplianceDiscoveryRequest: serializeAws_json1_1StartSmartHomeApplianceDiscoveryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartSmartHomeApplianceDiscoveryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2603,10 +2310,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2625,13 +2329,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2650,13 +2350,9 @@ export async function serializeAws_json1_1UpdateAddressBookCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateAddressBook";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAddressBookRequest: serializeAws_json1_1UpdateAddressBookRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAddressBookRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2675,13 +2371,9 @@ export async function serializeAws_json1_1UpdateBusinessReportScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateBusinessReportSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateBusinessReportScheduleRequest: serializeAws_json1_1UpdateBusinessReportScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateBusinessReportScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2700,13 +2392,9 @@ export async function serializeAws_json1_1UpdateConferenceProviderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateConferenceProvider";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateConferenceProviderRequest: serializeAws_json1_1UpdateConferenceProviderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateConferenceProviderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2725,13 +2413,9 @@ export async function serializeAws_json1_1UpdateContactCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateContact";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateContactRequest: serializeAws_json1_1UpdateContactRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateContactRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2750,10 +2434,9 @@ export async function serializeAws_json1_1UpdateDeviceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateDevice";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDeviceRequest: serializeAws_json1_1UpdateDeviceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDeviceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2772,13 +2455,9 @@ export async function serializeAws_json1_1UpdateGatewayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateGateway";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGatewayRequest: serializeAws_json1_1UpdateGatewayRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGatewayRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2797,13 +2476,9 @@ export async function serializeAws_json1_1UpdateGatewayGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateGatewayGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateGatewayGroupRequest: serializeAws_json1_1UpdateGatewayGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateGatewayGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2822,13 +2497,9 @@ export async function serializeAws_json1_1UpdateNetworkProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateNetworkProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNetworkProfileRequest: serializeAws_json1_1UpdateNetworkProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNetworkProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2847,13 +2518,9 @@ export async function serializeAws_json1_1UpdateProfileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateProfile";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProfileRequest: serializeAws_json1_1UpdateProfileRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProfileRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2872,10 +2539,7 @@ export async function serializeAws_json1_1UpdateRoomCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateRoom";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRoomRequest: serializeAws_json1_1UpdateRoomRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateRoomRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2894,13 +2558,9 @@ export async function serializeAws_json1_1UpdateSkillGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AlexaForBusiness.UpdateSkillGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSkillGroupRequest: serializeAws_json1_1UpdateSkillGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSkillGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

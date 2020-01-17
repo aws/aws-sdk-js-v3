@@ -47,10 +47,7 @@ export async function serializeAws_json1_0SendCommandCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "QLDBSession.SendCommand";
   let body: any = {};
-  const wrappedBody: any = {
-    SendCommandRequest: serializeAws_json1_0SendCommandRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0SendCommandRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

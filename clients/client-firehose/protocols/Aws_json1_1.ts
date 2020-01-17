@@ -147,13 +147,9 @@ export async function serializeAws_json1_1CreateDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.CreateDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDeliveryStreamInput: serializeAws_json1_1CreateDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -172,13 +168,9 @@ export async function serializeAws_json1_1DeleteDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.DeleteDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeliveryStreamInput: serializeAws_json1_1DeleteDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -197,13 +189,9 @@ export async function serializeAws_json1_1DescribeDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.DescribeDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDeliveryStreamInput: serializeAws_json1_1DescribeDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -222,13 +210,9 @@ export async function serializeAws_json1_1ListDeliveryStreamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.ListDeliveryStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeliveryStreamsInput: serializeAws_json1_1ListDeliveryStreamsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeliveryStreamsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -247,13 +231,9 @@ export async function serializeAws_json1_1ListTagsForDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.ListTagsForDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForDeliveryStreamInput: serializeAws_json1_1ListTagsForDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -272,10 +252,7 @@ export async function serializeAws_json1_1PutRecordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.PutRecord";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutRecordInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -294,10 +271,9 @@ export async function serializeAws_json1_1PutRecordBatchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.PutRecordBatch";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRecordBatchInput: serializeAws_json1_1PutRecordBatchInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRecordBatchInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -316,13 +292,9 @@ export async function serializeAws_json1_1StartDeliveryStreamEncryptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.StartDeliveryStreamEncryption";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDeliveryStreamEncryptionInput: serializeAws_json1_1StartDeliveryStreamEncryptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDeliveryStreamEncryptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -341,13 +313,9 @@ export async function serializeAws_json1_1StopDeliveryStreamEncryptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.StopDeliveryStreamEncryption";
   let body: any = {};
-  const wrappedBody: any = {
-    StopDeliveryStreamEncryptionInput: serializeAws_json1_1StopDeliveryStreamEncryptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopDeliveryStreamEncryptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -366,13 +334,9 @@ export async function serializeAws_json1_1TagDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.TagDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    TagDeliveryStreamInput: serializeAws_json1_1TagDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TagDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -391,13 +355,9 @@ export async function serializeAws_json1_1UntagDeliveryStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.UntagDeliveryStream";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagDeliveryStreamInput: serializeAws_json1_1UntagDeliveryStreamInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagDeliveryStreamInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -416,13 +376,9 @@ export async function serializeAws_json1_1UpdateDestinationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Firehose_20150804.UpdateDestination";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDestinationInput: serializeAws_json1_1UpdateDestinationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDestinationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -59,10 +59,7 @@ export async function serializeAws_json1_1GetResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetResources";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResourcesInput: serializeAws_json1_1GetResourcesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetResourcesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -81,10 +78,7 @@ export async function serializeAws_json1_1GetTagKeysCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTagKeysInput: serializeAws_json1_1GetTagKeysInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTagKeysInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -103,10 +97,7 @@ export async function serializeAws_json1_1GetTagValuesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.GetTagValues";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTagValuesInput: serializeAws_json1_1GetTagValuesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTagValuesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -125,10 +116,7 @@ export async function serializeAws_json1_1TagResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.TagResources";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourcesInput: serializeAws_json1_1TagResourcesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourcesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -147,10 +135,9 @@ export async function serializeAws_json1_1UntagResourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ResourceGroupsTaggingAPI_20170126.UntagResources";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourcesInput: serializeAws_json1_1UntagResourcesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourcesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

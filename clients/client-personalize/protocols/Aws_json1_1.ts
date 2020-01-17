@@ -296,13 +296,9 @@ export async function serializeAws_json1_1CreateBatchInferenceJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateBatchInferenceJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBatchInferenceJobRequest: serializeAws_json1_1CreateBatchInferenceJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBatchInferenceJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -321,13 +317,9 @@ export async function serializeAws_json1_1CreateCampaignCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateCampaign";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCampaignRequest: serializeAws_json1_1CreateCampaignRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCampaignRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -346,13 +338,9 @@ export async function serializeAws_json1_1CreateDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetRequest: serializeAws_json1_1CreateDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -371,13 +359,9 @@ export async function serializeAws_json1_1CreateDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetGroupRequest: serializeAws_json1_1CreateDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -396,13 +380,9 @@ export async function serializeAws_json1_1CreateDatasetImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateDatasetImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatasetImportJobRequest: serializeAws_json1_1CreateDatasetImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatasetImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -421,13 +401,9 @@ export async function serializeAws_json1_1CreateEventTrackerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateEventTracker";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateEventTrackerRequest: serializeAws_json1_1CreateEventTrackerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateEventTrackerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -446,10 +422,9 @@ export async function serializeAws_json1_1CreateSchemaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSchema";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSchemaRequest: serializeAws_json1_1CreateSchemaRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSchemaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -468,13 +443,9 @@ export async function serializeAws_json1_1CreateSolutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSolution";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSolutionRequest: serializeAws_json1_1CreateSolutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSolutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -493,13 +464,9 @@ export async function serializeAws_json1_1CreateSolutionVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.CreateSolutionVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSolutionVersionRequest: serializeAws_json1_1CreateSolutionVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSolutionVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -518,13 +485,9 @@ export async function serializeAws_json1_1DeleteCampaignCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteCampaign";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCampaignRequest: serializeAws_json1_1DeleteCampaignRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCampaignRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -543,13 +506,9 @@ export async function serializeAws_json1_1DeleteDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatasetRequest: serializeAws_json1_1DeleteDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -568,13 +527,9 @@ export async function serializeAws_json1_1DeleteDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatasetGroupRequest: serializeAws_json1_1DeleteDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -593,13 +548,9 @@ export async function serializeAws_json1_1DeleteEventTrackerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteEventTracker";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEventTrackerRequest: serializeAws_json1_1DeleteEventTrackerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteEventTrackerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -618,10 +569,9 @@ export async function serializeAws_json1_1DeleteSchemaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteSchema";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSchemaRequest: serializeAws_json1_1DeleteSchemaRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSchemaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -640,13 +590,9 @@ export async function serializeAws_json1_1DeleteSolutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DeleteSolution";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSolutionRequest: serializeAws_json1_1DeleteSolutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSolutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -665,13 +611,9 @@ export async function serializeAws_json1_1DescribeAlgorithmCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeAlgorithm";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAlgorithmRequest: serializeAws_json1_1DescribeAlgorithmRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAlgorithmRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -690,13 +632,9 @@ export async function serializeAws_json1_1DescribeBatchInferenceJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeBatchInferenceJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBatchInferenceJobRequest: serializeAws_json1_1DescribeBatchInferenceJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBatchInferenceJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -715,13 +653,9 @@ export async function serializeAws_json1_1DescribeCampaignCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeCampaign";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCampaignRequest: serializeAws_json1_1DescribeCampaignRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCampaignRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -740,13 +674,9 @@ export async function serializeAws_json1_1DescribeDatasetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDataset";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetRequest: serializeAws_json1_1DescribeDatasetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -765,13 +695,9 @@ export async function serializeAws_json1_1DescribeDatasetGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDatasetGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetGroupRequest: serializeAws_json1_1DescribeDatasetGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -790,13 +716,9 @@ export async function serializeAws_json1_1DescribeDatasetImportJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeDatasetImportJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDatasetImportJobRequest: serializeAws_json1_1DescribeDatasetImportJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDatasetImportJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -815,13 +737,9 @@ export async function serializeAws_json1_1DescribeEventTrackerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeEventTracker";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventTrackerRequest: serializeAws_json1_1DescribeEventTrackerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventTrackerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -840,13 +758,9 @@ export async function serializeAws_json1_1DescribeFeatureTransformationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeFeatureTransformation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFeatureTransformationRequest: serializeAws_json1_1DescribeFeatureTransformationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFeatureTransformationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -865,13 +779,9 @@ export async function serializeAws_json1_1DescribeRecipeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeRecipe";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRecipeRequest: serializeAws_json1_1DescribeRecipeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRecipeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -890,13 +800,9 @@ export async function serializeAws_json1_1DescribeSchemaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSchema";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSchemaRequest: serializeAws_json1_1DescribeSchemaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSchemaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -915,13 +821,9 @@ export async function serializeAws_json1_1DescribeSolutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSolution";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSolutionRequest: serializeAws_json1_1DescribeSolutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSolutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -940,13 +842,9 @@ export async function serializeAws_json1_1DescribeSolutionVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.DescribeSolutionVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSolutionVersionRequest: serializeAws_json1_1DescribeSolutionVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSolutionVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -965,13 +863,9 @@ export async function serializeAws_json1_1GetSolutionMetricsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.GetSolutionMetrics";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSolutionMetricsRequest: serializeAws_json1_1GetSolutionMetricsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSolutionMetricsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -990,13 +884,9 @@ export async function serializeAws_json1_1ListBatchInferenceJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListBatchInferenceJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBatchInferenceJobsRequest: serializeAws_json1_1ListBatchInferenceJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBatchInferenceJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1015,13 +905,9 @@ export async function serializeAws_json1_1ListCampaignsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListCampaigns";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCampaignsRequest: serializeAws_json1_1ListCampaignsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCampaignsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1040,13 +926,9 @@ export async function serializeAws_json1_1ListDatasetGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasetGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetGroupsRequest: serializeAws_json1_1ListDatasetGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1065,13 +947,9 @@ export async function serializeAws_json1_1ListDatasetImportJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasetImportJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetImportJobsRequest: serializeAws_json1_1ListDatasetImportJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetImportJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1090,10 +968,9 @@ export async function serializeAws_json1_1ListDatasetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListDatasets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDatasetsRequest: serializeAws_json1_1ListDatasetsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDatasetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1112,13 +989,9 @@ export async function serializeAws_json1_1ListEventTrackersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListEventTrackers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEventTrackersRequest: serializeAws_json1_1ListEventTrackersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEventTrackersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1137,10 +1010,7 @@ export async function serializeAws_json1_1ListRecipesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListRecipes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRecipesRequest: serializeAws_json1_1ListRecipesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListRecipesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1159,10 +1029,7 @@ export async function serializeAws_json1_1ListSchemasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSchemas";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSchemasRequest: serializeAws_json1_1ListSchemasRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1181,13 +1048,9 @@ export async function serializeAws_json1_1ListSolutionVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSolutionVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSolutionVersionsRequest: serializeAws_json1_1ListSolutionVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSolutionVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1206,13 +1069,9 @@ export async function serializeAws_json1_1ListSolutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.ListSolutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSolutionsRequest: serializeAws_json1_1ListSolutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSolutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1231,13 +1090,9 @@ export async function serializeAws_json1_1UpdateCampaignCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonPersonalize.UpdateCampaign";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCampaignRequest: serializeAws_json1_1UpdateCampaignRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCampaignRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

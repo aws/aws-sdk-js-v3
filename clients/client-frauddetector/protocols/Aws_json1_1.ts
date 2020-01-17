@@ -225,13 +225,9 @@ export async function serializeAws_json1_1BatchCreateVariableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.BatchCreateVariable";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchCreateVariableRequest: serializeAws_json1_1BatchCreateVariableRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchCreateVariableRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -250,13 +246,9 @@ export async function serializeAws_json1_1BatchGetVariableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.BatchGetVariable";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetVariableRequest: serializeAws_json1_1BatchGetVariableRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetVariableRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -275,13 +267,9 @@ export async function serializeAws_json1_1CreateDetectorVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.CreateDetectorVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDetectorVersionRequest: serializeAws_json1_1CreateDetectorVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDetectorVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -300,13 +288,9 @@ export async function serializeAws_json1_1CreateModelVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.CreateModelVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateModelVersionRequest: serializeAws_json1_1CreateModelVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateModelVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -325,10 +309,7 @@ export async function serializeAws_json1_1CreateRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.CreateRule";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRuleRequest: serializeAws_json1_1CreateRuleRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateRuleRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -347,13 +328,9 @@ export async function serializeAws_json1_1CreateVariableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.CreateVariable";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateVariableRequest: serializeAws_json1_1CreateVariableRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVariableRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -372,13 +349,9 @@ export async function serializeAws_json1_1DeleteDetectorVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.DeleteDetectorVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDetectorVersionRequest: serializeAws_json1_1DeleteDetectorVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDetectorVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -397,10 +370,7 @@ export async function serializeAws_json1_1DeleteEventCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.DeleteEvent";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteEventRequest: serializeAws_json1_1DeleteEventRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteEventRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +389,9 @@ export async function serializeAws_json1_1DescribeDetectorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.DescribeDetector";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDetectorRequest: serializeAws_json1_1DescribeDetectorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDetectorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -444,13 +410,9 @@ export async function serializeAws_json1_1DescribeModelVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.DescribeModelVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeModelVersionsRequest: serializeAws_json1_1DescribeModelVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeModelVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -469,13 +431,9 @@ export async function serializeAws_json1_1GetDetectorVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetDetectorVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDetectorVersionRequest: serializeAws_json1_1GetDetectorVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDetectorVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -494,10 +452,9 @@ export async function serializeAws_json1_1GetDetectorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetDetectors";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDetectorsRequest: serializeAws_json1_1GetDetectorsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDetectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -516,13 +473,9 @@ export async function serializeAws_json1_1GetExternalModelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetExternalModels";
   let body: any = {};
-  const wrappedBody: any = {
-    GetExternalModelsRequest: serializeAws_json1_1GetExternalModelsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetExternalModelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -541,13 +494,9 @@ export async function serializeAws_json1_1GetModelVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetModelVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    GetModelVersionRequest: serializeAws_json1_1GetModelVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetModelVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -566,10 +515,7 @@ export async function serializeAws_json1_1GetModelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetModels";
   let body: any = {};
-  const wrappedBody: any = {
-    GetModelsRequest: serializeAws_json1_1GetModelsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetModelsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -588,10 +534,7 @@ export async function serializeAws_json1_1GetOutcomesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetOutcomes";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOutcomesRequest: serializeAws_json1_1GetOutcomesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetOutcomesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -610,13 +553,9 @@ export async function serializeAws_json1_1GetPredictionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetPrediction";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPredictionRequest: serializeAws_json1_1GetPredictionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPredictionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -635,10 +574,7 @@ export async function serializeAws_json1_1GetRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetRules";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRulesRequest: serializeAws_json1_1GetRulesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRulesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -657,10 +593,9 @@ export async function serializeAws_json1_1GetVariablesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.GetVariables";
   let body: any = {};
-  const wrappedBody: any = {
-    GetVariablesRequest: serializeAws_json1_1GetVariablesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetVariablesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -679,10 +614,7 @@ export async function serializeAws_json1_1PutDetectorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.PutDetector";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDetectorRequest: serializeAws_json1_1PutDetectorRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutDetectorRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -701,13 +633,9 @@ export async function serializeAws_json1_1PutExternalModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.PutExternalModel";
   let body: any = {};
-  const wrappedBody: any = {
-    PutExternalModelRequest: serializeAws_json1_1PutExternalModelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutExternalModelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -726,10 +654,7 @@ export async function serializeAws_json1_1PutModelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.PutModel";
   let body: any = {};
-  const wrappedBody: any = {
-    PutModelRequest: serializeAws_json1_1PutModelRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutModelRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -748,10 +673,7 @@ export async function serializeAws_json1_1PutOutcomeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.PutOutcome";
   let body: any = {};
-  const wrappedBody: any = {
-    PutOutcomeRequest: serializeAws_json1_1PutOutcomeRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutOutcomeRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -770,13 +692,9 @@ export async function serializeAws_json1_1UpdateDetectorVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.UpdateDetectorVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDetectorVersionRequest: serializeAws_json1_1UpdateDetectorVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDetectorVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -796,13 +714,9 @@ export async function serializeAws_json1_1UpdateDetectorVersionMetadataCommand(
   headers["X-Amz-Target"] =
     "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDetectorVersionMetadataRequest: serializeAws_json1_1UpdateDetectorVersionMetadataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDetectorVersionMetadataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -822,13 +736,9 @@ export async function serializeAws_json1_1UpdateDetectorVersionStatusCommand(
   headers["X-Amz-Target"] =
     "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDetectorVersionStatusRequest: serializeAws_json1_1UpdateDetectorVersionStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDetectorVersionStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -847,13 +757,9 @@ export async function serializeAws_json1_1UpdateModelVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.UpdateModelVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateModelVersionRequest: serializeAws_json1_1UpdateModelVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateModelVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -872,13 +778,9 @@ export async function serializeAws_json1_1UpdateRuleMetadataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.UpdateRuleMetadata";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRuleMetadataRequest: serializeAws_json1_1UpdateRuleMetadataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRuleMetadataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -897,13 +799,9 @@ export async function serializeAws_json1_1UpdateRuleVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.UpdateRuleVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRuleVersionRequest: serializeAws_json1_1UpdateRuleVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRuleVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -922,13 +820,9 @@ export async function serializeAws_json1_1UpdateVariableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSHawksNestServiceFacade.UpdateVariable";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateVariableRequest: serializeAws_json1_1UpdateVariableRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVariableRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

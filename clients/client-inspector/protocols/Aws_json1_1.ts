@@ -280,13 +280,9 @@ export async function serializeAws_json1_1AddAttributesToFindingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.AddAttributesToFindings";
   let body: any = {};
-  const wrappedBody: any = {
-    AddAttributesToFindingsRequest: serializeAws_json1_1AddAttributesToFindingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddAttributesToFindingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -305,13 +301,9 @@ export async function serializeAws_json1_1CreateAssessmentTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.CreateAssessmentTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAssessmentTargetRequest: serializeAws_json1_1CreateAssessmentTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAssessmentTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -330,13 +322,9 @@ export async function serializeAws_json1_1CreateAssessmentTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.CreateAssessmentTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAssessmentTemplateRequest: serializeAws_json1_1CreateAssessmentTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAssessmentTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -355,13 +343,9 @@ export async function serializeAws_json1_1CreateExclusionsPreviewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.CreateExclusionsPreview";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateExclusionsPreviewRequest: serializeAws_json1_1CreateExclusionsPreviewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateExclusionsPreviewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -380,13 +364,9 @@ export async function serializeAws_json1_1CreateResourceGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.CreateResourceGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateResourceGroupRequest: serializeAws_json1_1CreateResourceGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateResourceGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -405,13 +385,9 @@ export async function serializeAws_json1_1DeleteAssessmentRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentRun";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAssessmentRunRequest: serializeAws_json1_1DeleteAssessmentRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAssessmentRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -430,13 +406,9 @@ export async function serializeAws_json1_1DeleteAssessmentTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAssessmentTargetRequest: serializeAws_json1_1DeleteAssessmentTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAssessmentTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -455,13 +427,9 @@ export async function serializeAws_json1_1DeleteAssessmentTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAssessmentTemplateRequest: serializeAws_json1_1DeleteAssessmentTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAssessmentTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -480,13 +448,9 @@ export async function serializeAws_json1_1DescribeAssessmentRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssessmentRunsRequest: serializeAws_json1_1DescribeAssessmentRunsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssessmentRunsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -505,13 +469,9 @@ export async function serializeAws_json1_1DescribeAssessmentTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssessmentTargetsRequest: serializeAws_json1_1DescribeAssessmentTargetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssessmentTargetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -530,13 +490,9 @@ export async function serializeAws_json1_1DescribeAssessmentTemplatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentTemplates";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssessmentTemplatesRequest: serializeAws_json1_1DescribeAssessmentTemplatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssessmentTemplatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -571,13 +527,9 @@ export async function serializeAws_json1_1DescribeExclusionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeExclusions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExclusionsRequest: serializeAws_json1_1DescribeExclusionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeExclusionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -596,13 +548,9 @@ export async function serializeAws_json1_1DescribeFindingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeFindings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFindingsRequest: serializeAws_json1_1DescribeFindingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFindingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -621,13 +569,9 @@ export async function serializeAws_json1_1DescribeResourceGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeResourceGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeResourceGroupsRequest: serializeAws_json1_1DescribeResourceGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeResourceGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -646,13 +590,9 @@ export async function serializeAws_json1_1DescribeRulesPackagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.DescribeRulesPackages";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRulesPackagesRequest: serializeAws_json1_1DescribeRulesPackagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRulesPackagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -671,13 +611,9 @@ export async function serializeAws_json1_1GetAssessmentReportCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.GetAssessmentReport";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAssessmentReportRequest: serializeAws_json1_1GetAssessmentReportRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAssessmentReportRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -696,13 +632,9 @@ export async function serializeAws_json1_1GetExclusionsPreviewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.GetExclusionsPreview";
   let body: any = {};
-  const wrappedBody: any = {
-    GetExclusionsPreviewRequest: serializeAws_json1_1GetExclusionsPreviewRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetExclusionsPreviewRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -721,13 +653,9 @@ export async function serializeAws_json1_1GetTelemetryMetadataCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.GetTelemetryMetadata";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTelemetryMetadataRequest: serializeAws_json1_1GetTelemetryMetadataRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTelemetryMetadataRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -746,13 +674,9 @@ export async function serializeAws_json1_1ListAssessmentRunAgentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListAssessmentRunAgents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssessmentRunAgentsRequest: serializeAws_json1_1ListAssessmentRunAgentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssessmentRunAgentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -771,13 +695,9 @@ export async function serializeAws_json1_1ListAssessmentRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListAssessmentRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssessmentRunsRequest: serializeAws_json1_1ListAssessmentRunsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssessmentRunsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -796,13 +716,9 @@ export async function serializeAws_json1_1ListAssessmentTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListAssessmentTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssessmentTargetsRequest: serializeAws_json1_1ListAssessmentTargetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssessmentTargetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -821,13 +737,9 @@ export async function serializeAws_json1_1ListAssessmentTemplatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListAssessmentTemplates";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssessmentTemplatesRequest: serializeAws_json1_1ListAssessmentTemplatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssessmentTemplatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -846,13 +758,9 @@ export async function serializeAws_json1_1ListEventSubscriptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListEventSubscriptions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEventSubscriptionsRequest: serializeAws_json1_1ListEventSubscriptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEventSubscriptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -871,13 +779,9 @@ export async function serializeAws_json1_1ListExclusionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListExclusions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListExclusionsRequest: serializeAws_json1_1ListExclusionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListExclusionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -896,10 +800,9 @@ export async function serializeAws_json1_1ListFindingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListFindings";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFindingsRequest: serializeAws_json1_1ListFindingsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListFindingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -918,13 +821,9 @@ export async function serializeAws_json1_1ListRulesPackagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListRulesPackages";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRulesPackagesRequest: serializeAws_json1_1ListRulesPackagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRulesPackagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -943,13 +842,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -968,13 +863,9 @@ export async function serializeAws_json1_1PreviewAgentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.PreviewAgents";
   let body: any = {};
-  const wrappedBody: any = {
-    PreviewAgentsRequest: serializeAws_json1_1PreviewAgentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PreviewAgentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -993,13 +884,9 @@ export async function serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.RegisterCrossAccountAccessRole";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterCrossAccountAccessRoleRequest: serializeAws_json1_1RegisterCrossAccountAccessRoleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterCrossAccountAccessRoleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1018,13 +905,9 @@ export async function serializeAws_json1_1RemoveAttributesFromFindingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.RemoveAttributesFromFindings";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveAttributesFromFindingsRequest: serializeAws_json1_1RemoveAttributesFromFindingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveAttributesFromFindingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1043,13 +926,9 @@ export async function serializeAws_json1_1SetTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.SetTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    SetTagsForResourceRequest: serializeAws_json1_1SetTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SetTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1068,13 +947,9 @@ export async function serializeAws_json1_1StartAssessmentRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.StartAssessmentRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAssessmentRunRequest: serializeAws_json1_1StartAssessmentRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAssessmentRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1093,13 +968,9 @@ export async function serializeAws_json1_1StopAssessmentRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.StopAssessmentRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StopAssessmentRunRequest: serializeAws_json1_1StopAssessmentRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopAssessmentRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1118,13 +989,9 @@ export async function serializeAws_json1_1SubscribeToEventCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.SubscribeToEvent";
   let body: any = {};
-  const wrappedBody: any = {
-    SubscribeToEventRequest: serializeAws_json1_1SubscribeToEventRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubscribeToEventRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1143,13 +1010,9 @@ export async function serializeAws_json1_1UnsubscribeFromEventCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.UnsubscribeFromEvent";
   let body: any = {};
-  const wrappedBody: any = {
-    UnsubscribeFromEventRequest: serializeAws_json1_1UnsubscribeFromEventRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UnsubscribeFromEventRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1168,13 +1031,9 @@ export async function serializeAws_json1_1UpdateAssessmentTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "InspectorService.UpdateAssessmentTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAssessmentTargetRequest: serializeAws_json1_1UpdateAssessmentTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAssessmentTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

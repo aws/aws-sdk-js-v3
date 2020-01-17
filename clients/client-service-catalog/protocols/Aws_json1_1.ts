@@ -578,13 +578,9 @@ export async function serializeAws_json1_1AcceptPortfolioShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.AcceptPortfolioShare";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptPortfolioShareInput: serializeAws_json1_1AcceptPortfolioShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcceptPortfolioShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -604,13 +600,9 @@ export async function serializeAws_json1_1AssociateBudgetWithResourceCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateBudgetWithResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateBudgetWithResourceInput: serializeAws_json1_1AssociateBudgetWithResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateBudgetWithResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -630,13 +622,9 @@ export async function serializeAws_json1_1AssociatePrincipalWithPortfolioCommand
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociatePrincipalWithPortfolioInput: serializeAws_json1_1AssociatePrincipalWithPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociatePrincipalWithPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -656,13 +644,9 @@ export async function serializeAws_json1_1AssociateProductWithPortfolioCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateProductWithPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateProductWithPortfolioInput: serializeAws_json1_1AssociateProductWithPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateProductWithPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -682,13 +666,12 @@ export async function serializeAws_json1_1AssociateServiceActionWithProvisioning
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateServiceActionWithProvisioningArtifactInput: serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput(
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -708,13 +691,9 @@ export async function serializeAws_json1_1AssociateTagOptionWithResourceCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.AssociateTagOptionWithResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateTagOptionWithResourceInput: serializeAws_json1_1AssociateTagOptionWithResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateTagOptionWithResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -734,13 +713,12 @@ export async function serializeAws_json1_1BatchAssociateServiceActionWithProvisi
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchAssociateServiceActionWithProvisioningArtifactInput: serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput(
+  body = JSON.stringify(
+    serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -760,13 +738,12 @@ export async function serializeAws_json1_1BatchDisassociateServiceActionFromProv
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDisassociateServiceActionFromProvisioningArtifactInput: serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput(
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -785,10 +762,7 @@ export async function serializeAws_json1_1CopyProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CopyProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    CopyProductInput: serializeAws_json1_1CopyProductInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CopyProductInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -807,13 +781,9 @@ export async function serializeAws_json1_1CreateConstraintCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateConstraint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateConstraintInput: serializeAws_json1_1CreateConstraintInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateConstraintInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -832,13 +802,9 @@ export async function serializeAws_json1_1CreatePortfolioCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreatePortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePortfolioInput: serializeAws_json1_1CreatePortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -857,13 +823,9 @@ export async function serializeAws_json1_1CreatePortfolioShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreatePortfolioShare";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePortfolioShareInput: serializeAws_json1_1CreatePortfolioShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePortfolioShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -882,10 +844,7 @@ export async function serializeAws_json1_1CreateProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProductInput: serializeAws_json1_1CreateProductInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateProductInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -905,13 +864,9 @@ export async function serializeAws_json1_1CreateProvisionedProductPlanCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.CreateProvisionedProductPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProvisionedProductPlanInput: serializeAws_json1_1CreateProvisionedProductPlanInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProvisionedProductPlanInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -931,13 +886,9 @@ export async function serializeAws_json1_1CreateProvisioningArtifactCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.CreateProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProvisioningArtifactInput: serializeAws_json1_1CreateProvisioningArtifactInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProvisioningArtifactInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -956,13 +907,9 @@ export async function serializeAws_json1_1CreateServiceActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateServiceActionInput: serializeAws_json1_1CreateServiceActionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateServiceActionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -981,13 +928,9 @@ export async function serializeAws_json1_1CreateTagOptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.CreateTagOption";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTagOptionInput: serializeAws_json1_1CreateTagOptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTagOptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1006,13 +949,9 @@ export async function serializeAws_json1_1DeleteConstraintCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteConstraint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConstraintInput: serializeAws_json1_1DeleteConstraintInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConstraintInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1031,13 +970,9 @@ export async function serializeAws_json1_1DeletePortfolioCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeletePortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePortfolioInput: serializeAws_json1_1DeletePortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1056,13 +991,9 @@ export async function serializeAws_json1_1DeletePortfolioShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeletePortfolioShare";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePortfolioShareInput: serializeAws_json1_1DeletePortfolioShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePortfolioShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1081,10 +1012,7 @@ export async function serializeAws_json1_1DeleteProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProductInput: serializeAws_json1_1DeleteProductInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteProductInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1104,13 +1032,9 @@ export async function serializeAws_json1_1DeleteProvisionedProductPlanCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DeleteProvisionedProductPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProvisionedProductPlanInput: serializeAws_json1_1DeleteProvisionedProductPlanInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProvisionedProductPlanInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1130,13 +1054,9 @@ export async function serializeAws_json1_1DeleteProvisioningArtifactCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DeleteProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteProvisioningArtifactInput: serializeAws_json1_1DeleteProvisioningArtifactInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteProvisioningArtifactInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1155,13 +1075,9 @@ export async function serializeAws_json1_1DeleteServiceActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServiceActionInput: serializeAws_json1_1DeleteServiceActionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServiceActionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1180,13 +1096,9 @@ export async function serializeAws_json1_1DeleteTagOptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DeleteTagOption";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagOptionInput: serializeAws_json1_1DeleteTagOptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTagOptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1205,13 +1117,9 @@ export async function serializeAws_json1_1DescribeConstraintCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeConstraint";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConstraintInput: serializeAws_json1_1DescribeConstraintInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConstraintInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1231,13 +1139,9 @@ export async function serializeAws_json1_1DescribeCopyProductStatusCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeCopyProductStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCopyProductStatusInput: serializeAws_json1_1DescribeCopyProductStatusInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCopyProductStatusInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1256,13 +1160,9 @@ export async function serializeAws_json1_1DescribePortfolioCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribePortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePortfolioInput: serializeAws_json1_1DescribePortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1282,13 +1182,9 @@ export async function serializeAws_json1_1DescribePortfolioShareStatusCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribePortfolioShareStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePortfolioShareStatusInput: serializeAws_json1_1DescribePortfolioShareStatusInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePortfolioShareStatusInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1307,13 +1203,9 @@ export async function serializeAws_json1_1DescribeProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProductInput: serializeAws_json1_1DescribeProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1333,13 +1225,9 @@ export async function serializeAws_json1_1DescribeProductAsAdminCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProductAsAdmin";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProductAsAdminInput: serializeAws_json1_1DescribeProductAsAdminInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProductAsAdminInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1358,13 +1246,9 @@ export async function serializeAws_json1_1DescribeProductViewCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeProductView";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProductViewInput: serializeAws_json1_1DescribeProductViewInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProductViewInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1384,13 +1268,9 @@ export async function serializeAws_json1_1DescribeProvisionedProductCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisionedProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProvisionedProductInput: serializeAws_json1_1DescribeProvisionedProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProvisionedProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1410,13 +1290,9 @@ export async function serializeAws_json1_1DescribeProvisionedProductPlanCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisionedProductPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProvisionedProductPlanInput: serializeAws_json1_1DescribeProvisionedProductPlanInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProvisionedProductPlanInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1436,13 +1312,9 @@ export async function serializeAws_json1_1DescribeProvisioningArtifactCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProvisioningArtifactInput: serializeAws_json1_1DescribeProvisioningArtifactInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProvisioningArtifactInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1462,13 +1334,9 @@ export async function serializeAws_json1_1DescribeProvisioningParametersCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeProvisioningParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProvisioningParametersInput: serializeAws_json1_1DescribeProvisioningParametersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProvisioningParametersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1487,10 +1355,9 @@ export async function serializeAws_json1_1DescribeRecordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeRecord";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeRecordInput: serializeAws_json1_1DescribeRecordInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeRecordInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1509,13 +1376,9 @@ export async function serializeAws_json1_1DescribeServiceActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServiceActionInput: serializeAws_json1_1DescribeServiceActionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServiceActionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1535,13 +1398,12 @@ export async function serializeAws_json1_1DescribeServiceActionExecutionParamete
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServiceActionExecutionParametersInput: serializeAws_json1_1DescribeServiceActionExecutionParametersInput(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServiceActionExecutionParametersInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1560,13 +1422,9 @@ export async function serializeAws_json1_1DescribeTagOptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.DescribeTagOption";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTagOptionInput: serializeAws_json1_1DescribeTagOptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTagOptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1586,13 +1444,9 @@ export async function serializeAws_json1_1DisableAWSOrganizationsAccessCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableAWSOrganizationsAccessInput: serializeAws_json1_1DisableAWSOrganizationsAccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableAWSOrganizationsAccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1612,13 +1466,9 @@ export async function serializeAws_json1_1DisassociateBudgetFromResourceCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateBudgetFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateBudgetFromResourceInput: serializeAws_json1_1DisassociateBudgetFromResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateBudgetFromResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1638,13 +1488,9 @@ export async function serializeAws_json1_1DisassociatePrincipalFromPortfolioComm
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociatePrincipalFromPortfolioInput: serializeAws_json1_1DisassociatePrincipalFromPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociatePrincipalFromPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1664,13 +1510,9 @@ export async function serializeAws_json1_1DisassociateProductFromPortfolioComman
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateProductFromPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateProductFromPortfolioInput: serializeAws_json1_1DisassociateProductFromPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateProductFromPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1690,13 +1532,12 @@ export async function serializeAws_json1_1DisassociateServiceActionFromProvision
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateServiceActionFromProvisioningArtifactInput: serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1716,13 +1557,9 @@ export async function serializeAws_json1_1DisassociateTagOptionFromResourceComma
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.DisassociateTagOptionFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateTagOptionFromResourceInput: serializeAws_json1_1DisassociateTagOptionFromResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateTagOptionFromResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1742,13 +1579,9 @@ export async function serializeAws_json1_1EnableAWSOrganizationsAccessCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableAWSOrganizationsAccessInput: serializeAws_json1_1EnableAWSOrganizationsAccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableAWSOrganizationsAccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1768,13 +1601,9 @@ export async function serializeAws_json1_1ExecuteProvisionedProductPlanCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    ExecuteProvisionedProductPlanInput: serializeAws_json1_1ExecuteProvisionedProductPlanInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ExecuteProvisionedProductPlanInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1794,13 +1623,12 @@ export async function serializeAws_json1_1ExecuteProvisionedProductServiceAction
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    ExecuteProvisionedProductServiceActionInput: serializeAws_json1_1ExecuteProvisionedProductServiceActionInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ExecuteProvisionedProductServiceActionInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1820,13 +1648,9 @@ export async function serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAWSOrganizationsAccessStatusInput: serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1846,13 +1670,9 @@ export async function serializeAws_json1_1ListAcceptedPortfolioSharesCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListAcceptedPortfolioShares";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAcceptedPortfolioSharesInput: serializeAws_json1_1ListAcceptedPortfolioSharesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAcceptedPortfolioSharesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1872,13 +1692,9 @@ export async function serializeAws_json1_1ListBudgetsForResourceCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListBudgetsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBudgetsForResourceInput: serializeAws_json1_1ListBudgetsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListBudgetsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1898,13 +1714,9 @@ export async function serializeAws_json1_1ListConstraintsForPortfolioCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListConstraintsForPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    ListConstraintsForPortfolioInput: serializeAws_json1_1ListConstraintsForPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListConstraintsForPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1923,13 +1735,9 @@ export async function serializeAws_json1_1ListLaunchPathsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListLaunchPaths";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLaunchPathsInput: serializeAws_json1_1ListLaunchPathsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLaunchPathsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1949,13 +1757,9 @@ export async function serializeAws_json1_1ListOrganizationPortfolioAccessCommand
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOrganizationPortfolioAccessInput: serializeAws_json1_1ListOrganizationPortfolioAccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOrganizationPortfolioAccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1974,13 +1778,9 @@ export async function serializeAws_json1_1ListPortfolioAccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListPortfolioAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPortfolioAccessInput: serializeAws_json1_1ListPortfolioAccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPortfolioAccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1999,10 +1799,9 @@ export async function serializeAws_json1_1ListPortfoliosCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListPortfolios";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPortfoliosInput: serializeAws_json1_1ListPortfoliosInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPortfoliosInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2022,13 +1821,9 @@ export async function serializeAws_json1_1ListPortfoliosForProductCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListPortfoliosForProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPortfoliosForProductInput: serializeAws_json1_1ListPortfoliosForProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPortfoliosForProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2048,13 +1843,9 @@ export async function serializeAws_json1_1ListPrincipalsForPortfolioCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListPrincipalsForPortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPrincipalsForPortfolioInput: serializeAws_json1_1ListPrincipalsForPortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPrincipalsForPortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2074,13 +1865,9 @@ export async function serializeAws_json1_1ListProvisionedProductPlansCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisionedProductPlans";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProvisionedProductPlansInput: serializeAws_json1_1ListProvisionedProductPlansInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProvisionedProductPlansInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2100,13 +1887,9 @@ export async function serializeAws_json1_1ListProvisioningArtifactsCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisioningArtifacts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProvisioningArtifactsInput: serializeAws_json1_1ListProvisioningArtifactsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProvisioningArtifactsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2126,13 +1909,12 @@ export async function serializeAws_json1_1ListProvisioningArtifactsForServiceAct
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProvisioningArtifactsForServiceActionInput: serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2151,13 +1933,9 @@ export async function serializeAws_json1_1ListRecordHistoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListRecordHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRecordHistoryInput: serializeAws_json1_1ListRecordHistoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRecordHistoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2177,13 +1955,9 @@ export async function serializeAws_json1_1ListResourcesForTagOptionCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListResourcesForTagOption";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourcesForTagOptionInput: serializeAws_json1_1ListResourcesForTagOptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourcesForTagOptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2202,13 +1976,9 @@ export async function serializeAws_json1_1ListServiceActionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListServiceActions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServiceActionsInput: serializeAws_json1_1ListServiceActionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServiceActionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2228,13 +1998,12 @@ export async function serializeAws_json1_1ListServiceActionsForProvisioningArtif
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServiceActionsForProvisioningArtifactInput: serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2254,13 +2023,12 @@ export async function serializeAws_json1_1ListStackInstancesForProvisionedProduc
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStackInstancesForProvisionedProductInput: serializeAws_json1_1ListStackInstancesForProvisionedProductInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListStackInstancesForProvisionedProductInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2279,10 +2047,9 @@ export async function serializeAws_json1_1ListTagOptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ListTagOptions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagOptionsInput: serializeAws_json1_1ListTagOptionsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagOptionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2301,13 +2068,9 @@ export async function serializeAws_json1_1ProvisionProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.ProvisionProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    ProvisionProductInput: serializeAws_json1_1ProvisionProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ProvisionProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2326,13 +2089,9 @@ export async function serializeAws_json1_1RejectPortfolioShareCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.RejectPortfolioShare";
   let body: any = {};
-  const wrappedBody: any = {
-    RejectPortfolioShareInput: serializeAws_json1_1RejectPortfolioShareInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RejectPortfolioShareInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2352,13 +2111,9 @@ export async function serializeAws_json1_1ScanProvisionedProductsCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.ScanProvisionedProducts";
   let body: any = {};
-  const wrappedBody: any = {
-    ScanProvisionedProductsInput: serializeAws_json1_1ScanProvisionedProductsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ScanProvisionedProductsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2377,10 +2132,9 @@ export async function serializeAws_json1_1SearchProductsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.SearchProducts";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchProductsInput: serializeAws_json1_1SearchProductsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchProductsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2399,13 +2153,9 @@ export async function serializeAws_json1_1SearchProductsAsAdminCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.SearchProductsAsAdmin";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchProductsAsAdminInput: serializeAws_json1_1SearchProductsAsAdminInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchProductsAsAdminInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2425,13 +2175,9 @@ export async function serializeAws_json1_1SearchProvisionedProductsCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.SearchProvisionedProducts";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchProvisionedProductsInput: serializeAws_json1_1SearchProvisionedProductsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchProvisionedProductsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2451,13 +2197,9 @@ export async function serializeAws_json1_1TerminateProvisionedProductCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.TerminateProvisionedProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateProvisionedProductInput: serializeAws_json1_1TerminateProvisionedProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TerminateProvisionedProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2476,13 +2218,9 @@ export async function serializeAws_json1_1UpdateConstraintCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateConstraint";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateConstraintInput: serializeAws_json1_1UpdateConstraintInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateConstraintInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2501,13 +2239,9 @@ export async function serializeAws_json1_1UpdatePortfolioCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdatePortfolio";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePortfolioInput: serializeAws_json1_1UpdatePortfolioInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePortfolioInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2526,10 +2260,7 @@ export async function serializeAws_json1_1UpdateProductCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProductInput: serializeAws_json1_1UpdateProductInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateProductInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2549,13 +2280,9 @@ export async function serializeAws_json1_1UpdateProvisionedProductCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisionedProduct";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProvisionedProductInput: serializeAws_json1_1UpdateProvisionedProductInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProvisionedProductInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2575,13 +2302,9 @@ export async function serializeAws_json1_1UpdateProvisionedProductPropertiesComm
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisionedProductProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProvisionedProductPropertiesInput: serializeAws_json1_1UpdateProvisionedProductPropertiesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProvisionedProductPropertiesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2601,13 +2324,9 @@ export async function serializeAws_json1_1UpdateProvisioningArtifactCommand(
   headers["X-Amz-Target"] =
     "AWS242ServiceCatalogService.UpdateProvisioningArtifact";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateProvisioningArtifactInput: serializeAws_json1_1UpdateProvisioningArtifactInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateProvisioningArtifactInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2626,13 +2345,9 @@ export async function serializeAws_json1_1UpdateServiceActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateServiceAction";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServiceActionInput: serializeAws_json1_1UpdateServiceActionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServiceActionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2651,13 +2366,9 @@ export async function serializeAws_json1_1UpdateTagOptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWS242ServiceCatalogService.UpdateTagOption";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTagOptionInput: serializeAws_json1_1UpdateTagOptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTagOptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

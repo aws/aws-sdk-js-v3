@@ -304,13 +304,9 @@ export async function serializeAws_json1_1AssociateIpGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.AssociateIpGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateIpGroupsRequest: serializeAws_json1_1AssociateIpGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateIpGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,13 +325,9 @@ export async function serializeAws_json1_1AuthorizeIpRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.AuthorizeIpRules";
   let body: any = {};
-  const wrappedBody: any = {
-    AuthorizeIpRulesRequest: serializeAws_json1_1AuthorizeIpRulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AuthorizeIpRulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -354,13 +346,9 @@ export async function serializeAws_json1_1CopyWorkspaceImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.CopyWorkspaceImage";
   let body: any = {};
-  const wrappedBody: any = {
-    CopyWorkspaceImageRequest: serializeAws_json1_1CopyWorkspaceImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CopyWorkspaceImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -379,13 +367,9 @@ export async function serializeAws_json1_1CreateIpGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.CreateIpGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateIpGroupRequest: serializeAws_json1_1CreateIpGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateIpGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -404,10 +388,7 @@ export async function serializeAws_json1_1CreateTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.CreateTags";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTagsRequest: serializeAws_json1_1CreateTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -426,13 +407,9 @@ export async function serializeAws_json1_1CreateWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.CreateWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWorkspacesRequest: serializeAws_json1_1CreateWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -451,13 +428,9 @@ export async function serializeAws_json1_1DeleteIpGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DeleteIpGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteIpGroupRequest: serializeAws_json1_1DeleteIpGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteIpGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -476,10 +449,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DeleteTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTagsRequest: serializeAws_json1_1DeleteTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -498,13 +468,9 @@ export async function serializeAws_json1_1DeleteWorkspaceImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DeleteWorkspaceImage";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWorkspaceImageRequest: serializeAws_json1_1DeleteWorkspaceImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWorkspaceImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -523,13 +489,9 @@ export async function serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DeregisterWorkspaceDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterWorkspaceDirectoryRequest: serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterWorkspaceDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -548,13 +510,9 @@ export async function serializeAws_json1_1DescribeAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAccountRequest: serializeAws_json1_1DescribeAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -573,13 +531,9 @@ export async function serializeAws_json1_1DescribeAccountModificationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeAccountModifications";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAccountModificationsRequest: serializeAws_json1_1DescribeAccountModificationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAccountModificationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -598,13 +552,9 @@ export async function serializeAws_json1_1DescribeClientPropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeClientProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeClientPropertiesRequest: serializeAws_json1_1DescribeClientPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeClientPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -623,13 +573,9 @@ export async function serializeAws_json1_1DescribeIpGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeIpGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeIpGroupsRequest: serializeAws_json1_1DescribeIpGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeIpGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -648,10 +594,9 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeTags";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTagsRequest: serializeAws_json1_1DescribeTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTagsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -670,13 +615,9 @@ export async function serializeAws_json1_1DescribeWorkspaceBundlesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceBundles";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspaceBundlesRequest: serializeAws_json1_1DescribeWorkspaceBundlesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspaceBundlesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -695,13 +636,9 @@ export async function serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceDirectories";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspaceDirectoriesRequest: serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspaceDirectoriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -720,13 +657,9 @@ export async function serializeAws_json1_1DescribeWorkspaceImagesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceImages";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspaceImagesRequest: serializeAws_json1_1DescribeWorkspaceImagesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspaceImagesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -745,13 +678,9 @@ export async function serializeAws_json1_1DescribeWorkspaceSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaceSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspaceSnapshotsRequest: serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspaceSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -770,13 +699,9 @@ export async function serializeAws_json1_1DescribeWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DescribeWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspacesRequest: serializeAws_json1_1DescribeWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -796,13 +721,12 @@ export async function serializeAws_json1_1DescribeWorkspacesConnectionStatusComm
   headers["X-Amz-Target"] =
     "WorkspacesService.DescribeWorkspacesConnectionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkspacesConnectionStatusRequest: serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -821,13 +745,9 @@ export async function serializeAws_json1_1DisassociateIpGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.DisassociateIpGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateIpGroupsRequest: serializeAws_json1_1DisassociateIpGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateIpGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -846,13 +766,9 @@ export async function serializeAws_json1_1ImportWorkspaceImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ImportWorkspaceImage";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportWorkspaceImageRequest: serializeAws_json1_1ImportWorkspaceImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportWorkspaceImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -872,13 +788,9 @@ export async function serializeAws_json1_1ListAvailableManagementCidrRangesComma
   headers["X-Amz-Target"] =
     "WorkspacesService.ListAvailableManagementCidrRanges";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAvailableManagementCidrRangesRequest: serializeAws_json1_1ListAvailableManagementCidrRangesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAvailableManagementCidrRangesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -897,13 +809,9 @@ export async function serializeAws_json1_1ModifyAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifyAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyAccountRequest: serializeAws_json1_1ModifyAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -922,13 +830,9 @@ export async function serializeAws_json1_1ModifyClientPropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifyClientProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyClientPropertiesRequest: serializeAws_json1_1ModifyClientPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyClientPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -947,13 +851,9 @@ export async function serializeAws_json1_1ModifySelfservicePermissionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifySelfservicePermissions";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifySelfservicePermissionsRequest: serializeAws_json1_1ModifySelfservicePermissionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifySelfservicePermissionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -972,13 +872,9 @@ export async function serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceAccessProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyWorkspaceAccessPropertiesRequest: serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -998,13 +894,9 @@ export async function serializeAws_json1_1ModifyWorkspaceCreationPropertiesComma
   headers["X-Amz-Target"] =
     "WorkspacesService.ModifyWorkspaceCreationProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyWorkspaceCreationPropertiesRequest: serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1023,13 +915,9 @@ export async function serializeAws_json1_1ModifyWorkspacePropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyWorkspacePropertiesRequest: serializeAws_json1_1ModifyWorkspacePropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyWorkspacePropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1048,13 +936,9 @@ export async function serializeAws_json1_1ModifyWorkspaceStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.ModifyWorkspaceState";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyWorkspaceStateRequest: serializeAws_json1_1ModifyWorkspaceStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyWorkspaceStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1073,13 +957,9 @@ export async function serializeAws_json1_1RebootWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.RebootWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    RebootWorkspacesRequest: serializeAws_json1_1RebootWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RebootWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1098,13 +978,9 @@ export async function serializeAws_json1_1RebuildWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.RebuildWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    RebuildWorkspacesRequest: serializeAws_json1_1RebuildWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RebuildWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1123,13 +999,9 @@ export async function serializeAws_json1_1RegisterWorkspaceDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.RegisterWorkspaceDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterWorkspaceDirectoryRequest: serializeAws_json1_1RegisterWorkspaceDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterWorkspaceDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1148,13 +1020,9 @@ export async function serializeAws_json1_1RestoreWorkspaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.RestoreWorkspace";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreWorkspaceRequest: serializeAws_json1_1RestoreWorkspaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RestoreWorkspaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1173,13 +1041,9 @@ export async function serializeAws_json1_1RevokeIpRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.RevokeIpRules";
   let body: any = {};
-  const wrappedBody: any = {
-    RevokeIpRulesRequest: serializeAws_json1_1RevokeIpRulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RevokeIpRulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1198,13 +1062,9 @@ export async function serializeAws_json1_1StartWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.StartWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    StartWorkspacesRequest: serializeAws_json1_1StartWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1223,13 +1083,9 @@ export async function serializeAws_json1_1StopWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.StopWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    StopWorkspacesRequest: serializeAws_json1_1StopWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1248,13 +1104,9 @@ export async function serializeAws_json1_1TerminateWorkspacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.TerminateWorkspaces";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateWorkspacesRequest: serializeAws_json1_1TerminateWorkspacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TerminateWorkspacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1273,13 +1125,9 @@ export async function serializeAws_json1_1UpdateRulesOfIpGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "WorkspacesService.UpdateRulesOfIpGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRulesOfIpGroupRequest: serializeAws_json1_1UpdateRulesOfIpGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRulesOfIpGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

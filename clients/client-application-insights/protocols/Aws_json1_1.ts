@@ -191,13 +191,9 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateApplicationRequest: serializeAws_json1_1CreateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -216,13 +212,9 @@ export async function serializeAws_json1_1CreateComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateComponentRequest: serializeAws_json1_1CreateComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -241,13 +233,9 @@ export async function serializeAws_json1_1CreateLogPatternCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.CreateLogPattern";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLogPatternRequest: serializeAws_json1_1CreateLogPatternRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLogPatternRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -266,13 +254,9 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationRequest: serializeAws_json1_1DeleteApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -291,13 +275,9 @@ export async function serializeAws_json1_1DeleteComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteComponentRequest: serializeAws_json1_1DeleteComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -316,13 +296,9 @@ export async function serializeAws_json1_1DeleteLogPatternCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DeleteLogPattern";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLogPatternRequest: serializeAws_json1_1DeleteLogPatternRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLogPatternRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -341,13 +317,9 @@ export async function serializeAws_json1_1DescribeApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeApplicationRequest: serializeAws_json1_1DescribeApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -366,13 +338,9 @@ export async function serializeAws_json1_1DescribeComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeComponentRequest: serializeAws_json1_1DescribeComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -392,13 +360,9 @@ export async function serializeAws_json1_1DescribeComponentConfigurationCommand(
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeComponentConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeComponentConfigurationRequest: serializeAws_json1_1DescribeComponentConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeComponentConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -418,13 +382,12 @@ export async function serializeAws_json1_1DescribeComponentConfigurationRecommen
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeComponentConfigurationRecommendation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeComponentConfigurationRecommendationRequest: serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -443,13 +406,9 @@ export async function serializeAws_json1_1DescribeLogPatternCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeLogPattern";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLogPatternRequest: serializeAws_json1_1DescribeLogPatternRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLogPatternRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -468,13 +427,9 @@ export async function serializeAws_json1_1DescribeObservationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeObservation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeObservationRequest: serializeAws_json1_1DescribeObservationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeObservationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -493,13 +448,9 @@ export async function serializeAws_json1_1DescribeProblemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.DescribeProblem";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProblemRequest: serializeAws_json1_1DescribeProblemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProblemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,13 +470,9 @@ export async function serializeAws_json1_1DescribeProblemObservationsCommand(
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.DescribeProblemObservations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProblemObservationsRequest: serializeAws_json1_1DescribeProblemObservationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProblemObservationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -544,13 +491,9 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListApplications";
   let body: any = {};
-  const wrappedBody: any = {
-    ListApplicationsRequest: serializeAws_json1_1ListApplicationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -569,13 +512,9 @@ export async function serializeAws_json1_1ListComponentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListComponents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListComponentsRequest: serializeAws_json1_1ListComponentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListComponentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -594,13 +533,9 @@ export async function serializeAws_json1_1ListLogPatternSetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListLogPatternSets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLogPatternSetsRequest: serializeAws_json1_1ListLogPatternSetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLogPatternSetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -619,13 +554,9 @@ export async function serializeAws_json1_1ListLogPatternsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListLogPatterns";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLogPatternsRequest: serializeAws_json1_1ListLogPatternsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLogPatternsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -644,10 +575,9 @@ export async function serializeAws_json1_1ListProblemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListProblems";
   let body: any = {};
-  const wrappedBody: any = {
-    ListProblemsRequest: serializeAws_json1_1ListProblemsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListProblemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -666,13 +596,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -691,10 +617,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -713,13 +636,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -738,13 +657,9 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApplicationRequest: serializeAws_json1_1UpdateApplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -763,13 +678,9 @@ export async function serializeAws_json1_1UpdateComponentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateComponent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateComponentRequest: serializeAws_json1_1UpdateComponentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateComponentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -789,13 +700,9 @@ export async function serializeAws_json1_1UpdateComponentConfigurationCommand(
   headers["X-Amz-Target"] =
     "EC2WindowsBarleyService.UpdateComponentConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateComponentConfigurationRequest: serializeAws_json1_1UpdateComponentConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateComponentConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -814,13 +721,9 @@ export async function serializeAws_json1_1UpdateLogPatternCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "EC2WindowsBarleyService.UpdateLogPattern";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateLogPatternRequest: serializeAws_json1_1UpdateLogPatternRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateLogPatternRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

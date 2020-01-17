@@ -52,13 +52,9 @@ export async function serializeAws_json1_1DeleteReportDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.DeleteReportDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteReportDefinitionRequest: serializeAws_json1_1DeleteReportDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteReportDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -78,13 +74,9 @@ export async function serializeAws_json1_1DescribeReportDefinitionsCommand(
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.DescribeReportDefinitions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeReportDefinitionsRequest: serializeAws_json1_1DescribeReportDefinitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeReportDefinitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -104,13 +96,9 @@ export async function serializeAws_json1_1ModifyReportDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.ModifyReportDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyReportDefinitionRequest: serializeAws_json1_1ModifyReportDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyReportDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -130,13 +118,9 @@ export async function serializeAws_json1_1PutReportDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSOrigamiServiceGatewayService.PutReportDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    PutReportDefinitionRequest: serializeAws_json1_1PutReportDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutReportDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -113,13 +113,9 @@ export async function serializeAws_json1_1AssociateAdminAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.AssociateAdminAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateAdminAccountRequest: serializeAws_json1_1AssociateAdminAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateAdminAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -138,13 +134,9 @@ export async function serializeAws_json1_1DeleteNotificationChannelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DeleteNotificationChannel";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNotificationChannelRequest: serializeAws_json1_1DeleteNotificationChannelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNotificationChannelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -163,10 +155,9 @@ export async function serializeAws_json1_1DeletePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DeletePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePolicyRequest: serializeAws_json1_1DeletePolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -185,13 +176,9 @@ export async function serializeAws_json1_1DisassociateAdminAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.DisassociateAdminAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateAdminAccountRequest: serializeAws_json1_1DisassociateAdminAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateAdminAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -210,13 +197,9 @@ export async function serializeAws_json1_1GetAdminAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetAdminAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAdminAccountRequest: serializeAws_json1_1GetAdminAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAdminAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -235,13 +218,9 @@ export async function serializeAws_json1_1GetComplianceDetailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetComplianceDetail";
   let body: any = {};
-  const wrappedBody: any = {
-    GetComplianceDetailRequest: serializeAws_json1_1GetComplianceDetailRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetComplianceDetailRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -260,13 +239,9 @@ export async function serializeAws_json1_1GetNotificationChannelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetNotificationChannel";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNotificationChannelRequest: serializeAws_json1_1GetNotificationChannelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetNotificationChannelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -285,10 +260,7 @@ export async function serializeAws_json1_1GetPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPolicyRequest: serializeAws_json1_1GetPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -307,13 +279,9 @@ export async function serializeAws_json1_1GetProtectionStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.GetProtectionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetProtectionStatusRequest: serializeAws_json1_1GetProtectionStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetProtectionStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -332,13 +300,9 @@ export async function serializeAws_json1_1ListComplianceStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListComplianceStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    ListComplianceStatusRequest: serializeAws_json1_1ListComplianceStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListComplianceStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -357,13 +321,9 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListMemberAccounts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListMemberAccountsRequest: serializeAws_json1_1ListMemberAccountsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListMemberAccountsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -382,10 +342,9 @@ export async function serializeAws_json1_1ListPoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.ListPolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPoliciesRequest: serializeAws_json1_1ListPoliciesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPoliciesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -404,13 +363,9 @@ export async function serializeAws_json1_1PutNotificationChannelCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.PutNotificationChannel";
   let body: any = {};
-  const wrappedBody: any = {
-    PutNotificationChannelRequest: serializeAws_json1_1PutNotificationChannelRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutNotificationChannelRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -429,10 +384,7 @@ export async function serializeAws_json1_1PutPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSFMS_20180101.PutPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutPolicyRequest: serializeAws_json1_1PutPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

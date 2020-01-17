@@ -351,10 +351,9 @@ export async function serializeAws_json1_1CompareFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CompareFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    CompareFacesRequest: serializeAws_json1_1CompareFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CompareFacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -373,13 +372,9 @@ export async function serializeAws_json1_1CreateCollectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateCollection";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCollectionRequest: serializeAws_json1_1CreateCollectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCollectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -398,13 +393,9 @@ export async function serializeAws_json1_1CreateProjectCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateProject";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProjectRequest: serializeAws_json1_1CreateProjectRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProjectRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -423,13 +414,9 @@ export async function serializeAws_json1_1CreateProjectVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateProjectVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateProjectVersionRequest: serializeAws_json1_1CreateProjectVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateProjectVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -448,13 +435,9 @@ export async function serializeAws_json1_1CreateStreamProcessorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.CreateStreamProcessor";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStreamProcessorRequest: serializeAws_json1_1CreateStreamProcessorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateStreamProcessorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -473,13 +456,9 @@ export async function serializeAws_json1_1DeleteCollectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteCollection";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCollectionRequest: serializeAws_json1_1DeleteCollectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCollectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -498,10 +477,7 @@ export async function serializeAws_json1_1DeleteFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFacesRequest: serializeAws_json1_1DeleteFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteFacesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -520,13 +496,9 @@ export async function serializeAws_json1_1DeleteStreamProcessorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DeleteStreamProcessor";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteStreamProcessorRequest: serializeAws_json1_1DeleteStreamProcessorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteStreamProcessorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -545,13 +517,9 @@ export async function serializeAws_json1_1DescribeCollectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeCollection";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCollectionRequest: serializeAws_json1_1DescribeCollectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCollectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -570,13 +538,9 @@ export async function serializeAws_json1_1DescribeProjectVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeProjectVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProjectVersionsRequest: serializeAws_json1_1DescribeProjectVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProjectVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -595,13 +559,9 @@ export async function serializeAws_json1_1DescribeProjectsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeProjects";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeProjectsRequest: serializeAws_json1_1DescribeProjectsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeProjectsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -620,13 +580,9 @@ export async function serializeAws_json1_1DescribeStreamProcessorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DescribeStreamProcessor";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStreamProcessorRequest: serializeAws_json1_1DescribeStreamProcessorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeStreamProcessorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -645,13 +601,9 @@ export async function serializeAws_json1_1DetectCustomLabelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectCustomLabels";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectCustomLabelsRequest: serializeAws_json1_1DetectCustomLabelsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectCustomLabelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -670,10 +622,7 @@ export async function serializeAws_json1_1DetectFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectFacesRequest: serializeAws_json1_1DetectFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DetectFacesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -692,10 +641,9 @@ export async function serializeAws_json1_1DetectLabelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectLabels";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectLabelsRequest: serializeAws_json1_1DetectLabelsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectLabelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -714,13 +662,9 @@ export async function serializeAws_json1_1DetectModerationLabelsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectModerationLabels";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectModerationLabelsRequest: serializeAws_json1_1DetectModerationLabelsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectModerationLabelsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -739,10 +683,7 @@ export async function serializeAws_json1_1DetectTextCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.DetectText";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectTextRequest: serializeAws_json1_1DetectTextRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DetectTextRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -761,13 +702,9 @@ export async function serializeAws_json1_1GetCelebrityInfoCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetCelebrityInfo";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCelebrityInfoRequest: serializeAws_json1_1GetCelebrityInfoRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCelebrityInfoRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -786,13 +723,9 @@ export async function serializeAws_json1_1GetCelebrityRecognitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetCelebrityRecognition";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCelebrityRecognitionRequest: serializeAws_json1_1GetCelebrityRecognitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCelebrityRecognitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -811,13 +744,9 @@ export async function serializeAws_json1_1GetContentModerationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetContentModeration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetContentModerationRequest: serializeAws_json1_1GetContentModerationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetContentModerationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -836,13 +765,9 @@ export async function serializeAws_json1_1GetFaceDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetFaceDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFaceDetectionRequest: serializeAws_json1_1GetFaceDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetFaceDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -861,13 +786,9 @@ export async function serializeAws_json1_1GetFaceSearchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetFaceSearch";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFaceSearchRequest: serializeAws_json1_1GetFaceSearchRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetFaceSearchRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -886,13 +807,9 @@ export async function serializeAws_json1_1GetLabelDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetLabelDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLabelDetectionRequest: serializeAws_json1_1GetLabelDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLabelDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -911,13 +828,9 @@ export async function serializeAws_json1_1GetPersonTrackingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.GetPersonTracking";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPersonTrackingRequest: serializeAws_json1_1GetPersonTrackingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPersonTrackingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -936,10 +849,7 @@ export async function serializeAws_json1_1IndexFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.IndexFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    IndexFacesRequest: serializeAws_json1_1IndexFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1IndexFacesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -958,13 +868,9 @@ export async function serializeAws_json1_1ListCollectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListCollections";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCollectionsRequest: serializeAws_json1_1ListCollectionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCollectionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -983,10 +889,7 @@ export async function serializeAws_json1_1ListFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFacesRequest: serializeAws_json1_1ListFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListFacesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1005,13 +908,9 @@ export async function serializeAws_json1_1ListStreamProcessorsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.ListStreamProcessors";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStreamProcessorsRequest: serializeAws_json1_1ListStreamProcessorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListStreamProcessorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1030,13 +929,9 @@ export async function serializeAws_json1_1RecognizeCelebritiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.RecognizeCelebrities";
   let body: any = {};
-  const wrappedBody: any = {
-    RecognizeCelebritiesRequest: serializeAws_json1_1RecognizeCelebritiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RecognizeCelebritiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1055,10 +950,7 @@ export async function serializeAws_json1_1SearchFacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.SearchFaces";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchFacesRequest: serializeAws_json1_1SearchFacesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SearchFacesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1077,13 +969,9 @@ export async function serializeAws_json1_1SearchFacesByImageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.SearchFacesByImage";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchFacesByImageRequest: serializeAws_json1_1SearchFacesByImageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchFacesByImageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1102,13 +990,9 @@ export async function serializeAws_json1_1StartCelebrityRecognitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartCelebrityRecognition";
   let body: any = {};
-  const wrappedBody: any = {
-    StartCelebrityRecognitionRequest: serializeAws_json1_1StartCelebrityRecognitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartCelebrityRecognitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1127,13 +1011,9 @@ export async function serializeAws_json1_1StartContentModerationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartContentModeration";
   let body: any = {};
-  const wrappedBody: any = {
-    StartContentModerationRequest: serializeAws_json1_1StartContentModerationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartContentModerationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1152,13 +1032,9 @@ export async function serializeAws_json1_1StartFaceDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartFaceDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    StartFaceDetectionRequest: serializeAws_json1_1StartFaceDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartFaceDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1177,13 +1053,9 @@ export async function serializeAws_json1_1StartFaceSearchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartFaceSearch";
   let body: any = {};
-  const wrappedBody: any = {
-    StartFaceSearchRequest: serializeAws_json1_1StartFaceSearchRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartFaceSearchRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1202,13 +1074,9 @@ export async function serializeAws_json1_1StartLabelDetectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartLabelDetection";
   let body: any = {};
-  const wrappedBody: any = {
-    StartLabelDetectionRequest: serializeAws_json1_1StartLabelDetectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartLabelDetectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1227,13 +1095,9 @@ export async function serializeAws_json1_1StartPersonTrackingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartPersonTracking";
   let body: any = {};
-  const wrappedBody: any = {
-    StartPersonTrackingRequest: serializeAws_json1_1StartPersonTrackingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartPersonTrackingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1252,13 +1116,9 @@ export async function serializeAws_json1_1StartProjectVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartProjectVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    StartProjectVersionRequest: serializeAws_json1_1StartProjectVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartProjectVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1277,13 +1137,9 @@ export async function serializeAws_json1_1StartStreamProcessorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StartStreamProcessor";
   let body: any = {};
-  const wrappedBody: any = {
-    StartStreamProcessorRequest: serializeAws_json1_1StartStreamProcessorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartStreamProcessorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1302,13 +1158,9 @@ export async function serializeAws_json1_1StopProjectVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StopProjectVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    StopProjectVersionRequest: serializeAws_json1_1StopProjectVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopProjectVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1327,13 +1179,9 @@ export async function serializeAws_json1_1StopStreamProcessorCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "RekognitionService.StopStreamProcessor";
   let body: any = {};
-  const wrappedBody: any = {
-    StopStreamProcessorRequest: serializeAws_json1_1StopStreamProcessorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopStreamProcessorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

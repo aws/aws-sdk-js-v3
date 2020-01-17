@@ -199,13 +199,9 @@ export async function serializeAws_json1_1CancelTaskExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CancelTaskExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelTaskExecutionRequest: serializeAws_json1_1CancelTaskExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelTaskExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -224,10 +220,7 @@ export async function serializeAws_json1_1CreateAgentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateAgent";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAgentRequest: serializeAws_json1_1CreateAgentRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAgentRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -246,13 +239,9 @@ export async function serializeAws_json1_1CreateLocationEfsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationEfs";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLocationEfsRequest: serializeAws_json1_1CreateLocationEfsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLocationEfsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -271,13 +260,9 @@ export async function serializeAws_json1_1CreateLocationNfsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationNfs";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLocationNfsRequest: serializeAws_json1_1CreateLocationNfsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLocationNfsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -296,13 +281,9 @@ export async function serializeAws_json1_1CreateLocationS3Command(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationS3";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLocationS3Request: serializeAws_json1_1CreateLocationS3Request(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLocationS3Request(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -321,13 +302,9 @@ export async function serializeAws_json1_1CreateLocationSmbCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateLocationSmb";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLocationSmbRequest: serializeAws_json1_1CreateLocationSmbRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLocationSmbRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -346,10 +323,7 @@ export async function serializeAws_json1_1CreateTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.CreateTask";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTaskRequest: serializeAws_json1_1CreateTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -368,10 +342,7 @@ export async function serializeAws_json1_1DeleteAgentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteAgent";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAgentRequest: serializeAws_json1_1DeleteAgentRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteAgentRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -390,13 +361,9 @@ export async function serializeAws_json1_1DeleteLocationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteLocation";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLocationRequest: serializeAws_json1_1DeleteLocationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLocationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -415,10 +382,7 @@ export async function serializeAws_json1_1DeleteTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DeleteTask";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTaskRequest: serializeAws_json1_1DeleteTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -437,13 +401,9 @@ export async function serializeAws_json1_1DescribeAgentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeAgent";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAgentRequest: serializeAws_json1_1DescribeAgentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAgentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -462,13 +422,9 @@ export async function serializeAws_json1_1DescribeLocationEfsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationEfs";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLocationEfsRequest: serializeAws_json1_1DescribeLocationEfsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLocationEfsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -487,13 +443,9 @@ export async function serializeAws_json1_1DescribeLocationNfsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationNfs";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLocationNfsRequest: serializeAws_json1_1DescribeLocationNfsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLocationNfsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -512,13 +464,9 @@ export async function serializeAws_json1_1DescribeLocationS3Command(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationS3";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLocationS3Request: serializeAws_json1_1DescribeLocationS3Request(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLocationS3Request(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -537,13 +485,9 @@ export async function serializeAws_json1_1DescribeLocationSmbCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeLocationSmb";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLocationSmbRequest: serializeAws_json1_1DescribeLocationSmbRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLocationSmbRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -562,10 +506,9 @@ export async function serializeAws_json1_1DescribeTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeTask";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTaskRequest: serializeAws_json1_1DescribeTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -584,13 +527,9 @@ export async function serializeAws_json1_1DescribeTaskExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.DescribeTaskExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTaskExecutionRequest: serializeAws_json1_1DescribeTaskExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTaskExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -609,10 +548,7 @@ export async function serializeAws_json1_1ListAgentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListAgents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAgentsRequest: serializeAws_json1_1ListAgentsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAgentsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -631,13 +567,9 @@ export async function serializeAws_json1_1ListLocationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListLocations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLocationsRequest: serializeAws_json1_1ListLocationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLocationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -656,13 +588,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -681,13 +609,9 @@ export async function serializeAws_json1_1ListTaskExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTaskExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTaskExecutionsRequest: serializeAws_json1_1ListTaskExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTaskExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -706,10 +630,7 @@ export async function serializeAws_json1_1ListTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.ListTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTasksRequest: serializeAws_json1_1ListTasksRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListTasksRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -728,13 +649,9 @@ export async function serializeAws_json1_1StartTaskExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.StartTaskExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartTaskExecutionRequest: serializeAws_json1_1StartTaskExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartTaskExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -753,10 +670,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -775,13 +689,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -800,10 +710,7 @@ export async function serializeAws_json1_1UpdateAgentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UpdateAgent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAgentRequest: serializeAws_json1_1UpdateAgentRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateAgentRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -822,10 +729,7 @@ export async function serializeAws_json1_1UpdateTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "FmrsService.UpdateTask";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTaskRequest: serializeAws_json1_1UpdateTaskRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateTaskRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

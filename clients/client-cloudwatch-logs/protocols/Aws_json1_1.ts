@@ -269,13 +269,9 @@ export async function serializeAws_json1_1AssociateKmsKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.AssociateKmsKey";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateKmsKeyRequest: serializeAws_json1_1AssociateKmsKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateKmsKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -294,13 +290,9 @@ export async function serializeAws_json1_1CancelExportTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.CancelExportTask";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelExportTaskRequest: serializeAws_json1_1CancelExportTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelExportTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -319,13 +311,9 @@ export async function serializeAws_json1_1CreateExportTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.CreateExportTask";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateExportTaskRequest: serializeAws_json1_1CreateExportTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateExportTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -344,13 +332,9 @@ export async function serializeAws_json1_1CreateLogGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.CreateLogGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLogGroupRequest: serializeAws_json1_1CreateLogGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLogGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +353,9 @@ export async function serializeAws_json1_1CreateLogStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.CreateLogStream";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLogStreamRequest: serializeAws_json1_1CreateLogStreamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLogStreamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +374,9 @@ export async function serializeAws_json1_1DeleteDestinationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteDestination";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDestinationRequest: serializeAws_json1_1DeleteDestinationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDestinationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +395,9 @@ export async function serializeAws_json1_1DeleteLogGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteLogGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLogGroupRequest: serializeAws_json1_1DeleteLogGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLogGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -444,13 +416,9 @@ export async function serializeAws_json1_1DeleteLogStreamCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteLogStream";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLogStreamRequest: serializeAws_json1_1DeleteLogStreamRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLogStreamRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -469,13 +437,9 @@ export async function serializeAws_json1_1DeleteMetricFilterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteMetricFilter";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMetricFilterRequest: serializeAws_json1_1DeleteMetricFilterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMetricFilterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -494,13 +458,9 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteResourcePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResourcePolicyRequest: serializeAws_json1_1DeleteResourcePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,13 +479,9 @@ export async function serializeAws_json1_1DeleteRetentionPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteRetentionPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRetentionPolicyRequest: serializeAws_json1_1DeleteRetentionPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRetentionPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -544,13 +500,9 @@ export async function serializeAws_json1_1DeleteSubscriptionFilterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DeleteSubscriptionFilter";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSubscriptionFilterRequest: serializeAws_json1_1DeleteSubscriptionFilterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSubscriptionFilterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -569,13 +521,9 @@ export async function serializeAws_json1_1DescribeDestinationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeDestinations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDestinationsRequest: serializeAws_json1_1DescribeDestinationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDestinationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -594,13 +542,9 @@ export async function serializeAws_json1_1DescribeExportTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeExportTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExportTasksRequest: serializeAws_json1_1DescribeExportTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeExportTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -619,13 +563,9 @@ export async function serializeAws_json1_1DescribeLogGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeLogGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLogGroupsRequest: serializeAws_json1_1DescribeLogGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLogGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -644,13 +584,9 @@ export async function serializeAws_json1_1DescribeLogStreamsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeLogStreams";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLogStreamsRequest: serializeAws_json1_1DescribeLogStreamsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLogStreamsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -669,13 +605,9 @@ export async function serializeAws_json1_1DescribeMetricFiltersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeMetricFilters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMetricFiltersRequest: serializeAws_json1_1DescribeMetricFiltersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMetricFiltersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -694,13 +626,9 @@ export async function serializeAws_json1_1DescribeQueriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeQueries";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeQueriesRequest: serializeAws_json1_1DescribeQueriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeQueriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -719,13 +647,9 @@ export async function serializeAws_json1_1DescribeResourcePoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeResourcePolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeResourcePoliciesRequest: serializeAws_json1_1DescribeResourcePoliciesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeResourcePoliciesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -744,13 +668,9 @@ export async function serializeAws_json1_1DescribeSubscriptionFiltersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DescribeSubscriptionFilters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSubscriptionFiltersRequest: serializeAws_json1_1DescribeSubscriptionFiltersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSubscriptionFiltersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -769,13 +689,9 @@ export async function serializeAws_json1_1DisassociateKmsKeyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.DisassociateKmsKey";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateKmsKeyRequest: serializeAws_json1_1DisassociateKmsKeyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateKmsKeyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -794,13 +710,9 @@ export async function serializeAws_json1_1FilterLogEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.FilterLogEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    FilterLogEventsRequest: serializeAws_json1_1FilterLogEventsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1FilterLogEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -819,10 +731,9 @@ export async function serializeAws_json1_1GetLogEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.GetLogEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLogEventsRequest: serializeAws_json1_1GetLogEventsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLogEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -841,13 +752,9 @@ export async function serializeAws_json1_1GetLogGroupFieldsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.GetLogGroupFields";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLogGroupFieldsRequest: serializeAws_json1_1GetLogGroupFieldsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLogGroupFieldsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -866,10 +773,9 @@ export async function serializeAws_json1_1GetLogRecordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.GetLogRecord";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLogRecordRequest: serializeAws_json1_1GetLogRecordRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLogRecordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -888,13 +794,9 @@ export async function serializeAws_json1_1GetQueryResultsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.GetQueryResults";
   let body: any = {};
-  const wrappedBody: any = {
-    GetQueryResultsRequest: serializeAws_json1_1GetQueryResultsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetQueryResultsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -913,13 +815,9 @@ export async function serializeAws_json1_1ListTagsLogGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.ListTagsLogGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsLogGroupRequest: serializeAws_json1_1ListTagsLogGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsLogGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -938,13 +836,9 @@ export async function serializeAws_json1_1PutDestinationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutDestination";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDestinationRequest: serializeAws_json1_1PutDestinationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutDestinationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -963,13 +857,9 @@ export async function serializeAws_json1_1PutDestinationPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutDestinationPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDestinationPolicyRequest: serializeAws_json1_1PutDestinationPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutDestinationPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -988,10 +878,9 @@ export async function serializeAws_json1_1PutLogEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutLogEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    PutLogEventsRequest: serializeAws_json1_1PutLogEventsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutLogEventsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1010,13 +899,9 @@ export async function serializeAws_json1_1PutMetricFilterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutMetricFilter";
   let body: any = {};
-  const wrappedBody: any = {
-    PutMetricFilterRequest: serializeAws_json1_1PutMetricFilterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutMetricFilterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1035,13 +920,9 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutResourcePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutResourcePolicyRequest: serializeAws_json1_1PutResourcePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutResourcePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1060,13 +941,9 @@ export async function serializeAws_json1_1PutRetentionPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutRetentionPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRetentionPolicyRequest: serializeAws_json1_1PutRetentionPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRetentionPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1085,13 +962,9 @@ export async function serializeAws_json1_1PutSubscriptionFilterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.PutSubscriptionFilter";
   let body: any = {};
-  const wrappedBody: any = {
-    PutSubscriptionFilterRequest: serializeAws_json1_1PutSubscriptionFilterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutSubscriptionFilterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1110,10 +983,7 @@ export async function serializeAws_json1_1StartQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.StartQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    StartQueryRequest: serializeAws_json1_1StartQueryRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartQueryRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1132,10 +1002,7 @@ export async function serializeAws_json1_1StopQueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.StopQuery";
   let body: any = {};
-  const wrappedBody: any = {
-    StopQueryRequest: serializeAws_json1_1StopQueryRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopQueryRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1154,10 +1021,7 @@ export async function serializeAws_json1_1TagLogGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.TagLogGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    TagLogGroupRequest: serializeAws_json1_1TagLogGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagLogGroupRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1176,13 +1040,9 @@ export async function serializeAws_json1_1TestMetricFilterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.TestMetricFilter";
   let body: any = {};
-  const wrappedBody: any = {
-    TestMetricFilterRequest: serializeAws_json1_1TestMetricFilterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TestMetricFilterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1201,13 +1061,9 @@ export async function serializeAws_json1_1UntagLogGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Logs_20140328.UntagLogGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagLogGroupRequest: serializeAws_json1_1UntagLogGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagLogGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
