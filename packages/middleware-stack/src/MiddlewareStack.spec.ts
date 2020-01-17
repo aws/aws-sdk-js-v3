@@ -211,10 +211,9 @@ describe("MiddlewareStack", () => {
 
   it("should allow combining stacks", async () => {
     const stack = new MiddlewareStack<input, output>();
-    stack.add(getConcatMiddleware("first") as InitializeMiddleware<
-      input,
-      output
-    >);
+    stack.add(
+      getConcatMiddleware("first") as InitializeMiddleware<input, output>
+    );
     stack.add(
       getConcatMiddleware("second") as InitializeMiddleware<input, output>,
       {

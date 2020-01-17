@@ -279,13 +279,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
   private normalizeRelativeEntries(): NormalizingEntryResult<Input, Output> {
     const absoluteMiddlewareNamesMap = this.absoluteEntries
       .filter(entry => entry.name)
-      .reduce(
-        (accumulator, entry) => {
-          accumulator[entry.name!] = entry;
-          return accumulator;
-        },
-        {} as NamedMiddlewareEntriesMap<Input, Output>
-      );
+      .reduce((accumulator, entry) => {
+        accumulator[entry.name!] = entry;
+        return accumulator;
+      }, {} as NamedMiddlewareEntriesMap<Input, Output>);
     const normalized = this.relativeEntries.map(
       entry =>
         ({
@@ -297,13 +294,10 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     );
     const relativeMiddlewareNamesMap = normalized
       .filter(entry => entry.name)
-      .reduce(
-        (accumulator, entry) => {
-          accumulator[entry.name!] = entry;
-          return accumulator;
-        },
-        {} as NamedRelativeEntriesMap<Input, Output>
-      );
+      .reduce((accumulator, entry) => {
+        accumulator[entry.name!] = entry;
+        return accumulator;
+      }, {} as NamedRelativeEntriesMap<Input, Output>);
 
     const anchors: RelativeMiddlewareAnchor<Input, Output> = {};
     for (let i = 0; i < this.relativeEntries.length; i++) {
@@ -354,12 +348,14 @@ export class MiddlewareStack<Input extends object, Output extends object> {
     }
     // get the head of the relative middleware linked list that have
     // no transitive relation to absolute middleware.
-    const orphanedRelativeEntries: Array<
-      NormalizedRelativeEntry<Input, Output>
-    > = [];
-    const visited: WeakSet<
-      NormalizedRelativeEntry<Input, Output>
-    > = new WeakSet();
+    const orphanedRelativeEntries: Array<NormalizedRelativeEntry<
+      Input,
+      Output
+    >> = [];
+    const visited: WeakSet<NormalizedRelativeEntry<
+      Input,
+      Output
+    >> = new WeakSet();
     for (const anchorName of Object.keys(anchors)) {
       let { prev, next } = anchors[anchorName];
       while (prev) {

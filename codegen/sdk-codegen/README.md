@@ -14,6 +14,7 @@ By running `./gradlew :sdk-codegen:build`, this package will:
    - The `typescript-codegen` plugin is applied. The `package` value is set
      to `@aws-sdk/client-` + the first dot (.) segment of the filename
      converted to lowercase (this segment is also the AWS SDK service ID).
+
 3. Runs the `software.amazon.smithy.gradle.tasks.SmithyBuild` Gradle task
    to generate artifacts for each service model. Artifacts for each model
    are written to `codegen/sdk-codegen/build/smithyprojections/sdk-codegen/{filename}/typescript-codegen`

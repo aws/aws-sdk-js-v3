@@ -73,7 +73,7 @@ export class Client<
     const options = typeof optionsOrCb !== "function" ? optionsOrCb : undefined;
     const callback =
       typeof optionsOrCb === "function"
-        ? (optionsOrCb as ((err: any, data?: OutputType) => void))
+        ? (optionsOrCb as (err: any, data?: OutputType) => void)
         : cb;
     const handler = command.resolveMiddleware(
       this.middlewareStack as any,
