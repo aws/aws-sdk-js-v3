@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,7 +14,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "^1.0.0-alpha.7",
+    "@aws-sdk/client-cognito-identity": "^1.0.0-alpha.8",
     "@aws-sdk/property-provider": "^1.0.0-alpha.2",
     "@aws-sdk/protocol-timestamp": "^1.0.0-alpha.2",
     "@aws-sdk/types": "^1.0.0-alpha.2",
