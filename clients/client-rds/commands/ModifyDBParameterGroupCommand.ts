@@ -1,0 +1,87 @@
+import {
+  RDSClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../RDSClient";
+import {
+  DBParameterGroupNameMessage,
+  ModifyDBParameterGroupMessage
+} from "../models/index";
+import {
+  deserializeAws_queryModifyDBParameterGroupCommand,
+  serializeAws_queryModifyDBParameterGroupCommand
+} from "../protocols/Aws_query";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type ModifyDBParameterGroupCommandInput = ModifyDBParameterGroupMessage;
+export type ModifyDBParameterGroupCommandOutput = DBParameterGroupNameMessage;
+
+export class ModifyDBParameterGroupCommand extends $Command<
+  ModifyDBParameterGroupCommandInput,
+  ModifyDBParameterGroupCommandOutput,
+  RDSClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ModifyDBParameterGroupCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: RDSClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ModifyDBParameterGroupCommandInput,
+    ModifyDBParameterGroupCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ModifyDBParameterGroupCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_queryModifyDBParameterGroupCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ModifyDBParameterGroupCommandOutput> {
+    return deserializeAws_queryModifyDBParameterGroupCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
