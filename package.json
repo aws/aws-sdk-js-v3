@@ -16,7 +16,7 @@
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope @aws-sdk/stream-collector-browser --scope @aws-sdk/hash-blob-browser",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
-    "test:integration": "cucumber-js --tags $(cat cucumber-tags.txt | grep '^[^#]' | paste -s -d, -)"
+    "test:integration": "cucumber-js"
   },
   "repository": {
     "type": "git",
