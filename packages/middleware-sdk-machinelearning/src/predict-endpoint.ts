@@ -22,7 +22,7 @@ export function predictEndpointMiddleware(
     let { request } = args;
     if (HttpRequest.isInstance(request)) {
       if (input.PredictEndpoint) {
-        const endpoint = options.urlParser(input.predictEndpoint);
+        const endpoint = options.urlParser(input.PredictEndpoint);
         request = {
           ...request,
           hostname: endpoint.hostname,
