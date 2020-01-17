@@ -1,0 +1,87 @@
+import {
+  ElastiCacheClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../ElastiCacheClient";
+import {
+  ModifyReplicationGroupMessage,
+  ReplicationGroup
+} from "../models/index";
+import {
+  deserializeAws_queryModifyReplicationGroupCommand,
+  serializeAws_queryModifyReplicationGroupCommand
+} from "../protocols/Aws_query";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type ModifyReplicationGroupCommandInput = ModifyReplicationGroupMessage;
+export type ModifyReplicationGroupCommandOutput = ReplicationGroup;
+
+export class ModifyReplicationGroupCommand extends $Command<
+  ModifyReplicationGroupCommandInput,
+  ModifyReplicationGroupCommandOutput,
+  ElastiCacheClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ModifyReplicationGroupCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: ElastiCacheClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ModifyReplicationGroupCommandInput,
+    ModifyReplicationGroupCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ModifyReplicationGroupCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_queryModifyReplicationGroupCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ModifyReplicationGroupCommandOutput> {
+    return deserializeAws_queryModifyReplicationGroupCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
