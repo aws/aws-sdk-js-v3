@@ -103,13 +103,9 @@ export async function serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand(
   headers["X-Amz-Target"] =
     "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEntitiesDetectionV2JobRequest: serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -129,13 +125,9 @@ export async function serializeAws_json1_1DescribePHIDetectionJobCommand(
   headers["X-Amz-Target"] =
     "ComprehendMedical_20181030.DescribePHIDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePHIDetectionJobRequest: serializeAws_json1_1DescribePHIDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePHIDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -154,13 +146,9 @@ export async function serializeAws_json1_1DetectEntitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectEntities";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectEntitiesRequest: serializeAws_json1_1DetectEntitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectEntitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -179,13 +167,9 @@ export async function serializeAws_json1_1DetectEntitiesV2Command(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectEntitiesV2";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectEntitiesV2Request: serializeAws_json1_1DetectEntitiesV2Request(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetectEntitiesV2Request(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -204,10 +188,7 @@ export async function serializeAws_json1_1DetectPHICommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.DetectPHI";
   let body: any = {};
-  const wrappedBody: any = {
-    DetectPHIRequest: serializeAws_json1_1DetectPHIRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DetectPHIRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -227,13 +208,9 @@ export async function serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
   headers["X-Amz-Target"] =
     "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListEntitiesDetectionV2JobsRequest: serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -252,13 +229,9 @@ export async function serializeAws_json1_1ListPHIDetectionJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.ListPHIDetectionJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPHIDetectionJobsRequest: serializeAws_json1_1ListPHIDetectionJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPHIDetectionJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -278,13 +251,9 @@ export async function serializeAws_json1_1StartEntitiesDetectionV2JobCommand(
   headers["X-Amz-Target"] =
     "ComprehendMedical_20181030.StartEntitiesDetectionV2Job";
   let body: any = {};
-  const wrappedBody: any = {
-    StartEntitiesDetectionV2JobRequest: serializeAws_json1_1StartEntitiesDetectionV2JobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartEntitiesDetectionV2JobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -303,13 +272,9 @@ export async function serializeAws_json1_1StartPHIDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.StartPHIDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartPHIDetectionJobRequest: serializeAws_json1_1StartPHIDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartPHIDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -329,13 +294,9 @@ export async function serializeAws_json1_1StopEntitiesDetectionV2JobCommand(
   headers["X-Amz-Target"] =
     "ComprehendMedical_20181030.StopEntitiesDetectionV2Job";
   let body: any = {};
-  const wrappedBody: any = {
-    StopEntitiesDetectionV2JobRequest: serializeAws_json1_1StopEntitiesDetectionV2JobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopEntitiesDetectionV2JobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -354,13 +315,9 @@ export async function serializeAws_json1_1StopPHIDetectionJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "ComprehendMedical_20181030.StopPHIDetectionJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopPHIDetectionJobRequest: serializeAws_json1_1StopPHIDetectionJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopPHIDetectionJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

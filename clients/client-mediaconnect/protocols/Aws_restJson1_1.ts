@@ -735,7 +735,7 @@ export async function deserializeAws_restJson1_1AddFlowOutputsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFlowOutputsCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1AddFlowOutputsCommandError(
       output,
       context
@@ -820,20 +820,25 @@ async function deserializeAws_restJson1_1AddFlowOutputsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1CreateFlowCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> {
-  if (output.statusCode !== 201) {
+  if (output.statusCode !== 201 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1CreateFlowCommandError(output, context);
   }
   const contents: CreateFlowCommandOutput = {
@@ -901,20 +906,25 @@ async function deserializeAws_restJson1_1CreateFlowCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DeleteFlowCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DeleteFlowCommandError(output, context);
   }
   const contents: DeleteFlowCommandOutput = {
@@ -986,20 +996,25 @@ async function deserializeAws_restJson1_1DeleteFlowCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1DescribeFlowCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1DescribeFlowCommandError(output, context);
   }
   const contents: DescribeFlowCommandOutput = {
@@ -1074,20 +1089,25 @@ async function deserializeAws_restJson1_1DescribeFlowCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1GrantFlowEntitlementsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantFlowEntitlementsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
       output,
       context
@@ -1172,20 +1192,25 @@ async function deserializeAws_restJson1_1GrantFlowEntitlementsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListEntitlementsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitlementsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListEntitlementsCommandError(
       output,
       context
@@ -1249,20 +1274,25 @@ async function deserializeAws_restJson1_1ListEntitlementsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListFlowsCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListFlowsCommandError(output, context);
   }
   const contents: ListFlowsCommandOutput = {
@@ -1323,20 +1353,25 @@ async function deserializeAws_restJson1_1ListFlowsCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
-  if (output.statusCode !== 200) {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1ListTagsForResourceCommandError(
       output,
       context
@@ -1389,20 +1424,25 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1RemoveFlowOutputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFlowOutputCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RemoveFlowOutputCommandError(
       output,
       context
@@ -1477,20 +1517,25 @@ async function deserializeAws_restJson1_1RemoveFlowOutputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1RevokeFlowEntitlementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeFlowEntitlementCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
       output,
       context
@@ -1565,20 +1610,25 @@ async function deserializeAws_restJson1_1RevokeFlowEntitlementCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1StartFlowCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartFlowCommandError(output, context);
   }
   const contents: StartFlowCommandOutput = {
@@ -1650,20 +1700,25 @@ async function deserializeAws_restJson1_1StartFlowCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1StopFlowCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StopFlowCommandError(output, context);
   }
   const contents: StopFlowCommandOutput = {
@@ -1735,20 +1790,25 @@ async function deserializeAws_restJson1_1StopFlowCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1TagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1789,20 +1849,25 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UntagResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
-  if (output.statusCode !== 204) {
+  if (output.statusCode !== 204 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1843,20 +1908,25 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFlowEntitlementCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowEntitlementCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
       output,
       context
@@ -1934,20 +2004,25 @@ async function deserializeAws_restJson1_1UpdateFlowEntitlementCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFlowOutputCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowOutputCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFlowOutputCommandError(
       output,
       context
@@ -2022,20 +2097,25 @@ async function deserializeAws_restJson1_1UpdateFlowOutputCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 export async function deserializeAws_restJson1_1UpdateFlowSourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFlowSourceCommandOutput> {
-  if (output.statusCode !== 202) {
+  if (output.statusCode !== 202 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1UpdateFlowSourceCommandError(
       output,
       context
@@ -2110,13 +2190,18 @@ async function deserializeAws_restJson1_1UpdateFlowSourceCommandError(
       );
       break;
     default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
       response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
         __type: `com.amazonaws.mediaconnect#${errorCode}`,
         $fault: "client",
         $metadata: deserializeMetadata(output)
-      };
+      } as any;
   }
-  return Promise.reject(Object.assign(new Error(response.__type), response));
+  return Promise.reject(Object.assign(new Error(), response));
 }
 
 const deserializeAws_restJson1_1AddFlowOutputs420ExceptionResponse = async (
@@ -2124,6 +2209,7 @@ const deserializeAws_restJson1_1AddFlowOutputs420ExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AddFlowOutputs420Exception> => {
   const contents: AddFlowOutputs420Exception = {
+    name: "AddFlowOutputs420Exception",
     __type: "AddFlowOutputs420Exception",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2141,6 +2227,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const contents: BadRequestException = {
+    name: "BadRequestException",
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2158,6 +2245,7 @@ const deserializeAws_restJson1_1CreateFlow420ExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CreateFlow420Exception> => {
   const contents: CreateFlow420Exception = {
+    name: "CreateFlow420Exception",
     __type: "CreateFlow420Exception",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2175,6 +2263,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ForbiddenException> => {
   const contents: ForbiddenException = {
+    name: "ForbiddenException",
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2192,6 +2281,7 @@ const deserializeAws_restJson1_1GrantFlowEntitlements420ExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<GrantFlowEntitlements420Exception> => {
   const contents: GrantFlowEntitlements420Exception = {
+    name: "GrantFlowEntitlements420Exception",
     __type: "GrantFlowEntitlements420Exception",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2209,6 +2299,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
   const contents: InternalServerErrorException = {
+    name: "InternalServerErrorException",
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -2226,6 +2317,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const contents: NotFoundException = {
+    name: "NotFoundException",
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
@@ -2243,6 +2335,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: ServiceUnavailableException = {
+    name: "ServiceUnavailableException",
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
@@ -2260,6 +2353,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: TooManyRequestsException = {
+    name: "TooManyRequestsException",
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),

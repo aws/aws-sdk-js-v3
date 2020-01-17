@@ -66,13 +66,9 @@ export async function serializeAws_json1_1DeleteTerminologyCommand(
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.DeleteTerminology";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTerminologyRequest: serializeAws_json1_1DeleteTerminologyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTerminologyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -91,13 +87,9 @@ export async function serializeAws_json1_1GetTerminologyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.GetTerminology";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTerminologyRequest: serializeAws_json1_1GetTerminologyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTerminologyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -117,13 +109,9 @@ export async function serializeAws_json1_1ImportTerminologyCommand(
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.ImportTerminology";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportTerminologyRequest: serializeAws_json1_1ImportTerminologyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportTerminologyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -143,13 +131,9 @@ export async function serializeAws_json1_1ListTerminologiesCommand(
   headers["X-Amz-Target"] =
     "AWSShineFrontendService_20170701.ListTerminologies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTerminologiesRequest: serializeAws_json1_1ListTerminologiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTerminologiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -168,13 +152,9 @@ export async function serializeAws_json1_1TranslateTextCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSShineFrontendService_20170701.TranslateText";
   let body: any = {};
-  const wrappedBody: any = {
-    TranslateTextRequest: serializeAws_json1_1TranslateTextRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TranslateTextRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

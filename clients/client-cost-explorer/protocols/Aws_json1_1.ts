@@ -202,13 +202,9 @@ export async function serializeAws_json1_1CreateCostCategoryDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.CreateCostCategoryDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCostCategoryDefinitionRequest: serializeAws_json1_1CreateCostCategoryDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCostCategoryDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -228,13 +224,9 @@ export async function serializeAws_json1_1DeleteCostCategoryDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.DeleteCostCategoryDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCostCategoryDefinitionRequest: serializeAws_json1_1DeleteCostCategoryDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCostCategoryDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -254,13 +246,9 @@ export async function serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.DescribeCostCategoryDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCostCategoryDefinitionRequest: serializeAws_json1_1DescribeCostCategoryDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCostCategoryDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -279,13 +267,9 @@ export async function serializeAws_json1_1GetCostAndUsageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostAndUsage";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCostAndUsageRequest: serializeAws_json1_1GetCostAndUsageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCostAndUsageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -305,13 +289,9 @@ export async function serializeAws_json1_1GetCostAndUsageWithResourcesCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetCostAndUsageWithResources";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCostAndUsageWithResourcesRequest: serializeAws_json1_1GetCostAndUsageWithResourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCostAndUsageWithResourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -330,13 +310,9 @@ export async function serializeAws_json1_1GetCostForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetCostForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCostForecastRequest: serializeAws_json1_1GetCostForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCostForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -355,13 +331,9 @@ export async function serializeAws_json1_1GetDimensionValuesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetDimensionValues";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDimensionValuesRequest: serializeAws_json1_1GetDimensionValuesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDimensionValuesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -380,13 +352,9 @@ export async function serializeAws_json1_1GetReservationCoverageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationCoverage";
   let body: any = {};
-  const wrappedBody: any = {
-    GetReservationCoverageRequest: serializeAws_json1_1GetReservationCoverageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetReservationCoverageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -406,13 +374,12 @@ export async function serializeAws_json1_1GetReservationPurchaseRecommendationCo
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetReservationPurchaseRecommendation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetReservationPurchaseRecommendationRequest: serializeAws_json1_1GetReservationPurchaseRecommendationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetReservationPurchaseRecommendationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -431,13 +398,9 @@ export async function serializeAws_json1_1GetReservationUtilizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetReservationUtilization";
   let body: any = {};
-  const wrappedBody: any = {
-    GetReservationUtilizationRequest: serializeAws_json1_1GetReservationUtilizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetReservationUtilizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -457,13 +420,9 @@ export async function serializeAws_json1_1GetRightsizingRecommendationCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetRightsizingRecommendation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRightsizingRecommendationRequest: serializeAws_json1_1GetRightsizingRecommendationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRightsizingRecommendationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -482,13 +441,9 @@ export async function serializeAws_json1_1GetSavingsPlansCoverageCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetSavingsPlansCoverage";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSavingsPlansCoverageRequest: serializeAws_json1_1GetSavingsPlansCoverageRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSavingsPlansCoverageRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -508,13 +463,12 @@ export async function serializeAws_json1_1GetSavingsPlansPurchaseRecommendationC
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSavingsPlansPurchaseRecommendationRequest: serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -534,13 +488,9 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansUtilization";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSavingsPlansUtilizationRequest: serializeAws_json1_1GetSavingsPlansUtilizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSavingsPlansUtilizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -560,13 +510,9 @@ export async function serializeAws_json1_1GetSavingsPlansUtilizationDetailsComma
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSavingsPlansUtilizationDetailsRequest: serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -585,10 +531,7 @@ export async function serializeAws_json1_1GetTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetTags";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTagsRequest: serializeAws_json1_1GetTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -607,13 +550,9 @@ export async function serializeAws_json1_1GetUsageForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSInsightsIndexService.GetUsageForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUsageForecastRequest: serializeAws_json1_1GetUsageForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUsageForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -633,13 +572,9 @@ export async function serializeAws_json1_1ListCostCategoryDefinitionsCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.ListCostCategoryDefinitions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCostCategoryDefinitionsRequest: serializeAws_json1_1ListCostCategoryDefinitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCostCategoryDefinitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -659,13 +594,9 @@ export async function serializeAws_json1_1UpdateCostCategoryDefinitionCommand(
   headers["X-Amz-Target"] =
     "AWSInsightsIndexService.UpdateCostCategoryDefinition";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCostCategoryDefinitionRequest: serializeAws_json1_1UpdateCostCategoryDefinitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCostCategoryDefinitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

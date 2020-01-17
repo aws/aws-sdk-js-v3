@@ -420,13 +420,9 @@ export async function serializeAws_json1_1AcceptSharedDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.AcceptSharedDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptSharedDirectoryRequest: serializeAws_json1_1AcceptSharedDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcceptSharedDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,10 +441,7 @@ export async function serializeAws_json1_1AddIpRoutesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.AddIpRoutes";
   let body: any = {};
-  const wrappedBody: any = {
-    AddIpRoutesRequest: serializeAws_json1_1AddIpRoutesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1AddIpRoutesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -467,13 +460,9 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.AddTagsToResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToResourceRequest: serializeAws_json1_1AddTagsToResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -492,13 +481,9 @@ export async function serializeAws_json1_1CancelSchemaExtensionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CancelSchemaExtension";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelSchemaExtensionRequest: serializeAws_json1_1CancelSchemaExtensionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelSchemaExtensionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -517,13 +502,9 @@ export async function serializeAws_json1_1ConnectDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ConnectDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    ConnectDirectoryRequest: serializeAws_json1_1ConnectDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ConnectDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -542,10 +523,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateAlias";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAliasRequest: serializeAws_json1_1CreateAliasRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -564,13 +542,9 @@ export async function serializeAws_json1_1CreateComputerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateComputer";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateComputerRequest: serializeAws_json1_1CreateComputerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateComputerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -590,13 +564,9 @@ export async function serializeAws_json1_1CreateConditionalForwarderCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.CreateConditionalForwarder";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateConditionalForwarderRequest: serializeAws_json1_1CreateConditionalForwarderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateConditionalForwarderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -615,13 +585,9 @@ export async function serializeAws_json1_1CreateDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDirectoryRequest: serializeAws_json1_1CreateDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -640,13 +606,9 @@ export async function serializeAws_json1_1CreateLogSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateLogSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateLogSubscriptionRequest: serializeAws_json1_1CreateLogSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateLogSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -665,13 +627,9 @@ export async function serializeAws_json1_1CreateMicrosoftADCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateMicrosoftAD";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMicrosoftADRequest: serializeAws_json1_1CreateMicrosoftADRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMicrosoftADRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -690,13 +648,9 @@ export async function serializeAws_json1_1CreateSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSnapshotRequest: serializeAws_json1_1CreateSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -715,10 +669,7 @@ export async function serializeAws_json1_1CreateTrustCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.CreateTrust";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTrustRequest: serializeAws_json1_1CreateTrustRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTrustRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -738,13 +689,9 @@ export async function serializeAws_json1_1DeleteConditionalForwarderCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.DeleteConditionalForwarder";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConditionalForwarderRequest: serializeAws_json1_1DeleteConditionalForwarderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConditionalForwarderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -763,13 +710,9 @@ export async function serializeAws_json1_1DeleteDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDirectoryRequest: serializeAws_json1_1DeleteDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -788,13 +731,9 @@ export async function serializeAws_json1_1DeleteLogSubscriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteLogSubscription";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLogSubscriptionRequest: serializeAws_json1_1DeleteLogSubscriptionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLogSubscriptionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -813,13 +752,9 @@ export async function serializeAws_json1_1DeleteSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSnapshotRequest: serializeAws_json1_1DeleteSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -838,10 +773,7 @@ export async function serializeAws_json1_1DeleteTrustCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeleteTrust";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTrustRequest: serializeAws_json1_1DeleteTrustRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTrustRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -860,13 +792,9 @@ export async function serializeAws_json1_1DeregisterCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeregisterCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterCertificateRequest: serializeAws_json1_1DeregisterCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -885,13 +813,9 @@ export async function serializeAws_json1_1DeregisterEventTopicCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DeregisterEventTopic";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterEventTopicRequest: serializeAws_json1_1DeregisterEventTopicRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterEventTopicRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -910,13 +834,9 @@ export async function serializeAws_json1_1DescribeCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCertificateRequest: serializeAws_json1_1DescribeCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -936,13 +856,9 @@ export async function serializeAws_json1_1DescribeConditionalForwardersCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.DescribeConditionalForwarders";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeConditionalForwardersRequest: serializeAws_json1_1DescribeConditionalForwardersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeConditionalForwardersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -961,13 +877,9 @@ export async function serializeAws_json1_1DescribeDirectoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeDirectories";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDirectoriesRequest: serializeAws_json1_1DescribeDirectoriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDirectoriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -987,13 +899,9 @@ export async function serializeAws_json1_1DescribeDomainControllersCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.DescribeDomainControllers";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDomainControllersRequest: serializeAws_json1_1DescribeDomainControllersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDomainControllersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1012,13 +920,9 @@ export async function serializeAws_json1_1DescribeEventTopicsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeEventTopics";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEventTopicsRequest: serializeAws_json1_1DescribeEventTopicsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEventTopicsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1037,13 +941,9 @@ export async function serializeAws_json1_1DescribeLDAPSSettingsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeLDAPSSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeLDAPSSettingsRequest: serializeAws_json1_1DescribeLDAPSSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeLDAPSSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1063,13 +963,9 @@ export async function serializeAws_json1_1DescribeSharedDirectoriesCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.DescribeSharedDirectories";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSharedDirectoriesRequest: serializeAws_json1_1DescribeSharedDirectoriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSharedDirectoriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1088,13 +984,9 @@ export async function serializeAws_json1_1DescribeSnapshotsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeSnapshots";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSnapshotsRequest: serializeAws_json1_1DescribeSnapshotsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSnapshotsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1113,13 +1005,9 @@ export async function serializeAws_json1_1DescribeTrustsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DescribeTrusts";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeTrustsRequest: serializeAws_json1_1DescribeTrustsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeTrustsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1138,10 +1026,9 @@ export async function serializeAws_json1_1DisableLDAPSCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DisableLDAPS";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableLDAPSRequest: serializeAws_json1_1DisableLDAPSRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableLDAPSRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1160,13 +1047,9 @@ export async function serializeAws_json1_1DisableRadiusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DisableRadius";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableRadiusRequest: serializeAws_json1_1DisableRadiusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableRadiusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1185,10 +1068,7 @@ export async function serializeAws_json1_1DisableSsoCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.DisableSso";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableSsoRequest: serializeAws_json1_1DisableSsoRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DisableSsoRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1207,10 +1087,7 @@ export async function serializeAws_json1_1EnableLDAPSCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.EnableLDAPS";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableLDAPSRequest: serializeAws_json1_1EnableLDAPSRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableLDAPSRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1229,10 +1106,9 @@ export async function serializeAws_json1_1EnableRadiusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.EnableRadius";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableRadiusRequest: serializeAws_json1_1EnableRadiusRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableRadiusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1251,10 +1127,7 @@ export async function serializeAws_json1_1EnableSsoCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.EnableSso";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableSsoRequest: serializeAws_json1_1EnableSsoRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1EnableSsoRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1273,13 +1146,9 @@ export async function serializeAws_json1_1GetDirectoryLimitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.GetDirectoryLimits";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDirectoryLimitsRequest: serializeAws_json1_1GetDirectoryLimitsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDirectoryLimitsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1298,13 +1167,9 @@ export async function serializeAws_json1_1GetSnapshotLimitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.GetSnapshotLimits";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSnapshotLimitsRequest: serializeAws_json1_1GetSnapshotLimitsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSnapshotLimitsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1323,13 +1188,9 @@ export async function serializeAws_json1_1ListCertificatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ListCertificates";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCertificatesRequest: serializeAws_json1_1ListCertificatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCertificatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1348,10 +1209,9 @@ export async function serializeAws_json1_1ListIpRoutesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ListIpRoutes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListIpRoutesRequest: serializeAws_json1_1ListIpRoutesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListIpRoutesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1370,13 +1230,9 @@ export async function serializeAws_json1_1ListLogSubscriptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ListLogSubscriptions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLogSubscriptionsRequest: serializeAws_json1_1ListLogSubscriptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLogSubscriptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1395,13 +1251,9 @@ export async function serializeAws_json1_1ListSchemaExtensionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ListSchemaExtensions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListSchemaExtensionsRequest: serializeAws_json1_1ListSchemaExtensionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListSchemaExtensionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1420,13 +1272,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1445,13 +1293,9 @@ export async function serializeAws_json1_1RegisterCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RegisterCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterCertificateRequest: serializeAws_json1_1RegisterCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1470,13 +1314,9 @@ export async function serializeAws_json1_1RegisterEventTopicCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RegisterEventTopic";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterEventTopicRequest: serializeAws_json1_1RegisterEventTopicRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterEventTopicRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1495,13 +1335,9 @@ export async function serializeAws_json1_1RejectSharedDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RejectSharedDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    RejectSharedDirectoryRequest: serializeAws_json1_1RejectSharedDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RejectSharedDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1520,13 +1356,9 @@ export async function serializeAws_json1_1RemoveIpRoutesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RemoveIpRoutes";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveIpRoutesRequest: serializeAws_json1_1RemoveIpRoutesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveIpRoutesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1545,13 +1377,9 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RemoveTagsFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromResourceRequest: serializeAws_json1_1RemoveTagsFromResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1570,13 +1398,9 @@ export async function serializeAws_json1_1ResetUserPasswordCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ResetUserPassword";
   let body: any = {};
-  const wrappedBody: any = {
-    ResetUserPasswordRequest: serializeAws_json1_1ResetUserPasswordRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResetUserPasswordRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1595,13 +1419,9 @@ export async function serializeAws_json1_1RestoreFromSnapshotCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.RestoreFromSnapshot";
   let body: any = {};
-  const wrappedBody: any = {
-    RestoreFromSnapshotRequest: serializeAws_json1_1RestoreFromSnapshotRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RestoreFromSnapshotRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1620,13 +1440,9 @@ export async function serializeAws_json1_1ShareDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.ShareDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    ShareDirectoryRequest: serializeAws_json1_1ShareDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ShareDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1645,13 +1461,9 @@ export async function serializeAws_json1_1StartSchemaExtensionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.StartSchemaExtension";
   let body: any = {};
-  const wrappedBody: any = {
-    StartSchemaExtensionRequest: serializeAws_json1_1StartSchemaExtensionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartSchemaExtensionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1670,13 +1482,9 @@ export async function serializeAws_json1_1UnshareDirectoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.UnshareDirectory";
   let body: any = {};
-  const wrappedBody: any = {
-    UnshareDirectoryRequest: serializeAws_json1_1UnshareDirectoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UnshareDirectoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1696,13 +1504,9 @@ export async function serializeAws_json1_1UpdateConditionalForwarderCommand(
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.UpdateConditionalForwarder";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateConditionalForwarderRequest: serializeAws_json1_1UpdateConditionalForwarderRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateConditionalForwarderRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1722,13 +1526,9 @@ export async function serializeAws_json1_1UpdateNumberOfDomainControllersCommand
   headers["X-Amz-Target"] =
     "DirectoryService_20150416.UpdateNumberOfDomainControllers";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNumberOfDomainControllersRequest: serializeAws_json1_1UpdateNumberOfDomainControllersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNumberOfDomainControllersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1747,10 +1547,9 @@ export async function serializeAws_json1_1UpdateRadiusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.UpdateRadius";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRadiusRequest: serializeAws_json1_1UpdateRadiusRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRadiusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1769,10 +1568,7 @@ export async function serializeAws_json1_1UpdateTrustCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.UpdateTrust";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTrustRequest: serializeAws_json1_1UpdateTrustRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateTrustRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1791,10 +1587,7 @@ export async function serializeAws_json1_1VerifyTrustCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "DirectoryService_20150416.VerifyTrust";
   let body: any = {};
-  const wrappedBody: any = {
-    VerifyTrustRequest: serializeAws_json1_1VerifyTrustRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1VerifyTrustRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

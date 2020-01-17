@@ -348,13 +348,9 @@ export async function serializeAws_json1_1AcceptHandshakeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.AcceptHandshake";
   let body: any = {};
-  const wrappedBody: any = {
-    AcceptHandshakeRequest: serializeAws_json1_1AcceptHandshakeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AcceptHandshakeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -373,10 +369,9 @@ export async function serializeAws_json1_1AttachPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.AttachPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    AttachPolicyRequest: serializeAws_json1_1AttachPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AttachPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -395,13 +390,9 @@ export async function serializeAws_json1_1CancelHandshakeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CancelHandshake";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelHandshakeRequest: serializeAws_json1_1CancelHandshakeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelHandshakeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -420,13 +411,9 @@ export async function serializeAws_json1_1CreateAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAccountRequest: serializeAws_json1_1CreateAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,13 +432,9 @@ export async function serializeAws_json1_1CreateGovCloudAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateGovCloudAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateGovCloudAccountRequest: serializeAws_json1_1CreateGovCloudAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateGovCloudAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -470,13 +453,9 @@ export async function serializeAws_json1_1CreateOrganizationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreateOrganization";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateOrganizationRequest: serializeAws_json1_1CreateOrganizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateOrganizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -496,13 +475,9 @@ export async function serializeAws_json1_1CreateOrganizationalUnitCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.CreateOrganizationalUnit";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateOrganizationalUnitRequest: serializeAws_json1_1CreateOrganizationalUnitRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateOrganizationalUnitRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -521,10 +496,9 @@ export async function serializeAws_json1_1CreatePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.CreatePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePolicyRequest: serializeAws_json1_1CreatePolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -543,13 +517,9 @@ export async function serializeAws_json1_1DeclineHandshakeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DeclineHandshake";
   let body: any = {};
-  const wrappedBody: any = {
-    DeclineHandshakeRequest: serializeAws_json1_1DeclineHandshakeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeclineHandshakeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -585,13 +555,9 @@ export async function serializeAws_json1_1DeleteOrganizationalUnitCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.DeleteOrganizationalUnit";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteOrganizationalUnitRequest: serializeAws_json1_1DeleteOrganizationalUnitRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteOrganizationalUnitRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -610,10 +576,9 @@ export async function serializeAws_json1_1DeletePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DeletePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePolicyRequest: serializeAws_json1_1DeletePolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -632,13 +597,9 @@ export async function serializeAws_json1_1DescribeAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAccountRequest: serializeAws_json1_1DescribeAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -658,13 +619,9 @@ export async function serializeAws_json1_1DescribeCreateAccountStatusCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.DescribeCreateAccountStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCreateAccountStatusRequest: serializeAws_json1_1DescribeCreateAccountStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCreateAccountStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -683,13 +640,9 @@ export async function serializeAws_json1_1DescribeEffectivePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeEffectivePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEffectivePolicyRequest: serializeAws_json1_1DescribeEffectivePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEffectivePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -708,13 +661,9 @@ export async function serializeAws_json1_1DescribeHandshakeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribeHandshake";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeHandshakeRequest: serializeAws_json1_1DescribeHandshakeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeHandshakeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -750,13 +699,9 @@ export async function serializeAws_json1_1DescribeOrganizationalUnitCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.DescribeOrganizationalUnit";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOrganizationalUnitRequest: serializeAws_json1_1DescribeOrganizationalUnitRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOrganizationalUnitRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -775,13 +720,9 @@ export async function serializeAws_json1_1DescribePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DescribePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePolicyRequest: serializeAws_json1_1DescribePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -800,10 +741,9 @@ export async function serializeAws_json1_1DetachPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DetachPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DetachPolicyRequest: serializeAws_json1_1DetachPolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DetachPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -822,13 +762,9 @@ export async function serializeAws_json1_1DisableAWSServiceAccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DisableAWSServiceAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    DisableAWSServiceAccessRequest: serializeAws_json1_1DisableAWSServiceAccessRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisableAWSServiceAccessRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -847,13 +783,9 @@ export async function serializeAws_json1_1DisablePolicyTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.DisablePolicyType";
   let body: any = {};
-  const wrappedBody: any = {
-    DisablePolicyTypeRequest: serializeAws_json1_1DisablePolicyTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisablePolicyTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -872,13 +804,9 @@ export async function serializeAws_json1_1EnableAWSServiceAccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnableAWSServiceAccess";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableAWSServiceAccessRequest: serializeAws_json1_1EnableAWSServiceAccessRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableAWSServiceAccessRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -897,13 +825,9 @@ export async function serializeAws_json1_1EnableAllFeaturesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnableAllFeatures";
   let body: any = {};
-  const wrappedBody: any = {
-    EnableAllFeaturesRequest: serializeAws_json1_1EnableAllFeaturesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnableAllFeaturesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -922,13 +846,9 @@ export async function serializeAws_json1_1EnablePolicyTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.EnablePolicyType";
   let body: any = {};
-  const wrappedBody: any = {
-    EnablePolicyTypeRequest: serializeAws_json1_1EnablePolicyTypeRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EnablePolicyTypeRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -948,13 +868,9 @@ export async function serializeAws_json1_1InviteAccountToOrganizationCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.InviteAccountToOrganization";
   let body: any = {};
-  const wrappedBody: any = {
-    InviteAccountToOrganizationRequest: serializeAws_json1_1InviteAccountToOrganizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1InviteAccountToOrganizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -990,13 +906,12 @@ export async function serializeAws_json1_1ListAWSServiceAccessForOrganizationCom
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAWSServiceAccessForOrganizationRequest: serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1ListAWSServiceAccessForOrganizationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1015,10 +930,9 @@ export async function serializeAws_json1_1ListAccountsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListAccounts";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAccountsRequest: serializeAws_json1_1ListAccountsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAccountsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1037,13 +951,9 @@ export async function serializeAws_json1_1ListAccountsForParentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListAccountsForParent";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAccountsForParentRequest: serializeAws_json1_1ListAccountsForParentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAccountsForParentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1062,10 +972,9 @@ export async function serializeAws_json1_1ListChildrenCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListChildren";
   let body: any = {};
-  const wrappedBody: any = {
-    ListChildrenRequest: serializeAws_json1_1ListChildrenRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListChildrenRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1084,13 +993,9 @@ export async function serializeAws_json1_1ListCreateAccountStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListCreateAccountStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCreateAccountStatusRequest: serializeAws_json1_1ListCreateAccountStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCreateAccountStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1110,13 +1015,9 @@ export async function serializeAws_json1_1ListHandshakesForAccountCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.ListHandshakesForAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHandshakesForAccountRequest: serializeAws_json1_1ListHandshakesForAccountRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListHandshakesForAccountRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1136,13 +1037,9 @@ export async function serializeAws_json1_1ListHandshakesForOrganizationCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.ListHandshakesForOrganization";
   let body: any = {};
-  const wrappedBody: any = {
-    ListHandshakesForOrganizationRequest: serializeAws_json1_1ListHandshakesForOrganizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListHandshakesForOrganizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1162,13 +1059,9 @@ export async function serializeAws_json1_1ListOrganizationalUnitsForParentComman
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOrganizationalUnitsForParentRequest: serializeAws_json1_1ListOrganizationalUnitsForParentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOrganizationalUnitsForParentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1187,10 +1080,7 @@ export async function serializeAws_json1_1ListParentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListParents";
   let body: any = {};
-  const wrappedBody: any = {
-    ListParentsRequest: serializeAws_json1_1ListParentsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListParentsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1209,10 +1099,9 @@ export async function serializeAws_json1_1ListPoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListPolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPoliciesRequest: serializeAws_json1_1ListPoliciesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPoliciesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1231,13 +1120,9 @@ export async function serializeAws_json1_1ListPoliciesForTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListPoliciesForTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPoliciesForTargetRequest: serializeAws_json1_1ListPoliciesForTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPoliciesForTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1256,10 +1141,7 @@ export async function serializeAws_json1_1ListRootsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListRoots";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRootsRequest: serializeAws_json1_1ListRootsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListRootsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1278,13 +1160,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1303,13 +1181,9 @@ export async function serializeAws_json1_1ListTargetsForPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.ListTargetsForPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTargetsForPolicyRequest: serializeAws_json1_1ListTargetsForPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTargetsForPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1328,10 +1202,7 @@ export async function serializeAws_json1_1MoveAccountCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.MoveAccount";
   let body: any = {};
-  const wrappedBody: any = {
-    MoveAccountRequest: serializeAws_json1_1MoveAccountRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1MoveAccountRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1351,13 +1222,9 @@ export async function serializeAws_json1_1RemoveAccountFromOrganizationCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.RemoveAccountFromOrganization";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveAccountFromOrganizationRequest: serializeAws_json1_1RemoveAccountFromOrganizationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveAccountFromOrganizationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1376,10 +1243,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1398,13 +1262,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1424,13 +1284,9 @@ export async function serializeAws_json1_1UpdateOrganizationalUnitCommand(
   headers["X-Amz-Target"] =
     "AWSOrganizationsV20161128.UpdateOrganizationalUnit";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateOrganizationalUnitRequest: serializeAws_json1_1UpdateOrganizationalUnitRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateOrganizationalUnitRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1449,10 +1305,9 @@ export async function serializeAws_json1_1UpdatePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSOrganizationsV20161128.UpdatePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePolicyRequest: serializeAws_json1_1UpdatePolicyRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -172,13 +172,9 @@ export async function serializeAws_json1_1CreateHttpNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateHttpNamespaceRequest: serializeAws_json1_1CreateHttpNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateHttpNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -198,13 +194,9 @@ export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePrivateDnsNamespaceRequest: serializeAws_json1_1CreatePrivateDnsNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -224,13 +216,9 @@ export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.CreatePublicDnsNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePublicDnsNamespaceRequest: serializeAws_json1_1CreatePublicDnsNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -249,13 +237,9 @@ export async function serializeAws_json1_1CreateServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateService";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateServiceRequest: serializeAws_json1_1CreateServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -274,13 +258,9 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNamespaceRequest: serializeAws_json1_1DeleteNamespaceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -299,13 +279,9 @@ export async function serializeAws_json1_1DeleteServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteService";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServiceRequest: serializeAws_json1_1DeleteServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -324,13 +300,9 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeregisterInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterInstanceRequest: serializeAws_json1_1DeregisterInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -349,13 +321,9 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DiscoverInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    DiscoverInstancesRequest: serializeAws_json1_1DiscoverInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DiscoverInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -374,10 +342,7 @@ export async function serializeAws_json1_1GetInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstanceRequest: serializeAws_json1_1GetInstanceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -397,13 +362,9 @@ export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.GetInstancesHealthStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInstancesHealthStatusRequest: serializeAws_json1_1GetInstancesHealthStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInstancesHealthStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -422,10 +383,9 @@ export async function serializeAws_json1_1GetNamespaceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetNamespace";
   let body: any = {};
-  const wrappedBody: any = {
-    GetNamespaceRequest: serializeAws_json1_1GetNamespaceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetNamespaceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -444,10 +404,9 @@ export async function serializeAws_json1_1GetOperationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetOperation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOperationRequest: serializeAws_json1_1GetOperationRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOperationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -466,10 +425,7 @@ export async function serializeAws_json1_1GetServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetService";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServiceRequest: serializeAws_json1_1GetServiceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetServiceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -488,13 +444,9 @@ export async function serializeAws_json1_1ListInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInstancesRequest: serializeAws_json1_1ListInstancesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListInstancesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -513,13 +465,9 @@ export async function serializeAws_json1_1ListNamespacesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListNamespaces";
   let body: any = {};
-  const wrappedBody: any = {
-    ListNamespacesRequest: serializeAws_json1_1ListNamespacesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListNamespacesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -538,13 +486,9 @@ export async function serializeAws_json1_1ListOperationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListOperations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOperationsRequest: serializeAws_json1_1ListOperationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOperationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -563,10 +507,9 @@ export async function serializeAws_json1_1ListServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListServices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListServicesRequest: serializeAws_json1_1ListServicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -585,13 +528,9 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.RegisterInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterInstanceRequest: serializeAws_json1_1RegisterInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -611,13 +550,9 @@ export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusComman
   headers["X-Amz-Target"] =
     "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateInstanceCustomHealthStatusRequest: serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -636,13 +571,9 @@ export async function serializeAws_json1_1UpdateServiceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.UpdateService";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServiceRequest: serializeAws_json1_1UpdateServiceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServiceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

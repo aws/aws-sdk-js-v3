@@ -212,10 +212,9 @@ export async function serializeAws_json1_0CreateActivityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.CreateActivity";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateActivityInput: serializeAws_json1_0CreateActivityInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CreateActivityInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -234,13 +233,9 @@ export async function serializeAws_json1_0CreateStateMachineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.CreateStateMachine";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateStateMachineInput: serializeAws_json1_0CreateStateMachineInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CreateStateMachineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -259,10 +254,9 @@ export async function serializeAws_json1_0DeleteActivityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DeleteActivity";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteActivityInput: serializeAws_json1_0DeleteActivityInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DeleteActivityInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -281,13 +275,9 @@ export async function serializeAws_json1_0DeleteStateMachineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DeleteStateMachine";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteStateMachineInput: serializeAws_json1_0DeleteStateMachineInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DeleteStateMachineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -306,13 +296,9 @@ export async function serializeAws_json1_0DescribeActivityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DescribeActivity";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeActivityInput: serializeAws_json1_0DescribeActivityInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeActivityInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -331,13 +317,9 @@ export async function serializeAws_json1_0DescribeExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DescribeExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeExecutionInput: serializeAws_json1_0DescribeExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -356,13 +338,9 @@ export async function serializeAws_json1_0DescribeStateMachineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachine";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStateMachineInput: serializeAws_json1_0DescribeStateMachineInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeStateMachineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -381,13 +359,9 @@ export async function serializeAws_json1_0DescribeStateMachineForExecutionComman
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachineForExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeStateMachineForExecutionInput: serializeAws_json1_0DescribeStateMachineForExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -406,13 +380,9 @@ export async function serializeAws_json1_0GetActivityTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.GetActivityTask";
   let body: any = {};
-  const wrappedBody: any = {
-    GetActivityTaskInput: serializeAws_json1_0GetActivityTaskInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetActivityTaskInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -431,13 +401,9 @@ export async function serializeAws_json1_0GetExecutionHistoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.GetExecutionHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    GetExecutionHistoryInput: serializeAws_json1_0GetExecutionHistoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetExecutionHistoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -456,10 +422,9 @@ export async function serializeAws_json1_0ListActivitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.ListActivities";
   let body: any = {};
-  const wrappedBody: any = {
-    ListActivitiesInput: serializeAws_json1_0ListActivitiesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListActivitiesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -478,10 +443,9 @@ export async function serializeAws_json1_0ListExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.ListExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListExecutionsInput: serializeAws_json1_0ListExecutionsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -500,13 +464,9 @@ export async function serializeAws_json1_0ListStateMachinesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.ListStateMachines";
   let body: any = {};
-  const wrappedBody: any = {
-    ListStateMachinesInput: serializeAws_json1_0ListStateMachinesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListStateMachinesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -525,13 +485,9 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_0ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -550,13 +506,9 @@ export async function serializeAws_json1_0SendTaskFailureCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskFailure";
   let body: any = {};
-  const wrappedBody: any = {
-    SendTaskFailureInput: serializeAws_json1_0SendTaskFailureInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0SendTaskFailureInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -575,13 +527,9 @@ export async function serializeAws_json1_0SendTaskHeartbeatCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskHeartbeat";
   let body: any = {};
-  const wrappedBody: any = {
-    SendTaskHeartbeatInput: serializeAws_json1_0SendTaskHeartbeatInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0SendTaskHeartbeatInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -600,13 +548,9 @@ export async function serializeAws_json1_0SendTaskSuccessCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskSuccess";
   let body: any = {};
-  const wrappedBody: any = {
-    SendTaskSuccessInput: serializeAws_json1_0SendTaskSuccessInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0SendTaskSuccessInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -625,10 +569,9 @@ export async function serializeAws_json1_0StartExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.StartExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartExecutionInput: serializeAws_json1_0StartExecutionInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0StartExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -647,10 +590,7 @@ export async function serializeAws_json1_0StopExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.StopExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StopExecutionInput: serializeAws_json1_0StopExecutionInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0StopExecutionInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -669,10 +609,7 @@ export async function serializeAws_json1_0TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_0TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -691,10 +628,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_0UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -713,13 +647,9 @@ export async function serializeAws_json1_0UpdateStateMachineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "AWSStepFunctions.UpdateStateMachine";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateStateMachineInput: serializeAws_json1_0UpdateStateMachineInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UpdateStateMachineInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

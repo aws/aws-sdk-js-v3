@@ -185,13 +185,9 @@ export async function serializeAws_json1_1BatchDeleteDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchDeleteDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteDocumentRequest: serializeAws_json1_1BatchDeleteDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -210,13 +206,9 @@ export async function serializeAws_json1_1BatchPutDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchPutDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchPutDocumentRequest: serializeAws_json1_1BatchPutDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchPutDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -235,13 +227,9 @@ export async function serializeAws_json1_1CreateDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDataSourceRequest: serializeAws_json1_1CreateDataSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDataSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -260,10 +248,7 @@ export async function serializeAws_json1_1CreateFaqCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateFaq";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFaqRequest: serializeAws_json1_1CreateFaqRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateFaqRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -282,10 +267,7 @@ export async function serializeAws_json1_1CreateIndexCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateIndex";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateIndexRequest: serializeAws_json1_1CreateIndexRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateIndexRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -304,10 +286,7 @@ export async function serializeAws_json1_1DeleteFaqCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteFaq";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFaqRequest: serializeAws_json1_1DeleteFaqRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteFaqRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -326,10 +305,7 @@ export async function serializeAws_json1_1DeleteIndexCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteIndex";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteIndexRequest: serializeAws_json1_1DeleteIndexRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteIndexRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -348,13 +324,9 @@ export async function serializeAws_json1_1DescribeDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDataSourceRequest: serializeAws_json1_1DescribeDataSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDataSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -373,10 +345,7 @@ export async function serializeAws_json1_1DescribeFaqCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeFaq";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFaqRequest: serializeAws_json1_1DescribeFaqRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DescribeFaqRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -395,13 +364,9 @@ export async function serializeAws_json1_1DescribeIndexCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeIndex";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeIndexRequest: serializeAws_json1_1DescribeIndexRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeIndexRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -420,13 +385,9 @@ export async function serializeAws_json1_1ListDataSourceSyncJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSourceSyncJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDataSourceSyncJobsRequest: serializeAws_json1_1ListDataSourceSyncJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDataSourceSyncJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,13 +406,9 @@ export async function serializeAws_json1_1ListDataSourcesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSources";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDataSourcesRequest: serializeAws_json1_1ListDataSourcesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDataSourcesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -470,10 +427,7 @@ export async function serializeAws_json1_1ListFaqsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.ListFaqs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListFaqsRequest: serializeAws_json1_1ListFaqsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListFaqsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -492,10 +446,7 @@ export async function serializeAws_json1_1ListIndicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.ListIndices";
   let body: any = {};
-  const wrappedBody: any = {
-    ListIndicesRequest: serializeAws_json1_1ListIndicesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListIndicesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -514,10 +465,7 @@ export async function serializeAws_json1_1QueryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.Query";
   let body: any = {};
-  const wrappedBody: any = {
-    QueryRequest: serializeAws_json1_1QueryRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1QueryRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -536,13 +484,9 @@ export async function serializeAws_json1_1StartDataSourceSyncJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.StartDataSourceSyncJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StartDataSourceSyncJobRequest: serializeAws_json1_1StartDataSourceSyncJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartDataSourceSyncJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -561,13 +505,9 @@ export async function serializeAws_json1_1StopDataSourceSyncJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.StopDataSourceSyncJob";
   let body: any = {};
-  const wrappedBody: any = {
-    StopDataSourceSyncJobRequest: serializeAws_json1_1StopDataSourceSyncJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopDataSourceSyncJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -586,13 +526,9 @@ export async function serializeAws_json1_1SubmitFeedbackCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.SubmitFeedback";
   let body: any = {};
-  const wrappedBody: any = {
-    SubmitFeedbackRequest: serializeAws_json1_1SubmitFeedbackRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SubmitFeedbackRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -611,13 +547,9 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateDataSource";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDataSourceRequest: serializeAws_json1_1UpdateDataSourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDataSourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -636,10 +568,7 @@ export async function serializeAws_json1_1UpdateIndexCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateIndex";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateIndexRequest: serializeAws_json1_1UpdateIndexRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateIndexRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

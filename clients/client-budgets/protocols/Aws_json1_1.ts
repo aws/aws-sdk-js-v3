@@ -122,10 +122,9 @@ export async function serializeAws_json1_1CreateBudgetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateBudget";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBudgetRequest: serializeAws_json1_1CreateBudgetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBudgetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -144,13 +143,9 @@ export async function serializeAws_json1_1CreateNotificationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateNotification";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateNotificationRequest: serializeAws_json1_1CreateNotificationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateNotificationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -169,13 +164,9 @@ export async function serializeAws_json1_1CreateSubscriberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.CreateSubscriber";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSubscriberRequest: serializeAws_json1_1CreateSubscriberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSubscriberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -194,10 +185,9 @@ export async function serializeAws_json1_1DeleteBudgetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteBudget";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBudgetRequest: serializeAws_json1_1DeleteBudgetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBudgetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -216,13 +206,9 @@ export async function serializeAws_json1_1DeleteNotificationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteNotification";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteNotificationRequest: serializeAws_json1_1DeleteNotificationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteNotificationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -241,13 +227,9 @@ export async function serializeAws_json1_1DeleteSubscriberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DeleteSubscriber";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSubscriberRequest: serializeAws_json1_1DeleteSubscriberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSubscriberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -266,13 +248,9 @@ export async function serializeAws_json1_1DescribeBudgetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DescribeBudget";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBudgetRequest: serializeAws_json1_1DescribeBudgetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBudgetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -292,13 +270,9 @@ export async function serializeAws_json1_1DescribeBudgetPerformanceHistoryComman
   headers["X-Amz-Target"] =
     "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBudgetPerformanceHistoryRequest: serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -317,13 +291,9 @@ export async function serializeAws_json1_1DescribeBudgetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.DescribeBudgets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBudgetsRequest: serializeAws_json1_1DescribeBudgetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBudgetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -343,13 +313,9 @@ export async function serializeAws_json1_1DescribeNotificationsForBudgetCommand(
   headers["X-Amz-Target"] =
     "AWSBudgetServiceGateway.DescribeNotificationsForBudget";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeNotificationsForBudgetRequest: serializeAws_json1_1DescribeNotificationsForBudgetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeNotificationsForBudgetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +335,12 @@ export async function serializeAws_json1_1DescribeSubscribersForNotificationComm
   headers["X-Amz-Target"] =
     "AWSBudgetServiceGateway.DescribeSubscribersForNotification";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSubscribersForNotificationRequest: serializeAws_json1_1DescribeSubscribersForNotificationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSubscribersForNotificationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,10 +359,9 @@ export async function serializeAws_json1_1UpdateBudgetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateBudget";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateBudgetRequest: serializeAws_json1_1UpdateBudgetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateBudgetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -416,13 +380,9 @@ export async function serializeAws_json1_1UpdateNotificationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateNotification";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateNotificationRequest: serializeAws_json1_1UpdateNotificationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateNotificationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -441,13 +401,9 @@ export async function serializeAws_json1_1UpdateSubscriberCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSBudgetServiceGateway.UpdateSubscriber";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateSubscriberRequest: serializeAws_json1_1UpdateSubscriberRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateSubscriberRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

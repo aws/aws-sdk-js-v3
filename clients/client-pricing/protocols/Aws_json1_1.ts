@@ -46,13 +46,9 @@ export async function serializeAws_json1_1DescribeServicesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.DescribeServices";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeServicesRequest: serializeAws_json1_1DescribeServicesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeServicesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -71,13 +67,9 @@ export async function serializeAws_json1_1GetAttributeValuesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetAttributeValues";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAttributeValuesRequest: serializeAws_json1_1GetAttributeValuesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAttributeValuesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -96,10 +88,7 @@ export async function serializeAws_json1_1GetProductsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSPriceListService.GetProducts";
   let body: any = {};
-  const wrappedBody: any = {
-    GetProductsRequest: serializeAws_json1_1GetProductsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

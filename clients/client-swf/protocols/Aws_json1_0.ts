@@ -320,13 +320,9 @@ export async function serializeAws_json1_0CountClosedWorkflowExecutionsCommand(
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.CountClosedWorkflowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    CountClosedWorkflowExecutionsInput: serializeAws_json1_0CountClosedWorkflowExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CountClosedWorkflowExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -345,13 +341,9 @@ export async function serializeAws_json1_0CountOpenWorkflowExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountOpenWorkflowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    CountOpenWorkflowExecutionsInput: serializeAws_json1_0CountOpenWorkflowExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CountOpenWorkflowExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -370,13 +362,9 @@ export async function serializeAws_json1_0CountPendingActivityTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingActivityTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    CountPendingActivityTasksInput: serializeAws_json1_0CountPendingActivityTasksInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CountPendingActivityTasksInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -395,13 +383,9 @@ export async function serializeAws_json1_0CountPendingDecisionTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.CountPendingDecisionTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    CountPendingDecisionTasksInput: serializeAws_json1_0CountPendingDecisionTasksInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0CountPendingDecisionTasksInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -420,13 +404,9 @@ export async function serializeAws_json1_0DeprecateActivityTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateActivityType";
   let body: any = {};
-  const wrappedBody: any = {
-    DeprecateActivityTypeInput: serializeAws_json1_0DeprecateActivityTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DeprecateActivityTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,13 +425,9 @@ export async function serializeAws_json1_0DeprecateDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DeprecateDomainInput: serializeAws_json1_0DeprecateDomainInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DeprecateDomainInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -470,13 +446,9 @@ export async function serializeAws_json1_0DeprecateWorkflowTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DeprecateWorkflowType";
   let body: any = {};
-  const wrappedBody: any = {
-    DeprecateWorkflowTypeInput: serializeAws_json1_0DeprecateWorkflowTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DeprecateWorkflowTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -495,13 +467,9 @@ export async function serializeAws_json1_0DescribeActivityTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeActivityType";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeActivityTypeInput: serializeAws_json1_0DescribeActivityTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeActivityTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -520,10 +488,9 @@ export async function serializeAws_json1_0DescribeDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDomainInput: serializeAws_json1_0DescribeDomainInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeDomainInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -542,13 +509,9 @@ export async function serializeAws_json1_0DescribeWorkflowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkflowExecutionInput: serializeAws_json1_0DescribeWorkflowExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeWorkflowExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -567,13 +530,9 @@ export async function serializeAws_json1_0DescribeWorkflowTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.DescribeWorkflowType";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeWorkflowTypeInput: serializeAws_json1_0DescribeWorkflowTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0DescribeWorkflowTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -592,13 +551,9 @@ export async function serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.GetWorkflowExecutionHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkflowExecutionHistoryInput: serializeAws_json1_0GetWorkflowExecutionHistoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0GetWorkflowExecutionHistoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -617,13 +572,9 @@ export async function serializeAws_json1_0ListActivityTypesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListActivityTypes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListActivityTypesInput: serializeAws_json1_0ListActivityTypesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListActivityTypesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -643,13 +594,9 @@ export async function serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.ListClosedWorkflowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListClosedWorkflowExecutionsInput: serializeAws_json1_0ListClosedWorkflowExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListClosedWorkflowExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -668,10 +615,7 @@ export async function serializeAws_json1_0ListDomainsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListDomains";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDomainsInput: serializeAws_json1_0ListDomainsInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0ListDomainsInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -690,13 +634,9 @@ export async function serializeAws_json1_0ListOpenWorkflowExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListOpenWorkflowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOpenWorkflowExecutionsInput: serializeAws_json1_0ListOpenWorkflowExecutionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListOpenWorkflowExecutionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -715,13 +655,9 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_0ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -740,13 +676,9 @@ export async function serializeAws_json1_0ListWorkflowTypesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.ListWorkflowTypes";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkflowTypesInput: serializeAws_json1_0ListWorkflowTypesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0ListWorkflowTypesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -765,13 +697,9 @@ export async function serializeAws_json1_0PollForActivityTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForActivityTask";
   let body: any = {};
-  const wrappedBody: any = {
-    PollForActivityTaskInput: serializeAws_json1_0PollForActivityTaskInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0PollForActivityTaskInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -790,13 +718,9 @@ export async function serializeAws_json1_0PollForDecisionTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.PollForDecisionTask";
   let body: any = {};
-  const wrappedBody: any = {
-    PollForDecisionTaskInput: serializeAws_json1_0PollForDecisionTaskInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0PollForDecisionTaskInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -815,13 +739,9 @@ export async function serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RecordActivityTaskHeartbeat";
   let body: any = {};
-  const wrappedBody: any = {
-    RecordActivityTaskHeartbeatInput: serializeAws_json1_0RecordActivityTaskHeartbeatInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RecordActivityTaskHeartbeatInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -840,13 +760,9 @@ export async function serializeAws_json1_0RegisterActivityTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterActivityType";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterActivityTypeInput: serializeAws_json1_0RegisterActivityTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RegisterActivityTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -865,10 +781,9 @@ export async function serializeAws_json1_0RegisterDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterDomainInput: serializeAws_json1_0RegisterDomainInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RegisterDomainInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -887,13 +802,9 @@ export async function serializeAws_json1_0RegisterWorkflowTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RegisterWorkflowType";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterWorkflowTypeInput: serializeAws_json1_0RegisterWorkflowTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RegisterWorkflowTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -913,13 +824,9 @@ export async function serializeAws_json1_0RequestCancelWorkflowExecutionCommand(
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RequestCancelWorkflowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    RequestCancelWorkflowExecutionInput: serializeAws_json1_0RequestCancelWorkflowExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RequestCancelWorkflowExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -938,13 +845,9 @@ export async function serializeAws_json1_0RespondActivityTaskCanceledCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskCanceled";
   let body: any = {};
-  const wrappedBody: any = {
-    RespondActivityTaskCanceledInput: serializeAws_json1_0RespondActivityTaskCanceledInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RespondActivityTaskCanceledInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -964,13 +867,9 @@ export async function serializeAws_json1_0RespondActivityTaskCompletedCommand(
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondActivityTaskCompleted";
   let body: any = {};
-  const wrappedBody: any = {
-    RespondActivityTaskCompletedInput: serializeAws_json1_0RespondActivityTaskCompletedInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RespondActivityTaskCompletedInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -989,13 +888,9 @@ export async function serializeAws_json1_0RespondActivityTaskFailedCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.RespondActivityTaskFailed";
   let body: any = {};
-  const wrappedBody: any = {
-    RespondActivityTaskFailedInput: serializeAws_json1_0RespondActivityTaskFailedInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RespondActivityTaskFailedInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1015,13 +910,9 @@ export async function serializeAws_json1_0RespondDecisionTaskCompletedCommand(
   headers["X-Amz-Target"] =
     "SimpleWorkflowService.RespondDecisionTaskCompleted";
   let body: any = {};
-  const wrappedBody: any = {
-    RespondDecisionTaskCompletedInput: serializeAws_json1_0RespondDecisionTaskCompletedInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0RespondDecisionTaskCompletedInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1040,13 +931,9 @@ export async function serializeAws_json1_0SignalWorkflowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.SignalWorkflowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    SignalWorkflowExecutionInput: serializeAws_json1_0SignalWorkflowExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0SignalWorkflowExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1065,13 +952,9 @@ export async function serializeAws_json1_0StartWorkflowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.StartWorkflowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartWorkflowExecutionInput: serializeAws_json1_0StartWorkflowExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0StartWorkflowExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1090,10 +973,7 @@ export async function serializeAws_json1_0TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_0TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1112,13 +992,9 @@ export async function serializeAws_json1_0TerminateWorkflowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.TerminateWorkflowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateWorkflowExecutionInput: serializeAws_json1_0TerminateWorkflowExecutionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0TerminateWorkflowExecutionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1137,13 +1013,9 @@ export async function serializeAws_json1_0UndeprecateActivityTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateActivityType";
   let body: any = {};
-  const wrappedBody: any = {
-    UndeprecateActivityTypeInput: serializeAws_json1_0UndeprecateActivityTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UndeprecateActivityTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1162,13 +1034,9 @@ export async function serializeAws_json1_0UndeprecateDomainCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateDomain";
   let body: any = {};
-  const wrappedBody: any = {
-    UndeprecateDomainInput: serializeAws_json1_0UndeprecateDomainInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UndeprecateDomainInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1187,13 +1055,9 @@ export async function serializeAws_json1_0UndeprecateWorkflowTypeCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UndeprecateWorkflowType";
   let body: any = {};
-  const wrappedBody: any = {
-    UndeprecateWorkflowTypeInput: serializeAws_json1_0UndeprecateWorkflowTypeInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_0UndeprecateWorkflowTypeInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1212,10 +1076,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.0";
   headers["X-Amz-Target"] = "SimpleWorkflowService.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_0UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

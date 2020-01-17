@@ -894,10 +894,7 @@ export async function serializeAws_json1_1GetTagsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTags";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTagsRequest: serializeAws_json1_1GetTagsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -916,10 +913,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -938,13 +932,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -963,13 +953,9 @@ export async function serializeAws_json1_1BatchCreatePartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchCreatePartition";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchCreatePartitionRequest: serializeAws_json1_1BatchCreatePartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchCreatePartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -988,13 +974,9 @@ export async function serializeAws_json1_1BatchDeleteConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteConnectionRequest: serializeAws_json1_1BatchDeleteConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1013,13 +995,9 @@ export async function serializeAws_json1_1BatchDeletePartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeletePartition";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeletePartitionRequest: serializeAws_json1_1BatchDeletePartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeletePartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1038,13 +1016,9 @@ export async function serializeAws_json1_1BatchDeleteTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteTable";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteTableRequest: serializeAws_json1_1BatchDeleteTableRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteTableRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1063,13 +1037,9 @@ export async function serializeAws_json1_1BatchDeleteTableVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchDeleteTableVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDeleteTableVersionRequest: serializeAws_json1_1BatchDeleteTableVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDeleteTableVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1088,13 +1058,9 @@ export async function serializeAws_json1_1BatchGetPartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetPartition";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetPartitionRequest: serializeAws_json1_1BatchGetPartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetPartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1113,13 +1079,9 @@ export async function serializeAws_json1_1CreateConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateConnectionRequest: serializeAws_json1_1CreateConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1138,13 +1100,9 @@ export async function serializeAws_json1_1CreateDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDatabaseRequest: serializeAws_json1_1CreateDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1163,13 +1121,9 @@ export async function serializeAws_json1_1CreatePartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreatePartition";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePartitionRequest: serializeAws_json1_1CreatePartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1188,10 +1142,7 @@ export async function serializeAws_json1_1CreateTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateTable";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTableRequest: serializeAws_json1_1CreateTableRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateTableRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1210,13 +1161,9 @@ export async function serializeAws_json1_1CreateUserDefinedFunctionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateUserDefinedFunction";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUserDefinedFunctionRequest: serializeAws_json1_1CreateUserDefinedFunctionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUserDefinedFunctionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1235,13 +1182,9 @@ export async function serializeAws_json1_1DeleteConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteConnectionRequest: serializeAws_json1_1DeleteConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1260,13 +1203,9 @@ export async function serializeAws_json1_1DeleteDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDatabaseRequest: serializeAws_json1_1DeleteDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1285,13 +1224,9 @@ export async function serializeAws_json1_1DeletePartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeletePartition";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePartitionRequest: serializeAws_json1_1DeletePartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1310,13 +1245,9 @@ export async function serializeAws_json1_1DeleteResourcePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteResourcePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResourcePolicyRequest: serializeAws_json1_1DeleteResourcePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourcePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1335,10 +1266,7 @@ export async function serializeAws_json1_1DeleteTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTable";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTableRequest: serializeAws_json1_1DeleteTableRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteTableRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1357,13 +1285,9 @@ export async function serializeAws_json1_1DeleteTableVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTableVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTableVersionRequest: serializeAws_json1_1DeleteTableVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTableVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1382,13 +1306,9 @@ export async function serializeAws_json1_1DeleteUserDefinedFunctionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteUserDefinedFunction";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteUserDefinedFunctionRequest: serializeAws_json1_1DeleteUserDefinedFunctionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteUserDefinedFunctionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1407,13 +1327,9 @@ export async function serializeAws_json1_1GetCatalogImportStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCatalogImportStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCatalogImportStatusRequest: serializeAws_json1_1GetCatalogImportStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCatalogImportStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1432,13 +1348,9 @@ export async function serializeAws_json1_1GetConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConnectionRequest: serializeAws_json1_1GetConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1457,13 +1369,9 @@ export async function serializeAws_json1_1GetConnectionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetConnections";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConnectionsRequest: serializeAws_json1_1GetConnectionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConnectionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1482,13 +1390,9 @@ export async function serializeAws_json1_1GetDataCatalogEncryptionSettingsComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDataCatalogEncryptionSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDataCatalogEncryptionSettingsRequest: serializeAws_json1_1GetDataCatalogEncryptionSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDataCatalogEncryptionSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1507,10 +1411,7 @@ export async function serializeAws_json1_1GetDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDatabaseRequest: serializeAws_json1_1GetDatabaseRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDatabaseRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1529,10 +1430,9 @@ export async function serializeAws_json1_1GetDatabasesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDatabases";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDatabasesRequest: serializeAws_json1_1GetDatabasesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDatabasesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1551,10 +1451,9 @@ export async function serializeAws_json1_1GetPartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPartition";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPartitionRequest: serializeAws_json1_1GetPartitionRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1573,13 +1472,9 @@ export async function serializeAws_json1_1GetPartitionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPartitions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPartitionsRequest: serializeAws_json1_1GetPartitionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPartitionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1598,13 +1493,9 @@ export async function serializeAws_json1_1GetResourcePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetResourcePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResourcePolicyRequest: serializeAws_json1_1GetResourcePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResourcePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1623,10 +1514,7 @@ export async function serializeAws_json1_1GetTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTable";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTableRequest: serializeAws_json1_1GetTableRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTableRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1645,13 +1533,9 @@ export async function serializeAws_json1_1GetTableVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTableVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTableVersionRequest: serializeAws_json1_1GetTableVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTableVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1670,13 +1554,9 @@ export async function serializeAws_json1_1GetTableVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTableVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTableVersionsRequest: serializeAws_json1_1GetTableVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetTableVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1695,10 +1575,7 @@ export async function serializeAws_json1_1GetTablesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTables";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTablesRequest: serializeAws_json1_1GetTablesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTablesRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1717,13 +1594,9 @@ export async function serializeAws_json1_1GetUserDefinedFunctionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetUserDefinedFunction";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUserDefinedFunctionRequest: serializeAws_json1_1GetUserDefinedFunctionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUserDefinedFunctionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1742,13 +1615,9 @@ export async function serializeAws_json1_1GetUserDefinedFunctionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetUserDefinedFunctions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetUserDefinedFunctionsRequest: serializeAws_json1_1GetUserDefinedFunctionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetUserDefinedFunctionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1767,13 +1636,9 @@ export async function serializeAws_json1_1ImportCatalogToGlueCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ImportCatalogToGlue";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportCatalogToGlueRequest: serializeAws_json1_1ImportCatalogToGlueRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportCatalogToGlueRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1792,13 +1657,9 @@ export async function serializeAws_json1_1PutDataCatalogEncryptionSettingsComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutDataCatalogEncryptionSettings";
   let body: any = {};
-  const wrappedBody: any = {
-    PutDataCatalogEncryptionSettingsRequest: serializeAws_json1_1PutDataCatalogEncryptionSettingsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutDataCatalogEncryptionSettingsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1817,13 +1678,9 @@ export async function serializeAws_json1_1PutResourcePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutResourcePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutResourcePolicyRequest: serializeAws_json1_1PutResourcePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutResourcePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1842,10 +1699,9 @@ export async function serializeAws_json1_1SearchTablesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.SearchTables";
   let body: any = {};
-  const wrappedBody: any = {
-    SearchTablesRequest: serializeAws_json1_1SearchTablesRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SearchTablesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1864,13 +1720,9 @@ export async function serializeAws_json1_1UpdateConnectionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateConnection";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateConnectionRequest: serializeAws_json1_1UpdateConnectionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateConnectionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1889,13 +1741,9 @@ export async function serializeAws_json1_1UpdateDatabaseCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateDatabase";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDatabaseRequest: serializeAws_json1_1UpdateDatabaseRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDatabaseRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1914,13 +1762,9 @@ export async function serializeAws_json1_1UpdatePartitionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdatePartition";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePartitionRequest: serializeAws_json1_1UpdatePartitionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePartitionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1939,10 +1783,7 @@ export async function serializeAws_json1_1UpdateTableCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateTable";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTableRequest: serializeAws_json1_1UpdateTableRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateTableRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1961,13 +1802,9 @@ export async function serializeAws_json1_1UpdateUserDefinedFunctionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateUserDefinedFunction";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateUserDefinedFunctionRequest: serializeAws_json1_1UpdateUserDefinedFunctionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateUserDefinedFunctionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1986,13 +1823,9 @@ export async function serializeAws_json1_1BatchGetDevEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetDevEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetDevEndpointsRequest: serializeAws_json1_1BatchGetDevEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDevEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2011,13 +1844,9 @@ export async function serializeAws_json1_1CreateDevEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateDevEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDevEndpointRequest: serializeAws_json1_1CreateDevEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDevEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2036,13 +1865,9 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateSecurityConfigurationRequest: serializeAws_json1_1CreateSecurityConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateSecurityConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2061,13 +1886,9 @@ export async function serializeAws_json1_1DeleteDevEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteDevEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDevEndpointRequest: serializeAws_json1_1DeleteDevEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDevEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2086,13 +1907,9 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteSecurityConfigurationRequest: serializeAws_json1_1DeleteSecurityConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2111,13 +1928,9 @@ export async function serializeAws_json1_1GetDevEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDevEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDevEndpointRequest: serializeAws_json1_1GetDevEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDevEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2136,13 +1949,9 @@ export async function serializeAws_json1_1GetDevEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDevEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDevEndpointsRequest: serializeAws_json1_1GetDevEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDevEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2161,13 +1970,9 @@ export async function serializeAws_json1_1GetJobBookmarkCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobBookmark";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobBookmarkRequest: serializeAws_json1_1GetJobBookmarkRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetJobBookmarkRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2186,13 +1991,9 @@ export async function serializeAws_json1_1GetSecurityConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetSecurityConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSecurityConfigurationRequest: serializeAws_json1_1GetSecurityConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSecurityConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2211,13 +2012,9 @@ export async function serializeAws_json1_1GetSecurityConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetSecurityConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSecurityConfigurationsRequest: serializeAws_json1_1GetSecurityConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSecurityConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2236,13 +2033,9 @@ export async function serializeAws_json1_1ListDevEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListDevEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDevEndpointsRequest: serializeAws_json1_1ListDevEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDevEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2261,13 +2054,9 @@ export async function serializeAws_json1_1ResetJobBookmarkCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ResetJobBookmark";
   let body: any = {};
-  const wrappedBody: any = {
-    ResetJobBookmarkRequest: serializeAws_json1_1ResetJobBookmarkRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResetJobBookmarkRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2286,13 +2075,9 @@ export async function serializeAws_json1_1UpdateDevEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateDevEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDevEndpointRequest: serializeAws_json1_1UpdateDevEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDevEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2311,13 +2096,9 @@ export async function serializeAws_json1_1CancelMLTaskRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CancelMLTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelMLTaskRunRequest: serializeAws_json1_1CancelMLTaskRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelMLTaskRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2336,13 +2117,9 @@ export async function serializeAws_json1_1CreateMLTransformCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateMLTransform";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMLTransformRequest: serializeAws_json1_1CreateMLTransformRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMLTransformRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2361,13 +2138,9 @@ export async function serializeAws_json1_1DeleteMLTransformCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteMLTransform";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMLTransformRequest: serializeAws_json1_1DeleteMLTransformRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMLTransformRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2386,10 +2159,9 @@ export async function serializeAws_json1_1GetMLTaskRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMLTaskRunRequest: serializeAws_json1_1GetMLTaskRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMLTaskRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2408,13 +2180,9 @@ export async function serializeAws_json1_1GetMLTaskRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTaskRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMLTaskRunsRequest: serializeAws_json1_1GetMLTaskRunsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMLTaskRunsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2433,13 +2201,9 @@ export async function serializeAws_json1_1GetMLTransformCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTransform";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMLTransformRequest: serializeAws_json1_1GetMLTransformRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMLTransformRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2458,13 +2222,9 @@ export async function serializeAws_json1_1GetMLTransformsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMLTransforms";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMLTransformsRequest: serializeAws_json1_1GetMLTransformsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMLTransformsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2483,13 +2243,9 @@ export async function serializeAws_json1_1StartExportLabelsTaskRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartExportLabelsTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartExportLabelsTaskRunRequest: serializeAws_json1_1StartExportLabelsTaskRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartExportLabelsTaskRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2508,13 +2264,9 @@ export async function serializeAws_json1_1StartImportLabelsTaskRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartImportLabelsTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartImportLabelsTaskRunRequest: serializeAws_json1_1StartImportLabelsTaskRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartImportLabelsTaskRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2533,13 +2285,9 @@ export async function serializeAws_json1_1StartMLEvaluationTaskRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartMLEvaluationTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMLEvaluationTaskRunRequest: serializeAws_json1_1StartMLEvaluationTaskRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartMLEvaluationTaskRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2558,13 +2306,12 @@ export async function serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartMLLabelingSetGenerationTaskRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartMLLabelingSetGenerationTaskRunRequest: serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2583,13 +2330,9 @@ export async function serializeAws_json1_1UpdateMLTransformCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateMLTransform";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMLTransformRequest: serializeAws_json1_1UpdateMLTransformRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMLTransformRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2608,10 +2351,9 @@ export async function serializeAws_json1_1BatchGetJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetJobsRequest: serializeAws_json1_1BatchGetJobsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2630,13 +2372,9 @@ export async function serializeAws_json1_1BatchGetTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetTriggersRequest: serializeAws_json1_1BatchGetTriggersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetTriggersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2655,13 +2393,9 @@ export async function serializeAws_json1_1BatchGetWorkflowsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetWorkflows";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetWorkflowsRequest: serializeAws_json1_1BatchGetWorkflowsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetWorkflowsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2680,13 +2414,9 @@ export async function serializeAws_json1_1BatchStopJobRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchStopJobRun";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchStopJobRunRequest: serializeAws_json1_1BatchStopJobRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchStopJobRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2705,10 +2435,7 @@ export async function serializeAws_json1_1CreateJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateJobRequest: serializeAws_json1_1CreateJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2727,13 +2454,9 @@ export async function serializeAws_json1_1CreateTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateTriggerRequest: serializeAws_json1_1CreateTriggerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateTriggerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2752,13 +2475,9 @@ export async function serializeAws_json1_1CreateWorkflowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateWorkflow";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWorkflowRequest: serializeAws_json1_1CreateWorkflowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWorkflowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2777,10 +2496,7 @@ export async function serializeAws_json1_1DeleteJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteJobRequest: serializeAws_json1_1DeleteJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2799,13 +2515,9 @@ export async function serializeAws_json1_1DeleteTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteTriggerRequest: serializeAws_json1_1DeleteTriggerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteTriggerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2824,13 +2536,9 @@ export async function serializeAws_json1_1DeleteWorkflowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteWorkflow";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWorkflowRequest: serializeAws_json1_1DeleteWorkflowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWorkflowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2849,10 +2557,7 @@ export async function serializeAws_json1_1GetJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJob";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobRequest: serializeAws_json1_1GetJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2871,10 +2576,7 @@ export async function serializeAws_json1_1GetJobRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobRun";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobRunRequest: serializeAws_json1_1GetJobRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2893,10 +2595,7 @@ export async function serializeAws_json1_1GetJobRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobRunsRequest: serializeAws_json1_1GetJobRunsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobRunsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2915,10 +2614,7 @@ export async function serializeAws_json1_1GetJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    GetJobsRequest: serializeAws_json1_1GetJobsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetJobsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2937,10 +2633,7 @@ export async function serializeAws_json1_1GetTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTriggerRequest: serializeAws_json1_1GetTriggerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTriggerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2959,10 +2652,7 @@ export async function serializeAws_json1_1GetTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetTriggersRequest: serializeAws_json1_1GetTriggersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetTriggersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2981,10 +2671,7 @@ export async function serializeAws_json1_1GetWorkflowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflow";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkflowRequest: serializeAws_json1_1GetWorkflowRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetWorkflowRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3003,13 +2690,9 @@ export async function serializeAws_json1_1GetWorkflowRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRun";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkflowRunRequest: serializeAws_json1_1GetWorkflowRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetWorkflowRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3028,13 +2711,9 @@ export async function serializeAws_json1_1GetWorkflowRunPropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRunProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkflowRunPropertiesRequest: serializeAws_json1_1GetWorkflowRunPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetWorkflowRunPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3053,13 +2732,9 @@ export async function serializeAws_json1_1GetWorkflowRunsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetWorkflowRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWorkflowRunsRequest: serializeAws_json1_1GetWorkflowRunsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetWorkflowRunsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3078,10 +2753,7 @@ export async function serializeAws_json1_1ListJobsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListJobsRequest: serializeAws_json1_1ListJobsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3100,10 +2772,9 @@ export async function serializeAws_json1_1ListTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTriggersRequest: serializeAws_json1_1ListTriggersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTriggersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3122,13 +2793,9 @@ export async function serializeAws_json1_1ListWorkflowsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListWorkflows";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWorkflowsRequest: serializeAws_json1_1ListWorkflowsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListWorkflowsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3147,13 +2814,9 @@ export async function serializeAws_json1_1PutWorkflowRunPropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.PutWorkflowRunProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    PutWorkflowRunPropertiesRequest: serializeAws_json1_1PutWorkflowRunPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3172,10 +2835,7 @@ export async function serializeAws_json1_1StartJobRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartJobRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartJobRunRequest: serializeAws_json1_1StartJobRunRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StartJobRunRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3194,10 +2854,9 @@ export async function serializeAws_json1_1StartTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    StartTriggerRequest: serializeAws_json1_1StartTriggerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartTriggerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3216,13 +2875,9 @@ export async function serializeAws_json1_1StartWorkflowRunCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartWorkflowRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartWorkflowRunRequest: serializeAws_json1_1StartWorkflowRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartWorkflowRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3241,10 +2896,7 @@ export async function serializeAws_json1_1StopTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    StopTriggerRequest: serializeAws_json1_1StopTriggerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopTriggerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3263,10 +2915,7 @@ export async function serializeAws_json1_1UpdateJobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateJob";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateJobRequest: serializeAws_json1_1UpdateJobRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3285,13 +2934,9 @@ export async function serializeAws_json1_1UpdateTriggerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateTrigger";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateTriggerRequest: serializeAws_json1_1UpdateTriggerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateTriggerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3310,13 +2955,9 @@ export async function serializeAws_json1_1UpdateWorkflowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateWorkflow";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateWorkflowRequest: serializeAws_json1_1UpdateWorkflowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateWorkflowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3335,13 +2976,9 @@ export async function serializeAws_json1_1BatchGetCrawlersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.BatchGetCrawlers";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetCrawlersRequest: serializeAws_json1_1BatchGetCrawlersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetCrawlersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3360,13 +2997,9 @@ export async function serializeAws_json1_1CreateClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateClassifierRequest: serializeAws_json1_1CreateClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3385,13 +3018,9 @@ export async function serializeAws_json1_1CreateCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCrawlerRequest: serializeAws_json1_1CreateCrawlerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateCrawlerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3410,10 +3039,9 @@ export async function serializeAws_json1_1CreateScriptCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.CreateScript";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateScriptRequest: serializeAws_json1_1CreateScriptRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateScriptRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3432,13 +3060,9 @@ export async function serializeAws_json1_1DeleteClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteClassifierRequest: serializeAws_json1_1DeleteClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3457,13 +3081,9 @@ export async function serializeAws_json1_1DeleteCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.DeleteCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCrawlerRequest: serializeAws_json1_1DeleteCrawlerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCrawlerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3482,13 +3102,9 @@ export async function serializeAws_json1_1GetClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    GetClassifierRequest: serializeAws_json1_1GetClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3507,13 +3123,9 @@ export async function serializeAws_json1_1GetClassifiersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetClassifiers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetClassifiersRequest: serializeAws_json1_1GetClassifiersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetClassifiersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3532,10 +3144,7 @@ export async function serializeAws_json1_1GetCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCrawlerRequest: serializeAws_json1_1GetCrawlerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetCrawlerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3554,13 +3163,9 @@ export async function serializeAws_json1_1GetCrawlerMetricsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawlerMetrics";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCrawlerMetricsRequest: serializeAws_json1_1GetCrawlerMetricsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCrawlerMetricsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3579,10 +3184,7 @@ export async function serializeAws_json1_1GetCrawlersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetCrawlers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCrawlersRequest: serializeAws_json1_1GetCrawlersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetCrawlersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3601,13 +3203,9 @@ export async function serializeAws_json1_1GetDataflowGraphCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetDataflowGraph";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDataflowGraphRequest: serializeAws_json1_1GetDataflowGraphRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDataflowGraphRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3626,10 +3224,7 @@ export async function serializeAws_json1_1GetMappingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetMapping";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMappingRequest: serializeAws_json1_1GetMappingRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetMappingRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3648,10 +3243,7 @@ export async function serializeAws_json1_1GetPlanCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.GetPlan";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPlanRequest: serializeAws_json1_1GetPlanRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetPlanRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3670,10 +3262,9 @@ export async function serializeAws_json1_1ListCrawlersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.ListCrawlers";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCrawlersRequest: serializeAws_json1_1ListCrawlersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCrawlersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3692,10 +3283,9 @@ export async function serializeAws_json1_1StartCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    StartCrawlerRequest: serializeAws_json1_1StartCrawlerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartCrawlerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3714,13 +3304,9 @@ export async function serializeAws_json1_1StartCrawlerScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StartCrawlerSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    StartCrawlerScheduleRequest: serializeAws_json1_1StartCrawlerScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartCrawlerScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3739,10 +3325,7 @@ export async function serializeAws_json1_1StopCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    StopCrawlerRequest: serializeAws_json1_1StopCrawlerRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1StopCrawlerRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3761,13 +3344,9 @@ export async function serializeAws_json1_1StopCrawlerScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.StopCrawlerSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    StopCrawlerScheduleRequest: serializeAws_json1_1StopCrawlerScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopCrawlerScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3786,13 +3365,9 @@ export async function serializeAws_json1_1UpdateClassifierCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateClassifier";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateClassifierRequest: serializeAws_json1_1UpdateClassifierRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateClassifierRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3811,13 +3386,9 @@ export async function serializeAws_json1_1UpdateCrawlerCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateCrawler";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCrawlerRequest: serializeAws_json1_1UpdateCrawlerRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCrawlerRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3836,13 +3407,9 @@ export async function serializeAws_json1_1UpdateCrawlerScheduleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSGlue.UpdateCrawlerSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCrawlerScheduleRequest: serializeAws_json1_1UpdateCrawlerScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCrawlerScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

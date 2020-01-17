@@ -123,10 +123,9 @@ export async function serializeAws_json1_1CreateBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.CreateBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBackupRequest: serializeAws_json1_1CreateBackupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -145,13 +144,9 @@ export async function serializeAws_json1_1CreateFileSystemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.CreateFileSystem";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFileSystemRequest: serializeAws_json1_1CreateFileSystemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateFileSystemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -171,13 +166,9 @@ export async function serializeAws_json1_1CreateFileSystemFromBackupCommand(
   headers["X-Amz-Target"] =
     "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateFileSystemFromBackupRequest: serializeAws_json1_1CreateFileSystemFromBackupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateFileSystemFromBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -196,10 +187,9 @@ export async function serializeAws_json1_1DeleteBackupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DeleteBackup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBackupRequest: serializeAws_json1_1DeleteBackupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteBackupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -218,13 +208,9 @@ export async function serializeAws_json1_1DeleteFileSystemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DeleteFileSystem";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFileSystemRequest: serializeAws_json1_1DeleteFileSystemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteFileSystemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -243,13 +229,9 @@ export async function serializeAws_json1_1DescribeBackupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DescribeBackups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeBackupsRequest: serializeAws_json1_1DescribeBackupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeBackupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -268,13 +250,9 @@ export async function serializeAws_json1_1DescribeFileSystemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.DescribeFileSystems";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeFileSystemsRequest: serializeAws_json1_1DescribeFileSystemsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeFileSystemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -293,13 +271,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -318,10 +292,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -340,13 +311,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -365,13 +332,9 @@ export async function serializeAws_json1_1UpdateFileSystemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSSimbaAPIService_v20180301.UpdateFileSystem";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateFileSystemRequest: serializeAws_json1_1UpdateFileSystemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateFileSystemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

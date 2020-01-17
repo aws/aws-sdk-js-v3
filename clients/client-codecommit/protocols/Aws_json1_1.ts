@@ -698,13 +698,12 @@ export async function serializeAws_json1_1AssociateApprovalRuleTemplateWithRepos
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateApprovalRuleTemplateWithRepositoryInput: serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput(
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -724,13 +723,12 @@ export async function serializeAws_json1_1BatchAssociateApprovalRuleTemplateWith
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchAssociateApprovalRuleTemplateWithRepositoriesInput: serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput(
+  body = JSON.stringify(
+    serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -749,13 +747,9 @@ export async function serializeAws_json1_1BatchDescribeMergeConflictsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchDescribeMergeConflicts";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDescribeMergeConflictsInput: serializeAws_json1_1BatchDescribeMergeConflictsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDescribeMergeConflictsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -775,13 +769,12 @@ export async function serializeAws_json1_1BatchDisassociateApprovalRuleTemplateF
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesInput: serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(
+  body = JSON.stringify(
+    serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -800,13 +793,9 @@ export async function serializeAws_json1_1BatchGetCommitsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetCommits";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetCommitsInput: serializeAws_json1_1BatchGetCommitsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetCommitsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -825,13 +814,9 @@ export async function serializeAws_json1_1BatchGetRepositoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.BatchGetRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetRepositoriesInput: serializeAws_json1_1BatchGetRepositoriesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetRepositoriesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -850,13 +835,9 @@ export async function serializeAws_json1_1CreateApprovalRuleTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateApprovalRuleTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateApprovalRuleTemplateInput: serializeAws_json1_1CreateApprovalRuleTemplateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateApprovalRuleTemplateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -875,10 +856,7 @@ export async function serializeAws_json1_1CreateBranchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateBranch";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateBranchInput: serializeAws_json1_1CreateBranchInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateBranchInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -897,10 +875,7 @@ export async function serializeAws_json1_1CreateCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateCommitInput: serializeAws_json1_1CreateCommitInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateCommitInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -919,13 +894,9 @@ export async function serializeAws_json1_1CreatePullRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePullRequestInput: serializeAws_json1_1CreatePullRequestInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePullRequestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -944,13 +915,9 @@ export async function serializeAws_json1_1CreatePullRequestApprovalRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreatePullRequestApprovalRule";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePullRequestApprovalRuleInput: serializeAws_json1_1CreatePullRequestApprovalRuleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePullRequestApprovalRuleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -969,13 +936,9 @@ export async function serializeAws_json1_1CreateRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRepositoryInput: serializeAws_json1_1CreateRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -994,13 +957,9 @@ export async function serializeAws_json1_1CreateUnreferencedMergeCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.CreateUnreferencedMergeCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateUnreferencedMergeCommitInput: serializeAws_json1_1CreateUnreferencedMergeCommitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateUnreferencedMergeCommitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1019,13 +978,9 @@ export async function serializeAws_json1_1DeleteApprovalRuleTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteApprovalRuleTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApprovalRuleTemplateInput: serializeAws_json1_1DeleteApprovalRuleTemplateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApprovalRuleTemplateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1044,10 +999,7 @@ export async function serializeAws_json1_1DeleteBranchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteBranch";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteBranchInput: serializeAws_json1_1DeleteBranchInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteBranchInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1066,13 +1018,9 @@ export async function serializeAws_json1_1DeleteCommentContentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteCommentContent";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCommentContentInput: serializeAws_json1_1DeleteCommentContentInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCommentContentInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1091,10 +1039,7 @@ export async function serializeAws_json1_1DeleteFileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteFile";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteFileInput: serializeAws_json1_1DeleteFileInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteFileInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1113,13 +1058,9 @@ export async function serializeAws_json1_1DeletePullRequestApprovalRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeletePullRequestApprovalRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePullRequestApprovalRuleInput: serializeAws_json1_1DeletePullRequestApprovalRuleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePullRequestApprovalRuleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1138,13 +1079,9 @@ export async function serializeAws_json1_1DeleteRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DeleteRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRepositoryInput: serializeAws_json1_1DeleteRepositoryInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRepositoryInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1163,13 +1100,9 @@ export async function serializeAws_json1_1DescribeMergeConflictsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DescribeMergeConflicts";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMergeConflictsInput: serializeAws_json1_1DescribeMergeConflictsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMergeConflictsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1188,13 +1121,9 @@ export async function serializeAws_json1_1DescribePullRequestEventsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.DescribePullRequestEvents";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePullRequestEventsInput: serializeAws_json1_1DescribePullRequestEventsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePullRequestEventsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1214,13 +1143,12 @@ export async function serializeAws_json1_1DisassociateApprovalRuleTemplateFromRe
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateApprovalRuleTemplateFromRepositoryInput: serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1240,13 +1168,9 @@ export async function serializeAws_json1_1EvaluatePullRequestApprovalRulesComman
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.EvaluatePullRequestApprovalRules";
   let body: any = {};
-  const wrappedBody: any = {
-    EvaluatePullRequestApprovalRulesInput: serializeAws_json1_1EvaluatePullRequestApprovalRulesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1EvaluatePullRequestApprovalRulesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1265,13 +1189,9 @@ export async function serializeAws_json1_1GetApprovalRuleTemplateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetApprovalRuleTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetApprovalRuleTemplateInput: serializeAws_json1_1GetApprovalRuleTemplateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetApprovalRuleTemplateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1290,10 +1210,7 @@ export async function serializeAws_json1_1GetBlobCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetBlob";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBlobInput: serializeAws_json1_1GetBlobInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetBlobInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1312,10 +1229,7 @@ export async function serializeAws_json1_1GetBranchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetBranch";
   let body: any = {};
-  const wrappedBody: any = {
-    GetBranchInput: serializeAws_json1_1GetBranchInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetBranchInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1334,10 +1248,7 @@ export async function serializeAws_json1_1GetCommentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetComment";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCommentInput: serializeAws_json1_1GetCommentInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetCommentInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1356,13 +1267,9 @@ export async function serializeAws_json1_1GetCommentsForComparedCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForComparedCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCommentsForComparedCommitInput: serializeAws_json1_1GetCommentsForComparedCommitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCommentsForComparedCommitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1381,13 +1288,9 @@ export async function serializeAws_json1_1GetCommentsForPullRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommentsForPullRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCommentsForPullRequestInput: serializeAws_json1_1GetCommentsForPullRequestInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCommentsForPullRequestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1406,10 +1309,7 @@ export async function serializeAws_json1_1GetCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCommitInput: serializeAws_json1_1GetCommitInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetCommitInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1428,10 +1328,9 @@ export async function serializeAws_json1_1GetDifferencesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetDifferences";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDifferencesInput: serializeAws_json1_1GetDifferencesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDifferencesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1450,10 +1349,7 @@ export async function serializeAws_json1_1GetFileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetFile";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFileInput: serializeAws_json1_1GetFileInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetFileInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1472,10 +1368,7 @@ export async function serializeAws_json1_1GetFolderCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetFolder";
   let body: any = {};
-  const wrappedBody: any = {
-    GetFolderInput: serializeAws_json1_1GetFolderInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetFolderInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1494,10 +1387,9 @@ export async function serializeAws_json1_1GetMergeCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMergeCommitInput: serializeAws_json1_1GetMergeCommitInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMergeCommitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1516,13 +1408,9 @@ export async function serializeAws_json1_1GetMergeConflictsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeConflicts";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMergeConflictsInput: serializeAws_json1_1GetMergeConflictsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMergeConflictsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1541,13 +1429,9 @@ export async function serializeAws_json1_1GetMergeOptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetMergeOptions";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMergeOptionsInput: serializeAws_json1_1GetMergeOptionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMergeOptionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1566,10 +1450,9 @@ export async function serializeAws_json1_1GetPullRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPullRequestInput: serializeAws_json1_1GetPullRequestInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPullRequestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1588,13 +1471,9 @@ export async function serializeAws_json1_1GetPullRequestApprovalStatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestApprovalStates";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPullRequestApprovalStatesInput: serializeAws_json1_1GetPullRequestApprovalStatesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPullRequestApprovalStatesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1613,13 +1492,9 @@ export async function serializeAws_json1_1GetPullRequestOverrideStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetPullRequestOverrideState";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPullRequestOverrideStateInput: serializeAws_json1_1GetPullRequestOverrideStateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPullRequestOverrideStateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1638,10 +1513,7 @@ export async function serializeAws_json1_1GetRepositoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRepositoryInput: serializeAws_json1_1GetRepositoryInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetRepositoryInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1660,13 +1532,9 @@ export async function serializeAws_json1_1GetRepositoryTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.GetRepositoryTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRepositoryTriggersInput: serializeAws_json1_1GetRepositoryTriggersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRepositoryTriggersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1685,13 +1553,9 @@ export async function serializeAws_json1_1ListApprovalRuleTemplatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListApprovalRuleTemplates";
   let body: any = {};
-  const wrappedBody: any = {
-    ListApprovalRuleTemplatesInput: serializeAws_json1_1ListApprovalRuleTemplatesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListApprovalRuleTemplatesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1711,13 +1575,12 @@ export async function serializeAws_json1_1ListAssociatedApprovalRuleTemplatesFor
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.ListAssociatedApprovalRuleTemplatesForRepository";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociatedApprovalRuleTemplatesForRepositoryInput: serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1736,10 +1599,7 @@ export async function serializeAws_json1_1ListBranchesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListBranches";
   let body: any = {};
-  const wrappedBody: any = {
-    ListBranchesInput: serializeAws_json1_1ListBranchesInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListBranchesInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1758,13 +1618,9 @@ export async function serializeAws_json1_1ListPullRequestsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListPullRequests";
   let body: any = {};
-  const wrappedBody: any = {
-    ListPullRequestsInput: serializeAws_json1_1ListPullRequestsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListPullRequestsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1783,13 +1639,9 @@ export async function serializeAws_json1_1ListRepositoriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListRepositories";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRepositoriesInput: serializeAws_json1_1ListRepositoriesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRepositoriesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1809,13 +1661,12 @@ export async function serializeAws_json1_1ListRepositoriesForApprovalRuleTemplat
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.ListRepositoriesForApprovalRuleTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRepositoriesForApprovalRuleTemplateInput: serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput(
+  body = JSON.stringify(
+    serializeAws_json1_1ListRepositoriesForApprovalRuleTemplateInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1834,13 +1685,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1859,13 +1706,9 @@ export async function serializeAws_json1_1MergeBranchesByFastForwardCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByFastForward";
   let body: any = {};
-  const wrappedBody: any = {
-    MergeBranchesByFastForwardInput: serializeAws_json1_1MergeBranchesByFastForwardInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergeBranchesByFastForwardInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1884,13 +1727,9 @@ export async function serializeAws_json1_1MergeBranchesBySquashCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesBySquash";
   let body: any = {};
-  const wrappedBody: any = {
-    MergeBranchesBySquashInput: serializeAws_json1_1MergeBranchesBySquashInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergeBranchesBySquashInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1909,13 +1748,9 @@ export async function serializeAws_json1_1MergeBranchesByThreeWayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergeBranchesByThreeWay";
   let body: any = {};
-  const wrappedBody: any = {
-    MergeBranchesByThreeWayInput: serializeAws_json1_1MergeBranchesByThreeWayInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergeBranchesByThreeWayInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1934,13 +1769,9 @@ export async function serializeAws_json1_1MergePullRequestByFastForwardCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByFastForward";
   let body: any = {};
-  const wrappedBody: any = {
-    MergePullRequestByFastForwardInput: serializeAws_json1_1MergePullRequestByFastForwardInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergePullRequestByFastForwardInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1959,13 +1790,9 @@ export async function serializeAws_json1_1MergePullRequestBySquashCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestBySquash";
   let body: any = {};
-  const wrappedBody: any = {
-    MergePullRequestBySquashInput: serializeAws_json1_1MergePullRequestBySquashInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergePullRequestBySquashInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1984,13 +1811,9 @@ export async function serializeAws_json1_1MergePullRequestByThreeWayCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.MergePullRequestByThreeWay";
   let body: any = {};
-  const wrappedBody: any = {
-    MergePullRequestByThreeWayInput: serializeAws_json1_1MergePullRequestByThreeWayInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1MergePullRequestByThreeWayInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2010,13 +1833,9 @@ export async function serializeAws_json1_1OverridePullRequestApprovalRulesComman
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.OverridePullRequestApprovalRules";
   let body: any = {};
-  const wrappedBody: any = {
-    OverridePullRequestApprovalRulesInput: serializeAws_json1_1OverridePullRequestApprovalRulesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1OverridePullRequestApprovalRulesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2035,13 +1854,9 @@ export async function serializeAws_json1_1PostCommentForComparedCommitCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForComparedCommit";
   let body: any = {};
-  const wrappedBody: any = {
-    PostCommentForComparedCommitInput: serializeAws_json1_1PostCommentForComparedCommitInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PostCommentForComparedCommitInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2060,13 +1875,9 @@ export async function serializeAws_json1_1PostCommentForPullRequestCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentForPullRequest";
   let body: any = {};
-  const wrappedBody: any = {
-    PostCommentForPullRequestInput: serializeAws_json1_1PostCommentForPullRequestInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PostCommentForPullRequestInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2085,13 +1896,9 @@ export async function serializeAws_json1_1PostCommentReplyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PostCommentReply";
   let body: any = {};
-  const wrappedBody: any = {
-    PostCommentReplyInput: serializeAws_json1_1PostCommentReplyInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PostCommentReplyInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2110,10 +1917,7 @@ export async function serializeAws_json1_1PutFileCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PutFile";
   let body: any = {};
-  const wrappedBody: any = {
-    PutFileInput: serializeAws_json1_1PutFileInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1PutFileInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2132,13 +1936,9 @@ export async function serializeAws_json1_1PutRepositoryTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.PutRepositoryTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    PutRepositoryTriggersInput: serializeAws_json1_1PutRepositoryTriggersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutRepositoryTriggersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2157,10 +1957,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2179,13 +1976,9 @@ export async function serializeAws_json1_1TestRepositoryTriggersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.TestRepositoryTriggers";
   let body: any = {};
-  const wrappedBody: any = {
-    TestRepositoryTriggersInput: serializeAws_json1_1TestRepositoryTriggersInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TestRepositoryTriggersInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2204,10 +1997,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2227,13 +2017,9 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateContentComma
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateContent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApprovalRuleTemplateContentInput: serializeAws_json1_1UpdateApprovalRuleTemplateContentInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApprovalRuleTemplateContentInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2253,13 +2039,12 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionC
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApprovalRuleTemplateDescriptionInput: serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApprovalRuleTemplateDescriptionInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2279,13 +2064,9 @@ export async function serializeAws_json1_1UpdateApprovalRuleTemplateNameCommand(
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdateApprovalRuleTemplateName";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApprovalRuleTemplateNameInput: serializeAws_json1_1UpdateApprovalRuleTemplateNameInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApprovalRuleTemplateNameInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2304,10 +2085,7 @@ export async function serializeAws_json1_1UpdateCommentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateComment";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCommentInput: serializeAws_json1_1UpdateCommentInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateCommentInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2326,13 +2104,9 @@ export async function serializeAws_json1_1UpdateDefaultBranchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateDefaultBranch";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDefaultBranchInput: serializeAws_json1_1UpdateDefaultBranchInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDefaultBranchInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2352,13 +2126,12 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalRuleContentCo
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdatePullRequestApprovalRuleContent";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePullRequestApprovalRuleContentInput: serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput(
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePullRequestApprovalRuleContentInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2378,13 +2151,9 @@ export async function serializeAws_json1_1UpdatePullRequestApprovalStateCommand(
   headers["X-Amz-Target"] =
     "CodeCommit_20150413.UpdatePullRequestApprovalState";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePullRequestApprovalStateInput: serializeAws_json1_1UpdatePullRequestApprovalStateInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePullRequestApprovalStateInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2403,13 +2172,9 @@ export async function serializeAws_json1_1UpdatePullRequestDescriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestDescription";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePullRequestDescriptionInput: serializeAws_json1_1UpdatePullRequestDescriptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePullRequestDescriptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2428,13 +2193,9 @@ export async function serializeAws_json1_1UpdatePullRequestStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePullRequestStatusInput: serializeAws_json1_1UpdatePullRequestStatusInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePullRequestStatusInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2453,13 +2214,9 @@ export async function serializeAws_json1_1UpdatePullRequestTitleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdatePullRequestTitle";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePullRequestTitleInput: serializeAws_json1_1UpdatePullRequestTitleInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePullRequestTitleInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2478,13 +2235,9 @@ export async function serializeAws_json1_1UpdateRepositoryDescriptionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryDescription";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRepositoryDescriptionInput: serializeAws_json1_1UpdateRepositoryDescriptionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRepositoryDescriptionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2503,13 +2256,9 @@ export async function serializeAws_json1_1UpdateRepositoryNameCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeCommit_20150413.UpdateRepositoryName";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRepositoryNameInput: serializeAws_json1_1UpdateRepositoryNameInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRepositoryNameInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

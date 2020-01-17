@@ -31,13 +31,9 @@ export async function serializeAws_json1_1GetEntitlementsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSMPEntitlementService.GetEntitlements";
   let body: any = {};
-  const wrappedBody: any = {
-    GetEntitlementsRequest: serializeAws_json1_1GetEntitlementsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetEntitlementsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
