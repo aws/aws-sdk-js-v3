@@ -33,13 +33,9 @@ export async function serializeAws_json1_1QueryForecastCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonForecastRuntime.QueryForecast";
   let body: any = {};
-  const wrappedBody: any = {
-    QueryForecastRequest: serializeAws_json1_1QueryForecastRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1QueryForecastRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -301,13 +301,9 @@ export async function serializeAws_json1_1AssociateWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.AssociateWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateWebACLRequest: serializeAws_json1_1AssociateWebACLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -326,13 +322,9 @@ export async function serializeAws_json1_1CheckCapacityCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.CheckCapacity";
   let body: any = {};
-  const wrappedBody: any = {
-    CheckCapacityRequest: serializeAws_json1_1CheckCapacityRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CheckCapacityRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -351,10 +343,7 @@ export async function serializeAws_json1_1CreateIPSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.CreateIPSet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateIPSetRequest: serializeAws_json1_1CreateIPSetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateIPSetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -373,13 +362,9 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRegexPatternSet";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRegexPatternSetRequest: serializeAws_json1_1CreateRegexPatternSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRegexPatternSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -398,13 +383,9 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.CreateRuleGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateRuleGroupRequest: serializeAws_json1_1CreateRuleGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateRuleGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -423,10 +404,9 @@ export async function serializeAws_json1_1CreateWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.CreateWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateWebACLRequest: serializeAws_json1_1CreateWebACLRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,10 +425,7 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteIPSet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteIPSetRequest: serializeAws_json1_1DeleteIPSetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteIPSetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -467,13 +444,9 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteLoggingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteLoggingConfigurationRequest: serializeAws_json1_1DeleteLoggingConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteLoggingConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -492,13 +465,9 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRegexPatternSet";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRegexPatternSetRequest: serializeAws_json1_1DeleteRegexPatternSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRegexPatternSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -517,13 +486,9 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteRuleGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteRuleGroupRequest: serializeAws_json1_1DeleteRuleGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteRuleGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -542,10 +507,9 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DeleteWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteWebACLRequest: serializeAws_json1_1DeleteWebACLRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -564,13 +528,9 @@ export async function serializeAws_json1_1DescribeManagedRuleGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DescribeManagedRuleGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeManagedRuleGroupRequest: serializeAws_json1_1DescribeManagedRuleGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeManagedRuleGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -589,13 +549,9 @@ export async function serializeAws_json1_1DisassociateWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.DisassociateWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateWebACLRequest: serializeAws_json1_1DisassociateWebACLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -614,10 +570,7 @@ export async function serializeAws_json1_1GetIPSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetIPSet";
   let body: any = {};
-  const wrappedBody: any = {
-    GetIPSetRequest: serializeAws_json1_1GetIPSetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetIPSetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -636,13 +589,9 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetLoggingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetLoggingConfigurationRequest: serializeAws_json1_1GetLoggingConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetLoggingConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -661,13 +610,9 @@ export async function serializeAws_json1_1GetRateBasedStatementManagedKeysComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetRateBasedStatementManagedKeys";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRateBasedStatementManagedKeysRequest: serializeAws_json1_1GetRateBasedStatementManagedKeysRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRateBasedStatementManagedKeysRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -686,13 +631,9 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetRegexPatternSet";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRegexPatternSetRequest: serializeAws_json1_1GetRegexPatternSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRegexPatternSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -711,10 +652,9 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetRuleGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetRuleGroupRequest: serializeAws_json1_1GetRuleGroupRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetRuleGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -733,13 +673,9 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetSampledRequests";
   let body: any = {};
-  const wrappedBody: any = {
-    GetSampledRequestsRequest: serializeAws_json1_1GetSampledRequestsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetSampledRequestsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -758,10 +694,7 @@ export async function serializeAws_json1_1GetWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWebACLRequest: serializeAws_json1_1GetWebACLRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetWebACLRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -780,13 +713,9 @@ export async function serializeAws_json1_1GetWebACLForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.GetWebACLForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    GetWebACLForResourceRequest: serializeAws_json1_1GetWebACLForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetWebACLForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -805,13 +734,9 @@ export async function serializeAws_json1_1ListAvailableManagedRuleGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListAvailableManagedRuleGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAvailableManagedRuleGroupsRequest: serializeAws_json1_1ListAvailableManagedRuleGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAvailableManagedRuleGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -830,10 +755,7 @@ export async function serializeAws_json1_1ListIPSetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListIPSets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListIPSetsRequest: serializeAws_json1_1ListIPSetsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListIPSetsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -852,13 +774,9 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListLoggingConfigurations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListLoggingConfigurationsRequest: serializeAws_json1_1ListLoggingConfigurationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListLoggingConfigurationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -877,13 +795,9 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListRegexPatternSets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRegexPatternSetsRequest: serializeAws_json1_1ListRegexPatternSetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRegexPatternSetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -902,13 +816,9 @@ export async function serializeAws_json1_1ListResourcesForWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListResourcesForWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourcesForWebACLRequest: serializeAws_json1_1ListResourcesForWebACLRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourcesForWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -927,13 +837,9 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListRuleGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListRuleGroupsRequest: serializeAws_json1_1ListRuleGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListRuleGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -952,13 +858,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -977,10 +879,7 @@ export async function serializeAws_json1_1ListWebACLsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.ListWebACLs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListWebACLsRequest: serializeAws_json1_1ListWebACLsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListWebACLsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -999,13 +898,9 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.PutLoggingConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutLoggingConfigurationRequest: serializeAws_json1_1PutLoggingConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutLoggingConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1024,10 +919,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1046,13 +938,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1071,10 +959,7 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateIPSet";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateIPSetRequest: serializeAws_json1_1UpdateIPSetRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateIPSetRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1093,13 +978,9 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRegexPatternSet";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRegexPatternSetRequest: serializeAws_json1_1UpdateRegexPatternSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRegexPatternSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1118,13 +999,9 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateRuleGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateRuleGroupRequest: serializeAws_json1_1UpdateRuleGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateRuleGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1143,10 +1020,9 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSWAF_20190729.UpdateWebACL";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateWebACLRequest: serializeAws_json1_1UpdateWebACLRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateWebACLRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

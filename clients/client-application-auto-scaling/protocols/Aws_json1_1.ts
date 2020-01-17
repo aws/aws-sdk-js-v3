@@ -100,13 +100,9 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeleteScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteScalingPolicyRequest: serializeAws_json1_1DeleteScalingPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteScalingPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -125,13 +121,9 @@ export async function serializeAws_json1_1DeleteScheduledActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeleteScheduledAction";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteScheduledActionRequest: serializeAws_json1_1DeleteScheduledActionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteScheduledActionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -150,13 +142,9 @@ export async function serializeAws_json1_1DeregisterScalableTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DeregisterScalableTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterScalableTargetRequest: serializeAws_json1_1DeregisterScalableTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterScalableTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -175,13 +163,9 @@ export async function serializeAws_json1_1DescribeScalableTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalableTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalableTargetsRequest: serializeAws_json1_1DescribeScalableTargetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalableTargetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -200,13 +184,9 @@ export async function serializeAws_json1_1DescribeScalingActivitiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalingActivities";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalingActivitiesRequest: serializeAws_json1_1DescribeScalingActivitiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalingActivitiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -225,13 +205,9 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScalingPolicies";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScalingPoliciesRequest: serializeAws_json1_1DescribeScalingPoliciesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScalingPoliciesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -250,13 +226,9 @@ export async function serializeAws_json1_1DescribeScheduledActionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.DescribeScheduledActions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeScheduledActionsRequest: serializeAws_json1_1DescribeScheduledActionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeScheduledActionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -275,13 +247,9 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.PutScalingPolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutScalingPolicyRequest: serializeAws_json1_1PutScalingPolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutScalingPolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -300,13 +268,9 @@ export async function serializeAws_json1_1PutScheduledActionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.PutScheduledAction";
   let body: any = {};
-  const wrappedBody: any = {
-    PutScheduledActionRequest: serializeAws_json1_1PutScheduledActionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutScheduledActionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -325,13 +289,9 @@ export async function serializeAws_json1_1RegisterScalableTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AnyScaleFrontendService.RegisterScalableTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterScalableTargetRequest: serializeAws_json1_1RegisterScalableTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterScalableTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -451,13 +451,9 @@ export async function serializeAws_json1_1AddTagsToOnPremisesInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.AddTagsToOnPremisesInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToOnPremisesInstancesInput: serializeAws_json1_1AddTagsToOnPremisesInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToOnPremisesInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -476,13 +472,9 @@ export async function serializeAws_json1_1BatchGetApplicationRevisionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplicationRevisions";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetApplicationRevisionsInput: serializeAws_json1_1BatchGetApplicationRevisionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetApplicationRevisionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -501,13 +493,9 @@ export async function serializeAws_json1_1BatchGetApplicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetApplications";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetApplicationsInput: serializeAws_json1_1BatchGetApplicationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetApplicationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -526,13 +514,9 @@ export async function serializeAws_json1_1BatchGetDeploymentGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetDeploymentGroupsInput: serializeAws_json1_1BatchGetDeploymentGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDeploymentGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -551,13 +535,9 @@ export async function serializeAws_json1_1BatchGetDeploymentInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetDeploymentInstancesInput: serializeAws_json1_1BatchGetDeploymentInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDeploymentInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -576,13 +556,9 @@ export async function serializeAws_json1_1BatchGetDeploymentTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeploymentTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetDeploymentTargetsInput: serializeAws_json1_1BatchGetDeploymentTargetsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDeploymentTargetsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -601,13 +577,9 @@ export async function serializeAws_json1_1BatchGetDeploymentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetDeployments";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetDeploymentsInput: serializeAws_json1_1BatchGetDeploymentsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetDeploymentsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -626,13 +598,9 @@ export async function serializeAws_json1_1BatchGetOnPremisesInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.BatchGetOnPremisesInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    BatchGetOnPremisesInstancesInput: serializeAws_json1_1BatchGetOnPremisesInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1BatchGetOnPremisesInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -651,13 +619,9 @@ export async function serializeAws_json1_1ContinueDeploymentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ContinueDeployment";
   let body: any = {};
-  const wrappedBody: any = {
-    ContinueDeploymentInput: serializeAws_json1_1ContinueDeploymentInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ContinueDeploymentInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -676,13 +640,9 @@ export async function serializeAws_json1_1CreateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateApplicationInput: serializeAws_json1_1CreateApplicationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateApplicationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -701,13 +661,9 @@ export async function serializeAws_json1_1CreateDeploymentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeployment";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDeploymentInput: serializeAws_json1_1CreateDeploymentInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDeploymentInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -726,13 +682,9 @@ export async function serializeAws_json1_1CreateDeploymentConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDeploymentConfigInput: serializeAws_json1_1CreateDeploymentConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDeploymentConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -751,13 +703,9 @@ export async function serializeAws_json1_1CreateDeploymentGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.CreateDeploymentGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDeploymentGroupInput: serializeAws_json1_1CreateDeploymentGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDeploymentGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -776,13 +724,9 @@ export async function serializeAws_json1_1DeleteApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteApplicationInput: serializeAws_json1_1DeleteApplicationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteApplicationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -801,13 +745,9 @@ export async function serializeAws_json1_1DeleteDeploymentConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeploymentConfigInput: serializeAws_json1_1DeleteDeploymentConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeploymentConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -826,13 +766,9 @@ export async function serializeAws_json1_1DeleteDeploymentGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteDeploymentGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDeploymentGroupInput: serializeAws_json1_1DeleteDeploymentGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDeploymentGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -851,13 +787,9 @@ export async function serializeAws_json1_1DeleteGitHubAccountTokenCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeleteGitHubAccountToken";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteGitHubAccountTokenInput: serializeAws_json1_1DeleteGitHubAccountTokenInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteGitHubAccountTokenInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -876,13 +808,9 @@ export async function serializeAws_json1_1DeregisterOnPremisesInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.DeregisterOnPremisesInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterOnPremisesInstanceInput: serializeAws_json1_1DeregisterOnPremisesInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterOnPremisesInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -901,10 +829,9 @@ export async function serializeAws_json1_1GetApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    GetApplicationInput: serializeAws_json1_1GetApplicationInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetApplicationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -923,13 +850,9 @@ export async function serializeAws_json1_1GetApplicationRevisionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetApplicationRevision";
   let body: any = {};
-  const wrappedBody: any = {
-    GetApplicationRevisionInput: serializeAws_json1_1GetApplicationRevisionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetApplicationRevisionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -948,10 +871,7 @@ export async function serializeAws_json1_1GetDeploymentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeployment";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeploymentInput: serializeAws_json1_1GetDeploymentInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDeploymentInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -970,13 +890,9 @@ export async function serializeAws_json1_1GetDeploymentConfigCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentConfig";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeploymentConfigInput: serializeAws_json1_1GetDeploymentConfigInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeploymentConfigInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -995,13 +911,9 @@ export async function serializeAws_json1_1GetDeploymentGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeploymentGroupInput: serializeAws_json1_1GetDeploymentGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeploymentGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1020,13 +932,9 @@ export async function serializeAws_json1_1GetDeploymentInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeploymentInstanceInput: serializeAws_json1_1GetDeploymentInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeploymentInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1045,13 +953,9 @@ export async function serializeAws_json1_1GetDeploymentTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetDeploymentTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeploymentTargetInput: serializeAws_json1_1GetDeploymentTargetInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeploymentTargetInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1070,13 +974,9 @@ export async function serializeAws_json1_1GetOnPremisesInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.GetOnPremisesInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOnPremisesInstanceInput: serializeAws_json1_1GetOnPremisesInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOnPremisesInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1095,13 +995,9 @@ export async function serializeAws_json1_1ListApplicationRevisionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplicationRevisions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListApplicationRevisionsInput: serializeAws_json1_1ListApplicationRevisionsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationRevisionsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1120,13 +1016,9 @@ export async function serializeAws_json1_1ListApplicationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListApplications";
   let body: any = {};
-  const wrappedBody: any = {
-    ListApplicationsInput: serializeAws_json1_1ListApplicationsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListApplicationsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1145,13 +1037,9 @@ export async function serializeAws_json1_1ListDeploymentConfigsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentConfigs";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeploymentConfigsInput: serializeAws_json1_1ListDeploymentConfigsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentConfigsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1170,13 +1058,9 @@ export async function serializeAws_json1_1ListDeploymentGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeploymentGroupsInput: serializeAws_json1_1ListDeploymentGroupsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentGroupsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1195,13 +1079,9 @@ export async function serializeAws_json1_1ListDeploymentInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeploymentInstancesInput: serializeAws_json1_1ListDeploymentInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1220,13 +1100,9 @@ export async function serializeAws_json1_1ListDeploymentTargetsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeploymentTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeploymentTargetsInput: serializeAws_json1_1ListDeploymentTargetsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentTargetsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1245,13 +1121,9 @@ export async function serializeAws_json1_1ListDeploymentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListDeployments";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDeploymentsInput: serializeAws_json1_1ListDeploymentsInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDeploymentsInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1270,13 +1142,9 @@ export async function serializeAws_json1_1ListGitHubAccountTokenNamesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListGitHubAccountTokenNames";
   let body: any = {};
-  const wrappedBody: any = {
-    ListGitHubAccountTokenNamesInput: serializeAws_json1_1ListGitHubAccountTokenNamesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListGitHubAccountTokenNamesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1295,13 +1163,9 @@ export async function serializeAws_json1_1ListOnPremisesInstancesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListOnPremisesInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    ListOnPremisesInstancesInput: serializeAws_json1_1ListOnPremisesInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListOnPremisesInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1320,13 +1184,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1346,13 +1206,12 @@ export async function serializeAws_json1_1PutLifecycleEventHookExecutionStatusCo
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    PutLifecycleEventHookExecutionStatusInput: serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput(
+  body = JSON.stringify(
+    serializeAws_json1_1PutLifecycleEventHookExecutionStatusInput(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1371,13 +1230,9 @@ export async function serializeAws_json1_1RegisterApplicationRevisionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterApplicationRevision";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterApplicationRevisionInput: serializeAws_json1_1RegisterApplicationRevisionInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterApplicationRevisionInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1396,13 +1251,9 @@ export async function serializeAws_json1_1RegisterOnPremisesInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.RegisterOnPremisesInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterOnPremisesInstanceInput: serializeAws_json1_1RegisterOnPremisesInstanceInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterOnPremisesInstanceInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1422,13 +1273,9 @@ export async function serializeAws_json1_1RemoveTagsFromOnPremisesInstancesComma
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromOnPremisesInstancesInput: serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromOnPremisesInstancesInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1448,13 +1295,9 @@ export async function serializeAws_json1_1SkipWaitTimeForInstanceTerminationComm
   headers["X-Amz-Target"] =
     "CodeDeploy_20141006.SkipWaitTimeForInstanceTermination";
   let body: any = {};
-  const wrappedBody: any = {
-    SkipWaitTimeForInstanceTerminationInput: serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SkipWaitTimeForInstanceTerminationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1473,10 +1316,9 @@ export async function serializeAws_json1_1StopDeploymentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.StopDeployment";
   let body: any = {};
-  const wrappedBody: any = {
-    StopDeploymentInput: serializeAws_json1_1StopDeploymentInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopDeploymentInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1495,10 +1337,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1517,10 +1356,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1539,13 +1375,9 @@ export async function serializeAws_json1_1UpdateApplicationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateApplication";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateApplicationInput: serializeAws_json1_1UpdateApplicationInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateApplicationInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1564,13 +1396,9 @@ export async function serializeAws_json1_1UpdateDeploymentGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CodeDeploy_20141006.UpdateDeploymentGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDeploymentGroupInput: serializeAws_json1_1UpdateDeploymentGroupInput(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDeploymentGroupInput(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -176,13 +176,12 @@ export async function serializeAws_json1_1AssociateResolverEndpointIpAddressComm
   headers["X-Amz-Target"] =
     "Route53Resolver.AssociateResolverEndpointIpAddress";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateResolverEndpointIpAddressRequest: serializeAws_json1_1AssociateResolverEndpointIpAddressRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateResolverEndpointIpAddressRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -201,13 +200,9 @@ export async function serializeAws_json1_1AssociateResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.AssociateResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    AssociateResolverRuleRequest: serializeAws_json1_1AssociateResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AssociateResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -226,13 +221,9 @@ export async function serializeAws_json1_1CreateResolverEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.CreateResolverEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateResolverEndpointRequest: serializeAws_json1_1CreateResolverEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateResolverEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -251,13 +242,9 @@ export async function serializeAws_json1_1CreateResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.CreateResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateResolverRuleRequest: serializeAws_json1_1CreateResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -276,13 +263,9 @@ export async function serializeAws_json1_1DeleteResolverEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResolverEndpointRequest: serializeAws_json1_1DeleteResolverEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResolverEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -301,13 +284,9 @@ export async function serializeAws_json1_1DeleteResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DeleteResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResolverRuleRequest: serializeAws_json1_1DeleteResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -327,13 +306,12 @@ export async function serializeAws_json1_1DisassociateResolverEndpointIpAddressC
   headers["X-Amz-Target"] =
     "Route53Resolver.DisassociateResolverEndpointIpAddress";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateResolverEndpointIpAddressRequest: serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateResolverEndpointIpAddressRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -352,13 +330,9 @@ export async function serializeAws_json1_1DisassociateResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.DisassociateResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateResolverRuleRequest: serializeAws_json1_1DisassociateResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -377,13 +351,9 @@ export async function serializeAws_json1_1GetResolverEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResolverEndpointRequest: serializeAws_json1_1GetResolverEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResolverEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -402,13 +372,9 @@ export async function serializeAws_json1_1GetResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResolverRuleRequest: serializeAws_json1_1GetResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -427,13 +393,9 @@ export async function serializeAws_json1_1GetResolverRuleAssociationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRuleAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResolverRuleAssociationRequest: serializeAws_json1_1GetResolverRuleAssociationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResolverRuleAssociationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -452,13 +414,9 @@ export async function serializeAws_json1_1GetResolverRulePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.GetResolverRulePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    GetResolverRulePolicyRequest: serializeAws_json1_1GetResolverRulePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetResolverRulePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -477,13 +435,9 @@ export async function serializeAws_json1_1ListResolverEndpointIpAddressesCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpointIpAddresses";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResolverEndpointIpAddressesRequest: serializeAws_json1_1ListResolverEndpointIpAddressesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResolverEndpointIpAddressesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -502,13 +456,9 @@ export async function serializeAws_json1_1ListResolverEndpointsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverEndpoints";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResolverEndpointsRequest: serializeAws_json1_1ListResolverEndpointsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResolverEndpointsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -527,13 +477,9 @@ export async function serializeAws_json1_1ListResolverRuleAssociationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverRuleAssociations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResolverRuleAssociationsRequest: serializeAws_json1_1ListResolverRuleAssociationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResolverRuleAssociationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -552,13 +498,9 @@ export async function serializeAws_json1_1ListResolverRulesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListResolverRules";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResolverRulesRequest: serializeAws_json1_1ListResolverRulesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResolverRulesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -577,13 +519,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -602,13 +540,9 @@ export async function serializeAws_json1_1PutResolverRulePolicyCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.PutResolverRulePolicy";
   let body: any = {};
-  const wrappedBody: any = {
-    PutResolverRulePolicyRequest: serializeAws_json1_1PutResolverRulePolicyRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutResolverRulePolicyRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -627,10 +561,7 @@ export async function serializeAws_json1_1TagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.TagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -649,13 +580,9 @@ export async function serializeAws_json1_1UntagResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UntagResource";
   let body: any = {};
-  const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UntagResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -674,13 +601,9 @@ export async function serializeAws_json1_1UpdateResolverEndpointCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverEndpoint";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateResolverEndpointRequest: serializeAws_json1_1UpdateResolverEndpointRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateResolverEndpointRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -699,13 +622,9 @@ export async function serializeAws_json1_1UpdateResolverRuleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "Route53Resolver.UpdateResolverRule";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateResolverRuleRequest: serializeAws_json1_1UpdateResolverRuleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateResolverRuleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

@@ -119,13 +119,9 @@ export async function serializeAws_json1_1AddTagsToCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.AddTagsToCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToCertificateRequest: serializeAws_json1_1AddTagsToCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -144,13 +140,9 @@ export async function serializeAws_json1_1DeleteCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.DeleteCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteCertificateRequest: serializeAws_json1_1DeleteCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -169,13 +161,9 @@ export async function serializeAws_json1_1DescribeCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.DescribeCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeCertificateRequest: serializeAws_json1_1DescribeCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -194,13 +182,9 @@ export async function serializeAws_json1_1ExportCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ExportCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    ExportCertificateRequest: serializeAws_json1_1ExportCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ExportCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -219,13 +203,9 @@ export async function serializeAws_json1_1GetCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.GetCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCertificateRequest: serializeAws_json1_1GetCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -244,13 +224,9 @@ export async function serializeAws_json1_1ImportCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ImportCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportCertificateRequest: serializeAws_json1_1ImportCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -269,13 +245,9 @@ export async function serializeAws_json1_1ListCertificatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ListCertificates";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCertificatesRequest: serializeAws_json1_1ListCertificatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCertificatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -294,13 +266,9 @@ export async function serializeAws_json1_1ListTagsForCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ListTagsForCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForCertificateRequest: serializeAws_json1_1ListTagsForCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -319,13 +287,9 @@ export async function serializeAws_json1_1RemoveTagsFromCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RemoveTagsFromCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromCertificateRequest: serializeAws_json1_1RemoveTagsFromCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -344,13 +308,9 @@ export async function serializeAws_json1_1RenewCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RenewCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    RenewCertificateRequest: serializeAws_json1_1RenewCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RenewCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -369,13 +329,9 @@ export async function serializeAws_json1_1RequestCertificateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.RequestCertificate";
   let body: any = {};
-  const wrappedBody: any = {
-    RequestCertificateRequest: serializeAws_json1_1RequestCertificateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RequestCertificateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -394,13 +350,9 @@ export async function serializeAws_json1_1ResendValidationEmailCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.ResendValidationEmail";
   let body: any = {};
-  const wrappedBody: any = {
-    ResendValidationEmailRequest: serializeAws_json1_1ResendValidationEmailRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResendValidationEmailRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +371,9 @@ export async function serializeAws_json1_1UpdateCertificateOptionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "CertificateManager.UpdateCertificateOptions";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateCertificateOptionsRequest: serializeAws_json1_1UpdateCertificateOptionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateCertificateOptionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

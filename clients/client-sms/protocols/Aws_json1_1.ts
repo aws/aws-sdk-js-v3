@@ -218,10 +218,7 @@ export async function serializeAws_json1_1CreateAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.CreateApp";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAppRequest: serializeAws_json1_1CreateAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -241,13 +238,9 @@ export async function serializeAws_json1_1CreateReplicationJobCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.CreateReplicationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateReplicationJobRequest: serializeAws_json1_1CreateReplicationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateReplicationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -266,10 +259,7 @@ export async function serializeAws_json1_1DeleteAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.DeleteApp";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAppRequest: serializeAws_json1_1DeleteAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -289,13 +279,9 @@ export async function serializeAws_json1_1DeleteAppLaunchConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAppLaunchConfigurationRequest: serializeAws_json1_1DeleteAppLaunchConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAppLaunchConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -315,13 +301,9 @@ export async function serializeAws_json1_1DeleteAppReplicationConfigurationComma
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAppReplicationConfigurationRequest: serializeAws_json1_1DeleteAppReplicationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAppReplicationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -341,13 +323,9 @@ export async function serializeAws_json1_1DeleteReplicationJobCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteReplicationJobRequest: serializeAws_json1_1DeleteReplicationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteReplicationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -367,13 +345,9 @@ export async function serializeAws_json1_1DeleteServerCatalogCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteServerCatalogRequest: serializeAws_json1_1DeleteServerCatalogRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteServerCatalogRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -393,13 +367,9 @@ export async function serializeAws_json1_1DisassociateConnectorCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.DisassociateConnector";
   let body: any = {};
-  const wrappedBody: any = {
-    DisassociateConnectorRequest: serializeAws_json1_1DisassociateConnectorRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DisassociateConnectorRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -419,13 +389,9 @@ export async function serializeAws_json1_1GenerateChangeSetCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GenerateChangeSet";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateChangeSetRequest: serializeAws_json1_1GenerateChangeSetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateChangeSetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -445,13 +411,9 @@ export async function serializeAws_json1_1GenerateTemplateCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GenerateTemplate";
   let body: any = {};
-  const wrappedBody: any = {
-    GenerateTemplateRequest: serializeAws_json1_1GenerateTemplateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GenerateTemplateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -470,10 +432,7 @@ export async function serializeAws_json1_1GetAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.GetApp";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAppRequest: serializeAws_json1_1GetAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -493,13 +452,9 @@ export async function serializeAws_json1_1GetAppLaunchConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAppLaunchConfigurationRequest: serializeAws_json1_1GetAppLaunchConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAppLaunchConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -519,13 +474,9 @@ export async function serializeAws_json1_1GetAppReplicationConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAppReplicationConfigurationRequest: serializeAws_json1_1GetAppReplicationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAppReplicationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -545,13 +496,9 @@ export async function serializeAws_json1_1GetConnectorsCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetConnectors";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConnectorsRequest: serializeAws_json1_1GetConnectorsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConnectorsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -571,13 +518,9 @@ export async function serializeAws_json1_1GetReplicationJobsCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetReplicationJobs";
   let body: any = {};
-  const wrappedBody: any = {
-    GetReplicationJobsRequest: serializeAws_json1_1GetReplicationJobsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetReplicationJobsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -597,13 +540,9 @@ export async function serializeAws_json1_1GetReplicationRunsCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.GetReplicationRuns";
   let body: any = {};
-  const wrappedBody: any = {
-    GetReplicationRunsRequest: serializeAws_json1_1GetReplicationRunsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetReplicationRunsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -622,10 +561,7 @@ export async function serializeAws_json1_1GetServersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.GetServers";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServersRequest: serializeAws_json1_1GetServersRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetServersRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -645,13 +581,9 @@ export async function serializeAws_json1_1ImportServerCatalogCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.ImportServerCatalog";
   let body: any = {};
-  const wrappedBody: any = {
-    ImportServerCatalogRequest: serializeAws_json1_1ImportServerCatalogRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ImportServerCatalogRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -670,10 +602,7 @@ export async function serializeAws_json1_1LaunchAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.LaunchApp";
   let body: any = {};
-  const wrappedBody: any = {
-    LaunchAppRequest: serializeAws_json1_1LaunchAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1LaunchAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -692,10 +621,7 @@ export async function serializeAws_json1_1ListAppsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.ListApps";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAppsRequest: serializeAws_json1_1ListAppsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1ListAppsRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -715,13 +641,9 @@ export async function serializeAws_json1_1PutAppLaunchConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAppLaunchConfigurationRequest: serializeAws_json1_1PutAppLaunchConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAppLaunchConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -741,13 +663,9 @@ export async function serializeAws_json1_1PutAppReplicationConfigurationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration";
   let body: any = {};
-  const wrappedBody: any = {
-    PutAppReplicationConfigurationRequest: serializeAws_json1_1PutAppReplicationConfigurationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutAppReplicationConfigurationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -767,13 +685,9 @@ export async function serializeAws_json1_1StartAppReplicationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StartAppReplication";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAppReplicationRequest: serializeAws_json1_1StartAppReplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAppReplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -793,13 +707,9 @@ export async function serializeAws_json1_1StartOnDemandReplicationRunCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun";
   let body: any = {};
-  const wrappedBody: any = {
-    StartOnDemandReplicationRunRequest: serializeAws_json1_1StartOnDemandReplicationRunRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartOnDemandReplicationRunRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -819,13 +729,9 @@ export async function serializeAws_json1_1StopAppReplicationCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.StopAppReplication";
   let body: any = {};
-  const wrappedBody: any = {
-    StopAppReplicationRequest: serializeAws_json1_1StopAppReplicationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopAppReplicationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -845,10 +751,9 @@ export async function serializeAws_json1_1TerminateAppCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.TerminateApp";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateAppRequest: serializeAws_json1_1TerminateAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TerminateAppRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -867,10 +772,7 @@ export async function serializeAws_json1_1UpdateAppCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AWSServerMigrationService_V2016_10_24.UpdateApp";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAppRequest: serializeAws_json1_1UpdateAppRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1UpdateAppRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -890,13 +792,9 @@ export async function serializeAws_json1_1UpdateReplicationJobCommand(
   headers["X-Amz-Target"] =
     "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateReplicationJobRequest: serializeAws_json1_1UpdateReplicationJobRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateReplicationJobRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",

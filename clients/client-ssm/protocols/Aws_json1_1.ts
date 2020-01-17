@@ -991,13 +991,9 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.AddTagsToResource";
   let body: any = {};
-  const wrappedBody: any = {
-    AddTagsToResourceRequest: serializeAws_json1_1AddTagsToResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1AddTagsToResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1016,13 +1012,9 @@ export async function serializeAws_json1_1CancelCommandCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CancelCommand";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelCommandRequest: serializeAws_json1_1CancelCommandRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelCommandRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1041,13 +1033,9 @@ export async function serializeAws_json1_1CancelMaintenanceWindowExecutionComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CancelMaintenanceWindowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    CancelMaintenanceWindowExecutionRequest: serializeAws_json1_1CancelMaintenanceWindowExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CancelMaintenanceWindowExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1066,13 +1054,9 @@ export async function serializeAws_json1_1CreateActivationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateActivation";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateActivationRequest: serializeAws_json1_1CreateActivationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateActivationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1091,13 +1075,9 @@ export async function serializeAws_json1_1CreateAssociationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAssociationRequest: serializeAws_json1_1CreateAssociationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAssociationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1116,13 +1096,9 @@ export async function serializeAws_json1_1CreateAssociationBatchCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateAssociationBatch";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateAssociationBatchRequest: serializeAws_json1_1CreateAssociationBatchRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateAssociationBatchRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1141,13 +1117,9 @@ export async function serializeAws_json1_1CreateDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateDocumentRequest: serializeAws_json1_1CreateDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1166,13 +1138,9 @@ export async function serializeAws_json1_1CreateMaintenanceWindowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateMaintenanceWindowRequest: serializeAws_json1_1CreateMaintenanceWindowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateMaintenanceWindowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1191,13 +1159,9 @@ export async function serializeAws_json1_1CreateOpsItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateOpsItem";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateOpsItemRequest: serializeAws_json1_1CreateOpsItemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateOpsItemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1216,13 +1180,9 @@ export async function serializeAws_json1_1CreatePatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreatePatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    CreatePatchBaselineRequest: serializeAws_json1_1CreatePatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreatePatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1241,13 +1201,9 @@ export async function serializeAws_json1_1CreateResourceDataSyncCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.CreateResourceDataSync";
   let body: any = {};
-  const wrappedBody: any = {
-    CreateResourceDataSyncRequest: serializeAws_json1_1CreateResourceDataSyncRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1CreateResourceDataSyncRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1266,13 +1222,9 @@ export async function serializeAws_json1_1DeleteActivationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteActivation";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteActivationRequest: serializeAws_json1_1DeleteActivationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteActivationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1291,13 +1243,9 @@ export async function serializeAws_json1_1DeleteAssociationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteAssociationRequest: serializeAws_json1_1DeleteAssociationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteAssociationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1316,13 +1264,9 @@ export async function serializeAws_json1_1DeleteDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteDocumentRequest: serializeAws_json1_1DeleteDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1341,13 +1285,9 @@ export async function serializeAws_json1_1DeleteInventoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteInventory";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteInventoryRequest: serializeAws_json1_1DeleteInventoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteInventoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1366,13 +1306,9 @@ export async function serializeAws_json1_1DeleteMaintenanceWindowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteMaintenanceWindowRequest: serializeAws_json1_1DeleteMaintenanceWindowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteMaintenanceWindowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1391,13 +1327,9 @@ export async function serializeAws_json1_1DeleteParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteParameterRequest: serializeAws_json1_1DeleteParameterRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1416,13 +1348,9 @@ export async function serializeAws_json1_1DeleteParametersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteParametersRequest: serializeAws_json1_1DeleteParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1441,13 +1369,9 @@ export async function serializeAws_json1_1DeletePatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeletePatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    DeletePatchBaselineRequest: serializeAws_json1_1DeletePatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeletePatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1466,13 +1390,9 @@ export async function serializeAws_json1_1DeleteResourceDataSyncCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeleteResourceDataSync";
   let body: any = {};
-  const wrappedBody: any = {
-    DeleteResourceDataSyncRequest: serializeAws_json1_1DeleteResourceDataSyncRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteResourceDataSyncRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1491,13 +1411,9 @@ export async function serializeAws_json1_1DeregisterManagedInstanceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeregisterManagedInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterManagedInstanceRequest: serializeAws_json1_1DeregisterManagedInstanceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterManagedInstanceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1516,13 +1432,12 @@ export async function serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCo
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeregisterPatchBaselineForPatchGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterPatchBaselineForPatchGroupRequest: serializeAws_json1_1DeregisterPatchBaselineForPatchGroupRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterPatchBaselineForPatchGroupRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1541,13 +1456,12 @@ export async function serializeAws_json1_1DeregisterTargetFromMaintenanceWindowC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeregisterTargetFromMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterTargetFromMaintenanceWindowRequest: serializeAws_json1_1DeregisterTargetFromMaintenanceWindowRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterTargetFromMaintenanceWindowRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1566,13 +1480,12 @@ export async function serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DeregisterTaskFromMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    DeregisterTaskFromMaintenanceWindowRequest: serializeAws_json1_1DeregisterTaskFromMaintenanceWindowRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DeregisterTaskFromMaintenanceWindowRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1591,13 +1504,9 @@ export async function serializeAws_json1_1DescribeActivationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeActivations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeActivationsRequest: serializeAws_json1_1DescribeActivationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeActivationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1616,13 +1525,9 @@ export async function serializeAws_json1_1DescribeAssociationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssociationRequest: serializeAws_json1_1DescribeAssociationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssociationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1641,13 +1546,12 @@ export async function serializeAws_json1_1DescribeAssociationExecutionTargetsCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociationExecutionTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssociationExecutionTargetsRequest: serializeAws_json1_1DescribeAssociationExecutionTargetsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssociationExecutionTargetsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1666,13 +1570,9 @@ export async function serializeAws_json1_1DescribeAssociationExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAssociationExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAssociationExecutionsRequest: serializeAws_json1_1DescribeAssociationExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAssociationExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1691,13 +1591,9 @@ export async function serializeAws_json1_1DescribeAutomationExecutionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAutomationExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAutomationExecutionsRequest: serializeAws_json1_1DescribeAutomationExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAutomationExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1716,13 +1612,9 @@ export async function serializeAws_json1_1DescribeAutomationStepExecutionsComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAutomationStepExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAutomationStepExecutionsRequest: serializeAws_json1_1DescribeAutomationStepExecutionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAutomationStepExecutionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1741,13 +1633,9 @@ export async function serializeAws_json1_1DescribeAvailablePatchesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeAvailablePatches";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeAvailablePatchesRequest: serializeAws_json1_1DescribeAvailablePatchesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeAvailablePatchesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1766,13 +1654,9 @@ export async function serializeAws_json1_1DescribeDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDocumentRequest: serializeAws_json1_1DescribeDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1791,13 +1675,9 @@ export async function serializeAws_json1_1DescribeDocumentPermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeDocumentPermission";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeDocumentPermissionRequest: serializeAws_json1_1DescribeDocumentPermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeDocumentPermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1816,13 +1696,12 @@ export async function serializeAws_json1_1DescribeEffectiveInstanceAssociationsC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeEffectiveInstanceAssociations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEffectiveInstanceAssociationsRequest: serializeAws_json1_1DescribeEffectiveInstanceAssociationsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEffectiveInstanceAssociationsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1842,13 +1721,12 @@ export async function serializeAws_json1_1DescribeEffectivePatchesForPatchBaseli
   headers["X-Amz-Target"] =
     "AmazonSSM.DescribeEffectivePatchesForPatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeEffectivePatchesForPatchBaselineRequest: serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1867,13 +1745,12 @@ export async function serializeAws_json1_1DescribeInstanceAssociationsStatusComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeInstanceAssociationsStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstanceAssociationsStatusRequest: serializeAws_json1_1DescribeInstanceAssociationsStatusRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstanceAssociationsStatusRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1892,13 +1769,9 @@ export async function serializeAws_json1_1DescribeInstanceInformationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeInstanceInformation";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstanceInformationRequest: serializeAws_json1_1DescribeInstanceInformationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstanceInformationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1917,13 +1790,9 @@ export async function serializeAws_json1_1DescribeInstancePatchStatesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeInstancePatchStates";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstancePatchStatesRequest: serializeAws_json1_1DescribeInstancePatchStatesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstancePatchStatesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1943,13 +1812,12 @@ export async function serializeAws_json1_1DescribeInstancePatchStatesForPatchGro
   headers["X-Amz-Target"] =
     "AmazonSSM.DescribeInstancePatchStatesForPatchGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstancePatchStatesForPatchGroupRequest: serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1968,13 +1836,9 @@ export async function serializeAws_json1_1DescribeInstancePatchesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeInstancePatches";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInstancePatchesRequest: serializeAws_json1_1DescribeInstancePatchesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInstancePatchesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -1993,13 +1857,9 @@ export async function serializeAws_json1_1DescribeInventoryDeletionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeInventoryDeletions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeInventoryDeletionsRequest: serializeAws_json1_1DescribeInventoryDeletionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeInventoryDeletionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2019,13 +1879,12 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowExecutionTask
   headers["X-Amz-Target"] =
     "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowExecutionTaskInvocationsRequest: serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2044,13 +1903,12 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowExecutionTask
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowExecutionTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowExecutionTasksRequest: serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowExecutionTasksRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2069,13 +1927,12 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowExecutionsCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowExecutions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowExecutionsRequest: serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowExecutionsRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2094,13 +1951,9 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowScheduleComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowSchedule";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowScheduleRequest: serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowScheduleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2119,13 +1972,9 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowTargetsComman
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowTargets";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowTargetsRequest: serializeAws_json1_1DescribeMaintenanceWindowTargetsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowTargetsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2144,13 +1993,9 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowTasksCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowTasks";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowTasksRequest: serializeAws_json1_1DescribeMaintenanceWindowTasksRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowTasksRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2169,13 +2014,9 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindows";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowsRequest: serializeAws_json1_1DescribeMaintenanceWindowsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2194,13 +2035,12 @@ export async function serializeAws_json1_1DescribeMaintenanceWindowsForTargetCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeMaintenanceWindowsForTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeMaintenanceWindowsForTargetRequest: serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeMaintenanceWindowsForTargetRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2219,13 +2059,9 @@ export async function serializeAws_json1_1DescribeOpsItemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeOpsItems";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeOpsItemsRequest: serializeAws_json1_1DescribeOpsItemsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeOpsItemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2244,13 +2080,9 @@ export async function serializeAws_json1_1DescribeParametersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeParametersRequest: serializeAws_json1_1DescribeParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2269,13 +2101,9 @@ export async function serializeAws_json1_1DescribePatchBaselinesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribePatchBaselines";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePatchBaselinesRequest: serializeAws_json1_1DescribePatchBaselinesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePatchBaselinesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2294,13 +2122,9 @@ export async function serializeAws_json1_1DescribePatchGroupStateCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribePatchGroupState";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePatchGroupStateRequest: serializeAws_json1_1DescribePatchGroupStateRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePatchGroupStateRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2319,13 +2143,9 @@ export async function serializeAws_json1_1DescribePatchGroupsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribePatchGroups";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePatchGroupsRequest: serializeAws_json1_1DescribePatchGroupsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePatchGroupsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2344,13 +2164,9 @@ export async function serializeAws_json1_1DescribePatchPropertiesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribePatchProperties";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribePatchPropertiesRequest: serializeAws_json1_1DescribePatchPropertiesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribePatchPropertiesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2369,13 +2185,9 @@ export async function serializeAws_json1_1DescribeSessionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.DescribeSessions";
   let body: any = {};
-  const wrappedBody: any = {
-    DescribeSessionsRequest: serializeAws_json1_1DescribeSessionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1DescribeSessionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2394,13 +2206,9 @@ export async function serializeAws_json1_1GetAutomationExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetAutomationExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    GetAutomationExecutionRequest: serializeAws_json1_1GetAutomationExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetAutomationExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2419,13 +2227,9 @@ export async function serializeAws_json1_1GetCommandInvocationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetCommandInvocation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetCommandInvocationRequest: serializeAws_json1_1GetCommandInvocationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetCommandInvocationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2444,13 +2248,9 @@ export async function serializeAws_json1_1GetConnectionStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetConnectionStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    GetConnectionStatusRequest: serializeAws_json1_1GetConnectionStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetConnectionStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2469,13 +2269,9 @@ export async function serializeAws_json1_1GetDefaultPatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetDefaultPatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDefaultPatchBaselineRequest: serializeAws_json1_1GetDefaultPatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetDefaultPatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2494,13 +2290,12 @@ export async function serializeAws_json1_1GetDeployablePatchSnapshotForInstanceC
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetDeployablePatchSnapshotForInstance";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDeployablePatchSnapshotForInstanceRequest: serializeAws_json1_1GetDeployablePatchSnapshotForInstanceRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetDeployablePatchSnapshotForInstanceRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2519,10 +2314,7 @@ export async function serializeAws_json1_1GetDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    GetDocumentRequest: serializeAws_json1_1GetDocumentRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetDocumentRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2541,10 +2333,9 @@ export async function serializeAws_json1_1GetInventoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetInventory";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInventoryRequest: serializeAws_json1_1GetInventoryRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInventoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2563,13 +2354,9 @@ export async function serializeAws_json1_1GetInventorySchemaCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetInventorySchema";
   let body: any = {};
-  const wrappedBody: any = {
-    GetInventorySchemaRequest: serializeAws_json1_1GetInventorySchemaRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetInventorySchemaRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2588,13 +2375,9 @@ export async function serializeAws_json1_1GetMaintenanceWindowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMaintenanceWindowRequest: serializeAws_json1_1GetMaintenanceWindowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMaintenanceWindowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2613,13 +2396,9 @@ export async function serializeAws_json1_1GetMaintenanceWindowExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMaintenanceWindowExecutionRequest: serializeAws_json1_1GetMaintenanceWindowExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMaintenanceWindowExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2638,13 +2417,9 @@ export async function serializeAws_json1_1GetMaintenanceWindowExecutionTaskComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowExecutionTask";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMaintenanceWindowExecutionTaskRequest: serializeAws_json1_1GetMaintenanceWindowExecutionTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMaintenanceWindowExecutionTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2664,13 +2439,12 @@ export async function serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvoc
   headers["X-Amz-Target"] =
     "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMaintenanceWindowExecutionTaskInvocationRequest: serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2689,13 +2463,9 @@ export async function serializeAws_json1_1GetMaintenanceWindowTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetMaintenanceWindowTask";
   let body: any = {};
-  const wrappedBody: any = {
-    GetMaintenanceWindowTaskRequest: serializeAws_json1_1GetMaintenanceWindowTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetMaintenanceWindowTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2714,10 +2484,7 @@ export async function serializeAws_json1_1GetOpsItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetOpsItem";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOpsItemRequest: serializeAws_json1_1GetOpsItemRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1GetOpsItemRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2736,13 +2503,9 @@ export async function serializeAws_json1_1GetOpsSummaryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetOpsSummary";
   let body: any = {};
-  const wrappedBody: any = {
-    GetOpsSummaryRequest: serializeAws_json1_1GetOpsSummaryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetOpsSummaryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2761,10 +2524,9 @@ export async function serializeAws_json1_1GetParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    GetParameterRequest: serializeAws_json1_1GetParameterRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2783,13 +2545,9 @@ export async function serializeAws_json1_1GetParameterHistoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetParameterHistory";
   let body: any = {};
-  const wrappedBody: any = {
-    GetParameterHistoryRequest: serializeAws_json1_1GetParameterHistoryRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetParameterHistoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2808,13 +2566,9 @@ export async function serializeAws_json1_1GetParametersCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetParameters";
   let body: any = {};
-  const wrappedBody: any = {
-    GetParametersRequest: serializeAws_json1_1GetParametersRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetParametersRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2833,13 +2587,9 @@ export async function serializeAws_json1_1GetParametersByPathCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetParametersByPath";
   let body: any = {};
-  const wrappedBody: any = {
-    GetParametersByPathRequest: serializeAws_json1_1GetParametersByPathRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetParametersByPathRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2858,13 +2608,9 @@ export async function serializeAws_json1_1GetPatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetPatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPatchBaselineRequest: serializeAws_json1_1GetPatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2883,13 +2629,9 @@ export async function serializeAws_json1_1GetPatchBaselineForPatchGroupCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetPatchBaselineForPatchGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    GetPatchBaselineForPatchGroupRequest: serializeAws_json1_1GetPatchBaselineForPatchGroupRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetPatchBaselineForPatchGroupRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2908,13 +2650,9 @@ export async function serializeAws_json1_1GetServiceSettingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.GetServiceSetting";
   let body: any = {};
-  const wrappedBody: any = {
-    GetServiceSettingRequest: serializeAws_json1_1GetServiceSettingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1GetServiceSettingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2933,13 +2671,9 @@ export async function serializeAws_json1_1LabelParameterVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.LabelParameterVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    LabelParameterVersionRequest: serializeAws_json1_1LabelParameterVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1LabelParameterVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2958,13 +2692,9 @@ export async function serializeAws_json1_1ListAssociationVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListAssociationVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociationVersionsRequest: serializeAws_json1_1ListAssociationVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociationVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -2983,13 +2713,9 @@ export async function serializeAws_json1_1ListAssociationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListAssociations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListAssociationsRequest: serializeAws_json1_1ListAssociationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListAssociationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3008,13 +2734,9 @@ export async function serializeAws_json1_1ListCommandInvocationsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListCommandInvocations";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCommandInvocationsRequest: serializeAws_json1_1ListCommandInvocationsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCommandInvocationsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3033,10 +2755,9 @@ export async function serializeAws_json1_1ListCommandsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListCommands";
   let body: any = {};
-  const wrappedBody: any = {
-    ListCommandsRequest: serializeAws_json1_1ListCommandsRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListCommandsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3055,13 +2776,9 @@ export async function serializeAws_json1_1ListComplianceItemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListComplianceItems";
   let body: any = {};
-  const wrappedBody: any = {
-    ListComplianceItemsRequest: serializeAws_json1_1ListComplianceItemsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListComplianceItemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3080,13 +2797,9 @@ export async function serializeAws_json1_1ListComplianceSummariesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListComplianceSummaries";
   let body: any = {};
-  const wrappedBody: any = {
-    ListComplianceSummariesRequest: serializeAws_json1_1ListComplianceSummariesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListComplianceSummariesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3105,13 +2818,9 @@ export async function serializeAws_json1_1ListDocumentVersionsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListDocumentVersions";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDocumentVersionsRequest: serializeAws_json1_1ListDocumentVersionsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDocumentVersionsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3130,13 +2839,9 @@ export async function serializeAws_json1_1ListDocumentsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListDocuments";
   let body: any = {};
-  const wrappedBody: any = {
-    ListDocumentsRequest: serializeAws_json1_1ListDocumentsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListDocumentsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3155,13 +2860,9 @@ export async function serializeAws_json1_1ListInventoryEntriesCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListInventoryEntries";
   let body: any = {};
-  const wrappedBody: any = {
-    ListInventoryEntriesRequest: serializeAws_json1_1ListInventoryEntriesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListInventoryEntriesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3180,13 +2881,9 @@ export async function serializeAws_json1_1ListResourceComplianceSummariesCommand
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListResourceComplianceSummaries";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourceComplianceSummariesRequest: serializeAws_json1_1ListResourceComplianceSummariesRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourceComplianceSummariesRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3205,13 +2902,9 @@ export async function serializeAws_json1_1ListResourceDataSyncCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListResourceDataSync";
   let body: any = {};
-  const wrappedBody: any = {
-    ListResourceDataSyncRequest: serializeAws_json1_1ListResourceDataSyncRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListResourceDataSyncRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3230,13 +2923,9 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ListTagsForResource";
   let body: any = {};
-  const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ListTagsForResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3255,13 +2944,9 @@ export async function serializeAws_json1_1ModifyDocumentPermissionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ModifyDocumentPermission";
   let body: any = {};
-  const wrappedBody: any = {
-    ModifyDocumentPermissionRequest: serializeAws_json1_1ModifyDocumentPermissionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ModifyDocumentPermissionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3280,13 +2965,9 @@ export async function serializeAws_json1_1PutComplianceItemsCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.PutComplianceItems";
   let body: any = {};
-  const wrappedBody: any = {
-    PutComplianceItemsRequest: serializeAws_json1_1PutComplianceItemsRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutComplianceItemsRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3305,10 +2986,9 @@ export async function serializeAws_json1_1PutInventoryCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.PutInventory";
   let body: any = {};
-  const wrappedBody: any = {
-    PutInventoryRequest: serializeAws_json1_1PutInventoryRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutInventoryRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3327,10 +3007,9 @@ export async function serializeAws_json1_1PutParameterCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.PutParameter";
   let body: any = {};
-  const wrappedBody: any = {
-    PutParameterRequest: serializeAws_json1_1PutParameterRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1PutParameterRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3349,13 +3028,9 @@ export async function serializeAws_json1_1RegisterDefaultPatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.RegisterDefaultPatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterDefaultPatchBaselineRequest: serializeAws_json1_1RegisterDefaultPatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterDefaultPatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3374,13 +3049,12 @@ export async function serializeAws_json1_1RegisterPatchBaselineForPatchGroupComm
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.RegisterPatchBaselineForPatchGroup";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterPatchBaselineForPatchGroupRequest: serializeAws_json1_1RegisterPatchBaselineForPatchGroupRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterPatchBaselineForPatchGroupRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3399,13 +3073,12 @@ export async function serializeAws_json1_1RegisterTargetWithMaintenanceWindowCom
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.RegisterTargetWithMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterTargetWithMaintenanceWindowRequest: serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest(
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterTargetWithMaintenanceWindowRequest(
       input,
       context
     )
-  };
-  body = JSON.stringify(wrappedBody);
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3424,13 +3097,9 @@ export async function serializeAws_json1_1RegisterTaskWithMaintenanceWindowComma
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.RegisterTaskWithMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    RegisterTaskWithMaintenanceWindowRequest: serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RegisterTaskWithMaintenanceWindowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3449,13 +3118,9 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.RemoveTagsFromResource";
   let body: any = {};
-  const wrappedBody: any = {
-    RemoveTagsFromResourceRequest: serializeAws_json1_1RemoveTagsFromResourceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1RemoveTagsFromResourceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3474,13 +3139,9 @@ export async function serializeAws_json1_1ResetServiceSettingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ResetServiceSetting";
   let body: any = {};
-  const wrappedBody: any = {
-    ResetServiceSettingRequest: serializeAws_json1_1ResetServiceSettingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResetServiceSettingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3499,13 +3160,9 @@ export async function serializeAws_json1_1ResumeSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.ResumeSession";
   let body: any = {};
-  const wrappedBody: any = {
-    ResumeSessionRequest: serializeAws_json1_1ResumeSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1ResumeSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3524,13 +3181,9 @@ export async function serializeAws_json1_1SendAutomationSignalCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.SendAutomationSignal";
   let body: any = {};
-  const wrappedBody: any = {
-    SendAutomationSignalRequest: serializeAws_json1_1SendAutomationSignalRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1SendAutomationSignalRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3549,10 +3202,7 @@ export async function serializeAws_json1_1SendCommandCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.SendCommand";
   let body: any = {};
-  const wrappedBody: any = {
-    SendCommandRequest: serializeAws_json1_1SendCommandRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(serializeAws_json1_1SendCommandRequest(input, context));
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3571,13 +3221,9 @@ export async function serializeAws_json1_1StartAssociationsOnceCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.StartAssociationsOnce";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAssociationsOnceRequest: serializeAws_json1_1StartAssociationsOnceRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAssociationsOnceRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3596,13 +3242,9 @@ export async function serializeAws_json1_1StartAutomationExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.StartAutomationExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StartAutomationExecutionRequest: serializeAws_json1_1StartAutomationExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartAutomationExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3621,10 +3263,9 @@ export async function serializeAws_json1_1StartSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.StartSession";
   let body: any = {};
-  const wrappedBody: any = {
-    StartSessionRequest: serializeAws_json1_1StartSessionRequest(input, context)
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StartSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3643,13 +3284,9 @@ export async function serializeAws_json1_1StopAutomationExecutionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.StopAutomationExecution";
   let body: any = {};
-  const wrappedBody: any = {
-    StopAutomationExecutionRequest: serializeAws_json1_1StopAutomationExecutionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1StopAutomationExecutionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3668,13 +3305,9 @@ export async function serializeAws_json1_1TerminateSessionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.TerminateSession";
   let body: any = {};
-  const wrappedBody: any = {
-    TerminateSessionRequest: serializeAws_json1_1TerminateSessionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1TerminateSessionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3693,13 +3326,9 @@ export async function serializeAws_json1_1UpdateAssociationCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateAssociation";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAssociationRequest: serializeAws_json1_1UpdateAssociationRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAssociationRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3718,13 +3347,9 @@ export async function serializeAws_json1_1UpdateAssociationStatusCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateAssociationStatus";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateAssociationStatusRequest: serializeAws_json1_1UpdateAssociationStatusRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateAssociationStatusRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3743,13 +3368,9 @@ export async function serializeAws_json1_1UpdateDocumentCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateDocument";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDocumentRequest: serializeAws_json1_1UpdateDocumentRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDocumentRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3768,13 +3389,9 @@ export async function serializeAws_json1_1UpdateDocumentDefaultVersionCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateDocumentDefaultVersion";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateDocumentDefaultVersionRequest: serializeAws_json1_1UpdateDocumentDefaultVersionRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateDocumentDefaultVersionRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3793,13 +3410,9 @@ export async function serializeAws_json1_1UpdateMaintenanceWindowCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindow";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMaintenanceWindowRequest: serializeAws_json1_1UpdateMaintenanceWindowRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMaintenanceWindowRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3818,13 +3431,9 @@ export async function serializeAws_json1_1UpdateMaintenanceWindowTargetCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindowTarget";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMaintenanceWindowTargetRequest: serializeAws_json1_1UpdateMaintenanceWindowTargetRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMaintenanceWindowTargetRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3843,13 +3452,9 @@ export async function serializeAws_json1_1UpdateMaintenanceWindowTaskCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateMaintenanceWindowTask";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateMaintenanceWindowTaskRequest: serializeAws_json1_1UpdateMaintenanceWindowTaskRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateMaintenanceWindowTaskRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3868,13 +3473,9 @@ export async function serializeAws_json1_1UpdateManagedInstanceRoleCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateManagedInstanceRole";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateManagedInstanceRoleRequest: serializeAws_json1_1UpdateManagedInstanceRoleRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateManagedInstanceRoleRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3893,13 +3494,9 @@ export async function serializeAws_json1_1UpdateOpsItemCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateOpsItem";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateOpsItemRequest: serializeAws_json1_1UpdateOpsItemRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateOpsItemRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3918,13 +3515,9 @@ export async function serializeAws_json1_1UpdatePatchBaselineCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdatePatchBaseline";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdatePatchBaselineRequest: serializeAws_json1_1UpdatePatchBaselineRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdatePatchBaselineRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3943,13 +3536,9 @@ export async function serializeAws_json1_1UpdateResourceDataSyncCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateResourceDataSync";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateResourceDataSyncRequest: serializeAws_json1_1UpdateResourceDataSyncRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateResourceDataSyncRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
@@ -3968,13 +3557,9 @@ export async function serializeAws_json1_1UpdateServiceSettingCommand(
   headers["Content-Type"] = "application/x-amz-json-1.1";
   headers["X-Amz-Target"] = "AmazonSSM.UpdateServiceSetting";
   let body: any = {};
-  const wrappedBody: any = {
-    UpdateServiceSettingRequest: serializeAws_json1_1UpdateServiceSettingRequest(
-      input,
-      context
-    )
-  };
-  body = JSON.stringify(wrappedBody);
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateServiceSettingRequest(input, context)
+  );
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
