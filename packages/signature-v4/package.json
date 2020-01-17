@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^0.1.0-preview.4",
-    "@aws-sdk/http-serialization": "^1.0.0-alpha.2",
+    "@aws-sdk/http-serialization": "^1.0.0-alpha.3",
     "@aws-sdk/protocol-http": "^1.0.0-alpha.4",
     "@aws-sdk/util-buffer-from": "^1.0.0-alpha.2",
     "@types/jest": "^24.0.12",
