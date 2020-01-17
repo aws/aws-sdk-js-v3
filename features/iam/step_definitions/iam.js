@@ -1,4 +1,4 @@
-// var { IAM } = require("../../../clients/client-iam");
+var { IAM } = require("../../../clients/client-iam");
 
 module.exports = function() {
   this.Before("@iam", function(callback) {

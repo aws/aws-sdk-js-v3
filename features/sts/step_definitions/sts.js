@@ -1,4 +1,4 @@
-// var { STS } = require("../../../clients/client-sts");
+var { STS } = require("../../../clients/client-sts");
 
 module.exports = function() {
   this.Before("@sts", function(callback) {

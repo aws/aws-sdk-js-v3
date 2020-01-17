@@ -1,4 +1,4 @@
-// var { Redshift } = require("../../../clients/client-redshift");
+var { Redshift } = require("../../../clients/client-redshift");
 
 module.exports = function() {
   this.Before("@redshift", function(callback) {

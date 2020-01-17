@@ -2,13 +2,13 @@
 # Uncomment tags as clients are ready/stable
 @acm
 @apigateway
-# @autoscaling
-# @cloudformation
+@autoscaling
+@cloudformation
 @cloudfront
-# @cloudsearch
+@cloudsearch
 @cloudsearchdomain
 @cloudtrail
-# @cloudwatch
+@cloudwatch
 @cloudwatchevents
 @cloudwatchlogs
 @codecommit
@@ -28,16 +28,16 @@
 @ecr
 @ecs
 @efs
-# @elasticache
+@elasticache
 @elasticbeanstalk
-# @elastictranscoder
-# @elb
-# @elbv2
+@elastictranscoder
+@elb
+@elbv2
 @emr
 @es
 @gamelift
 @glacier
-# @iam
+@iam
 @inspector
 # @iot
 @kinesis
@@ -45,18 +45,18 @@
 @lambda
 @machinelearning
 # @mobileanalytics
-# @opsworks
-# @rds
-# @redshift
+@opsworks
+@rds
+@redshift
 @route53
 @route53domains
 @s3
-# @ses
-# @sns
-# @sqs
+@ses
+@sns
+@sqs
 @ssm
 @storagegateway
-# @sts
+@sts
 @support
 @swf
 @waf

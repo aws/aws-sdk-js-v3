@@ -1,4 +1,4 @@
-// var { IAM } = require("../../../clients/client-iam");
+var { IAM } = require("../../../clients/client-iam");
 var { OpsWorks } = require("../../../clients/client-opsworks");
 
 module.exports = function() {
