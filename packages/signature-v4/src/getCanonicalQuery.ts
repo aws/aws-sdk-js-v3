@@ -13,7 +13,7 @@ export function getCanonicalQuery({ query = {} }: HttpRequest<any>): string {
     }
 
     keys.push(key);
-    const value = query[key];
+    const value = query[key] ? query[key] : '';
     if (typeof value === "string") {
       serialized[key] = `${encodeURIComponent(key)}=${encodeURIComponent(
         value
