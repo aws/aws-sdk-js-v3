@@ -37,7 +37,7 @@ export interface HashConstructor {
  * will consume the stream, so only replayable streams should be provided to an
  * implementation of this interface.
  */
-export interface StreamHasher<StreamType> {
+export interface StreamHasher<StreamType = any> {
   (hashCtor: { new (): Hash }, stream: StreamType): Promise<Uint8Array>;
 }
 

@@ -72,13 +72,13 @@ export class FetchHttpHandler implements HttpHandler {
           transformedHeaders[pair[0]] = pair[1];
         }
 
-        return response.blob().then<{ response: HttpResponse }>(body => ({
+        return {
           response: new HttpResponse({
             headers: transformedHeaders,
             statusCode: response.status,
-            body
+            body: response.body
           })
-        }));
+        };
       }),
       requestTimeout(requestTimeoutInMs)
     ];
