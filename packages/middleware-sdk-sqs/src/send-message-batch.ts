@@ -8,6 +8,7 @@ import {
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 interface SendMessageBatchResult {
   Successful: Array<SendMessageBatchResultEntry> | undefined;
@@ -43,7 +44,7 @@ export function sendMessageBatchMiddleware(
         const md5 = entries[entry.Id].MD5OfMessageBody;
         const hash = new options.md5();
         hash.update(entry.MD5OfMessageBody || "");
-        if (md5 !== (await hash.digest()).toString()) {
+        if (md5 !== toHex(await hash.digest())) {
           messageIds.push(entries[entry.Id].MessageId);
         }
       }

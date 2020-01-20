@@ -17,8 +17,8 @@ describe("receiveMessageMiddleware", () => {
     const next = jest.fn().mockReturnValue({
       output: {
         Messages: [
-          { Body: "foo", MD5OfBody: "0", MessageId: "fooMessage" },
-          { Body: "bar", MD5OfBody: "0", MessageId: "barMessage" }
+          { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
+          { Body: "bar", MD5OfBody: "00", MessageId: "barMessage" }
         ]
       }
     });
@@ -36,7 +36,7 @@ describe("receiveMessageMiddleware", () => {
     const next = jest.fn().mockReturnValue({
       output: {
         Messages: [
-          { Body: "foo", MD5OfBody: "0", MessageId: "fooMessage" },
+          { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
           { Body: "bar", MD5OfBody: "1", MessageId: "barMessage" }
         ]
       }

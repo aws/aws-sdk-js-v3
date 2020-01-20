@@ -8,6 +8,7 @@ import {
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 interface ReceiveMessageResult {
   Messages: Array<Message>;
@@ -35,7 +36,7 @@ export function receiveMessageMiddleware(
         const md5 = message.MD5OfBody;
         const hash = new options.md5();
         hash.update(message.Body || "");
-        if (md5 !== (await hash.digest()).toString()) {
+        if (md5 !== toHex(await hash.digest())) {
           messageIds.push(message.MessageId);
         }
       }

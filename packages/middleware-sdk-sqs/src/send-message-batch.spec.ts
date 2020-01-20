@@ -17,8 +17,8 @@ describe("sendMessageBatchMiddleware", () => {
     const next = jest.fn().mockReturnValue({
       output: {
         Successful: [
-          { Id: "foo", MD5OfMessageBody: "0" },
-          { Id: "bar", MD5OfMessageBody: "0" }
+          { Id: "foo", MD5OfMessageBody: "00" },
+          { Id: "bar", MD5OfMessageBody: "00" }
         ]
       }
     });
@@ -43,7 +43,7 @@ describe("sendMessageBatchMiddleware", () => {
     const next = jest.fn().mockReturnValue({
       output: {
         Successful: [
-          { Id: "foo", MD5OfMessageBody: "0", MessageId: "fooMessage" },
+          { Id: "foo", MD5OfMessageBody: "00", MessageId: "fooMessage" },
           { Id: "bar", MD5OfMessageBody: "1", MessageId: "barMessage" }
         ]
       }

@@ -8,6 +8,7 @@ import {
   MetadataBearer,
   Pluggable
 } from "@aws-sdk/types";
+import { toHex } from "@aws-sdk/util-hex-encoding";
 
 interface SendMessageResult {
   MD5OfMessageBody?: string;
@@ -24,8 +25,8 @@ export function sendMessageMiddleware(
     const resp = await next({ ...args });
     const output = resp.output as SendMessageResult;
     const hash = new options.md5();
-    hash.update(args.input.body || "");
-    if (output.MD5OfMessageBody !== (await hash.digest().toString())) {
+    hash.update(args.input.MessageBody || "");
+    if (output.MD5OfMessageBody !== toHex(await hash.digest())) {
       throw new Error("InvalidChecksumError");
     }
     return next({

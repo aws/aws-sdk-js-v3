@@ -16,7 +16,7 @@ describe("sendMessageMiddleware", () => {
   it("should do nothing if the checksum matches", async () => {
     const next = jest.fn().mockReturnValue({
       output: {
-        MD5OfMessageBody: "0"
+        MD5OfMessageBody: "00"
       }
     });
     const handler = sendMessageMiddleware({
