@@ -15,8 +15,11 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -99,17 +102,35 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             members.forEach((memberName, memberShape) -> writer.write("$L: undefined,", memberName));
         });
 
-        members.forEach((memberName, memberShape) ->
-                deserializeNamedStructureMember(context, memberName, memberShape, () -> "output"));
+        members.forEach((memberName, memberShape) -> {
+            // Grab the target shape so we can use a member deserializer on it.
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
+            deserializeNamedMember(context, memberName, memberShape, "output", (dataSource, visitor) -> {
+                writer.write("contents.$L = $L;", memberName, target.accept(visitor));
+            });
+        });
 
         writer.write("return contents;");
     }
 
-    void deserializeNamedStructureMember(
+    /**
+     * Generates an if statement for deserializing an output member, validating its
+     * presence at the correct location, handling collections and flattening, and
+     * dispatching to the supplied function to generate the body of the if statement.
+     *
+     * @param context The generation context.
+     * @param memberName The name of the member being deserialized.
+     * @param memberShape The shape of the member being deserialized.
+     * @param inputLocation The parent input location of the member being deserialized.
+     * @param statementBodyGenerator A function that generates the proper deserialization
+     *   after member presence is validated.
+     */
+    void deserializeNamedMember(
             GenerationContext context,
             String memberName,
             MemberShape memberShape,
-            Supplier<String> inputLocation
+            String inputLocation,
+            BiConsumer<String, DocumentMemberDeserVisitor> statementBodyGenerator
     ) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
@@ -122,28 +143,41 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         Shape target = context.getModel().expectShape(memberShape.getTarget());
         // Handle @xmlFlattened for collections and maps.
         boolean isFlattened = memberShape.hasTrait(XmlFlattenedTrait.class);
+        // Handle targets that return multiple entities per member.
+        boolean deserializationReturnsArray = deserializationReturnsArray(target);
 
         // Build a string based on the traits that represents the location.
         // Note we don't need to handle @xmlAttribute here because the parser flattens
         // attributes in to the main structure.
-        StringBuilder sourceBuilder = new StringBuilder(inputLocation.get())
-                .append("['").append(locationName).append("']");
+        StringBuilder sourceBuilder = new StringBuilder(inputLocation).append("['").append(locationName).append("']");
+        // Track any locations we need to validate on our way to the final element.
+        List<String> locationsToValidate = new ArrayList<>();
 
-        // Go in to a specialized element for unflattened aggregates
-        if (deserializationReturnsArray(target) && !isFlattened) {
+        // Go in to a specialized element for unflattened aggregates.
+        if (deserializationReturnsArray && !isFlattened) {
+            // Make sure we validate the wrapping element is set.
+            locationsToValidate.add(sourceBuilder.toString());
+            // Update the target element.
             String targetLocation = getUnnamedAggregateTargetLocation(model, target);
             sourceBuilder.append("['").append(targetLocation).append("']");
         }
 
         // Handle the response property.
         String source = sourceBuilder.toString();
-        writer.openBlock("if ($L !== undefined) {", "}", source, () -> {
-            if (isFlattened) {
+        // Validate the resulting target element is set.
+        locationsToValidate.add(source);
+        // Build a string of the elements to validate before deserializing.
+        String validationStatement = locationsToValidate.stream()
+                .map(location -> location + " !== undefined")
+                .collect(Collectors.joining(" && "));
+        writer.openBlock("if ($L) {", "}", validationStatement, () -> {
+            String dataSource = source;
+            // The XML parser will set one K:V for a member that could return multiple entries but only has one.
+            if (deserializationReturnsArray) {
                 writer.write("const wrappedItem = ($1L instanceof Array) ? $1L : [$1L];", source);
+                dataSource = "wrappedItem";
             }
-            writer.write("contents.$L = $L;", memberName,
-                    // Dispatch to the output value provider for any additional handling.
-                    target.accept(getMemberVisitor(isFlattened ? "wrappedItem" : source)));
+            statementBodyGenerator.accept(dataSource, getMemberVisitor(dataSource));
         });
     }
 
@@ -165,38 +199,16 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
     @Override
     protected void deserializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
-        Model model = context.getModel();
 
         // Check for any known union members and return when we find one.
         Map<String, MemberShape> members = shape.getAllMembers();
         members.forEach((memberName, memberShape) -> {
-            // Use the @xmlName trait if present on the member, otherwise use the member name.
-            String locationName = memberShape.getTrait(XmlNameTrait.class)
-                    .map(XmlNameTrait::getValue)
-                    .orElse(memberName);
             // Grab the target shape so we can use a member deserializer on it.
-            Shape target = context.getModel()
-                                   .expectShape(memberShape.getTarget());
-            // Handle @xmlFlattened for collections and maps.
-            boolean isFlattened = memberShape.hasTrait(XmlFlattenedTrait.class);
-
-            // Build a string based on the traits that represents the location.
-            // Note we don't need to handle @xmlAttribute here because the parser flattens
-            // attributes in to the main structure.
-            StringBuilder sourceBuilder = new StringBuilder("output['").append(locationName).append("']");
-
-            // Go in to a specialized element for unflattened aggregates
-            if (deserializationReturnsArray(target) && !isFlattened) {
-                String targetLocation = getUnnamedAggregateTargetLocation(model, target);
-                sourceBuilder.append("['").append(targetLocation).append("']");
-            }
-
-            // Handle the response property.
-            String source = sourceBuilder.toString();
-            writer.openBlock("if ($L !== undefined) {", "}", source, () -> {
+            Shape target = context.getModel().expectShape(memberShape.getTarget());
+            deserializeNamedMember(context, memberName, memberShape, "output", (dataSource, visitor) -> {
                 writer.openBlock("return {", "};", () -> {
                     // Dispatch to the output value provider for any additional handling.
-                    writer.write("$L: $L", memberName, target.accept(getMemberVisitor(source)));
+                    writer.write("$L: $L", memberName, target.accept(visitor));
                 });
             });
         });
