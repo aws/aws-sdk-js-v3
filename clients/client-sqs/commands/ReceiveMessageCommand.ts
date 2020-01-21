@@ -8,6 +8,7 @@ import {
   deserializeAws_queryReceiveMessageCommand,
   serializeAws_queryReceiveMessageCommand
 } from "../protocols/Aws_query";
+import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -48,6 +49,7 @@ export class ReceiveMessageCommand extends $Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getReceiveMessagePlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

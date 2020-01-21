@@ -11,6 +11,7 @@ import {
   deserializeAws_querySendMessageBatchCommand,
   serializeAws_querySendMessageBatchCommand
 } from "../protocols/Aws_query";
+import { getSendMessageBatchPlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -51,6 +52,7 @@ export class SendMessageBatchCommand extends $Command<
     this.middlewareStack.use(
       getSerdePlugin(configuration, this.serialize, this.deserialize)
     );
+    this.middlewareStack.use(getSendMessageBatchPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
