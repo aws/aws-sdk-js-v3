@@ -7287,9 +7287,16 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
     AccountLimits: undefined,
     NextToken: undefined
   };
-  if (output["AccountLimits"]["member"] !== undefined) {
+  if (
+    output["AccountLimits"] !== undefined &&
+    output["AccountLimits"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["AccountLimits"]["member"] instanceof Array
+        ? output["AccountLimits"]["member"]
+        : [output["AccountLimits"]["member"]];
     contents.AccountLimits = deserializeAws_queryAccountLimitList(
-      output["AccountLimits"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7322,9 +7329,16 @@ const deserializeAws_queryDescribeChangeSetOutput = (
     StatusReason: undefined,
     Tags: undefined
   };
-  if (output["Capabilities"]["member"] !== undefined) {
+  if (
+    output["Capabilities"] !== undefined &&
+    output["Capabilities"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Capabilities"]["member"] instanceof Array
+        ? output["Capabilities"]["member"]
+        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      output["Capabilities"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7334,11 +7348,15 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output["ChangeSetName"] !== undefined) {
     contents.ChangeSetName = output["ChangeSetName"];
   }
-  if (output["Changes"]["member"] !== undefined) {
-    contents.Changes = deserializeAws_queryChanges(
-      output["Changes"]["member"],
-      context
-    );
+  if (
+    output["Changes"] !== undefined &&
+    output["Changes"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Changes"]["member"] instanceof Array
+        ? output["Changes"]["member"]
+        : [output["Changes"]["member"]];
+    contents.Changes = deserializeAws_queryChanges(wrappedItem, context);
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -7352,17 +7370,28 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["NotificationARNs"]["member"] !== undefined) {
+  if (
+    output["NotificationARNs"] !== undefined &&
+    output["NotificationARNs"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["NotificationARNs"]["member"] instanceof Array
+        ? output["NotificationARNs"]["member"]
+        : [output["NotificationARNs"]["member"]];
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
-      output["NotificationARNs"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParameters(
-      output["Parameters"]["member"],
-      context
-    );
+  if (
+    output["Parameters"] !== undefined &&
+    output["Parameters"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Parameters"]["member"] instanceof Array
+        ? output["Parameters"]["member"]
+        : [output["Parameters"]["member"]];
+    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
   }
   if (output["RollbackConfiguration"] !== undefined) {
     contents.RollbackConfiguration = deserializeAws_queryRollbackConfiguration(
@@ -7382,8 +7411,12 @@ const deserializeAws_queryDescribeChangeSetOutput = (
   if (output["StatusReason"] !== undefined) {
     contents.StatusReason = output["StatusReason"];
   }
-  if (output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(output["Tags"]["member"], context);
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    const wrappedItem =
+      output["Tags"]["member"] instanceof Array
+        ? output["Tags"]["member"]
+        : [output["Tags"]["member"]];
+    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
   }
   return contents;
 };
@@ -7440,9 +7473,16 @@ const deserializeAws_queryDescribeStackEventsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["StackEvents"]["member"] !== undefined) {
+  if (
+    output["StackEvents"] !== undefined &&
+    output["StackEvents"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StackEvents"]["member"] instanceof Array
+        ? output["StackEvents"]["member"]
+        : [output["StackEvents"]["member"]];
     contents.StackEvents = deserializeAws_queryStackEvents(
-      output["StackEvents"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7461,9 +7501,16 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["StackResourceDrifts"]["member"] !== undefined) {
+  if (
+    output["StackResourceDrifts"] !== undefined &&
+    output["StackResourceDrifts"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StackResourceDrifts"]["member"] instanceof Array
+        ? output["StackResourceDrifts"]["member"]
+        : [output["StackResourceDrifts"]["member"]];
     contents.StackResourceDrifts = deserializeAws_queryStackResourceDrifts(
-      output["StackResourceDrifts"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7495,9 +7542,16 @@ const deserializeAws_queryDescribeStackResourcesOutput = (
     __type: "DescribeStackResourcesOutput",
     StackResources: undefined
   };
-  if (output["StackResources"]["member"] !== undefined) {
+  if (
+    output["StackResources"] !== undefined &&
+    output["StackResources"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StackResources"]["member"] instanceof Array
+        ? output["StackResources"]["member"]
+        : [output["StackResources"]["member"]];
     contents.StackResources = deserializeAws_queryStackResources(
-      output["StackResources"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7516,11 +7570,15 @@ const deserializeAws_queryDescribeStacksOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Stacks"]["member"] !== undefined) {
-    contents.Stacks = deserializeAws_queryStacks(
-      output["Stacks"]["member"],
-      context
-    );
+  if (
+    output["Stacks"] !== undefined &&
+    output["Stacks"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Stacks"]["member"] instanceof Array
+        ? output["Stacks"]["member"]
+        : [output["Stacks"]["member"]];
+    contents.Stacks = deserializeAws_queryStacks(wrappedItem, context);
   }
   return contents;
 };
@@ -7733,9 +7791,16 @@ const deserializeAws_queryGetTemplateOutput = (
     StagesAvailable: undefined,
     TemplateBody: undefined
   };
-  if (output["StagesAvailable"]["member"] !== undefined) {
+  if (
+    output["StagesAvailable"] !== undefined &&
+    output["StagesAvailable"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StagesAvailable"]["member"] instanceof Array
+        ? output["StagesAvailable"]["member"]
+        : [output["StagesAvailable"]["member"]];
     contents.StagesAvailable = deserializeAws_queryStageList(
-      output["StagesAvailable"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7761,18 +7826,32 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
     ResourceTypes: undefined,
     Version: undefined
   };
-  if (output["Capabilities"]["member"] !== undefined) {
+  if (
+    output["Capabilities"] !== undefined &&
+    output["Capabilities"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Capabilities"]["member"] instanceof Array
+        ? output["Capabilities"]["member"]
+        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      output["Capabilities"]["member"],
+      wrappedItem,
       context
     );
   }
   if (output["CapabilitiesReason"] !== undefined) {
     contents.CapabilitiesReason = output["CapabilitiesReason"];
   }
-  if (output["DeclaredTransforms"]["member"] !== undefined) {
+  if (
+    output["DeclaredTransforms"] !== undefined &&
+    output["DeclaredTransforms"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["DeclaredTransforms"]["member"] instanceof Array
+        ? output["DeclaredTransforms"]["member"]
+        : [output["DeclaredTransforms"]["member"]];
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
-      output["DeclaredTransforms"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7782,21 +7861,42 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   if (output["Metadata"] !== undefined) {
     contents.Metadata = output["Metadata"];
   }
-  if (output["Parameters"]["member"] !== undefined) {
+  if (
+    output["Parameters"] !== undefined &&
+    output["Parameters"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Parameters"]["member"] instanceof Array
+        ? output["Parameters"]["member"]
+        : [output["Parameters"]["member"]];
     contents.Parameters = deserializeAws_queryParameterDeclarations(
-      output["Parameters"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["ResourceIdentifierSummaries"]["member"] !== undefined) {
+  if (
+    output["ResourceIdentifierSummaries"] !== undefined &&
+    output["ResourceIdentifierSummaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["ResourceIdentifierSummaries"]["member"] instanceof Array
+        ? output["ResourceIdentifierSummaries"]["member"]
+        : [output["ResourceIdentifierSummaries"]["member"]];
     contents.ResourceIdentifierSummaries = deserializeAws_queryResourceIdentifierSummaries(
-      output["ResourceIdentifierSummaries"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["ResourceTypes"]["member"] !== undefined) {
+  if (
+    output["ResourceTypes"] !== undefined &&
+    output["ResourceTypes"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["ResourceTypes"]["member"] instanceof Array
+        ? output["ResourceTypes"]["member"]
+        : [output["ResourceTypes"]["member"]];
     contents.ResourceTypes = deserializeAws_queryResourceTypes(
-      output["ResourceTypes"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7881,9 +7981,16 @@ const deserializeAws_queryListChangeSetsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Summaries"]["member"] !== undefined) {
+  if (
+    output["Summaries"] !== undefined &&
+    output["Summaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Summaries"]["member"] instanceof Array
+        ? output["Summaries"]["member"]
+        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryChangeSetSummaries(
-      output["Summaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7899,11 +8006,15 @@ const deserializeAws_queryListExportsOutput = (
     Exports: undefined,
     NextToken: undefined
   };
-  if (output["Exports"]["member"] !== undefined) {
-    contents.Exports = deserializeAws_queryExports(
-      output["Exports"]["member"],
-      context
-    );
+  if (
+    output["Exports"] !== undefined &&
+    output["Exports"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Exports"]["member"] instanceof Array
+        ? output["Exports"]["member"]
+        : [output["Exports"]["member"]];
+    contents.Exports = deserializeAws_queryExports(wrappedItem, context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -7920,11 +8031,15 @@ const deserializeAws_queryListImportsOutput = (
     Imports: undefined,
     NextToken: undefined
   };
-  if (output["Imports"]["member"] !== undefined) {
-    contents.Imports = deserializeAws_queryImports(
-      output["Imports"]["member"],
-      context
-    );
+  if (
+    output["Imports"] !== undefined &&
+    output["Imports"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Imports"]["member"] instanceof Array
+        ? output["Imports"]["member"]
+        : [output["Imports"]["member"]];
+    contents.Imports = deserializeAws_queryImports(wrappedItem, context);
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
@@ -7944,9 +8059,16 @@ const deserializeAws_queryListStackResourcesOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["StackResourceSummaries"]["member"] !== undefined) {
+  if (
+    output["StackResourceSummaries"] !== undefined &&
+    output["StackResourceSummaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StackResourceSummaries"]["member"] instanceof Array
+        ? output["StackResourceSummaries"]["member"]
+        : [output["StackResourceSummaries"]["member"]];
     contents.StackResourceSummaries = deserializeAws_queryStackResourceSummaries(
-      output["StackResourceSummaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7965,9 +8087,16 @@ const deserializeAws_queryListStacksOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["StackSummaries"]["member"] !== undefined) {
+  if (
+    output["StackSummaries"] !== undefined &&
+    output["StackSummaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["StackSummaries"]["member"] instanceof Array
+        ? output["StackSummaries"]["member"]
+        : [output["StackSummaries"]["member"]];
     contents.StackSummaries = deserializeAws_queryStackSummaries(
-      output["StackSummaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -7986,9 +8115,16 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["RegistrationTokenList"]["member"] !== undefined) {
+  if (
+    output["RegistrationTokenList"] !== undefined &&
+    output["RegistrationTokenList"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["RegistrationTokenList"]["member"] instanceof Array
+        ? output["RegistrationTokenList"]["member"]
+        : [output["RegistrationTokenList"]["member"]];
     contents.RegistrationTokenList = deserializeAws_queryRegistrationTokenList(
-      output["RegistrationTokenList"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8007,9 +8143,16 @@ const deserializeAws_queryListTypeVersionsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["TypeVersionSummaries"]["member"] !== undefined) {
+  if (
+    output["TypeVersionSummaries"] !== undefined &&
+    output["TypeVersionSummaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["TypeVersionSummaries"]["member"] instanceof Array
+        ? output["TypeVersionSummaries"]["member"]
+        : [output["TypeVersionSummaries"]["member"]];
     contents.TypeVersionSummaries = deserializeAws_queryTypeVersionSummaries(
-      output["TypeVersionSummaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8028,9 +8171,16 @@ const deserializeAws_queryListTypesOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["TypeSummaries"]["member"] !== undefined) {
+  if (
+    output["TypeSummaries"] !== undefined &&
+    output["TypeSummaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["TypeSummaries"]["member"] instanceof Array
+        ? output["TypeSummaries"]["member"]
+        : [output["TypeSummaries"]["member"]];
     contents.TypeSummaries = deserializeAws_queryTypeSummaries(
-      output["TypeSummaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8152,9 +8302,16 @@ const deserializeAws_queryParameterConstraints = (
     __type: "ParameterConstraints",
     AllowedValues: undefined
   };
-  if (output["AllowedValues"]["member"] !== undefined) {
+  if (
+    output["AllowedValues"] !== undefined &&
+    output["AllowedValues"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["AllowedValues"]["member"] instanceof Array
+        ? output["AllowedValues"]["member"]
+        : [output["AllowedValues"]["member"]];
     contents.AllowedValues = deserializeAws_queryAllowedValues(
-      output["AllowedValues"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8326,9 +8483,16 @@ const deserializeAws_queryResourceChange = (
   if (output["Action"] !== undefined) {
     contents.Action = output["Action"];
   }
-  if (output["Details"]["member"] !== undefined) {
+  if (
+    output["Details"] !== undefined &&
+    output["Details"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Details"]["member"] instanceof Array
+        ? output["Details"]["member"]
+        : [output["Details"]["member"]];
     contents.Details = deserializeAws_queryResourceChangeDetails(
-      output["Details"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8344,11 +8508,15 @@ const deserializeAws_queryResourceChange = (
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = output["ResourceType"];
   }
-  if (output["Scope"]["member"] !== undefined) {
-    contents.Scope = deserializeAws_queryScope(
-      output["Scope"]["member"],
-      context
-    );
+  if (
+    output["Scope"] !== undefined &&
+    output["Scope"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Scope"]["member"] instanceof Array
+        ? output["Scope"]["member"]
+        : [output["Scope"]["member"]];
+    contents.Scope = deserializeAws_queryScope(wrappedItem, context);
   }
   return contents;
 };
@@ -8410,15 +8578,29 @@ const deserializeAws_queryResourceIdentifierSummary = (
     ResourceIdentifiers: undefined,
     ResourceType: undefined
   };
-  if (output["LogicalResourceIds"]["member"] !== undefined) {
+  if (
+    output["LogicalResourceIds"] !== undefined &&
+    output["LogicalResourceIds"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["LogicalResourceIds"]["member"] instanceof Array
+        ? output["LogicalResourceIds"]["member"]
+        : [output["LogicalResourceIds"]["member"]];
     contents.LogicalResourceIds = deserializeAws_queryLogicalResourceIds(
-      output["LogicalResourceIds"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["ResourceIdentifiers"]["member"] !== undefined) {
+  if (
+    output["ResourceIdentifiers"] !== undefined &&
+    output["ResourceIdentifiers"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["ResourceIdentifiers"]["member"] instanceof Array
+        ? output["ResourceIdentifiers"]["member"]
+        : [output["ResourceIdentifiers"]["member"]];
     contents.ResourceIdentifiers = deserializeAws_queryResourceIdentifiers(
-      output["ResourceIdentifiers"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8478,9 +8660,16 @@ const deserializeAws_queryRollbackConfiguration = (
       output["MonitoringTimeInMinutes"]
     );
   }
-  if (output["RollbackTriggers"]["member"] !== undefined) {
+  if (
+    output["RollbackTriggers"] !== undefined &&
+    output["RollbackTriggers"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["RollbackTriggers"]["member"] instanceof Array
+        ? output["RollbackTriggers"]["member"]
+        : [output["RollbackTriggers"]["member"]];
     contents.RollbackTriggers = deserializeAws_queryRollbackTriggers(
-      output["RollbackTriggers"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8560,9 +8749,16 @@ const deserializeAws_queryStack = (
     Tags: undefined,
     TimeoutInMinutes: undefined
   };
-  if (output["Capabilities"]["member"] !== undefined) {
+  if (
+    output["Capabilities"] !== undefined &&
+    output["Capabilities"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Capabilities"]["member"] instanceof Array
+        ? output["Capabilities"]["member"]
+        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      output["Capabilities"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -8594,23 +8790,38 @@ const deserializeAws_queryStack = (
   if (output["LastUpdatedTime"] !== undefined) {
     contents.LastUpdatedTime = new Date(output["LastUpdatedTime"]);
   }
-  if (output["NotificationARNs"]["member"] !== undefined) {
+  if (
+    output["NotificationARNs"] !== undefined &&
+    output["NotificationARNs"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["NotificationARNs"]["member"] instanceof Array
+        ? output["NotificationARNs"]["member"]
+        : [output["NotificationARNs"]["member"]];
     contents.NotificationARNs = deserializeAws_queryNotificationARNs(
-      output["NotificationARNs"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["Outputs"]["member"] !== undefined) {
-    contents.Outputs = deserializeAws_queryOutputs(
-      output["Outputs"]["member"],
-      context
-    );
+  if (
+    output["Outputs"] !== undefined &&
+    output["Outputs"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Outputs"]["member"] instanceof Array
+        ? output["Outputs"]["member"]
+        : [output["Outputs"]["member"]];
+    contents.Outputs = deserializeAws_queryOutputs(wrappedItem, context);
   }
-  if (output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParameters(
-      output["Parameters"]["member"],
-      context
-    );
+  if (
+    output["Parameters"] !== undefined &&
+    output["Parameters"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Parameters"]["member"] instanceof Array
+        ? output["Parameters"]["member"]
+        : [output["Parameters"]["member"]];
+    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
   }
   if (output["ParentId"] !== undefined) {
     contents.ParentId = output["ParentId"];
@@ -8639,8 +8850,12 @@ const deserializeAws_queryStack = (
   if (output["StackStatusReason"] !== undefined) {
     contents.StackStatusReason = output["StackStatusReason"];
   }
-  if (output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(output["Tags"]["member"], context);
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    const wrappedItem =
+      output["Tags"]["member"] instanceof Array
+        ? output["Tags"]["member"]
+        : [output["Tags"]["member"]];
+    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
   }
   if (output["TimeoutInMinutes"] !== undefined) {
     contents.TimeoutInMinutes = parseInt(output["TimeoutInMinutes"]);
@@ -8886,15 +9101,29 @@ const deserializeAws_queryStackResourceDrift = (
   if (output["PhysicalResourceId"] !== undefined) {
     contents.PhysicalResourceId = output["PhysicalResourceId"];
   }
-  if (output["PhysicalResourceIdContext"]["member"] !== undefined) {
+  if (
+    output["PhysicalResourceIdContext"] !== undefined &&
+    output["PhysicalResourceIdContext"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["PhysicalResourceIdContext"]["member"] instanceof Array
+        ? output["PhysicalResourceIdContext"]["member"]
+        : [output["PhysicalResourceIdContext"]["member"]];
     contents.PhysicalResourceIdContext = deserializeAws_queryPhysicalResourceIdContext(
-      output["PhysicalResourceIdContext"]["member"],
+      wrappedItem,
       context
     );
   }
-  if (output["PropertyDifferences"]["member"] !== undefined) {
+  if (
+    output["PropertyDifferences"] !== undefined &&
+    output["PropertyDifferences"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["PropertyDifferences"]["member"] instanceof Array
+        ? output["PropertyDifferences"]["member"]
+        : [output["PropertyDifferences"]["member"]];
     contents.PropertyDifferences = deserializeAws_queryPropertyDifferences(
-      output["PropertyDifferences"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9333,27 +9562,48 @@ const deserializeAws_queryValidateTemplateOutput = (
     Description: undefined,
     Parameters: undefined
   };
-  if (output["Capabilities"]["member"] !== undefined) {
+  if (
+    output["Capabilities"] !== undefined &&
+    output["Capabilities"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Capabilities"]["member"] instanceof Array
+        ? output["Capabilities"]["member"]
+        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      output["Capabilities"]["member"],
+      wrappedItem,
       context
     );
   }
   if (output["CapabilitiesReason"] !== undefined) {
     contents.CapabilitiesReason = output["CapabilitiesReason"];
   }
-  if (output["DeclaredTransforms"]["member"] !== undefined) {
+  if (
+    output["DeclaredTransforms"] !== undefined &&
+    output["DeclaredTransforms"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["DeclaredTransforms"]["member"] instanceof Array
+        ? output["DeclaredTransforms"]["member"]
+        : [output["DeclaredTransforms"]["member"]];
     contents.DeclaredTransforms = deserializeAws_queryTransformsList(
-      output["DeclaredTransforms"]["member"],
+      wrappedItem,
       context
     );
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
-  if (output["Parameters"]["member"] !== undefined) {
+  if (
+    output["Parameters"] !== undefined &&
+    output["Parameters"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Parameters"]["member"] instanceof Array
+        ? output["Parameters"]["member"]
+        : [output["Parameters"]["member"]];
     contents.Parameters = deserializeAws_queryTemplateParameters(
-      output["Parameters"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9535,9 +9785,16 @@ const deserializeAws_queryListStackInstancesOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Summaries"]["member"] !== undefined) {
+  if (
+    output["Summaries"] !== undefined &&
+    output["Summaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Summaries"]["member"] instanceof Array
+        ? output["Summaries"]["member"]
+        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackInstanceSummaries(
-      output["Summaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9556,9 +9813,16 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Summaries"]["member"] !== undefined) {
+  if (
+    output["Summaries"] !== undefined &&
+    output["Summaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Summaries"]["member"] instanceof Array
+        ? output["Summaries"]["member"]
+        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetOperationResultSummaries(
-      output["Summaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9577,9 +9841,16 @@ const deserializeAws_queryListStackSetOperationsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Summaries"]["member"] !== undefined) {
+  if (
+    output["Summaries"] !== undefined &&
+    output["Summaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Summaries"]["member"] instanceof Array
+        ? output["Summaries"]["member"]
+        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetOperationSummaries(
-      output["Summaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9598,9 +9869,16 @@ const deserializeAws_queryListStackSetsOutput = (
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
   }
-  if (output["Summaries"]["member"] !== undefined) {
+  if (
+    output["Summaries"] !== undefined &&
+    output["Summaries"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Summaries"]["member"] instanceof Array
+        ? output["Summaries"]["member"]
+        : [output["Summaries"]["member"]];
     contents.Summaries = deserializeAws_queryStackSetSummaries(
-      output["Summaries"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9697,9 +9975,16 @@ const deserializeAws_queryStackInstance = (
       output["LastDriftCheckTimestamp"]
     );
   }
-  if (output["ParameterOverrides"]["member"] !== undefined) {
+  if (
+    output["ParameterOverrides"] !== undefined &&
+    output["ParameterOverrides"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["ParameterOverrides"]["member"] instanceof Array
+        ? output["ParameterOverrides"]["member"]
+        : [output["ParameterOverrides"]["member"]];
     contents.ParameterOverrides = deserializeAws_queryParameters(
-      output["ParameterOverrides"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9810,9 +10095,16 @@ const deserializeAws_queryStackSet = (
   if (output["AdministrationRoleARN"] !== undefined) {
     contents.AdministrationRoleARN = output["AdministrationRoleARN"];
   }
-  if (output["Capabilities"]["member"] !== undefined) {
+  if (
+    output["Capabilities"] !== undefined &&
+    output["Capabilities"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Capabilities"]["member"] instanceof Array
+        ? output["Capabilities"]["member"]
+        : [output["Capabilities"]["member"]];
     contents.Capabilities = deserializeAws_queryCapabilities(
-      output["Capabilities"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -9822,11 +10114,15 @@ const deserializeAws_queryStackSet = (
   if (output["ExecutionRoleName"] !== undefined) {
     contents.ExecutionRoleName = output["ExecutionRoleName"];
   }
-  if (output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParameters(
-      output["Parameters"]["member"],
-      context
-    );
+  if (
+    output["Parameters"] !== undefined &&
+    output["Parameters"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Parameters"]["member"] instanceof Array
+        ? output["Parameters"]["member"]
+        : [output["Parameters"]["member"]];
+    contents.Parameters = deserializeAws_queryParameters(wrappedItem, context);
   }
   if (output["StackSetARN"] !== undefined) {
     contents.StackSetARN = output["StackSetARN"];
@@ -9846,8 +10142,12 @@ const deserializeAws_queryStackSet = (
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_queryTags(output["Tags"]["member"], context);
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    const wrappedItem =
+      output["Tags"]["member"] instanceof Array
+        ? output["Tags"]["member"]
+        : [output["Tags"]["member"]];
+    contents.Tags = deserializeAws_queryTags(wrappedItem, context);
   }
   if (output["TemplateBody"] !== undefined) {
     contents.TemplateBody = output["TemplateBody"];
@@ -10011,11 +10311,15 @@ const deserializeAws_queryStackSetOperationPreferences = (
       output["MaxConcurrentPercentage"]
     );
   }
-  if (output["RegionOrder"]["member"] !== undefined) {
-    contents.RegionOrder = deserializeAws_queryRegionList(
-      output["RegionOrder"]["member"],
-      context
-    );
+  if (
+    output["RegionOrder"] !== undefined &&
+    output["RegionOrder"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["RegionOrder"]["member"] instanceof Array
+        ? output["RegionOrder"]["member"]
+        : [output["RegionOrder"]["member"]];
+    contents.RegionOrder = deserializeAws_queryRegionList(wrappedItem, context);
   }
   return contents;
 };

@@ -1218,9 +1218,16 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data["AccessPointList"]["AccessPoint"] !== undefined) {
+  if (
+    data["AccessPointList"] !== undefined &&
+    data["AccessPointList"]["AccessPoint"] !== undefined
+  ) {
+    const wrappedItem =
+      data["AccessPointList"]["AccessPoint"] instanceof Array
+        ? data["AccessPointList"]["AccessPoint"]
+        : [data["AccessPointList"]["AccessPoint"]];
     contents.AccessPointList = deserializeAws_restXmlAccessPointList(
-      data["AccessPointList"]["AccessPoint"],
+      wrappedItem,
       context
     );
   }
@@ -1271,9 +1278,13 @@ export async function deserializeAws_restXmlListJobsCommand(
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (data["Jobs"]["member"] !== undefined) {
+  if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
+    const wrappedItem =
+      data["Jobs"]["member"] instanceof Array
+        ? data["Jobs"]["member"]
+        : [data["Jobs"]["member"]];
     contents.Jobs = deserializeAws_restXmlJobListDescriptorList(
-      data["Jobs"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -2432,9 +2443,16 @@ const deserializeAws_restXmlJobDescriptor = (
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
-  if (output["FailureReasons"]["member"] !== undefined) {
+  if (
+    output["FailureReasons"] !== undefined &&
+    output["FailureReasons"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["FailureReasons"]["member"] instanceof Array
+        ? output["FailureReasons"]["member"]
+        : [output["FailureReasons"]["member"]];
     contents.FailureReasons = deserializeAws_restXmlJobFailureList(
-      output["FailureReasons"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -2635,9 +2653,16 @@ const deserializeAws_restXmlJobManifestSpec = (
     Fields: undefined,
     Format: undefined
   };
-  if (output["Fields"]["member"] !== undefined) {
+  if (
+    output["Fields"] !== undefined &&
+    output["Fields"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Fields"]["member"] instanceof Array
+        ? output["Fields"]["member"]
+        : [output["Fields"]["member"]];
     contents.Fields = deserializeAws_restXmlJobManifestFieldList(
-      output["Fields"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -2809,11 +2834,15 @@ const deserializeAws_restXmlS3AccessControlList = (
     Grants: undefined,
     Owner: undefined
   };
-  if (output["Grants"]["member"] !== undefined) {
-    contents.Grants = deserializeAws_restXmlS3GrantList(
-      output["Grants"]["member"],
-      context
-    );
+  if (
+    output["Grants"] !== undefined &&
+    output["Grants"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["Grants"]["member"] instanceof Array
+        ? output["Grants"]["member"]
+        : [output["Grants"]["member"]];
+    contents.Grants = deserializeAws_restXmlS3GrantList(wrappedItem, context);
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlS3ObjectOwner(
@@ -2868,9 +2897,16 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
     TargetResource: undefined,
     UnModifiedSinceConstraint: undefined
   };
-  if (output["AccessControlGrants"]["member"] !== undefined) {
+  if (
+    output["AccessControlGrants"] !== undefined &&
+    output["AccessControlGrants"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["AccessControlGrants"]["member"] instanceof Array
+        ? output["AccessControlGrants"]["member"]
+        : [output["AccessControlGrants"]["member"]];
     contents.AccessControlGrants = deserializeAws_restXmlS3GrantList(
-      output["AccessControlGrants"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -2891,9 +2927,16 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
       context
     );
   }
-  if (output["NewObjectTagging"]["member"] !== undefined) {
+  if (
+    output["NewObjectTagging"] !== undefined &&
+    output["NewObjectTagging"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["NewObjectTagging"]["member"] instanceof Array
+        ? output["NewObjectTagging"]["member"]
+        : [output["NewObjectTagging"]["member"]];
     contents.NewObjectTagging = deserializeAws_restXmlS3TagSet(
-      output["NewObjectTagging"]["member"],
+      wrappedItem,
       context
     );
   }
@@ -3052,9 +3095,16 @@ const deserializeAws_restXmlS3ObjectMetadata = (
   if (output["SSEAlgorithm"] !== undefined) {
     contents.SSEAlgorithm = output["SSEAlgorithm"];
   }
-  if (output["UserMetadata"]["entry"] !== undefined) {
+  if (
+    output["UserMetadata"] !== undefined &&
+    output["UserMetadata"]["entry"] !== undefined
+  ) {
+    const wrappedItem =
+      output["UserMetadata"]["entry"] instanceof Array
+        ? output["UserMetadata"]["entry"]
+        : [output["UserMetadata"]["entry"]];
     contents.UserMetadata = deserializeAws_restXmlS3UserMetadata(
-      output["UserMetadata"]["entry"],
+      wrappedItem,
       context
     );
   }
@@ -3104,11 +3154,15 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
     __type: "S3SetObjectTaggingOperation",
     TagSet: undefined
   };
-  if (output["TagSet"]["member"] !== undefined) {
-    contents.TagSet = deserializeAws_restXmlS3TagSet(
-      output["TagSet"]["member"],
-      context
-    );
+  if (
+    output["TagSet"] !== undefined &&
+    output["TagSet"]["member"] !== undefined
+  ) {
+    const wrappedItem =
+      output["TagSet"]["member"] instanceof Array
+        ? output["TagSet"]["member"]
+        : [output["TagSet"]["member"]];
+    contents.TagSet = deserializeAws_restXmlS3TagSet(wrappedItem, context);
   }
   return contents;
 };
