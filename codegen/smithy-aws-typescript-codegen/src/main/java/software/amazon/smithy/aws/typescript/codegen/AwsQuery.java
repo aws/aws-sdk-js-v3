@@ -23,7 +23,6 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
-import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 
 /**
  * Handles generating the aws.query protocol for services. It handles reading and
@@ -33,15 +32,12 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
  * This builds on the foundations of the {@link HttpRpcProtocolGenerator} to handle
  * standard components of the HTTP requests and responses.
  *
- * A set of service-specific customizations exist for Amazon EC2:
- *
  * @see QueryShapeSerVisitor
  * @see XmlShapeDeserVisitor
  * @see QueryMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
- * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
  */
 final class AwsQuery extends HttpRpcProtocolGenerator {
 
@@ -76,14 +72,14 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    public void generateSharedComponents(ProtocolGenerator.GenerationContext context) {
+    public void generateSharedComponents(GenerationContext context) {
         super.generateSharedComponents(context);
         AwsProtocolUtils.generateXmlParseBody(context);
 
         TypeScriptWriter writer = context.getWriter();
 
         // Generate a function that handles the complex rules around deserializing
-        // an error code from a rest-xml error.
+        // an error code from an xml error body.
         SymbolReference responseType = getApplicationProtocol().getResponseType();
         writer.openBlock("const loadQueryErrorCode = (\n"
                        + "  output: $T,\n"
