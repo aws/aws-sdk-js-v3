@@ -45,15 +45,9 @@ describe("receiveMessageMiddleware", () => {
       md5: MockHash
     })(next, {} as any);
 
-    try {
-      await handler({
-        input: {}
-      });
-    } catch (e) {
-      expect(e).toEqual(
-        new Error("Invalid MD5 checksum on messages: barMessage")
-      );
-    }
+    await expect(handler({ input: {} })).rejects.toThrow(
+      new Error("Invalid MD5 checksum on messages: barMessage")
+    );
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });

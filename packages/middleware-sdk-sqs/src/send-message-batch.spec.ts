@@ -52,20 +52,18 @@ describe("sendMessageBatchMiddleware", () => {
       md5: MockHash
     })(next, {} as any);
 
-    try {
-      await handler({
+    await expect(
+      handler({
         input: {
           Entries: [
             { Id: "foo", MessageBody: "0" },
             { Id: "bar", MessageBody: "0" }
           ]
         }
-      });
-    } catch (e) {
-      expect(e).toEqual(
-        new Error("Invalid MD5 checksum on messages: barMessage")
-      );
-    }
+      })
+    ).rejects.toThrow(
+      new Error("Invalid MD5 checksum on messages: barMessage")
+    );
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });
