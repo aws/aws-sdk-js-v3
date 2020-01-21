@@ -170,6 +170,24 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "S3 Control"))
                         .build(),
                 RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("SendMessage")
+                                            && testServiceId(s, "SQS"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("SendMessageBatch")
+                                            && testServiceId(s, "SQS"))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ReceiveMessage")
+                                            && testServiceId(s, "SQS"))
+                        .build(),
+                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build()
         );
