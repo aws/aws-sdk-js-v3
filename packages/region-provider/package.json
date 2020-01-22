@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/region-provider",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "AWS region provider for Node.JS. Will determine the default region to use for AWS clients by checking known environment variables and shared configuration files",
   "main": "./build/index.js",
   "typings": "./build/index.d.ts",
@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/property-provider": "^1.0.0-alpha.2",
+    "@aws-sdk/property-provider": "^1.0.0-alpha.3",
     "@aws-sdk/shared-ini-file-loader": "^1.0.0-alpha.2",
-    "@aws-sdk/types": "^1.0.0-alpha.2",
+    "@aws-sdk/types": "^1.0.0-alpha.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
