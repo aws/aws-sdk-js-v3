@@ -1,4 +1,4 @@
-import { validHostname } from "./";
+import { validHostname } from "./validHostname";
 
 describe("implementation selection", () => {
   it("should return true for valid hostnames", () => {
