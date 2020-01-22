@@ -1,11 +1,11 @@
-import { validHostname } from "./validHostname";
+import { isValidHostname } from "./isValidHostname";
 
 describe("implementation selection", () => {
   it("should return true for valid hostnames", () => {
-    expect(validHostname("foo")).toBe(true);
+    expect(isValidHostname("foo")).toBe(true);
   });
 
   it("should return false for invalid hostnames", () => {
-    expect(validHostname("foo.com/?bar")).toBe(false);
+    expect(isValidHostname("foo.com/?bar")).toBe(false);
   });
 });
