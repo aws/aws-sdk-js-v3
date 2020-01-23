@@ -20,7 +20,7 @@ const getOverwritablePredicate = packageName => pathName => {
       packageName
         .toLowerCase()
         .replace("@aws-sdk/client-", "")
-        .replace("-", "")
+        .replace(/-/g, "")
     ) >= 0 || overwritablePathnames.indexOf(pathName) >= 0
   );
 };
