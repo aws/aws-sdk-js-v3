@@ -263,6 +263,12 @@ export interface ClientDefaults
   runtime?: string;
 
   /**
+   * Disable dyanamically changing the endpoint of the client based on the hostPrefix
+   * trait of an operation.
+   */
+  disableHostPrefix?: boolean;
+
+  /**
    * The service name with which to sign requests.
    */
   signingName?: string;

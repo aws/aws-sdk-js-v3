@@ -20,7 +20,7 @@ export interface StreamCollector {
 }
 
 /**
- * Request and Response serde util functions for AWS services
+ * Request and Response serde util functions and settings for AWS services
  */
 export interface SerdeContext extends EndpointBearer {
   base64Encoder: Encoder;
@@ -29,6 +29,7 @@ export interface SerdeContext extends EndpointBearer {
   utf8Decoder: Decoder;
   streamCollector: StreamCollector;
   requestHandler: RequestHandler<any, any>;
+  disableHostPrefix: boolean;
 }
 
 export interface RequestSerializer<
