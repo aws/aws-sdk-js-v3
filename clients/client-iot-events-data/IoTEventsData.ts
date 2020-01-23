@@ -31,44 +31,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class IoTEventsData extends IoTEventsDataClient {
   /**
    *
-   *          <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
-   *         of a specified detector model.</p>
-   *
-   */
-  public batchUpdateDetector(
-    args: BatchUpdateDetectorCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BatchUpdateDetectorCommandOutput>;
-  public batchUpdateDetector(
-    args: BatchUpdateDetectorCommandInput,
-    cb: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
-  ): void;
-  public batchUpdateDetector(
-    args: BatchUpdateDetectorCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
-  ): void;
-  public batchUpdateDetector(
-    args: BatchUpdateDetectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchUpdateDetectorCommandOutput) => void),
-    cb?: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
-  ): Promise<BatchUpdateDetectorCommandOutput> | void {
-    const command = new BatchUpdateDetectorCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Sends a set of messages to the AWS IoT Events system. Each message payload is transformed
    *        into the input you specify (<code>"inputName"</code>) and ingested into any detectors that monitor
    *        that input. If multiple messages are sent, the order in which the messages are processed isn't
@@ -97,6 +59,44 @@ export class IoTEventsData extends IoTEventsDataClient {
     cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
   ): Promise<BatchPutMessageCommandOutput> | void {
     const command = new BatchPutMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
+   *         of a specified detector model.</p>
+   *
+   */
+  public batchUpdateDetector(
+    args: BatchUpdateDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateDetectorCommandOutput>;
+  public batchUpdateDetector(
+    args: BatchUpdateDetectorCommandInput,
+    cb: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
+  ): void;
+  public batchUpdateDetector(
+    args: BatchUpdateDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
+  ): void;
+  public batchUpdateDetector(
+    args: BatchUpdateDetectorCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchUpdateDetectorCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdateDetectorCommandOutput) => void
+  ): Promise<BatchUpdateDetectorCommandOutput> | void {
+    const command = new BatchUpdateDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

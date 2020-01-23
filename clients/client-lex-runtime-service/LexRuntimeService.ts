@@ -43,32 +43,67 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class LexRuntimeService extends LexRuntimeServiceClient {
   /**
    *
-   *          <p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this
-   *       operation to enable your application to set the state of the bot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
+   *          <p>Removes session information for a specified bot, alias, and user ID. </p>
    *
    */
-  public putSession(
-    args: PutSessionCommandInput,
+  public deleteSession(
+    args: DeleteSessionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<PutSessionCommandOutput>;
-  public putSession(
-    args: PutSessionCommandInput,
-    cb: (err: any, data?: PutSessionCommandOutput) => void
+  ): Promise<DeleteSessionCommandOutput>;
+  public deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
-  public putSession(
-    args: PutSessionCommandInput,
+  public deleteSession(
+    args: DeleteSessionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutSessionCommandOutput) => void
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
-  public putSession(
-    args: PutSessionCommandInput,
+  public deleteSession(
+    args: DeleteSessionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: PutSessionCommandOutput) => void),
-    cb?: (err: any, data?: PutSessionCommandOutput) => void
-  ): Promise<PutSessionCommandOutput> | void {
-    const command = new PutSessionCommand(args);
+      | ((err: any, data?: DeleteSessionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): Promise<DeleteSessionCommandOutput> | void {
+    const command = new DeleteSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns session information for a specified bot, alias, and user ID.</p>
+   *
+   */
+  public getSession(
+    args: GetSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSessionCommandOutput>;
+  public getSession(
+    args: GetSessionCommandInput,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetSessionCommandOutput) => void
+  ): Promise<GetSessionCommandOutput> | void {
+    const command = new GetSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -189,80 +224,6 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
 
   /**
    *
-   *          <p>Returns session information for a specified bot, alias, and user ID.</p>
-   *
-   */
-  public getSession(
-    args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSessionCommandOutput>;
-  public getSession(
-    args: GetSessionCommandInput,
-    cb: (err: any, data?: GetSessionCommandOutput) => void
-  ): void;
-  public getSession(
-    args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSessionCommandOutput) => void
-  ): void;
-  public getSession(
-    args: GetSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSessionCommandOutput) => void),
-    cb?: (err: any, data?: GetSessionCommandOutput) => void
-  ): Promise<GetSessionCommandOutput> | void {
-    const command = new GetSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Removes session information for a specified bot, alias, and user ID. </p>
-   *
-   */
-  public deleteSession(
-    args: DeleteSessionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSessionCommandOutput>;
-  public deleteSession(
-    args: DeleteSessionCommandInput,
-    cb: (err: any, data?: DeleteSessionCommandOutput) => void
-  ): void;
-  public deleteSession(
-    args: DeleteSessionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSessionCommandOutput) => void
-  ): void;
-  public deleteSession(
-    args: DeleteSessionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSessionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSessionCommandOutput) => void
-  ): Promise<DeleteSessionCommandOutput> | void {
-    const command = new DeleteSessionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Sends user input to Amazon Lex. Client applications can use this API to send requests to
    *       Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it
    *       built for the bot. </p>
@@ -354,6 +315,45 @@ export class LexRuntimeService extends LexRuntimeServiceClient {
     cb?: (err: any, data?: PostTextCommandOutput) => void
   ): Promise<PostTextCommandOutput> | void {
     const command = new PostTextCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this
+   *       operation to enable your application to set the state of the bot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
+   *
+   */
+  public putSession(
+    args: PutSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSessionCommandOutput>;
+  public putSession(
+    args: PutSessionCommandInput,
+    cb: (err: any, data?: PutSessionCommandOutput) => void
+  ): void;
+  public putSession(
+    args: PutSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSessionCommandOutput) => void
+  ): void;
+  public putSession(
+    args: PutSessionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutSessionCommandOutput) => void),
+    cb?: (err: any, data?: PutSessionCommandOutput) => void
+  ): Promise<PutSessionCommandOutput> | void {
+    const command = new PutSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
