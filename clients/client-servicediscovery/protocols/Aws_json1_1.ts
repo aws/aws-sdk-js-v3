@@ -154,7 +154,8 @@ import {
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
@@ -324,8 +325,18 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
   body = JSON.stringify(
     serializeAws_json1_1DiscoverInstancesRequest(input, context)
   );
+  let resolvedHostname = (context.endpoint as any).hostname;
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error(
+        "ValidationError: prefixed hostname must be hostname compatible."
+      );
+    }
+  }
   return new __HttpRequest({
     ...context.endpoint,
+    hostname: resolvedHostname,
     protocol: "https",
     method: "POST",
     path: "/DiscoverInstances",
