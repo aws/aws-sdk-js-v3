@@ -74,70 +74,30 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class IoT1ClickProjects extends IoT1ClickProjectsClient {
   /**
    *
-   *          <p>Lists the placement(s) of a project.</p>
+   *          <p>Associates a physical device with a placement.</p>
    *
    */
-  public listPlacements(
-    args: ListPlacementsCommandInput,
+  public associateDeviceWithPlacement(
+    args: AssociateDeviceWithPlacementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPlacementsCommandOutput>;
-  public listPlacements(
-    args: ListPlacementsCommandInput,
-    cb: (err: any, data?: ListPlacementsCommandOutput) => void
+  ): Promise<AssociateDeviceWithPlacementCommandOutput>;
+  public associateDeviceWithPlacement(
+    args: AssociateDeviceWithPlacementCommandInput,
+    cb: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
   ): void;
-  public listPlacements(
-    args: ListPlacementsCommandInput,
+  public associateDeviceWithPlacement(
+    args: AssociateDeviceWithPlacementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPlacementsCommandOutput) => void
+    cb: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
   ): void;
-  public listPlacements(
-    args: ListPlacementsCommandInput,
+  public associateDeviceWithPlacement(
+    args: AssociateDeviceWithPlacementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPlacementsCommandOutput) => void),
-    cb?: (err: any, data?: ListPlacementsCommandOutput) => void
-  ): Promise<ListPlacementsCommandOutput> | void {
-    const command = new ListPlacementsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Removes a physical device from a placement.</p>
-   *
-   */
-  public disassociateDeviceFromPlacement(
-    args: DisassociateDeviceFromPlacementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateDeviceFromPlacementCommandOutput>;
-  public disassociateDeviceFromPlacement(
-    args: DisassociateDeviceFromPlacementCommandInput,
-    cb: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
-  ): void;
-  public disassociateDeviceFromPlacement(
-    args: DisassociateDeviceFromPlacementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
-  ): void;
-  public disassociateDeviceFromPlacement(
-    args: DisassociateDeviceFromPlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateDeviceFromPlacementCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
-  ): Promise<DisassociateDeviceFromPlacementCommandOutput> | void {
-    const command = new DisassociateDeviceFromPlacementCommand(args);
+      | ((err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void),
+    cb?: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
+  ): Promise<AssociateDeviceWithPlacementCommandOutput> | void {
+    const command = new AssociateDeviceWithPlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -175,44 +135,6 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
     cb?: (err: any, data?: CreatePlacementCommandOutput) => void
   ): Promise<CreatePlacementCommandOutput> | void {
     const command = new CreatePlacementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates a placement with the given attributes. To clear an attribute, pass an empty
-   *          value (i.e., "").</p>
-   *
-   */
-  public updatePlacement(
-    args: UpdatePlacementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePlacementCommandOutput>;
-  public updatePlacement(
-    args: UpdatePlacementCommandInput,
-    cb: (err: any, data?: UpdatePlacementCommandOutput) => void
-  ): void;
-  public updatePlacement(
-    args: UpdatePlacementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePlacementCommandOutput) => void
-  ): void;
-  public updatePlacement(
-    args: UpdatePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePlacementCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePlacementCommandOutput) => void
-  ): Promise<UpdatePlacementCommandOutput> | void {
-    const command = new UpdatePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -264,70 +186,34 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
 
   /**
    *
-   *          <p>Associates a physical device with a placement.</p>
+   *          <p>Deletes a placement. To delete a placement, it must not have any devices associated with
+   *          it.</p>
+   *          <note>
+   *             <p>When you delete a placement, all associated data becomes irretrievable.</p>
+   *          </note>
    *
    */
-  public associateDeviceWithPlacement(
-    args: AssociateDeviceWithPlacementCommandInput,
+  public deletePlacement(
+    args: DeletePlacementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<AssociateDeviceWithPlacementCommandOutput>;
-  public associateDeviceWithPlacement(
-    args: AssociateDeviceWithPlacementCommandInput,
-    cb: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
+  ): Promise<DeletePlacementCommandOutput>;
+  public deletePlacement(
+    args: DeletePlacementCommandInput,
+    cb: (err: any, data?: DeletePlacementCommandOutput) => void
   ): void;
-  public associateDeviceWithPlacement(
-    args: AssociateDeviceWithPlacementCommandInput,
+  public deletePlacement(
+    args: DeletePlacementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
+    cb: (err: any, data?: DeletePlacementCommandOutput) => void
   ): void;
-  public associateDeviceWithPlacement(
-    args: AssociateDeviceWithPlacementCommandInput,
+  public deletePlacement(
+    args: DeletePlacementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void),
-    cb?: (err: any, data?: AssociateDeviceWithPlacementCommandOutput) => void
-  ): Promise<AssociateDeviceWithPlacementCommandOutput> | void {
-    const command = new AssociateDeviceWithPlacementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates a project associated with your AWS account and region. With the exception of
-   *          device template names, you can pass just the values that need to be updated because the
-   *          update request will change only the values that are provided. To clear a value, pass the
-   *          empty string (i.e., <code>""</code>).</p>
-   *
-   */
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateProjectCommandOutput>;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    cb: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): void;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): void;
-  public updateProject(
-    args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
-    cb?: (err: any, data?: UpdateProjectCommandOutput) => void
-  ): Promise<UpdateProjectCommandOutput> | void {
-    const command = new UpdateProjectCommand(args);
+      | ((err: any, data?: DeletePlacementCommandOutput) => void),
+    cb?: (err: any, data?: DeletePlacementCommandOutput) => void
+  ): Promise<DeletePlacementCommandOutput> | void {
+    const command = new DeletePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -383,108 +269,30 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
 
   /**
    *
-   *          <p>Returns an object enumerating the devices in a placement.</p>
+   *          <p>Describes a placement in a project.</p>
    *
    */
-  public getDevicesInPlacement(
-    args: GetDevicesInPlacementCommandInput,
+  public describePlacement(
+    args: DescribePlacementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDevicesInPlacementCommandOutput>;
-  public getDevicesInPlacement(
-    args: GetDevicesInPlacementCommandInput,
-    cb: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
+  ): Promise<DescribePlacementCommandOutput>;
+  public describePlacement(
+    args: DescribePlacementCommandInput,
+    cb: (err: any, data?: DescribePlacementCommandOutput) => void
   ): void;
-  public getDevicesInPlacement(
-    args: GetDevicesInPlacementCommandInput,
+  public describePlacement(
+    args: DescribePlacementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
+    cb: (err: any, data?: DescribePlacementCommandOutput) => void
   ): void;
-  public getDevicesInPlacement(
-    args: GetDevicesInPlacementCommandInput,
+  public describePlacement(
+    args: DescribePlacementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicesInPlacementCommandOutput) => void),
-    cb?: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
-  ): Promise<GetDevicesInPlacementCommandOutput> | void {
-    const command = new GetDevicesInPlacementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes a placement. To delete a placement, it must not have any devices associated with
-   *          it.</p>
-   *          <note>
-   *             <p>When you delete a placement, all associated data becomes irretrievable.</p>
-   *          </note>
-   *
-   */
-  public deletePlacement(
-    args: DeletePlacementCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePlacementCommandOutput>;
-  public deletePlacement(
-    args: DeletePlacementCommandInput,
-    cb: (err: any, data?: DeletePlacementCommandOutput) => void
-  ): void;
-  public deletePlacement(
-    args: DeletePlacementCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePlacementCommandOutput) => void
-  ): void;
-  public deletePlacement(
-    args: DeletePlacementCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlacementCommandOutput) => void),
-    cb?: (err: any, data?: DeletePlacementCommandOutput) => void
-  ): Promise<DeletePlacementCommandOutput> | void {
-    const command = new DeletePlacementCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
-   *
-   */
-  public listProjects(
-    args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListProjectsCommandOutput>;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListProjectsCommandOutput) => void
-  ): void;
-  public listProjects(
-    args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
-    cb?: (err: any, data?: ListProjectsCommandOutput) => void
-  ): Promise<ListProjectsCommandOutput> | void {
-    const command = new ListProjectsCommand(args);
+      | ((err: any, data?: DescribePlacementCommandOutput) => void),
+    cb?: (err: any, data?: DescribePlacementCommandOutput) => void
+  ): Promise<DescribePlacementCommandOutput> | void {
+    const command = new DescribePlacementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -535,30 +343,222 @@ export class IoT1ClickProjects extends IoT1ClickProjectsClient {
 
   /**
    *
-   *          <p>Describes a placement in a project.</p>
+   *          <p>Removes a physical device from a placement.</p>
    *
    */
-  public describePlacement(
-    args: DescribePlacementCommandInput,
+  public disassociateDeviceFromPlacement(
+    args: DisassociateDeviceFromPlacementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribePlacementCommandOutput>;
-  public describePlacement(
-    args: DescribePlacementCommandInput,
-    cb: (err: any, data?: DescribePlacementCommandOutput) => void
+  ): Promise<DisassociateDeviceFromPlacementCommandOutput>;
+  public disassociateDeviceFromPlacement(
+    args: DisassociateDeviceFromPlacementCommandInput,
+    cb: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
   ): void;
-  public describePlacement(
-    args: DescribePlacementCommandInput,
+  public disassociateDeviceFromPlacement(
+    args: DisassociateDeviceFromPlacementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePlacementCommandOutput) => void
+    cb: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
   ): void;
-  public describePlacement(
-    args: DescribePlacementCommandInput,
+  public disassociateDeviceFromPlacement(
+    args: DisassociateDeviceFromPlacementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribePlacementCommandOutput) => void),
-    cb?: (err: any, data?: DescribePlacementCommandOutput) => void
-  ): Promise<DescribePlacementCommandOutput> | void {
-    const command = new DescribePlacementCommand(args);
+      | ((
+          err: any,
+          data?: DisassociateDeviceFromPlacementCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DisassociateDeviceFromPlacementCommandOutput) => void
+  ): Promise<DisassociateDeviceFromPlacementCommandOutput> | void {
+    const command = new DisassociateDeviceFromPlacementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns an object enumerating the devices in a placement.</p>
+   *
+   */
+  public getDevicesInPlacement(
+    args: GetDevicesInPlacementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDevicesInPlacementCommandOutput>;
+  public getDevicesInPlacement(
+    args: GetDevicesInPlacementCommandInput,
+    cb: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
+  ): void;
+  public getDevicesInPlacement(
+    args: GetDevicesInPlacementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
+  ): void;
+  public getDevicesInPlacement(
+    args: GetDevicesInPlacementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDevicesInPlacementCommandOutput) => void),
+    cb?: (err: any, data?: GetDevicesInPlacementCommandOutput) => void
+  ): Promise<GetDevicesInPlacementCommandOutput> | void {
+    const command = new GetDevicesInPlacementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Lists the placement(s) of a project.</p>
+   *
+   */
+  public listPlacements(
+    args: ListPlacementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlacementsCommandOutput>;
+  public listPlacements(
+    args: ListPlacementsCommandInput,
+    cb: (err: any, data?: ListPlacementsCommandOutput) => void
+  ): void;
+  public listPlacements(
+    args: ListPlacementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlacementsCommandOutput) => void
+  ): void;
+  public listPlacements(
+    args: ListPlacementsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPlacementsCommandOutput) => void),
+    cb?: (err: any, data?: ListPlacementsCommandOutput) => void
+  ): Promise<ListPlacementsCommandOutput> | void {
+    const command = new ListPlacementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
+   *
+   */
+  public listProjects(
+    args: ListProjectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProjectsCommandOutput>;
+  public listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+  public listProjects(
+    args: ListProjectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+  public listProjects(
+    args: ListProjectsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    cb?: (err: any, data?: ListProjectsCommandOutput) => void
+  ): Promise<ListProjectsCommandOutput> | void {
+    const command = new ListProjectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates a placement with the given attributes. To clear an attribute, pass an empty
+   *          value (i.e., "").</p>
+   *
+   */
+  public updatePlacement(
+    args: UpdatePlacementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePlacementCommandOutput>;
+  public updatePlacement(
+    args: UpdatePlacementCommandInput,
+    cb: (err: any, data?: UpdatePlacementCommandOutput) => void
+  ): void;
+  public updatePlacement(
+    args: UpdatePlacementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePlacementCommandOutput) => void
+  ): void;
+  public updatePlacement(
+    args: UpdatePlacementCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdatePlacementCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePlacementCommandOutput) => void
+  ): Promise<UpdatePlacementCommandOutput> | void {
+    const command = new UpdatePlacementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates a project associated with your AWS account and region. With the exception of
+   *          device template names, you can pass just the values that need to be updated because the
+   *          update request will change only the values that are provided. To clear a value, pass the
+   *          empty string (i.e., <code>""</code>).</p>
+   *
+   */
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): Promise<UpdateProjectCommandOutput> | void {
+    const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
