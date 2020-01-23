@@ -1,17 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
-}
-
 /**
  *
  *          <p>The certificate is invalid.</p>
@@ -34,6 +23,166 @@ export interface CertificateValidationException
 export namespace CertificateValidationException {
   export function isa(o: any): o is CertificateValidationException {
     return _smithy.isa(o, "CertificateValidationException");
+  }
+}
+
+/**
+ *
+ *          <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *
+ */
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequestException";
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export function isa(o: any): o is InvalidRequestException {
+    return _smithy.isa(o, "InvalidRequestException");
+  }
+}
+
+/**
+ *
+ *          <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
+ *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
+ *          case, the body of the error message also contains the executionState field.</p>
+ *
+ */
+export interface InvalidStateTransitionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidStateTransitionException";
+  name: "InvalidStateTransitionException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidStateTransitionException {
+  export function isa(o: any): o is InvalidStateTransitionException {
+    return _smithy.isa(o, "InvalidStateTransitionException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource does not exist.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>The service is temporarily unavailable.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
+  }
+}
+
+/**
+ *
+ *          <p>The job is in a terminal state.</p>
+ *
+ */
+export interface TerminalStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TerminalStateException";
+  name: "TerminalStateException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TerminalStateException {
+  export function isa(o: any): o is TerminalStateException {
+    return _smithy.isa(o, "TerminalStateException");
+  }
+}
+
+export enum JobExecutionStatus {
+  CANCELED = "CANCELED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  QUEUED = "QUEUED",
+  REJECTED = "REJECTED",
+  REMOVED = "REMOVED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT"
+}
+
+/**
+ *
+ *          <p>The rate exceeds the limit.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message associated with the exception.</p>
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   *          <p>The payload associated with the exception.</p>
+   *
+   */
+  payload?: Uint8Array;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
   }
 }
 
@@ -127,53 +276,6 @@ export interface GetPendingJobExecutionsResponse extends $MetadataBearer {
 export namespace GetPendingJobExecutionsResponse {
   export function isa(o: any): o is GetPendingJobExecutionsResponse {
     return _smithy.isa(o, "GetPendingJobExecutionsResponse");
-  }
-}
-
-/**
- *
- *          <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
- *
- */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequestException";
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
-  }
-}
-
-/**
- *
- *          <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
- *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
- *          case, the body of the error message also contains the executionState field.</p>
- *
- */
-export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidStateTransitionException";
-  name: "InvalidStateTransitionException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidStateTransitionException {
-  export function isa(o: any): o is InvalidStateTransitionException {
-    return _smithy.isa(o, "InvalidStateTransitionException");
   }
 }
 
@@ -366,56 +468,6 @@ export namespace JobExecutionSummary {
   }
 }
 
-/**
- *
- *          <p>The specified resource does not exist.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>The service is temporarily unavailable.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
-}
-
 export interface StartNextPendingJobExecutionRequest {
   __type?: "StartNextPendingJobExecutionRequest";
   /**
@@ -466,58 +518,6 @@ export interface StartNextPendingJobExecutionResponse extends $MetadataBearer {
 export namespace StartNextPendingJobExecutionResponse {
   export function isa(o: any): o is StartNextPendingJobExecutionResponse {
     return _smithy.isa(o, "StartNextPendingJobExecutionResponse");
-  }
-}
-
-/**
- *
- *          <p>The job is in a terminal state.</p>
- *
- */
-export interface TerminalStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TerminalStateException";
-  name: "TerminalStateException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TerminalStateException {
-  export function isa(o: any): o is TerminalStateException {
-    return _smithy.isa(o, "TerminalStateException");
-  }
-}
-
-/**
- *
- *          <p>The rate exceeds the limit.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message associated with the exception.</p>
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   *          <p>The payload associated with the exception.</p>
-   *
-   */
-  payload?: Uint8Array;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
   }
 }
 

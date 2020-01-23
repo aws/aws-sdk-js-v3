@@ -1,37 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BackupPolicy {
-  DEFAULT = "DEFAULT"
-}
-
-export enum BackupState {
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY"
-}
-
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INITIALIZED = "INITIALIZED",
-  INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
-  UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
-}
-
-export enum HsmState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
-}
-
 /**
  *
  *          <p>Contains information about a backup of an AWS CloudHSM cluster.</p>
@@ -86,6 +55,17 @@ export namespace Backup {
   }
 }
 
+export enum BackupPolicy {
+  DEFAULT = "DEFAULT"
+}
+
+export enum BackupState {
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DELETED = "DELETED",
+  PENDING_DELETION = "PENDING_DELETION",
+  READY = "READY"
+}
+
 /**
  *
  *          <p>Contains one or more certificates or a certificate signing request (CSR).</p>
@@ -134,109 +114,6 @@ export interface Certificates {
 export namespace Certificates {
   export function isa(o: any): o is Certificates {
     return _smithy.isa(o, "Certificates");
-  }
-}
-
-/**
- *
- *          <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
- *
- */
-export interface CloudHsmAccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudHsmAccessDeniedException";
-  name: "CloudHsmAccessDeniedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmAccessDeniedException {
-  export function isa(o: any): o is CloudHsmAccessDeniedException {
-    return _smithy.isa(o, "CloudHsmAccessDeniedException");
-  }
-}
-
-/**
- *
- *          <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
- *       be retried.</p>
- *
- */
-export interface CloudHsmInternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudHsmInternalFailureException";
-  name: "CloudHsmInternalFailureException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace CloudHsmInternalFailureException {
-  export function isa(o: any): o is CloudHsmInternalFailureException {
-    return _smithy.isa(o, "CloudHsmInternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>The request was rejected because it is not a valid request.</p>
- *
- */
-export interface CloudHsmInvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudHsmInvalidRequestException";
-  name: "CloudHsmInvalidRequestException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmInvalidRequestException {
-  export function isa(o: any): o is CloudHsmInvalidRequestException {
-    return _smithy.isa(o, "CloudHsmInvalidRequestException");
-  }
-}
-
-/**
- *
- *          <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
- *
- */
-export interface CloudHsmResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudHsmResourceNotFoundException";
-  name: "CloudHsmResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmResourceNotFoundException {
-  export function isa(o: any): o is CloudHsmResourceNotFoundException {
-    return _smithy.isa(o, "CloudHsmResourceNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>The request was rejected because an error occurred.</p>
- *
- */
-export interface CloudHsmServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudHsmServiceException";
-  name: "CloudHsmServiceException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudHsmServiceException {
-  export function isa(o: any): o is CloudHsmServiceException {
-    return _smithy.isa(o, "CloudHsmServiceException");
   }
 }
 
@@ -345,6 +222,18 @@ export namespace Cluster {
   export function isa(o: any): o is Cluster {
     return _smithy.isa(o, "Cluster");
   }
+}
+
+export enum ClusterState {
+  ACTIVE = "ACTIVE",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DEGRADED = "DEGRADED",
+  DELETED = "DELETED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  INITIALIZED = "INITIALIZED",
+  INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
+  UNINITIALIZED = "UNINITIALIZED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 }
 
 export interface CopyBackupToRegionRequest {
@@ -834,6 +723,14 @@ export namespace Hsm {
   }
 }
 
+export enum HsmState {
+  ACTIVE = "ACTIVE",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DEGRADED = "DEGRADED",
+  DELETED = "DELETED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+}
+
 export interface InitializeClusterRequest {
   __type?: "InitializeClusterRequest";
   /**
@@ -1076,5 +973,108 @@ export interface UntagResourceResponse extends $MetadataBearer {
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
     return _smithy.isa(o, "UntagResourceResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because the requester does not have permission to perform the
+ *       requested operation.</p>
+ *
+ */
+export interface CloudHsmAccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudHsmAccessDeniedException";
+  name: "CloudHsmAccessDeniedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmAccessDeniedException {
+  export function isa(o: any): o is CloudHsmAccessDeniedException {
+    return _smithy.isa(o, "CloudHsmAccessDeniedException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *       be retried.</p>
+ *
+ */
+export interface CloudHsmInternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudHsmInternalFailureException";
+  name: "CloudHsmInternalFailureException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace CloudHsmInternalFailureException {
+  export function isa(o: any): o is CloudHsmInternalFailureException {
+    return _smithy.isa(o, "CloudHsmInternalFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because it is not a valid request.</p>
+ *
+ */
+export interface CloudHsmInvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudHsmInvalidRequestException";
+  name: "CloudHsmInvalidRequestException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmInvalidRequestException {
+  export function isa(o: any): o is CloudHsmInvalidRequestException {
+    return _smithy.isa(o, "CloudHsmInvalidRequestException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because it refers to a resource that cannot be
+ *       found.</p>
+ *
+ */
+export interface CloudHsmResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudHsmResourceNotFoundException";
+  name: "CloudHsmResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmResourceNotFoundException {
+  export function isa(o: any): o is CloudHsmResourceNotFoundException {
+    return _smithy.isa(o, "CloudHsmResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was rejected because an error occurred.</p>
+ *
+ */
+export interface CloudHsmServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudHsmServiceException";
+  name: "CloudHsmServiceException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudHsmServiceException {
+  export function isa(o: any): o is CloudHsmServiceException {
+    return _smithy.isa(o, "CloudHsmServiceException");
   }
 }

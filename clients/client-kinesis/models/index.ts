@@ -1,47 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ConsumerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
-}
-
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE"
-}
-
-export enum MetricsName {
-  ALL = "ALL",
-  INCOMING_BYTES = "IncomingBytes",
-  INCOMING_RECORDS = "IncomingRecords",
-  ITERATOR_AGE_MILLISECONDS = "IteratorAgeMilliseconds",
-  OUTGOING_BYTES = "OutgoingBytes",
-  OUTGOING_RECORDS = "OutgoingRecords",
-  READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded",
-  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded"
-}
-
-export enum ScalingType {
-  UNIFORM_SCALING = "UNIFORM_SCALING"
-}
-
-export enum ShardIteratorType {
-  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
-}
-
-export enum StreamStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Represents the input for <code>AddTagsToStream</code>.</p>
@@ -168,6 +127,12 @@ export namespace ConsumerDescription {
   export function isa(o: any): o is ConsumerDescription {
     return _smithy.isa(o, "ConsumerDescription");
   }
+}
+
+export enum ConsumerStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -615,6 +580,11 @@ export namespace EnableEnhancedMonitoringInput {
   export function isa(o: any): o is EnableEnhancedMonitoringInput {
     return _smithy.isa(o, "EnableEnhancedMonitoringInput");
   }
+}
+
+export enum EncryptionType {
+  KMS = "KMS",
+  NONE = "NONE"
 }
 
 /**
@@ -1583,6 +1553,17 @@ export namespace MergeShardsInput {
   }
 }
 
+export enum MetricsName {
+  ALL = "ALL",
+  INCOMING_BYTES = "IncomingBytes",
+  INCOMING_RECORDS = "IncomingRecords",
+  ITERATOR_AGE_MILLISECONDS = "IteratorAgeMilliseconds",
+  OUTGOING_BYTES = "OutgoingBytes",
+  OUTGOING_RECORDS = "OutgoingRecords",
+  READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded",
+  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded"
+}
+
 /**
  *
  *         <p>The request rate for the stream is too high, or the requested data is too large for
@@ -2073,6 +2054,10 @@ export namespace ResourceNotFoundException {
   }
 }
 
+export enum ScalingType {
+  UNIFORM_SCALING = "UNIFORM_SCALING"
+}
+
 /**
  *
  *         <p>The range of possible sequence numbers for the shard.</p>
@@ -2149,6 +2134,14 @@ export namespace Shard {
   export function isa(o: any): o is Shard {
     return _smithy.isa(o, "Shard");
   }
+}
+
+export enum ShardIteratorType {
+  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
+  AT_TIMESTAMP = "AT_TIMESTAMP",
+  LATEST = "LATEST",
+  TRIM_HORIZON = "TRIM_HORIZON"
 }
 
 /**
@@ -2622,6 +2615,13 @@ export namespace StreamDescriptionSummary {
   }
 }
 
+export enum StreamStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING"
+}
+
 /**
  *
  *         <p>After you call <a>SubscribeToShard</a>, Kinesis Data Streams sends events of this type to your consumer. </p>
@@ -2655,136 +2655,6 @@ export interface SubscribeToShardEvent {
 export namespace SubscribeToShardEvent {
   export function isa(o: any): o is SubscribeToShardEvent {
     return _smithy.isa(o, "SubscribeToShardEvent");
-  }
-}
-
-export interface SubscribeToShardInput {
-  __type?: "SubscribeToShardInput";
-  /**
-   *
-   *         <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
-   *
-   */
-  ConsumerARN: string | undefined;
-
-  /**
-   *
-   *         <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a
-   *             given stream, use <a>ListShards</a>.</p>
-   *
-   */
-  ShardId: string | undefined;
-
-  StartingPosition: StartingPosition | undefined;
-}
-
-export namespace SubscribeToShardInput {
-  export function isa(o: any): o is SubscribeToShardInput {
-    return _smithy.isa(o, "SubscribeToShardInput");
-  }
-}
-
-export interface SubscribeToShardOutput extends $MetadataBearer {
-  __type?: "SubscribeToShardOutput";
-  /**
-   *
-   *         <p>The event stream that your consumer can use to read records from the shard.</p>
-   *
-   */
-  EventStream?: SubscribeToShardEventStream;
-}
-
-export namespace SubscribeToShardOutput {
-  export function isa(o: any): o is SubscribeToShardOutput {
-    return _smithy.isa(o, "SubscribeToShardOutput");
-  }
-}
-
-/**
- *
- *         <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
- *
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   *
-   *         <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
-   *
-   */
-  Key: string | undefined;
-
-  /**
-   *
-   *         <p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
-   *
-   */
-  Value?: string;
-}
-
-export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
-  }
-}
-
-export interface UpdateShardCountInput {
-  __type?: "UpdateShardCountInput";
-  /**
-   *
-   *         <p>The scaling type. Uniform scaling creates shards of equal size.</p>
-   *
-   */
-  ScalingType: ScalingType | string | undefined;
-
-  /**
-   *
-   *         <p>The name of the stream.</p>
-   *
-   */
-  StreamName: string | undefined;
-
-  /**
-   *
-   *         <p>The new number of shards.</p>
-   *
-   */
-  TargetShardCount: number | undefined;
-}
-
-export namespace UpdateShardCountInput {
-  export function isa(o: any): o is UpdateShardCountInput {
-    return _smithy.isa(o, "UpdateShardCountInput");
-  }
-}
-
-export interface UpdateShardCountOutput extends $MetadataBearer {
-  __type?: "UpdateShardCountOutput";
-  /**
-   *
-   *         <p>The current number of shards.</p>
-   *
-   */
-  CurrentShardCount?: number;
-
-  /**
-   *
-   *         <p>The name of the stream.</p>
-   *
-   */
-  StreamName?: string;
-
-  /**
-   *
-   *         <p>The updated number of shards.</p>
-   *
-   */
-  TargetShardCount?: number;
-}
-
-export namespace UpdateShardCountOutput {
-  export function isa(o: any): o is UpdateShardCountOutput {
-    return _smithy.isa(o, "UpdateShardCountOutput");
   }
 }
 
@@ -3037,5 +2907,135 @@ export namespace SubscribeToShardEventStream {
     if (value.SubscribeToShardEvent !== undefined)
       return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
+  }
+}
+
+export interface SubscribeToShardInput {
+  __type?: "SubscribeToShardInput";
+  /**
+   *
+   *         <p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>
+   *
+   */
+  ConsumerARN: string | undefined;
+
+  /**
+   *
+   *         <p>The ID of the shard you want to subscribe to. To see a list of all the shards for a
+   *             given stream, use <a>ListShards</a>.</p>
+   *
+   */
+  ShardId: string | undefined;
+
+  StartingPosition: StartingPosition | undefined;
+}
+
+export namespace SubscribeToShardInput {
+  export function isa(o: any): o is SubscribeToShardInput {
+    return _smithy.isa(o, "SubscribeToShardInput");
+  }
+}
+
+export interface SubscribeToShardOutput extends $MetadataBearer {
+  __type?: "SubscribeToShardOutput";
+  /**
+   *
+   *         <p>The event stream that your consumer can use to read records from the shard.</p>
+   *
+   */
+  EventStream?: SubscribeToShardEventStream;
+}
+
+export namespace SubscribeToShardOutput {
+  export function isa(o: any): o is SubscribeToShardOutput {
+    return _smithy.isa(o, "SubscribeToShardOutput");
+  }
+}
+
+/**
+ *
+ *         <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
+ *
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   *
+   *         <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
+   *
+   */
+  Key: string | undefined;
+
+  /**
+   *
+   *         <p>An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  export function isa(o: any): o is Tag {
+    return _smithy.isa(o, "Tag");
+  }
+}
+
+export interface UpdateShardCountInput {
+  __type?: "UpdateShardCountInput";
+  /**
+   *
+   *         <p>The scaling type. Uniform scaling creates shards of equal size.</p>
+   *
+   */
+  ScalingType: ScalingType | string | undefined;
+
+  /**
+   *
+   *         <p>The name of the stream.</p>
+   *
+   */
+  StreamName: string | undefined;
+
+  /**
+   *
+   *         <p>The new number of shards.</p>
+   *
+   */
+  TargetShardCount: number | undefined;
+}
+
+export namespace UpdateShardCountInput {
+  export function isa(o: any): o is UpdateShardCountInput {
+    return _smithy.isa(o, "UpdateShardCountInput");
+  }
+}
+
+export interface UpdateShardCountOutput extends $MetadataBearer {
+  __type?: "UpdateShardCountOutput";
+  /**
+   *
+   *         <p>The current number of shards.</p>
+   *
+   */
+  CurrentShardCount?: number;
+
+  /**
+   *
+   *         <p>The name of the stream.</p>
+   *
+   */
+  StreamName?: string;
+
+  /**
+   *
+   *         <p>The updated number of shards.</p>
+   *
+   */
+  TargetShardCount?: number;
+}
+
+export namespace UpdateShardCountOutput {
+  export function isa(o: any): o is UpdateShardCountOutput {
+    return _smithy.isa(o, "UpdateShardCountOutput");
   }
 }

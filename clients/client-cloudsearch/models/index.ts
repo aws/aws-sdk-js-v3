@@ -1,81 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
-
-export type AnalysisSchemeLanguage =
-  | "ar"
-  | "bg"
-  | "ca"
-  | "cs"
-  | "da"
-  | "de"
-  | "el"
-  | "en"
-  | "es"
-  | "eu"
-  | "fa"
-  | "fi"
-  | "fr"
-  | "ga"
-  | "gl"
-  | "he"
-  | "hi"
-  | "hu"
-  | "hy"
-  | "id"
-  | "it"
-  | "ja"
-  | "ko"
-  | "lv"
-  | "mul"
-  | "nl"
-  | "no"
-  | "pt"
-  | "ro"
-  | "ru"
-  | "sv"
-  | "th"
-  | "tr"
-  | "zh-Hans"
-  | "zh-Hant";
-
-export type IndexFieldType =
-  | "date"
-  | "date-array"
-  | "double"
-  | "double-array"
-  | "int"
-  | "int-array"
-  | "latlon"
-  | "literal"
-  | "literal-array"
-  | "text"
-  | "text-array";
-
-export type OptionState =
-  | "Active"
-  | "FailedToValidate"
-  | "Processing"
-  | "RequiresIndexDocuments";
-
-export type PartitionInstanceType =
-  | "search.m1.large"
-  | "search.m1.small"
-  | "search.m2.2xlarge"
-  | "search.m2.xlarge"
-  | "search.m3.2xlarge"
-  | "search.m3.large"
-  | "search.m3.medium"
-  | "search.m3.xlarge";
-
-export type SuggesterFuzzyMatching = "high" | "low" | "none";
-
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
-}
-
 /**
  *
  *   <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
@@ -103,6 +28,8 @@ export namespace AccessPoliciesStatus {
     return _smithy.isa(o, "AccessPoliciesStatus");
   }
 }
+
+export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
 
 /**
  *
@@ -188,6 +115,43 @@ export namespace AnalysisScheme {
     return _smithy.isa(o, "AnalysisScheme");
   }
 }
+
+export type AnalysisSchemeLanguage =
+  | "ar"
+  | "bg"
+  | "ca"
+  | "cs"
+  | "da"
+  | "de"
+  | "el"
+  | "en"
+  | "es"
+  | "eu"
+  | "fa"
+  | "fi"
+  | "fr"
+  | "ga"
+  | "gl"
+  | "he"
+  | "hi"
+  | "hu"
+  | "hy"
+  | "id"
+  | "it"
+  | "ja"
+  | "ko"
+  | "lv"
+  | "mul"
+  | "nl"
+  | "no"
+  | "pt"
+  | "ro"
+  | "ru"
+  | "sv"
+  | "th"
+  | "tr"
+  | "zh-Hans"
+  | "zh-Hant";
 
 /**
  *
@@ -1947,6 +1911,19 @@ export namespace IndexFieldStatus {
   }
 }
 
+export type IndexFieldType =
+  | "date"
+  | "date-array"
+  | "double"
+  | "double-array"
+  | "int"
+  | "int-array"
+  | "latlon"
+  | "literal"
+  | "literal-array"
+  | "text"
+  | "text-array";
+
 /**
  *
  *     <p>Options for a field that contains an array of 64-bit signed integers.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int-array</code>. All options are enabled by default.</p>
@@ -2369,6 +2346,12 @@ export namespace LiteralOptions {
   }
 }
 
+export type OptionState =
+  | "Active"
+  | "FailedToValidate"
+  | "Processing"
+  | "RequiresIndexDocuments";
+
 /**
  *
  *     <p>The status of domain configuration option.</p>
@@ -2422,6 +2405,16 @@ export namespace OptionStatus {
     return _smithy.isa(o, "OptionStatus");
   }
 }
+
+export type PartitionInstanceType =
+  | "search.m1.large"
+  | "search.m1.small"
+  | "search.m2.2xlarge"
+  | "search.m2.xlarge"
+  | "search.m3.2xlarge"
+  | "search.m3.large"
+  | "search.m3.medium"
+  | "search.m3.xlarge";
 
 /**
  *
@@ -2569,6 +2562,8 @@ export namespace Suggester {
   }
 }
 
+export type SuggesterFuzzyMatching = "high" | "low" | "none";
+
 /**
  *
  *     <p>The value of a <code>Suggester</code> and its current status.</p>
@@ -2595,6 +2590,11 @@ export namespace SuggesterStatus {
   export function isa(o: any): o is SuggesterStatus {
     return _smithy.isa(o, "SuggesterStatus");
   }
+}
+
+export enum TLSSecurityPolicy {
+  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
 }
 
 /**

@@ -1,119 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum JobManifestFieldName {
-  Bucket = "Bucket",
-  Ignore = "Ignore",
-  Key = "Key",
-  VersionId = "VersionId"
-}
-
-export enum JobManifestFormat {
-  S3BatchOperations_CSV_20180820 = "S3BatchOperations_CSV_20180820",
-  S3InventoryReport_CSV_20161130 = "S3InventoryReport_CSV_20161130"
-}
-
-export enum JobReportFormat {
-  Report_CSV_20180820 = "Report_CSV_20180820"
-}
-
-export enum JobReportScope {
-  AllTasks = "AllTasks",
-  FailedTasksOnly = "FailedTasksOnly"
-}
-
-export enum JobStatus {
-  Active = "Active",
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Complete = "Complete",
-  Completing = "Completing",
-  Failed = "Failed",
-  Failing = "Failing",
-  New = "New",
-  Paused = "Paused",
-  Pausing = "Pausing",
-  Preparing = "Preparing",
-  Ready = "Ready",
-  Suspended = "Suspended"
-}
-
-export enum NetworkOrigin {
-  Internet = "Internet",
-  VPC = "VPC"
-}
-
-export enum OperationName {
-  LambdaInvoke = "LambdaInvoke",
-  S3InitiateRestoreObject = "S3InitiateRestoreObject",
-  S3PutObjectAcl = "S3PutObjectAcl",
-  S3PutObjectCopy = "S3PutObjectCopy",
-  S3PutObjectTagging = "S3PutObjectTagging"
-}
-
-export enum RequestedJobStatus {
-  Cancelled = "Cancelled",
-  Ready = "Ready"
-}
-
-export enum S3CannedAccessControlList {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write"
-}
-
-export enum S3GlacierJobTier {
-  BULK = "BULK",
-  STANDARD = "STANDARD"
-}
-
-export enum S3GranteeTypeIdentifier {
-  CANONICAL = "id",
-  EMAIL_ADDRESS = "emailAddress",
-  GROUP = "uri"
-}
-
-export enum S3MetadataDirective {
-  COPY = "COPY",
-  REPLACE = "REPLACE"
-}
-
-export enum S3ObjectLockLegalHoldStatus {
-  OFF = "OFF",
-  ON = "ON"
-}
-
-export enum S3ObjectLockMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE"
-}
-
-export enum S3Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP"
-}
-
-export enum S3SSEAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS"
-}
-
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA"
-}
-
 /**
  *
  *          <p>An access point used to access a bucket.</p>
@@ -944,6 +831,18 @@ export namespace JobManifest {
   }
 }
 
+export enum JobManifestFieldName {
+  Bucket = "Bucket",
+  Ignore = "Ignore",
+  Key = "Key",
+  VersionId = "VersionId"
+}
+
+export enum JobManifestFormat {
+  S3BatchOperations_CSV_20180820 = "S3BatchOperations_CSV_20180820",
+  S3InventoryReport_CSV_20161130 = "S3InventoryReport_CSV_20161130"
+}
+
 /**
  *
  *          <p>Contains the information required to locate a manifest object.</p>
@@ -1141,6 +1040,31 @@ export namespace JobReport {
   }
 }
 
+export enum JobReportFormat {
+  Report_CSV_20180820 = "Report_CSV_20180820"
+}
+
+export enum JobReportScope {
+  AllTasks = "AllTasks",
+  FailedTasksOnly = "FailedTasksOnly"
+}
+
+export enum JobStatus {
+  Active = "Active",
+  Cancelled = "Cancelled",
+  Cancelling = "Cancelling",
+  Complete = "Complete",
+  Completing = "Completing",
+  Failed = "Failed",
+  Failing = "Failing",
+  New = "New",
+  Paused = "Paused",
+  Pausing = "Pausing",
+  Preparing = "Preparing",
+  Ready = "Ready",
+  Suspended = "Suspended"
+}
+
 /**
  *
  *          <p></p>
@@ -1303,6 +1227,11 @@ export namespace ListJobsResult {
   }
 }
 
+export enum NetworkOrigin {
+  Internet = "Internet",
+  VPC = "VPC"
+}
+
 /**
  *
  *          <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
@@ -1342,6 +1271,14 @@ export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
     return _smithy.isa(o, "NotFoundException");
   }
+}
+
+export enum OperationName {
+  LambdaInvoke = "LambdaInvoke",
+  S3InitiateRestoreObject = "S3InitiateRestoreObject",
+  S3PutObjectAcl = "S3PutObjectAcl",
+  S3PutObjectCopy = "S3PutObjectCopy",
+  S3PutObjectTagging = "S3PutObjectTagging"
 }
 
 /**
@@ -1492,6 +1429,11 @@ export namespace PutPublicAccessBlockRequest {
   }
 }
 
+export enum RequestedJobStatus {
+  Cancelled = "Cancelled",
+  Ready = "Ready"
+}
+
 /**
  *
  *          <p></p>
@@ -1546,6 +1488,16 @@ export namespace S3AccessControlPolicy {
   export function isa(o: any): o is S3AccessControlPolicy {
     return _smithy.isa(o, "S3AccessControlPolicy");
   }
+}
+
+export enum S3CannedAccessControlList {
+  AUTHENTICATED_READ = "authenticated-read",
+  AWS_EXEC_READ = "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
+  BUCKET_OWNER_READ = "bucket-owner-read",
+  PRIVATE = "private",
+  PUBLIC_READ = "public-read",
+  PUBLIC_READ_WRITE = "public-read-write"
 }
 
 /**
@@ -1675,6 +1627,11 @@ export namespace S3CopyObjectOperation {
   }
 }
 
+export enum S3GlacierJobTier {
+  BULK = "BULK",
+  STANDARD = "STANDARD"
+}
+
 /**
  *
  *          <p></p>
@@ -1738,6 +1695,12 @@ export namespace S3Grantee {
   }
 }
 
+export enum S3GranteeTypeIdentifier {
+  CANONICAL = "id",
+  EMAIL_ADDRESS = "emailAddress",
+  GROUP = "uri"
+}
+
 /**
  *
  *          <p>Contains the configuration parameters for an Initiate Glacier Restore job. Amazon S3 batch operations passes each value through to the underlying POST Object restore API.
@@ -1765,6 +1728,21 @@ export namespace S3InitiateRestoreObjectOperation {
   export function isa(o: any): o is S3InitiateRestoreObjectOperation {
     return _smithy.isa(o, "S3InitiateRestoreObjectOperation");
   }
+}
+
+export enum S3MetadataDirective {
+  COPY = "COPY",
+  REPLACE = "REPLACE"
+}
+
+export enum S3ObjectLockLegalHoldStatus {
+  OFF = "OFF",
+  ON = "ON"
+}
+
+export enum S3ObjectLockMode {
+  COMPLIANCE = "COMPLIANCE",
+  GOVERNANCE = "GOVERNANCE"
 }
 
 /**
@@ -1886,6 +1864,19 @@ export namespace S3ObjectOwner {
   }
 }
 
+export enum S3Permission {
+  FULL_CONTROL = "FULL_CONTROL",
+  READ = "READ",
+  READ_ACP = "READ_ACP",
+  WRITE = "WRITE",
+  WRITE_ACP = "WRITE_ACP"
+}
+
+export enum S3SSEAlgorithm {
+  AES256 = "AES256",
+  KMS = "KMS"
+}
+
 /**
  *
  *          <p>Contains the configuration parameters for a Set Object ACL operation. Amazon S3 batch operations passes each value through to the underlying PUT Object acl API.
@@ -1928,6 +1919,15 @@ export namespace S3SetObjectTaggingOperation {
   export function isa(o: any): o is S3SetObjectTaggingOperation {
     return _smithy.isa(o, "S3SetObjectTaggingOperation");
   }
+}
+
+export enum S3StorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  STANDARD = "STANDARD",
+  STANDARD_IA = "STANDARD_IA"
 }
 
 /**

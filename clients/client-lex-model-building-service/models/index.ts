@@ -1,99 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ChannelStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
-export enum ChannelType {
-  FACEBOOK = "Facebook",
-  KIK = "Kik",
-  SLACK = "Slack",
-  TWILIO_SMS = "Twilio-Sms"
-}
-
-export enum ContentType {
-  CUSTOM_PAYLOAD = "CustomPayload",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML"
-}
-
-export enum ExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY"
-}
-
-export enum ExportType {
-  ALEXA_SKILLS_KIT = "ALEXA_SKILLS_KIT",
-  LEX = "LEX"
-}
-
-export enum FulfillmentActivityType {
-  CODE_HOOK = "CodeHook",
-  RETURN_INTENT = "ReturnIntent"
-}
-
-export enum ImportStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
-export enum Locale {
-  DE_DE = "de-DE",
-  EN_GB = "en-GB",
-  EN_US = "en-US"
-}
-
-export enum MergeStrategy {
-  FAIL_ON_CONFLICT = "FAIL_ON_CONFLICT",
-  OVERWRITE_LATEST = "OVERWRITE_LATEST"
-}
-
-export enum ProcessBehavior {
-  BUILD = "BUILD",
-  SAVE = "SAVE"
-}
-
-export enum ReferenceType {
-  BOT = "Bot",
-  BOTALIAS = "BotAlias",
-  BOTCHANNEL = "BotChannel",
-  INTENT = "Intent"
-}
-
-export enum ResourceType {
-  BOT = "BOT",
-  INTENT = "INTENT",
-  SLOT_TYPE = "SLOT_TYPE"
-}
-
-export enum SlotConstraint {
-  OPTIONAL = "Optional",
-  REQUIRED = "Required"
-}
-
-export enum SlotValueSelectionStrategy {
-  ORIGINAL_VALUE = "ORIGINAL_VALUE",
-  TOP_RESOLUTION = "TOP_RESOLUTION"
-}
-
-export enum Status {
-  BUILDING = "BUILDING",
-  FAILED = "FAILED",
-  NOT_BUILT = "NOT_BUILT",
-  READY = "READY",
-  READY_BASIC_TESTING = "READY_BASIC_TESTING"
-}
-
-export enum StatusType {
-  DETECTED = "Detected",
-  MISSED = "Missed"
-}
-
 /**
  *
  *          <p>The request is not well formed. For example, a value is invalid or a required field is
@@ -112,6 +19,109 @@ export interface BadRequestException
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
     return _smithy.isa(o, "BadRequestException");
+  }
+}
+
+/**
+ *
+ *          <p> There was a conflict processing the request. Try your request again. </p>
+ *
+ */
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConflictException";
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export function isa(o: any): o is ConflictException {
+    return _smithy.isa(o, "ConflictException");
+  }
+}
+
+/**
+ *
+ *          <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>The request exceeded a limit. Try your request again.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource specified in the request was not found. Check the resource and try
+ *       again.</p>
+ *
+ */
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotFoundException";
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export function isa(o: any): o is NotFoundException {
+    return _smithy.isa(o, "NotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p> The checksum of the resource that you are trying to change does not match the checksum
+ *       in the request. Check the resource's checksum and try again.</p>
+ *
+ */
+export interface PreconditionFailedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "PreconditionFailedException";
+  name: "PreconditionFailedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace PreconditionFailedException {
+  export function isa(o: any): o is PreconditionFailedException {
+    return _smithy.isa(o, "PreconditionFailedException");
   }
 }
 
@@ -417,6 +427,19 @@ export namespace BuiltinSlotTypeMetadata {
   }
 }
 
+export enum ChannelStatus {
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+export enum ChannelType {
+  FACEBOOK = "Facebook",
+  KIK = "Kik",
+  SLACK = "Slack",
+  TWILIO_SMS = "Twilio-Sms"
+}
+
 /**
  *
  *          <p>Specifies a Lambda function that verifies requests to a bot or fulfills the user's
@@ -447,24 +470,10 @@ export namespace CodeHook {
   }
 }
 
-/**
- *
- *          <p> There was a conflict processing the request. Try your request again. </p>
- *
- */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConflictException";
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
-  }
+export enum ContentType {
+  CUSTOM_PAYLOAD = "CustomPayload",
+  PLAIN_TEXT = "PlainText",
+  SSML = "SSML"
 }
 
 export interface CreateBotVersionRequest {
@@ -1133,6 +1142,17 @@ export namespace EnumerationValue {
   }
 }
 
+export enum ExportStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  READY = "READY"
+}
+
+export enum ExportType {
+  ALEXA_SKILLS_KIT = "ALEXA_SKILLS_KIT",
+  LEX = "LEX"
+}
+
 /**
  *
  *          <p>A prompt for additional activity after an intent is fulfilled. For example, after the
@@ -1210,6 +1230,11 @@ export namespace FulfillmentActivity {
   export function isa(o: any): o is FulfillmentActivity {
     return _smithy.isa(o, "FulfillmentActivity");
   }
+}
+
+export enum FulfillmentActivityType {
+  CODE_HOOK = "CodeHook",
+  RETURN_INTENT = "ReturnIntent"
 }
 
 export interface GetBotAliasRequest {
@@ -2761,6 +2786,12 @@ export namespace GetUtterancesViewResponse {
   }
 }
 
+export enum ImportStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
 /**
  *
  *          <p>Identifies the specific version of an intent.</p>
@@ -2839,45 +2870,15 @@ export namespace IntentMetadata {
   }
 }
 
-/**
- *
- *          <p>An internal Amazon Lex error occurred. Try your request again.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
+export enum Locale {
+  DE_DE = "de-DE",
+  EN_GB = "en-GB",
+  EN_US = "en-US"
 }
 
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>The request exceeded a limit. Try your request again.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
+export enum MergeStrategy {
+  FAIL_ON_CONFLICT = "FAIL_ON_CONFLICT",
+  OVERWRITE_LATEST = "OVERWRITE_LATEST"
 }
 
 /**
@@ -2916,46 +2917,9 @@ export namespace Message {
   }
 }
 
-/**
- *
- *          <p>The resource specified in the request was not found. Check the resource and try
- *       again.</p>
- *
- */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotFoundException";
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
-  }
-}
-
-/**
- *
- *          <p> The checksum of the resource that you are trying to change does not match the checksum
- *       in the request. Check the resource's checksum and try again.</p>
- *
- */
-export interface PreconditionFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "PreconditionFailedException";
-  name: "PreconditionFailedException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace PreconditionFailedException {
-  export function isa(o: any): o is PreconditionFailedException {
-    return _smithy.isa(o, "PreconditionFailedException");
-  }
+export enum ProcessBehavior {
+  BUILD = "BUILD",
+  SAVE = "SAVE"
 }
 
 /**
@@ -3958,6 +3922,13 @@ export namespace PutSlotTypeResponse {
   }
 }
 
+export enum ReferenceType {
+  BOT = "Bot",
+  BOTALIAS = "BotAlias",
+  BOTCHANNEL = "BotChannel",
+  INTENT = "Intent"
+}
+
 /**
  *
  *          <p>The resource that you are attempting to delete is referred to by another resource. Use
@@ -4029,6 +4000,12 @@ export namespace ResourceReference {
   export function isa(o: any): o is ResourceReference {
     return _smithy.isa(o, "ResourceReference");
   }
+}
+
+export enum ResourceType {
+  BOT = "BOT",
+  INTENT = "INTENT",
+  SLOT_TYPE = "SLOT_TYPE"
 }
 
 /**
@@ -4116,6 +4093,11 @@ export namespace Slot {
   }
 }
 
+export enum SlotConstraint {
+  OPTIONAL = "Optional",
+  REQUIRED = "Required"
+}
+
 /**
  *
  *          <p>Provides information about a slot type..</p>
@@ -4164,6 +4146,11 @@ export namespace SlotTypeMetadata {
   export function isa(o: any): o is SlotTypeMetadata {
     return _smithy.isa(o, "SlotTypeMetadata");
   }
+}
+
+export enum SlotValueSelectionStrategy {
+  ORIGINAL_VALUE = "ORIGINAL_VALUE",
+  TOP_RESOLUTION = "TOP_RESOLUTION"
 }
 
 export interface StartImportRequest {
@@ -4301,6 +4288,19 @@ export namespace Statement {
   export function isa(o: any): o is Statement {
     return _smithy.isa(o, "Statement");
   }
+}
+
+export enum Status {
+  BUILDING = "BUILDING",
+  FAILED = "FAILED",
+  NOT_BUILT = "NOT_BUILT",
+  READY = "READY",
+  READY_BASIC_TESTING = "READY_BASIC_TESTING"
+}
+
+export enum StatusType {
+  DETECTED = "Detected",
+  MISSED = "Missed"
 }
 
 /**

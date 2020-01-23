@@ -6,23 +6,6 @@ export enum AmbiguousRoleResolutionType {
   DENY = "Deny"
 }
 
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  INTERNAL_SERVER_ERROR = "InternalServerError"
-}
-
-export enum MappingRuleMatchType {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  NOT_EQUAL = "NotEqual",
-  STARTS_WITH = "StartsWith"
-}
-
-export enum RoleMappingType {
-  RULES = "Rules",
-  TOKEN = "Token"
-}
-
 /**
  *
  *          <p>A provider representing an Amazon Cognito user pool and its client ID.</p>
@@ -351,6 +334,11 @@ export namespace DeveloperUserAlreadyRegisteredException {
   export function isa(o: any): o is DeveloperUserAlreadyRegisteredException {
     return _smithy.isa(o, "DeveloperUserAlreadyRegisteredException");
   }
+}
+
+export enum ErrorCode {
+  ACCESS_DENIED = "AccessDenied",
+  INTERNAL_SERVER_ERROR = "InternalServerError"
 }
 
 /**
@@ -1319,6 +1307,13 @@ export namespace MappingRule {
   }
 }
 
+export enum MappingRuleMatchType {
+  CONTAINS = "Contains",
+  EQUALS = "Equals",
+  NOT_EQUAL = "NotEqual",
+  STARTS_WITH = "StartsWith"
+}
+
 /**
  *
  *          <p>Input to the <code>MergeDeveloperIdentities</code> action.</p>
@@ -1509,6 +1504,11 @@ export namespace RoleMapping {
   export function isa(o: any): o is RoleMapping {
     return _smithy.isa(o, "RoleMapping");
   }
+}
+
+export enum RoleMappingType {
+  RULES = "Rules",
+  TOKEN = "Token"
 }
 
 /**

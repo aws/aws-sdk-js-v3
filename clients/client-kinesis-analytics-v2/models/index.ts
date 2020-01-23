@@ -1,68 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ApplicationRestoreType {
-  RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
-  RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
-  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
-}
-
-export enum ApplicationStatus {
-  DELETING = "DELETING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING"
-}
-
-export enum CodeContentType {
-  PLAINTEXT = "PLAINTEXT",
-  ZIPFILE = "ZIPFILE"
-}
-
-export enum ConfigurationType {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT"
-}
-
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON"
-}
-
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN"
-}
-
-export enum MetricsLevel {
-  APPLICATION = "APPLICATION",
-  OPERATOR = "OPERATOR",
-  PARALLELISM = "PARALLELISM",
-  TASK = "TASK"
-}
-
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON"
-}
-
-export enum RuntimeEnvironment {
-  FLINK_1_6 = "FLINK-1_6",
-  SQL_1_0 = "SQL-1_0"
-}
-
-export enum SnapshotStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  READY = "READY"
-}
-
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   __type?: "AddApplicationCloudWatchLoggingOptionRequest";
   /**
@@ -884,6 +822,12 @@ export namespace ApplicationRestoreConfiguration {
   }
 }
 
+export enum ApplicationRestoreType {
+  RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
+  RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
+  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
+}
+
 /**
  *
  *          <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
@@ -947,6 +891,15 @@ export namespace ApplicationSnapshotConfigurationUpdate {
   export function isa(o: any): o is ApplicationSnapshotConfigurationUpdate {
     return _smithy.isa(o, "ApplicationSnapshotConfigurationUpdate");
   }
+}
+
+export enum ApplicationStatus {
+  DELETING = "DELETING",
+  READY = "READY",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPING = "STOPPING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -1449,6 +1402,11 @@ export namespace CodeContentDescription {
   }
 }
 
+export enum CodeContentType {
+  PLAINTEXT = "PLAINTEXT",
+  ZIPFILE = "ZIPFILE"
+}
+
 /**
  *
  *          <p>Describes an update to the code of a Java-based Kinesis Data Analytics
@@ -1526,6 +1484,11 @@ export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
     return _smithy.isa(o, "ConcurrentModificationException");
   }
+}
+
+export enum ConfigurationType {
+  CUSTOM = "CUSTOM",
+  DEFAULT = "DEFAULT"
 }
 
 export interface CreateApplicationRequest {
@@ -2826,6 +2789,12 @@ export namespace InputSchemaUpdate {
   }
 }
 
+export enum InputStartingPosition {
+  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
+  NOW = "NOW",
+  TRIM_HORIZON = "TRIM_HORIZON"
+}
+
 /**
  *
  *          <p>Describes the point at which the application reads from
@@ -3588,6 +3557,13 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
+export enum LogLevel {
+  DEBUG = "DEBUG",
+  ERROR = "ERROR",
+  INFO = "INFO",
+  WARN = "WARN"
+}
+
 /**
  *
  *          <p>When you configure an SQL-based Amazon Kinesis Data Analytics application's input at the
@@ -3618,6 +3594,13 @@ export namespace MappingParameters {
   export function isa(o: any): o is MappingParameters {
     return _smithy.isa(o, "MappingParameters");
   }
+}
+
+export enum MetricsLevel {
+  APPLICATION = "APPLICATION",
+  OPERATOR = "OPERATOR",
+  PARALLELISM = "PARALLELISM",
+  TASK = "TASK"
 }
 
 /**
@@ -4176,6 +4159,11 @@ export namespace RecordFormat {
   }
 }
 
+export enum RecordFormatType {
+  CSV = "CSV",
+  JSON = "JSON"
+}
+
 /**
  *
  *          <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the reference data
@@ -4455,6 +4443,11 @@ export namespace RunConfigurationUpdate {
   export function isa(o: any): o is RunConfigurationUpdate {
     return _smithy.isa(o, "RunConfigurationUpdate");
   }
+}
+
+export enum RuntimeEnvironment {
+  FLINK_1_6 = "FLINK-1_6",
+  SQL_1_0 = "SQL-1_0"
 }
 
 /**
@@ -4759,6 +4752,13 @@ export namespace SnapshotDetails {
   export function isa(o: any): o is SnapshotDetails {
     return _smithy.isa(o, "SnapshotDetails");
   }
+}
+
+export enum SnapshotStatus {
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  READY = "READY"
 }
 
 /**

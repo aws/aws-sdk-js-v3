@@ -5,10 +5,6 @@ export enum Channel {
   VOICE = "VOICE"
 }
 
-export enum Comparison {
-  LT = "LT"
-}
-
 export enum ContactFlowType {
   AGENT_HOLD = "AGENT_HOLD",
   AGENT_TRANSFER = "AGENT_TRANSFER",
@@ -19,52 +15,6 @@ export enum ContactFlowType {
   CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
   OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
   QUEUE_TRANSFER = "QUEUE_TRANSFER"
-}
-
-export enum CurrentMetricName {
-  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
-  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
-  AGENTS_ERROR = "AGENTS_ERROR",
-  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
-  AGENTS_ONLINE = "AGENTS_ONLINE",
-  AGENTS_ON_CALL = "AGENTS_ON_CALL",
-  AGENTS_STAFFED = "AGENTS_STAFFED",
-  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
-  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE"
-}
-
-export enum Grouping {
-  CHANNEL = "CHANNEL",
-  QUEUE = "QUEUE"
-}
-
-export enum HistoricalMetricName {
-  ABANDON_TIME = "ABANDON_TIME",
-  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
-  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
-  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
-  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
-  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
-  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
-  CONTACTS_HANDLED = "CONTACTS_HANDLED",
-  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
-  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
-  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
-  CONTACTS_MISSED = "CONTACTS_MISSED",
-  CONTACTS_QUEUED = "CONTACTS_QUEUED",
-  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
-  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
-  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
-  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
-  HANDLE_TIME = "HANDLE_TIME",
-  HOLD_TIME = "HOLD_TIME",
-  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
-  INTERACTION_TIME = "INTERACTION_TIME",
-  OCCUPANCY = "OCCUPANCY",
-  QUEUED_TIME = "QUEUED_TIME",
-  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
-  SERVICE_LEVEL = "SERVICE_LEVEL"
 }
 
 export enum PhoneNumberCountryCode {
@@ -322,10 +272,354 @@ export enum QueueType {
   STANDARD = "STANDARD"
 }
 
+export enum Comparison {
+  LT = "LT"
+}
+
+/**
+ *
+ *          <p>Contains information about a real-time metric.</p>
+ *
+ */
+export interface CurrentMetric {
+  __type?: "CurrentMetric";
+  /**
+   *
+   *          <p>The name of the metric.</p>
+   *
+   */
+  Name?: CurrentMetricName | string;
+
+  /**
+   *
+   *          <p>The unit for the metric.</p>
+   *
+   */
+  Unit?: Unit | string;
+}
+
+export namespace CurrentMetric {
+  export function isa(o: any): o is CurrentMetric {
+    return _smithy.isa(o, "CurrentMetric");
+  }
+}
+
+/**
+ *
+ *          <p>Contains the data for a real-time metric.</p>
+ *
+ */
+export interface CurrentMetricData {
+  __type?: "CurrentMetricData";
+  /**
+   *
+   *          <p>Information about the metric.</p>
+   *
+   */
+  Metric?: CurrentMetric;
+
+  /**
+   *
+   *          <p>The value of the metric.</p>
+   *
+   */
+  Value?: number;
+}
+
+export namespace CurrentMetricData {
+  export function isa(o: any): o is CurrentMetricData {
+    return _smithy.isa(o, "CurrentMetricData");
+  }
+}
+
+export enum CurrentMetricName {
+  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
+  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
+  AGENTS_ERROR = "AGENTS_ERROR",
+  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
+  AGENTS_ONLINE = "AGENTS_ONLINE",
+  AGENTS_ON_CALL = "AGENTS_ON_CALL",
+  AGENTS_STAFFED = "AGENTS_STAFFED",
+  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
+  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
+  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE"
+}
+
+/**
+ *
+ *          <p>Contains information about a set of real-time metrics.</p>
+ *
+ */
+export interface CurrentMetricResult {
+  __type?: "CurrentMetricResult";
+  /**
+   *
+   *          <p>The set of metrics.</p>
+   *
+   */
+  Collections?: Array<CurrentMetricData>;
+
+  /**
+   *
+   *          <p>The dimensions for the metrics.</p>
+   *
+   */
+  Dimensions?: Dimensions;
+}
+
+export namespace CurrentMetricResult {
+  export function isa(o: any): o is CurrentMetricResult {
+    return _smithy.isa(o, "CurrentMetricResult");
+  }
+}
+
+/**
+ *
+ *          <p>Contains information about the dimensions for a set of metrics.</p>
+ *
+ */
+export interface Dimensions {
+  __type?: "Dimensions";
+  /**
+   *
+   *          <p>The channel used for grouping and filters.</p>
+   *
+   */
+  Channel?: Channel | string;
+
+  /**
+   *
+   *          <p>Information about the queue for which metrics are returned.</p>
+   *
+   */
+  Queue?: QueueReference;
+}
+
+export namespace Dimensions {
+  export function isa(o: any): o is Dimensions {
+    return _smithy.isa(o, "Dimensions");
+  }
+}
+
+/**
+ *
+ *          <p>Contains the filter to apply when retrieving metrics.</p>
+ *
+ */
+export interface Filters {
+  __type?: "Filters";
+  /**
+   *
+   *          <p>The channel to use to filter the metrics.</p>
+   *
+   */
+  Channels?: Array<Channel | string>;
+
+  /**
+   *
+   *          <p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>
+   *
+   */
+  Queues?: Array<string>;
+}
+
+export namespace Filters {
+  export function isa(o: any): o is Filters {
+    return _smithy.isa(o, "Filters");
+  }
+}
+
+export enum Grouping {
+  CHANNEL = "CHANNEL",
+  QUEUE = "QUEUE"
+}
+
+/**
+ *
+ *          <p>Contains information about a historical metric.</p>
+ *
+ */
+export interface HistoricalMetric {
+  __type?: "HistoricalMetric";
+  /**
+   *
+   *          <p>The name of the metric.</p>
+   *
+   */
+  Name?: HistoricalMetricName | string;
+
+  /**
+   *
+   *          <p>The statistic for the metric.</p>
+   *
+   */
+  Statistic?: Statistic | string;
+
+  /**
+   *
+   *          <p>The threshold for the metric, used with service level metrics.</p>
+   *
+   */
+  Threshold?: Threshold;
+
+  /**
+   *
+   *          <p>The unit for the metric.</p>
+   *
+   */
+  Unit?: Unit | string;
+}
+
+export namespace HistoricalMetric {
+  export function isa(o: any): o is HistoricalMetric {
+    return _smithy.isa(o, "HistoricalMetric");
+  }
+}
+
+/**
+ *
+ *          <p>Contains the data for a historical metric.</p>
+ *
+ */
+export interface HistoricalMetricData {
+  __type?: "HistoricalMetricData";
+  /**
+   *
+   *          <p>Information about the metric.</p>
+   *
+   */
+  Metric?: HistoricalMetric;
+
+  /**
+   *
+   *          <p>The value of the metric.</p>
+   *
+   */
+  Value?: number;
+}
+
+export namespace HistoricalMetricData {
+  export function isa(o: any): o is HistoricalMetricData {
+    return _smithy.isa(o, "HistoricalMetricData");
+  }
+}
+
+export enum HistoricalMetricName {
+  ABANDON_TIME = "ABANDON_TIME",
+  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
+  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
+  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
+  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
+  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
+  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
+  CONTACTS_HANDLED = "CONTACTS_HANDLED",
+  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
+  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
+  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
+  CONTACTS_MISSED = "CONTACTS_MISSED",
+  CONTACTS_QUEUED = "CONTACTS_QUEUED",
+  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
+  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
+  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
+  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
+  HANDLE_TIME = "HANDLE_TIME",
+  HOLD_TIME = "HOLD_TIME",
+  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
+  INTERACTION_TIME = "INTERACTION_TIME",
+  OCCUPANCY = "OCCUPANCY",
+  QUEUED_TIME = "QUEUED_TIME",
+  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
+  SERVICE_LEVEL = "SERVICE_LEVEL"
+}
+
+/**
+ *
+ *          <p>Contains information about the historical metrics retrieved.</p>
+ *
+ */
+export interface HistoricalMetricResult {
+  __type?: "HistoricalMetricResult";
+  /**
+   *
+   *          <p>The set of metrics.</p>
+   *
+   */
+  Collections?: Array<HistoricalMetricData>;
+
+  /**
+   *
+   *          <p>The dimension for the metrics.</p>
+   *
+   */
+  Dimensions?: Dimensions;
+}
+
+export namespace HistoricalMetricResult {
+  export function isa(o: any): o is HistoricalMetricResult {
+    return _smithy.isa(o, "HistoricalMetricResult");
+  }
+}
+
+/**
+ *
+ *          <p>Contains information about a queue resource for which metrics are returned.</p>
+ *
+ */
+export interface QueueReference {
+  __type?: "QueueReference";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the queue.</p>
+   *
+   */
+  Arn?: string;
+
+  /**
+   *
+   *          <p>The identifier of the queue.</p>
+   *
+   */
+  Id?: string;
+}
+
+export namespace QueueReference {
+  export function isa(o: any): o is QueueReference {
+    return _smithy.isa(o, "QueueReference");
+  }
+}
+
 export enum Statistic {
   AVG = "AVG",
   MAX = "MAX",
   SUM = "SUM"
+}
+
+/**
+ *
+ *          <p>Contains information about the threshold for service level metrics.</p>
+ *
+ */
+export interface Threshold {
+  __type?: "Threshold";
+  /**
+   *
+   *          <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
+   *
+   */
+  Comparison?: Comparison | string;
+
+  /**
+   *
+   *          <p>The threshold value to compare.</p>
+   *
+   */
+  ThresholdValue?: number;
+}
+
+export namespace Threshold {
+  export function isa(o: any): o is Threshold {
+    return _smithy.isa(o, "Threshold");
+  }
 }
 
 export enum Unit {
@@ -548,90 +842,6 @@ export namespace Credentials {
   }
 }
 
-/**
- *
- *          <p>Contains information about a real-time metric.</p>
- *
- */
-export interface CurrentMetric {
-  __type?: "CurrentMetric";
-  /**
-   *
-   *          <p>The name of the metric.</p>
-   *
-   */
-  Name?: CurrentMetricName | string;
-
-  /**
-   *
-   *          <p>The unit for the metric.</p>
-   *
-   */
-  Unit?: Unit | string;
-}
-
-export namespace CurrentMetric {
-  export function isa(o: any): o is CurrentMetric {
-    return _smithy.isa(o, "CurrentMetric");
-  }
-}
-
-/**
- *
- *          <p>Contains the data for a real-time metric.</p>
- *
- */
-export interface CurrentMetricData {
-  __type?: "CurrentMetricData";
-  /**
-   *
-   *          <p>Information about the metric.</p>
-   *
-   */
-  Metric?: CurrentMetric;
-
-  /**
-   *
-   *          <p>The value of the metric.</p>
-   *
-   */
-  Value?: number;
-}
-
-export namespace CurrentMetricData {
-  export function isa(o: any): o is CurrentMetricData {
-    return _smithy.isa(o, "CurrentMetricData");
-  }
-}
-
-/**
- *
- *          <p>Contains information about a set of real-time metrics.</p>
- *
- */
-export interface CurrentMetricResult {
-  __type?: "CurrentMetricResult";
-  /**
-   *
-   *          <p>The set of metrics.</p>
-   *
-   */
-  Collections?: Array<CurrentMetricData>;
-
-  /**
-   *
-   *          <p>The dimensions for the metrics.</p>
-   *
-   */
-  Dimensions?: Dimensions;
-}
-
-export namespace CurrentMetricResult {
-  export function isa(o: any): o is CurrentMetricResult {
-    return _smithy.isa(o, "CurrentMetricResult");
-  }
-}
-
 export interface DeleteUserRequest {
   __type?: "DeleteUserRequest";
   /**
@@ -793,34 +1003,6 @@ export namespace DestinationNotAllowedException {
 
 /**
  *
- *          <p>Contains information about the dimensions for a set of metrics.</p>
- *
- */
-export interface Dimensions {
-  __type?: "Dimensions";
-  /**
-   *
-   *          <p>The channel used for grouping and filters.</p>
-   *
-   */
-  Channel?: Channel | string;
-
-  /**
-   *
-   *          <p>Information about the queue for which metrics are returned.</p>
-   *
-   */
-  Queue?: QueueReference;
-}
-
-export namespace Dimensions {
-  export function isa(o: any): o is Dimensions {
-    return _smithy.isa(o, "Dimensions");
-  }
-}
-
-/**
- *
  *          <p>A resource with the specified name already exists.</p>
  *
  */
@@ -836,34 +1018,6 @@ export interface DuplicateResourceException
 export namespace DuplicateResourceException {
   export function isa(o: any): o is DuplicateResourceException {
     return _smithy.isa(o, "DuplicateResourceException");
-  }
-}
-
-/**
- *
- *          <p>Contains the filter to apply when retrieving metrics.</p>
- *
- */
-export interface Filters {
-  __type?: "Filters";
-  /**
-   *
-   *          <p>The channel to use to filter the metrics.</p>
-   *
-   */
-  Channels?: Array<Channel | string>;
-
-  /**
-   *
-   *          <p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>
-   *
-   */
-  Queues?: Array<string>;
-}
-
-export namespace Filters {
-  export function isa(o: any): o is Filters {
-    return _smithy.isa(o, "Filters");
   }
 }
 
@@ -1524,104 +1678,6 @@ export interface HierarchyStructure {
 export namespace HierarchyStructure {
   export function isa(o: any): o is HierarchyStructure {
     return _smithy.isa(o, "HierarchyStructure");
-  }
-}
-
-/**
- *
- *          <p>Contains information about a historical metric.</p>
- *
- */
-export interface HistoricalMetric {
-  __type?: "HistoricalMetric";
-  /**
-   *
-   *          <p>The name of the metric.</p>
-   *
-   */
-  Name?: HistoricalMetricName | string;
-
-  /**
-   *
-   *          <p>The statistic for the metric.</p>
-   *
-   */
-  Statistic?: Statistic | string;
-
-  /**
-   *
-   *          <p>The threshold for the metric, used with service level metrics.</p>
-   *
-   */
-  Threshold?: Threshold;
-
-  /**
-   *
-   *          <p>The unit for the metric.</p>
-   *
-   */
-  Unit?: Unit | string;
-}
-
-export namespace HistoricalMetric {
-  export function isa(o: any): o is HistoricalMetric {
-    return _smithy.isa(o, "HistoricalMetric");
-  }
-}
-
-/**
- *
- *          <p>Contains the data for a historical metric.</p>
- *
- */
-export interface HistoricalMetricData {
-  __type?: "HistoricalMetricData";
-  /**
-   *
-   *          <p>Information about the metric.</p>
-   *
-   */
-  Metric?: HistoricalMetric;
-
-  /**
-   *
-   *          <p>The value of the metric.</p>
-   *
-   */
-  Value?: number;
-}
-
-export namespace HistoricalMetricData {
-  export function isa(o: any): o is HistoricalMetricData {
-    return _smithy.isa(o, "HistoricalMetricData");
-  }
-}
-
-/**
- *
- *          <p>Contains information about the historical metrics retrieved.</p>
- *
- */
-export interface HistoricalMetricResult {
-  __type?: "HistoricalMetricResult";
-  /**
-   *
-   *          <p>The set of metrics.</p>
-   *
-   */
-  Collections?: Array<HistoricalMetricData>;
-
-  /**
-   *
-   *          <p>The dimension for the metrics.</p>
-   *
-   */
-  Dimensions?: Dimensions;
-}
-
-export namespace HistoricalMetricResult {
-  export function isa(o: any): o is HistoricalMetricResult {
-    return _smithy.isa(o, "HistoricalMetricResult");
   }
 }
 
@@ -2296,34 +2352,6 @@ export namespace PhoneNumberSummary {
 
 /**
  *
- *          <p>Contains information about a queue resource for which metrics are returned.</p>
- *
- */
-export interface QueueReference {
-  __type?: "QueueReference";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the queue.</p>
-   *
-   */
-  Arn?: string;
-
-  /**
-   *
-   *          <p>The identifier of the queue.</p>
-   *
-   */
-  Id?: string;
-}
-
-export namespace QueueReference {
-  export function isa(o: any): o is QueueReference {
-    return _smithy.isa(o, "QueueReference");
-  }
-}
-
-/**
- *
  *          <p>Contains summary information about a queue.</p>
  *
  */
@@ -2571,34 +2599,6 @@ export interface StopContactResponse extends $MetadataBearer {
 export namespace StopContactResponse {
   export function isa(o: any): o is StopContactResponse {
     return _smithy.isa(o, "StopContactResponse");
-  }
-}
-
-/**
- *
- *          <p>Contains information about the threshold for service level metrics.</p>
- *
- */
-export interface Threshold {
-  __type?: "Threshold";
-  /**
-   *
-   *          <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
-   *
-   */
-  Comparison?: Comparison | string;
-
-  /**
-   *
-   *          <p>The threshold value to compare.</p>
-   *
-   */
-  ThresholdValue?: number;
-}
-
-export namespace Threshold {
-  export function isa(o: any): o is Threshold {
-    return _smithy.isa(o, "Threshold");
   }
 }
 

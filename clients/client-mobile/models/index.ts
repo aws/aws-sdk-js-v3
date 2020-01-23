@@ -1,22 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum Platform {
-  ANDROID = "ANDROID",
-  JAVASCRIPT = "JAVASCRIPT",
-  LINUX = "LINUX",
-  OBJC = "OBJC",
-  OSX = "OSX",
-  SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS"
-}
-
-export enum ProjectState {
-  IMPORTING = "IMPORTING",
-  NORMAL = "NORMAL",
-  SYNCING = "SYNCING"
-}
-
 /**
  *
  *         <p>
@@ -785,6 +769,16 @@ export namespace NotFoundException {
   }
 }
 
+export enum Platform {
+  ANDROID = "ANDROID",
+  JAVASCRIPT = "JAVASCRIPT",
+  LINUX = "LINUX",
+  OBJC = "OBJC",
+  OSX = "OSX",
+  SWIFT = "SWIFT",
+  WINDOWS = "WINDOWS"
+}
+
 /**
  *
  *         <p>
@@ -871,6 +865,12 @@ export namespace ProjectDetails {
   export function isa(o: any): o is ProjectDetails {
     return _smithy.isa(o, "ProjectDetails");
   }
+}
+
+export enum ProjectState {
+  IMPORTING = "IMPORTING",
+  NORMAL = "NORMAL",
+  SYNCING = "SYNCING"
 }
 
 /**

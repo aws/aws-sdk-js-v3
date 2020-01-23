@@ -1,73 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AssetType {
-  S3_SNAPSHOT = "S3_SNAPSHOT"
-}
-
-export enum Code {
-  ACCESS_DENIED_EXCEPTION = "ACCESS_DENIED_EXCEPTION",
-  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
-  MALWARE_DETECTED = "MALWARE_DETECTED",
-  MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
-  RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
-  SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION"
-}
-
-export enum JobErrorLimitName {
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_revision = "Assets per revision"
-}
-
-export enum JobErrorResourceTypes {
-  ASSET = "ASSET",
-  REVISION = "REVISION"
-}
-
-export enum LimitName {
-  Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
-  Assets_per_revision = "Assets per revision",
-  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
-  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
-  Data_sets_per_account = "Data sets per account",
-  Data_sets_per_product = "Data sets per product",
-  Products_per_account = "Products per account",
-  Revisions_per_data_set = "Revisions per data set"
-}
-
-export enum Origin {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED"
-}
-
-export enum ResourceType {
-  ASSET = "ASSET",
-  DATA_SET = "DATA_SET",
-  JOB = "JOB",
-  REVISION = "REVISION"
-}
-
-export enum State {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  TIMED_OUT = "TIMED_OUT",
-  WAITING = "WAITING"
-}
-
-export enum Type {
-  EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
-  EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
-  IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
-  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL"
-}
-
 /**
  * <p>Access to the resource is denied.</p>
  */
@@ -214,6 +147,10 @@ export namespace AssetSourceEntry {
   }
 }
 
+export enum AssetType {
+  S3_SNAPSHOT = "S3_SNAPSHOT"
+}
+
 export interface CancelJobRequest {
   __type?: "CancelJobRequest";
   /**
@@ -226,6 +163,16 @@ export namespace CancelJobRequest {
   export function isa(o: any): o is CancelJobRequest {
     return _smithy.isa(o, "CancelJobRequest");
   }
+}
+
+export enum Code {
+  ACCESS_DENIED_EXCEPTION = "ACCESS_DENIED_EXCEPTION",
+  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
+  MALWARE_DETECTED = "MALWARE_DETECTED",
+  MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
+  RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
+  SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
+  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION"
 }
 
 /**
@@ -1314,6 +1261,31 @@ export namespace JobError {
   }
 }
 
+export enum JobErrorLimitName {
+  Asset_size_in_GB = "Asset size in GB",
+  Assets_per_revision = "Assets per revision"
+}
+
+export enum JobErrorResourceTypes {
+  ASSET = "ASSET",
+  REVISION = "REVISION"
+}
+
+export enum LimitName {
+  Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
+  Asset_size_in_GB = "Asset size in GB",
+  Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
+  Assets_per_revision = "Assets per revision",
+  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
+  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
+  Data_sets_per_account = "Data sets per account",
+  Data_sets_per_product = "Data sets per product",
+  Products_per_account = "Products per account",
+  Revisions_per_data_set = "Revisions per data set"
+}
+
 export interface ListDataSetRevisionsRequest {
   __type?: "ListDataSetRevisionsRequest";
   /**
@@ -1524,6 +1496,11 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
+export enum Origin {
+  ENTITLED = "ENTITLED",
+  OWNED = "OWNED"
+}
+
 export interface OriginDetails {
   __type?: "OriginDetails";
   ProductId: string | undefined;
@@ -1596,6 +1573,13 @@ export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
   }
+}
+
+export enum ResourceType {
+  ASSET = "ASSET",
+  DATA_SET = "DATA_SET",
+  JOB = "JOB",
+  REVISION = "REVISION"
 }
 
 /**
@@ -1754,6 +1738,15 @@ export namespace StartJobResponse {
   }
 }
 
+export enum State {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  ERROR = "ERROR",
+  IN_PROGRESS = "IN_PROGRESS",
+  TIMED_OUT = "TIMED_OUT",
+  WAITING = "WAITING"
+}
+
 /**
  * <p>The request body for TagResource.</p>
  */
@@ -1795,6 +1788,13 @@ export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
     return _smithy.isa(o, "ThrottlingException");
   }
+}
+
+export enum Type {
+  EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
+  EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
+  IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
+  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL"
 }
 
 export interface UntagResourceRequest {

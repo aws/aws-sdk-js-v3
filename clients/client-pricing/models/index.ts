@@ -1,10 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum FilterType {
-  TERM_MATCH = "TERM_MATCH"
-}
-
 /**
  *
  *          <p>The values of a given attribute, such as <code>Throughput Optimized HDD</code> or <code>Provisioned
@@ -165,6 +161,10 @@ export namespace Filter {
   export function isa(o: any): o is Filter {
     return _smithy.isa(o, "Filter");
   }
+}
+
+export enum FilterType {
+  TERM_MATCH = "TERM_MATCH"
 }
 
 export interface GetAttributeValuesRequest {

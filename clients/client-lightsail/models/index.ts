@@ -1,356 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AccessDirection {
-  inbound = "inbound",
-  outbound = "outbound"
-}
-
-export enum AddOnType {
-  AutoSnapshot = "AutoSnapshot"
-}
-
-export enum AutoSnapshotStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_FOUND = "NotFound",
-  SUCCESS = "Success"
-}
-
-export enum BlueprintType {
-  app = "app",
-  os = "os"
-}
-
-export enum CloudFormationStackRecordSourceType {
-  ExportSnapshotRecord = "ExportSnapshotRecord"
-}
-
-export enum DiskSnapshotState {
-  Completed = "completed",
-  Error = "error",
-  Pending = "pending",
-  Unknown = "unknown"
-}
-
-export enum DiskState {
-  Available = "available",
-  Error = "error",
-  InUse = "in-use",
-  Pending = "pending",
-  Unknown = "unknown"
-}
-
-export enum ExportSnapshotRecordSourceType {
-  DiskSnapshot = "DiskSnapshot",
-  InstanceSnapshot = "InstanceSnapshot"
-}
-
-export enum InstanceAccessProtocol {
-  rdp = "rdp",
-  ssh = "ssh"
-}
-
-export enum InstanceHealthReason {
-  InstanceDeregistrationInProgress = "Instance.DeregistrationInProgress",
-  InstanceFailedHealthChecks = "Instance.FailedHealthChecks",
-  InstanceInvalidState = "Instance.InvalidState",
-  InstanceIpUnusable = "Instance.IpUnusable",
-  InstanceNotInUse = "Instance.NotInUse",
-  InstanceNotRegistered = "Instance.NotRegistered",
-  InstanceResponseCodeMismatch = "Instance.ResponseCodeMismatch",
-  InstanceTimeout = "Instance.Timeout",
-  LbInitialHealthChecking = "Lb.InitialHealthChecking",
-  LbInternalError = "Lb.InternalError",
-  LbRegistrationInProgress = "Lb.RegistrationInProgress"
-}
-
-export enum InstanceHealthState {
-  Draining = "draining",
-  Healthy = "healthy",
-  Initial = "initial",
-  Unavailable = "unavailable",
-  Unhealthy = "unhealthy",
-  Unused = "unused"
-}
-
-export enum InstanceMetricName {
-  CPUUtilization = "CPUUtilization",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System"
-}
-
-export enum InstancePlatform {
-  LinuxUnix = "LINUX_UNIX",
-  Windows = "WINDOWS"
-}
-
-export enum InstanceSnapshotState {
-  Available = "available",
-  Error = "error",
-  Pending = "pending"
-}
-
-export enum LoadBalancerAttributeName {
-  HealthCheckPath = "HealthCheckPath",
-  SessionStickinessEnabled = "SessionStickinessEnabled",
-  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds"
-}
-
-export enum LoadBalancerMetricName {
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  UnhealthyHostCount = "UnhealthyHostCount"
-}
-
-export enum LoadBalancerProtocol {
-  HTTP = "HTTP",
-  HTTP_HTTPS = "HTTP_HTTPS"
-}
-
-export enum LoadBalancerState {
-  Active = "active",
-  ActiveImpaired = "active_impaired",
-  Failed = "failed",
-  Provisioning = "provisioning",
-  Unknown = "unknown"
-}
-
-export enum LoadBalancerTlsCertificateDomainStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS"
-}
-
-export enum LoadBalancerTlsCertificateFailureReason {
-  AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
-  DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
-  InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
-  NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
-  Other = "OTHER"
-}
-
-export enum LoadBalancerTlsCertificateRenewalStatus {
-  Failed = "FAILED",
-  PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS"
-}
-
-export enum LoadBalancerTlsCertificateRevocationReason {
-  AACompromise = "A_A_COMPROMISE",
-  AffiliationChanged = "AFFILIATION_CHANGED",
-  CaCompromise = "CA_COMPROMISE",
-  CertificateHold = "CERTIFICATE_HOLD",
-  CessationOfOperation = "CESSATION_OF_OPERATION",
-  KeyCompromise = "KEY_COMPROMISE",
-  PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
-  RemoveFromCrl = "REMOVE_FROM_CRL",
-  Superceded = "SUPERCEDED",
-  Unspecified = "UNSPECIFIED"
-}
-
-export enum LoadBalancerTlsCertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  Unknown = "UNKNOWN",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT"
-}
-
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum"
-}
-
-export enum MetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second"
-}
-
-export enum NetworkProtocol {
-  ALL = "all",
-  TCP = "tcp",
-  UDP = "udp"
-}
-
-export enum OperationStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  NotStarted = "NotStarted",
-  Started = "Started",
-  Succeeded = "Succeeded"
-}
-
-export enum OperationType {
-  AllocateStaticIp = "AllocateStaticIp",
-  AttachDisk = "AttachDisk",
-  AttachInstancesToLoadBalancer = "AttachInstancesToLoadBalancer",
-  AttachLoadBalancerTlsCertificate = "AttachLoadBalancerTlsCertificate",
-  AttachStaticIp = "AttachStaticIp",
-  CloseInstancePublicPorts = "CloseInstancePublicPorts",
-  CreateDisk = "CreateDisk",
-  CreateDiskFromSnapshot = "CreateDiskFromSnapshot",
-  CreateDiskSnapshot = "CreateDiskSnapshot",
-  CreateDomain = "CreateDomain",
-  CreateInstance = "CreateInstance",
-  CreateInstanceSnapshot = "CreateInstanceSnapshot",
-  CreateInstancesFromSnapshot = "CreateInstancesFromSnapshot",
-  CreateLoadBalancer = "CreateLoadBalancer",
-  CreateLoadBalancerTlsCertificate = "CreateLoadBalancerTlsCertificate",
-  CreateRelationalDatabase = "CreateRelationalDatabase",
-  CreateRelationalDatabaseFromSnapshot = "CreateRelationalDatabaseFromSnapshot",
-  CreateRelationalDatabaseSnapshot = "CreateRelationalDatabaseSnapshot",
-  DeleteDisk = "DeleteDisk",
-  DeleteDiskSnapshot = "DeleteDiskSnapshot",
-  DeleteDomain = "DeleteDomain",
-  DeleteDomainEntry = "DeleteDomainEntry",
-  DeleteInstance = "DeleteInstance",
-  DeleteInstanceSnapshot = "DeleteInstanceSnapshot",
-  DeleteKnownHostKeys = "DeleteKnownHostKeys",
-  DeleteLoadBalancer = "DeleteLoadBalancer",
-  DeleteLoadBalancerTlsCertificate = "DeleteLoadBalancerTlsCertificate",
-  DeleteRelationalDatabase = "DeleteRelationalDatabase",
-  DeleteRelationalDatabaseSnapshot = "DeleteRelationalDatabaseSnapshot",
-  DetachDisk = "DetachDisk",
-  DetachInstancesFromLoadBalancer = "DetachInstancesFromLoadBalancer",
-  DetachStaticIp = "DetachStaticIp",
-  DisableAddOn = "DisableAddOn",
-  EnableAddOn = "EnableAddOn",
-  OpenInstancePublicPorts = "OpenInstancePublicPorts",
-  PutInstancePublicPorts = "PutInstancePublicPorts",
-  RebootInstance = "RebootInstance",
-  RebootRelationalDatabase = "RebootRelationalDatabase",
-  ReleaseStaticIp = "ReleaseStaticIp",
-  StartInstance = "StartInstance",
-  StartRelationalDatabase = "StartRelationalDatabase",
-  StopInstance = "StopInstance",
-  StopRelationalDatabase = "StopRelationalDatabase",
-  UpdateDomainEntry = "UpdateDomainEntry",
-  UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
-  UpdateRelationalDatabase = "UpdateRelationalDatabase",
-  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters"
-}
-
-export enum PortAccessType {
-  Private = "Private",
-  Public = "Public"
-}
-
-export enum PortInfoSourceType {
-  Closed = "CLOSED",
-  Default = "DEFAULT",
-  Instance = "INSTANCE",
-  None = "NONE"
-}
-
-export enum PortState {
-  Closed = "closed",
-  Open = "open"
-}
-
-export enum RecordState {
-  Failed = "Failed",
-  Started = "Started",
-  Succeeded = "Succeeded"
-}
-
-export enum RegionName {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_1 = "ap-southeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AP_SOUTH_1 = "ap-south-1",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  EU_WEST_3 = "eu-west-3",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_1 = "us-west-1",
-  US_WEST_2 = "us-west-2"
-}
-
-export enum RelationalDatabaseEngine {
-  MYSQL = "mysql"
-}
-
-export enum RelationalDatabaseMetricName {
-  CPUUtilization = "CPUUtilization",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput"
-}
-
-export enum RelationalDatabasePasswordVersion {
-  CURRENT = "CURRENT",
-  PENDING = "PENDING",
-  PREVIOUS = "PREVIOUS"
-}
-
-export enum ResourceType {
-  CloudFormationStackRecord = "CloudFormationStackRecord",
-  Disk = "Disk",
-  DiskSnapshot = "DiskSnapshot",
-  Domain = "Domain",
-  ExportSnapshotRecord = "ExportSnapshotRecord",
-  Instance = "Instance",
-  InstanceSnapshot = "InstanceSnapshot",
-  KeyPair = "KeyPair",
-  LoadBalancer = "LoadBalancer",
-  LoadBalancerTlsCertificate = "LoadBalancerTlsCertificate",
-  PeeredVpc = "PeeredVpc",
-  RelationalDatabase = "RelationalDatabase",
-  RelationalDatabaseSnapshot = "RelationalDatabaseSnapshot",
-  StaticIp = "StaticIp"
-}
-
 /**
  *
  *          <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
@@ -373,6 +23,11 @@ export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
     return _smithy.isa(o, "AccessDeniedException");
   }
+}
+
+export enum AccessDirection {
+  inbound = "inbound",
+  outbound = "outbound"
 }
 
 /**
@@ -482,6 +137,10 @@ export namespace AddOnRequest {
   export function isa(o: any): o is AddOnRequest {
     return _smithy.isa(o, "AddOnRequest");
   }
+}
+
+export enum AddOnType {
+  AutoSnapshot = "AutoSnapshot"
 }
 
 export interface AllocateStaticIpRequest {
@@ -831,6 +490,13 @@ export namespace AutoSnapshotDetails {
   }
 }
 
+export enum AutoSnapshotStatus {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  NOT_FOUND = "NotFound",
+  SUCCESS = "Success"
+}
+
 /**
  *
  *          <p>Describes an Availability Zone.</p>
@@ -965,6 +631,11 @@ export namespace Blueprint {
   export function isa(o: any): o is Blueprint {
     return _smithy.isa(o, "Blueprint");
   }
+}
+
+export enum BlueprintType {
+  app = "app",
+  os = "os"
 }
 
 /**
@@ -1216,6 +887,10 @@ export namespace CloudFormationStackRecordSourceInfo {
   export function isa(o: any): o is CloudFormationStackRecordSourceInfo {
     return _smithy.isa(o, "CloudFormationStackRecordSourceInfo");
   }
+}
+
+export enum CloudFormationStackRecordSourceType {
+  ExportSnapshotRecord = "ExportSnapshotRecord"
 }
 
 export interface CopySnapshotRequest {
@@ -3700,6 +3375,21 @@ export namespace DiskSnapshotInfo {
   }
 }
 
+export enum DiskSnapshotState {
+  Completed = "completed",
+  Error = "error",
+  Pending = "pending",
+  Unknown = "unknown"
+}
+
+export enum DiskState {
+  Available = "available",
+  Error = "error",
+  InUse = "in-use",
+  Pending = "pending",
+  Unknown = "unknown"
+}
+
 /**
  *
  *          <p>Describes a domain where you are storing recordsets in Lightsail.</p>
@@ -4092,6 +3782,11 @@ export namespace ExportSnapshotRecordSourceInfo {
   export function isa(o: any): o is ExportSnapshotRecordSourceInfo {
     return _smithy.isa(o, "ExportSnapshotRecordSourceInfo");
   }
+}
+
+export enum ExportSnapshotRecordSourceType {
+  DiskSnapshot = "DiskSnapshot",
+  InstanceSnapshot = "InstanceSnapshot"
 }
 
 export interface ExportSnapshotRequest {
@@ -6852,6 +6547,11 @@ export namespace InstanceAccessDetails {
   }
 }
 
+export enum InstanceAccessProtocol {
+  rdp = "rdp",
+  ssh = "ssh"
+}
+
 /**
  *
  *          <p>Describes the Amazon Elastic Compute Cloud instance and related resources to be created using the
@@ -6959,6 +6659,29 @@ export namespace InstanceHardware {
   export function isa(o: any): o is InstanceHardware {
     return _smithy.isa(o, "InstanceHardware");
   }
+}
+
+export enum InstanceHealthReason {
+  InstanceDeregistrationInProgress = "Instance.DeregistrationInProgress",
+  InstanceFailedHealthChecks = "Instance.FailedHealthChecks",
+  InstanceInvalidState = "Instance.InvalidState",
+  InstanceIpUnusable = "Instance.IpUnusable",
+  InstanceNotInUse = "Instance.NotInUse",
+  InstanceNotRegistered = "Instance.NotRegistered",
+  InstanceResponseCodeMismatch = "Instance.ResponseCodeMismatch",
+  InstanceTimeout = "Instance.Timeout",
+  LbInitialHealthChecking = "Lb.InitialHealthChecking",
+  LbInternalError = "Lb.InternalError",
+  LbRegistrationInProgress = "Lb.RegistrationInProgress"
+}
+
+export enum InstanceHealthState {
+  Draining = "draining",
+  Healthy = "healthy",
+  Initial = "initial",
+  Unavailable = "unavailable",
+  Unhealthy = "unhealthy",
+  Unused = "unused"
 }
 
 /**
@@ -7115,6 +6838,15 @@ export namespace InstanceHealthSummary {
   }
 }
 
+export enum InstanceMetricName {
+  CPUUtilization = "CPUUtilization",
+  NetworkIn = "NetworkIn",
+  NetworkOut = "NetworkOut",
+  StatusCheckFailed = "StatusCheckFailed",
+  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
+  StatusCheckFailed_System = "StatusCheckFailed_System"
+}
+
 /**
  *
  *          <p>Describes monthly data transfer rates and port information for an instance.</p>
@@ -7142,6 +6874,11 @@ export namespace InstanceNetworking {
   export function isa(o: any): o is InstanceNetworking {
     return _smithy.isa(o, "InstanceNetworking");
   }
+}
+
+export enum InstancePlatform {
+  LinuxUnix = "LINUX_UNIX",
+  Windows = "WINDOWS"
 }
 
 /**
@@ -7475,6 +7212,12 @@ export namespace InstanceSnapshotInfo {
   }
 }
 
+export enum InstanceSnapshotState {
+  Available = "available",
+  Error = "error",
+  Pending = "pending"
+}
+
 /**
  *
  *          <p>Describes the virtual private server (or <i>instance</i>)
@@ -7777,6 +7520,40 @@ export namespace LoadBalancer {
   }
 }
 
+export enum LoadBalancerAttributeName {
+  HealthCheckPath = "HealthCheckPath",
+  SessionStickinessEnabled = "SessionStickinessEnabled",
+  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds"
+}
+
+export enum LoadBalancerMetricName {
+  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
+  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
+  HealthyHostCount = "HealthyHostCount",
+  InstanceResponseTime = "InstanceResponseTime",
+  RejectedConnectionCount = "RejectedConnectionCount",
+  RequestCount = "RequestCount",
+  UnhealthyHostCount = "UnhealthyHostCount"
+}
+
+export enum LoadBalancerProtocol {
+  HTTP = "HTTP",
+  HTTP_HTTPS = "HTTP_HTTPS"
+}
+
+export enum LoadBalancerState {
+  Active = "active",
+  ActiveImpaired = "active_impaired",
+  Failed = "failed",
+  Provisioning = "provisioning",
+  Unknown = "unknown"
+}
+
 /**
  *
  *          <p>Describes a load balancer SSL/TLS certificate.</p>
@@ -8053,6 +7830,12 @@ export namespace LoadBalancerTlsCertificate {
   }
 }
 
+export enum LoadBalancerTlsCertificateDomainStatus {
+  Failed = "FAILED",
+  PendingValidation = "PENDING_VALIDATION",
+  Success = "SUCCESS"
+}
+
 /**
  *
  *          <p>Contains information about the domain names on an SSL/TLS certificate that you will use
@@ -8138,6 +7921,21 @@ export namespace LoadBalancerTlsCertificateDomainValidationRecord {
   }
 }
 
+export enum LoadBalancerTlsCertificateFailureReason {
+  AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
+  DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
+  InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
+  NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
+  Other = "OTHER"
+}
+
+export enum LoadBalancerTlsCertificateRenewalStatus {
+  Failed = "FAILED",
+  PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
+  PendingValidation = "PENDING_VALIDATION",
+  Success = "SUCCESS"
+}
+
 /**
  *
  *          <p>Contains information about the status of Lightsail's managed renewal for the
@@ -8170,6 +7968,30 @@ export namespace LoadBalancerTlsCertificateRenewalSummary {
   export function isa(o: any): o is LoadBalancerTlsCertificateRenewalSummary {
     return _smithy.isa(o, "LoadBalancerTlsCertificateRenewalSummary");
   }
+}
+
+export enum LoadBalancerTlsCertificateRevocationReason {
+  AACompromise = "A_A_COMPROMISE",
+  AffiliationChanged = "AFFILIATION_CHANGED",
+  CaCompromise = "CA_COMPROMISE",
+  CertificateHold = "CERTIFICATE_HOLD",
+  CessationOfOperation = "CESSATION_OF_OPERATION",
+  KeyCompromise = "KEY_COMPROMISE",
+  PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
+  RemoveFromCrl = "REMOVE_FROM_CRL",
+  Superceded = "SUPERCEDED",
+  Unspecified = "UNSPECIFIED"
+}
+
+export enum LoadBalancerTlsCertificateStatus {
+  Expired = "EXPIRED",
+  Failed = "FAILED",
+  Inactive = "INACTIVE",
+  Issued = "ISSUED",
+  PendingValidation = "PENDING_VALIDATION",
+  Revoked = "REVOKED",
+  Unknown = "UNKNOWN",
+  ValidationTimedOut = "VALIDATION_TIMED_OUT"
 }
 
 /**
@@ -8292,6 +8114,44 @@ export namespace MetricDatapoint {
   }
 }
 
+export enum MetricStatistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum"
+}
+
+export enum MetricUnit {
+  Bits = "Bits",
+  BitsSecond = "Bits/Second",
+  Bytes = "Bytes",
+  BytesSecond = "Bytes/Second",
+  Count = "Count",
+  CountSecond = "Count/Second",
+  Gigabits = "Gigabits",
+  GigabitsSecond = "Gigabits/Second",
+  Gigabytes = "Gigabytes",
+  GigabytesSecond = "Gigabytes/Second",
+  Kilobits = "Kilobits",
+  KilobitsSecond = "Kilobits/Second",
+  Kilobytes = "Kilobytes",
+  KilobytesSecond = "Kilobytes/Second",
+  Megabits = "Megabits",
+  MegabitsSecond = "Megabits/Second",
+  Megabytes = "Megabytes",
+  MegabytesSecond = "Megabytes/Second",
+  Microseconds = "Microseconds",
+  Milliseconds = "Milliseconds",
+  None = "None",
+  Percent = "Percent",
+  Seconds = "Seconds",
+  Terabits = "Terabits",
+  TerabitsSecond = "Terabits/Second",
+  Terabytes = "Terabytes",
+  TerabytesSecond = "Terabytes/Second"
+}
+
 /**
  *
  *          <p>Describes the monthly data transfer in and out of your virtual private server (or
@@ -8312,6 +8172,12 @@ export namespace MonthlyTransfer {
   export function isa(o: any): o is MonthlyTransfer {
     return _smithy.isa(o, "MonthlyTransfer");
   }
+}
+
+export enum NetworkProtocol {
+  ALL = "all",
+  TCP = "tcp",
+  UDP = "udp"
 }
 
 /**
@@ -8500,6 +8366,64 @@ export namespace OperationFailureException {
   }
 }
 
+export enum OperationStatus {
+  Completed = "Completed",
+  Failed = "Failed",
+  NotStarted = "NotStarted",
+  Started = "Started",
+  Succeeded = "Succeeded"
+}
+
+export enum OperationType {
+  AllocateStaticIp = "AllocateStaticIp",
+  AttachDisk = "AttachDisk",
+  AttachInstancesToLoadBalancer = "AttachInstancesToLoadBalancer",
+  AttachLoadBalancerTlsCertificate = "AttachLoadBalancerTlsCertificate",
+  AttachStaticIp = "AttachStaticIp",
+  CloseInstancePublicPorts = "CloseInstancePublicPorts",
+  CreateDisk = "CreateDisk",
+  CreateDiskFromSnapshot = "CreateDiskFromSnapshot",
+  CreateDiskSnapshot = "CreateDiskSnapshot",
+  CreateDomain = "CreateDomain",
+  CreateInstance = "CreateInstance",
+  CreateInstanceSnapshot = "CreateInstanceSnapshot",
+  CreateInstancesFromSnapshot = "CreateInstancesFromSnapshot",
+  CreateLoadBalancer = "CreateLoadBalancer",
+  CreateLoadBalancerTlsCertificate = "CreateLoadBalancerTlsCertificate",
+  CreateRelationalDatabase = "CreateRelationalDatabase",
+  CreateRelationalDatabaseFromSnapshot = "CreateRelationalDatabaseFromSnapshot",
+  CreateRelationalDatabaseSnapshot = "CreateRelationalDatabaseSnapshot",
+  DeleteDisk = "DeleteDisk",
+  DeleteDiskSnapshot = "DeleteDiskSnapshot",
+  DeleteDomain = "DeleteDomain",
+  DeleteDomainEntry = "DeleteDomainEntry",
+  DeleteInstance = "DeleteInstance",
+  DeleteInstanceSnapshot = "DeleteInstanceSnapshot",
+  DeleteKnownHostKeys = "DeleteKnownHostKeys",
+  DeleteLoadBalancer = "DeleteLoadBalancer",
+  DeleteLoadBalancerTlsCertificate = "DeleteLoadBalancerTlsCertificate",
+  DeleteRelationalDatabase = "DeleteRelationalDatabase",
+  DeleteRelationalDatabaseSnapshot = "DeleteRelationalDatabaseSnapshot",
+  DetachDisk = "DetachDisk",
+  DetachInstancesFromLoadBalancer = "DetachInstancesFromLoadBalancer",
+  DetachStaticIp = "DetachStaticIp",
+  DisableAddOn = "DisableAddOn",
+  EnableAddOn = "EnableAddOn",
+  OpenInstancePublicPorts = "OpenInstancePublicPorts",
+  PutInstancePublicPorts = "PutInstancePublicPorts",
+  RebootInstance = "RebootInstance",
+  RebootRelationalDatabase = "RebootRelationalDatabase",
+  ReleaseStaticIp = "ReleaseStaticIp",
+  StartInstance = "StartInstance",
+  StartRelationalDatabase = "StartRelationalDatabase",
+  StopInstance = "StopInstance",
+  StopRelationalDatabase = "StopRelationalDatabase",
+  UpdateDomainEntry = "UpdateDomainEntry",
+  UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
+  UpdateRelationalDatabase = "UpdateRelationalDatabase",
+  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters"
+}
+
 /**
  *
  *          <p>The password data for the Windows Server-based instance, including the ciphertext and
@@ -8642,6 +8566,11 @@ export namespace PendingModifiedRelationalDatabaseValues {
   }
 }
 
+export enum PortAccessType {
+  Private = "Private",
+  Public = "Public"
+}
+
 /**
  *
  *          <p>Describes information about the ports on your virtual private server (or
@@ -8676,6 +8605,18 @@ export namespace PortInfo {
   export function isa(o: any): o is PortInfo {
     return _smithy.isa(o, "PortInfo");
   }
+}
+
+export enum PortInfoSourceType {
+  Closed = "CLOSED",
+  Default = "DEFAULT",
+  Instance = "INSTANCE",
+  None = "NONE"
+}
+
+export enum PortState {
+  Closed = "closed",
+  Open = "open"
 }
 
 export interface PutInstancePublicPortsRequest {
@@ -8783,6 +8724,12 @@ export namespace RebootRelationalDatabaseResult {
   }
 }
 
+export enum RecordState {
+  Failed = "Failed",
+  Started = "Started",
+  Succeeded = "Succeeded"
+}
+
 /**
  *
  *          <p>Describes the AWS Region.</p>
@@ -8840,6 +8787,23 @@ export namespace Region {
   export function isa(o: any): o is Region {
     return _smithy.isa(o, "Region");
   }
+}
+
+export enum RegionName {
+  AP_NORTHEAST_1 = "ap-northeast-1",
+  AP_NORTHEAST_2 = "ap-northeast-2",
+  AP_SOUTHEAST_1 = "ap-southeast-1",
+  AP_SOUTHEAST_2 = "ap-southeast-2",
+  AP_SOUTH_1 = "ap-south-1",
+  CA_CENTRAL_1 = "ca-central-1",
+  EU_CENTRAL_1 = "eu-central-1",
+  EU_WEST_1 = "eu-west-1",
+  EU_WEST_2 = "eu-west-2",
+  EU_WEST_3 = "eu-west-3",
+  US_EAST_1 = "us-east-1",
+  US_EAST_2 = "us-east-2",
+  US_WEST_1 = "us-west-1",
+  US_WEST_2 = "us-west-2"
 }
 
 /**
@@ -9214,6 +9178,10 @@ export namespace RelationalDatabaseEndpoint {
   }
 }
 
+export enum RelationalDatabaseEngine {
+  MYSQL = "mysql"
+}
+
 /**
  *
  *          <p>Describes an event for a database.</p>
@@ -9291,6 +9259,15 @@ export namespace RelationalDatabaseHardware {
   }
 }
 
+export enum RelationalDatabaseMetricName {
+  CPUUtilization = "CPUUtilization",
+  DatabaseConnections = "DatabaseConnections",
+  DiskQueueDepth = "DiskQueueDepth",
+  FreeStorageSpace = "FreeStorageSpace",
+  NetworkReceiveThroughput = "NetworkReceiveThroughput",
+  NetworkTransmitThroughput = "NetworkTransmitThroughput"
+}
+
 /**
  *
  *          <p>Describes the parameters of a database.</p>
@@ -9360,6 +9337,12 @@ export namespace RelationalDatabaseParameter {
   export function isa(o: any): o is RelationalDatabaseParameter {
     return _smithy.isa(o, "RelationalDatabaseParameter");
   }
+}
+
+export enum RelationalDatabasePasswordVersion {
+  CURRENT = "CURRENT",
+  PENDING = "PENDING",
+  PREVIOUS = "PREVIOUS"
 }
 
 /**
@@ -9549,6 +9532,23 @@ export namespace ResourceLocation {
   export function isa(o: any): o is ResourceLocation {
     return _smithy.isa(o, "ResourceLocation");
   }
+}
+
+export enum ResourceType {
+  CloudFormationStackRecord = "CloudFormationStackRecord",
+  Disk = "Disk",
+  DiskSnapshot = "DiskSnapshot",
+  Domain = "Domain",
+  ExportSnapshotRecord = "ExportSnapshotRecord",
+  Instance = "Instance",
+  InstanceSnapshot = "InstanceSnapshot",
+  KeyPair = "KeyPair",
+  LoadBalancer = "LoadBalancer",
+  LoadBalancerTlsCertificate = "LoadBalancerTlsCertificate",
+  PeeredVpc = "PeeredVpc",
+  RelationalDatabase = "RelationalDatabase",
+  RelationalDatabaseSnapshot = "RelationalDatabaseSnapshot",
+  StaticIp = "StaticIp"
 }
 
 /**

@@ -1,45 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF"
-}
-
-export type ResourceShareAssociationStatus =
-  | "ASSOCIATED"
-  | "ASSOCIATING"
-  | "DISASSOCIATED"
-  | "DISASSOCIATING"
-  | "FAILED";
-
-export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
-
-export type ResourceShareFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
-
-export type ResourceShareInvitationStatus =
-  | "ACCEPTED"
-  | "EXPIRED"
-  | "PENDING"
-  | "REJECTED";
-
-export type ResourceShareStatus =
-  | "ACTIVE"
-  | "DELETED"
-  | "DELETING"
-  | "FAILED"
-  | "PENDING";
-
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "LIMIT_EXCEEDED"
-  | "PENDING"
-  | "UNAVAILABLE"
-  | "ZONAL_RESOURCE_INACCESSIBLE";
-
 export interface AcceptResourceShareInvitationRequest {
   __type?: "AcceptResourceShareInvitationRequest";
   /**
@@ -1575,6 +1536,11 @@ export namespace ResourceArnNotFoundException {
   }
 }
 
+export enum ResourceOwner {
+  OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
+  SELF = "SELF"
+}
+
 /**
  *
  *          <p>Describes a resource share.</p>
@@ -1759,6 +1725,20 @@ export namespace ResourceShareAssociation {
   }
 }
 
+export type ResourceShareAssociationStatus =
+  | "ASSOCIATED"
+  | "ASSOCIATING"
+  | "DISASSOCIATED"
+  | "DISASSOCIATING"
+  | "FAILED";
+
+export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
+
+export type ResourceShareFeatureSet =
+  | "CREATED_FROM_POLICY"
+  | "PROMOTING_TO_STANDARD"
+  | "STANDARD";
+
 /**
  *
  *          <p>Describes an invitation to join a resource share.</p>
@@ -1916,6 +1896,12 @@ export namespace ResourceShareInvitationExpiredException {
     return _smithy.isa(o, "ResourceShareInvitationExpiredException");
   }
 }
+
+export type ResourceShareInvitationStatus =
+  | "ACCEPTED"
+  | "EXPIRED"
+  | "PENDING"
+  | "REJECTED";
 
 /**
  *
@@ -2079,6 +2065,20 @@ export namespace ResourceSharePermissionSummary {
     return _smithy.isa(o, "ResourceSharePermissionSummary");
   }
 }
+
+export type ResourceShareStatus =
+  | "ACTIVE"
+  | "DELETED"
+  | "DELETING"
+  | "FAILED"
+  | "PENDING";
+
+export type ResourceStatus =
+  | "AVAILABLE"
+  | "LIMIT_EXCEEDED"
+  | "PENDING"
+  | "UNAVAILABLE"
+  | "ZONAL_RESOURCE_INACCESSIBLE";
 
 /**
  *

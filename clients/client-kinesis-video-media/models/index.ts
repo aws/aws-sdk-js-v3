@@ -1,57 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum StartSelectorType {
-  CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
-  EARLIEST = "EARLIEST",
-  FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
-  NOW = "NOW",
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
-}
-
-/**
- *
- *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client calls. Try making the call later.</p>
- *
- */
-export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClientLimitExceededException";
-  name: "ClientLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ClientLimitExceededException {
-  export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
-  }
-}
-
-/**
- *
- *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client connections.</p>
- *
- */
-export interface ConnectionLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConnectionLimitExceededException";
-  name: "ConnectionLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ConnectionLimitExceededException {
-  export function isa(o: any): o is ConnectionLimitExceededException {
-    return _smithy.isa(o, "ConnectionLimitExceededException");
-  }
-}
-
 export interface GetMediaInput {
   __type?: "GetMediaInput";
   /**
@@ -177,90 +126,6 @@ export namespace GetMediaOutput {
 
 /**
  *
- *          <p>The value for this input parameter is invalid.</p>
- *
- */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidArgumentException";
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
-  }
-}
-
-/**
- *
- *          <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
- *       such an exception, the user must call <code>GetDataEndpoint</code> with
- *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
- *         <code>GetMedia</code> call. </p>
- *
- */
-export interface InvalidEndpointException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidEndpointException";
-  name: "InvalidEndpointException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidEndpointException {
-  export function isa(o: any): o is InvalidEndpointException {
-    return _smithy.isa(o, "InvalidEndpointException");
-  }
-}
-
-/**
- *
- *          <p>Status Code: 403, The caller is not authorized to perform an operation on the given
- *       stream, or the token has expired.</p>
- *
- */
-export interface NotAuthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotAuthorizedException";
-  name: "NotAuthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
-  }
-}
-
-/**
- *
- *          <p>Status Code: 404, The stream with the given name does not exist.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
  *          <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
@@ -349,5 +214,140 @@ export interface StartSelector {
 export namespace StartSelector {
   export function isa(o: any): o is StartSelector {
     return _smithy.isa(o, "StartSelector");
+  }
+}
+
+export enum StartSelectorType {
+  CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
+  EARLIEST = "EARLIEST",
+  FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
+  NOW = "NOW",
+  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+}
+
+/**
+ *
+ *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client calls. Try making the call later.</p>
+ *
+ */
+export interface ClientLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClientLimitExceededException";
+  name: "ClientLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ClientLimitExceededException {
+  export function isa(o: any): o is ClientLimitExceededException {
+    return _smithy.isa(o, "ClientLimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *       allowed client connections.</p>
+ *
+ */
+export interface ConnectionLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConnectionLimitExceededException";
+  name: "ConnectionLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConnectionLimitExceededException {
+  export function isa(o: any): o is ConnectionLimitExceededException {
+    return _smithy.isa(o, "ConnectionLimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>The value for this input parameter is invalid.</p>
+ *
+ */
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export function isa(o: any): o is InvalidArgumentException {
+    return _smithy.isa(o, "InvalidArgumentException");
+  }
+}
+
+/**
+ *
+ *          <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
+ *       such an exception, the user must call <code>GetDataEndpoint</code> with
+ *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
+ *         <code>GetMedia</code> call. </p>
+ *
+ */
+export interface InvalidEndpointException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidEndpointException";
+  name: "InvalidEndpointException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidEndpointException {
+  export function isa(o: any): o is InvalidEndpointException {
+    return _smithy.isa(o, "InvalidEndpointException");
+  }
+}
+
+/**
+ *
+ *          <p>Status Code: 403, The caller is not authorized to perform an operation on the given
+ *       stream, or the token has expired.</p>
+ *
+ */
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotAuthorizedException";
+  name: "NotAuthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotAuthorizedException {
+  export function isa(o: any): o is NotAuthorizedException {
+    return _smithy.isa(o, "NotAuthorizedException");
+  }
+}
+
+/**
+ *
+ *          <p>Status Code: 404, The stream with the given name does not exist.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
   }
 }

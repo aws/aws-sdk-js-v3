@@ -1,21 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum CodeGenerationStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
-}
-
-export enum DiscovererState {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED"
-}
-
-export enum Type {
-  OpenApi3 = "OpenApi3"
-}
-
 export interface BadRequestException
   extends _smithy.SmithyException,
     $MetadataBearer {
@@ -37,6 +22,12 @@ export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
     return _smithy.isa(o, "BadRequestException");
   }
+}
+
+export enum CodeGenerationStatus {
+  CREATE_COMPLETE = "CREATE_COMPLETE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
 }
 
 export interface ConflictException
@@ -488,6 +479,11 @@ export namespace DescribeSchemaResponse {
   export function isa(o: any): o is DescribeSchemaResponse {
     return _smithy.isa(o, "DescribeSchemaResponse");
   }
+}
+
+export enum DiscovererState {
+  STARTED = "STARTED",
+  STOPPED = "STOPPED"
 }
 
 export interface DiscovererSummary {
@@ -1173,6 +1169,10 @@ export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
     return _smithy.isa(o, "TooManyRequestsException");
   }
+}
+
+export enum Type {
+  OpenApi3 = "OpenApi3"
 }
 
 export interface UnauthorizedException

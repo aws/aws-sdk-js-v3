@@ -1,61 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ActiveDirectoryErrorType {
-  DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
-  INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
-  INVALID_DOMAIN_STAGE = "INVALID_DOMAIN_STAGE",
-  WRONG_VPC = "WRONG_VPC"
-}
-
-export enum BackupLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED"
-}
-
-export enum BackupType {
-  AUTOMATIC = "AUTOMATIC",
-  USER_INITIATED = "USER_INITIATED"
-}
-
-export enum FileSystemLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  UPDATING = "UPDATING"
-}
-
-export enum FileSystemMaintenanceOperation {
-  BACKING_UP = "BACKING_UP",
-  PATCHING = "PATCHING"
-}
-
-export enum FileSystemType {
-  LUSTRE = "LUSTRE",
-  WINDOWS = "WINDOWS"
-}
-
-export enum FilterName {
-  BACKUP_TYPE = "backup-type",
-  FILE_SYSTEM_ID = "file-system-id"
-}
-
-export enum ServiceLimit {
-  FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
-  TOTAL_STORAGE = "TOTAL_STORAGE",
-  TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
-  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS"
-}
-
-export enum WindowsDeploymentType {
-  MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1"
-}
-
 /**
  *
  *         <p>The Microsoft AD attributes of the Amazon FSx for Windows File Server file system.</p>
@@ -121,6 +66,13 @@ export namespace ActiveDirectoryError {
   export function isa(o: any): o is ActiveDirectoryError {
     return _smithy.isa(o, "ActiveDirectoryError");
   }
+}
+
+export enum ActiveDirectoryErrorType {
+  DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
+  INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
+  INVALID_DOMAIN_STAGE = "INVALID_DOMAIN_STAGE",
+  WRONG_VPC = "WRONG_VPC"
 }
 
 /**
@@ -265,6 +217,13 @@ export namespace BackupInProgress {
   }
 }
 
+export enum BackupLifecycle {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  FAILED = "FAILED"
+}
+
 /**
  *
  *         <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
@@ -321,6 +280,11 @@ export namespace BackupRestoring {
   export function isa(o: any): o is BackupRestoring {
     return _smithy.isa(o, "BackupRestoring");
   }
+}
+
+export enum BackupType {
+  AUTOMATIC = "AUTOMATIC",
+  USER_INITIATED = "USER_INITIATED"
 }
 
 /**
@@ -1368,6 +1332,20 @@ export namespace FileSystemFailureDetails {
   }
 }
 
+export enum FileSystemLifecycle {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  MISCONFIGURED = "MISCONFIGURED",
+  UPDATING = "UPDATING"
+}
+
+export enum FileSystemMaintenanceOperation {
+  BACKING_UP = "BACKING_UP",
+  PATCHING = "PATCHING"
+}
+
 /**
  *
  *         <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
@@ -1391,6 +1369,11 @@ export namespace FileSystemNotFound {
   export function isa(o: any): o is FileSystemNotFound {
     return _smithy.isa(o, "FileSystemNotFound");
   }
+}
+
+export enum FileSystemType {
+  LUSTRE = "LUSTRE",
+  WINDOWS = "WINDOWS"
 }
 
 /**
@@ -1421,6 +1404,11 @@ export namespace Filter {
   export function isa(o: any): o is Filter {
     return _smithy.isa(o, "Filter");
   }
+}
+
+export enum FilterName {
+  BACKUP_TYPE = "backup-type",
+  FILE_SYSTEM_ID = "file-system-id"
 }
 
 /**
@@ -1993,6 +1981,13 @@ export namespace SelfManagedActiveDirectoryConfigurationUpdates {
   }
 }
 
+export enum ServiceLimit {
+  FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
+  TOTAL_STORAGE = "TOTAL_STORAGE",
+  TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
+  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS"
+}
+
 /**
  *
  *         <p>An error indicating that a particular service limit was exceeded. You can increase
@@ -2307,6 +2302,11 @@ export namespace UpdateFileSystemWindowsConfiguration {
   export function isa(o: any): o is UpdateFileSystemWindowsConfiguration {
     return _smithy.isa(o, "UpdateFileSystemWindowsConfiguration");
   }
+}
+
+export enum WindowsDeploymentType {
+  MULTI_AZ_1 = "MULTI_AZ_1",
+  SINGLE_AZ_1 = "SINGLE_AZ_1"
 }
 
 /**

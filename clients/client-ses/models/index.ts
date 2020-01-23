@@ -1,107 +1,54 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BehaviorOnMXFailure {
-  RejectMessage = "RejectMessage",
-  UseDefaultValue = "UseDefaultValue"
+/**
+ *
+ *         <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
+ *                 <code>SendRawEmail</code> to apply to an email.</p>
+ *         <p>Message tags, which you use with configuration sets, enable you to publish email
+ *             sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ *
+ */
+export interface MessageTag {
+  __type?: "MessageTag";
+  /**
+   *
+   *         <p>The name of the tag. The name must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Contain less than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *         <p>The value of the tag. The value must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Contain less than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  Value: string | undefined;
 }
 
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined"
+export namespace MessageTag {
+  export function isa(o: any): o is MessageTag {
+    return _smithy.isa(o, "MessageTag");
+  }
 }
-
-export enum BulkEmailStatus {
-  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
-  AccountSendingPaused = "AccountSendingPaused",
-  AccountSuspended = "AccountSuspended",
-  AccountThrottled = "AccountThrottled",
-  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
-  Failed = "Failed",
-  InvalidParameterValue = "InvalidParameterValue",
-  InvalidSendingPoolName = "InvalidSendingPoolName",
-  MailFromDomainNotVerified = "MailFromDomainNotVerified",
-  MessageRejected = "MessageRejected",
-  Success = "Success",
-  TemplateDoesNotExist = "TemplateDoesNotExist",
-  TransientFailure = "TransientFailure"
-}
-
-export enum ConfigurationSetAttribute {
-  DELIVERY_OPTIONS = "deliveryOptions",
-  EVENT_DESTINATIONS = "eventDestinations",
-  REPUTATION_OPTIONS = "reputationOptions",
-  TRACKING_OPTIONS = "trackingOptions"
-}
-
-export enum CustomMailFromStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-  TemporaryFailure = "TemporaryFailure"
-}
-
-export enum DimensionValueSource {
-  EMAIL_HEADER = "emailHeader",
-  LINK_TAG = "linkTag",
-  MESSAGE_TAG = "messageTag"
-}
-
-export enum DsnAction {
-  DELAYED = "delayed",
-  DELIVERED = "delivered",
-  EXPANDED = "expanded",
-  FAILED = "failed",
-  RELAYED = "relayed"
-}
-
-export enum EventType {
-  BOUNCE = "bounce",
-  CLICK = "click",
-  COMPLAINT = "complaint",
-  DELIVERY = "delivery",
-  OPEN = "open",
-  REJECT = "reject",
-  RENDERING_FAILURE = "renderingFailure",
-  SEND = "send"
-}
-
-export type IdentityType = "Domain" | "EmailAddress";
-
-export type InvocationType = "Event" | "RequestResponse";
-
-export type NotificationType = "Bounce" | "Complaint" | "Delivery";
-
-export enum ReceiptFilterPolicy {
-  Allow = "Allow",
-  Block = "Block"
-}
-
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8"
-}
-
-export enum StopScope {
-  RULE_SET = "RuleSet"
-}
-
-export enum TlsPolicy {
-  Optional = "Optional",
-  Require = "Require"
-}
-
-export type VerificationStatus =
-  | "Failed"
-  | "NotStarted"
-  | "Pending"
-  | "Success"
-  | "TemporaryFailure";
 
 /**
  *
@@ -183,6 +130,11 @@ export namespace AlreadyExistsException {
   export function isa(o: any): o is AlreadyExistsException {
     return _smithy.isa(o, "AlreadyExistsException");
   }
+}
+
+export enum BehaviorOnMXFailure {
+  RejectMessage = "RejectMessage",
+  UseDefaultValue = "UseDefaultValue"
 }
 
 /**
@@ -274,6 +226,15 @@ export namespace BounceAction {
   export function isa(o: any): o is BounceAction {
     return _smithy.isa(o, "BounceAction");
   }
+}
+
+export enum BounceType {
+  ContentRejected = "ContentRejected",
+  DoesNotExist = "DoesNotExist",
+  ExceededQuota = "ExceededQuota",
+  MessageTooLarge = "MessageTooLarge",
+  TemporaryFailure = "TemporaryFailure",
+  Undefined = "Undefined"
 }
 
 /**
@@ -490,6 +451,23 @@ export namespace BulkEmailDestinationStatus {
   export function isa(o: any): o is BulkEmailDestinationStatus {
     return _smithy.isa(o, "BulkEmailDestinationStatus");
   }
+}
+
+export enum BulkEmailStatus {
+  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
+  AccountSendingPaused = "AccountSendingPaused",
+  AccountSuspended = "AccountSuspended",
+  AccountThrottled = "AccountThrottled",
+  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
+  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
+  Failed = "Failed",
+  InvalidParameterValue = "InvalidParameterValue",
+  InvalidSendingPoolName = "InvalidSendingPoolName",
+  MailFromDomainNotVerified = "MailFromDomainNotVerified",
+  MessageRejected = "MessageRejected",
+  Success = "Success",
+  TemplateDoesNotExist = "TemplateDoesNotExist",
+  TransientFailure = "TransientFailure"
 }
 
 /**
@@ -724,6 +702,13 @@ export namespace ConfigurationSetAlreadyExistsException {
   export function isa(o: any): o is ConfigurationSetAlreadyExistsException {
     return _smithy.isa(o, "ConfigurationSetAlreadyExistsException");
   }
+}
+
+export enum ConfigurationSetAttribute {
+  DELIVERY_OPTIONS = "deliveryOptions",
+  EVENT_DESTINATIONS = "eventDestinations",
+  REPUTATION_OPTIONS = "reputationOptions",
+  TRACKING_OPTIONS = "trackingOptions"
 }
 
 /**
@@ -1196,6 +1181,13 @@ export namespace CreateTemplateResponse {
   export function isa(o: any): o is CreateTemplateResponse {
     return _smithy.isa(o, "CreateTemplateResponse");
   }
+}
+
+export enum CustomMailFromStatus {
+  Failed = "Failed",
+  Pending = "Pending",
+  Success = "Success",
+  TemporaryFailure = "TemporaryFailure"
 }
 
 /**
@@ -2063,6 +2055,20 @@ export namespace Destination {
   }
 }
 
+export enum DimensionValueSource {
+  EMAIL_HEADER = "emailHeader",
+  LINK_TAG = "linkTag",
+  MESSAGE_TAG = "messageTag"
+}
+
+export enum DsnAction {
+  DELAYED = "delayed",
+  DELIVERED = "delivered",
+  EXPANDED = "expanded",
+  FAILED = "failed",
+  RELAYED = "relayed"
+}
+
 /**
  *
  *         <p>Contains information about the event destination that the specified email sending
@@ -2210,6 +2216,17 @@ export namespace EventDestinationDoesNotExistException {
   export function isa(o: any): o is EventDestinationDoesNotExistException {
     return _smithy.isa(o, "EventDestinationDoesNotExistException");
   }
+}
+
+export enum EventType {
+  BOUNCE = "bounce",
+  CLICK = "click",
+  COMPLAINT = "complaint",
+  DELIVERY = "delivery",
+  OPEN = "open",
+  REJECT = "reject",
+  RENDERING_FAILURE = "renderingFailure",
+  SEND = "send"
 }
 
 /**
@@ -2903,6 +2920,8 @@ export namespace IdentityNotificationAttributes {
   }
 }
 
+export type IdentityType = "Domain" | "EmailAddress";
+
 /**
  *
  *         <p>Represents the verification attributes of a single identity.</p>
@@ -3263,6 +3282,8 @@ export namespace InvalidTrackingOptionsException {
     return _smithy.isa(o, "InvalidTrackingOptionsException");
   }
 }
+
+export type InvocationType = "Event" | "RequestResponse";
 
 /**
  *
@@ -3916,55 +3937,6 @@ export namespace MessageRejected {
 
 /**
  *
- *         <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or
- *                 <code>SendRawEmail</code> to apply to an email.</p>
- *         <p>Message tags, which you use with configuration sets, enable you to publish email
- *             sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
- *
- */
-export interface MessageTag {
-  __type?: "MessageTag";
-  /**
-   *
-   *         <p>The name of the tag. The name must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>Contain less than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *         <p>The value of the tag. The value must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>Contain less than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace MessageTag {
-  export function isa(o: any): o is MessageTag {
-    return _smithy.isa(o, "MessageTag");
-  }
-}
-
-/**
- *
  *         <p>Indicates that one or more of the replacement values for the specified template was
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
@@ -3985,6 +3957,8 @@ export namespace MissingRenderingAttributeException {
     return _smithy.isa(o, "MissingRenderingAttributeException");
   }
 }
+
+export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 
 /**
  *
@@ -4261,6 +4235,11 @@ export namespace ReceiptFilter {
   export function isa(o: any): o is ReceiptFilter {
     return _smithy.isa(o, "ReceiptFilter");
   }
+}
+
+export enum ReceiptFilterPolicy {
+  Allow = "Allow",
+  Block = "Block"
 }
 
 /**
@@ -4786,6 +4765,11 @@ export namespace SNSAction {
   export function isa(o: any): o is SNSAction {
     return _smithy.isa(o, "SNSAction");
   }
+}
+
+export enum SNSActionEncoding {
+  Base64 = "Base64",
+  UTF8 = "UTF-8"
 }
 
 /**
@@ -6093,6 +6077,10 @@ export namespace StopAction {
   }
 }
 
+export enum StopScope {
+  RULE_SET = "RuleSet"
+}
+
 /**
  *
  *         <p>The content of the email, composed of a subject line, an HTML part, and a text-only
@@ -6229,6 +6217,11 @@ export namespace TestRenderTemplateResponse {
   export function isa(o: any): o is TestRenderTemplateResponse {
     return _smithy.isa(o, "TestRenderTemplateResponse");
   }
+}
+
+export enum TlsPolicy {
+  Optional = "Optional",
+  Require = "Require"
 }
 
 /**
@@ -6644,6 +6637,13 @@ export namespace UpdateTemplateResponse {
     return _smithy.isa(o, "UpdateTemplateResponse");
   }
 }
+
+export type VerificationStatus =
+  | "Failed"
+  | "NotStarted"
+  | "Pending"
+  | "Success"
+  | "TemporaryFailure";
 
 /**
  *

@@ -1,32 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum LifeCycleState {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  UPDATING = "updating"
-}
-
-export enum PerformanceMode {
-  GENERAL_PURPOSE = "generalPurpose",
-  MAX_IO = "maxIO"
-}
-
-export enum ThroughputMode {
-  BURSTING = "bursting",
-  PROVISIONED = "provisioned"
-}
-
-export enum TransitionToIARules {
-  AFTER_14_DAYS = "AFTER_14_DAYS",
-  AFTER_30_DAYS = "AFTER_30_DAYS",
-  AFTER_60_DAYS = "AFTER_60_DAYS",
-  AFTER_7_DAYS = "AFTER_7_DAYS",
-  AFTER_90_DAYS = "AFTER_90_DAYS"
-}
-
 /**
  *
  *         <p>Returned if the request is malformed or contains an error such as an invalid
@@ -44,6 +18,450 @@ export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
 export namespace BadRequest {
   export function isa(o: any): o is BadRequest {
     return _smithy.isa(o, "BadRequest");
+  }
+}
+
+/**
+ *
+ *         <p>The service timed out trying to fulfill the request, and the client should try the
+ *             call again.</p>
+ *
+ */
+export interface DependencyTimeout
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DependencyTimeout";
+  name: "DependencyTimeout";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace DependencyTimeout {
+  export function isa(o: any): o is DependencyTimeout {
+    return _smithy.isa(o, "DependencyTimeout");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the file system you are trying to create already exists, with the
+ *             creation token you provided.</p>
+ *
+ */
+export interface FileSystemAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FileSystemAlreadyExists";
+  name: "FileSystemAlreadyExists";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  FileSystemId: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemAlreadyExists {
+  export function isa(o: any): o is FileSystemAlreadyExists {
+    return _smithy.isa(o, "FileSystemAlreadyExists");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if a file system has mount targets.</p>
+ *
+ */
+export interface FileSystemInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FileSystemInUse";
+  name: "FileSystemInUse";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemInUse {
+  export function isa(o: any): o is FileSystemInUse {
+    return _smithy.isa(o, "FileSystemInUse");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the AWS account has already created the maximum number of file systems
+ *             allowed per account.</p>
+ *
+ */
+export interface FileSystemLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FileSystemLimitExceeded";
+  name: "FileSystemLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemLimitExceeded {
+  export function isa(o: any): o is FileSystemLimitExceeded {
+    return _smithy.isa(o, "FileSystemLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's AWS account.</p>
+ *
+ *
+ */
+export interface FileSystemNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FileSystemNotFound";
+  name: "FileSystemNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace FileSystemNotFound {
+  export function isa(o: any): o is FileSystemNotFound {
+    return _smithy.isa(o, "FileSystemNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ */
+export interface IncorrectFileSystemLifeCycleState
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IncorrectFileSystemLifeCycleState";
+  name: "IncorrectFileSystemLifeCycleState";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IncorrectFileSystemLifeCycleState {
+  export function isa(o: any): o is IncorrectFileSystemLifeCycleState {
+    return _smithy.isa(o, "IncorrectFileSystemLifeCycleState");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the mount target is not in the correct state for the
+ *             operation.</p>
+ *
+ */
+export interface IncorrectMountTargetState
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IncorrectMountTargetState";
+  name: "IncorrectMountTargetState";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IncorrectMountTargetState {
+  export function isa(o: any): o is IncorrectMountTargetState {
+    return _smithy.isa(o, "IncorrectMountTargetState");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if there's not enough capacity to provision additional throughput. This value
+ *             might be returned when you try to create a file system in provisioned throughput mode,
+ *             when you attempt to increase the provisioned throughput of an existing file system, or
+ *             when you attempt to change an existing file system from bursting to provisioned
+ *             throughput mode.</p>
+ *
+ */
+export interface InsufficientThroughputCapacity
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientThroughputCapacity";
+  name: "InsufficientThroughputCapacity";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace InsufficientThroughputCapacity {
+  export function isa(o: any): o is InsufficientThroughputCapacity {
+    return _smithy.isa(o, "InsufficientThroughputCapacity");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if an error occurred on the server side.</p>
+ *
+ */
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServerError";
+  name: "InternalServerError";
+  $fault: "server";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace InternalServerError {
+  export function isa(o: any): o is InternalServerError {
+    return _smithy.isa(o, "InternalServerError");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the request specified an <code>IpAddress</code> that is already in use
+ *             in the subnet.</p>
+ *
+ */
+export interface IpAddressInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IpAddressInUse";
+  name: "IpAddressInUse";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace IpAddressInUse {
+  export function isa(o: any): o is IpAddressInUse {
+    return _smithy.isa(o, "IpAddressInUse");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the mount target would violate one of the specified restrictions based
+ *             on the file system's existing mount targets.</p>
+ *
+ */
+export interface MountTargetConflict
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "MountTargetConflict";
+  name: "MountTargetConflict";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace MountTargetConflict {
+  export function isa(o: any): o is MountTargetConflict {
+    return _smithy.isa(o, "MountTargetConflict");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's account.</p>
+ *
+ */
+export interface MountTargetNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "MountTargetNotFound";
+  name: "MountTargetNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace MountTargetNotFound {
+  export function isa(o: any): o is MountTargetNotFound {
+    return _smithy.isa(o, "MountTargetNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>The calling account has reached the limit for elastic network interfaces for the
+ *             specific AWS Region. The client should try to delete some elastic network interfaces or
+ *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
+ *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
+ *             entry in the table). </p>
+ *
+ */
+export interface NetworkInterfaceLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NetworkInterfaceLimitExceeded";
+  name: "NetworkInterfaceLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace NetworkInterfaceLimitExceeded {
+  export function isa(o: any): o is NetworkInterfaceLimitExceeded {
+    return _smithy.isa(o, "NetworkInterfaceLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if <code>IpAddress</code> was not specified in the request and there are
+ *             no free IP addresses in the subnet.</p>
+ *
+ */
+export interface NoFreeAddressesInSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoFreeAddressesInSubnet";
+  name: "NoFreeAddressesInSubnet";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace NoFreeAddressesInSubnet {
+  export function isa(o: any): o is NoFreeAddressesInSubnet {
+    return _smithy.isa(o, "NoFreeAddressesInSubnet");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
+ *             greater than five.</p>
+ *
+ */
+export interface SecurityGroupLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SecurityGroupLimitExceeded";
+  name: "SecurityGroupLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SecurityGroupLimitExceeded {
+  export function isa(o: any): o is SecurityGroupLimitExceeded {
+    return _smithy.isa(o, "SecurityGroupLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if one of the specified security groups doesn't exist in the subnet's
+ *             VPC.</p>
+ *
+ */
+export interface SecurityGroupNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SecurityGroupNotFound";
+  name: "SecurityGroupNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SecurityGroupNotFound {
+  export function isa(o: any): o is SecurityGroupNotFound {
+    return _smithy.isa(o, "SecurityGroupNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
+ *             request.</p>
+ *
+ */
+export interface SubnetNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetNotFound";
+  name: "SubnetNotFound";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace SubnetNotFound {
+  export function isa(o: any): o is SubnetNotFound {
+    return _smithy.isa(o, "SubnetNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
+ *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ */
+export interface ThroughputLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThroughputLimitExceeded";
+  name: "ThroughputLimitExceeded";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace ThroughputLimitExceeded {
+  export function isa(o: any): o is ThroughputLimitExceeded {
+    return _smithy.isa(o, "ThroughputLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
+ *             decreasing the Provisioned Throughput value.</p>
+ *
+ */
+export interface TooManyRequests
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyRequests";
+  name: "TooManyRequests";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace TooManyRequests {
+  export function isa(o: any): o is TooManyRequests {
+    return _smithy.isa(o, "TooManyRequests");
+  }
+}
+
+/**
+ *
+ *         <p></p>
+ *
+ */
+export interface UnsupportedAvailabilityZone
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedAvailabilityZone";
+  name: "UnsupportedAvailabilityZone";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace UnsupportedAvailabilityZone {
+  export function isa(o: any): o is UnsupportedAvailabilityZone {
+    return _smithy.isa(o, "UnsupportedAvailabilityZone");
   }
 }
 
@@ -294,28 +712,6 @@ export interface DeleteTagsRequest {
 export namespace DeleteTagsRequest {
   export function isa(o: any): o is DeleteTagsRequest {
     return _smithy.isa(o, "DeleteTagsRequest");
-  }
-}
-
-/**
- *
- *         <p>The service timed out trying to fulfill the request, and the client should try the
- *             call again.</p>
- *
- */
-export interface DependencyTimeout
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DependencyTimeout";
-  name: "DependencyTimeout";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace DependencyTimeout {
-  export function isa(o: any): o is DependencyTimeout {
-    return _smithy.isa(o, "DependencyTimeout");
   }
 }
 
@@ -625,29 +1021,6 @@ export namespace DescribeTagsResponse {
 
 /**
  *
- *         <p>Returned if the file system you are trying to create already exists, with the
- *             creation token you provided.</p>
- *
- */
-export interface FileSystemAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FileSystemAlreadyExists";
-  name: "FileSystemAlreadyExists";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  FileSystemId: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemAlreadyExists {
-  export function isa(o: any): o is FileSystemAlreadyExists {
-    return _smithy.isa(o, "FileSystemAlreadyExists");
-  }
-}
-
-/**
- *
  *          <p>A description of the file system.</p>
  *
  */
@@ -789,72 +1162,6 @@ export namespace FileSystemDescription {
 
 /**
  *
- *         <p>Returned if a file system has mount targets.</p>
- *
- */
-export interface FileSystemInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FileSystemInUse";
-  name: "FileSystemInUse";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemInUse {
-  export function isa(o: any): o is FileSystemInUse {
-    return _smithy.isa(o, "FileSystemInUse");
-  }
-}
-
-/**
- *
- *         <p>Returned if the AWS account has already created the maximum number of file systems
- *             allowed per account.</p>
- *
- */
-export interface FileSystemLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FileSystemLimitExceeded";
-  name: "FileSystemLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemLimitExceeded {
-  export function isa(o: any): o is FileSystemLimitExceeded {
-    return _smithy.isa(o, "FileSystemLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's AWS account.</p>
- *
- *
- */
-export interface FileSystemNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FileSystemNotFound";
-  name: "FileSystemNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace FileSystemNotFound {
-  export function isa(o: any): o is FileSystemNotFound {
-    return _smithy.isa(o, "FileSystemNotFound");
-  }
-}
-
-/**
- *
  *
  *          <p>The latest known metered size (in bytes) of data stored in the file system, in its
  *         <code>Value</code> field, and the time at which that size was determined in its
@@ -905,115 +1212,12 @@ export namespace FileSystemSize {
   }
 }
 
-/**
- *
- *         <p>Returned if the file system's lifecycle state is not "available".</p>
- *
- */
-export interface IncorrectFileSystemLifeCycleState
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IncorrectFileSystemLifeCycleState";
-  name: "IncorrectFileSystemLifeCycleState";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IncorrectFileSystemLifeCycleState {
-  export function isa(o: any): o is IncorrectFileSystemLifeCycleState {
-    return _smithy.isa(o, "IncorrectFileSystemLifeCycleState");
-  }
-}
-
-/**
- *
- *         <p>Returned if the mount target is not in the correct state for the
- *             operation.</p>
- *
- */
-export interface IncorrectMountTargetState
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IncorrectMountTargetState";
-  name: "IncorrectMountTargetState";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IncorrectMountTargetState {
-  export function isa(o: any): o is IncorrectMountTargetState {
-    return _smithy.isa(o, "IncorrectMountTargetState");
-  }
-}
-
-/**
- *
- *         <p>Returned if there's not enough capacity to provision additional throughput. This value
- *             might be returned when you try to create a file system in provisioned throughput mode,
- *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from bursting to provisioned
- *             throughput mode.</p>
- *
- */
-export interface InsufficientThroughputCapacity
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientThroughputCapacity";
-  name: "InsufficientThroughputCapacity";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace InsufficientThroughputCapacity {
-  export function isa(o: any): o is InsufficientThroughputCapacity {
-    return _smithy.isa(o, "InsufficientThroughputCapacity");
-  }
-}
-
-/**
- *
- *         <p>Returned if an error occurred on the server side.</p>
- *
- */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServerError";
-  name: "InternalServerError";
-  $fault: "server";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
-  }
-}
-
-/**
- *
- *         <p>Returned if the request specified an <code>IpAddress</code> that is already in use
- *             in the subnet.</p>
- *
- */
-export interface IpAddressInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IpAddressInUse";
-  name: "IpAddressInUse";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace IpAddressInUse {
-  export function isa(o: any): o is IpAddressInUse {
-    return _smithy.isa(o, "IpAddressInUse");
-  }
+export enum LifeCycleState {
+  AVAILABLE = "available",
+  CREATING = "creating",
+  DELETED = "deleted",
+  DELETING = "deleting",
+  UPDATING = "updating"
 }
 
 export interface LifecycleConfigurationDescription extends $MetadataBearer {
@@ -1088,28 +1292,6 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 
 /**
  *
- *         <p>Returned if the mount target would violate one of the specified restrictions based
- *             on the file system's existing mount targets.</p>
- *
- */
-export interface MountTargetConflict
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "MountTargetConflict";
-  name: "MountTargetConflict";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace MountTargetConflict {
-  export function isa(o: any): o is MountTargetConflict {
-    return _smithy.isa(o, "MountTargetConflict");
-  }
-}
-
-/**
- *
  *          <p>Provides a description of a mount target.</p>
  *
  */
@@ -1172,73 +1354,9 @@ export namespace MountTargetDescription {
   }
 }
 
-/**
- *
- *         <p>Returned if there is no mount target with the specified ID found in the
- *             caller's account.</p>
- *
- */
-export interface MountTargetNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "MountTargetNotFound";
-  name: "MountTargetNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace MountTargetNotFound {
-  export function isa(o: any): o is MountTargetNotFound {
-    return _smithy.isa(o, "MountTargetNotFound");
-  }
-}
-
-/**
- *
- *         <p>The calling account has reached the limit for elastic network interfaces for the
- *             specific AWS Region. The client should try to delete some elastic network interfaces or
- *             get the account limit raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>
- *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
- *             entry in the table). </p>
- *
- */
-export interface NetworkInterfaceLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NetworkInterfaceLimitExceeded";
-  name: "NetworkInterfaceLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace NetworkInterfaceLimitExceeded {
-  export function isa(o: any): o is NetworkInterfaceLimitExceeded {
-    return _smithy.isa(o, "NetworkInterfaceLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>Returned if <code>IpAddress</code> was not specified in the request and there are
- *             no free IP addresses in the subnet.</p>
- *
- */
-export interface NoFreeAddressesInSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoFreeAddressesInSubnet";
-  name: "NoFreeAddressesInSubnet";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace NoFreeAddressesInSubnet {
-  export function isa(o: any): o is NoFreeAddressesInSubnet {
-    return _smithy.isa(o, "NoFreeAddressesInSubnet");
-  }
+export enum PerformanceMode {
+  GENERAL_PURPOSE = "generalPurpose",
+  MAX_IO = "maxIO"
 }
 
 export interface PutLifecycleConfigurationRequest {
@@ -1265,72 +1383,6 @@ export interface PutLifecycleConfigurationRequest {
 export namespace PutLifecycleConfigurationRequest {
   export function isa(o: any): o is PutLifecycleConfigurationRequest {
     return _smithy.isa(o, "PutLifecycleConfigurationRequest");
-  }
-}
-
-/**
- *
- *         <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
- *             greater than five.</p>
- *
- */
-export interface SecurityGroupLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SecurityGroupLimitExceeded";
-  name: "SecurityGroupLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SecurityGroupLimitExceeded {
-  export function isa(o: any): o is SecurityGroupLimitExceeded {
-    return _smithy.isa(o, "SecurityGroupLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>Returned if one of the specified security groups doesn't exist in the subnet's
- *             VPC.</p>
- *
- */
-export interface SecurityGroupNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SecurityGroupNotFound";
-  name: "SecurityGroupNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SecurityGroupNotFound {
-  export function isa(o: any): o is SecurityGroupNotFound {
-    return _smithy.isa(o, "SecurityGroupNotFound");
-  }
-}
-
-/**
- *
- *         <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
- *             request.</p>
- *
- */
-export interface SubnetNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetNotFound";
-  name: "SubnetNotFound";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace SubnetNotFound {
-  export function isa(o: any): o is SubnetNotFound {
-    return _smithy.isa(o, "SubnetNotFound");
   }
 }
 
@@ -1367,69 +1419,17 @@ export namespace Tag {
   }
 }
 
-/**
- *
- *         <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
- *             because the throughput limit of 1024 MiB/s has been reached.</p>
- *
- */
-export interface ThroughputLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThroughputLimitExceeded";
-  name: "ThroughputLimitExceeded";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
+export enum ThroughputMode {
+  BURSTING = "bursting",
+  PROVISIONED = "provisioned"
 }
 
-export namespace ThroughputLimitExceeded {
-  export function isa(o: any): o is ThroughputLimitExceeded {
-    return _smithy.isa(o, "ThroughputLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
- *             decreasing the Provisioned Throughput value.</p>
- *
- */
-export interface TooManyRequests
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyRequests";
-  name: "TooManyRequests";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace TooManyRequests {
-  export function isa(o: any): o is TooManyRequests {
-    return _smithy.isa(o, "TooManyRequests");
-  }
-}
-
-/**
- *
- *         <p></p>
- *
- */
-export interface UnsupportedAvailabilityZone
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedAvailabilityZone";
-  name: "UnsupportedAvailabilityZone";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace UnsupportedAvailabilityZone {
-  export function isa(o: any): o is UnsupportedAvailabilityZone {
-    return _smithy.isa(o, "UnsupportedAvailabilityZone");
-  }
+export enum TransitionToIARules {
+  AFTER_14_DAYS = "AFTER_14_DAYS",
+  AFTER_30_DAYS = "AFTER_30_DAYS",
+  AFTER_60_DAYS = "AFTER_60_DAYS",
+  AFTER_7_DAYS = "AFTER_7_DAYS",
+  AFTER_90_DAYS = "AFTER_90_DAYS"
 }
 
 export interface UpdateFileSystemRequest {

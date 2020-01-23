@@ -1,29 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ExportStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
-export enum LedgerState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING"
-}
-
-export enum PermissionsMode {
-  ALLOW_ALL = "ALLOW_ALL"
-}
-
-export enum S3ObjectEncryptionType {
-  NO_ENCRYPTION = "NO_ENCRYPTION",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3"
-}
-
 export interface CreateLedgerRequest {
   __type?: "CreateLedgerRequest";
   /**
@@ -329,6 +306,12 @@ export namespace ExportJournalToS3Response {
   }
 }
 
+export enum ExportStatus {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
 export interface GetBlockRequest {
   __type?: "GetBlockRequest";
   /**
@@ -611,6 +594,13 @@ export namespace JournalS3ExportDescription {
   export function isa(o: any): o is JournalS3ExportDescription {
     return _smithy.isa(o, "JournalS3ExportDescription");
   }
+}
+
+export enum LedgerState {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING"
 }
 
 /**
@@ -903,6 +893,10 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
+export enum PermissionsMode {
+  ALLOW_ALL = "ALLOW_ALL"
+}
+
 /**
  *
  *          <p>The specified resource already exists.</p>
@@ -1133,6 +1127,12 @@ export namespace S3ExportConfiguration {
   export function isa(o: any): o is S3ExportConfiguration {
     return _smithy.isa(o, "S3ExportConfiguration");
   }
+}
+
+export enum S3ObjectEncryptionType {
+  NO_ENCRYPTION = "NO_ENCRYPTION",
+  SSE_KMS = "SSE_KMS",
+  SSE_S3 = "SSE_S3"
 }
 
 export interface TagResourceRequest {

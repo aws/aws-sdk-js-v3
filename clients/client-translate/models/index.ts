@@ -1,19 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum EncryptionKeyType {
-  KMS = "KMS"
-}
-
-export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE"
-}
-
-export enum TerminologyDataFormat {
-  CSV = "CSV",
-  TMX = "TMX"
-}
-
 /**
  *
  *          <p>The custom terminology applied to the input text by Amazon Translate for the translated text response. This is optional in the response and
@@ -116,6 +103,10 @@ export namespace EncryptionKey {
   export function isa(o: any): o is EncryptionKey {
     return _smithy.isa(o, "EncryptionKey");
   }
+}
+
+export enum EncryptionKeyType {
+  KMS = "KMS"
 }
 
 export interface GetTerminologyRequest {
@@ -351,6 +342,10 @@ export namespace ListTerminologiesResponse {
   }
 }
 
+export enum MergeStrategy {
+  OVERWRITE = "OVERWRITE"
+}
+
 /**
  *
  *          <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request. .</p>
@@ -445,6 +440,11 @@ export namespace TerminologyData {
   export function isa(o: any): o is TerminologyData {
     return _smithy.isa(o, "TerminologyData");
   }
+}
+
+export enum TerminologyDataFormat {
+  CSV = "CSV",
+  TMX = "TMX"
 }
 
 /**

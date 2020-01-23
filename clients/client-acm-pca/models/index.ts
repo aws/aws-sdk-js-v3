@@ -1,79 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ActionType {
-  GetCertificate = "GetCertificate",
-  IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions"
-}
-
-export enum AuditReportResponseFormat {
-  CSV = "CSV",
-  JSON = "JSON"
-}
-
-export enum AuditReportStatus {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS"
-}
-
-export enum CertificateAuthorityStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING_CERTIFICATE = "PENDING_CERTIFICATE"
-}
-
-export enum CertificateAuthorityType {
-  ROOT = "ROOT",
-  SUBORDINATE = "SUBORDINATE"
-}
-
-export enum FailureReason {
-  OTHER = "OTHER",
-  REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM"
-}
-
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096"
-}
-
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  SUPERSEDED = "SUPERSEDED",
-  UNSPECIFIED = "UNSPECIFIED"
-}
-
-export enum SigningAlgorithm {
-  SHA256WITHECDSA = "SHA256WITHECDSA",
-  SHA256WITHRSA = "SHA256WITHRSA",
-  SHA384WITHECDSA = "SHA384WITHECDSA",
-  SHA384WITHRSA = "SHA384WITHRSA",
-  SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA"
-}
-
-export enum ValidityPeriodType {
-  ABSOLUTE = "ABSOLUTE",
-  DAYS = "DAYS",
-  END_DATE = "END_DATE",
-  MONTHS = "MONTHS",
-  YEARS = "YEARS"
-}
-
 /**
  *
  * 		       <p>Contains information about the certificate subject. The certificate can be one issued
@@ -202,6 +129,23 @@ export namespace ASN1Subject {
   export function isa(o: any): o is ASN1Subject {
     return _smithy.isa(o, "ASN1Subject");
   }
+}
+
+export enum ActionType {
+  GetCertificate = "GetCertificate",
+  IssueCertificate = "IssueCertificate",
+  ListPermissions = "ListPermissions"
+}
+
+export enum AuditReportResponseFormat {
+  CSV = "CSV",
+  JSON = "JSON"
+}
+
+export enum AuditReportStatus {
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -355,6 +299,21 @@ export namespace CertificateAuthorityConfiguration {
   export function isa(o: any): o is CertificateAuthorityConfiguration {
     return _smithy.isa(o, "CertificateAuthorityConfiguration");
   }
+}
+
+export enum CertificateAuthorityStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DISABLED = "DISABLED",
+  EXPIRED = "EXPIRED",
+  FAILED = "FAILED",
+  PENDING_CERTIFICATE = "PENDING_CERTIFICATE"
+}
+
+export enum CertificateAuthorityType {
+  ROOT = "ROOT",
+  SUBORDINATE = "SUBORDINATE"
 }
 
 /**
@@ -910,6 +869,12 @@ export namespace DescribeCertificateAuthorityResponse {
   }
 }
 
+export enum FailureReason {
+  OTHER = "OTHER",
+  REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
+  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM"
+}
+
 export interface GetCertificateAuthorityCertificateRequest {
   __type?: "GetCertificateAuthorityCertificateRequest";
   /**
@@ -1356,6 +1321,13 @@ export namespace IssueCertificateResponse {
   export function isa(o: any): o is IssueCertificateResponse {
     return _smithy.isa(o, "IssueCertificateResponse");
   }
+}
+
+export enum KeyAlgorithm {
+  EC_prime256v1 = "EC_prime256v1",
+  EC_secp384r1 = "EC_secp384r1",
+  RSA_2048 = "RSA_2048",
+  RSA_4096 = "RSA_4096"
 }
 
 /**
@@ -1808,6 +1780,17 @@ export namespace RevocationConfiguration {
   }
 }
 
+export enum RevocationReason {
+  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
+  A_A_COMPROMISE = "A_A_COMPROMISE",
+  CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE",
+  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE = "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
+  SUPERSEDED = "SUPERSEDED",
+  UNSPECIFIED = "UNSPECIFIED"
+}
+
 export interface RevokeCertificateRequest {
   __type?: "RevokeCertificateRequest";
   /**
@@ -1851,6 +1834,15 @@ export namespace RevokeCertificateRequest {
   export function isa(o: any): o is RevokeCertificateRequest {
     return _smithy.isa(o, "RevokeCertificateRequest");
   }
+}
+
+export enum SigningAlgorithm {
+  SHA256WITHECDSA = "SHA256WITHECDSA",
+  SHA256WITHRSA = "SHA256WITHRSA",
+  SHA384WITHECDSA = "SHA384WITHECDSA",
+  SHA384WITHRSA = "SHA384WITHRSA",
+  SHA512WITHECDSA = "SHA512WITHECDSA",
+  SHA512WITHRSA = "SHA512WITHRSA"
 }
 
 /**
@@ -2022,4 +2014,12 @@ export namespace Validity {
   export function isa(o: any): o is Validity {
     return _smithy.isa(o, "Validity");
   }
+}
+
+export enum ValidityPeriodType {
+  ABSOLUTE = "ABSOLUTE",
+  DAYS = "DAYS",
+  END_DATE = "END_DATE",
+  MONTHS = "MONTHS",
+  YEARS = "YEARS"
 }

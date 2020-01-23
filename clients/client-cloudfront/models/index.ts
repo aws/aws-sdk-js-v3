@@ -1,71 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type CertificateSource = "acm" | "cloudfront" | "iam";
-
-export type EventType =
-  | "origin-request"
-  | "origin-response"
-  | "viewer-request"
-  | "viewer-response";
-
-export type Format = "URLEncoded";
-
-export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
-
-export type HttpVersion = "http1.1" | "http2";
-
-export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
-
-export type ItemSelection = "all" | "none" | "whitelist";
-
-export type Method =
-  | "DELETE"
-  | "GET"
-  | "HEAD"
-  | "OPTIONS"
-  | "PATCH"
-  | "POST"
-  | "PUT";
-
-export type MinimumProtocolVersion =
-  | "SSLv3"
-  | "TLSv1"
-  | "TLSv1.1_2016"
-  | "TLSv1.2_2018"
-  | "TLSv1_2016";
-
-export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
-
-export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
-
-export type SSLSupportMethod = "sni-only" | "vip";
-
-export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
-
-export type ViewerProtocolPolicy =
-  | "allow-all"
-  | "https-only"
-  | "redirect-to-https";
-
-/**
- *
- * 		       <p>Access denied.</p>
- *
- */
-export interface AccessDenied extends _smithy.SmithyException, $MetadataBearer {
-  __type: "AccessDenied";
-  name: "AccessDenied";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AccessDenied {
-  export function isa(o: any): o is AccessDenied {
-    return _smithy.isa(o, "AccessDenied");
-  }
-}
-
 /**
  *
  * 		       <p>A complex type that lists the AWS accounts, if any, that you included in the
@@ -263,46 +198,6 @@ export interface AllowedMethods {
 export namespace AllowedMethods {
   export function isa(o: any): o is AllowedMethods {
     return _smithy.isa(o, "AllowedMethods");
-  }
-}
-
-/**
- *
- * 		       <p>Invalidation batch specified is too large.</p>
- *
- */
-export interface BatchTooLarge
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BatchTooLarge";
-  name: "BatchTooLarge";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace BatchTooLarge {
-  export function isa(o: any): o is BatchTooLarge {
-    return _smithy.isa(o, "BatchTooLarge");
-  }
-}
-
-/**
- *
- * 		       <p>The CNAME specified is already defined for CloudFront.</p>
- *
- */
-export interface CNAMEAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CNAMEAlreadyExists";
-  name: "CNAMEAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CNAMEAlreadyExists {
-  export function isa(o: any): o is CNAMEAlreadyExists {
-    return _smithy.isa(o, "CNAMEAlreadyExists");
   }
 }
 
@@ -608,25 +503,7 @@ export namespace CachedMethods {
   }
 }
 
-/**
- *
- * 		       <p>You can't change the value of a public key.</p>
- *
- */
-export interface CannotChangeImmutablePublicKeyFields
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CannotChangeImmutablePublicKeyFields";
-  name: "CannotChangeImmutablePublicKeyFields";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CannotChangeImmutablePublicKeyFields {
-  export function isa(o: any): o is CannotChangeImmutablePublicKeyFields {
-    return _smithy.isa(o, "CannotChangeImmutablePublicKeyFields");
-  }
-}
+export type CertificateSource = "acm" | "cloudfront" | "iam";
 
 /**
  *
@@ -662,30 +539,6 @@ export interface CloudFrontOriginAccessIdentity {
 export namespace CloudFrontOriginAccessIdentity {
   export function isa(o: any): o is CloudFrontOriginAccessIdentity {
     return _smithy.isa(o, "CloudFrontOriginAccessIdentity");
-  }
-}
-
-/**
- *
- * 		       <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
- * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
- * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
- *
- */
-export interface CloudFrontOriginAccessIdentityAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudFrontOriginAccessIdentityAlreadyExists";
-  name: "CloudFrontOriginAccessIdentityAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityAlreadyExists {
-  export function isa(
-    o: any
-  ): o is CloudFrontOriginAccessIdentityAlreadyExists {
-    return _smithy.isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
   }
 }
 
@@ -727,26 +580,6 @@ export interface CloudFrontOriginAccessIdentityConfig {
 export namespace CloudFrontOriginAccessIdentityConfig {
   export function isa(o: any): o is CloudFrontOriginAccessIdentityConfig {
     return _smithy.isa(o, "CloudFrontOriginAccessIdentityConfig");
-  }
-}
-
-/**
- *
- * 		       <p>The Origin Access Identity specified is already in use.</p>
- *
- */
-export interface CloudFrontOriginAccessIdentityInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CloudFrontOriginAccessIdentityInUse";
-  name: "CloudFrontOriginAccessIdentityInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityInUse {
-  export function isa(o: any): o is CloudFrontOriginAccessIdentityInUse {
-    return _smithy.isa(o, "CloudFrontOriginAccessIdentityInUse");
   }
 }
 
@@ -2271,26 +2104,6 @@ export namespace Distribution {
 
 /**
  *
- * 		       <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
- *
- */
-export interface DistributionAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DistributionAlreadyExists";
-  name: "DistributionAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DistributionAlreadyExists {
-  export function isa(o: any): o is DistributionAlreadyExists {
-    return _smithy.isa(o, "DistributionAlreadyExists");
-  }
-}
-
-/**
- *
  * 		       <p>A distribution configuration.</p>
  *
  */
@@ -2620,27 +2433,6 @@ export namespace DistributionList {
 
 /**
  *
- * 		       <p>The specified CloudFront distribution is not disabled. You must disable
- * 			the distribution before you can delete it.</p>
- *
- */
-export interface DistributionNotDisabled
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DistributionNotDisabled";
-  name: "DistributionNotDisabled";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DistributionNotDisabled {
-  export function isa(o: any): o is DistributionNotDisabled {
-    return _smithy.isa(o, "DistributionNotDisabled");
-  }
-}
-
-/**
- *
  * 		       <p>A summary of the information about a CloudFront distribution.</p>
  *
  */
@@ -2882,6 +2674,12 @@ export namespace EncryptionEntity {
   }
 }
 
+export type EventType =
+  | "origin-request"
+  | "origin-response"
+  | "viewer-request"
+  | "viewer-response";
+
 /**
  *
  * 		       <p>A complex data type that includes the profile configurations and other options specified for field-level encryption. </p>
@@ -2959,46 +2757,6 @@ export interface FieldLevelEncryptionConfig {
 export namespace FieldLevelEncryptionConfig {
   export function isa(o: any): o is FieldLevelEncryptionConfig {
     return _smithy.isa(o, "FieldLevelEncryptionConfig");
-  }
-}
-
-/**
- *
- * 		       <p>The specified configuration for field-level encryption already exists.</p>
- *
- */
-export interface FieldLevelEncryptionConfigAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FieldLevelEncryptionConfigAlreadyExists";
-  name: "FieldLevelEncryptionConfigAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionConfigAlreadyExists {
-  export function isa(o: any): o is FieldLevelEncryptionConfigAlreadyExists {
-    return _smithy.isa(o, "FieldLevelEncryptionConfigAlreadyExists");
-  }
-}
-
-/**
- *
- * 		       <p>The specified configuration for field-level encryption is in use.</p>
- *
- */
-export interface FieldLevelEncryptionConfigInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FieldLevelEncryptionConfigInUse";
-  name: "FieldLevelEncryptionConfigInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionConfigInUse {
-  export function isa(o: any): o is FieldLevelEncryptionConfigInUse {
-    return _smithy.isa(o, "FieldLevelEncryptionConfigInUse");
   }
 }
 
@@ -3086,26 +2844,6 @@ export namespace FieldLevelEncryptionProfile {
 
 /**
  *
- * 		       <p>The specified profile for field-level encryption already exists.</p>
- *
- */
-export interface FieldLevelEncryptionProfileAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileAlreadyExists";
-  name: "FieldLevelEncryptionProfileAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileAlreadyExists {
-  export function isa(o: any): o is FieldLevelEncryptionProfileAlreadyExists {
-    return _smithy.isa(o, "FieldLevelEncryptionProfileAlreadyExists");
-  }
-}
-
-/**
- *
  * 		       <p>A complex data type of profiles for the field-level encryption.</p>
  *
  */
@@ -3144,26 +2882,6 @@ export interface FieldLevelEncryptionProfileConfig {
 export namespace FieldLevelEncryptionProfileConfig {
   export function isa(o: any): o is FieldLevelEncryptionProfileConfig {
     return _smithy.isa(o, "FieldLevelEncryptionProfileConfig");
-  }
-}
-
-/**
- *
- * 		       <p>The specified profile for field-level encryption is in use.</p>
- *
- */
-export interface FieldLevelEncryptionProfileInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileInUse";
-  name: "FieldLevelEncryptionProfileInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileInUse {
-  export function isa(o: any): o is FieldLevelEncryptionProfileInUse {
-    return _smithy.isa(o, "FieldLevelEncryptionProfileInUse");
   }
 }
 
@@ -3208,26 +2926,6 @@ export interface FieldLevelEncryptionProfileList {
 export namespace FieldLevelEncryptionProfileList {
   export function isa(o: any): o is FieldLevelEncryptionProfileList {
     return _smithy.isa(o, "FieldLevelEncryptionProfileList");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum size of a profile for field-level encryption was exceeded.</p>
- *
- */
-export interface FieldLevelEncryptionProfileSizeExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "FieldLevelEncryptionProfileSizeExceeded";
-  name: "FieldLevelEncryptionProfileSizeExceeded";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileSizeExceeded {
-  export function isa(o: any): o is FieldLevelEncryptionProfileSizeExceeded {
-    return _smithy.isa(o, "FieldLevelEncryptionProfileSizeExceeded");
   }
 }
 
@@ -3362,6 +3060,8 @@ export namespace FieldPatterns {
   }
 }
 
+export type Format = "URLEncoded";
+
 /**
  *
  * 		       <p>A complex type that specifies how CloudFront handles query strings and cookies.</p>
@@ -3492,6 +3192,8 @@ export namespace GeoRestriction {
     return _smithy.isa(o, "GeoRestriction");
   }
 }
+
+export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
 
 /**
  *
@@ -4162,533 +3864,9 @@ export namespace Headers {
   }
 }
 
-/**
- *
- * 		       <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
- *
- */
-export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
-  name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
-  $fault: "client";
-  Message?: string;
-}
+export type HttpVersion = "http1.1" | "http2";
 
-export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
-  export function isa(
-    o: any
-  ): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
-    return _smithy.isa(
-      o,
-      "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
-    );
-  }
-}
-
-/**
- *
- * 		       <p>Origin and <code>CallerReference</code> cannot be updated. </p>
- *
- */
-export interface IllegalUpdate
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IllegalUpdate";
-  name: "IllegalUpdate";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace IllegalUpdate {
-  export function isa(o: any): o is IllegalUpdate {
-    return _smithy.isa(o, "IllegalUpdate");
-  }
-}
-
-/**
- *
- * 		       <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
- *
- */
-export interface InconsistentQuantities
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InconsistentQuantities";
-  name: "InconsistentQuantities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InconsistentQuantities {
-  export function isa(o: any): o is InconsistentQuantities {
-    return _smithy.isa(o, "InconsistentQuantities");
-  }
-}
-
-/**
- *
- * 		       <p>The argument is invalid.</p>
- *
- */
-export interface InvalidArgument
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidArgument";
-  name: "InvalidArgument";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgument {
-  export function isa(o: any): o is InvalidArgument {
-    return _smithy.isa(o, "InvalidArgument");
-  }
-}
-
-/**
- *
- * 		       <p>The default root object file name is too big or contains an invalid character.</p>
- *
- */
-export interface InvalidDefaultRootObject
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDefaultRootObject";
-  name: "InvalidDefaultRootObject";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidDefaultRootObject {
-  export function isa(o: any): o is InvalidDefaultRootObject {
-    return _smithy.isa(o, "InvalidDefaultRootObject");
-  }
-}
-
-/**
- *
- * 		       <p>An invalid error code was specified.</p>
- *
- */
-export interface InvalidErrorCode
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidErrorCode";
-  name: "InvalidErrorCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidErrorCode {
-  export function isa(o: any): o is InvalidErrorCode {
-    return _smithy.isa(o, "InvalidErrorCode");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
- * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
- *
- */
-export interface InvalidForwardCookies
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidForwardCookies";
-  name: "InvalidForwardCookies";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidForwardCookies {
-  export function isa(o: any): o is InvalidForwardCookies {
-    return _smithy.isa(o, "InvalidForwardCookies");
-  }
-}
-
-/**
- *
- * 		       <p>The specified geo restriction parameter is not valid.</p>
- *
- */
-export interface InvalidGeoRestrictionParameter
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidGeoRestrictionParameter";
-  name: "InvalidGeoRestrictionParameter";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidGeoRestrictionParameter {
-  export function isa(o: any): o is InvalidGeoRestrictionParameter {
-    return _smithy.isa(o, "InvalidGeoRestrictionParameter");
-  }
-}
-
-/**
- *
- * 		       <p>The headers specified are not valid for an Amazon S3 origin.</p>
- *
- */
-export interface InvalidHeadersForS3Origin
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidHeadersForS3Origin";
-  name: "InvalidHeadersForS3Origin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidHeadersForS3Origin {
-  export function isa(o: any): o is InvalidHeadersForS3Origin {
-    return _smithy.isa(o, "InvalidHeadersForS3Origin");
-  }
-}
-
-/**
- *
- * 		       <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
- *
- */
-export interface InvalidIfMatchVersion
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidIfMatchVersion";
-  name: "InvalidIfMatchVersion";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidIfMatchVersion {
-  export function isa(o: any): o is InvalidIfMatchVersion {
-    return _smithy.isa(o, "InvalidIfMatchVersion");
-  }
-}
-
-/**
- *
- * 		       <p>The specified Lambda function association is invalid.</p>
- *
- */
-export interface InvalidLambdaFunctionAssociation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidLambdaFunctionAssociation";
-  name: "InvalidLambdaFunctionAssociation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidLambdaFunctionAssociation {
-  export function isa(o: any): o is InvalidLambdaFunctionAssociation {
-    return _smithy.isa(o, "InvalidLambdaFunctionAssociation");
-  }
-}
-
-/**
- *
- * 		       <p>The location code specified is not valid.</p>
- *
- */
-export interface InvalidLocationCode
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidLocationCode";
-  name: "InvalidLocationCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidLocationCode {
-  export function isa(o: any): o is InvalidLocationCode {
-    return _smithy.isa(o, "InvalidLocationCode");
-  }
-}
-
-/**
- *
- * 		       <p>The minimum protocol version specified is not valid.</p>
- *
- */
-export interface InvalidMinimumProtocolVersion
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidMinimumProtocolVersion";
-  name: "InvalidMinimumProtocolVersion";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidMinimumProtocolVersion {
-  export function isa(o: any): o is InvalidMinimumProtocolVersion {
-    return _smithy.isa(o, "InvalidMinimumProtocolVersion");
-  }
-}
-
-/**
- *
- * 		       <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
- *
- */
-export interface InvalidOrigin
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidOrigin";
-  name: "InvalidOrigin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOrigin {
-  export function isa(o: any): o is InvalidOrigin {
-    return _smithy.isa(o, "InvalidOrigin");
-  }
-}
-
-/**
- *
- * 		       <p>The origin access identity is not valid or doesn't exist.</p>
- *
- */
-export interface InvalidOriginAccessIdentity
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidOriginAccessIdentity";
-  name: "InvalidOriginAccessIdentity";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginAccessIdentity {
-  export function isa(o: any): o is InvalidOriginAccessIdentity {
-    return _smithy.isa(o, "InvalidOriginAccessIdentity");
-  }
-}
-
-/**
- *
- * 		       <p>The keep alive timeout specified for the origin is not valid.</p>
- *
- */
-export interface InvalidOriginKeepaliveTimeout
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidOriginKeepaliveTimeout";
-  name: "InvalidOriginKeepaliveTimeout";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginKeepaliveTimeout {
-  export function isa(o: any): o is InvalidOriginKeepaliveTimeout {
-    return _smithy.isa(o, "InvalidOriginKeepaliveTimeout");
-  }
-}
-
-/**
- *
- * 		       <p>The read timeout specified for the origin is not valid.</p>
- *
- */
-export interface InvalidOriginReadTimeout
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidOriginReadTimeout";
-  name: "InvalidOriginReadTimeout";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidOriginReadTimeout {
-  export function isa(o: any): o is InvalidOriginReadTimeout {
-    return _smithy.isa(o, "InvalidOriginReadTimeout");
-  }
-}
-
-/**
- *
- * 		       <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
- * 			Server Name Indication (SNI).</p>
- *
- */
-export interface InvalidProtocolSettings
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidProtocolSettings";
-  name: "InvalidProtocolSettings";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidProtocolSettings {
-  export function isa(o: any): o is InvalidProtocolSettings {
-    return _smithy.isa(o, "InvalidProtocolSettings");
-  }
-}
-
-/**
- *
- * 		       <p>Query string parameters specified in the response body are not valid.</p>
- *
- */
-export interface InvalidQueryStringParameters
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidQueryStringParameters";
-  name: "InvalidQueryStringParameters";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidQueryStringParameters {
-  export function isa(o: any): o is InvalidQueryStringParameters {
-    return _smithy.isa(o, "InvalidQueryStringParameters");
-  }
-}
-
-/**
- *
- * 		       <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
- *
- */
-export interface InvalidRelativePath
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRelativePath";
-  name: "InvalidRelativePath";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidRelativePath {
-  export function isa(o: any): o is InvalidRelativePath {
-    return _smithy.isa(o, "InvalidRelativePath");
-  }
-}
-
-/**
- *
- * 		       <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
- * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
- *
- */
-export interface InvalidRequiredProtocol
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequiredProtocol";
-  name: "InvalidRequiredProtocol";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidRequiredProtocol {
-  export function isa(o: any): o is InvalidRequiredProtocol {
-    return _smithy.isa(o, "InvalidRequiredProtocol");
-  }
-}
-
-/**
- *
- * 		       <p>A response code specified in the response body is not valid.</p>
- *
- */
-export interface InvalidResponseCode
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidResponseCode";
-  name: "InvalidResponseCode";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidResponseCode {
-  export function isa(o: any): o is InvalidResponseCode {
-    return _smithy.isa(o, "InvalidResponseCode");
-  }
-}
-
-/**
- *
- * 		       <p>TTL order specified in the response body is not valid.</p>
- *
- */
-export interface InvalidTTLOrder
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidTTLOrder";
-  name: "InvalidTTLOrder";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidTTLOrder {
-  export function isa(o: any): o is InvalidTTLOrder {
-    return _smithy.isa(o, "InvalidTTLOrder");
-  }
-}
-
-/**
- *
- * 		       <p>Tagging specified in the response body is not valid.</p>
- *
- */
-export interface InvalidTagging
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidTagging";
-  name: "InvalidTagging";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidTagging {
-  export function isa(o: any): o is InvalidTagging {
-    return _smithy.isa(o, "InvalidTagging");
-  }
-}
-
-/**
- *
- * 		       <p>A viewer certificate specified in the response body is not valid.</p>
- *
- */
-export interface InvalidViewerCertificate
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidViewerCertificate";
-  name: "InvalidViewerCertificate";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidViewerCertificate {
-  export function isa(o: any): o is InvalidViewerCertificate {
-    return _smithy.isa(o, "InvalidViewerCertificate");
-  }
-}
-
-/**
- *
- * 		       <p>A web ACL id specified in the response body is not valid.</p>
- *
- */
-export interface InvalidWebACLId
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidWebACLId";
-  name: "InvalidWebACLId";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidWebACLId {
-  export function isa(o: any): o is InvalidWebACLId {
-    return _smithy.isa(o, "InvalidWebACLId");
-  }
-}
+export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
 
 /**
  *
@@ -4875,6 +4053,8 @@ export namespace InvalidationSummary {
     return _smithy.isa(o, "InvalidationSummary");
   }
 }
+
+export type ItemSelection = "all" | "none" | "whitelist";
 
 /**
  *
@@ -5522,201 +4702,21 @@ export namespace LoggingConfig {
   }
 }
 
-/**
- *
- * 		       <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
- *
- */
-export interface MissingBody extends _smithy.SmithyException, $MetadataBearer {
-  __type: "MissingBody";
-  name: "MissingBody";
-  $fault: "client";
-  Message?: string;
-}
+export type Method =
+  | "DELETE"
+  | "GET"
+  | "HEAD"
+  | "OPTIONS"
+  | "PATCH"
+  | "POST"
+  | "PUT";
 
-export namespace MissingBody {
-  export function isa(o: any): o is MissingBody {
-    return _smithy.isa(o, "MissingBody");
-  }
-}
-
-/**
- *
- * 		       <p>The specified origin access identity does not exist.</p>
- *
- */
-export interface NoSuchCloudFrontOriginAccessIdentity
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchCloudFrontOriginAccessIdentity";
-  name: "NoSuchCloudFrontOriginAccessIdentity";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchCloudFrontOriginAccessIdentity {
-  export function isa(o: any): o is NoSuchCloudFrontOriginAccessIdentity {
-    return _smithy.isa(o, "NoSuchCloudFrontOriginAccessIdentity");
-  }
-}
-
-/**
- *
- * 		       <p>The specified distribution does not exist.</p>
- *
- */
-export interface NoSuchDistribution
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchDistribution";
-  name: "NoSuchDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchDistribution {
-  export function isa(o: any): o is NoSuchDistribution {
-    return _smithy.isa(o, "NoSuchDistribution");
-  }
-}
-
-/**
- *
- * 		       <p>The specified configuration for field-level encryption doesn't exist.</p>
- *
- */
-export interface NoSuchFieldLevelEncryptionConfig
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchFieldLevelEncryptionConfig";
-  name: "NoSuchFieldLevelEncryptionConfig";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchFieldLevelEncryptionConfig {
-  export function isa(o: any): o is NoSuchFieldLevelEncryptionConfig {
-    return _smithy.isa(o, "NoSuchFieldLevelEncryptionConfig");
-  }
-}
-
-/**
- *
- * 		       <p>The specified profile for field-level encryption doesn't exist.</p>
- *
- */
-export interface NoSuchFieldLevelEncryptionProfile
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchFieldLevelEncryptionProfile";
-  name: "NoSuchFieldLevelEncryptionProfile";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchFieldLevelEncryptionProfile {
-  export function isa(o: any): o is NoSuchFieldLevelEncryptionProfile {
-    return _smithy.isa(o, "NoSuchFieldLevelEncryptionProfile");
-  }
-}
-
-/**
- *
- * 		       <p>The specified invalidation does not exist.</p>
- *
- */
-export interface NoSuchInvalidation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchInvalidation";
-  name: "NoSuchInvalidation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchInvalidation {
-  export function isa(o: any): o is NoSuchInvalidation {
-    return _smithy.isa(o, "NoSuchInvalidation");
-  }
-}
-
-/**
- *
- * 		       <p>No origin exists with the specified <code>Origin Id</code>. </p>
- *
- */
-export interface NoSuchOrigin extends _smithy.SmithyException, $MetadataBearer {
-  __type: "NoSuchOrigin";
-  name: "NoSuchOrigin";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchOrigin {
-  export function isa(o: any): o is NoSuchOrigin {
-    return _smithy.isa(o, "NoSuchOrigin");
-  }
-}
-
-/**
- *
- * 		       <p>The specified public key doesn't exist.</p>
- *
- */
-export interface NoSuchPublicKey
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchPublicKey";
-  name: "NoSuchPublicKey";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchPublicKey {
-  export function isa(o: any): o is NoSuchPublicKey {
-    return _smithy.isa(o, "NoSuchPublicKey");
-  }
-}
-
-/**
- *
- * 		       <p>A resource that was specified is not valid.</p>
- *
- */
-export interface NoSuchResource
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchResource";
-  name: "NoSuchResource";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchResource {
-  export function isa(o: any): o is NoSuchResource {
-    return _smithy.isa(o, "NoSuchResource");
-  }
-}
-
-/**
- *
- * 		       <p>The specified streaming distribution does not exist.</p>
- *
- */
-export interface NoSuchStreamingDistribution
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoSuchStreamingDistribution";
-  name: "NoSuchStreamingDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchStreamingDistribution {
-  export function isa(o: any): o is NoSuchStreamingDistribution {
-    return _smithy.isa(o, "NoSuchStreamingDistribution");
-  }
-}
+export type MinimumProtocolVersion =
+  | "SSLv3"
+  | "TLSv1"
+  | "TLSv1.1_2016"
+  | "TLSv1.2_2018"
+  | "TLSv1_2016";
 
 /**
  *
@@ -6026,6 +5026,8 @@ export namespace OriginGroups {
   }
 }
 
+export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
+
 /**
  *
  * 		       <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
@@ -6115,25 +5117,7 @@ export namespace Paths {
   }
 }
 
-/**
- *
- * 		       <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
- *
- */
-export interface PreconditionFailed
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "PreconditionFailed";
-  name: "PreconditionFailed";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PreconditionFailed {
-  export function isa(o: any): o is PreconditionFailed {
-    return _smithy.isa(o, "PreconditionFailed");
-  }
-}
+export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
 
 /**
  *
@@ -6167,26 +5151,6 @@ export interface PublicKey {
 export namespace PublicKey {
   export function isa(o: any): o is PublicKey {
     return _smithy.isa(o, "PublicKey");
-  }
-}
-
-/**
- *
- * 		       <p>The specified public key already exists.</p>
- *
- */
-export interface PublicKeyAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "PublicKeyAlreadyExists";
-  name: "PublicKeyAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PublicKeyAlreadyExists {
-  export function isa(o: any): o is PublicKeyAlreadyExists {
-    return _smithy.isa(o, "PublicKeyAlreadyExists");
   }
 }
 
@@ -6229,26 +5193,6 @@ export interface PublicKeyConfig {
 export namespace PublicKeyConfig {
   export function isa(o: any): o is PublicKeyConfig {
     return _smithy.isa(o, "PublicKeyConfig");
-  }
-}
-
-/**
- *
- * 		       <p>The specified public key is in use. </p>
- *
- */
-export interface PublicKeyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "PublicKeyInUse";
-  name: "PublicKeyInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PublicKeyInUse {
-  export function isa(o: any): o is PublicKeyInUse {
-    return _smithy.isa(o, "PublicKeyInUse");
   }
 }
 
@@ -6411,26 +5355,6 @@ export interface QueryArgProfileConfig {
 export namespace QueryArgProfileConfig {
   export function isa(o: any): o is QueryArgProfileConfig {
     return _smithy.isa(o, "QueryArgProfileConfig");
-  }
-}
-
-/**
- *
- * 		       <p>No profile specified for the field-level encryption query argument.</p>
- *
- */
-export interface QueryArgProfileEmpty
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "QueryArgProfileEmpty";
-  name: "QueryArgProfileEmpty";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace QueryArgProfileEmpty {
-  export function isa(o: any): o is QueryArgProfileEmpty {
-    return _smithy.isa(o, "QueryArgProfileEmpty");
   }
 }
 
@@ -6599,6 +5523,8 @@ export namespace S3OriginConfig {
   }
 }
 
+export type SSLSupportMethod = "sni-only" | "vip";
+
 /**
  *
  * 		       <p>A complex type that lists the AWS accounts that were included in the
@@ -6638,6 +5564,8 @@ export namespace Signer {
     return _smithy.isa(o, "Signer");
   }
 }
+
+export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
 
 /**
  *
@@ -6742,27 +5670,6 @@ export interface StreamingDistribution {
 export namespace StreamingDistribution {
   export function isa(o: any): o is StreamingDistribution {
     return _smithy.isa(o, "StreamingDistribution");
-  }
-}
-
-/**
- *
- * 		       <p>The caller reference you attempted to create the streaming distribution with
- * 			is associated with another distribution</p>
- *
- */
-export interface StreamingDistributionAlreadyExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "StreamingDistributionAlreadyExists";
-  name: "StreamingDistributionAlreadyExists";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StreamingDistributionAlreadyExists {
-  export function isa(o: any): o is StreamingDistributionAlreadyExists {
-    return _smithy.isa(o, "StreamingDistributionAlreadyExists");
   }
 }
 
@@ -6938,27 +5845,6 @@ export interface StreamingDistributionList {
 export namespace StreamingDistributionList {
   export function isa(o: any): o is StreamingDistributionList {
     return _smithy.isa(o, "StreamingDistributionList");
-  }
-}
-
-/**
- *
- * 		       <p>The specified CloudFront distribution is not disabled. You must disable
- * 			the distribution before you can delete it.</p>
- *
- */
-export interface StreamingDistributionNotDisabled
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "StreamingDistributionNotDisabled";
-  name: "StreamingDistributionNotDisabled";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StreamingDistributionNotDisabled {
-  export function isa(o: any): o is StreamingDistributionNotDisabled {
-    return _smithy.isa(o, "StreamingDistributionNotDisabled");
   }
 }
 
@@ -7216,538 +6102,6 @@ export interface Tags {
 export namespace Tags {
   export function isa(o: any): o is Tags {
     return _smithy.isa(o, "Tags");
-  }
-}
-
-/**
- *
- * 		       <p>You cannot create more cache behaviors for the distribution.</p>
- *
- */
-export interface TooManyCacheBehaviors
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyCacheBehaviors";
-  name: "TooManyCacheBehaviors";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCacheBehaviors {
-  export function isa(o: any): o is TooManyCacheBehaviors {
-    return _smithy.isa(o, "TooManyCacheBehaviors");
-  }
-}
-
-/**
- *
- * 		       <p>You cannot create anymore custom SSL/TLS certificates.</p>
- *
- */
-export interface TooManyCertificates
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyCertificates";
-  name: "TooManyCertificates";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCertificates {
-  export function isa(o: any): o is TooManyCertificates {
-    return _smithy.isa(o, "TooManyCertificates");
-  }
-}
-
-/**
- *
- * 		       <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
- *
- */
-export interface TooManyCloudFrontOriginAccessIdentities
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyCloudFrontOriginAccessIdentities";
-  name: "TooManyCloudFrontOriginAccessIdentities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCloudFrontOriginAccessIdentities {
-  export function isa(o: any): o is TooManyCloudFrontOriginAccessIdentities {
-    return _smithy.isa(o, "TooManyCloudFrontOriginAccessIdentities");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
- *
- */
-export interface TooManyCookieNamesInWhiteList
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyCookieNamesInWhiteList";
-  name: "TooManyCookieNamesInWhiteList";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyCookieNamesInWhiteList {
-  export function isa(o: any): o is TooManyCookieNamesInWhiteList {
-    return _smithy.isa(o, "TooManyCookieNamesInWhiteList");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- *
- */
-export interface TooManyDistributionCNAMEs
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyDistributionCNAMEs";
-  name: "TooManyDistributionCNAMEs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionCNAMEs {
-  export function isa(o: any): o is TooManyDistributionCNAMEs {
-    return _smithy.isa(o, "TooManyDistributionCNAMEs");
-  }
-}
-
-/**
- *
- * 		       <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
- *
- */
-export interface TooManyDistributions
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyDistributions";
-  name: "TooManyDistributions";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributions {
-  export function isa(o: any): o is TooManyDistributions {
-    return _smithy.isa(o, "TooManyDistributions");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
- *
- */
-export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
-  name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
-  export function isa(
-    o: any
-  ): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
-    return _smithy.isa(
-      o,
-      "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
-    );
-  }
-}
-
-/**
- *
- * 		       <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
- * 			to be exceeded.</p>
- *
- */
-export interface TooManyDistributionsWithLambdaAssociations
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyDistributionsWithLambdaAssociations";
-  name: "TooManyDistributionsWithLambdaAssociations";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyDistributionsWithLambdaAssociations {
-  export function isa(o: any): o is TooManyDistributionsWithLambdaAssociations {
-    return _smithy.isa(o, "TooManyDistributionsWithLambdaAssociations");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of configurations for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionConfigs
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionConfigs";
-  name: "TooManyFieldLevelEncryptionConfigs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionConfigs {
-  export function isa(o: any): o is TooManyFieldLevelEncryptionConfigs {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionConfigs");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of content type profiles for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionContentTypeProfiles
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionContentTypeProfiles";
-  name: "TooManyFieldLevelEncryptionContentTypeProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
-  export function isa(
-    o: any
-  ): o is TooManyFieldLevelEncryptionContentTypeProfiles {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of encryption entities for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionEncryptionEntities
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionEncryptionEntities";
-  name: "TooManyFieldLevelEncryptionEncryptionEntities";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionEncryptionEntities {
-  export function isa(
-    o: any
-  ): o is TooManyFieldLevelEncryptionEncryptionEntities {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of field patterns for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionFieldPatterns
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionFieldPatterns";
-  name: "TooManyFieldLevelEncryptionFieldPatterns";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionFieldPatterns {
-  export function isa(o: any): o is TooManyFieldLevelEncryptionFieldPatterns {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionFieldPatterns");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of profiles for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionProfiles
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionProfiles";
-  name: "TooManyFieldLevelEncryptionProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionProfiles {
-  export function isa(o: any): o is TooManyFieldLevelEncryptionProfiles {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionProfiles");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
- *
- */
-export interface TooManyFieldLevelEncryptionQueryArgProfiles
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyFieldLevelEncryptionQueryArgProfiles";
-  name: "TooManyFieldLevelEncryptionQueryArgProfiles";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
-  export function isa(
-    o: any
-  ): o is TooManyFieldLevelEncryptionQueryArgProfiles {
-    return _smithy.isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains too many headers in forwarded values.</p>
- *
- */
-export interface TooManyHeadersInForwardedValues
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyHeadersInForwardedValues";
-  name: "TooManyHeadersInForwardedValues";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyHeadersInForwardedValues {
-  export function isa(o: any): o is TooManyHeadersInForwardedValues {
-    return _smithy.isa(o, "TooManyHeadersInForwardedValues");
-  }
-}
-
-/**
- *
- * 		       <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
- *
- */
-export interface TooManyInvalidationsInProgress
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyInvalidationsInProgress";
-  name: "TooManyInvalidationsInProgress";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyInvalidationsInProgress {
-  export function isa(o: any): o is TooManyInvalidationsInProgress {
-    return _smithy.isa(o, "TooManyInvalidationsInProgress");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
- *
- */
-export interface TooManyLambdaFunctionAssociations
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyLambdaFunctionAssociations";
-  name: "TooManyLambdaFunctionAssociations";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyLambdaFunctionAssociations {
-  export function isa(o: any): o is TooManyLambdaFunctionAssociations {
-    return _smithy.isa(o, "TooManyLambdaFunctionAssociations");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains too many origin custom headers.</p>
- *
- */
-export interface TooManyOriginCustomHeaders
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyOriginCustomHeaders";
-  name: "TooManyOriginCustomHeaders";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOriginCustomHeaders {
-  export function isa(o: any): o is TooManyOriginCustomHeaders {
-    return _smithy.isa(o, "TooManyOriginCustomHeaders");
-  }
-}
-
-/**
- *
- * 		       <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
- *
- */
-export interface TooManyOriginGroupsPerDistribution
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyOriginGroupsPerDistribution";
-  name: "TooManyOriginGroupsPerDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOriginGroupsPerDistribution {
-  export function isa(o: any): o is TooManyOriginGroupsPerDistribution {
-    return _smithy.isa(o, "TooManyOriginGroupsPerDistribution");
-  }
-}
-
-/**
- *
- * 		       <p>You cannot create more origins for the distribution.</p>
- *
- */
-export interface TooManyOrigins
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyOrigins";
-  name: "TooManyOrigins";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyOrigins {
-  export function isa(o: any): o is TooManyOrigins {
-    return _smithy.isa(o, "TooManyOrigins");
-  }
-}
-
-/**
- *
- * 		       <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
- *
- */
-export interface TooManyPublicKeys
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyPublicKeys";
-  name: "TooManyPublicKeys";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyPublicKeys {
-  export function isa(o: any): o is TooManyPublicKeys {
-    return _smithy.isa(o, "TooManyPublicKeys");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains too many query string parameters.</p>
- *
- */
-export interface TooManyQueryStringParameters
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyQueryStringParameters";
-  name: "TooManyQueryStringParameters";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyQueryStringParameters {
-  export function isa(o: any): o is TooManyQueryStringParameters {
-    return _smithy.isa(o, "TooManyQueryStringParameters");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- *
- */
-export interface TooManyStreamingDistributionCNAMEs
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyStreamingDistributionCNAMEs";
-  name: "TooManyStreamingDistributionCNAMEs";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyStreamingDistributionCNAMEs {
-  export function isa(o: any): o is TooManyStreamingDistributionCNAMEs {
-    return _smithy.isa(o, "TooManyStreamingDistributionCNAMEs");
-  }
-}
-
-/**
- *
- * 		       <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
- *
- */
-export interface TooManyStreamingDistributions
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyStreamingDistributions";
-  name: "TooManyStreamingDistributions";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyStreamingDistributions {
-  export function isa(o: any): o is TooManyStreamingDistributions {
-    return _smithy.isa(o, "TooManyStreamingDistributions");
-  }
-}
-
-/**
- *
- * 		       <p>Your request contains more trusted signers than are allowed per distribution.</p>
- *
- */
-export interface TooManyTrustedSigners
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyTrustedSigners";
-  name: "TooManyTrustedSigners";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyTrustedSigners {
-  export function isa(o: any): o is TooManyTrustedSigners {
-    return _smithy.isa(o, "TooManyTrustedSigners");
-  }
-}
-
-/**
- *
- * 		       <p>One or more of your trusted signers don't exist.</p>
- *
- */
-export interface TrustedSignerDoesNotExist
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TrustedSignerDoesNotExist";
-  name: "TrustedSignerDoesNotExist";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TrustedSignerDoesNotExist {
-  export function isa(o: any): o is TrustedSignerDoesNotExist {
-    return _smithy.isa(o, "TrustedSignerDoesNotExist");
   }
 }
 
@@ -8428,5 +6782,1651 @@ export interface ViewerCertificate {
 export namespace ViewerCertificate {
   export function isa(o: any): o is ViewerCertificate {
     return _smithy.isa(o, "ViewerCertificate");
+  }
+}
+
+export type ViewerProtocolPolicy =
+  | "allow-all"
+  | "https-only"
+  | "redirect-to-https";
+
+/**
+ *
+ * 		       <p>Access denied.</p>
+ *
+ */
+export interface AccessDenied extends _smithy.SmithyException, $MetadataBearer {
+  __type: "AccessDenied";
+  name: "AccessDenied";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AccessDenied {
+  export function isa(o: any): o is AccessDenied {
+    return _smithy.isa(o, "AccessDenied");
+  }
+}
+
+/**
+ *
+ * 		       <p>Invalidation batch specified is too large.</p>
+ *
+ */
+export interface BatchTooLarge
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BatchTooLarge";
+  name: "BatchTooLarge";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace BatchTooLarge {
+  export function isa(o: any): o is BatchTooLarge {
+    return _smithy.isa(o, "BatchTooLarge");
+  }
+}
+
+/**
+ *
+ * 		       <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ */
+export interface CNAMEAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CNAMEAlreadyExists";
+  name: "CNAMEAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CNAMEAlreadyExists {
+  export function isa(o: any): o is CNAMEAlreadyExists {
+    return _smithy.isa(o, "CNAMEAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>You can't change the value of a public key.</p>
+ *
+ */
+export interface CannotChangeImmutablePublicKeyFields
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CannotChangeImmutablePublicKeyFields";
+  name: "CannotChangeImmutablePublicKeyFields";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CannotChangeImmutablePublicKeyFields {
+  export function isa(o: any): o is CannotChangeImmutablePublicKeyFields {
+    return _smithy.isa(o, "CannotChangeImmutablePublicKeyFields");
+  }
+}
+
+/**
+ *
+ * 		       <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
+ * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
+ * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+ *
+ */
+export interface CloudFrontOriginAccessIdentityAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudFrontOriginAccessIdentityAlreadyExists";
+  name: "CloudFrontOriginAccessIdentityAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudFrontOriginAccessIdentityAlreadyExists {
+  export function isa(
+    o: any
+  ): o is CloudFrontOriginAccessIdentityAlreadyExists {
+    return _smithy.isa(o, "CloudFrontOriginAccessIdentityAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The Origin Access Identity specified is already in use.</p>
+ *
+ */
+export interface CloudFrontOriginAccessIdentityInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CloudFrontOriginAccessIdentityInUse";
+  name: "CloudFrontOriginAccessIdentityInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CloudFrontOriginAccessIdentityInUse {
+  export function isa(o: any): o is CloudFrontOriginAccessIdentityInUse {
+    return _smithy.isa(o, "CloudFrontOriginAccessIdentityInUse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+ *
+ */
+export interface DistributionAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DistributionAlreadyExists";
+  name: "DistributionAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DistributionAlreadyExists {
+  export function isa(o: any): o is DistributionAlreadyExists {
+    return _smithy.isa(o, "DistributionAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ *
+ */
+export interface DistributionNotDisabled
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DistributionNotDisabled";
+  name: "DistributionNotDisabled";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DistributionNotDisabled {
+  export function isa(o: any): o is DistributionNotDisabled {
+    return _smithy.isa(o, "DistributionNotDisabled");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified configuration for field-level encryption already exists.</p>
+ *
+ */
+export interface FieldLevelEncryptionConfigAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FieldLevelEncryptionConfigAlreadyExists";
+  name: "FieldLevelEncryptionConfigAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionConfigAlreadyExists {
+  export function isa(o: any): o is FieldLevelEncryptionConfigAlreadyExists {
+    return _smithy.isa(o, "FieldLevelEncryptionConfigAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified configuration for field-level encryption is in use.</p>
+ *
+ */
+export interface FieldLevelEncryptionConfigInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FieldLevelEncryptionConfigInUse";
+  name: "FieldLevelEncryptionConfigInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionConfigInUse {
+  export function isa(o: any): o is FieldLevelEncryptionConfigInUse {
+    return _smithy.isa(o, "FieldLevelEncryptionConfigInUse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified profile for field-level encryption already exists.</p>
+ *
+ */
+export interface FieldLevelEncryptionProfileAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FieldLevelEncryptionProfileAlreadyExists";
+  name: "FieldLevelEncryptionProfileAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileAlreadyExists {
+  export function isa(o: any): o is FieldLevelEncryptionProfileAlreadyExists {
+    return _smithy.isa(o, "FieldLevelEncryptionProfileAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified profile for field-level encryption is in use.</p>
+ *
+ */
+export interface FieldLevelEncryptionProfileInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FieldLevelEncryptionProfileInUse";
+  name: "FieldLevelEncryptionProfileInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileInUse {
+  export function isa(o: any): o is FieldLevelEncryptionProfileInUse {
+    return _smithy.isa(o, "FieldLevelEncryptionProfileInUse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ *
+ */
+export interface FieldLevelEncryptionProfileSizeExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "FieldLevelEncryptionProfileSizeExceeded";
+  name: "FieldLevelEncryptionProfileSizeExceeded";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FieldLevelEncryptionProfileSizeExceeded {
+  export function isa(o: any): o is FieldLevelEncryptionProfileSizeExceeded {
+    return _smithy.isa(o, "FieldLevelEncryptionProfileSizeExceeded");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+ *
+ */
+export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
+  name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
+  export function isa(
+    o: any
+  ): o is IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
+    return _smithy.isa(
+      o,
+      "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior"
+    );
+  }
+}
+
+/**
+ *
+ * 		       <p>Origin and <code>CallerReference</code> cannot be updated. </p>
+ *
+ */
+export interface IllegalUpdate
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IllegalUpdate";
+  name: "IllegalUpdate";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace IllegalUpdate {
+  export function isa(o: any): o is IllegalUpdate {
+    return _smithy.isa(o, "IllegalUpdate");
+  }
+}
+
+/**
+ *
+ * 		       <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ */
+export interface InconsistentQuantities
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InconsistentQuantities";
+  name: "InconsistentQuantities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InconsistentQuantities {
+  export function isa(o: any): o is InconsistentQuantities {
+    return _smithy.isa(o, "InconsistentQuantities");
+  }
+}
+
+/**
+ *
+ * 		       <p>The argument is invalid.</p>
+ *
+ */
+export interface InvalidArgument
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidArgument";
+  name: "InvalidArgument";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgument {
+  export function isa(o: any): o is InvalidArgument {
+    return _smithy.isa(o, "InvalidArgument");
+  }
+}
+
+/**
+ *
+ * 		       <p>The default root object file name is too big or contains an invalid character.</p>
+ *
+ */
+export interface InvalidDefaultRootObject
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDefaultRootObject";
+  name: "InvalidDefaultRootObject";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidDefaultRootObject {
+  export function isa(o: any): o is InvalidDefaultRootObject {
+    return _smithy.isa(o, "InvalidDefaultRootObject");
+  }
+}
+
+/**
+ *
+ * 		       <p>An invalid error code was specified.</p>
+ *
+ */
+export interface InvalidErrorCode
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidErrorCode";
+  name: "InvalidErrorCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidErrorCode {
+  export function isa(o: any): o is InvalidErrorCode {
+    return _smithy.isa(o, "InvalidErrorCode");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
+ * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+ *
+ */
+export interface InvalidForwardCookies
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidForwardCookies";
+  name: "InvalidForwardCookies";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidForwardCookies {
+  export function isa(o: any): o is InvalidForwardCookies {
+    return _smithy.isa(o, "InvalidForwardCookies");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified geo restriction parameter is not valid.</p>
+ *
+ */
+export interface InvalidGeoRestrictionParameter
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidGeoRestrictionParameter";
+  name: "InvalidGeoRestrictionParameter";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidGeoRestrictionParameter {
+  export function isa(o: any): o is InvalidGeoRestrictionParameter {
+    return _smithy.isa(o, "InvalidGeoRestrictionParameter");
+  }
+}
+
+/**
+ *
+ * 		       <p>The headers specified are not valid for an Amazon S3 origin.</p>
+ *
+ */
+export interface InvalidHeadersForS3Origin
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidHeadersForS3Origin";
+  name: "InvalidHeadersForS3Origin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidHeadersForS3Origin {
+  export function isa(o: any): o is InvalidHeadersForS3Origin {
+    return _smithy.isa(o, "InvalidHeadersForS3Origin");
+  }
+}
+
+/**
+ *
+ * 		       <p>The <code>If-Match</code> version is missing or not valid for the distribution.</p>
+ *
+ */
+export interface InvalidIfMatchVersion
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidIfMatchVersion";
+  name: "InvalidIfMatchVersion";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidIfMatchVersion {
+  export function isa(o: any): o is InvalidIfMatchVersion {
+    return _smithy.isa(o, "InvalidIfMatchVersion");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified Lambda function association is invalid.</p>
+ *
+ */
+export interface InvalidLambdaFunctionAssociation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidLambdaFunctionAssociation";
+  name: "InvalidLambdaFunctionAssociation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidLambdaFunctionAssociation {
+  export function isa(o: any): o is InvalidLambdaFunctionAssociation {
+    return _smithy.isa(o, "InvalidLambdaFunctionAssociation");
+  }
+}
+
+/**
+ *
+ * 		       <p>The location code specified is not valid.</p>
+ *
+ */
+export interface InvalidLocationCode
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidLocationCode";
+  name: "InvalidLocationCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidLocationCode {
+  export function isa(o: any): o is InvalidLocationCode {
+    return _smithy.isa(o, "InvalidLocationCode");
+  }
+}
+
+/**
+ *
+ * 		       <p>The minimum protocol version specified is not valid.</p>
+ *
+ */
+export interface InvalidMinimumProtocolVersion
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidMinimumProtocolVersion";
+  name: "InvalidMinimumProtocolVersion";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidMinimumProtocolVersion {
+  export function isa(o: any): o is InvalidMinimumProtocolVersion {
+    return _smithy.isa(o, "InvalidMinimumProtocolVersion");
+  }
+}
+
+/**
+ *
+ * 		       <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+ *
+ */
+export interface InvalidOrigin
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidOrigin";
+  name: "InvalidOrigin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOrigin {
+  export function isa(o: any): o is InvalidOrigin {
+    return _smithy.isa(o, "InvalidOrigin");
+  }
+}
+
+/**
+ *
+ * 		       <p>The origin access identity is not valid or doesn't exist.</p>
+ *
+ */
+export interface InvalidOriginAccessIdentity
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidOriginAccessIdentity";
+  name: "InvalidOriginAccessIdentity";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginAccessIdentity {
+  export function isa(o: any): o is InvalidOriginAccessIdentity {
+    return _smithy.isa(o, "InvalidOriginAccessIdentity");
+  }
+}
+
+/**
+ *
+ * 		       <p>The keep alive timeout specified for the origin is not valid.</p>
+ *
+ */
+export interface InvalidOriginKeepaliveTimeout
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidOriginKeepaliveTimeout";
+  name: "InvalidOriginKeepaliveTimeout";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginKeepaliveTimeout {
+  export function isa(o: any): o is InvalidOriginKeepaliveTimeout {
+    return _smithy.isa(o, "InvalidOriginKeepaliveTimeout");
+  }
+}
+
+/**
+ *
+ * 		       <p>The read timeout specified for the origin is not valid.</p>
+ *
+ */
+export interface InvalidOriginReadTimeout
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidOriginReadTimeout";
+  name: "InvalidOriginReadTimeout";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidOriginReadTimeout {
+  export function isa(o: any): o is InvalidOriginReadTimeout {
+    return _smithy.isa(o, "InvalidOriginReadTimeout");
+  }
+}
+
+/**
+ *
+ * 		       <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
+ * 			Server Name Indication (SNI).</p>
+ *
+ */
+export interface InvalidProtocolSettings
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidProtocolSettings";
+  name: "InvalidProtocolSettings";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidProtocolSettings {
+  export function isa(o: any): o is InvalidProtocolSettings {
+    return _smithy.isa(o, "InvalidProtocolSettings");
+  }
+}
+
+/**
+ *
+ * 		       <p>Query string parameters specified in the response body are not valid.</p>
+ *
+ */
+export interface InvalidQueryStringParameters
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidQueryStringParameters";
+  name: "InvalidQueryStringParameters";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidQueryStringParameters {
+  export function isa(o: any): o is InvalidQueryStringParameters {
+    return _smithy.isa(o, "InvalidQueryStringParameters");
+  }
+}
+
+/**
+ *
+ * 		       <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+ *
+ */
+export interface InvalidRelativePath
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRelativePath";
+  name: "InvalidRelativePath";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidRelativePath {
+  export function isa(o: any): o is InvalidRelativePath {
+    return _smithy.isa(o, "InvalidRelativePath");
+  }
+}
+
+/**
+ *
+ * 		       <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
+ * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
+ *
+ */
+export interface InvalidRequiredProtocol
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequiredProtocol";
+  name: "InvalidRequiredProtocol";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidRequiredProtocol {
+  export function isa(o: any): o is InvalidRequiredProtocol {
+    return _smithy.isa(o, "InvalidRequiredProtocol");
+  }
+}
+
+/**
+ *
+ * 		       <p>A response code specified in the response body is not valid.</p>
+ *
+ */
+export interface InvalidResponseCode
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidResponseCode";
+  name: "InvalidResponseCode";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidResponseCode {
+  export function isa(o: any): o is InvalidResponseCode {
+    return _smithy.isa(o, "InvalidResponseCode");
+  }
+}
+
+/**
+ *
+ * 		       <p>TTL order specified in the response body is not valid.</p>
+ *
+ */
+export interface InvalidTTLOrder
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidTTLOrder";
+  name: "InvalidTTLOrder";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidTTLOrder {
+  export function isa(o: any): o is InvalidTTLOrder {
+    return _smithy.isa(o, "InvalidTTLOrder");
+  }
+}
+
+/**
+ *
+ * 		       <p>Tagging specified in the response body is not valid.</p>
+ *
+ */
+export interface InvalidTagging
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidTagging";
+  name: "InvalidTagging";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidTagging {
+  export function isa(o: any): o is InvalidTagging {
+    return _smithy.isa(o, "InvalidTagging");
+  }
+}
+
+/**
+ *
+ * 		       <p>A viewer certificate specified in the response body is not valid.</p>
+ *
+ */
+export interface InvalidViewerCertificate
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidViewerCertificate";
+  name: "InvalidViewerCertificate";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidViewerCertificate {
+  export function isa(o: any): o is InvalidViewerCertificate {
+    return _smithy.isa(o, "InvalidViewerCertificate");
+  }
+}
+
+/**
+ *
+ * 		       <p>A web ACL id specified in the response body is not valid.</p>
+ *
+ */
+export interface InvalidWebACLId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidWebACLId";
+  name: "InvalidWebACLId";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidWebACLId {
+  export function isa(o: any): o is InvalidWebACLId {
+    return _smithy.isa(o, "InvalidWebACLId");
+  }
+}
+
+/**
+ *
+ * 		       <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ */
+export interface MissingBody extends _smithy.SmithyException, $MetadataBearer {
+  __type: "MissingBody";
+  name: "MissingBody";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace MissingBody {
+  export function isa(o: any): o is MissingBody {
+    return _smithy.isa(o, "MissingBody");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified origin access identity does not exist.</p>
+ *
+ */
+export interface NoSuchCloudFrontOriginAccessIdentity
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchCloudFrontOriginAccessIdentity";
+  name: "NoSuchCloudFrontOriginAccessIdentity";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchCloudFrontOriginAccessIdentity {
+  export function isa(o: any): o is NoSuchCloudFrontOriginAccessIdentity {
+    return _smithy.isa(o, "NoSuchCloudFrontOriginAccessIdentity");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified distribution does not exist.</p>
+ *
+ */
+export interface NoSuchDistribution
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchDistribution";
+  name: "NoSuchDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchDistribution {
+  export function isa(o: any): o is NoSuchDistribution {
+    return _smithy.isa(o, "NoSuchDistribution");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ */
+export interface NoSuchFieldLevelEncryptionConfig
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchFieldLevelEncryptionConfig";
+  name: "NoSuchFieldLevelEncryptionConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchFieldLevelEncryptionConfig {
+  export function isa(o: any): o is NoSuchFieldLevelEncryptionConfig {
+    return _smithy.isa(o, "NoSuchFieldLevelEncryptionConfig");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ */
+export interface NoSuchFieldLevelEncryptionProfile
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchFieldLevelEncryptionProfile";
+  name: "NoSuchFieldLevelEncryptionProfile";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchFieldLevelEncryptionProfile {
+  export function isa(o: any): o is NoSuchFieldLevelEncryptionProfile {
+    return _smithy.isa(o, "NoSuchFieldLevelEncryptionProfile");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified invalidation does not exist.</p>
+ *
+ */
+export interface NoSuchInvalidation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchInvalidation";
+  name: "NoSuchInvalidation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchInvalidation {
+  export function isa(o: any): o is NoSuchInvalidation {
+    return _smithy.isa(o, "NoSuchInvalidation");
+  }
+}
+
+/**
+ *
+ * 		       <p>No origin exists with the specified <code>Origin Id</code>. </p>
+ *
+ */
+export interface NoSuchOrigin extends _smithy.SmithyException, $MetadataBearer {
+  __type: "NoSuchOrigin";
+  name: "NoSuchOrigin";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchOrigin {
+  export function isa(o: any): o is NoSuchOrigin {
+    return _smithy.isa(o, "NoSuchOrigin");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified public key doesn't exist.</p>
+ *
+ */
+export interface NoSuchPublicKey
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchPublicKey";
+  name: "NoSuchPublicKey";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchPublicKey {
+  export function isa(o: any): o is NoSuchPublicKey {
+    return _smithy.isa(o, "NoSuchPublicKey");
+  }
+}
+
+/**
+ *
+ * 		       <p>A resource that was specified is not valid.</p>
+ *
+ */
+export interface NoSuchResource
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchResource";
+  name: "NoSuchResource";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchResource {
+  export function isa(o: any): o is NoSuchResource {
+    return _smithy.isa(o, "NoSuchResource");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified streaming distribution does not exist.</p>
+ *
+ */
+export interface NoSuchStreamingDistribution
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoSuchStreamingDistribution";
+  name: "NoSuchStreamingDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchStreamingDistribution {
+  export function isa(o: any): o is NoSuchStreamingDistribution {
+    return _smithy.isa(o, "NoSuchStreamingDistribution");
+  }
+}
+
+/**
+ *
+ * 		       <p>The precondition given in one or more of the request-header fields evaluated to <code>false</code>. </p>
+ *
+ */
+export interface PreconditionFailed
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "PreconditionFailed";
+  name: "PreconditionFailed";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PreconditionFailed {
+  export function isa(o: any): o is PreconditionFailed {
+    return _smithy.isa(o, "PreconditionFailed");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified public key already exists.</p>
+ *
+ */
+export interface PublicKeyAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "PublicKeyAlreadyExists";
+  name: "PublicKeyAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PublicKeyAlreadyExists {
+  export function isa(o: any): o is PublicKeyAlreadyExists {
+    return _smithy.isa(o, "PublicKeyAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified public key is in use. </p>
+ *
+ */
+export interface PublicKeyInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "PublicKeyInUse";
+  name: "PublicKeyInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PublicKeyInUse {
+  export function isa(o: any): o is PublicKeyInUse {
+    return _smithy.isa(o, "PublicKeyInUse");
+  }
+}
+
+/**
+ *
+ * 		       <p>No profile specified for the field-level encryption query argument.</p>
+ *
+ */
+export interface QueryArgProfileEmpty
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "QueryArgProfileEmpty";
+  name: "QueryArgProfileEmpty";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace QueryArgProfileEmpty {
+  export function isa(o: any): o is QueryArgProfileEmpty {
+    return _smithy.isa(o, "QueryArgProfileEmpty");
+  }
+}
+
+/**
+ *
+ * 		       <p>The caller reference you attempted to create the streaming distribution with
+ * 			is associated with another distribution</p>
+ *
+ */
+export interface StreamingDistributionAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "StreamingDistributionAlreadyExists";
+  name: "StreamingDistributionAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StreamingDistributionAlreadyExists {
+  export function isa(o: any): o is StreamingDistributionAlreadyExists {
+    return _smithy.isa(o, "StreamingDistributionAlreadyExists");
+  }
+}
+
+/**
+ *
+ * 		       <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ *
+ */
+export interface StreamingDistributionNotDisabled
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "StreamingDistributionNotDisabled";
+  name: "StreamingDistributionNotDisabled";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StreamingDistributionNotDisabled {
+  export function isa(o: any): o is StreamingDistributionNotDisabled {
+    return _smithy.isa(o, "StreamingDistributionNotDisabled");
+  }
+}
+
+/**
+ *
+ * 		       <p>You cannot create more cache behaviors for the distribution.</p>
+ *
+ */
+export interface TooManyCacheBehaviors
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyCacheBehaviors";
+  name: "TooManyCacheBehaviors";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCacheBehaviors {
+  export function isa(o: any): o is TooManyCacheBehaviors {
+    return _smithy.isa(o, "TooManyCacheBehaviors");
+  }
+}
+
+/**
+ *
+ * 		       <p>You cannot create anymore custom SSL/TLS certificates.</p>
+ *
+ */
+export interface TooManyCertificates
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyCertificates";
+  name: "TooManyCertificates";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCertificates {
+  export function isa(o: any): o is TooManyCertificates {
+    return _smithy.isa(o, "TooManyCertificates");
+  }
+}
+
+/**
+ *
+ * 		       <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+ *
+ */
+export interface TooManyCloudFrontOriginAccessIdentities
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyCloudFrontOriginAccessIdentities";
+  name: "TooManyCloudFrontOriginAccessIdentities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCloudFrontOriginAccessIdentities {
+  export function isa(o: any): o is TooManyCloudFrontOriginAccessIdentities {
+    return _smithy.isa(o, "TooManyCloudFrontOriginAccessIdentities");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+ *
+ */
+export interface TooManyCookieNamesInWhiteList
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyCookieNamesInWhiteList";
+  name: "TooManyCookieNamesInWhiteList";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCookieNamesInWhiteList {
+  export function isa(o: any): o is TooManyCookieNamesInWhiteList {
+    return _smithy.isa(o, "TooManyCookieNamesInWhiteList");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ */
+export interface TooManyDistributionCNAMEs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyDistributionCNAMEs";
+  name: "TooManyDistributionCNAMEs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionCNAMEs {
+  export function isa(o: any): o is TooManyDistributionCNAMEs {
+    return _smithy.isa(o, "TooManyDistributionCNAMEs");
+  }
+}
+
+/**
+ *
+ * 		       <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+ *
+ */
+export interface TooManyDistributions
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyDistributions";
+  name: "TooManyDistributions";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributions {
+  export function isa(o: any): o is TooManyDistributions {
+    return _smithy.isa(o, "TooManyDistributions");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+ *
+ */
+export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
+  name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
+  export function isa(
+    o: any
+  ): o is TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
+    return _smithy.isa(
+      o,
+      "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig"
+    );
+  }
+}
+
+/**
+ *
+ * 		       <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
+ * 			to be exceeded.</p>
+ *
+ */
+export interface TooManyDistributionsWithLambdaAssociations
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyDistributionsWithLambdaAssociations";
+  name: "TooManyDistributionsWithLambdaAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsWithLambdaAssociations {
+  export function isa(o: any): o is TooManyDistributionsWithLambdaAssociations {
+    return _smithy.isa(o, "TooManyDistributionsWithLambdaAssociations");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of configurations for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionConfigs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionConfigs";
+  name: "TooManyFieldLevelEncryptionConfigs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionConfigs {
+  export function isa(o: any): o is TooManyFieldLevelEncryptionConfigs {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionConfigs");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionContentTypeProfiles
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionContentTypeProfiles";
+  name: "TooManyFieldLevelEncryptionContentTypeProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
+  export function isa(
+    o: any
+  ): o is TooManyFieldLevelEncryptionContentTypeProfiles {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionContentTypeProfiles");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionEncryptionEntities
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionEncryptionEntities";
+  name: "TooManyFieldLevelEncryptionEncryptionEntities";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionEncryptionEntities {
+  export function isa(
+    o: any
+  ): o is TooManyFieldLevelEncryptionEncryptionEntities {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionEncryptionEntities");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of field patterns for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionFieldPatterns
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionFieldPatterns";
+  name: "TooManyFieldLevelEncryptionFieldPatterns";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionFieldPatterns {
+  export function isa(o: any): o is TooManyFieldLevelEncryptionFieldPatterns {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionFieldPatterns");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of profiles for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionProfiles
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionProfiles";
+  name: "TooManyFieldLevelEncryptionProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionProfiles {
+  export function isa(o: any): o is TooManyFieldLevelEncryptionProfiles {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionProfiles");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+ *
+ */
+export interface TooManyFieldLevelEncryptionQueryArgProfiles
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyFieldLevelEncryptionQueryArgProfiles";
+  name: "TooManyFieldLevelEncryptionQueryArgProfiles";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
+  export function isa(
+    o: any
+  ): o is TooManyFieldLevelEncryptionQueryArgProfiles {
+    return _smithy.isa(o, "TooManyFieldLevelEncryptionQueryArgProfiles");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains too many headers in forwarded values.</p>
+ *
+ */
+export interface TooManyHeadersInForwardedValues
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyHeadersInForwardedValues";
+  name: "TooManyHeadersInForwardedValues";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyHeadersInForwardedValues {
+  export function isa(o: any): o is TooManyHeadersInForwardedValues {
+    return _smithy.isa(o, "TooManyHeadersInForwardedValues");
+  }
+}
+
+/**
+ *
+ * 		       <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+ *
+ */
+export interface TooManyInvalidationsInProgress
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyInvalidationsInProgress";
+  name: "TooManyInvalidationsInProgress";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyInvalidationsInProgress {
+  export function isa(o: any): o is TooManyInvalidationsInProgress {
+    return _smithy.isa(o, "TooManyInvalidationsInProgress");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains more Lambda function associations than are allowed per distribution.</p>
+ *
+ */
+export interface TooManyLambdaFunctionAssociations
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyLambdaFunctionAssociations";
+  name: "TooManyLambdaFunctionAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyLambdaFunctionAssociations {
+  export function isa(o: any): o is TooManyLambdaFunctionAssociations {
+    return _smithy.isa(o, "TooManyLambdaFunctionAssociations");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains too many origin custom headers.</p>
+ *
+ */
+export interface TooManyOriginCustomHeaders
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyOriginCustomHeaders";
+  name: "TooManyOriginCustomHeaders";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOriginCustomHeaders {
+  export function isa(o: any): o is TooManyOriginCustomHeaders {
+    return _smithy.isa(o, "TooManyOriginCustomHeaders");
+  }
+}
+
+/**
+ *
+ * 		       <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+ *
+ */
+export interface TooManyOriginGroupsPerDistribution
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyOriginGroupsPerDistribution";
+  name: "TooManyOriginGroupsPerDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOriginGroupsPerDistribution {
+  export function isa(o: any): o is TooManyOriginGroupsPerDistribution {
+    return _smithy.isa(o, "TooManyOriginGroupsPerDistribution");
+  }
+}
+
+/**
+ *
+ * 		       <p>You cannot create more origins for the distribution.</p>
+ *
+ */
+export interface TooManyOrigins
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyOrigins";
+  name: "TooManyOrigins";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyOrigins {
+  export function isa(o: any): o is TooManyOrigins {
+    return _smithy.isa(o, "TooManyOrigins");
+  }
+}
+
+/**
+ *
+ * 		       <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
+ *
+ */
+export interface TooManyPublicKeys
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyPublicKeys";
+  name: "TooManyPublicKeys";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyPublicKeys {
+  export function isa(o: any): o is TooManyPublicKeys {
+    return _smithy.isa(o, "TooManyPublicKeys");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains too many query string parameters.</p>
+ *
+ */
+export interface TooManyQueryStringParameters
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyQueryStringParameters";
+  name: "TooManyQueryStringParameters";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyQueryStringParameters {
+  export function isa(o: any): o is TooManyQueryStringParameters {
+    return _smithy.isa(o, "TooManyQueryStringParameters");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ */
+export interface TooManyStreamingDistributionCNAMEs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyStreamingDistributionCNAMEs";
+  name: "TooManyStreamingDistributionCNAMEs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyStreamingDistributionCNAMEs {
+  export function isa(o: any): o is TooManyStreamingDistributionCNAMEs {
+    return _smithy.isa(o, "TooManyStreamingDistributionCNAMEs");
+  }
+}
+
+/**
+ *
+ * 		       <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+ *
+ */
+export interface TooManyStreamingDistributions
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyStreamingDistributions";
+  name: "TooManyStreamingDistributions";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyStreamingDistributions {
+  export function isa(o: any): o is TooManyStreamingDistributions {
+    return _smithy.isa(o, "TooManyStreamingDistributions");
+  }
+}
+
+/**
+ *
+ * 		       <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ *
+ */
+export interface TooManyTrustedSigners
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyTrustedSigners";
+  name: "TooManyTrustedSigners";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyTrustedSigners {
+  export function isa(o: any): o is TooManyTrustedSigners {
+    return _smithy.isa(o, "TooManyTrustedSigners");
+  }
+}
+
+/**
+ *
+ * 		       <p>One or more of your trusted signers don't exist.</p>
+ *
+ */
+export interface TrustedSignerDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TrustedSignerDoesNotExist";
+  name: "TrustedSignerDoesNotExist";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TrustedSignerDoesNotExist {
+  export function isa(o: any): o is TrustedSignerDoesNotExist {
+    return _smithy.isa(o, "TrustedSignerDoesNotExist");
   }
 }

@@ -1,99 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum EventSourcePosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
-}
-
-export enum FunctionVersion {
-  ALL = "ALL"
-}
-
-export enum InvocationType {
-  DryRun = "DryRun",
-  Event = "Event",
-  RequestResponse = "RequestResponse"
-}
-
-export enum LastUpdateStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Successful = "Successful"
-}
-
-export enum LastUpdateStatusReasonCode {
-  EniLimitExceeded = "EniLimitExceeded",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration"
-}
-
-export enum LogType {
-  None = "None",
-  Tail = "Tail"
-}
-
-export enum ProvisionedConcurrencyStatusEnum {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY"
-}
-
-export enum Runtime {
-  dotnetcore10 = "dotnetcore1.0",
-  dotnetcore20 = "dotnetcore2.0",
-  dotnetcore21 = "dotnetcore2.1",
-  go1x = "go1.x",
-  java11 = "java11",
-  java8 = "java8",
-  nodejs = "nodejs",
-  nodejs10x = "nodejs10.x",
-  nodejs12x = "nodejs12.x",
-  nodejs43 = "nodejs4.3",
-  nodejs43edge = "nodejs4.3-edge",
-  nodejs610 = "nodejs6.10",
-  nodejs810 = "nodejs8.10",
-  provided = "provided",
-  python27 = "python2.7",
-  python36 = "python3.6",
-  python37 = "python3.7",
-  python38 = "python3.8",
-  ruby25 = "ruby2.5"
-}
-
-export enum State {
-  Active = "Active",
-  Failed = "Failed",
-  Inactive = "Inactive",
-  Pending = "Pending"
-}
-
-export enum StateReasonCode {
-  Creating = "Creating",
-  EniLimitExceeded = "EniLimitExceeded",
-  Idle = "Idle",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
-}
-
-export enum ThrottleReason {
-  CallerRateLimitExceeded = "CallerRateLimitExceeded",
-  ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
-  FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
-  ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded"
-}
-
-export enum TracingMode {
-  Active = "Active",
-  PassThrough = "PassThrough"
-}
-
 /**
  *
  *          <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -1426,6 +1333,12 @@ export namespace EventSourceMappingConfiguration {
   }
 }
 
+export enum EventSourcePosition {
+  AT_TIMESTAMP = "AT_TIMESTAMP",
+  LATEST = "LATEST",
+  TRIM_HORIZON = "TRIM_HORIZON"
+}
+
 /**
  *
  *          <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment
@@ -1761,6 +1674,10 @@ export namespace FunctionEventInvokeConfig {
   export function isa(o: any): o is FunctionEventInvokeConfig {
     return _smithy.isa(o, "FunctionEventInvokeConfig");
   }
+}
+
+export enum FunctionVersion {
+  ALL = "ALL"
 }
 
 export interface GetAccountSettingsRequest {
@@ -2666,6 +2583,12 @@ export namespace InvocationResponse {
   }
 }
 
+export enum InvocationType {
+  DryRun = "DryRun",
+  Event = "Event",
+  RequestResponse = "RequestResponse"
+}
+
 export interface InvokeAsyncRequest {
   __type?: "InvokeAsyncRequest";
   /**
@@ -2809,6 +2732,19 @@ export namespace KMSNotFoundException {
   export function isa(o: any): o is KMSNotFoundException {
     return _smithy.isa(o, "KMSNotFoundException");
   }
+}
+
+export enum LastUpdateStatus {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Successful = "Successful"
+}
+
+export enum LastUpdateStatusReasonCode {
+  EniLimitExceeded = "EniLimitExceeded",
+  InsufficientRolePermissions = "InsufficientRolePermissions",
+  InternalError = "InternalError",
+  InvalidConfiguration = "InvalidConfiguration"
 }
 
 /**
@@ -3619,6 +3555,11 @@ export namespace ListVersionsByFunctionResponse {
   }
 }
 
+export enum LogType {
+  None = "None",
+  Tail = "Tail"
+}
+
 /**
  *
  *          <p>A destination for events that failed processing.</p>
@@ -3801,6 +3742,12 @@ export namespace ProvisionedConcurrencyConfigNotFoundException {
   ): o is ProvisionedConcurrencyConfigNotFoundException {
     return _smithy.isa(o, "ProvisionedConcurrencyConfigNotFoundException");
   }
+}
+
+export enum ProvisionedConcurrencyStatusEnum {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  READY = "READY"
 }
 
 export interface PublishLayerVersionRequest {
@@ -4437,6 +4384,28 @@ export namespace ResourceNotReadyException {
   }
 }
 
+export enum Runtime {
+  dotnetcore10 = "dotnetcore1.0",
+  dotnetcore20 = "dotnetcore2.0",
+  dotnetcore21 = "dotnetcore2.1",
+  go1x = "go1.x",
+  java11 = "java11",
+  java8 = "java8",
+  nodejs = "nodejs",
+  nodejs10x = "nodejs10.x",
+  nodejs12x = "nodejs12.x",
+  nodejs43 = "nodejs4.3",
+  nodejs43edge = "nodejs4.3-edge",
+  nodejs610 = "nodejs6.10",
+  nodejs810 = "nodejs8.10",
+  provided = "provided",
+  python27 = "python2.7",
+  python36 = "python3.6",
+  python37 = "python3.7",
+  python38 = "python3.8",
+  ruby25 = "ruby2.5"
+}
+
 /**
  *
  *          <p>The AWS Lambda service encountered an internal error.</p>
@@ -4456,6 +4425,24 @@ export namespace ServiceException {
   export function isa(o: any): o is ServiceException {
     return _smithy.isa(o, "ServiceException");
   }
+}
+
+export enum State {
+  Active = "Active",
+  Failed = "Failed",
+  Inactive = "Inactive",
+  Pending = "Pending"
+}
+
+export enum StateReasonCode {
+  Creating = "Creating",
+  EniLimitExceeded = "EniLimitExceeded",
+  Idle = "Idle",
+  InsufficientRolePermissions = "InsufficientRolePermissions",
+  InternalError = "InternalError",
+  InvalidConfiguration = "InvalidConfiguration",
+  Restoring = "Restoring",
+  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
 }
 
 /**
@@ -4501,6 +4488,14 @@ export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
     return _smithy.isa(o, "TagResourceRequest");
   }
+}
+
+export enum ThrottleReason {
+  CallerRateLimitExceeded = "CallerRateLimitExceeded",
+  ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
+  FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
+  ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
+  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded"
 }
 
 /**
@@ -4571,6 +4566,11 @@ export namespace TracingConfigResponse {
   export function isa(o: any): o is TracingConfigResponse {
     return _smithy.isa(o, "TracingConfigResponse");
   }
+}
+
+export enum TracingMode {
+  Active = "Active",
+  PassThrough = "PassThrough"
 }
 
 /**

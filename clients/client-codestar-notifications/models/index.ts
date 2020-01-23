@@ -1,42 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum DetailType {
-  BASIC = "BASIC",
-  FULL = "FULL"
-}
-
-export enum ListEventTypesFilterName {
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SERVICE_NAME = "SERVICE_NAME"
-}
-
-export enum ListNotificationRulesFilterName {
-  CREATED_BY = "CREATED_BY",
-  EVENT_TYPE_ID = "EVENT_TYPE_ID",
-  RESOURCE = "RESOURCE",
-  TARGET_ADDRESS = "TARGET_ADDRESS"
-}
-
-export enum ListTargetsFilterName {
-  TARGET_ADDRESS = "TARGET_ADDRESS",
-  TARGET_STATUS = "TARGET_STATUS",
-  TARGET_TYPE = "TARGET_TYPE"
-}
-
-export enum NotificationRuleStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum TargetStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-  UNREACHABLE = "UNREACHABLE"
-}
-
 /**
  *
  *          <p>AWS CodeStar Notifications can't create the notification rule because you do not have sufficient
@@ -368,6 +332,11 @@ export namespace DescribeNotificationRuleResult {
   }
 }
 
+export enum DetailType {
+  BASIC = "BASIC",
+  FULL = "FULL"
+}
+
 /**
  *
  *          <p>Returns information about an event that has triggered a notification rule.</p>
@@ -482,6 +451,11 @@ export namespace ListEventTypesFilter {
   }
 }
 
+export enum ListEventTypesFilterName {
+  RESOURCE_TYPE = "RESOURCE_TYPE",
+  SERVICE_NAME = "SERVICE_NAME"
+}
+
 export interface ListEventTypesRequest {
   __type?: "ListEventTypesRequest";
   /**
@@ -566,6 +540,13 @@ export namespace ListNotificationRulesFilter {
   export function isa(o: any): o is ListNotificationRulesFilter {
     return _smithy.isa(o, "ListNotificationRulesFilter");
   }
+}
+
+export enum ListNotificationRulesFilterName {
+  CREATED_BY = "CREATED_BY",
+  EVENT_TYPE_ID = "EVENT_TYPE_ID",
+  RESOURCE = "RESOURCE",
+  TARGET_ADDRESS = "TARGET_ADDRESS"
 }
 
 export interface ListNotificationRulesRequest {
@@ -694,6 +675,12 @@ export namespace ListTargetsFilter {
   }
 }
 
+export enum ListTargetsFilterName {
+  TARGET_ADDRESS = "TARGET_ADDRESS",
+  TARGET_STATUS = "TARGET_STATUS",
+  TARGET_TYPE = "TARGET_TYPE"
+}
+
 export interface ListTargetsRequest {
   __type?: "ListTargetsRequest";
   /**
@@ -752,6 +739,11 @@ export namespace ListTargetsResult {
   export function isa(o: any): o is ListTargetsResult {
     return _smithy.isa(o, "ListTargetsResult");
   }
+}
+
+export enum NotificationRuleStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -936,6 +928,14 @@ export namespace Target {
   export function isa(o: any): o is Target {
     return _smithy.isa(o, "Target");
   }
+}
+
+export enum TargetStatus {
+  ACTIVE = "ACTIVE",
+  DEACTIVATED = "DEACTIVATED",
+  INACTIVE = "INACTIVE",
+  PENDING = "PENDING",
+  UNREACHABLE = "UNREACHABLE"
 }
 
 /**

@@ -1,70 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS"
-}
-
-export enum DataLakeResourceType {
-  CATALOG = "CATALOG",
-  DATABASE = "DATABASE",
-  DATA_LOCATION = "DATA_LOCATION",
-  TABLE = "TABLE"
-}
-
-export enum FieldNameString {
-  LAST_MODIFIED = "LAST_MODIFIED",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN"
-}
-
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT"
-}
-
-/**
- *
- *          <p>A resource to be created or added already exists.</p>
- *
- */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AlreadyExistsException";
-  name: "AlreadyExistsException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  export function isa(o: any): o is AlreadyExistsException {
-    return _smithy.isa(o, "AlreadyExistsException");
-  }
-}
-
 export interface BatchGrantPermissionsRequest {
   __type?: "BatchGrantPermissionsRequest";
   /**
@@ -258,31 +194,6 @@ export namespace ColumnWildcard {
 
 /**
  *
- *          <p>Two processes are trying to modify a resource simultaneously.</p>
- *
- */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConcurrentModificationException";
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
-  }
-}
-
-/**
- *
  *          <p>The AWS Lake Formation principal.</p>
  *
  */
@@ -300,6 +211,13 @@ export namespace DataLakePrincipal {
   export function isa(o: any): o is DataLakePrincipal {
     return _smithy.isa(o, "DataLakePrincipal");
   }
+}
+
+export enum DataLakeResourceType {
+  CATALOG = "CATALOG",
+  DATABASE = "DATABASE",
+  DATA_LOCATION = "DATA_LOCATION",
+  TABLE = "TABLE"
 }
 
 /**
@@ -434,94 +352,6 @@ export interface DescribeResourceResponse extends $MetadataBearer {
 export namespace DescribeResourceResponse {
   export function isa(o: any): o is DescribeResourceResponse {
     return _smithy.isa(o, "DescribeResourceResponse");
-  }
-}
-
-/**
- *
- *          <p>A specified entity does not exist</p>
- *
- */
-export interface EntityNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "EntityNotFoundException";
-  name: "EntityNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  export function isa(o: any): o is EntityNotFoundException {
-    return _smithy.isa(o, "EntityNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>Contains details about an error.</p>
- *
- */
-export interface ErrorDetail {
-  __type?: "ErrorDetail";
-  /**
-   *
-   *          <p>The code associated with this error.</p>
-   *
-   */
-  ErrorCode?: string;
-
-  /**
-   *
-   *          <p>A message describing the error.</p>
-   *
-   */
-  ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  export function isa(o: any): o is ErrorDetail {
-    return _smithy.isa(o, "ErrorDetail");
-  }
-}
-
-/**
- *
- *          <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
- *
- */
-export interface FilterCondition {
-  __type?: "FilterCondition";
-  /**
-   *
-   *          <p>The comparison operator used in the filter condition.</p>
-   *
-   */
-  ComparisonOperator?: ComparisonOperator | string;
-
-  /**
-   *
-   *          <p>The field to filter in the filter condition.</p>
-   *
-   */
-  Field?: FieldNameString | string;
-
-  /**
-   *
-   *          <p>A string with values used in evaluating the filter condition.</p>
-   *
-   */
-  StringValueList?: Array<string>;
-}
-
-export namespace FilterCondition {
-  export function isa(o: any): o is FilterCondition {
-    return _smithy.isa(o, "FilterCondition");
   }
 }
 
@@ -673,56 +503,6 @@ export namespace GrantPermissionsResponse {
   }
 }
 
-/**
- *
- *          <p>An internal service error occurred.</p>
- *
- */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServiceException";
-  name: "InternalServiceException";
-  $fault: "server";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return _smithy.isa(o, "InternalServiceException");
-  }
-}
-
-/**
- *
- *          <p>The input provided was not valid.</p>
- *
- */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidInputException";
-  name: "InvalidInputException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
-  }
-}
-
 export interface ListPermissionsRequest {
   __type?: "ListPermissionsRequest";
   /**
@@ -851,29 +631,16 @@ export namespace ListResourcesResponse {
   }
 }
 
-/**
- *
- *          <p>The operation timed out.</p>
- *
- */
-export interface OperationTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "OperationTimeoutException";
-  name: "OperationTimeoutException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  export function isa(o: any): o is OperationTimeoutException {
-    return _smithy.isa(o, "OperationTimeoutException");
-  }
+export enum Permission {
+  ALL = "ALL",
+  ALTER = "ALTER",
+  CREATE_DATABASE = "CREATE_DATABASE",
+  CREATE_TABLE = "CREATE_TABLE",
+  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
+  DELETE = "DELETE",
+  DROP = "DROP",
+  INSERT = "INSERT",
+  SELECT = "SELECT"
 }
 
 /**
@@ -1068,41 +835,6 @@ export namespace Resource {
   }
 }
 
-/**
- *
- *          <p>A structure containing information about an AWS Lake Formation resource.</p>
- *
- */
-export interface ResourceInfo {
-  __type?: "ResourceInfo";
-  /**
-   *
-   *          <p>The date and time the resource was last modified.</p>
-   *
-   */
-  LastModified?: Date;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
-   */
-  ResourceArn?: string;
-
-  /**
-   *
-   *          <p>The IAM role that registered a resource.</p>
-   *
-   */
-  RoleArn?: string;
-}
-
-export namespace ResourceInfo {
-  export function isa(o: any): o is ResourceInfo {
-    return _smithy.isa(o, "ResourceInfo");
-  }
-}
-
 export interface RevokePermissionsRequest {
   __type?: "RevokePermissionsRequest";
   /**
@@ -1259,5 +991,273 @@ export interface UpdateResourceResponse extends $MetadataBearer {
 export namespace UpdateResourceResponse {
   export function isa(o: any): o is UpdateResourceResponse {
     return _smithy.isa(o, "UpdateResourceResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A resource to be created or added already exists.</p>
+ *
+ */
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace AlreadyExistsException {
+  export function isa(o: any): o is AlreadyExistsException {
+    return _smithy.isa(o, "AlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ */
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export function isa(o: any): o is ConcurrentModificationException {
+    return _smithy.isa(o, "ConcurrentModificationException");
+  }
+}
+
+/**
+ *
+ *          <p>A specified entity does not exist</p>
+ *
+ */
+export interface EntityNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "EntityNotFoundException";
+  name: "EntityNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace EntityNotFoundException {
+  export function isa(o: any): o is EntityNotFoundException {
+    return _smithy.isa(o, "EntityNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>Contains details about an error.</p>
+ *
+ */
+export interface ErrorDetail {
+  __type?: "ErrorDetail";
+  /**
+   *
+   *          <p>The code associated with this error.</p>
+   *
+   */
+  ErrorCode?: string;
+
+  /**
+   *
+   *          <p>A message describing the error.</p>
+   *
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ErrorDetail {
+  export function isa(o: any): o is ErrorDetail {
+    return _smithy.isa(o, "ErrorDetail");
+  }
+}
+
+/**
+ *
+ *          <p>An internal service error occurred.</p>
+ *
+ */
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServiceException";
+  name: "InternalServiceException";
+  $fault: "server";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace InternalServiceException {
+  export function isa(o: any): o is InternalServiceException {
+    return _smithy.isa(o, "InternalServiceException");
+  }
+}
+
+/**
+ *
+ *          <p>The input provided was not valid.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  name: "InvalidInputException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
+/**
+ *
+ *          <p>The operation timed out.</p>
+ *
+ */
+export interface OperationTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "OperationTimeoutException";
+  name: "OperationTimeoutException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace OperationTimeoutException {
+  export function isa(o: any): o is OperationTimeoutException {
+    return _smithy.isa(o, "OperationTimeoutException");
+  }
+}
+
+export enum ComparisonOperator {
+  BEGINS_WITH = "BEGINS_WITH",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  IN = "IN",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE",
+  NOT_CONTAINS = "NOT_CONTAINS"
+}
+
+export enum FieldNameString {
+  LAST_MODIFIED = "LAST_MODIFIED",
+  RESOURCE_ARN = "RESOURCE_ARN",
+  ROLE_ARN = "ROLE_ARN"
+}
+
+/**
+ *
+ *          <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
+ *
+ */
+export interface FilterCondition {
+  __type?: "FilterCondition";
+  /**
+   *
+   *          <p>The comparison operator used in the filter condition.</p>
+   *
+   */
+  ComparisonOperator?: ComparisonOperator | string;
+
+  /**
+   *
+   *          <p>The field to filter in the filter condition.</p>
+   *
+   */
+  Field?: FieldNameString | string;
+
+  /**
+   *
+   *          <p>A string with values used in evaluating the filter condition.</p>
+   *
+   */
+  StringValueList?: Array<string>;
+}
+
+export namespace FilterCondition {
+  export function isa(o: any): o is FilterCondition {
+    return _smithy.isa(o, "FilterCondition");
+  }
+}
+
+/**
+ *
+ *          <p>A structure containing information about an AWS Lake Formation resource.</p>
+ *
+ */
+export interface ResourceInfo {
+  __type?: "ResourceInfo";
+  /**
+   *
+   *          <p>The date and time the resource was last modified.</p>
+   *
+   */
+  LastModified?: Date;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the resource.</p>
+   *
+   */
+  ResourceArn?: string;
+
+  /**
+   *
+   *          <p>The IAM role that registered a resource.</p>
+   *
+   */
+  RoleArn?: string;
+}
+
+export namespace ResourceInfo {
+  export function isa(o: any): o is ResourceInfo {
+    return _smithy.isa(o, "ResourceInfo");
   }
 }

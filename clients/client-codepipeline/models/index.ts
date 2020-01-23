@@ -1,148 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ActionCategory {
-  Approval = "Approval",
-  Build = "Build",
-  Deploy = "Deploy",
-  Invoke = "Invoke",
-  Source = "Source",
-  Test = "Test"
-}
-
-export enum ActionConfigurationPropertyType {
-  Boolean = "Boolean",
-  Number = "Number",
-  String = "String"
-}
-
-export enum ActionExecutionStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded"
-}
-
-export enum ActionOwner {
-  AWS = "AWS",
-  Custom = "Custom",
-  ThirdParty = "ThirdParty"
-}
-
-export enum ApprovalStatus {
-  Approved = "Approved",
-  Rejected = "Rejected"
-}
-
-export enum ArtifactLocationType {
-  S3 = "S3"
-}
-
-export enum ArtifactStoreType {
-  S3 = "S3"
-}
-
-export enum BlockerType {
-  Schedule = "Schedule"
-}
-
-export enum EncryptionKeyType {
-  KMS = "KMS"
-}
-
-export enum FailureType {
-  ConfigurationError = "ConfigurationError",
-  JobFailed = "JobFailed",
-  PermissionError = "PermissionError",
-  RevisionOutOfSync = "RevisionOutOfSync",
-  RevisionUnavailable = "RevisionUnavailable",
-  SystemUnavailable = "SystemUnavailable"
-}
-
-export enum JobStatus {
-  Created = "Created",
-  Dispatched = "Dispatched",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Queued = "Queued",
-  Succeeded = "Succeeded",
-  TimedOut = "TimedOut"
-}
-
-export enum PipelineExecutionStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded",
-  Superseded = "Superseded"
-}
-
-export enum StageExecutionStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded"
-}
-
-export enum StageRetryMode {
-  FAILED_ACTIONS = "FAILED_ACTIONS"
-}
-
-export enum StageTransitionType {
-  Inbound = "Inbound",
-  Outbound = "Outbound"
-}
-
-export enum TriggerType {
-  CloudWatchEvent = "CloudWatchEvent",
-  CreatePipeline = "CreatePipeline",
-  PollForSourceChanges = "PollForSourceChanges",
-  PutActionRevision = "PutActionRevision",
-  StartPipelineExecution = "StartPipelineExecution",
-  Webhook = "Webhook"
-}
-
-export enum WebhookAuthenticationType {
-  GITHUB_HMAC = "GITHUB_HMAC",
-  IP = "IP",
-  UNAUTHENTICATED = "UNAUTHENTICATED"
-}
-
-/**
- *
- *         <p>Represents an AWS session credentials object. These credentials are temporary
- *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
- *             access input and output artifacts in the Amazon S3 bucket used to store artifact for the
- *             pipeline in AWS CodePipeline.</p>
- *
- */
-export interface AWSSessionCredentials {
-  __type?: "AWSSessionCredentials";
-  /**
-   *
-   *         <p>The access key for the session.</p>
-   *
-   */
-  accessKeyId: string | undefined;
-
-  /**
-   *
-   *         <p>The secret access key for the session.</p>
-   *
-   */
-  secretAccessKey: string | undefined;
-
-  /**
-   *
-   *         <p>The token for the session.</p>
-   *
-   */
-  sessionToken: string | undefined;
-}
-
-export namespace AWSSessionCredentials {
-  export function isa(o: any): o is AWSSessionCredentials {
-    return _smithy.isa(o, "AWSSessionCredentials");
-  }
-}
-
 /**
  *
  *         <p>Represents the input of an AcknowledgeJob action.</p>
@@ -255,27 +113,6 @@ export namespace AcknowledgeThirdPartyJobOutput {
 
 /**
  *
- *         <p>Represents information about an action configuration.</p>
- *
- */
-export interface ActionConfiguration {
-  __type?: "ActionConfiguration";
-  /**
-   *
-   *         <p>The configuration data for the action.</p>
-   *
-   */
-  configuration?: { [key: string]: string };
-}
-
-export namespace ActionConfiguration {
-  export function isa(o: any): o is ActionConfiguration {
-    return _smithy.isa(o, "ActionConfiguration");
-  }
-}
-
-/**
- *
  *         <p>Represents information about an action configuration property.</p>
  *
  */
@@ -349,33 +186,10 @@ export namespace ActionConfigurationProperty {
   }
 }
 
-/**
- *
- *         <p>Represents the context of an action in the stage of a pipeline to a job
- *             worker.</p>
- *
- */
-export interface ActionContext {
-  __type?: "ActionContext";
-  /**
-   *
-   *         <p>The system-generated unique ID that corresponds to an action's execution.</p>
-   *
-   */
-  actionExecutionId?: string;
-
-  /**
-   *
-   *         <p>The name of the action in the context of a job.</p>
-   *
-   */
-  name?: string;
-}
-
-export namespace ActionContext {
-  export function isa(o: any): o is ActionContext {
-    return _smithy.isa(o, "ActionContext");
-  }
+export enum ActionConfigurationPropertyType {
+  Boolean = "Boolean",
+  Number = "Number",
+  String = "String"
 }
 
 /**
@@ -800,6 +614,12 @@ export namespace ActionExecutionResult {
   }
 }
 
+export enum ActionExecutionStatus {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Succeeded = "Succeeded"
+}
+
 /**
  *
  *         <p>The specified action cannot be found.</p>
@@ -965,77 +785,6 @@ export namespace ActionType {
 
 /**
  *
- *         <p>Represents information about an action type.</p>
- *
- */
-export interface ActionTypeId {
-  __type?: "ActionTypeId";
-  /**
-   *
-   *         <p>A category defines what kind of action can be taken in the stage, and constrains
-   *             the provider type for the action. Valid categories are limited to one of the following values.
-   *             </p>
-   *
-   */
-  category: ActionCategory | string | undefined;
-
-  /**
-   *
-   *         <p>The creator of the action being called.</p>
-   *
-   */
-  owner: ActionOwner | string | undefined;
-
-  /**
-   *
-   *         <p>The provider of the service being called by the action. Valid providers are
-   *             determined by the action category. For example, an action in the Deploy category type
-   *             might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
-   *
-   */
-  provider: string | undefined;
-
-  /**
-   *
-   *         <p>A string that describes the action version.</p>
-   *
-   */
-  version: string | undefined;
-}
-
-export namespace ActionTypeId {
-  export function isa(o: any): o is ActionTypeId {
-    return _smithy.isa(o, "ActionTypeId");
-  }
-}
-
-/**
- *
- *         <p>The specified action type cannot be found.</p>
- *
- */
-export interface ActionTypeNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ActionTypeNotFoundException";
-  name: "ActionTypeNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ActionTypeNotFoundException {
-  export function isa(o: any): o is ActionTypeNotFoundException {
-    return _smithy.isa(o, "ActionTypeNotFoundException");
-  }
-}
-
-/**
- *
  *         <p>Returns information about the settings for an action type.</p>
  *
  */
@@ -1138,41 +887,9 @@ export namespace ApprovalResult {
   }
 }
 
-/**
- *
- *         <p>Represents information about an artifact that is worked on by actions in the
- *             pipeline.</p>
- *
- */
-export interface Artifact {
-  __type?: "Artifact";
-  /**
-   *
-   *         <p>The location of an artifact.</p>
-   *
-   */
-  location?: ArtifactLocation;
-
-  /**
-   *
-   *         <p>The artifact's name.</p>
-   *
-   */
-  name?: string;
-
-  /**
-   *
-   *         <p>The artifact's revision ID. Depending on the type of object, this could be a commit
-   *             ID (GitHub) or a revision ID (Amazon S3).</p>
-   *
-   */
-  revision?: string;
-}
-
-export namespace Artifact {
-  export function isa(o: any): o is Artifact {
-    return _smithy.isa(o, "Artifact");
-  }
+export enum ApprovalStatus {
+  Approved = "Approved",
+  Rejected = "Rejected"
 }
 
 /**
@@ -1228,34 +945,6 @@ export interface ArtifactDetails {
 export namespace ArtifactDetails {
   export function isa(o: any): o is ArtifactDetails {
     return _smithy.isa(o, "ArtifactDetails");
-  }
-}
-
-/**
- *
- *         <p>Represents information about the location of an artifact.</p>
- *
- */
-export interface ArtifactLocation {
-  __type?: "ArtifactLocation";
-  /**
-   *
-   *         <p>The Amazon S3 bucket that contains the artifact.</p>
-   *
-   */
-  s3Location?: S3ArtifactLocation;
-
-  /**
-   *
-   *         <p>The type of artifact in the location.</p>
-   *
-   */
-  type?: ArtifactLocationType | string;
-}
-
-export namespace ArtifactLocation {
-  export function isa(o: any): o is ArtifactLocation {
-    return _smithy.isa(o, "ArtifactLocation");
   }
 }
 
@@ -1369,6 +1058,10 @@ export namespace ArtifactStore {
   }
 }
 
+export enum ArtifactStoreType {
+  S3 = "S3"
+}
+
 /**
  *
  *         <p>Reserved for future use.</p>
@@ -1398,6 +1091,10 @@ export namespace BlockerDeclaration {
   export function isa(o: any): o is BlockerDeclaration {
     return _smithy.isa(o, "BlockerDeclaration");
   }
+}
+
+export enum BlockerType {
+  Schedule = "Schedule"
 }
 
 /**
@@ -1587,49 +1284,6 @@ export interface CreatePipelineOutput extends $MetadataBearer {
 export namespace CreatePipelineOutput {
   export function isa(o: any): o is CreatePipelineOutput {
     return _smithy.isa(o, "CreatePipelineOutput");
-  }
-}
-
-/**
- *
- *         <p>Represents information about a current revision.</p>
- *
- */
-export interface CurrentRevision {
-  __type?: "CurrentRevision";
-  /**
-   *
-   *         <p>The change identifier for the current revision.</p>
-   *
-   */
-  changeIdentifier: string | undefined;
-
-  /**
-   *
-   *         <p>The date and time when the most recent revision of the artifact was created, in
-   *             timestamp format.</p>
-   *
-   */
-  created?: Date;
-
-  /**
-   *
-   *         <p>The revision ID of the current version of an artifact.</p>
-   *
-   */
-  revision: string | undefined;
-
-  /**
-   *
-   *         <p>The summary of the most recent revision of the artifact.</p>
-   *
-   */
-  revisionSummary?: string;
-}
-
-export namespace CurrentRevision {
-  export function isa(o: any): o is CurrentRevision {
-    return _smithy.isa(o, "CurrentRevision");
   }
 }
 
@@ -1834,42 +1488,6 @@ export namespace EnableStageTransitionInput {
 
 /**
  *
- *         <p>Represents information about the key used to encrypt data in the artifact store,
- *             such as an AWS Key Management Service (AWS KMS) key.</p>
- *
- */
-export interface EncryptionKey {
-  __type?: "EncryptionKey";
-  /**
-   *
-   *         <p>The ID used to identify the key. For an AWS KMS key, you can use the key ID, the
-   *             key ARN, or the alias ARN.</p>
-   *         <note>
-   *             <p>Aliases are recognized only in the account that created the customer master key
-   *                 (CMK). For cross-account actions, you can only use the key ID or key ARN to identify
-   *                 the key.</p>
-   *         </note>
-   *
-   */
-  id: string | undefined;
-
-  /**
-   *
-   *         <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
-   *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
-   *
-   */
-  type: EncryptionKeyType | string | undefined;
-}
-
-export namespace EncryptionKey {
-  export function isa(o: any): o is EncryptionKey {
-    return _smithy.isa(o, "EncryptionKey");
-  }
-}
-
-/**
- *
  *         <p>Represents information about an error in AWS CodePipeline.</p>
  *
  */
@@ -1893,44 +1511,6 @@ export interface ErrorDetails {
 export namespace ErrorDetails {
   export function isa(o: any): o is ErrorDetails {
     return _smithy.isa(o, "ErrorDetails");
-  }
-}
-
-/**
- *
- *         <p>The details of the actions taken and results produced on an artifact as it passes
- *             through stages in the pipeline.</p>
- *
- */
-export interface ExecutionDetails {
-  __type?: "ExecutionDetails";
-  /**
-   *
-   *         <p>The system-generated unique ID of this action used to identify this job worker in
-   *             any external systems, such as AWS CodeDeploy.</p>
-   *
-   */
-  externalExecutionId?: string;
-
-  /**
-   *
-   *         <p>The percentage of work completed on the action, represented on a scale of 0 to
-   *             100 percent.</p>
-   *
-   */
-  percentComplete?: number;
-
-  /**
-   *
-   *         <p>The summary of the current status of the actions.</p>
-   *
-   */
-  summary?: string;
-}
-
-export namespace ExecutionDetails {
-  export function isa(o: any): o is ExecutionDetails {
-    return _smithy.isa(o, "ExecutionDetails");
   }
 }
 
@@ -1962,41 +1542,6 @@ export interface ExecutionTrigger {
 export namespace ExecutionTrigger {
   export function isa(o: any): o is ExecutionTrigger {
     return _smithy.isa(o, "ExecutionTrigger");
-  }
-}
-
-/**
- *
- *         <p>Represents information about failure details.</p>
- *
- */
-export interface FailureDetails {
-  __type?: "FailureDetails";
-  /**
-   *
-   *         <p>The external ID of the run of the action that failed.</p>
-   *
-   */
-  externalExecutionId?: string;
-
-  /**
-   *
-   *         <p>The message about the failure.</p>
-   *
-   */
-  message: string | undefined;
-
-  /**
-   *
-   *         <p>The type of the failure.</p>
-   *
-   */
-  type: FailureType | string | undefined;
-}
-
-export namespace FailureDetails {
-  export function isa(o: any): o is FailureDetails {
-    return _smithy.isa(o, "FailureDetails");
   }
 }
 
@@ -2457,31 +2002,6 @@ export namespace InvalidJobException {
 
 /**
  *
- *         <p>The job state was specified in an invalid format.</p>
- *
- */
-export interface InvalidJobStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidJobStateException";
-  name: "InvalidJobStateException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidJobStateException {
-  export function isa(o: any): o is InvalidJobStateException {
-    return _smithy.isa(o, "InvalidJobStateException");
-  }
-}
-
-/**
- *
  *         <p>The next token was specified in an invalid format. Make sure that the next token
  *             you provide is the token returned by a previous call.</p>
  *
@@ -2503,31 +2023,6 @@ export interface InvalidNextTokenException
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
     return _smithy.isa(o, "InvalidNextTokenException");
-  }
-}
-
-/**
- *
- *         <p>The nonce was specified in an invalid format.</p>
- *
- */
-export interface InvalidNonceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidNonceException";
-  name: "InvalidNonceException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidNonceException {
-  export function isa(o: any): o is InvalidNonceException {
-    return _smithy.isa(o, "InvalidNonceException");
   }
 }
 
@@ -2809,31 +2304,6 @@ export interface JobDetails {
 export namespace JobDetails {
   export function isa(o: any): o is JobDetails {
     return _smithy.isa(o, "JobDetails");
-  }
-}
-
-/**
- *
- *         <p>The job was specified in an invalid format or cannot be found.</p>
- *
- */
-export interface JobNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "JobNotFoundException";
-  name: "JobNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace JobNotFoundException {
-  export function isa(o: any): o is JobNotFoundException {
-    return _smithy.isa(o, "JobNotFoundException");
   }
 }
 
@@ -3347,82 +2817,6 @@ export namespace OutputArtifact {
 
 /**
  *
- *         <p>Exceeded the total size limit for all variables in the pipeline.</p>
- *
- */
-export interface OutputVariablesSizeExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "OutputVariablesSizeExceededException";
-  name: "OutputVariablesSizeExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace OutputVariablesSizeExceededException {
-  export function isa(o: any): o is OutputVariablesSizeExceededException {
-    return _smithy.isa(o, "OutputVariablesSizeExceededException");
-  }
-}
-
-/**
- *
- *         <p>Represents information about a pipeline to a job worker.</p>
- *         <note>
- *             <p>PipelineContext contains <code>pipelineArn</code> and
- *                     <code>pipelineExecutionId</code> for custom action jobs. The
- *                     <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not
- *                 populated for ThirdParty action jobs.</p>
- *         </note>
- *
- */
-export interface PipelineContext {
-  __type?: "PipelineContext";
-  /**
-   *
-   *         <p>The context of an action to a job worker in the stage of a pipeline.</p>
-   *
-   */
-  action?: ActionContext;
-
-  /**
-   *
-   *         <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   *
-   */
-  pipelineArn?: string;
-
-  /**
-   *
-   *         <p>The execution ID of the pipeline.</p>
-   *
-   */
-  pipelineExecutionId?: string;
-
-  /**
-   *
-   *         <p>The name of the pipeline. This is a user-specified value. Pipeline names must be
-   *             unique across all pipeline names under an Amazon Web Services account.</p>
-   *
-   */
-  pipelineName?: string;
-
-  /**
-   *
-   *         <p>The stage of the pipeline.</p>
-   *
-   */
-  stage?: StageContext;
-}
-
-export namespace PipelineContext {
-  export function isa(o: any): o is PipelineContext {
-    return _smithy.isa(o, "PipelineContext");
-  }
-}
-
-/**
- *
  *         <p>Represents the structure of actions and stages to be performed in the
  *             pipeline.</p>
  *
@@ -3586,6 +2980,13 @@ export namespace PipelineExecutionNotFoundException {
   export function isa(o: any): o is PipelineExecutionNotFoundException {
     return _smithy.isa(o, "PipelineExecutionNotFoundException");
   }
+}
+
+export enum PipelineExecutionStatus {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Succeeded = "Succeeded",
+  Superseded = "Superseded"
 }
 
 /**
@@ -4326,31 +3727,6 @@ export namespace RegisterWebhookWithThirdPartyOutput {
 
 /**
  *
- *         <p>The resource was specified in an invalid format.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
  *         <p>Represents the input of a <code>RetryStageExecution</code> action.</p>
  *
  */
@@ -4411,35 +3787,6 @@ export interface RetryStageExecutionOutput extends $MetadataBearer {
 export namespace RetryStageExecutionOutput {
   export function isa(o: any): o is RetryStageExecutionOutput {
     return _smithy.isa(o, "RetryStageExecutionOutput");
-  }
-}
-
-/**
- *
- *         <p>The location of the Amazon S3 bucket that contains a revision.</p>
- *
- */
-export interface S3ArtifactLocation {
-  __type?: "S3ArtifactLocation";
-  /**
-   *
-   *         <p>The name of the Amazon S3 bucket.</p>
-   *
-   */
-  bucketName: string | undefined;
-
-  /**
-   *
-   *         <p>The key of the object in the Amazon S3 bucket, which uniquely identifies the object
-   *             in the bucket.</p>
-   *
-   */
-  objectKey: string | undefined;
-}
-
-export namespace S3ArtifactLocation {
-  export function isa(o: any): o is S3ArtifactLocation {
-    return _smithy.isa(o, "S3ArtifactLocation");
   }
 }
 
@@ -4522,27 +3869,6 @@ export namespace SourceRevision {
 
 /**
  *
- *         <p>Represents information about a stage to a job worker.</p>
- *
- */
-export interface StageContext {
-  __type?: "StageContext";
-  /**
-   *
-   *         <p>The name of the stage.</p>
-   *
-   */
-  name?: string;
-}
-
-export namespace StageContext {
-  export function isa(o: any): o is StageContext {
-    return _smithy.isa(o, "StageContext");
-  }
-}
-
-/**
- *
  *         <p>Represents information about a stage and its definition.</p>
  *
  */
@@ -4606,6 +3932,12 @@ export namespace StageExecution {
   }
 }
 
+export enum StageExecutionStatus {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Succeeded = "Succeeded"
+}
+
 /**
  *
  *         <p>The stage was specified in an invalid format or cannot be
@@ -4660,6 +3992,10 @@ export namespace StageNotRetryableException {
   }
 }
 
+export enum StageRetryMode {
+  FAILED_ACTIONS = "FAILED_ACTIONS"
+}
+
 /**
  *
  *         <p>Represents information about the state of the stage.</p>
@@ -4701,6 +4037,11 @@ export namespace StageState {
   export function isa(o: any): o is StageState {
     return _smithy.isa(o, "StageState");
   }
+}
+
+export enum StageTransitionType {
+  Inbound = "Inbound",
+  Outbound = "Outbound"
 }
 
 /**
@@ -5033,6 +4374,15 @@ export namespace TransitionState {
   }
 }
 
+export enum TriggerType {
+  CloudWatchEvent = "CloudWatchEvent",
+  CreatePipeline = "CreatePipeline",
+  PollForSourceChanges = "PollForSourceChanges",
+  PutActionRevision = "PutActionRevision",
+  StartPipelineExecution = "StartPipelineExecution",
+  Webhook = "Webhook"
+}
+
 export interface UntagResourceInput {
   __type?: "UntagResourceInput";
   /**
@@ -5110,31 +4460,6 @@ export namespace UpdatePipelineOutput {
 
 /**
  *
- *         <p>The validation was specified in an invalid format.</p>
- *
- */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ValidationException";
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   *
-   *         <p>The message provided to the user in the event of an exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
-  }
-}
-
-/**
- *
  *         <p>The authentication applied to incoming webhook trigger requests.</p>
  *
  */
@@ -5162,6 +4487,12 @@ export namespace WebhookAuthConfiguration {
   export function isa(o: any): o is WebhookAuthConfiguration {
     return _smithy.isa(o, "WebhookAuthConfiguration");
   }
+}
+
+export enum WebhookAuthenticationType {
+  GITHUB_HMAC = "GITHUB_HMAC",
+  IP = "IP",
+  UNAUTHENTICATED = "UNAUTHENTICATED"
 }
 
 /**
@@ -5299,5 +4630,674 @@ export interface WebhookNotFoundException
 export namespace WebhookNotFoundException {
   export function isa(o: any): o is WebhookNotFoundException {
     return _smithy.isa(o, "WebhookNotFoundException");
+  }
+}
+
+/**
+ *
+ *         <p>Represents an AWS session credentials object. These credentials are temporary
+ *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
+ *             access input and output artifacts in the Amazon S3 bucket used to store artifact for the
+ *             pipeline in AWS CodePipeline.</p>
+ *
+ */
+export interface AWSSessionCredentials {
+  __type?: "AWSSessionCredentials";
+  /**
+   *
+   *         <p>The access key for the session.</p>
+   *
+   */
+  accessKeyId: string | undefined;
+
+  /**
+   *
+   *         <p>The secret access key for the session.</p>
+   *
+   */
+  secretAccessKey: string | undefined;
+
+  /**
+   *
+   *         <p>The token for the session.</p>
+   *
+   */
+  sessionToken: string | undefined;
+}
+
+export namespace AWSSessionCredentials {
+  export function isa(o: any): o is AWSSessionCredentials {
+    return _smithy.isa(o, "AWSSessionCredentials");
+  }
+}
+
+export enum ActionCategory {
+  Approval = "Approval",
+  Build = "Build",
+  Deploy = "Deploy",
+  Invoke = "Invoke",
+  Source = "Source",
+  Test = "Test"
+}
+
+/**
+ *
+ *         <p>Represents information about an action configuration.</p>
+ *
+ */
+export interface ActionConfiguration {
+  __type?: "ActionConfiguration";
+  /**
+   *
+   *         <p>The configuration data for the action.</p>
+   *
+   */
+  configuration?: { [key: string]: string };
+}
+
+export namespace ActionConfiguration {
+  export function isa(o: any): o is ActionConfiguration {
+    return _smithy.isa(o, "ActionConfiguration");
+  }
+}
+
+/**
+ *
+ *         <p>Represents the context of an action in the stage of a pipeline to a job
+ *             worker.</p>
+ *
+ */
+export interface ActionContext {
+  __type?: "ActionContext";
+  /**
+   *
+   *         <p>The system-generated unique ID that corresponds to an action's execution.</p>
+   *
+   */
+  actionExecutionId?: string;
+
+  /**
+   *
+   *         <p>The name of the action in the context of a job.</p>
+   *
+   */
+  name?: string;
+}
+
+export namespace ActionContext {
+  export function isa(o: any): o is ActionContext {
+    return _smithy.isa(o, "ActionContext");
+  }
+}
+
+export enum ActionOwner {
+  AWS = "AWS",
+  Custom = "Custom",
+  ThirdParty = "ThirdParty"
+}
+
+/**
+ *
+ *         <p>Represents information about an action type.</p>
+ *
+ */
+export interface ActionTypeId {
+  __type?: "ActionTypeId";
+  /**
+   *
+   *         <p>A category defines what kind of action can be taken in the stage, and constrains
+   *             the provider type for the action. Valid categories are limited to one of the following values.
+   *             </p>
+   *
+   */
+  category: ActionCategory | string | undefined;
+
+  /**
+   *
+   *         <p>The creator of the action being called.</p>
+   *
+   */
+  owner: ActionOwner | string | undefined;
+
+  /**
+   *
+   *         <p>The provider of the service being called by the action. Valid providers are
+   *             determined by the action category. For example, an action in the Deploy category type
+   *             might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
+   *
+   */
+  provider: string | undefined;
+
+  /**
+   *
+   *         <p>A string that describes the action version.</p>
+   *
+   */
+  version: string | undefined;
+}
+
+export namespace ActionTypeId {
+  export function isa(o: any): o is ActionTypeId {
+    return _smithy.isa(o, "ActionTypeId");
+  }
+}
+
+/**
+ *
+ *         <p>The specified action type cannot be found.</p>
+ *
+ */
+export interface ActionTypeNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ActionTypeNotFoundException";
+  name: "ActionTypeNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ActionTypeNotFoundException {
+  export function isa(o: any): o is ActionTypeNotFoundException {
+    return _smithy.isa(o, "ActionTypeNotFoundException");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about an artifact that is worked on by actions in the
+ *             pipeline.</p>
+ *
+ */
+export interface Artifact {
+  __type?: "Artifact";
+  /**
+   *
+   *         <p>The location of an artifact.</p>
+   *
+   */
+  location?: ArtifactLocation;
+
+  /**
+   *
+   *         <p>The artifact's name.</p>
+   *
+   */
+  name?: string;
+
+  /**
+   *
+   *         <p>The artifact's revision ID. Depending on the type of object, this could be a commit
+   *             ID (GitHub) or a revision ID (Amazon S3).</p>
+   *
+   */
+  revision?: string;
+}
+
+export namespace Artifact {
+  export function isa(o: any): o is Artifact {
+    return _smithy.isa(o, "Artifact");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about the location of an artifact.</p>
+ *
+ */
+export interface ArtifactLocation {
+  __type?: "ArtifactLocation";
+  /**
+   *
+   *         <p>The Amazon S3 bucket that contains the artifact.</p>
+   *
+   */
+  s3Location?: S3ArtifactLocation;
+
+  /**
+   *
+   *         <p>The type of artifact in the location.</p>
+   *
+   */
+  type?: ArtifactLocationType | string;
+}
+
+export namespace ArtifactLocation {
+  export function isa(o: any): o is ArtifactLocation {
+    return _smithy.isa(o, "ArtifactLocation");
+  }
+}
+
+export enum ArtifactLocationType {
+  S3 = "S3"
+}
+
+/**
+ *
+ *         <p>Represents information about a current revision.</p>
+ *
+ */
+export interface CurrentRevision {
+  __type?: "CurrentRevision";
+  /**
+   *
+   *         <p>The change identifier for the current revision.</p>
+   *
+   */
+  changeIdentifier: string | undefined;
+
+  /**
+   *
+   *         <p>The date and time when the most recent revision of the artifact was created, in
+   *             timestamp format.</p>
+   *
+   */
+  created?: Date;
+
+  /**
+   *
+   *         <p>The revision ID of the current version of an artifact.</p>
+   *
+   */
+  revision: string | undefined;
+
+  /**
+   *
+   *         <p>The summary of the most recent revision of the artifact.</p>
+   *
+   */
+  revisionSummary?: string;
+}
+
+export namespace CurrentRevision {
+  export function isa(o: any): o is CurrentRevision {
+    return _smithy.isa(o, "CurrentRevision");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about the key used to encrypt data in the artifact store,
+ *             such as an AWS Key Management Service (AWS KMS) key.</p>
+ *
+ */
+export interface EncryptionKey {
+  __type?: "EncryptionKey";
+  /**
+   *
+   *         <p>The ID used to identify the key. For an AWS KMS key, you can use the key ID, the
+   *             key ARN, or the alias ARN.</p>
+   *         <note>
+   *             <p>Aliases are recognized only in the account that created the customer master key
+   *                 (CMK). For cross-account actions, you can only use the key ID or key ARN to identify
+   *                 the key.</p>
+   *         </note>
+   *
+   */
+  id: string | undefined;
+
+  /**
+   *
+   *         <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
+   *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
+   *
+   */
+  type: EncryptionKeyType | string | undefined;
+}
+
+export namespace EncryptionKey {
+  export function isa(o: any): o is EncryptionKey {
+    return _smithy.isa(o, "EncryptionKey");
+  }
+}
+
+export enum EncryptionKeyType {
+  KMS = "KMS"
+}
+
+/**
+ *
+ *         <p>The details of the actions taken and results produced on an artifact as it passes
+ *             through stages in the pipeline.</p>
+ *
+ */
+export interface ExecutionDetails {
+  __type?: "ExecutionDetails";
+  /**
+   *
+   *         <p>The system-generated unique ID of this action used to identify this job worker in
+   *             any external systems, such as AWS CodeDeploy.</p>
+   *
+   */
+  externalExecutionId?: string;
+
+  /**
+   *
+   *         <p>The percentage of work completed on the action, represented on a scale of 0 to
+   *             100 percent.</p>
+   *
+   */
+  percentComplete?: number;
+
+  /**
+   *
+   *         <p>The summary of the current status of the actions.</p>
+   *
+   */
+  summary?: string;
+}
+
+export namespace ExecutionDetails {
+  export function isa(o: any): o is ExecutionDetails {
+    return _smithy.isa(o, "ExecutionDetails");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about failure details.</p>
+ *
+ */
+export interface FailureDetails {
+  __type?: "FailureDetails";
+  /**
+   *
+   *         <p>The external ID of the run of the action that failed.</p>
+   *
+   */
+  externalExecutionId?: string;
+
+  /**
+   *
+   *         <p>The message about the failure.</p>
+   *
+   */
+  message: string | undefined;
+
+  /**
+   *
+   *         <p>The type of the failure.</p>
+   *
+   */
+  type: FailureType | string | undefined;
+}
+
+export namespace FailureDetails {
+  export function isa(o: any): o is FailureDetails {
+    return _smithy.isa(o, "FailureDetails");
+  }
+}
+
+export enum FailureType {
+  ConfigurationError = "ConfigurationError",
+  JobFailed = "JobFailed",
+  PermissionError = "PermissionError",
+  RevisionOutOfSync = "RevisionOutOfSync",
+  RevisionUnavailable = "RevisionUnavailable",
+  SystemUnavailable = "SystemUnavailable"
+}
+
+/**
+ *
+ *         <p>The job state was specified in an invalid format.</p>
+ *
+ */
+export interface InvalidJobStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidJobStateException";
+  name: "InvalidJobStateException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidJobStateException {
+  export function isa(o: any): o is InvalidJobStateException {
+    return _smithy.isa(o, "InvalidJobStateException");
+  }
+}
+
+/**
+ *
+ *         <p>The nonce was specified in an invalid format.</p>
+ *
+ */
+export interface InvalidNonceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidNonceException";
+  name: "InvalidNonceException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidNonceException {
+  export function isa(o: any): o is InvalidNonceException {
+    return _smithy.isa(o, "InvalidNonceException");
+  }
+}
+
+/**
+ *
+ *         <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ */
+export interface JobNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "JobNotFoundException";
+  name: "JobNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace JobNotFoundException {
+  export function isa(o: any): o is JobNotFoundException {
+    return _smithy.isa(o, "JobNotFoundException");
+  }
+}
+
+export enum JobStatus {
+  Created = "Created",
+  Dispatched = "Dispatched",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Queued = "Queued",
+  Succeeded = "Succeeded",
+  TimedOut = "TimedOut"
+}
+
+/**
+ *
+ *         <p>Exceeded the total size limit for all variables in the pipeline.</p>
+ *
+ */
+export interface OutputVariablesSizeExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "OutputVariablesSizeExceededException";
+  name: "OutputVariablesSizeExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OutputVariablesSizeExceededException {
+  export function isa(o: any): o is OutputVariablesSizeExceededException {
+    return _smithy.isa(o, "OutputVariablesSizeExceededException");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about a pipeline to a job worker.</p>
+ *         <note>
+ *             <p>PipelineContext contains <code>pipelineArn</code> and
+ *                     <code>pipelineExecutionId</code> for custom action jobs. The
+ *                     <code>pipelineArn</code> and <code>pipelineExecutionId</code> fields are not
+ *                 populated for ThirdParty action jobs.</p>
+ *         </note>
+ *
+ */
+export interface PipelineContext {
+  __type?: "PipelineContext";
+  /**
+   *
+   *         <p>The context of an action to a job worker in the stage of a pipeline.</p>
+   *
+   */
+  action?: ActionContext;
+
+  /**
+   *
+   *         <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   *
+   */
+  pipelineArn?: string;
+
+  /**
+   *
+   *         <p>The execution ID of the pipeline.</p>
+   *
+   */
+  pipelineExecutionId?: string;
+
+  /**
+   *
+   *         <p>The name of the pipeline. This is a user-specified value. Pipeline names must be
+   *             unique across all pipeline names under an Amazon Web Services account.</p>
+   *
+   */
+  pipelineName?: string;
+
+  /**
+   *
+   *         <p>The stage of the pipeline.</p>
+   *
+   */
+  stage?: StageContext;
+}
+
+export namespace PipelineContext {
+  export function isa(o: any): o is PipelineContext {
+    return _smithy.isa(o, "PipelineContext");
+  }
+}
+
+/**
+ *
+ *         <p>The resource was specified in an invalid format.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *         <p>The location of the Amazon S3 bucket that contains a revision.</p>
+ *
+ */
+export interface S3ArtifactLocation {
+  __type?: "S3ArtifactLocation";
+  /**
+   *
+   *         <p>The name of the Amazon S3 bucket.</p>
+   *
+   */
+  bucketName: string | undefined;
+
+  /**
+   *
+   *         <p>The key of the object in the Amazon S3 bucket, which uniquely identifies the object
+   *             in the bucket.</p>
+   *
+   */
+  objectKey: string | undefined;
+}
+
+export namespace S3ArtifactLocation {
+  export function isa(o: any): o is S3ArtifactLocation {
+    return _smithy.isa(o, "S3ArtifactLocation");
+  }
+}
+
+/**
+ *
+ *         <p>Represents information about a stage to a job worker.</p>
+ *
+ */
+export interface StageContext {
+  __type?: "StageContext";
+  /**
+   *
+   *         <p>The name of the stage.</p>
+   *
+   */
+  name?: string;
+}
+
+export namespace StageContext {
+  export function isa(o: any): o is StageContext {
+    return _smithy.isa(o, "StageContext");
+  }
+}
+
+/**
+ *
+ *         <p>The validation was specified in an invalid format.</p>
+ *
+ */
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ValidationException";
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   *
+   *         <p>The message provided to the user in the event of an exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ValidationException {
+  export function isa(o: any): o is ValidationException {
+    return _smithy.isa(o, "ValidationException");
   }
 }

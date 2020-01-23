@@ -1,63 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum DataSource {
-  EVENT = "EVENT",
-  EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE",
-  MODEL_SCORE = "MODEL_SCORE"
-}
-
-export enum DataType {
-  BOOLEAN = "BOOLEAN",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  STRING = "STRING"
-}
-
-export enum DetectorVersionStatus {
-  ACTIVE = "ACTIVE",
-  DRAFT = "DRAFT",
-  INACTIVE = "INACTIVE"
-}
-
-export enum Language {
-  DETECTORPL = "DETECTORPL"
-}
-
-export enum ModelEndpointStatus {
-  ASSOCIATED = "ASSOCIATED",
-  DISSOCIATED = "DISSOCIATED"
-}
-
-export enum ModelInputDataFormat {
-  CSV = "TEXT_CSV",
-  JSON = "APPLICATION_JSON"
-}
-
-export enum ModelOutputDataFormat {
-  CSV = "TEXT_CSV",
-  JSONLINES = "APPLICATION_JSONLINES"
-}
-
-export enum ModelSource {
-  SAGEMAKER = "SAGEMAKER"
-}
-
-export enum ModelTypeEnum {
-  ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS"
-}
-
-export enum ModelVersionStatus {
-  ACTIVATE_IN_PROGRESS = "ACTIVATE_IN_PROGRESS",
-  ACTIVATE_REQUESTED = "ACTIVATE_REQUESTED",
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVATE_IN_PROGRESS = "INACTIVATE_IN_PROGRESS",
-  INACTIVE = "INACTIVE",
-  TRAINING_COMPLETE = "TRAINING_COMPLETE",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
-}
-
 /**
  *
  *          <p>Provides the error of the batch create variable API.</p>
@@ -468,6 +411,19 @@ export namespace CreateVariableResult {
   }
 }
 
+export enum DataSource {
+  EVENT = "EVENT",
+  EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE",
+  MODEL_SCORE = "MODEL_SCORE"
+}
+
+export enum DataType {
+  BOOLEAN = "BOOLEAN",
+  FLOAT = "FLOAT",
+  INTEGER = "INTEGER",
+  STRING = "STRING"
+}
+
 export interface DeleteDetectorVersionRequest {
   __type?: "DeleteDetectorVersionRequest";
   /**
@@ -694,6 +650,12 @@ export namespace Detector {
   export function isa(o: any): o is Detector {
     return _smithy.isa(o, "Detector");
   }
+}
+
+export enum DetectorVersionStatus {
+  ACTIVE = "ACTIVE",
+  DRAFT = "DRAFT",
+  INACTIVE = "INACTIVE"
 }
 
 /**
@@ -1386,26 +1348,6 @@ export namespace GetVariablesResult {
 
 /**
  *
- *          <p>An exception indicating an internal server error.</p>
- *
- */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServerException";
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
-}
-
-export namespace InternalServerException {
-  export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
-  }
-}
-
-/**
- *
  *          <p>The label schema.</p>
  *
  */
@@ -1435,6 +1377,10 @@ export namespace LabelSchema {
   export function isa(o: any): o is LabelSchema {
     return _smithy.isa(o, "LabelSchema");
   }
+}
+
+export enum Language {
+  DETECTORPL = "DETECTORPL"
 }
 
 /**
@@ -1535,6 +1481,11 @@ export namespace ModelEndpointDataBlob {
   }
 }
 
+export enum ModelEndpointStatus {
+  ASSOCIATED = "ASSOCIATED",
+  DISSOCIATED = "DISSOCIATED"
+}
+
 /**
  *
  *          <p>The model input configuration.</p>
@@ -1584,6 +1535,11 @@ export namespace ModelInputConfiguration {
   }
 }
 
+export enum ModelInputDataFormat {
+  CSV = "TEXT_CSV",
+  JSON = "APPLICATION_JSON"
+}
+
 /**
  *
  *          <p>Provides the model output configuration.</p>
@@ -1619,6 +1575,11 @@ export namespace ModelOutputConfiguration {
   }
 }
 
+export enum ModelOutputDataFormat {
+  CSV = "TEXT_CSV",
+  JSONLINES = "APPLICATION_JSONLINES"
+}
+
 /**
  *
  *          <p>The fraud prediction scores.</p>
@@ -1645,6 +1606,14 @@ export namespace ModelScores {
   export function isa(o: any): o is ModelScores {
     return _smithy.isa(o, "ModelScores");
   }
+}
+
+export enum ModelSource {
+  SAGEMAKER = "SAGEMAKER"
+}
+
+export enum ModelTypeEnum {
+  ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS"
 }
 
 /**
@@ -1806,6 +1775,17 @@ export namespace ModelVersionDetail {
   export function isa(o: any): o is ModelVersionDetail {
     return _smithy.isa(o, "ModelVersionDetail");
   }
+}
+
+export enum ModelVersionStatus {
+  ACTIVATE_IN_PROGRESS = "ACTIVATE_IN_PROGRESS",
+  ACTIVATE_REQUESTED = "ACTIVATE_REQUESTED",
+  ACTIVE = "ACTIVE",
+  ERROR = "ERROR",
+  INACTIVATE_IN_PROGRESS = "INACTIVATE_IN_PROGRESS",
+  INACTIVE = "INACTIVE",
+  TRAINING_COMPLETE = "TRAINING_COMPLETE",
+  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
 }
 
 /**
@@ -2040,26 +2020,6 @@ export namespace PutOutcomeResult {
 
 /**
  *
- *          <p>An exception indicating the specified resource was not found.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
  *          <p>The role used to invoke external model endpoints.</p>
  *
  */
@@ -2195,26 +2155,6 @@ export interface RuleDetail {
 export namespace RuleDetail {
   export function isa(o: any): o is RuleDetail {
     return _smithy.isa(o, "RuleDetail");
-  }
-}
-
-/**
- *
- *          <p>An exception indicating a throttling error.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
   }
 }
 
@@ -2583,26 +2523,6 @@ export namespace UpdateVariableResult {
 
 /**
  *
- *          <p>An exception indicating a specified value is not allowed.</p>
- *
- */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ValidationException";
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
-  }
-}
-
-/**
- *
  *          <p>The variable.</p>
  *
  */
@@ -2725,5 +2645,85 @@ export interface VariableEntry {
 export namespace VariableEntry {
   export function isa(o: any): o is VariableEntry {
     return _smithy.isa(o, "VariableEntry");
+  }
+}
+
+/**
+ *
+ *          <p>An exception indicating an internal server error.</p>
+ *
+ */
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServerException";
+  name: "InternalServerException";
+  $fault: "server";
+  message: string | undefined;
+}
+
+export namespace InternalServerException {
+  export function isa(o: any): o is InternalServerException {
+    return _smithy.isa(o, "InternalServerException");
+  }
+}
+
+/**
+ *
+ *          <p>An exception indicating the specified resource was not found.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>An exception indicating a throttling error.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
+}
+
+/**
+ *
+ *          <p>An exception indicating a specified value is not allowed.</p>
+ *
+ */
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ValidationException";
+  name: "ValidationException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ValidationException {
+  export function isa(o: any): o is ValidationException {
+    return _smithy.isa(o, "ValidationException");
   }
 }

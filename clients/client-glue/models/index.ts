@@ -1,71 +1,108 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum CatalogEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS"
+export interface GetTagsRequest {
+  __type?: "GetTagsRequest";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace GetTagsRequest {
+  export function isa(o: any): o is GetTagsRequest {
+    return _smithy.isa(o, "GetTagsRequest");
+  }
+}
+
+export interface GetTagsResponse extends $MetadataBearer {
+  __type?: "GetTagsResponse";
+  /**
+   *
+   *          <p>The requested tags.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace GetTagsResponse {
+  export function isa(o: any): o is GetTagsResponse {
+    return _smithy.isa(o, "GetTagsResponse");
+  }
+}
+
+export interface TagResourceRequest {
+  __type?: "TagResourceRequest";
+  /**
+   *
+   *          <p>The ARN of the AWS Glue resource to which to add the tags. For more
+   *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   *
+   *          <p>Tags to add to this resource.</p>
+   *
+   */
+  TagsToAdd: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export function isa(o: any): o is TagResourceRequest {
+    return _smithy.isa(o, "TagResourceRequest");
+  }
+}
+
+export interface TagResourceResponse extends $MetadataBearer {
+  __type?: "TagResourceResponse";
+}
+
+export namespace TagResourceResponse {
+  export function isa(o: any): o is TagResourceResponse {
+    return _smithy.isa(o, "TagResourceResponse");
+  }
+}
+
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
+   *
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   *
+   *          <p>Tags to remove from this resource.</p>
+   *
+   */
+  TagsToRemove: Array<string> | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export function isa(o: any): o is UntagResourceRequest {
+    return _smithy.isa(o, "UntagResourceRequest");
+  }
+}
+
+export interface UntagResourceResponse extends $MetadataBearer {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export function isa(o: any): o is UntagResourceResponse {
+    return _smithy.isa(o, "UntagResourceResponse");
+  }
 }
 
 export enum CloudWatchEncryptionMode {
   DISABLED = "DISABLED",
   SSEKMS = "SSE-KMS"
-}
-
-export enum Comparator {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS"
-}
-
-export enum ConnectionPropertyKey {
-  CONFIG_FILES = "CONFIG_FILES",
-  CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
-  CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
-  ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
-  HOST = "HOST",
-  INSTANCE_ID = "INSTANCE_ID",
-  JDBC_CONNECTION_URL = "JDBC_CONNECTION_URL",
-  JDBC_DRIVER_CLASS_NAME = "JDBC_DRIVER_CLASS_NAME",
-  JDBC_DRIVER_JAR_URI = "JDBC_DRIVER_JAR_URI",
-  JDBC_ENFORCE_SSL = "JDBC_ENFORCE_SSL",
-  JDBC_ENGINE = "JDBC_ENGINE",
-  JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
-  PASSWORD = "PASSWORD",
-  PORT = "PORT",
-  SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-  USER_NAME = "USERNAME"
-}
-
-export enum ConnectionType {
-  JDBC = "JDBC",
-  SFTP = "SFTP"
-}
-
-export enum CrawlState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum CrawlerState {
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STOPPING = "STOPPING"
-}
-
-export enum CsvHeaderOption {
-  ABSENT = "ABSENT",
-  PRESENT = "PRESENT",
-  UNKNOWN = "UNKNOWN"
-}
-
-export enum DeleteBehavior {
-  DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
-  DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
-  LOG = "LOG"
 }
 
 export enum ExistCondition {
@@ -79,158 +116,13 @@ export enum JobBookmarksEncryptionMode {
   DISABLED = "DISABLED"
 }
 
-export enum JobRunState {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT"
-}
-
-export enum Language {
-  PYTHON = "PYTHON",
-  SCALA = "SCALA"
-}
-
-export enum LastCrawlStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum Logical {
-  AND = "AND",
-  ANY = "ANY"
-}
-
-export enum LogicalOperator {
-  EQUALS = "EQUALS"
-}
-
-export enum NodeType {
-  CRAWLER = "CRAWLER",
-  JOB = "JOB",
-  TRIGGER = "TRIGGER"
-}
-
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT"
-}
-
-export enum PrincipalType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER"
-}
-
-export enum ResourceType {
-  ARCHIVE = "ARCHIVE",
-  FILE = "FILE",
-  JAR = "JAR"
-}
-
 export enum S3EncryptionMode {
   DISABLED = "DISABLED",
   SSEKMS = "SSE-KMS",
   SSES3 = "SSE-S3"
 }
 
-export enum ScheduleState {
-  NOT_SCHEDULED = "NOT_SCHEDULED",
-  SCHEDULED = "SCHEDULED",
-  TRANSITIONING = "TRANSITIONING"
-}
-
-export enum Sort {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC"
-}
-
-export enum SortDirectionType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
-}
-
-export enum TaskRunSortColumnType {
-  STARTED = "STARTED",
-  STATUS = "STATUS",
-  TASK_RUN_TYPE = "TASK_RUN_TYPE"
-}
-
-export enum TaskStatusType {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT"
-}
-
-export enum TaskType {
-  EVALUATION = "EVALUATION",
-  EXPORT_LABELS = "EXPORT_LABELS",
-  FIND_MATCHES = "FIND_MATCHES",
-  IMPORT_LABELS = "IMPORT_LABELS",
-  LABELING_SET_GENERATION = "LABELING_SET_GENERATION"
-}
-
-export enum TransformSortColumnType {
-  CREATED = "CREATED",
-  LAST_MODIFIED = "LAST_MODIFIED",
-  NAME = "NAME",
-  STATUS = "STATUS",
-  TRANSFORM_TYPE = "TRANSFORM_TYPE"
-}
-
-export enum TransformStatusType {
-  DELETING = "DELETING",
-  NOT_READY = "NOT_READY",
-  READY = "READY"
-}
-
-export enum TransformType {
-  FIND_MATCHES = "FIND_MATCHES"
-}
-
-export enum TriggerState {
-  ACTIVATED = "ACTIVATED",
-  ACTIVATING = "ACTIVATING",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING"
-}
-
-export enum TriggerType {
-  CONDITIONAL = "CONDITIONAL",
-  ON_DEMAND = "ON_DEMAND",
-  SCHEDULED = "SCHEDULED"
-}
-
-export enum UpdateBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE"
-}
-
 export type WorkerType = "G.1X" | "G.2X" | "Standard";
-
-export enum WorkflowRunStatus {
-  COMPLETED = "COMPLETED",
-  RUNNING = "RUNNING"
-}
 
 /**
  *
@@ -259,69 +151,6 @@ export namespace AccessDeniedException {
 
 /**
  *
- *          <p>Defines an action to be initiated by a trigger.</p>
- *
- */
-export interface Action {
-  __type?: "Action";
-  /**
-   *
-   *          <p>The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The name of the crawler to be used with this action.</p>
-   *
-   */
-  CrawlerName?: string;
-
-  /**
-   *
-   *          <p>The name of a job to be executed.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>Specifies configuration properties of a job run notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       action.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-   *
-   */
-  Timeout?: number;
-}
-
-export namespace Action {
-  export function isa(o: any): o is Action {
-    return _smithy.isa(o, "Action");
-  }
-}
-
-/**
- *
  *          <p>A resource to be created or added already exists.</p>
  *
  */
@@ -342,6 +171,334 @@ export interface AlreadyExistsException
 export namespace AlreadyExistsException {
   export function isa(o: any): o is AlreadyExistsException {
     return _smithy.isa(o, "AlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>Two processes are trying to modify a resource simultaneously.</p>
+ *
+ */
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  export function isa(o: any): o is ConcurrentModificationException {
+    return _smithy.isa(o, "ConcurrentModificationException");
+  }
+}
+
+/**
+ *
+ *          <p>Too many jobs are being run concurrently.</p>
+ *
+ */
+export interface ConcurrentRunsExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConcurrentRunsExceededException";
+  name: "ConcurrentRunsExceededException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentRunsExceededException {
+  export function isa(o: any): o is ConcurrentRunsExceededException {
+    return _smithy.isa(o, "ConcurrentRunsExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>A specified condition was not satisfied.</p>
+ *
+ */
+export interface ConditionCheckFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConditionCheckFailureException";
+  name: "ConditionCheckFailureException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ConditionCheckFailureException {
+  export function isa(o: any): o is ConditionCheckFailureException {
+    return _smithy.isa(o, "ConditionCheckFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>A specified entity does not exist</p>
+ *
+ */
+export interface EntityNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "EntityNotFoundException";
+  name: "EntityNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace EntityNotFoundException {
+  export function isa(o: any): o is EntityNotFoundException {
+    return _smithy.isa(o, "EntityNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>Contains details about an error.</p>
+ *
+ */
+export interface ErrorDetail {
+  __type?: "ErrorDetail";
+  /**
+   *
+   *          <p>The code associated with this error.</p>
+   *
+   */
+  ErrorCode?: string;
+
+  /**
+   *
+   *          <p>A message describing the error.</p>
+   *
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ErrorDetail {
+  export function isa(o: any): o is ErrorDetail {
+    return _smithy.isa(o, "ErrorDetail");
+  }
+}
+
+/**
+ *
+ *          <p>An encryption operation failed.</p>
+ *
+ */
+export interface GlueEncryptionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "GlueEncryptionException";
+  name: "GlueEncryptionException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace GlueEncryptionException {
+  export function isa(o: any): o is GlueEncryptionException {
+    return _smithy.isa(o, "GlueEncryptionException");
+  }
+}
+
+/**
+ *
+ *          <p>The same unique identifier was associated with two different records.</p>
+ *
+ */
+export interface IdempotentParameterMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IdempotentParameterMismatchException";
+  name: "IdempotentParameterMismatchException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace IdempotentParameterMismatchException {
+  export function isa(o: any): o is IdempotentParameterMismatchException {
+    return _smithy.isa(o, "IdempotentParameterMismatchException");
+  }
+}
+
+/**
+ *
+ *          <p>An internal service error occurred.</p>
+ *
+ */
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServiceException";
+  name: "InternalServiceException";
+  $fault: "server";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace InternalServiceException {
+  export function isa(o: any): o is InternalServiceException {
+    return _smithy.isa(o, "InternalServiceException");
+  }
+}
+
+/**
+ *
+ *          <p>The input provided was not valid.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  name: "InvalidInputException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
+/**
+ *
+ *          <p>The operation timed out.</p>
+ *
+ */
+export interface OperationTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "OperationTimeoutException";
+  name: "OperationTimeoutException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace OperationTimeoutException {
+  export function isa(o: any): o is OperationTimeoutException {
+    return _smithy.isa(o, "OperationTimeoutException");
+  }
+}
+
+/**
+ *
+ *          <p>A resource numerical limit was exceeded.</p>
+ *
+ */
+export interface ResourceNumberLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNumberLimitExceededException";
+  name: "ResourceNumberLimitExceededException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ResourceNumberLimitExceededException {
+  export function isa(o: any): o is ResourceNumberLimitExceededException {
+    return _smithy.isa(o, "ResourceNumberLimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>A value could not be validated.</p>
+ *
+ */
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ValidationException";
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace ValidationException {
+  export function isa(o: any): o is ValidationException {
+    return _smithy.isa(o, "ValidationException");
+  }
+}
+
+/**
+ *
+ *          <p>There was a version conflict.</p>
+ *
+ */
+export interface VersionMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "VersionMismatchException";
+  name: "VersionMismatchException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace VersionMismatchException {
+  export function isa(o: any): o is VersionMismatchException {
+    return _smithy.isa(o, "VersionMismatchException");
   }
 }
 
@@ -611,126 +768,6 @@ export namespace BatchDeleteTableVersionResponse {
   }
 }
 
-export interface BatchGetCrawlersRequest {
-  __type?: "BatchGetCrawlersRequest";
-  /**
-   *
-   *          <p>A list of crawler names, which might be the names returned from the
-   *         <code>ListCrawlers</code> operation.</p>
-   *
-   */
-  CrawlerNames: Array<string> | undefined;
-}
-
-export namespace BatchGetCrawlersRequest {
-  export function isa(o: any): o is BatchGetCrawlersRequest {
-    return _smithy.isa(o, "BatchGetCrawlersRequest");
-  }
-}
-
-export interface BatchGetCrawlersResponse extends $MetadataBearer {
-  __type?: "BatchGetCrawlersResponse";
-  /**
-   *
-   *          <p>A list of crawler definitions.</p>
-   *
-   */
-  Crawlers?: Array<Crawler>;
-
-  /**
-   *
-   *          <p>A list of names of crawlers that were not found.</p>
-   *
-   */
-  CrawlersNotFound?: Array<string>;
-}
-
-export namespace BatchGetCrawlersResponse {
-  export function isa(o: any): o is BatchGetCrawlersResponse {
-    return _smithy.isa(o, "BatchGetCrawlersResponse");
-  }
-}
-
-export interface BatchGetDevEndpointsRequest {
-  __type?: "BatchGetDevEndpointsRequest";
-  /**
-   *
-   *          <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
-   *         <code>ListDevEndpoint</code> operation.</p>
-   *
-   */
-  DevEndpointNames: Array<string> | undefined;
-}
-
-export namespace BatchGetDevEndpointsRequest {
-  export function isa(o: any): o is BatchGetDevEndpointsRequest {
-    return _smithy.isa(o, "BatchGetDevEndpointsRequest");
-  }
-}
-
-export interface BatchGetDevEndpointsResponse extends $MetadataBearer {
-  __type?: "BatchGetDevEndpointsResponse";
-  /**
-   *
-   *          <p>A list of <code>DevEndpoint</code> definitions.</p>
-   *
-   */
-  DevEndpoints?: Array<DevEndpoint>;
-
-  /**
-   *
-   *          <p>A list of <code>DevEndpoints</code> not found.</p>
-   *
-   */
-  DevEndpointsNotFound?: Array<string>;
-}
-
-export namespace BatchGetDevEndpointsResponse {
-  export function isa(o: any): o is BatchGetDevEndpointsResponse {
-    return _smithy.isa(o, "BatchGetDevEndpointsResponse");
-  }
-}
-
-export interface BatchGetJobsRequest {
-  __type?: "BatchGetJobsRequest";
-  /**
-   *
-   *          <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
-   *       operation.</p>
-   *
-   */
-  JobNames: Array<string> | undefined;
-}
-
-export namespace BatchGetJobsRequest {
-  export function isa(o: any): o is BatchGetJobsRequest {
-    return _smithy.isa(o, "BatchGetJobsRequest");
-  }
-}
-
-export interface BatchGetJobsResponse extends $MetadataBearer {
-  __type?: "BatchGetJobsResponse";
-  /**
-   *
-   *          <p>A list of job definitions.</p>
-   *
-   */
-  Jobs?: Array<Job>;
-
-  /**
-   *
-   *          <p>A list of names of jobs not found.</p>
-   *
-   */
-  JobsNotFound?: Array<string>;
-}
-
-export namespace BatchGetJobsResponse {
-  export function isa(o: any): o is BatchGetJobsResponse {
-    return _smithy.isa(o, "BatchGetJobsResponse");
-  }
-}
-
 export interface BatchGetPartitionRequest {
   __type?: "BatchGetPartitionRequest";
   /**
@@ -793,283 +830,9 @@ export namespace BatchGetPartitionResponse {
   }
 }
 
-export interface BatchGetTriggersRequest {
-  __type?: "BatchGetTriggersRequest";
-  /**
-   *
-   *          <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
-   *
-   */
-  TriggerNames: Array<string> | undefined;
-}
-
-export namespace BatchGetTriggersRequest {
-  export function isa(o: any): o is BatchGetTriggersRequest {
-    return _smithy.isa(o, "BatchGetTriggersRequest");
-  }
-}
-
-export interface BatchGetTriggersResponse extends $MetadataBearer {
-  __type?: "BatchGetTriggersResponse";
-  /**
-   *
-   *          <p>A list of trigger definitions.</p>
-   *
-   */
-  Triggers?: Array<Trigger>;
-
-  /**
-   *
-   *          <p>A list of names of triggers not found.</p>
-   *
-   */
-  TriggersNotFound?: Array<string>;
-}
-
-export namespace BatchGetTriggersResponse {
-  export function isa(o: any): o is BatchGetTriggersResponse {
-    return _smithy.isa(o, "BatchGetTriggersResponse");
-  }
-}
-
-export interface BatchGetWorkflowsRequest {
-  __type?: "BatchGetWorkflowsRequest";
-  /**
-   *
-   *          <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-   *
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   *
-   *          <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
-   *
-   */
-  Names: Array<string> | undefined;
-}
-
-export namespace BatchGetWorkflowsRequest {
-  export function isa(o: any): o is BatchGetWorkflowsRequest {
-    return _smithy.isa(o, "BatchGetWorkflowsRequest");
-  }
-}
-
-export interface BatchGetWorkflowsResponse extends $MetadataBearer {
-  __type?: "BatchGetWorkflowsResponse";
-  /**
-   *
-   *          <p>A list of names of workflows not found.</p>
-   *
-   */
-  MissingWorkflows?: Array<string>;
-
-  /**
-   *
-   *          <p>A list of workflow resource metadata.</p>
-   *
-   */
-  Workflows?: Array<Workflow>;
-}
-
-export namespace BatchGetWorkflowsResponse {
-  export function isa(o: any): o is BatchGetWorkflowsResponse {
-    return _smithy.isa(o, "BatchGetWorkflowsResponse");
-  }
-}
-
-/**
- *
- *          <p>Records an error that occurred when attempting to stop a
- *       specified job run.</p>
- *
- */
-export interface BatchStopJobRunError {
-  __type?: "BatchStopJobRunError";
-  /**
-   *
-   *          <p>Specifies details about the error that was encountered.</p>
-   *
-   */
-  ErrorDetail?: ErrorDetail;
-
-  /**
-   *
-   *          <p>The name of the job definition that is used in the job run in question.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The <code>JobRunId</code> of the job run in question.</p>
-   *
-   */
-  JobRunId?: string;
-}
-
-export namespace BatchStopJobRunError {
-  export function isa(o: any): o is BatchStopJobRunError {
-    return _smithy.isa(o, "BatchStopJobRunError");
-  }
-}
-
-export interface BatchStopJobRunRequest {
-  __type?: "BatchStopJobRunRequest";
-  /**
-   *
-   *          <p>The name of the job definition for which to stop job runs.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>A list of the <code>JobRunIds</code> that should be stopped for that job
-   *       definition.</p>
-   *
-   */
-  JobRunIds: Array<string> | undefined;
-}
-
-export namespace BatchStopJobRunRequest {
-  export function isa(o: any): o is BatchStopJobRunRequest {
-    return _smithy.isa(o, "BatchStopJobRunRequest");
-  }
-}
-
-export interface BatchStopJobRunResponse extends $MetadataBearer {
-  __type?: "BatchStopJobRunResponse";
-  /**
-   *
-   *          <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
-   *       including the <code>JobRunId</code> for which each error was encountered and details about the
-   *       error.</p>
-   *
-   */
-  Errors?: Array<BatchStopJobRunError>;
-
-  /**
-   *
-   *          <p>A list of the JobRuns that were successfully submitted for stopping.</p>
-   *
-   */
-  SuccessfulSubmissions?: Array<BatchStopJobRunSuccessfulSubmission>;
-}
-
-export namespace BatchStopJobRunResponse {
-  export function isa(o: any): o is BatchStopJobRunResponse {
-    return _smithy.isa(o, "BatchStopJobRunResponse");
-  }
-}
-
-/**
- *
- *          <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
- *
- */
-export interface BatchStopJobRunSuccessfulSubmission {
-  __type?: "BatchStopJobRunSuccessfulSubmission";
-  /**
-   *
-   *          <p>The name of the job definition used in the job run that was stopped.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The <code>JobRunId</code> of the job run that was stopped.</p>
-   *
-   */
-  JobRunId?: string;
-}
-
-export namespace BatchStopJobRunSuccessfulSubmission {
-  export function isa(o: any): o is BatchStopJobRunSuccessfulSubmission {
-    return _smithy.isa(o, "BatchStopJobRunSuccessfulSubmission");
-  }
-}
-
-export interface CancelMLTaskRunRequest {
-  __type?: "CancelMLTaskRunRequest";
-  /**
-   *
-   *          <p>A unique identifier for the task run.</p>
-   *
-   */
-  TaskRunId: string | undefined;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace CancelMLTaskRunRequest {
-  export function isa(o: any): o is CancelMLTaskRunRequest {
-    return _smithy.isa(o, "CancelMLTaskRunRequest");
-  }
-}
-
-export interface CancelMLTaskRunResponse extends $MetadataBearer {
-  __type?: "CancelMLTaskRunResponse";
-  /**
-   *
-   *          <p>The status for this run.</p>
-   *
-   */
-  Status?: TaskStatusType | string;
-
-  /**
-   *
-   *          <p>The unique identifier for the task run.</p>
-   *
-   */
-  TaskRunId?: string;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId?: string;
-}
-
-export namespace CancelMLTaskRunResponse {
-  export function isa(o: any): o is CancelMLTaskRunResponse {
-    return _smithy.isa(o, "CancelMLTaskRunResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a table definition in the AWS Glue Data Catalog.</p>
- *
- */
-export interface CatalogEntry {
-  __type?: "CatalogEntry";
-  /**
-   *
-   *          <p>The database in which the table metadata resides.</p>
-   *
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the table in question.</p>
-   *
-   */
-  TableName: string | undefined;
-}
-
-export namespace CatalogEntry {
-  export function isa(o: any): o is CatalogEntry {
-    return _smithy.isa(o, "CatalogEntry");
-  }
+export enum CatalogEncryptionMode {
+  DISABLED = "DISABLED",
+  SSEKMS = "SSE-KMS"
 }
 
 /**
@@ -1105,223 +868,6 @@ export interface CatalogImportStatus {
 export namespace CatalogImportStatus {
   export function isa(o: any): o is CatalogImportStatus {
     return _smithy.isa(o, "CatalogImportStatus");
-  }
-}
-
-/**
- *
- *          <p>Specifies an AWS Glue Data Catalog target.</p>
- *
- */
-export interface CatalogTarget {
-  __type?: "CatalogTarget";
-  /**
-   *
-   *          <p>The name of the database to be synchronized.</p>
-   *
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   *
-   *          <p>A list of the tables to be synchronized.</p>
-   *
-   */
-  Tables: Array<string> | undefined;
-}
-
-export namespace CatalogTarget {
-  export function isa(o: any): o is CatalogTarget {
-    return _smithy.isa(o, "CatalogTarget");
-  }
-}
-
-/**
- *
- *          <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
- *       in a format it can handle. If it is, the classifier creates a schema in the form of a
- *         <code>StructType</code> object that matches that data format.</p>
- *          <p>You can use the standard classifiers that AWS Glue provides, or you can write your own
- *       classifiers to best categorize your data sources and specify the appropriate schemas to use
- *       for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier,
- *       a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one
- *       of the fields in the <code>Classifier</code> object.</p>
- *
- */
-export interface Classifier {
-  __type?: "Classifier";
-  /**
-   *
-   *          <p>A classifier for comma-separated values (CSV).</p>
-   *
-   */
-  CsvClassifier?: CsvClassifier;
-
-  /**
-   *
-   *          <p>A classifier that uses <code>grok</code>.</p>
-   *
-   */
-  GrokClassifier?: GrokClassifier;
-
-  /**
-   *
-   *          <p>A classifier for JSON content.</p>
-   *
-   */
-  JsonClassifier?: JsonClassifier;
-
-  /**
-   *
-   *          <p>A classifier for XML content.</p>
-   *
-   */
-  XMLClassifier?: XMLClassifier;
-}
-
-export namespace Classifier {
-  export function isa(o: any): o is Classifier {
-    return _smithy.isa(o, "Classifier");
-  }
-}
-
-/**
- *
- *          <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
- *
- */
-export interface CloudWatchEncryption {
-  __type?: "CloudWatchEncryption";
-  /**
-   *
-   *          <p>The encryption mode to use for CloudWatch data.</p>
-   *
-   */
-  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-   *
-   */
-  KmsKeyArn?: string;
-}
-
-export namespace CloudWatchEncryption {
-  export function isa(o: any): o is CloudWatchEncryption {
-    return _smithy.isa(o, "CloudWatchEncryption");
-  }
-}
-
-/**
- *
- *          <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
- *
- */
-export interface CodeGenEdge {
-  __type?: "CodeGenEdge";
-  /**
-   *
-   *          <p>The ID of the node at which the edge starts.</p>
-   *
-   */
-  Source: string | undefined;
-
-  /**
-   *
-   *          <p>The ID of the node at which the edge ends.</p>
-   *
-   */
-  Target: string | undefined;
-
-  /**
-   *
-   *          <p>The target of the edge.</p>
-   *
-   */
-  TargetParameter?: string;
-}
-
-export namespace CodeGenEdge {
-  export function isa(o: any): o is CodeGenEdge {
-    return _smithy.isa(o, "CodeGenEdge");
-  }
-}
-
-/**
- *
- *          <p>Represents a node in a directed acyclic graph (DAG)</p>
- *
- */
-export interface CodeGenNode {
-  __type?: "CodeGenNode";
-  /**
-   *
-   *          <p>Properties of the node, in the form of name-value pairs.</p>
-   *
-   */
-  Args: Array<CodeGenNodeArg> | undefined;
-
-  /**
-   *
-   *          <p>A node identifier that is unique within the node's graph.</p>
-   *
-   */
-  Id: string | undefined;
-
-  /**
-   *
-   *          <p>The line number of the node.</p>
-   *
-   */
-  LineNumber?: number;
-
-  /**
-   *
-   *          <p>The type of node that this is.</p>
-   *
-   */
-  NodeType: string | undefined;
-}
-
-export namespace CodeGenNode {
-  export function isa(o: any): o is CodeGenNode {
-    return _smithy.isa(o, "CodeGenNode");
-  }
-}
-
-/**
- *
- *          <p>An argument or property of a node.</p>
- *
- */
-export interface CodeGenNodeArg {
-  __type?: "CodeGenNodeArg";
-  /**
-   *
-   *          <p>The name of the argument or property.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>True if the value is used as a parameter.</p>
-   *
-   */
-  Param?: boolean;
-
-  /**
-   *
-   *          <p>The value of the argument or property.</p>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace CodeGenNodeArg {
-  export function isa(o: any): o is CodeGenNodeArg {
-    return _smithy.isa(o, "CodeGenNodeArg");
   }
 }
 
@@ -1367,176 +913,12 @@ export namespace Column {
   }
 }
 
-/**
- *
- *          <p>Two processes are trying to modify a resource simultaneously.</p>
- *
- */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConcurrentModificationException";
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
-  }
-}
-
-/**
- *
- *          <p>Too many jobs are being run concurrently.</p>
- *
- */
-export interface ConcurrentRunsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConcurrentRunsExceededException";
-  name: "ConcurrentRunsExceededException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ConcurrentRunsExceededException {
-  export function isa(o: any): o is ConcurrentRunsExceededException {
-    return _smithy.isa(o, "ConcurrentRunsExceededException");
-  }
-}
-
-/**
- *
- *          <p>Defines a condition under which a trigger fires.</p>
- *
- */
-export interface Condition {
-  __type?: "Condition";
-  /**
-   *
-   *          <p>The state of the crawler to which this condition applies.</p>
-   *
-   */
-  CrawlState?: CrawlState | string;
-
-  /**
-   *
-   *          <p>The name of the crawler to which this condition applies.</p>
-   *
-   */
-  CrawlerName?: string;
-
-  /**
-   *
-   *          <p>The name of the job whose <code>JobRuns</code> this condition applies to, and on which
-   *       this trigger waits.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>A logical operator.</p>
-   *
-   */
-  LogicalOperator?: LogicalOperator | string;
-
-  /**
-   *
-   *          <p>The condition state. Currently, the values supported are <code>SUCCEEDED</code>,
-   *       <code>STOPPED</code>, <code>TIMEOUT</code>, and <code>FAILED</code>.</p>
-   *
-   */
-  State?: JobRunState | string;
-}
-
-export namespace Condition {
-  export function isa(o: any): o is Condition {
-    return _smithy.isa(o, "Condition");
-  }
-}
-
-/**
- *
- *          <p>A specified condition was not satisfied.</p>
- *
- */
-export interface ConditionCheckFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConditionCheckFailureException";
-  name: "ConditionCheckFailureException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ConditionCheckFailureException {
-  export function isa(o: any): o is ConditionCheckFailureException {
-    return _smithy.isa(o, "ConditionCheckFailureException");
-  }
-}
-
-/**
- *
- *          <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
- *
- * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
- *
- */
-export interface ConfusionMatrix {
-  __type?: "ConfusionMatrix";
-  /**
-   *
-   *          <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
-   *
-   */
-  NumFalseNegatives?: number;
-
-  /**
-   *
-   *          <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
-   *       in the confusion matrix for your transform.</p>
-   *
-   */
-  NumFalsePositives?: number;
-
-  /**
-   *
-   *          <p>The number of nonmatches in the data that the transform correctly rejected, in the
-   *       confusion matrix for your transform.</p>
-   *
-   */
-  NumTrueNegatives?: number;
-
-  /**
-   *
-   *          <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
-   *
-   */
-  NumTruePositives?: number;
-}
-
-export namespace ConfusionMatrix {
-  export function isa(o: any): o is ConfusionMatrix {
-    return _smithy.isa(o, "ConfusionMatrix");
-  }
+export enum Comparator {
+  EQUALS = "EQUALS",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_EQUALS = "LESS_THAN_EQUALS"
 }
 
 /**
@@ -1797,482 +1179,28 @@ export namespace ConnectionPasswordEncryption {
   }
 }
 
-/**
- *
- *          <p>Specifies the connections used by a job.</p>
- *
- */
-export interface ConnectionsList {
-  __type?: "ConnectionsList";
-  /**
-   *
-   *          <p>A list of connections used by the job.</p>
-   *
-   */
-  Connections?: Array<string>;
+export enum ConnectionPropertyKey {
+  CONFIG_FILES = "CONFIG_FILES",
+  CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
+  CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
+  HOST = "HOST",
+  INSTANCE_ID = "INSTANCE_ID",
+  JDBC_CONNECTION_URL = "JDBC_CONNECTION_URL",
+  JDBC_DRIVER_CLASS_NAME = "JDBC_DRIVER_CLASS_NAME",
+  JDBC_DRIVER_JAR_URI = "JDBC_DRIVER_JAR_URI",
+  JDBC_ENFORCE_SSL = "JDBC_ENFORCE_SSL",
+  JDBC_ENGINE = "JDBC_ENGINE",
+  JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
+  PASSWORD = "PASSWORD",
+  PORT = "PORT",
+  SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
+  USER_NAME = "USERNAME"
 }
 
-export namespace ConnectionsList {
-  export function isa(o: any): o is ConnectionsList {
-    return _smithy.isa(o, "ConnectionsList");
-  }
-}
-
-/**
- *
- *          <p>The details of a crawl in the workflow.</p>
- *
- */
-export interface Crawl {
-  __type?: "Crawl";
-  /**
-   *
-   *          <p>The date and time on which the crawl completed.</p>
-   *
-   */
-  CompletedOn?: Date;
-
-  /**
-   *
-   *          <p>The error message associated with the crawl.</p>
-   *
-   */
-  ErrorMessage?: string;
-
-  /**
-   *
-   *          <p>The log group associated with the crawl.</p>
-   *
-   */
-  LogGroup?: string;
-
-  /**
-   *
-   *          <p>The log stream associated with the crawl.</p>
-   *
-   */
-  LogStream?: string;
-
-  /**
-   *
-   *          <p>The date and time on which the crawl started.</p>
-   *
-   */
-  StartedOn?: Date;
-
-  /**
-   *
-   *          <p>The state of the crawler.</p>
-   *
-   */
-  State?: CrawlState | string;
-}
-
-export namespace Crawl {
-  export function isa(o: any): o is Crawl {
-    return _smithy.isa(o, "Crawl");
-  }
-}
-
-/**
- *
- *          <p>Specifies a crawler program that examines a data source and uses classifiers to try to
- *       determine its schema. If successful, the crawler records metadata concerning the data source
- *       in the AWS Glue Data Catalog.</p>
- *
- */
-export interface Crawler {
-  __type?: "Crawler";
-  /**
-   *
-   *          <p>A list of UTF-8 strings that specify the custom classifiers that are associated
-   *      with the crawler.</p>
-   *
-   */
-  Classifiers?: Array<string>;
-
-  /**
-   *
-   *          <p>Crawler configuration information. This versioned JSON string allows users
-   *         to specify aspects of a crawler's behavior.
-   *         For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
-   *
-   */
-  Configuration?: string;
-
-  /**
-   *
-   *          <p>If the crawler is running, contains the total time elapsed since the last crawl
-   *       began.</p>
-   *
-   */
-  CrawlElapsedTime?: number;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
-   *
-   */
-  CrawlerSecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The time that the crawler was created.</p>
-   *
-   */
-  CreationTime?: Date;
-
-  /**
-   *
-   *          <p>The name of the database in which the crawler's output is stored.</p>
-   *
-   */
-  DatabaseName?: string;
-
-  /**
-   *
-   *          <p>A description of the crawler.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>The status of the last crawl, and potentially error information if
-   *       an error occurred.</p>
-   *
-   */
-  LastCrawl?: LastCrawlInfo;
-
-  /**
-   *
-   *          <p>The time that the crawler was last updated.</p>
-   *
-   */
-  LastUpdated?: Date;
-
-  /**
-   *
-   *          <p>The name of the crawler.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources,
-   *       such as Amazon Simple Storage Service (Amazon S3) data.</p>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>For scheduled crawlers, the schedule when the crawler runs.</p>
-   *
-   */
-  Schedule?: Schedule;
-
-  /**
-   *
-   *          <p>The policy that specifies update and delete behaviors for the crawler.</p>
-   *
-   */
-  SchemaChangePolicy?: SchemaChangePolicy;
-
-  /**
-   *
-   *          <p>Indicates whether the crawler is running, or whether a run is pending.</p>
-   *
-   */
-  State?: CrawlerState | string;
-
-  /**
-   *
-   *          <p>The prefix added to the names of tables that are created.</p>
-   *
-   */
-  TablePrefix?: string;
-
-  /**
-   *
-   *          <p>A collection of targets to crawl.</p>
-   *
-   */
-  Targets?: CrawlerTargets;
-
-  /**
-   *
-   *          <p>The version of the crawler.</p>
-   *
-   */
-  Version?: number;
-}
-
-export namespace Crawler {
-  export function isa(o: any): o is Crawler {
-    return _smithy.isa(o, "Crawler");
-  }
-}
-
-/**
- *
- *          <p>Metrics for a specified crawler.</p>
- *
- */
-export interface CrawlerMetrics {
-  __type?: "CrawlerMetrics";
-  /**
-   *
-   *          <p>The name of the crawler.</p>
-   *
-   */
-  CrawlerName?: string;
-
-  /**
-   *
-   *          <p>The duration of the crawler's most recent run, in seconds.</p>
-   *
-   */
-  LastRuntimeSeconds?: number;
-
-  /**
-   *
-   *          <p>The median duration of this crawler's runs, in seconds.</p>
-   *
-   */
-  MedianRuntimeSeconds?: number;
-
-  /**
-   *
-   *          <p>True if the crawler is still estimating how long it will take to complete this run.</p>
-   *
-   */
-  StillEstimating?: boolean;
-
-  /**
-   *
-   *          <p>The number of tables created by this crawler.</p>
-   *
-   */
-  TablesCreated?: number;
-
-  /**
-   *
-   *          <p>The number of tables deleted by this crawler.</p>
-   *
-   */
-  TablesDeleted?: number;
-
-  /**
-   *
-   *          <p>The number of tables updated by this crawler.</p>
-   *
-   */
-  TablesUpdated?: number;
-
-  /**
-   *
-   *          <p>The estimated time left to complete a running crawl.</p>
-   *
-   */
-  TimeLeftSeconds?: number;
-}
-
-export namespace CrawlerMetrics {
-  export function isa(o: any): o is CrawlerMetrics {
-    return _smithy.isa(o, "CrawlerMetrics");
-  }
-}
-
-/**
- *
- *          <p>The details of a Crawler node present in the workflow.</p>
- *
- */
-export interface CrawlerNodeDetails {
-  __type?: "CrawlerNodeDetails";
-  /**
-   *
-   *          <p>A list of crawls represented by the crawl node.</p>
-   *
-   */
-  Crawls?: Array<Crawl>;
-}
-
-export namespace CrawlerNodeDetails {
-  export function isa(o: any): o is CrawlerNodeDetails {
-    return _smithy.isa(o, "CrawlerNodeDetails");
-  }
-}
-
-/**
- *
- *          <p>The specified crawler is not running.</p>
- *
- */
-export interface CrawlerNotRunningException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CrawlerNotRunningException";
-  name: "CrawlerNotRunningException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace CrawlerNotRunningException {
-  export function isa(o: any): o is CrawlerNotRunningException {
-    return _smithy.isa(o, "CrawlerNotRunningException");
-  }
-}
-
-/**
- *
- *          <p>The operation cannot be performed because the crawler is already running.</p>
- *
- */
-export interface CrawlerRunningException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CrawlerRunningException";
-  name: "CrawlerRunningException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace CrawlerRunningException {
-  export function isa(o: any): o is CrawlerRunningException {
-    return _smithy.isa(o, "CrawlerRunningException");
-  }
-}
-
-/**
- *
- *          <p>The specified crawler is stopping.</p>
- *
- */
-export interface CrawlerStoppingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CrawlerStoppingException";
-  name: "CrawlerStoppingException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace CrawlerStoppingException {
-  export function isa(o: any): o is CrawlerStoppingException {
-    return _smithy.isa(o, "CrawlerStoppingException");
-  }
-}
-
-/**
- *
- *          <p>Specifies data stores to crawl.</p>
- *
- */
-export interface CrawlerTargets {
-  __type?: "CrawlerTargets";
-  /**
-   *
-   *          <p>Specifies AWS Glue Data Catalog targets.</p>
-   *
-   */
-  CatalogTargets?: Array<CatalogTarget>;
-
-  /**
-   *
-   *          <p>Specifies Amazon DynamoDB targets.</p>
-   *
-   */
-  DynamoDBTargets?: Array<DynamoDBTarget>;
-
-  /**
-   *
-   *          <p>Specifies JDBC targets.</p>
-   *
-   */
-  JdbcTargets?: Array<JdbcTarget>;
-
-  /**
-   *
-   *          <p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>
-   *
-   */
-  S3Targets?: Array<S3Target>;
-}
-
-export namespace CrawlerTargets {
-  export function isa(o: any): o is CrawlerTargets {
-    return _smithy.isa(o, "CrawlerTargets");
-  }
-}
-
-export interface CreateClassifierRequest {
-  __type?: "CreateClassifierRequest";
-  /**
-   *
-   *          <p>A <code>CsvClassifier</code> object specifying the classifier
-   *       to create.</p>
-   *
-   */
-  CsvClassifier?: CreateCsvClassifierRequest;
-
-  /**
-   *
-   *          <p>A <code>GrokClassifier</code> object specifying the classifier
-   *       to create.</p>
-   *
-   */
-  GrokClassifier?: CreateGrokClassifierRequest;
-
-  /**
-   *
-   *          <p>A <code>JsonClassifier</code> object specifying the classifier
-   *       to create.</p>
-   *
-   */
-  JsonClassifier?: CreateJsonClassifierRequest;
-
-  /**
-   *
-   *          <p>An <code>XMLClassifier</code> object specifying the classifier
-   *       to create.</p>
-   *
-   */
-  XMLClassifier?: CreateXMLClassifierRequest;
-}
-
-export namespace CreateClassifierRequest {
-  export function isa(o: any): o is CreateClassifierRequest {
-    return _smithy.isa(o, "CreateClassifierRequest");
-  }
-}
-
-export interface CreateClassifierResponse extends $MetadataBearer {
-  __type?: "CreateClassifierResponse";
-}
-
-export namespace CreateClassifierResponse {
-  export function isa(o: any): o is CreateClassifierResponse {
-    return _smithy.isa(o, "CreateClassifierResponse");
-  }
+export enum ConnectionType {
+  JDBC = "JDBC",
+  SFTP = "SFTP"
 }
 
 export interface CreateConnectionRequest {
@@ -2310,183 +1238,6 @@ export namespace CreateConnectionResponse {
   }
 }
 
-export interface CreateCrawlerRequest {
-  __type?: "CreateCrawlerRequest";
-  /**
-   *
-   *          <p>A list of custom classifiers that the user has registered. By default, all built-in
-   *       classifiers are included in a crawl, but these custom classifiers always override the default
-   *       classifiers for a given classification.</p>
-   *
-   */
-  Classifiers?: Array<string>;
-
-  /**
-   *
-   *          <p>The crawler configuration information. This versioned JSON string allows users to specify
-   *       aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a
-   *         Crawler</a>.</p>
-   *
-   */
-  Configuration?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
-   *
-   */
-  CrawlerSecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The AWS Glue database where results are written, such as:
-   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-   *
-   */
-  DatabaseName?: string;
-
-  /**
-   *
-   *          <p>A description of the new crawler.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>Name of the new crawler.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
-   *       access customer resources.</p>
-   *
-   */
-  Role: string | undefined;
-
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
-   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
-   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  Schedule?: string;
-
-  /**
-   *
-   *          <p>The policy for the crawler's update and deletion behavior.</p>
-   *
-   */
-  SchemaChangePolicy?: SchemaChangePolicy;
-
-  /**
-   *
-   *          <p>The table prefix used for catalog tables that are created.</p>
-   *
-   */
-  TablePrefix?: string;
-
-  /**
-   *
-   *          <p>The tags to use with this crawler request. You can use tags to limit access to the
-   *       crawler. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
-   *         Glue</a>.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>A list of collection of targets to crawl.</p>
-   *
-   */
-  Targets: CrawlerTargets | undefined;
-}
-
-export namespace CreateCrawlerRequest {
-  export function isa(o: any): o is CreateCrawlerRequest {
-    return _smithy.isa(o, "CreateCrawlerRequest");
-  }
-}
-
-export interface CreateCrawlerResponse extends $MetadataBearer {
-  __type?: "CreateCrawlerResponse";
-}
-
-export namespace CreateCrawlerResponse {
-  export function isa(o: any): o is CreateCrawlerResponse {
-    return _smithy.isa(o, "CreateCrawlerResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
- *
- */
-export interface CreateCsvClassifierRequest {
-  __type?: "CreateCsvClassifierRequest";
-  /**
-   *
-   *          <p>Enables the processing of files that contain only one column.</p>
-   *
-   */
-  AllowSingleColumn?: boolean;
-
-  /**
-   *
-   *          <p>Indicates whether the CSV file contains a header.</p>
-   *
-   */
-  ContainsHeader?: CsvHeaderOption | string;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
-   *
-   */
-  Delimiter?: string;
-
-  /**
-   *
-   *          <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   *
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   *
-   *          <p>A list of strings representing column names.</p>
-   *
-   */
-  Header?: Array<string>;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
-   *
-   */
-  QuoteSymbol?: string;
-}
-
-export namespace CreateCsvClassifierRequest {
-  export function isa(o: any): o is CreateCsvClassifierRequest {
-    return _smithy.isa(o, "CreateCsvClassifierRequest");
-  }
-}
-
 export interface CreateDatabaseRequest {
   __type?: "CreateDatabaseRequest";
   /**
@@ -2518,774 +1269,6 @@ export interface CreateDatabaseResponse extends $MetadataBearer {
 export namespace CreateDatabaseResponse {
   export function isa(o: any): o is CreateDatabaseResponse {
     return _smithy.isa(o, "CreateDatabaseResponse");
-  }
-}
-
-export interface CreateDevEndpointRequest {
-  __type?: "CreateDevEndpointRequest";
-  /**
-   *
-   *   	      <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
-   *
-   */
-  EndpointName: string | undefined;
-
-  /**
-   *
-   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   *
-   *          <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
-   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
-   *       comma.</p>
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not yet supported.</p>
-   *          </note>
-   *
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   *
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue Data Processing Units (DPUs) to allocate to this
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  NumberOfNodes?: number;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *
-   * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
-   *       attribute is provided for backward compatibility because the recommended attribute to use is
-   *       public keys.</p>
-   *
-   */
-  PublicKey?: string;
-
-  /**
-   *
-   *          <p>A list of public keys to be used by the development endpoints for authentication. The use
-   *       of this attribute is preferred over a single public key because the public keys allow you to
-   *       have a different private key per client.</p>
-   *
-   *          <note>
-   *             <p>If you previously created an endpoint with a public key, you must remove that key to be able
-   *         to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public
-   *         key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the
-   *           <code>addPublicKeys</code> attribute.</p>
-   *          </note>
-   *
-   */
-  PublicKeys?: Array<string>;
-
-  /**
-   *
-   *          <p>The IAM role for the <code>DevEndpoint</code>.</p>
-   *
-   */
-  RoleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>Security group IDs for the security groups to be used by the new
-   *       <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityGroupIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
-   *
-   */
-  SubnetId?: string;
-
-  /**
-   *
-   *          <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
-   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace CreateDevEndpointRequest {
-  export function isa(o: any): o is CreateDevEndpointRequest {
-    return _smithy.isa(o, "CreateDevEndpointRequest");
-  }
-}
-
-export interface CreateDevEndpointResponse extends $MetadataBearer {
-  __type?: "CreateDevEndpointResponse";
-  /**
-   *
-   *          <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   *
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
-   *
-   */
-  AvailabilityZone?: string;
-
-  /**
-   *
-   *          <p>The point in time at which this <code>DevEndpoint</code> was created.</p>
-   *
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   *
-   *          <p>The name assigned to the new <code>DevEndpoint</code>.</p>
-   *
-   */
-  EndpointName?: string;
-
-  /**
-   *
-   *          <p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in
-   *       your <code>DevEndpoint</code>.</p>
-   *
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   *
-   *          <p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   *
-   *          <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
-   *
-   */
-  FailureReason?: string;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>
-   *
-   */
-  NumberOfNodes?: number;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the role assigned to the new
-   *       <code>DevEndpoint</code>.</p>
-   *
-   */
-  RoleArn?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure being used with this
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityGroupIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The current status of the new <code>DevEndpoint</code>.</p>
-   *
-   */
-  Status?: string;
-
-  /**
-   *
-   *          <p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>
-   *
-   */
-  SubnetId?: string;
-
-  /**
-   *
-   *          <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
-   *
-   */
-  VpcId?: string;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
-   *
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   *
-   *          <p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>
-   *
-   */
-  YarnEndpointAddress?: string;
-
-  /**
-   *
-   *          <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
-   *
-   */
-  ZeppelinRemoteSparkInterpreterPort?: number;
-}
-
-export namespace CreateDevEndpointResponse {
-  export function isa(o: any): o is CreateDevEndpointResponse {
-    return _smithy.isa(o, "CreateDevEndpointResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
- *       to create.</p>
- *
- */
-export interface CreateGrokClassifierRequest {
-  __type?: "CreateGrokClassifierRequest";
-  /**
-   *
-   *          <p>An identifier of the data format that the classifier matches,
-   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
-   *
-   */
-  Classification: string | undefined;
-
-  /**
-   *
-   *          <p>Optional custom grok patterns used by this classifier.</p>
-   *
-   */
-  CustomPatterns?: string;
-
-  /**
-   *
-   *          <p>The grok pattern used by this classifier.</p>
-   *
-   */
-  GrokPattern: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the new classifier.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace CreateGrokClassifierRequest {
-  export function isa(o: any): o is CreateGrokClassifierRequest {
-    return _smithy.isa(o, "CreateGrokClassifierRequest");
-  }
-}
-
-export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
-  /**
-   *
-   *          <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can
-   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *       page</a>.</p>
-   *
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   *
-   *          <p>The <code>JobCommand</code> that executes this job.</p>
-   *
-   */
-  Command: JobCommand | undefined;
-
-  /**
-   *
-   *          <p>The connections used for this job.</p>
-   *
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   *
-   *          <p>The default arguments for this job.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  DefaultArguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>Description of the job being defined.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   *
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>This field is reserved for future use.</p>
-   *
-   */
-  LogUri?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *        of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *        For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
-   *          pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job or an Apache Spark ETL job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry this job if it fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>The name you assign to this job definition. It must be unique in your account.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies configuration properties of a job notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-   *
-   */
-  Role: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace CreateJobRequest {
-  export function isa(o: any): o is CreateJobRequest {
-    return _smithy.isa(o, "CreateJobRequest");
-  }
-}
-
-export interface CreateJobResponse extends $MetadataBearer {
-  __type?: "CreateJobResponse";
-  /**
-   *
-   *          <p>The unique name that was provided for this job definition.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace CreateJobResponse {
-  export function isa(o: any): o is CreateJobResponse {
-    return _smithy.isa(o, "CreateJobResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
- *
- */
-export interface CreateJsonClassifierRequest {
-  __type?: "CreateJsonClassifierRequest";
-  /**
-   *
-   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
-   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   *
-   */
-  JsonPath: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace CreateJsonClassifierRequest {
-  export function isa(o: any): o is CreateJsonClassifierRequest {
-    return _smithy.isa(o, "CreateJsonClassifierRequest");
-  }
-}
-
-export interface CreateMLTransformRequest {
-  __type?: "CreateMLTransformRequest";
-  /**
-   *
-   *          <p>A description of the machine learning transform that is being defined. The default is an
-   *       empty string.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>A list of AWS Glue table definitions used by the transform.</p>
-   *
-   */
-  InputRecordTables: Array<GlueTable> | undefined;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   * 			      <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>The unique name that you give the transform when you create it.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   *
-   * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The algorithmic parameters that are specific to the transform type used. Conditionally
-   *       dependent on the transform type.</p>
-   *
-   */
-  Parameters: TransformParameters | undefined;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
-   *             <li>
-   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  Role: string | undefined;
-
-  /**
-   *
-   *          <p>The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace CreateMLTransformRequest {
-  export function isa(o: any): o is CreateMLTransformRequest {
-    return _smithy.isa(o, "CreateMLTransformRequest");
-  }
-}
-
-export interface CreateMLTransformResponse extends $MetadataBearer {
-  __type?: "CreateMLTransformResponse";
-  /**
-   *
-   *          <p>A unique identifier that is generated for the transform.</p>
-   *
-   */
-  TransformId?: string;
-}
-
-export namespace CreateMLTransformResponse {
-  export function isa(o: any): o is CreateMLTransformResponse {
-    return _smithy.isa(o, "CreateMLTransformResponse");
   }
 }
 
@@ -3338,105 +1321,6 @@ export namespace CreatePartitionResponse {
   }
 }
 
-export interface CreateScriptRequest {
-  __type?: "CreateScriptRequest";
-  /**
-   *
-   *          <p>A list of the edges in the DAG.</p>
-   *
-   */
-  DagEdges?: Array<CodeGenEdge>;
-
-  /**
-   *
-   *          <p>A list of the nodes in the DAG.</p>
-   *
-   */
-  DagNodes?: Array<CodeGenNode>;
-
-  /**
-   *
-   *          <p>The programming language of the resulting code from the DAG.</p>
-   *
-   */
-  Language?: Language | string;
-}
-
-export namespace CreateScriptRequest {
-  export function isa(o: any): o is CreateScriptRequest {
-    return _smithy.isa(o, "CreateScriptRequest");
-  }
-}
-
-export interface CreateScriptResponse extends $MetadataBearer {
-  __type?: "CreateScriptResponse";
-  /**
-   *
-   *          <p>The Python script generated from the DAG.</p>
-   *
-   */
-  PythonScript?: string;
-
-  /**
-   *
-   *          <p>The Scala code generated from the DAG.</p>
-   *
-   */
-  ScalaCode?: string;
-}
-
-export namespace CreateScriptResponse {
-  export function isa(o: any): o is CreateScriptResponse {
-    return _smithy.isa(o, "CreateScriptResponse");
-  }
-}
-
-export interface CreateSecurityConfigurationRequest {
-  __type?: "CreateSecurityConfigurationRequest";
-  /**
-   *
-   *          <p>The encryption configuration for the new security configuration.</p>
-   *
-   */
-  EncryptionConfiguration: EncryptionConfiguration | undefined;
-
-  /**
-   *
-   *          <p>The name for the new security configuration.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace CreateSecurityConfigurationRequest {
-  export function isa(o: any): o is CreateSecurityConfigurationRequest {
-    return _smithy.isa(o, "CreateSecurityConfigurationRequest");
-  }
-}
-
-export interface CreateSecurityConfigurationResponse extends $MetadataBearer {
-  __type?: "CreateSecurityConfigurationResponse";
-  /**
-   *
-   *          <p>The time at which the new security configuration was created.</p>
-   *
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   *
-   *          <p>The name assigned to the new security configuration.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace CreateSecurityConfigurationResponse {
-  export function isa(o: any): o is CreateSecurityConfigurationResponse {
-    return _smithy.isa(o, "CreateSecurityConfigurationResponse");
-  }
-}
-
 export interface CreateTableRequest {
   __type?: "CreateTableRequest";
   /**
@@ -3480,102 +1364,6 @@ export namespace CreateTableResponse {
   }
 }
 
-export interface CreateTriggerRequest {
-  __type?: "CreateTriggerRequest";
-  /**
-   *
-   *          <p>The actions initiated by this trigger when it fires.</p>
-   *
-   */
-  Actions: Array<Action> | undefined;
-
-  /**
-   *
-   *          <p>A description of the new trigger.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>The name of the trigger.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>A predicate to specify when the new trigger should fire.</p>
-   *          <p>This field is required when the trigger type is <code>CONDITIONAL</code>.</p>
-   *
-   */
-  Predicate?: Predicate;
-
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   *          <p>This field is required when the trigger type is SCHEDULED.</p>
-   *
-   */
-  Schedule?: string;
-
-  /**
-   *
-   *          <p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code>
-   *       triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>
-   *
-   */
-  StartOnCreation?: boolean;
-
-  /**
-   *
-   *          <p>The tags to use with this trigger. You may use tags to limit access to the trigger.
-   *       For more information about tags in AWS Glue, see
-   *       <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
-   *         Glue</a> in the developer guide. </p>
-   *
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The type of the new trigger.</p>
-   *
-   */
-  Type: TriggerType | string | undefined;
-
-  /**
-   *
-   *          <p>The name of the workflow associated with the trigger.</p>
-   *
-   */
-  WorkflowName?: string;
-}
-
-export namespace CreateTriggerRequest {
-  export function isa(o: any): o is CreateTriggerRequest {
-    return _smithy.isa(o, "CreateTriggerRequest");
-  }
-}
-
-export interface CreateTriggerResponse extends $MetadataBearer {
-  __type?: "CreateTriggerResponse";
-  /**
-   *
-   *          <p>The name of the trigger.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace CreateTriggerResponse {
-  export function isa(o: any): o is CreateTriggerResponse {
-    return _smithy.isa(o, "CreateTriggerResponse");
-  }
-}
-
 export interface CreateUserDefinedFunctionRequest {
   __type?: "CreateUserDefinedFunctionRequest";
   /**
@@ -3615,184 +1403,6 @@ export interface CreateUserDefinedFunctionResponse extends $MetadataBearer {
 export namespace CreateUserDefinedFunctionResponse {
   export function isa(o: any): o is CreateUserDefinedFunctionResponse {
     return _smithy.isa(o, "CreateUserDefinedFunctionResponse");
-  }
-}
-
-export interface CreateWorkflowRequest {
-  __type?: "CreateWorkflowRequest";
-  /**
-   *
-   *          <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   *
-   */
-  DefaultRunProperties?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>A description of the workflow.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>The name to be assigned to the workflow. It should be unique within your account.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The tags to be used with this workflow.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace CreateWorkflowRequest {
-  export function isa(o: any): o is CreateWorkflowRequest {
-    return _smithy.isa(o, "CreateWorkflowRequest");
-  }
-}
-
-export interface CreateWorkflowResponse extends $MetadataBearer {
-  __type?: "CreateWorkflowResponse";
-  /**
-   *
-   *          <p>The name of the workflow which was provided as part of the request.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace CreateWorkflowResponse {
-  export function isa(o: any): o is CreateWorkflowResponse {
-    return _smithy.isa(o, "CreateWorkflowResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
- *
- */
-export interface CreateXMLClassifierRequest {
-  __type?: "CreateXMLClassifierRequest";
-  /**
-   *
-   *          <p>An identifier of the data format that the classifier matches.</p>
-   *
-   */
-  Classification: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The XML tag designating the element that contains each record in an XML document being
-   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
-   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
-   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
-   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
-   *
-   */
-  RowTag?: string;
-}
-
-export namespace CreateXMLClassifierRequest {
-  export function isa(o: any): o is CreateXMLClassifierRequest {
-    return _smithy.isa(o, "CreateXMLClassifierRequest");
-  }
-}
-
-/**
- *
- *          <p>A classifier for custom <code>CSV</code> content.</p>
- *
- */
-export interface CsvClassifier {
-  __type?: "CsvClassifier";
-  /**
-   *
-   *          <p>Enables the processing of files that contain only one column.</p>
-   *
-   */
-  AllowSingleColumn?: boolean;
-
-  /**
-   *
-   *          <p>Indicates whether the CSV file contains a header.</p>
-   *
-   */
-  ContainsHeader?: CsvHeaderOption | string;
-
-  /**
-   *
-   *          <p>The time that this classifier was registered.</p>
-   *
-   */
-  CreationTime?: Date;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
-   *
-   */
-  Delimiter?: string;
-
-  /**
-   *
-   *          <p>Specifies not to trim values before identifying the type of column values. The default
-   *       value is <code>true</code>.</p>
-   *
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   *
-   *          <p>A list of strings representing column names.</p>
-   *
-   */
-  Header?: Array<string>;
-
-  /**
-   *
-   *          <p>The time that this classifier was last updated.</p>
-   *
-   */
-  LastUpdated?: Date;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what combines content into a single column value. It must be
-   *       different from the column delimiter.</p>
-   *
-   */
-  QuoteSymbol?: string;
-
-  /**
-   *
-   *          <p>The version of this classifier.</p>
-   *
-   */
-  Version?: number;
-}
-
-export namespace CsvClassifier {
-  export function isa(o: any): o is CsvClassifier {
-    return _smithy.isa(o, "CsvClassifier");
   }
 }
 
@@ -3960,32 +1570,6 @@ export namespace DatabaseInput {
   }
 }
 
-export interface DeleteClassifierRequest {
-  __type?: "DeleteClassifierRequest";
-  /**
-   *
-   *          <p>Name of the classifier to remove.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace DeleteClassifierRequest {
-  export function isa(o: any): o is DeleteClassifierRequest {
-    return _smithy.isa(o, "DeleteClassifierRequest");
-  }
-}
-
-export interface DeleteClassifierResponse extends $MetadataBearer {
-  __type?: "DeleteClassifierResponse";
-}
-
-export namespace DeleteClassifierResponse {
-  export function isa(o: any): o is DeleteClassifierResponse {
-    return _smithy.isa(o, "DeleteClassifierResponse");
-  }
-}
-
 export interface DeleteConnectionRequest {
   __type?: "DeleteConnectionRequest";
   /**
@@ -4017,32 +1601,6 @@ export interface DeleteConnectionResponse extends $MetadataBearer {
 export namespace DeleteConnectionResponse {
   export function isa(o: any): o is DeleteConnectionResponse {
     return _smithy.isa(o, "DeleteConnectionResponse");
-  }
-}
-
-export interface DeleteCrawlerRequest {
-  __type?: "DeleteCrawlerRequest";
-  /**
-   *
-   *          <p>The name of the crawler to remove.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace DeleteCrawlerRequest {
-  export function isa(o: any): o is DeleteCrawlerRequest {
-    return _smithy.isa(o, "DeleteCrawlerRequest");
-  }
-}
-
-export interface DeleteCrawlerResponse extends $MetadataBearer {
-  __type?: "DeleteCrawlerResponse";
-}
-
-export namespace DeleteCrawlerResponse {
-  export function isa(o: any): o is DeleteCrawlerResponse {
-    return _smithy.isa(o, "DeleteCrawlerResponse");
   }
 }
 
@@ -4078,96 +1636,6 @@ export interface DeleteDatabaseResponse extends $MetadataBearer {
 export namespace DeleteDatabaseResponse {
   export function isa(o: any): o is DeleteDatabaseResponse {
     return _smithy.isa(o, "DeleteDatabaseResponse");
-  }
-}
-
-export interface DeleteDevEndpointRequest {
-  __type?: "DeleteDevEndpointRequest";
-  /**
-   *
-   *          <p>The name of the <code>DevEndpoint</code>.</p>
-   *
-   */
-  EndpointName: string | undefined;
-}
-
-export namespace DeleteDevEndpointRequest {
-  export function isa(o: any): o is DeleteDevEndpointRequest {
-    return _smithy.isa(o, "DeleteDevEndpointRequest");
-  }
-}
-
-export interface DeleteDevEndpointResponse extends $MetadataBearer {
-  __type?: "DeleteDevEndpointResponse";
-}
-
-export namespace DeleteDevEndpointResponse {
-  export function isa(o: any): o is DeleteDevEndpointResponse {
-    return _smithy.isa(o, "DeleteDevEndpointResponse");
-  }
-}
-
-export interface DeleteJobRequest {
-  __type?: "DeleteJobRequest";
-  /**
-   *
-   *          <p>The name of the job definition to delete.</p>
-   *
-   */
-  JobName: string | undefined;
-}
-
-export namespace DeleteJobRequest {
-  export function isa(o: any): o is DeleteJobRequest {
-    return _smithy.isa(o, "DeleteJobRequest");
-  }
-}
-
-export interface DeleteJobResponse extends $MetadataBearer {
-  __type?: "DeleteJobResponse";
-  /**
-   *
-   *          <p>The name of the job definition that was deleted.</p>
-   *
-   */
-  JobName?: string;
-}
-
-export namespace DeleteJobResponse {
-  export function isa(o: any): o is DeleteJobResponse {
-    return _smithy.isa(o, "DeleteJobResponse");
-  }
-}
-
-export interface DeleteMLTransformRequest {
-  __type?: "DeleteMLTransformRequest";
-  /**
-   *
-   *          <p>The unique identifier of the transform to delete.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace DeleteMLTransformRequest {
-  export function isa(o: any): o is DeleteMLTransformRequest {
-    return _smithy.isa(o, "DeleteMLTransformRequest");
-  }
-}
-
-export interface DeleteMLTransformResponse extends $MetadataBearer {
-  __type?: "DeleteMLTransformResponse";
-  /**
-   *
-   *          <p>The unique identifier of the transform that was deleted.</p>
-   *
-   */
-  TransformId?: string;
-}
-
-export namespace DeleteMLTransformResponse {
-  export function isa(o: any): o is DeleteMLTransformResponse {
-    return _smithy.isa(o, "DeleteMLTransformResponse");
   }
 }
 
@@ -4243,32 +1711,6 @@ export interface DeleteResourcePolicyResponse extends $MetadataBearer {
 export namespace DeleteResourcePolicyResponse {
   export function isa(o: any): o is DeleteResourcePolicyResponse {
     return _smithy.isa(o, "DeleteResourcePolicyResponse");
-  }
-}
-
-export interface DeleteSecurityConfigurationRequest {
-  __type?: "DeleteSecurityConfigurationRequest";
-  /**
-   *
-   *          <p>The name of the security configuration to delete.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace DeleteSecurityConfigurationRequest {
-  export function isa(o: any): o is DeleteSecurityConfigurationRequest {
-    return _smithy.isa(o, "DeleteSecurityConfigurationRequest");
-  }
-}
-
-export interface DeleteSecurityConfigurationResponse extends $MetadataBearer {
-  __type?: "DeleteSecurityConfigurationResponse";
-}
-
-export namespace DeleteSecurityConfigurationResponse {
-  export function isa(o: any): o is DeleteSecurityConfigurationResponse {
-    return _smithy.isa(o, "DeleteSecurityConfigurationResponse");
   }
 }
 
@@ -4365,38 +1807,6 @@ export namespace DeleteTableVersionResponse {
   }
 }
 
-export interface DeleteTriggerRequest {
-  __type?: "DeleteTriggerRequest";
-  /**
-   *
-   *          <p>The name of the trigger to delete.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace DeleteTriggerRequest {
-  export function isa(o: any): o is DeleteTriggerRequest {
-    return _smithy.isa(o, "DeleteTriggerRequest");
-  }
-}
-
-export interface DeleteTriggerResponse extends $MetadataBearer {
-  __type?: "DeleteTriggerResponse";
-  /**
-   *
-   *          <p>The name of the trigger that was deleted.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace DeleteTriggerResponse {
-  export function isa(o: any): o is DeleteTriggerResponse {
-    return _smithy.isa(o, "DeleteTriggerResponse");
-  }
-}
-
 export interface DeleteUserDefinedFunctionRequest {
   __type?: "DeleteUserDefinedFunctionRequest";
   /**
@@ -4438,390 +1848,6 @@ export namespace DeleteUserDefinedFunctionResponse {
   }
 }
 
-export interface DeleteWorkflowRequest {
-  __type?: "DeleteWorkflowRequest";
-  /**
-   *
-   *          <p>Name of the workflow to be deleted.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace DeleteWorkflowRequest {
-  export function isa(o: any): o is DeleteWorkflowRequest {
-    return _smithy.isa(o, "DeleteWorkflowRequest");
-  }
-}
-
-export interface DeleteWorkflowResponse extends $MetadataBearer {
-  __type?: "DeleteWorkflowResponse";
-  /**
-   *
-   *          <p>Name of the workflow specified in input.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace DeleteWorkflowResponse {
-  export function isa(o: any): o is DeleteWorkflowResponse {
-    return _smithy.isa(o, "DeleteWorkflowResponse");
-  }
-}
-
-/**
- *
- *          <p>A development endpoint where a developer can remotely debug extract, transform, and load
- *       (ETL) scripts.</p>
- *
- */
-export interface DevEndpoint {
-  __type?: "DevEndpoint";
-  /**
-   *
-   *   	      <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
-   *          <p>Valid arguments are:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   *
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
-   *
-   */
-  AvailabilityZone?: string;
-
-  /**
-   *
-   *          <p>The point in time at which this DevEndpoint was created.</p>
-   *
-   */
-  CreatedTimestamp?: Date;
-
-  /**
-   *
-   *          <p>The name of the <code>DevEndpoint</code>.</p>
-   *
-   */
-  EndpointName?: string;
-
-  /**
-   *
-   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *          <note>
-   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
-   *          </note>
-   *
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   *
-   *          <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
-   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
-   *       comma.</p>
-   *
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not currently supported.</p>
-   *          </note>
-   *
-   */
-  ExtraPythonLibsS3Path?: string;
-
-  /**
-   *
-   *          <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
-   *
-   */
-  FailureReason?: string;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   *
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>The point in time at which this <code>DevEndpoint</code> was last modified.</p>
-   *
-   */
-  LastModifiedTimestamp?: Date;
-
-  /**
-   *
-   *          <p>The status of the last update.</p>
-   *
-   */
-  LastUpdateStatus?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue Data Processing Units (DPUs) allocated to this
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  NumberOfNodes?: number;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *
-   * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>A private IP address to access the <code>DevEndpoint</code> within a VPC if the
-   *         <code>DevEndpoint</code> is created within one. The <code>PrivateAddress</code> field is
-   *       present only when you create the <code>DevEndpoint</code> within your VPC.</p>
-   *
-   */
-  PrivateAddress?: string;
-
-  /**
-   *
-   *          <p>The public IP address used by this <code>DevEndpoint</code>. The
-   *         <code>PublicAddress</code> field is present only when you create a non-virtual private cloud
-   *       (VPC) <code>DevEndpoint</code>.</p>
-   *
-   */
-  PublicAddress?: string;
-
-  /**
-   *
-   *          <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
-   *       attribute is provided for backward compatibility because the recommended attribute to use is
-   *       public keys.</p>
-   *
-   */
-  PublicKey?: string;
-
-  /**
-   *
-   *          <p>A list of public keys to be used by the <code>DevEndpoints</code> for authentication.
-   *       Using this attribute is preferred over a single public key because the public keys allow you
-   *       to have a different private key per client.</p>
-   *          <note>
-   *             <p>If you previously created an endpoint with a public key, you must remove that key to be
-   *         able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API operation
-   *         with the public key content in the <code>deletePublicKeys</code> attribute, and the list of
-   *         new keys in the <code>addPublicKeys</code> attribute.</p>
-   *          </note>
-   *
-   */
-  PublicKeys?: Array<string>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the IAM role used in this
-   *       <code>DevEndpoint</code>.</p>
-   *
-   */
-  RoleArn?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>A list of security group identifiers used in this <code>DevEndpoint</code>.</p>
-   *
-   */
-  SecurityGroupIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The current status of this <code>DevEndpoint</code>.</p>
-   *
-   */
-  Status?: string;
-
-  /**
-   *
-   *          <p>The subnet ID for this <code>DevEndpoint</code>.</p>
-   *
-   */
-  SubnetId?: string;
-
-  /**
-   *
-   *          <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
-   *
-   */
-  VpcId?: string;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
-   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
-   *
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   *
-   *          <p>The YARN endpoint address used by this <code>DevEndpoint</code>.</p>
-   *
-   */
-  YarnEndpointAddress?: string;
-
-  /**
-   *
-   *          <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
-   *
-   */
-  ZeppelinRemoteSparkInterpreterPort?: number;
-}
-
-export namespace DevEndpoint {
-  export function isa(o: any): o is DevEndpoint {
-    return _smithy.isa(o, "DevEndpoint");
-  }
-}
-
-/**
- *
- *          <p>Custom libraries to be loaded into a development endpoint.</p>
- *
- */
-export interface DevEndpointCustomLibraries {
-  __type?: "DevEndpointCustomLibraries";
-  /**
-   *
-   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
-   *       in your <code>DevEndpoint</code>.</p>
-   *          <note>
-   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
-   *          </note>
-   *
-   */
-  ExtraJarsS3Path?: string;
-
-  /**
-   *
-   *          <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
-   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
-   *       complete paths separated by a comma.</p>
-   *          <note>
-   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
-   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
-   *         analysis library, are not currently supported.</p>
-   *          </note>
-   *
-   */
-  ExtraPythonLibsS3Path?: string;
-}
-
-export namespace DevEndpointCustomLibraries {
-  export function isa(o: any): o is DevEndpointCustomLibraries {
-    return _smithy.isa(o, "DevEndpointCustomLibraries");
-  }
-}
-
-/**
- *
- *          <p>Specifies an Amazon DynamoDB table to crawl.</p>
- *
- */
-export interface DynamoDBTarget {
-  __type?: "DynamoDBTarget";
-  /**
-   *
-   *          <p>The name of the DynamoDB table to crawl.</p>
-   *
-   */
-  Path?: string;
-}
-
-export namespace DynamoDBTarget {
-  export function isa(o: any): o is DynamoDBTarget {
-    return _smithy.isa(o, "DynamoDBTarget");
-  }
-}
-
-/**
- *
- *          <p>An edge represents a directed connection between two AWS Glue components which are part of the workflow the
- *       edge belongs to.</p>
- *
- */
-export interface Edge {
-  __type?: "Edge";
-  /**
-   *
-   *          <p>The unique of the node within the workflow where the edge ends.</p>
-   *
-   */
-  DestinationId?: string;
-
-  /**
-   *
-   *          <p>The unique of the node within the workflow where the edge starts.</p>
-   *
-   */
-  SourceId?: string;
-}
-
-export namespace Edge {
-  export function isa(o: any): o is Edge {
-    return _smithy.isa(o, "Edge");
-  }
-}
-
 /**
  *
  *          <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
@@ -4847,323 +1873,6 @@ export interface EncryptionAtRest {
 export namespace EncryptionAtRest {
   export function isa(o: any): o is EncryptionAtRest {
     return _smithy.isa(o, "EncryptionAtRest");
-  }
-}
-
-/**
- *
- *          <p>Specifies an encryption configuration.</p>
- *
- */
-export interface EncryptionConfiguration {
-  __type?: "EncryptionConfiguration";
-  /**
-   *
-   *          <p>The encryption configuration for Amazon CloudWatch.</p>
-   *
-   */
-  CloudWatchEncryption?: CloudWatchEncryption;
-
-  /**
-   *
-   *          <p>The encryption configuration for job bookmarks.</p>
-   *
-   */
-  JobBookmarksEncryption?: JobBookmarksEncryption;
-
-  /**
-   *
-   *          <p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>
-   *
-   */
-  S3Encryption?: Array<S3Encryption>;
-}
-
-export namespace EncryptionConfiguration {
-  export function isa(o: any): o is EncryptionConfiguration {
-    return _smithy.isa(o, "EncryptionConfiguration");
-  }
-}
-
-/**
- *
- *          <p>A specified entity does not exist</p>
- *
- */
-export interface EntityNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "EntityNotFoundException";
-  name: "EntityNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  export function isa(o: any): o is EntityNotFoundException {
-    return _smithy.isa(o, "EntityNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>Contains details about an error.</p>
- *
- */
-export interface ErrorDetail {
-  __type?: "ErrorDetail";
-  /**
-   *
-   *          <p>The code associated with this error.</p>
-   *
-   */
-  ErrorCode?: string;
-
-  /**
-   *
-   *          <p>A message describing the error.</p>
-   *
-   */
-  ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  export function isa(o: any): o is ErrorDetail {
-    return _smithy.isa(o, "ErrorDetail");
-  }
-}
-
-/**
- *
- *          <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
- *
- */
-export interface EvaluationMetrics {
-  __type?: "EvaluationMetrics";
-  /**
-   *
-   *          <p>The evaluation metrics for the find matches algorithm.</p>
-   *
-   */
-  FindMatchesMetrics?: FindMatchesMetrics;
-
-  /**
-   *
-   *          <p>The type of machine learning transform.</p>
-   *
-   */
-  TransformType: TransformType | string | undefined;
-}
-
-export namespace EvaluationMetrics {
-  export function isa(o: any): o is EvaluationMetrics {
-    return _smithy.isa(o, "EvaluationMetrics");
-  }
-}
-
-/**
- *
- *          <p>An execution property of a job.</p>
- *
- */
-export interface ExecutionProperty {
-  __type?: "ExecutionProperty";
-  /**
-   *
-   *          <p>The maximum number of concurrent runs allowed for the job.
-   *       The default is 1. An error is returned when this threshold is reached.
-   *       The maximum value you can specify is controlled by a service limit.</p>
-   *
-   */
-  MaxConcurrentRuns?: number;
-}
-
-export namespace ExecutionProperty {
-  export function isa(o: any): o is ExecutionProperty {
-    return _smithy.isa(o, "ExecutionProperty");
-  }
-}
-
-/**
- *
- *          <p>Specifies configuration properties for an exporting labels task run.</p>
- *
- */
-export interface ExportLabelsTaskRunProperties {
-  __type?: "ExportLabelsTaskRunProperties";
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
-   *       labels.</p>
-   *
-   */
-  OutputS3Path?: string;
-}
-
-export namespace ExportLabelsTaskRunProperties {
-  export function isa(o: any): o is ExportLabelsTaskRunProperties {
-    return _smithy.isa(o, "ExportLabelsTaskRunProperties");
-  }
-}
-
-/**
- *
- *          <p>The evaluation metrics for the find matches algorithm. The quality of your machine
- *       learning transform is measured by getting your transform to predict some matches and comparing
- *       the results to known matches from the same dataset. The quality metrics are based on a subset
- *       of your data, so they are not precise.</p>
- *
- */
-export interface FindMatchesMetrics {
-  __type?: "FindMatchesMetrics";
-  /**
-   *
-   *          <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
-   *       quality of the transform, that is independent of the choice made for precision vs. recall.
-   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   *
-   */
-  AreaUnderPRCurve?: number;
-
-  /**
-   *
-   *          <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
-   *
-   */
-  ConfusionMatrix?: ConfusionMatrix;
-
-  /**
-   *
-   *          <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
-   *
-   */
-  F1?: number;
-
-  /**
-   *
-   *          <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   *
-   */
-  Precision?: number;
-
-  /**
-   *
-   *          <p>The recall metric indicates that for an actual match, how often your transform predicts
-   *       the match. Specifically, it measures how well the transform finds true positives from the
-   *       total records in the source data.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   *
-   */
-  Recall?: number;
-}
-
-export namespace FindMatchesMetrics {
-  export function isa(o: any): o is FindMatchesMetrics {
-    return _smithy.isa(o, "FindMatchesMetrics");
-  }
-}
-
-/**
- *
- *          <p>The parameters to configure the find matches transform.</p>
- *
- */
-export interface FindMatchesParameters {
-  __type?: "FindMatchesParameters";
-  /**
-   *
-   *          <p>The value that is selected when tuning your transform for a balance between accuracy and
-   *       cost. A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0
-   *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
-   *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
-   *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
-   *
-   * 	        <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
-   *
-   * 	        <p>Cost measures how many compute resources, and thus money, are consumed to run the
-   *       transform.</p>
-   *
-   */
-  AccuracyCostTradeoff?: number;
-
-  /**
-   *
-   *          <p>The value to switch on or off to force the output to match the provided labels from users. If the value is <code>True</code>, the <code>find matches</code> transform forces the output to match the provided labels. The results override the normal conflation results. If the value is <code>False</code>, the <code>find matches</code> transform does not ensure all the labels provided are respected, and the results rely on the trained model.</p>
-   *          <p>Note that setting this value to true may increase the conflation execution time.</p>
-   *
-   */
-  EnforceProvidedLabels?: boolean;
-
-  /**
-   *
-   *          <p>The value selected when tuning your transform for a balance between precision and recall.
-   *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
-   *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
-   *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
-   *
-   * 	        <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
-   *
-   * 	        <p>The recall metric indicates that for an actual match, how often your model predicts the
-   *       match.</p>
-   *
-   */
-  PrecisionRecallTradeoff?: number;
-
-  /**
-   *
-   *          <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
-   *
-   */
-  PrimaryKeyColumnName?: string;
-}
-
-export namespace FindMatchesParameters {
-  export function isa(o: any): o is FindMatchesParameters {
-    return _smithy.isa(o, "FindMatchesParameters");
-  }
-}
-
-/**
- *
- *          <p>Specifies configuration properties for a Find Matches task run.</p>
- *
- */
-export interface FindMatchesTaskRunProperties {
-  __type?: "FindMatchesTaskRunProperties";
-  /**
-   *
-   *          <p>The job ID for the Find Matches task run.</p>
-   *
-   */
-  JobId?: string;
-
-  /**
-   *
-   *          <p>The name assigned to the job for the Find Matches task run.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The job run ID for the Find Matches task run.</p>
-   *
-   */
-  JobRunId?: string;
-}
-
-export namespace FindMatchesTaskRunProperties {
-  export function isa(o: any): o is FindMatchesTaskRunProperties {
-    return _smithy.isa(o, "FindMatchesTaskRunProperties");
   }
 }
 
@@ -5196,85 +1905,6 @@ export interface GetCatalogImportStatusResponse extends $MetadataBearer {
 export namespace GetCatalogImportStatusResponse {
   export function isa(o: any): o is GetCatalogImportStatusResponse {
     return _smithy.isa(o, "GetCatalogImportStatusResponse");
-  }
-}
-
-export interface GetClassifierRequest {
-  __type?: "GetClassifierRequest";
-  /**
-   *
-   *          <p>Name of the classifier to retrieve.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace GetClassifierRequest {
-  export function isa(o: any): o is GetClassifierRequest {
-    return _smithy.isa(o, "GetClassifierRequest");
-  }
-}
-
-export interface GetClassifierResponse extends $MetadataBearer {
-  __type?: "GetClassifierResponse";
-  /**
-   *
-   *          <p>The requested classifier.</p>
-   *
-   */
-  Classifier?: Classifier;
-}
-
-export namespace GetClassifierResponse {
-  export function isa(o: any): o is GetClassifierResponse {
-    return _smithy.isa(o, "GetClassifierResponse");
-  }
-}
-
-export interface GetClassifiersRequest {
-  __type?: "GetClassifiersRequest";
-  /**
-   *
-   *          <p>The size of the list to return (optional).</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>An optional continuation token.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetClassifiersRequest {
-  export function isa(o: any): o is GetClassifiersRequest {
-    return _smithy.isa(o, "GetClassifiersRequest");
-  }
-}
-
-export interface GetClassifiersResponse extends $MetadataBearer {
-  __type?: "GetClassifiersResponse";
-  /**
-   *
-   *          <p>The requested list of classifier
-   *       objects.</p>
-   *
-   */
-  Classifiers?: Array<Classifier>;
-
-  /**
-   *
-   *          <p>A continuation token.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetClassifiersResponse {
-  export function isa(o: any): o is GetClassifiersResponse {
-    return _smithy.isa(o, "GetClassifiersResponse");
   }
 }
 
@@ -5433,139 +2063,6 @@ export namespace GetConnectionsResponse {
   }
 }
 
-export interface GetCrawlerMetricsRequest {
-  __type?: "GetCrawlerMetricsRequest";
-  /**
-   *
-   *          <p>A list of the names of crawlers about which to retrieve metrics.</p>
-   *
-   */
-  CrawlerNameList?: Array<string>;
-
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlerMetricsRequest {
-  export function isa(o: any): o is GetCrawlerMetricsRequest {
-    return _smithy.isa(o, "GetCrawlerMetricsRequest");
-  }
-}
-
-export interface GetCrawlerMetricsResponse extends $MetadataBearer {
-  __type?: "GetCrawlerMetricsResponse";
-  /**
-   *
-   *          <p>A list of metrics for the specified crawler.</p>
-   *
-   */
-  CrawlerMetricsList?: Array<CrawlerMetrics>;
-
-  /**
-   *
-   *          <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlerMetricsResponse {
-  export function isa(o: any): o is GetCrawlerMetricsResponse {
-    return _smithy.isa(o, "GetCrawlerMetricsResponse");
-  }
-}
-
-export interface GetCrawlerRequest {
-  __type?: "GetCrawlerRequest";
-  /**
-   *
-   *          <p>The name of the crawler to retrieve metadata for.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace GetCrawlerRequest {
-  export function isa(o: any): o is GetCrawlerRequest {
-    return _smithy.isa(o, "GetCrawlerRequest");
-  }
-}
-
-export interface GetCrawlerResponse extends $MetadataBearer {
-  __type?: "GetCrawlerResponse";
-  /**
-   *
-   *          <p>The metadata for the specified crawler.</p>
-   *
-   */
-  Crawler?: Crawler;
-}
-
-export namespace GetCrawlerResponse {
-  export function isa(o: any): o is GetCrawlerResponse {
-    return _smithy.isa(o, "GetCrawlerResponse");
-  }
-}
-
-export interface GetCrawlersRequest {
-  __type?: "GetCrawlersRequest";
-  /**
-   *
-   *          <p>The number of crawlers to return on each call.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlersRequest {
-  export function isa(o: any): o is GetCrawlersRequest {
-    return _smithy.isa(o, "GetCrawlersRequest");
-  }
-}
-
-export interface GetCrawlersResponse extends $MetadataBearer {
-  __type?: "GetCrawlersResponse";
-  /**
-   *
-   *          <p>A list of crawler metadata.</p>
-   *
-   */
-  Crawlers?: Array<Crawler>;
-
-  /**
-   *
-   *          <p>A continuation token, if the returned list has not reached the end
-   *       of those defined in this customer account.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlersResponse {
-  export function isa(o: any): o is GetCrawlersResponse {
-    return _smithy.isa(o, "GetCrawlersResponse");
-  }
-}
-
 export interface GetDataCatalogEncryptionSettingsRequest {
   __type?: "GetDataCatalogEncryptionSettingsRequest";
   /**
@@ -5693,786 +2190,6 @@ export interface GetDatabasesResponse extends $MetadataBearer {
 export namespace GetDatabasesResponse {
   export function isa(o: any): o is GetDatabasesResponse {
     return _smithy.isa(o, "GetDatabasesResponse");
-  }
-}
-
-export interface GetDataflowGraphRequest {
-  __type?: "GetDataflowGraphRequest";
-  /**
-   *
-   *          <p>The Python script to transform.</p>
-   *
-   */
-  PythonScript?: string;
-}
-
-export namespace GetDataflowGraphRequest {
-  export function isa(o: any): o is GetDataflowGraphRequest {
-    return _smithy.isa(o, "GetDataflowGraphRequest");
-  }
-}
-
-export interface GetDataflowGraphResponse extends $MetadataBearer {
-  __type?: "GetDataflowGraphResponse";
-  /**
-   *
-   *          <p>A list of the edges in the resulting DAG.</p>
-   *
-   */
-  DagEdges?: Array<CodeGenEdge>;
-
-  /**
-   *
-   *          <p>A list of the nodes in the resulting DAG.</p>
-   *
-   */
-  DagNodes?: Array<CodeGenNode>;
-}
-
-export namespace GetDataflowGraphResponse {
-  export function isa(o: any): o is GetDataflowGraphResponse {
-    return _smithy.isa(o, "GetDataflowGraphResponse");
-  }
-}
-
-export interface GetDevEndpointRequest {
-  __type?: "GetDevEndpointRequest";
-  /**
-   *
-   *          <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
-   *
-   */
-  EndpointName: string | undefined;
-}
-
-export namespace GetDevEndpointRequest {
-  export function isa(o: any): o is GetDevEndpointRequest {
-    return _smithy.isa(o, "GetDevEndpointRequest");
-  }
-}
-
-export interface GetDevEndpointResponse extends $MetadataBearer {
-  __type?: "GetDevEndpointResponse";
-  /**
-   *
-   *          <p>A <code>DevEndpoint</code> definition.</p>
-   *
-   */
-  DevEndpoint?: DevEndpoint;
-}
-
-export namespace GetDevEndpointResponse {
-  export function isa(o: any): o is GetDevEndpointResponse {
-    return _smithy.isa(o, "GetDevEndpointResponse");
-  }
-}
-
-export interface GetDevEndpointsRequest {
-  __type?: "GetDevEndpointsRequest";
-  /**
-   *
-   *          <p>The maximum size of information to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetDevEndpointsRequest {
-  export function isa(o: any): o is GetDevEndpointsRequest {
-    return _smithy.isa(o, "GetDevEndpointsRequest");
-  }
-}
-
-export interface GetDevEndpointsResponse extends $MetadataBearer {
-  __type?: "GetDevEndpointsResponse";
-  /**
-   *
-   *          <p>A list of <code>DevEndpoint</code> definitions.</p>
-   *
-   */
-  DevEndpoints?: Array<DevEndpoint>;
-
-  /**
-   *
-   *          <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
-   *       returned.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetDevEndpointsResponse {
-  export function isa(o: any): o is GetDevEndpointsResponse {
-    return _smithy.isa(o, "GetDevEndpointsResponse");
-  }
-}
-
-export interface GetJobBookmarkRequest {
-  __type?: "GetJobBookmarkRequest";
-  /**
-   *
-   *          <p>The name of the job in question.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>The unique run identifier associated with this job run.</p>
-   *
-   */
-  RunId?: string;
-}
-
-export namespace GetJobBookmarkRequest {
-  export function isa(o: any): o is GetJobBookmarkRequest {
-    return _smithy.isa(o, "GetJobBookmarkRequest");
-  }
-}
-
-export interface GetJobBookmarkResponse extends $MetadataBearer {
-  __type?: "GetJobBookmarkResponse";
-  /**
-   *
-   *          <p>A structure that defines a point that a job can resume processing.</p>
-   *
-   */
-  JobBookmarkEntry?: JobBookmarkEntry;
-}
-
-export namespace GetJobBookmarkResponse {
-  export function isa(o: any): o is GetJobBookmarkResponse {
-    return _smithy.isa(o, "GetJobBookmarkResponse");
-  }
-}
-
-export interface GetJobRequest {
-  __type?: "GetJobRequest";
-  /**
-   *
-   *          <p>The name of the job definition to retrieve.</p>
-   *
-   */
-  JobName: string | undefined;
-}
-
-export namespace GetJobRequest {
-  export function isa(o: any): o is GetJobRequest {
-    return _smithy.isa(o, "GetJobRequest");
-  }
-}
-
-export interface GetJobResponse extends $MetadataBearer {
-  __type?: "GetJobResponse";
-  /**
-   *
-   *          <p>The requested job definition.</p>
-   *
-   */
-  Job?: Job;
-}
-
-export namespace GetJobResponse {
-  export function isa(o: any): o is GetJobResponse {
-    return _smithy.isa(o, "GetJobResponse");
-  }
-}
-
-export interface GetJobRunRequest {
-  __type?: "GetJobRunRequest";
-  /**
-   *
-   *          <p>Name of the job definition being run.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>True if a list of predecessor runs should be returned.</p>
-   *
-   */
-  PredecessorsIncluded?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the job run.</p>
-   *
-   */
-  RunId: string | undefined;
-}
-
-export namespace GetJobRunRequest {
-  export function isa(o: any): o is GetJobRunRequest {
-    return _smithy.isa(o, "GetJobRunRequest");
-  }
-}
-
-export interface GetJobRunResponse extends $MetadataBearer {
-  __type?: "GetJobRunResponse";
-  /**
-   *
-   *          <p>The requested job-run metadata.</p>
-   *
-   */
-  JobRun?: JobRun;
-}
-
-export namespace GetJobRunResponse {
-  export function isa(o: any): o is GetJobRunResponse {
-    return _smithy.isa(o, "GetJobRunResponse");
-  }
-}
-
-export interface GetJobRunsRequest {
-  __type?: "GetJobRunsRequest";
-  /**
-   *
-   *          <p>The name of the job definition for which to retrieve all job runs.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>The maximum size of the response.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobRunsRequest {
-  export function isa(o: any): o is GetJobRunsRequest {
-    return _smithy.isa(o, "GetJobRunsRequest");
-  }
-}
-
-export interface GetJobRunsResponse extends $MetadataBearer {
-  __type?: "GetJobRunsResponse";
-  /**
-   *
-   *          <p>A list of job-run metadata objects.</p>
-   *
-   */
-  JobRuns?: Array<JobRun>;
-
-  /**
-   *
-   *          <p>A continuation token, if not all requested job runs have been returned.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobRunsResponse {
-  export function isa(o: any): o is GetJobRunsResponse {
-    return _smithy.isa(o, "GetJobRunsResponse");
-  }
-}
-
-export interface GetJobsRequest {
-  __type?: "GetJobsRequest";
-  /**
-   *
-   *          <p>The maximum size of the response.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobsRequest {
-  export function isa(o: any): o is GetJobsRequest {
-    return _smithy.isa(o, "GetJobsRequest");
-  }
-}
-
-export interface GetJobsResponse extends $MetadataBearer {
-  __type?: "GetJobsResponse";
-  /**
-   *
-   *          <p>A list of job definitions.</p>
-   *
-   */
-  Jobs?: Array<Job>;
-
-  /**
-   *
-   *          <p>A continuation token, if not all job definitions have yet been returned.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetJobsResponse {
-  export function isa(o: any): o is GetJobsResponse {
-    return _smithy.isa(o, "GetJobsResponse");
-  }
-}
-
-export interface GetMLTaskRunRequest {
-  __type?: "GetMLTaskRunRequest";
-  /**
-   *
-   *          <p>The unique identifier of the task run.</p>
-   *
-   */
-  TaskRunId: string | undefined;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace GetMLTaskRunRequest {
-  export function isa(o: any): o is GetMLTaskRunRequest {
-    return _smithy.isa(o, "GetMLTaskRunRequest");
-  }
-}
-
-export interface GetMLTaskRunResponse extends $MetadataBearer {
-  __type?: "GetMLTaskRunResponse";
-  /**
-   *
-   *          <p>The date and time when this task run was completed.</p>
-   *
-   */
-  CompletedOn?: Date;
-
-  /**
-   *
-   *          <p>The error strings that are associated with the task run.</p>
-   *
-   */
-  ErrorString?: string;
-
-  /**
-   *
-   *          <p>The amount of time (in seconds) that the task run consumed resources.</p>
-   *
-   */
-  ExecutionTime?: number;
-
-  /**
-   *
-   *          <p>The date and time when this task run was last modified.</p>
-   *
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   *
-   *          <p>The names of the log groups that are associated with the task run.</p>
-   *
-   */
-  LogGroupName?: string;
-
-  /**
-   *
-   *          <p>The list of properties that are associated with the task run.</p>
-   *
-   */
-  Properties?: TaskRunProperties;
-
-  /**
-   *
-   *          <p>The date and time when this task run started.</p>
-   *
-   */
-  StartedOn?: Date;
-
-  /**
-   *
-   *          <p>The status for this task run.</p>
-   *
-   */
-  Status?: TaskStatusType | string;
-
-  /**
-   *
-   *          <p>The unique run identifier associated with this run.</p>
-   *
-   */
-  TaskRunId?: string;
-
-  /**
-   *
-   *          <p>The unique identifier of the task run.</p>
-   *
-   */
-  TransformId?: string;
-}
-
-export namespace GetMLTaskRunResponse {
-  export function isa(o: any): o is GetMLTaskRunResponse {
-    return _smithy.isa(o, "GetMLTaskRunResponse");
-  }
-}
-
-export interface GetMLTaskRunsRequest {
-  __type?: "GetMLTaskRunsRequest";
-  /**
-   *
-   *          <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
-   *
-   */
-  Filter?: TaskRunFilterCriteria;
-
-  /**
-   *
-   *          <p>The maximum number of results to return. </p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A token for pagination of the results. The default is empty.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
-   *
-   */
-  Sort?: TaskRunSortCriteria;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace GetMLTaskRunsRequest {
-  export function isa(o: any): o is GetMLTaskRunsRequest {
-    return _smithy.isa(o, "GetMLTaskRunsRequest");
-  }
-}
-
-export interface GetMLTaskRunsResponse extends $MetadataBearer {
-  __type?: "GetMLTaskRunsResponse";
-  /**
-   *
-   *          <p>A pagination token, if more results are available.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>A list of task runs that are associated with the transform.</p>
-   *
-   */
-  TaskRuns?: Array<TaskRun>;
-}
-
-export namespace GetMLTaskRunsResponse {
-  export function isa(o: any): o is GetMLTaskRunsResponse {
-    return _smithy.isa(o, "GetMLTaskRunsResponse");
-  }
-}
-
-export interface GetMLTransformRequest {
-  __type?: "GetMLTransformRequest";
-  /**
-   *
-   *          <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace GetMLTransformRequest {
-  export function isa(o: any): o is GetMLTransformRequest {
-    return _smithy.isa(o, "GetMLTransformRequest");
-  }
-}
-
-export interface GetMLTransformResponse extends $MetadataBearer {
-  __type?: "GetMLTransformResponse";
-  /**
-   *
-   *          <p>The date and time when the transform was created.</p>
-   *
-   */
-  CreatedOn?: Date;
-
-  /**
-   *
-   *          <p>A description of the transform.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>The latest evaluation metrics.</p>
-   *
-   */
-  EvaluationMetrics?: EvaluationMetrics;
-
-  /**
-   *
-   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>A list of AWS Glue table definitions used by the transform.</p>
-   *
-   */
-  InputRecordTables?: Array<GlueTable>;
-
-  /**
-   *
-   *          <p>The number of labels available for this transform.</p>
-   *
-   */
-  LabelCount?: number;
-
-  /**
-   *
-   *          <p>The date and time when the transform was last modified.</p>
-   *
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>The unique name given to the transform when it was created.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The configuration parameters that are specific to the algorithm used.</p>
-   *
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>The <code>Map<Column, Type></code> object that represents the schema that this
-   *       transform accepts. Has an upper bound of 100 columns.</p>
-   *
-   */
-  Schema?: Array<SchemaColumn>;
-
-  /**
-   *
-   *          <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   *
-   */
-  Status?: TransformStatusType | string;
-
-  /**
-   *
-   *          <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   *
-   */
-  TransformId?: string;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace GetMLTransformResponse {
-  export function isa(o: any): o is GetMLTransformResponse {
-    return _smithy.isa(o, "GetMLTransformResponse");
-  }
-}
-
-export interface GetMLTransformsRequest {
-  __type?: "GetMLTransformsRequest";
-  /**
-   *
-   *          <p>The filter transformation criteria.</p>
-   *
-   */
-  Filter?: TransformFilterCriteria;
-
-  /**
-   *
-   *          <p>The maximum number of results to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A paginated token to offset the results.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>The sorting criteria.</p>
-   *
-   */
-  Sort?: TransformSortCriteria;
-}
-
-export namespace GetMLTransformsRequest {
-  export function isa(o: any): o is GetMLTransformsRequest {
-    return _smithy.isa(o, "GetMLTransformsRequest");
-  }
-}
-
-export interface GetMLTransformsResponse extends $MetadataBearer {
-  __type?: "GetMLTransformsResponse";
-  /**
-   *
-   *          <p>A pagination token, if more results are available.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>A list of machine learning transforms.</p>
-   *
-   */
-  Transforms: Array<MLTransform> | undefined;
-}
-
-export namespace GetMLTransformsResponse {
-  export function isa(o: any): o is GetMLTransformsResponse {
-    return _smithy.isa(o, "GetMLTransformsResponse");
-  }
-}
-
-export interface GetMappingRequest {
-  __type?: "GetMappingRequest";
-  /**
-   *
-   *          <p>Parameters for the mapping.</p>
-   *
-   */
-  Location?: Location;
-
-  /**
-   *
-   *          <p>A list of target tables.</p>
-   *
-   */
-  Sinks?: Array<CatalogEntry>;
-
-  /**
-   *
-   *          <p>Specifies the source table.</p>
-   *
-   */
-  Source: CatalogEntry | undefined;
-}
-
-export namespace GetMappingRequest {
-  export function isa(o: any): o is GetMappingRequest {
-    return _smithy.isa(o, "GetMappingRequest");
-  }
-}
-
-export interface GetMappingResponse extends $MetadataBearer {
-  __type?: "GetMappingResponse";
-  /**
-   *
-   *          <p>A list of mappings to the specified targets.</p>
-   *
-   */
-  Mapping: Array<MappingEntry> | undefined;
-}
-
-export namespace GetMappingResponse {
-  export function isa(o: any): o is GetMappingResponse {
-    return _smithy.isa(o, "GetMappingResponse");
   }
 }
 
@@ -6723,73 +2440,6 @@ export namespace GetPartitionsResponse {
   }
 }
 
-export interface GetPlanRequest {
-  __type?: "GetPlanRequest";
-  /**
-   *
-   *          <p>The programming language of the code to perform the mapping.</p>
-   *
-   */
-  Language?: Language | string;
-
-  /**
-   *
-   *          <p>The parameters for the mapping.</p>
-   *
-   */
-  Location?: Location;
-
-  /**
-   *
-   *          <p>The list of mappings from a source table to target tables.</p>
-   *
-   */
-  Mapping: Array<MappingEntry> | undefined;
-
-  /**
-   *
-   *          <p>The target tables.</p>
-   *
-   */
-  Sinks?: Array<CatalogEntry>;
-
-  /**
-   *
-   *          <p>The source table.</p>
-   *
-   */
-  Source: CatalogEntry | undefined;
-}
-
-export namespace GetPlanRequest {
-  export function isa(o: any): o is GetPlanRequest {
-    return _smithy.isa(o, "GetPlanRequest");
-  }
-}
-
-export interface GetPlanResponse extends $MetadataBearer {
-  __type?: "GetPlanResponse";
-  /**
-   *
-   *          <p>A Python script to perform the mapping.</p>
-   *
-   */
-  PythonScript?: string;
-
-  /**
-   *
-   *          <p>The Scala code to perform the mapping.</p>
-   *
-   */
-  ScalaCode?: string;
-}
-
-export namespace GetPlanResponse {
-  export function isa(o: any): o is GetPlanResponse {
-    return _smithy.isa(o, "GetPlanResponse");
-  }
-}
-
 export interface GetResourcePolicyRequest {
   __type?: "GetResourcePolicyRequest";
 }
@@ -6834,85 +2484,6 @@ export interface GetResourcePolicyResponse extends $MetadataBearer {
 export namespace GetResourcePolicyResponse {
   export function isa(o: any): o is GetResourcePolicyResponse {
     return _smithy.isa(o, "GetResourcePolicyResponse");
-  }
-}
-
-export interface GetSecurityConfigurationRequest {
-  __type?: "GetSecurityConfigurationRequest";
-  /**
-   *
-   *          <p>The name of the security configuration to retrieve.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace GetSecurityConfigurationRequest {
-  export function isa(o: any): o is GetSecurityConfigurationRequest {
-    return _smithy.isa(o, "GetSecurityConfigurationRequest");
-  }
-}
-
-export interface GetSecurityConfigurationResponse extends $MetadataBearer {
-  __type?: "GetSecurityConfigurationResponse";
-  /**
-   *
-   *          <p>The requested security configuration.</p>
-   *
-   */
-  SecurityConfiguration?: SecurityConfiguration;
-}
-
-export namespace GetSecurityConfigurationResponse {
-  export function isa(o: any): o is GetSecurityConfigurationResponse {
-    return _smithy.isa(o, "GetSecurityConfigurationResponse");
-  }
-}
-
-export interface GetSecurityConfigurationsRequest {
-  __type?: "GetSecurityConfigurationsRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetSecurityConfigurationsRequest {
-  export function isa(o: any): o is GetSecurityConfigurationsRequest {
-    return _smithy.isa(o, "GetSecurityConfigurationsRequest");
-  }
-}
-
-export interface GetSecurityConfigurationsResponse extends $MetadataBearer {
-  __type?: "GetSecurityConfigurationsResponse";
-  /**
-   *
-   *          <p>A continuation token, if there are more security
-   *       configurations to return.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>A list of security configurations.</p>
-   *
-   */
-  SecurityConfigurations?: Array<SecurityConfiguration>;
-}
-
-export namespace GetSecurityConfigurationsResponse {
-  export function isa(o: any): o is GetSecurityConfigurationsResponse {
-    return _smithy.isa(o, "GetSecurityConfigurationsResponse");
   }
 }
 
@@ -7164,125 +2735,6 @@ export namespace GetTablesResponse {
   }
 }
 
-export interface GetTagsRequest {
-  __type?: "GetTagsRequest";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
-   *
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace GetTagsRequest {
-  export function isa(o: any): o is GetTagsRequest {
-    return _smithy.isa(o, "GetTagsRequest");
-  }
-}
-
-export interface GetTagsResponse extends $MetadataBearer {
-  __type?: "GetTagsResponse";
-  /**
-   *
-   *          <p>The requested tags.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace GetTagsResponse {
-  export function isa(o: any): o is GetTagsResponse {
-    return _smithy.isa(o, "GetTagsResponse");
-  }
-}
-
-export interface GetTriggerRequest {
-  __type?: "GetTriggerRequest";
-  /**
-   *
-   *          <p>The name of the trigger to retrieve.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace GetTriggerRequest {
-  export function isa(o: any): o is GetTriggerRequest {
-    return _smithy.isa(o, "GetTriggerRequest");
-  }
-}
-
-export interface GetTriggerResponse extends $MetadataBearer {
-  __type?: "GetTriggerResponse";
-  /**
-   *
-   *          <p>The requested trigger definition.</p>
-   *
-   */
-  Trigger?: Trigger;
-}
-
-export namespace GetTriggerResponse {
-  export function isa(o: any): o is GetTriggerResponse {
-    return _smithy.isa(o, "GetTriggerResponse");
-  }
-}
-
-export interface GetTriggersRequest {
-  __type?: "GetTriggersRequest";
-  /**
-   *
-   *          <p>The name of the job to retrieve triggers for. The trigger that can start this job is
-   *       returned, and if there is no such trigger, all triggers are returned.</p>
-   *
-   */
-  DependentJobName?: string;
-
-  /**
-   *
-   *          <p>The maximum size of the response.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation call.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetTriggersRequest {
-  export function isa(o: any): o is GetTriggersRequest {
-    return _smithy.isa(o, "GetTriggersRequest");
-  }
-}
-
-export interface GetTriggersResponse extends $MetadataBearer {
-  __type?: "GetTriggersResponse";
-  /**
-   *
-   *          <p>A continuation token, if not all the requested triggers
-   *       have yet been returned.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>A list of triggers for the specified job.</p>
-   *
-   */
-  Triggers?: Array<Trigger>;
-}
-
-export namespace GetTriggersResponse {
-  export function isa(o: any): o is GetTriggersResponse {
-    return _smithy.isa(o, "GetTriggersResponse");
-  }
-}
-
 export interface GetUserDefinedFunctionRequest {
   __type?: "GetUserDefinedFunctionRequest";
   /**
@@ -7400,349 +2852,6 @@ export namespace GetUserDefinedFunctionsResponse {
   }
 }
 
-export interface GetWorkflowRequest {
-  __type?: "GetWorkflowRequest";
-  /**
-   *
-   *         <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
-   *
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   *
-   *         <p>The name of the workflow to retrieve.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace GetWorkflowRequest {
-  export function isa(o: any): o is GetWorkflowRequest {
-    return _smithy.isa(o, "GetWorkflowRequest");
-  }
-}
-
-export interface GetWorkflowResponse extends $MetadataBearer {
-  __type?: "GetWorkflowResponse";
-  /**
-   *
-   *         <p>The resource metadata for the workflow.</p>
-   *
-   */
-  Workflow?: Workflow;
-}
-
-export namespace GetWorkflowResponse {
-  export function isa(o: any): o is GetWorkflowResponse {
-    return _smithy.isa(o, "GetWorkflowResponse");
-  }
-}
-
-export interface GetWorkflowRunPropertiesRequest {
-  __type?: "GetWorkflowRunPropertiesRequest";
-  /**
-   *
-   *          <p>Name of the workflow which was run.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The ID of the workflow run whose run properties should be returned.</p>
-   *
-   */
-  RunId: string | undefined;
-}
-
-export namespace GetWorkflowRunPropertiesRequest {
-  export function isa(o: any): o is GetWorkflowRunPropertiesRequest {
-    return _smithy.isa(o, "GetWorkflowRunPropertiesRequest");
-  }
-}
-
-export interface GetWorkflowRunPropertiesResponse extends $MetadataBearer {
-  __type?: "GetWorkflowRunPropertiesResponse";
-  /**
-   *
-   *          <p>The workflow run properties which were set during the specified run.</p>
-   *
-   */
-  RunProperties?: { [key: string]: string };
-}
-
-export namespace GetWorkflowRunPropertiesResponse {
-  export function isa(o: any): o is GetWorkflowRunPropertiesResponse {
-    return _smithy.isa(o, "GetWorkflowRunPropertiesResponse");
-  }
-}
-
-export interface GetWorkflowRunRequest {
-  __type?: "GetWorkflowRunRequest";
-  /**
-   *
-   *          <p>Specifies whether to include the workflow graph in response or not.</p>
-   *
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   *
-   *          <p>Name of the workflow being run.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The ID of the workflow run.</p>
-   *
-   */
-  RunId: string | undefined;
-}
-
-export namespace GetWorkflowRunRequest {
-  export function isa(o: any): o is GetWorkflowRunRequest {
-    return _smithy.isa(o, "GetWorkflowRunRequest");
-  }
-}
-
-export interface GetWorkflowRunResponse extends $MetadataBearer {
-  __type?: "GetWorkflowRunResponse";
-  /**
-   *
-   *          <p>The requested workflow run metadata.</p>
-   *
-   */
-  Run?: WorkflowRun;
-}
-
-export namespace GetWorkflowRunResponse {
-  export function isa(o: any): o is GetWorkflowRunResponse {
-    return _smithy.isa(o, "GetWorkflowRunResponse");
-  }
-}
-
-export interface GetWorkflowRunsRequest {
-  __type?: "GetWorkflowRunsRequest";
-  /**
-   *
-   *          <p>Specifies whether to include the workflow graph in response or not.</p>
-   *
-   */
-  IncludeGraph?: boolean;
-
-  /**
-   *
-   *          <p>The maximum number of workflow runs to be included in the response.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>Name of the workflow whose metadata of runs should be returned.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The maximum size of the response.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace GetWorkflowRunsRequest {
-  export function isa(o: any): o is GetWorkflowRunsRequest {
-    return _smithy.isa(o, "GetWorkflowRunsRequest");
-  }
-}
-
-export interface GetWorkflowRunsResponse extends $MetadataBearer {
-  __type?: "GetWorkflowRunsResponse";
-  /**
-   *
-   *          <p>A continuation token, if not all requested workflow runs have been returned.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>A list of workflow run metadata objects.</p>
-   *
-   */
-  Runs?: Array<WorkflowRun>;
-}
-
-export namespace GetWorkflowRunsResponse {
-  export function isa(o: any): o is GetWorkflowRunsResponse {
-    return _smithy.isa(o, "GetWorkflowRunsResponse");
-  }
-}
-
-/**
- *
- *          <p>An encryption operation failed.</p>
- *
- */
-export interface GlueEncryptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "GlueEncryptionException";
-  name: "GlueEncryptionException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace GlueEncryptionException {
-  export function isa(o: any): o is GlueEncryptionException {
-    return _smithy.isa(o, "GlueEncryptionException");
-  }
-}
-
-/**
- *
- *          <p>The database and table in the AWS Glue Data Catalog that is used for input or output data.</p>
- *
- */
-export interface GlueTable {
-  __type?: "GlueTable";
-  /**
-   *
-   *          <p>A unique identifier for the AWS Glue Data Catalog.</p>
-   *
-   */
-  CatalogId?: string;
-
-  /**
-   *
-   *          <p>The name of the connection to the AWS Glue Data Catalog.</p>
-   *
-   */
-  ConnectionName?: string;
-
-  /**
-   *
-   *          <p>A database name in the AWS Glue Data Catalog.</p>
-   *
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   *
-   *          <p>A table name in the AWS Glue Data Catalog.</p>
-   *
-   */
-  TableName: string | undefined;
-}
-
-export namespace GlueTable {
-  export function isa(o: any): o is GlueTable {
-    return _smithy.isa(o, "GlueTable");
-  }
-}
-
-/**
- *
- *          <p>A classifier that uses <code>grok</code> patterns.</p>
- *
- */
-export interface GrokClassifier {
-  __type?: "GrokClassifier";
-  /**
-   *
-   *          <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and
-   *       so on.</p>
-   *
-   */
-  Classification: string | undefined;
-
-  /**
-   *
-   *          <p>The time that this classifier was registered.</p>
-   *
-   */
-  CreationTime?: Date;
-
-  /**
-   *
-   *          <p>Optional custom grok patterns defined by this classifier. For more information, see custom
-   *       patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
-   *
-   */
-  CustomPatterns?: string;
-
-  /**
-   *
-   *          <p>The grok pattern applied to a data store by this classifier. For more information, see
-   *       built-in patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom
-   *         Classifiers</a>.</p>
-   *
-   */
-  GrokPattern: string | undefined;
-
-  /**
-   *
-   *          <p>The time that this classifier was last updated.</p>
-   *
-   */
-  LastUpdated?: Date;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The version of this classifier.</p>
-   *
-   */
-  Version?: number;
-}
-
-export namespace GrokClassifier {
-  export function isa(o: any): o is GrokClassifier {
-    return _smithy.isa(o, "GrokClassifier");
-  }
-}
-
-/**
- *
- *          <p>The same unique identifier was associated with two different records.</p>
- *
- */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IdempotentParameterMismatchException";
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace IdempotentParameterMismatchException {
-  export function isa(o: any): o is IdempotentParameterMismatchException {
-    return _smithy.isa(o, "IdempotentParameterMismatchException");
-  }
-}
-
 export interface ImportCatalogToGlueRequest {
   __type?: "ImportCatalogToGlueRequest";
   /**
@@ -7766,1713 +2875,6 @@ export interface ImportCatalogToGlueResponse extends $MetadataBearer {
 export namespace ImportCatalogToGlueResponse {
   export function isa(o: any): o is ImportCatalogToGlueResponse {
     return _smithy.isa(o, "ImportCatalogToGlueResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies configuration properties for an importing labels task run.</p>
- *
- */
-export interface ImportLabelsTaskRunProperties {
-  __type?: "ImportLabelsTaskRunProperties";
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
-   *       labels.</p>
-   *
-   */
-  InputS3Path?: string;
-
-  /**
-   *
-   *          <p>Indicates whether to overwrite your existing labels.</p>
-   *
-   */
-  Replace?: boolean;
-}
-
-export namespace ImportLabelsTaskRunProperties {
-  export function isa(o: any): o is ImportLabelsTaskRunProperties {
-    return _smithy.isa(o, "ImportLabelsTaskRunProperties");
-  }
-}
-
-/**
- *
- *          <p>An internal service error occurred.</p>
- *
- */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServiceException";
-  name: "InternalServiceException";
-  $fault: "server";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return _smithy.isa(o, "InternalServiceException");
-  }
-}
-
-/**
- *
- *          <p>The input provided was not valid.</p>
- *
- */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidInputException";
-  name: "InvalidInputException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
-  }
-}
-
-/**
- *
- *          <p>Specifies a JDBC data store to crawl.</p>
- *
- */
-export interface JdbcTarget {
-  __type?: "JdbcTarget";
-  /**
-   *
-   *          <p>The name of the connection to use to connect to the JDBC target.</p>
-   *
-   */
-  ConnectionName?: string;
-
-  /**
-   *
-   *          <p>A list of glob patterns used to exclude from the crawl.
-   *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
-   *
-   */
-  Exclusions?: Array<string>;
-
-  /**
-   *
-   *          <p>The path of the JDBC target.</p>
-   *
-   */
-  Path?: string;
-}
-
-export namespace JdbcTarget {
-  export function isa(o: any): o is JdbcTarget {
-    return _smithy.isa(o, "JdbcTarget");
-  }
-}
-
-/**
- *
- *          <p>Specifies a job definition.</p>
- *
- */
-export interface Job {
-  __type?: "Job";
-  /**
-   *
-   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can
-   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *       page</a>.</p>
-   * 	        <p></p>
-   *
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   *
-   *          <p>The <code>JobCommand</code> that executes this job.</p>
-   *
-   */
-  Command?: JobCommand;
-
-  /**
-   *
-   *          <p>The connections used for this job.</p>
-   *
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   *
-   *          <p>The time and date that this job definition was created.</p>
-   *
-   */
-  CreatedOn?: Date;
-
-  /**
-   *
-   *          <p>The default arguments for this job, specified as name-value pairs.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  DefaultArguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>A description of the job.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   *
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>The last point in time when this job definition was modified.</p>
-   *
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   *
-   *          <p>This field is reserved for future use.</p>
-   *
-   */
-  LogUri?: string;
-
-  /**
-   *
-   * 	        <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
-   *       pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   * 	        <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job or an Apache Spark ETL job:</p>
-   *         <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry this job after a JobRun fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>The name you assign to this job definition.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>Specifies configuration properties of a job notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace Job {
-  export function isa(o: any): o is Job {
-    return _smithy.isa(o, "Job");
-  }
-}
-
-/**
- *
- *          <p>Defines a point that a job can resume processing.</p>
- *
- */
-export interface JobBookmarkEntry {
-  __type?: "JobBookmarkEntry";
-  /**
-   *
-   *          <p>The attempt ID number.</p>
-   *
-   */
-  Attempt?: number;
-
-  /**
-   *
-   *          <p>The bookmark itself.</p>
-   *
-   */
-  JobBookmark?: string;
-
-  /**
-   *
-   *          <p>The name of the job in question.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The unique run identifier associated with the previous job run.</p>
-   *
-   */
-  PreviousRunId?: string;
-
-  /**
-   *
-   *          <p>The run ID number.</p>
-   *
-   */
-  Run?: number;
-
-  /**
-   *
-   *          <p>The run ID number.</p>
-   *
-   */
-  RunId?: string;
-
-  /**
-   *
-   *          <p>The version of the job.</p>
-   *
-   */
-  Version?: number;
-}
-
-export namespace JobBookmarkEntry {
-  export function isa(o: any): o is JobBookmarkEntry {
-    return _smithy.isa(o, "JobBookmarkEntry");
-  }
-}
-
-/**
- *
- *          <p>Specifies how job bookmark data should be encrypted.</p>
- *
- */
-export interface JobBookmarksEncryption {
-  __type?: "JobBookmarksEncryption";
-  /**
-   *
-   *          <p>The encryption mode to use for job bookmarks data.</p>
-   *
-   */
-  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-   *
-   */
-  KmsKeyArn?: string;
-}
-
-export namespace JobBookmarksEncryption {
-  export function isa(o: any): o is JobBookmarksEncryption {
-    return _smithy.isa(o, "JobBookmarksEncryption");
-  }
-}
-
-/**
- *
- *          <p>Specifies code executed when a job is run.</p>
- *
- */
-export interface JobCommand {
-  __type?: "JobCommand";
-  /**
-   *
-   *          <p>The name of the job command. For an Apache Spark ETL job, this must be
-   *         <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The Python version being used to execute a Python shell job. Allowed values are 2 or 3.</p>
-   *
-   */
-  PythonVersion?: string;
-
-  /**
-   *
-   *          <p>Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a
-   *       job.</p>
-   *
-   */
-  ScriptLocation?: string;
-}
-
-export namespace JobCommand {
-  export function isa(o: any): o is JobCommand {
-    return _smithy.isa(o, "JobCommand");
-  }
-}
-
-/**
- *
- *          <p>The details of a Job node present in the workflow.</p>
- *
- */
-export interface JobNodeDetails {
-  __type?: "JobNodeDetails";
-  /**
-   *
-   *          <p>The information for the job runs represented by the job node.</p>
-   *
-   */
-  JobRuns?: Array<JobRun>;
-}
-
-export namespace JobNodeDetails {
-  export function isa(o: any): o is JobNodeDetails {
-    return _smithy.isa(o, "JobNodeDetails");
-  }
-}
-
-/**
- *
- *          <p>Contains information about a job run.</p>
- *
- */
-export interface JobRun {
-  __type?: "JobRun";
-  /**
-   *
-   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) allocated to this JobRun.
-   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
-   *         pricing page</a>.</p>
-   *
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   *
-   *          <p>The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The number of the attempt to run this job.</p>
-   *
-   */
-  Attempt?: number;
-
-  /**
-   *
-   *          <p>The date and time that this job run completed.</p>
-   *
-   */
-  CompletedOn?: Date;
-
-  /**
-   *
-   *          <p>An error message associated with this job run.</p>
-   *
-   */
-  ErrorMessage?: string;
-
-  /**
-   *
-   *          <p>The amount of time (in seconds) that the job run consumed resources.</p>
-   *
-   */
-  ExecutionTime?: number;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>The ID of this job run.</p>
-   *
-   */
-  Id?: string;
-
-  /**
-   *
-   *          <p>The name of the job definition being used in this run.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The current state of the job run.</p>
-   *
-   */
-  JobRunState?: JobRunState | string;
-
-  /**
-   *
-   *          <p>The last time that this job run was modified.</p>
-   *
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   *
-   *          <p>The name of the log group for secure logging that can be server-side encrypted in Amazon
-   *       CloudWatch using AWS KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the
-   *       default encryption is <code>NONE</code>. If you add a role name and
-   *       <code>SecurityConfiguration</code> name (in other words,
-   *       <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security
-   *       configuration is used to encrypt the log group.</p>
-   *
-   */
-  LogGroupName?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
-   *         pricing page</a>.</p>
-   *
-   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job or an Apache Spark ETL job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>Specifies configuration properties of a job run notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>A list of predecessors to this job run.</p>
-   *
-   */
-  PredecessorRuns?: Array<Predecessor>;
-
-  /**
-   *
-   *          <p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified
-   *       in the <code>StartJobRun</code> action.</p>
-   *
-   */
-  PreviousRunId?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
-   *       run.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The date and time at which this job run was started.</p>
-   *
-   */
-  StartedOn?: Date;
-
-  /**
-   *
-   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The name of the trigger that started this job run.</p>
-   *
-   */
-  TriggerName?: string;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace JobRun {
-  export function isa(o: any): o is JobRun {
-    return _smithy.isa(o, "JobRun");
-  }
-}
-
-/**
- *
- *          <p>Specifies information used to update an existing job definition. The previous job
- *       definition is completely overwritten by this information.</p>
- *
- */
-export interface JobUpdate {
-  __type?: "JobUpdate";
-  /**
-   *
-   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can
-   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
-   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
-   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *       page</a>.</p>
-   *
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   *
-   *          <p>The <code>JobCommand</code> that executes this job (required).</p>
-   *
-   */
-  Command?: JobCommand;
-
-  /**
-   *
-   *          <p>The connections used for this job.</p>
-   *
-   */
-  Connections?: ConnectionsList;
-
-  /**
-   *
-   *          <p>The default arguments for this job.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  DefaultArguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>Description of the job being defined.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
-   *       for this job.</p>
-   *
-   */
-  ExecutionProperty?: ExecutionProperty;
-
-  /**
-   *
-   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
-   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>This field is reserved for future use.</p>
-   *
-   */
-  LogUri?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job or an Apache Spark ETL job:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry this job if it fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>Specifies the configuration properties of a job notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
-   *       (required).</p>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
-   *       job.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The job timeout in minutes.  This is the maximum time that a job run
-   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
-   *       status. The default is 2,880 minutes (48 hours).</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace JobUpdate {
-  export function isa(o: any): o is JobUpdate {
-    return _smithy.isa(o, "JobUpdate");
-  }
-}
-
-/**
- *
- *          <p>A classifier for <code>JSON</code> content.</p>
- *
- */
-export interface JsonClassifier {
-  __type?: "JsonClassifier";
-  /**
-   *
-   *          <p>The time that this classifier was registered.</p>
-   *
-   */
-  CreationTime?: Date;
-
-  /**
-   *
-   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
-   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   *
-   */
-  JsonPath: string | undefined;
-
-  /**
-   *
-   *          <p>The time that this classifier was last updated.</p>
-   *
-   */
-  LastUpdated?: Date;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The version of this classifier.</p>
-   *
-   */
-  Version?: number;
-}
-
-export namespace JsonClassifier {
-  export function isa(o: any): o is JsonClassifier {
-    return _smithy.isa(o, "JsonClassifier");
-  }
-}
-
-/**
- *
- *          <p>Specifies configuration properties for a labeling set generation task run.</p>
- *
- */
-export interface LabelingSetGenerationTaskRunProperties {
-  __type?: "LabelingSetGenerationTaskRunProperties";
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
-   *       set.</p>
-   *
-   */
-  OutputS3Path?: string;
-}
-
-export namespace LabelingSetGenerationTaskRunProperties {
-  export function isa(o: any): o is LabelingSetGenerationTaskRunProperties {
-    return _smithy.isa(o, "LabelingSetGenerationTaskRunProperties");
-  }
-}
-
-/**
- *
- *          <p>Status and error information about the most recent crawl.</p>
- *
- */
-export interface LastCrawlInfo {
-  __type?: "LastCrawlInfo";
-  /**
-   *
-   *          <p>If an error occurred, the error information about the last crawl.</p>
-   *
-   */
-  ErrorMessage?: string;
-
-  /**
-   *
-   *          <p>The log group for the last crawl.</p>
-   *
-   */
-  LogGroup?: string;
-
-  /**
-   *
-   *          <p>The log stream for the last crawl.</p>
-   *
-   */
-  LogStream?: string;
-
-  /**
-   *
-   *          <p>The prefix for a message about this crawl.</p>
-   *
-   */
-  MessagePrefix?: string;
-
-  /**
-   *
-   *          <p>The time at which the crawl started.</p>
-   *
-   */
-  StartTime?: Date;
-
-  /**
-   *
-   *          <p>Status of the last crawl.</p>
-   *
-   */
-  Status?: LastCrawlStatus | string;
-}
-
-export namespace LastCrawlInfo {
-  export function isa(o: any): o is LastCrawlInfo {
-    return _smithy.isa(o, "LastCrawlInfo");
-  }
-}
-
-export interface ListCrawlersRequest {
-  __type?: "ListCrawlersRequest";
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>Specifies to return only these tagged resources.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListCrawlersRequest {
-  export function isa(o: any): o is ListCrawlersRequest {
-    return _smithy.isa(o, "ListCrawlersRequest");
-  }
-}
-
-export interface ListCrawlersResponse extends $MetadataBearer {
-  __type?: "ListCrawlersResponse";
-  /**
-   *
-   *          <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
-   *
-   */
-  CrawlerNames?: Array<string>;
-
-  /**
-   *
-   *          <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace ListCrawlersResponse {
-  export function isa(o: any): o is ListCrawlersResponse {
-    return _smithy.isa(o, "ListCrawlersResponse");
-  }
-}
-
-export interface ListDevEndpointsRequest {
-  __type?: "ListDevEndpointsRequest";
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>Specifies to return only these tagged resources.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListDevEndpointsRequest {
-  export function isa(o: any): o is ListDevEndpointsRequest {
-    return _smithy.isa(o, "ListDevEndpointsRequest");
-  }
-}
-
-export interface ListDevEndpointsResponse extends $MetadataBearer {
-  __type?: "ListDevEndpointsResponse";
-  /**
-   *
-   *          <p>The names of all the <code>DevEndpoint</code>s in the account, or the
-   *         <code>DevEndpoint</code>s with the specified tags.</p>
-   *
-   */
-  DevEndpointNames?: Array<string>;
-
-  /**
-   *
-   *          <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace ListDevEndpointsResponse {
-  export function isa(o: any): o is ListDevEndpointsResponse {
-    return _smithy.isa(o, "ListDevEndpointsResponse");
-  }
-}
-
-export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>Specifies to return only these tagged resources.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListJobsRequest {
-  export function isa(o: any): o is ListJobsRequest {
-    return _smithy.isa(o, "ListJobsRequest");
-  }
-}
-
-export interface ListJobsResponse extends $MetadataBearer {
-  __type?: "ListJobsResponse";
-  /**
-   *
-   *          <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
-   *
-   */
-  JobNames?: Array<string>;
-
-  /**
-   *
-   *          <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace ListJobsResponse {
-  export function isa(o: any): o is ListJobsResponse {
-    return _smithy.isa(o, "ListJobsResponse");
-  }
-}
-
-export interface ListTriggersRequest {
-  __type?: "ListTriggersRequest";
-  /**
-   *
-   *          <p> The name of the job for which to retrieve triggers. The trigger that can start this job
-   *       is returned. If there is no such trigger, all triggers are returned.</p>
-   *
-   */
-  DependentJobName?: string;
-
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>Specifies to return only these tagged resources.</p>
-   *
-   */
-  Tags?: { [key: string]: string };
-}
-
-export namespace ListTriggersRequest {
-  export function isa(o: any): o is ListTriggersRequest {
-    return _smithy.isa(o, "ListTriggersRequest");
-  }
-}
-
-export interface ListTriggersResponse extends $MetadataBearer {
-  __type?: "ListTriggersResponse";
-  /**
-   *
-   *          <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
-   *
-   */
-  TriggerNames?: Array<string>;
-}
-
-export namespace ListTriggersResponse {
-  export function isa(o: any): o is ListTriggersResponse {
-    return _smithy.isa(o, "ListTriggersResponse");
-  }
-}
-
-export interface ListWorkflowsRequest {
-  __type?: "ListWorkflowsRequest";
-  /**
-   *
-   *          <p>The maximum size of a list to return.</p>
-   *
-   */
-  MaxResults?: number;
-
-  /**
-   *
-   *          <p>A continuation token, if this is a continuation request.</p>
-   *
-   */
-  NextToken?: string;
-}
-
-export namespace ListWorkflowsRequest {
-  export function isa(o: any): o is ListWorkflowsRequest {
-    return _smithy.isa(o, "ListWorkflowsRequest");
-  }
-}
-
-export interface ListWorkflowsResponse extends $MetadataBearer {
-  __type?: "ListWorkflowsResponse";
-  /**
-   *
-   *          <p>A continuation token, if not all workflow names have been returned.</p>
-   *
-   */
-  NextToken?: string;
-
-  /**
-   *
-   *          <p>List of names of workflows in the account.</p>
-   *
-   */
-  Workflows?: Array<string>;
-}
-
-export namespace ListWorkflowsResponse {
-  export function isa(o: any): o is ListWorkflowsResponse {
-    return _smithy.isa(o, "ListWorkflowsResponse");
-  }
-}
-
-/**
- *
- *          <p>The location of resources.</p>
- *
- */
-export interface Location {
-  __type?: "Location";
-  /**
-   *
-   *          <p>An Amazon DynamoDB table location.</p>
-   *
-   */
-  DynamoDB?: Array<CodeGenNodeArg>;
-
-  /**
-   *
-   *          <p>A JDBC location.</p>
-   *
-   */
-  Jdbc?: Array<CodeGenNodeArg>;
-
-  /**
-   *
-   *          <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
-   *
-   */
-  S3?: Array<CodeGenNodeArg>;
-}
-
-export namespace Location {
-  export function isa(o: any): o is Location {
-    return _smithy.isa(o, "Location");
-  }
-}
-
-/**
- *
- *          <p>A structure for a machine learning transform.</p>
- *
- */
-export interface MLTransform {
-  __type?: "MLTransform";
-  /**
-   *
-   *          <p>A timestamp. The time and date that this machine learning transform was created.</p>
-   *
-   */
-  CreatedOn?: Date;
-
-  /**
-   *
-   *          <p>A user-defined, long-form description text for the machine learning transform.
-   *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
-   *
-   */
-  EvaluationMetrics?: EvaluationMetrics;
-
-  /**
-   *
-   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   *
-   */
-  GlueVersion?: string;
-
-  /**
-   *
-   *          <p>A list of AWS Glue table definitions used by the transform.</p>
-   *
-   */
-  InputRecordTables?: Array<GlueTable>;
-
-  /**
-   *
-   *          <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
-   *
-   */
-  LabelCount?: number;
-
-  /**
-   *
-   *          <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
-   *
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   *
-   * 	        <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="http://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   * 		       <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
-   *       learning transform fails.</p>
-   *
-   */
-  MaxRetries?: number;
-
-  /**
-   *
-   *          <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
-   *       and can be changed at any time.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
-   *
-   * 	        <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
-   *       behavior of the machine learning transform by specifying what data it learns from and your
-   *       preference on various tradeoffs (such as precious vs. recall, or accuracy vs. cost).</p>
-   *
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   *
-   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
-   *             <li>
-   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>A map of key-value pairs representing the columns and data types that this transform can
-   *       run against. Has an upper bound of 100 columns.</p>
-   *
-   */
-  Schema?: Array<SchemaColumn>;
-
-  /**
-   *
-   *          <p>The current status of the machine learning transform.</p>
-   *
-   */
-  Status?: TransformStatusType | string;
-
-  /**
-   *
-   *          <p>The timeout in minutes of the machine learning transform.</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The unique transform ID that is generated for the machine learning transform. The ID is
-   *       guaranteed to be unique and does not change.</p>
-   *
-   */
-  TransformId?: string;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *
-   * 	        <p>
-   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
-   *             <li>
-   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace MLTransform {
-  export function isa(o: any): o is MLTransform {
-    return _smithy.isa(o, "MLTransform");
-  }
-}
-
-/**
- *
- *          <p>The machine learning transform is not ready to run.</p>
- *
- */
-export interface MLTransformNotReadyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "MLTransformNotReadyException";
-  name: "MLTransformNotReadyException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace MLTransformNotReadyException {
-  export function isa(o: any): o is MLTransformNotReadyException {
-    return _smithy.isa(o, "MLTransformNotReadyException");
-  }
-}
-
-/**
- *
- *          <p>Defines a mapping.</p>
- *
- */
-export interface MappingEntry {
-  __type?: "MappingEntry";
-  /**
-   *
-   *          <p>The source path.</p>
-   *
-   */
-  SourcePath?: string;
-
-  /**
-   *
-   *          <p>The name of the source table.</p>
-   *
-   */
-  SourceTable?: string;
-
-  /**
-   *
-   *          <p>The source type.</p>
-   *
-   */
-  SourceType?: string;
-
-  /**
-   *
-   *          <p>The target path.</p>
-   *
-   */
-  TargetPath?: string;
-
-  /**
-   *
-   *          <p>The target table.</p>
-   *
-   */
-  TargetTable?: string;
-
-  /**
-   *
-   *          <p>The target type.</p>
-   *
-   */
-  TargetType?: string;
-}
-
-export namespace MappingEntry {
-  export function isa(o: any): o is MappingEntry {
-    return _smithy.isa(o, "MappingEntry");
-  }
-}
-
-/**
- *
- *          <p>There is no applicable schedule.</p>
- *
- */
-export interface NoScheduleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoScheduleException";
-  name: "NoScheduleException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace NoScheduleException {
-  export function isa(o: any): o is NoScheduleException {
-    return _smithy.isa(o, "NoScheduleException");
-  }
-}
-
-/**
- *
- *          <p>A node represents an AWS Glue component like Trigger, Job etc. which is part of a workflow.</p>
- *
- */
-export interface Node {
-  __type?: "Node";
-  /**
-   *
-   *          <p>Details of the crawler when the node represents a crawler.</p>
-   *
-   */
-  CrawlerDetails?: CrawlerNodeDetails;
-
-  /**
-   *
-   *          <p>Details of the Job when the node represents a Job.</p>
-   *
-   */
-  JobDetails?: JobNodeDetails;
-
-  /**
-   *
-   *          <p>The name of the AWS Glue component represented by the node.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>Details of the Trigger when the node represents a Trigger.</p>
-   *
-   */
-  TriggerDetails?: TriggerNodeDetails;
-
-  /**
-   *
-   *          <p>The type of AWS Glue component represented by the node.</p>
-   *
-   */
-  Type?: NodeType | string;
-
-  /**
-   *
-   *          <p>The unique Id assigned to the node within the workflow.</p>
-   *
-   */
-  UniqueId?: string;
-}
-
-export namespace Node {
-  export function isa(o: any): o is Node {
-    return _smithy.isa(o, "Node");
-  }
-}
-
-/**
- *
- *          <p>Specifies configuration properties of a notification.</p>
- *
- */
-export interface NotificationProperty {
-  __type?: "NotificationProperty";
-  /**
-   *
-   *          <p>After a job run starts, the number of minutes to wait before
-   *       sending a job run delay notification.</p>
-   *
-   */
-  NotifyDelayAfter?: number;
-}
-
-export namespace NotificationProperty {
-  export function isa(o: any): o is NotificationProperty {
-    return _smithy.isa(o, "NotificationProperty");
-  }
-}
-
-/**
- *
- *          <p>The operation timed out.</p>
- *
- */
-export interface OperationTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "OperationTimeoutException";
-  name: "OperationTimeoutException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  export function isa(o: any): o is OperationTimeoutException {
-    return _smithy.isa(o, "OperationTimeoutException");
   }
 }
 
@@ -9678,6 +3080,18 @@ export namespace PartitionValueList {
   }
 }
 
+export enum Permission {
+  ALL = "ALL",
+  ALTER = "ALTER",
+  CREATE_DATABASE = "CREATE_DATABASE",
+  CREATE_TABLE = "CREATE_TABLE",
+  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
+  DELETE = "DELETE",
+  DROP = "DROP",
+  INSERT = "INSERT",
+  SELECT = "SELECT"
+}
+
 /**
  *
  *          <p>Specifies the physical requirements for a connection.</p>
@@ -9717,64 +3131,6 @@ export namespace PhysicalConnectionRequirements {
 
 /**
  *
- *          <p>A job run that was used in the predicate of a conditional trigger
- *       that triggered this job run.</p>
- *
- */
-export interface Predecessor {
-  __type?: "Predecessor";
-  /**
-   *
-   *          <p>The name of the job definition used by the predecessor job run.</p>
-   *
-   */
-  JobName?: string;
-
-  /**
-   *
-   *          <p>The job-run ID of the predecessor job run.</p>
-   *
-   */
-  RunId?: string;
-}
-
-export namespace Predecessor {
-  export function isa(o: any): o is Predecessor {
-    return _smithy.isa(o, "Predecessor");
-  }
-}
-
-/**
- *
- *          <p>Defines the predicate of the trigger, which determines when it fires.</p>
- *
- */
-export interface Predicate {
-  __type?: "Predicate";
-  /**
-   *
-   *          <p>A list of the conditions that determine when the trigger will fire.</p>
-   *
-   */
-  Conditions?: Array<Condition>;
-
-  /**
-   *
-   *          <p>An optional field if only one condition is listed. If multiple conditions are listed, then
-   *       this field is required.</p>
-   *
-   */
-  Logical?: Logical | string;
-}
-
-export namespace Predicate {
-  export function isa(o: any): o is Predicate {
-    return _smithy.isa(o, "Predicate");
-  }
-}
-
-/**
- *
  *          <p>Permissions granted to a principal.</p>
  *
  */
@@ -9799,6 +3155,12 @@ export namespace PrincipalPermissions {
   export function isa(o: any): o is PrincipalPermissions {
     return _smithy.isa(o, "PrincipalPermissions");
   }
+}
+
+export enum PrincipalType {
+  GROUP = "GROUP",
+  ROLE = "ROLE",
+  USER = "USER"
 }
 
 /**
@@ -9923,108 +3285,10 @@ export namespace PutResourcePolicyResponse {
   }
 }
 
-export interface PutWorkflowRunPropertiesRequest {
-  __type?: "PutWorkflowRunPropertiesRequest";
-  /**
-   *
-   *          <p>Name of the workflow which was run.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The ID of the workflow run for which the run properties should be updated.</p>
-   *
-   */
-  RunId: string | undefined;
-
-  /**
-   *
-   *          <p>The properties to put for the specified run.</p>
-   *
-   */
-  RunProperties: { [key: string]: string } | undefined;
-}
-
-export namespace PutWorkflowRunPropertiesRequest {
-  export function isa(o: any): o is PutWorkflowRunPropertiesRequest {
-    return _smithy.isa(o, "PutWorkflowRunPropertiesRequest");
-  }
-}
-
-export interface PutWorkflowRunPropertiesResponse extends $MetadataBearer {
-  __type?: "PutWorkflowRunPropertiesResponse";
-}
-
-export namespace PutWorkflowRunPropertiesResponse {
-  export function isa(o: any): o is PutWorkflowRunPropertiesResponse {
-    return _smithy.isa(o, "PutWorkflowRunPropertiesResponse");
-  }
-}
-
-export interface ResetJobBookmarkRequest {
-  __type?: "ResetJobBookmarkRequest";
-  /**
-   *
-   *          <p>The name of the job in question.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>The unique run identifier associated with this job run.</p>
-   *
-   */
-  RunId?: string;
-}
-
-export namespace ResetJobBookmarkRequest {
-  export function isa(o: any): o is ResetJobBookmarkRequest {
-    return _smithy.isa(o, "ResetJobBookmarkRequest");
-  }
-}
-
-export interface ResetJobBookmarkResponse extends $MetadataBearer {
-  __type?: "ResetJobBookmarkResponse";
-  /**
-   *
-   *          <p>The reset bookmark entry.</p>
-   *
-   */
-  JobBookmarkEntry?: JobBookmarkEntry;
-}
-
-export namespace ResetJobBookmarkResponse {
-  export function isa(o: any): o is ResetJobBookmarkResponse {
-    return _smithy.isa(o, "ResetJobBookmarkResponse");
-  }
-}
-
-/**
- *
- *          <p>A resource numerical limit was exceeded.</p>
- *
- */
-export interface ResourceNumberLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNumberLimitExceededException";
-  name: "ResourceNumberLimitExceededException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ResourceNumberLimitExceededException {
-  export function isa(o: any): o is ResourceNumberLimitExceededException {
-    return _smithy.isa(o, "ResourceNumberLimitExceededException");
-  }
+export enum ResourceType {
+  ARCHIVE = "ARCHIVE",
+  FILE = "FILE",
+  JAR = "JAR"
 }
 
 /**
@@ -10052,225 +3316,6 @@ export interface ResourceUri {
 export namespace ResourceUri {
   export function isa(o: any): o is ResourceUri {
     return _smithy.isa(o, "ResourceUri");
-  }
-}
-
-/**
- *
- *          <p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>
- *
- */
-export interface S3Encryption {
-  __type?: "S3Encryption";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
-   *
-   */
-  KmsKeyArn?: string;
-
-  /**
-   *
-   *          <p>The encryption mode to use for Amazon S3 data.</p>
-   *
-   */
-  S3EncryptionMode?: S3EncryptionMode | string;
-}
-
-export namespace S3Encryption {
-  export function isa(o: any): o is S3Encryption {
-    return _smithy.isa(o, "S3Encryption");
-  }
-}
-
-/**
- *
- *          <p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>
- *
- */
-export interface S3Target {
-  __type?: "S3Target";
-  /**
-   *
-   *          <p>A list of glob patterns used to exclude from the crawl.
-   *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
-   *
-   */
-  Exclusions?: Array<string>;
-
-  /**
-   *
-   *          <p>The path to the Amazon S3 target.</p>
-   *
-   */
-  Path?: string;
-}
-
-export namespace S3Target {
-  export function isa(o: any): o is S3Target {
-    return _smithy.isa(o, "S3Target");
-  }
-}
-
-/**
- *
- *          <p>A scheduling object using a <code>cron</code> statement to schedule an event.</p>
- *
- */
-export interface Schedule {
-  __type?: "Schedule";
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
-   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
-   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  ScheduleExpression?: string;
-
-  /**
-   *
-   *          <p>The state of the schedule.</p>
-   *
-   */
-  State?: ScheduleState | string;
-}
-
-export namespace Schedule {
-  export function isa(o: any): o is Schedule {
-    return _smithy.isa(o, "Schedule");
-  }
-}
-
-/**
- *
- *          <p>The specified scheduler is not running.</p>
- *
- */
-export interface SchedulerNotRunningException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SchedulerNotRunningException";
-  name: "SchedulerNotRunningException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace SchedulerNotRunningException {
-  export function isa(o: any): o is SchedulerNotRunningException {
-    return _smithy.isa(o, "SchedulerNotRunningException");
-  }
-}
-
-/**
- *
- *          <p>The specified scheduler is already running.</p>
- *
- */
-export interface SchedulerRunningException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SchedulerRunningException";
-  name: "SchedulerRunningException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace SchedulerRunningException {
-  export function isa(o: any): o is SchedulerRunningException {
-    return _smithy.isa(o, "SchedulerRunningException");
-  }
-}
-
-/**
- *
- *          <p>The specified scheduler is transitioning.</p>
- *
- */
-export interface SchedulerTransitioningException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SchedulerTransitioningException";
-  name: "SchedulerTransitioningException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace SchedulerTransitioningException {
-  export function isa(o: any): o is SchedulerTransitioningException {
-    return _smithy.isa(o, "SchedulerTransitioningException");
-  }
-}
-
-/**
- *
- *          <p>A policy that specifies update and deletion behaviors for the crawler.</p>
- *
- */
-export interface SchemaChangePolicy {
-  __type?: "SchemaChangePolicy";
-  /**
-   *
-   *          <p>The deletion behavior when the crawler finds a deleted object.</p>
-   *
-   */
-  DeleteBehavior?: DeleteBehavior | string;
-
-  /**
-   *
-   *          <p>The update behavior when the crawler finds a changed schema.</p>
-   *
-   */
-  UpdateBehavior?: UpdateBehavior | string;
-}
-
-export namespace SchemaChangePolicy {
-  export function isa(o: any): o is SchemaChangePolicy {
-    return _smithy.isa(o, "SchemaChangePolicy");
-  }
-}
-
-/**
- *
- *          <p>A key-value pair representing a column and data type that this transform can
- *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
- *
- */
-export interface SchemaColumn {
-  __type?: "SchemaColumn";
-  /**
-   *
-   *          <p>The type of data in the column.</p>
-   *
-   */
-  DataType?: string;
-
-  /**
-   *
-   *          <p>The name of the column.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace SchemaColumn {
-  export function isa(o: any): o is SchemaColumn {
-    return _smithy.isa(o, "SchemaColumn");
   }
 }
 
@@ -10347,41 +3392,6 @@ export interface SearchTablesResponse extends $MetadataBearer {
 export namespace SearchTablesResponse {
   export function isa(o: any): o is SearchTablesResponse {
     return _smithy.isa(o, "SearchTablesResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a security configuration.</p>
- *
- */
-export interface SecurityConfiguration {
-  __type?: "SecurityConfiguration";
-  /**
-   *
-   *          <p>The time at which this security configuration was created.</p>
-   *
-   */
-  CreatedTimeStamp?: Date;
-
-  /**
-   *
-   *          <p>The encryption configuration associated with this security configuration.</p>
-   *
-   */
-  EncryptionConfiguration?: EncryptionConfiguration;
-
-  /**
-   *
-   *          <p>The name of the security configuration.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace SecurityConfiguration {
-  export function isa(o: any): o is SecurityConfiguration {
-    return _smithy.isa(o, "SecurityConfiguration");
   }
 }
 
@@ -10489,6 +3499,11 @@ export namespace SkewedInfo {
   }
 }
 
+export enum Sort {
+  ASCENDING = "ASC",
+  DESCENDING = "DESC"
+}
+
 /**
  *
  *          <p>Specifies a field to sort by and a sort order.</p>
@@ -10514,505 +3529,6 @@ export interface SortCriterion {
 export namespace SortCriterion {
   export function isa(o: any): o is SortCriterion {
     return _smithy.isa(o, "SortCriterion");
-  }
-}
-
-export interface StartCrawlerRequest {
-  __type?: "StartCrawlerRequest";
-  /**
-   *
-   *          <p>Name of the crawler to start.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace StartCrawlerRequest {
-  export function isa(o: any): o is StartCrawlerRequest {
-    return _smithy.isa(o, "StartCrawlerRequest");
-  }
-}
-
-export interface StartCrawlerResponse extends $MetadataBearer {
-  __type?: "StartCrawlerResponse";
-}
-
-export namespace StartCrawlerResponse {
-  export function isa(o: any): o is StartCrawlerResponse {
-    return _smithy.isa(o, "StartCrawlerResponse");
-  }
-}
-
-export interface StartCrawlerScheduleRequest {
-  __type?: "StartCrawlerScheduleRequest";
-  /**
-   *
-   *          <p>Name of the crawler to schedule.</p>
-   *
-   */
-  CrawlerName: string | undefined;
-}
-
-export namespace StartCrawlerScheduleRequest {
-  export function isa(o: any): o is StartCrawlerScheduleRequest {
-    return _smithy.isa(o, "StartCrawlerScheduleRequest");
-  }
-}
-
-export interface StartCrawlerScheduleResponse extends $MetadataBearer {
-  __type?: "StartCrawlerScheduleResponse";
-}
-
-export namespace StartCrawlerScheduleResponse {
-  export function isa(o: any): o is StartCrawlerScheduleResponse {
-    return _smithy.isa(o, "StartCrawlerScheduleResponse");
-  }
-}
-
-export interface StartExportLabelsTaskRunRequest {
-  __type?: "StartExportLabelsTaskRunRequest";
-  /**
-   *
-   *          <p>The Amazon S3 path where you export the labels.</p>
-   *
-   */
-  OutputS3Path: string | undefined;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace StartExportLabelsTaskRunRequest {
-  export function isa(o: any): o is StartExportLabelsTaskRunRequest {
-    return _smithy.isa(o, "StartExportLabelsTaskRunRequest");
-  }
-}
-
-export interface StartExportLabelsTaskRunResponse extends $MetadataBearer {
-  __type?: "StartExportLabelsTaskRunResponse";
-  /**
-   *
-   *          <p>The unique identifier for the task run.</p>
-   *
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartExportLabelsTaskRunResponse {
-  export function isa(o: any): o is StartExportLabelsTaskRunResponse {
-    return _smithy.isa(o, "StartExportLabelsTaskRunResponse");
-  }
-}
-
-export interface StartImportLabelsTaskRunRequest {
-  __type?: "StartImportLabelsTaskRunRequest";
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service (Amazon S3) path from where you import the
-   *       labels.</p>
-   *
-   */
-  InputS3Path: string | undefined;
-
-  /**
-   *
-   *          <p>Indicates whether to overwrite your existing labels.</p>
-   *
-   */
-  ReplaceAllLabels?: boolean;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace StartImportLabelsTaskRunRequest {
-  export function isa(o: any): o is StartImportLabelsTaskRunRequest {
-    return _smithy.isa(o, "StartImportLabelsTaskRunRequest");
-  }
-}
-
-export interface StartImportLabelsTaskRunResponse extends $MetadataBearer {
-  __type?: "StartImportLabelsTaskRunResponse";
-  /**
-   *
-   *          <p>The unique identifier for the task run.</p>
-   *
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartImportLabelsTaskRunResponse {
-  export function isa(o: any): o is StartImportLabelsTaskRunResponse {
-    return _smithy.isa(o, "StartImportLabelsTaskRunResponse");
-  }
-}
-
-export interface StartJobRunRequest {
-  __type?: "StartJobRunRequest";
-  /**
-   *
-   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun.
-   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
-   *         pricing page</a>.</p>
-   *
-   */
-  AllocatedCapacity?: number;
-
-  /**
-   *
-   *          <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p>
-   *          <p>You can specify arguments here that your own job-execution script
-   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
-   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
-   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
-   *
-   */
-  Arguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The name of the job definition to use.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>The ID of a previous <code>JobRun</code> to retry.</p>
-   *
-   */
-  JobRunId?: string;
-
-  /**
-   *
-   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
-   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
-   *         pricing page</a>.</p>
-   *
-   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
-   *       running a Python shell job, or an Apache Spark ETL job:</p>
-   *          <ul>
-   *             <li>
-   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
-   *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
-   *             </li>
-   *             <li>
-   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  MaxCapacity?: number;
-
-  /**
-   *
-   *          <p>Specifies configuration properties of a job run notification.</p>
-   *
-   */
-  NotificationProperty?: NotificationProperty;
-
-  /**
-   *
-   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   *
-   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
-   *
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
-   *       run.</p>
-   *
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
-   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
-   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
-   *
-   */
-  Timeout?: number;
-
-  /**
-   *
-   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  WorkerType?: WorkerType | string;
-}
-
-export namespace StartJobRunRequest {
-  export function isa(o: any): o is StartJobRunRequest {
-    return _smithy.isa(o, "StartJobRunRequest");
-  }
-}
-
-export interface StartJobRunResponse extends $MetadataBearer {
-  __type?: "StartJobRunResponse";
-  /**
-   *
-   *          <p>The ID assigned to this job run.</p>
-   *
-   */
-  JobRunId?: string;
-}
-
-export namespace StartJobRunResponse {
-  export function isa(o: any): o is StartJobRunResponse {
-    return _smithy.isa(o, "StartJobRunResponse");
-  }
-}
-
-export interface StartMLEvaluationTaskRunRequest {
-  __type?: "StartMLEvaluationTaskRunRequest";
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace StartMLEvaluationTaskRunRequest {
-  export function isa(o: any): o is StartMLEvaluationTaskRunRequest {
-    return _smithy.isa(o, "StartMLEvaluationTaskRunRequest");
-  }
-}
-
-export interface StartMLEvaluationTaskRunResponse extends $MetadataBearer {
-  __type?: "StartMLEvaluationTaskRunResponse";
-  /**
-   *
-   *          <p>The unique identifier associated with this run.</p>
-   *
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartMLEvaluationTaskRunResponse {
-  export function isa(o: any): o is StartMLEvaluationTaskRunResponse {
-    return _smithy.isa(o, "StartMLEvaluationTaskRunResponse");
-  }
-}
-
-export interface StartMLLabelingSetGenerationTaskRunRequest {
-  __type?: "StartMLLabelingSetGenerationTaskRunRequest";
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling
-   *       set.</p>
-   *
-   */
-  OutputS3Path: string | undefined;
-
-  /**
-   *
-   *          <p>The unique identifier of the machine learning transform.</p>
-   *
-   */
-  TransformId: string | undefined;
-}
-
-export namespace StartMLLabelingSetGenerationTaskRunRequest {
-  export function isa(o: any): o is StartMLLabelingSetGenerationTaskRunRequest {
-    return _smithy.isa(o, "StartMLLabelingSetGenerationTaskRunRequest");
-  }
-}
-
-export interface StartMLLabelingSetGenerationTaskRunResponse
-  extends $MetadataBearer {
-  __type?: "StartMLLabelingSetGenerationTaskRunResponse";
-  /**
-   *
-   *          <p>The unique run identifier that is associated with this task run.</p>
-   *
-   */
-  TaskRunId?: string;
-}
-
-export namespace StartMLLabelingSetGenerationTaskRunResponse {
-  export function isa(
-    o: any
-  ): o is StartMLLabelingSetGenerationTaskRunResponse {
-    return _smithy.isa(o, "StartMLLabelingSetGenerationTaskRunResponse");
-  }
-}
-
-export interface StartTriggerRequest {
-  __type?: "StartTriggerRequest";
-  /**
-   *
-   *          <p>The name of the trigger to start.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace StartTriggerRequest {
-  export function isa(o: any): o is StartTriggerRequest {
-    return _smithy.isa(o, "StartTriggerRequest");
-  }
-}
-
-export interface StartTriggerResponse extends $MetadataBearer {
-  __type?: "StartTriggerResponse";
-  /**
-   *
-   *          <p>The name of the trigger that was started.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace StartTriggerResponse {
-  export function isa(o: any): o is StartTriggerResponse {
-    return _smithy.isa(o, "StartTriggerResponse");
-  }
-}
-
-export interface StartWorkflowRunRequest {
-  __type?: "StartWorkflowRunRequest";
-  /**
-   *
-   *          <p>The name of the workflow to start.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace StartWorkflowRunRequest {
-  export function isa(o: any): o is StartWorkflowRunRequest {
-    return _smithy.isa(o, "StartWorkflowRunRequest");
-  }
-}
-
-export interface StartWorkflowRunResponse extends $MetadataBearer {
-  __type?: "StartWorkflowRunResponse";
-  /**
-   *
-   *          <p>An Id for the new run.</p>
-   *
-   */
-  RunId?: string;
-}
-
-export namespace StartWorkflowRunResponse {
-  export function isa(o: any): o is StartWorkflowRunResponse {
-    return _smithy.isa(o, "StartWorkflowRunResponse");
-  }
-}
-
-export interface StopCrawlerRequest {
-  __type?: "StopCrawlerRequest";
-  /**
-   *
-   *          <p>Name of the crawler to stop.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace StopCrawlerRequest {
-  export function isa(o: any): o is StopCrawlerRequest {
-    return _smithy.isa(o, "StopCrawlerRequest");
-  }
-}
-
-export interface StopCrawlerResponse extends $MetadataBearer {
-  __type?: "StopCrawlerResponse";
-}
-
-export namespace StopCrawlerResponse {
-  export function isa(o: any): o is StopCrawlerResponse {
-    return _smithy.isa(o, "StopCrawlerResponse");
-  }
-}
-
-export interface StopCrawlerScheduleRequest {
-  __type?: "StopCrawlerScheduleRequest";
-  /**
-   *
-   *          <p>Name of the crawler whose schedule state to set.</p>
-   *
-   */
-  CrawlerName: string | undefined;
-}
-
-export namespace StopCrawlerScheduleRequest {
-  export function isa(o: any): o is StopCrawlerScheduleRequest {
-    return _smithy.isa(o, "StopCrawlerScheduleRequest");
-  }
-}
-
-export interface StopCrawlerScheduleResponse extends $MetadataBearer {
-  __type?: "StopCrawlerScheduleResponse";
-}
-
-export namespace StopCrawlerScheduleResponse {
-  export function isa(o: any): o is StopCrawlerScheduleResponse {
-    return _smithy.isa(o, "StopCrawlerScheduleResponse");
-  }
-}
-
-export interface StopTriggerRequest {
-  __type?: "StopTriggerRequest";
-  /**
-   *
-   *          <p>The name of the trigger to stop.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace StopTriggerRequest {
-  export function isa(o: any): o is StopTriggerRequest {
-    return _smithy.isa(o, "StopTriggerRequest");
-  }
-}
-
-export interface StopTriggerResponse extends $MetadataBearer {
-  __type?: "StopTriggerResponse";
-  /**
-   *
-   *          <p>The name of the trigger that was stopped.</p>
-   *
-   */
-  Name?: string;
-}
-
-export namespace StopTriggerResponse {
-  export function isa(o: any): o is StopTriggerResponse {
-    return _smithy.isa(o, "StopTriggerResponse");
   }
 }
 
@@ -11465,37 +3981,3157 @@ export namespace TableVersionError {
   }
 }
 
-export interface TagResourceRequest {
-  __type?: "TagResourceRequest";
+export interface UpdateConnectionRequest {
+  __type?: "UpdateConnectionRequest";
   /**
    *
-   *          <p>The ARN of the AWS Glue resource to which to add the tags. For more
-   *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>.</p>
+   *          <p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS
+   *       account ID is used by default.</p>
    *
    */
-  ResourceArn: string | undefined;
+  CatalogId?: string;
 
   /**
    *
-   *          <p>Tags to add to this resource.</p>
+   *          <p>A <code>ConnectionInput</code> object that redefines the connection
+   *       in question.</p>
    *
    */
-  TagsToAdd: { [key: string]: string } | undefined;
+  ConnectionInput: ConnectionInput | undefined;
+
+  /**
+   *
+   *          <p>The name of the connection definition to update.</p>
+   *
+   */
+  Name: string | undefined;
 }
 
-export namespace TagResourceRequest {
-  export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+export namespace UpdateConnectionRequest {
+  export function isa(o: any): o is UpdateConnectionRequest {
+    return _smithy.isa(o, "UpdateConnectionRequest");
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
-  __type?: "TagResourceResponse";
+export interface UpdateConnectionResponse extends $MetadataBearer {
+  __type?: "UpdateConnectionResponse";
 }
 
-export namespace TagResourceResponse {
-  export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+export namespace UpdateConnectionResponse {
+  export function isa(o: any): o is UpdateConnectionResponse {
+    return _smithy.isa(o, "UpdateConnectionResponse");
+  }
+}
+
+export interface UpdateDatabaseRequest {
+  __type?: "UpdateDatabaseRequest";
+  /**
+   *
+   *          <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
+   *       the AWS account ID is used by default.</p>
+   *
+   */
+  CatalogId?: string;
+
+  /**
+   *
+   *          <p>A <code>DatabaseInput</code> object specifying the new definition
+   *       of the metadata database in the catalog.</p>
+   *
+   */
+  DatabaseInput: DatabaseInput | undefined;
+
+  /**
+   *
+   *          <p>The name of the database to update in the catalog. For Hive
+   *       compatibility, this is folded to lowercase.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateDatabaseRequest {
+  export function isa(o: any): o is UpdateDatabaseRequest {
+    return _smithy.isa(o, "UpdateDatabaseRequest");
+  }
+}
+
+export interface UpdateDatabaseResponse extends $MetadataBearer {
+  __type?: "UpdateDatabaseResponse";
+}
+
+export namespace UpdateDatabaseResponse {
+  export function isa(o: any): o is UpdateDatabaseResponse {
+    return _smithy.isa(o, "UpdateDatabaseResponse");
+  }
+}
+
+export interface UpdatePartitionRequest {
+  __type?: "UpdatePartitionRequest";
+  /**
+   *
+   *          <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
+   *       the AWS account ID is used by default.</p>
+   *
+   */
+  CatalogId?: string;
+
+  /**
+   *
+   *          <p>The name of the catalog database in which the table in question
+   *       resides.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>The new partition object to update the partition to.</p>
+   *
+   */
+  PartitionInput: PartitionInput | undefined;
+
+  /**
+   *
+   *          <p>A list of the values defining the partition.</p>
+   *
+   */
+  PartitionValueList: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>The name of the table in which the partition to be updated is located.</p>
+   *
+   */
+  TableName: string | undefined;
+}
+
+export namespace UpdatePartitionRequest {
+  export function isa(o: any): o is UpdatePartitionRequest {
+    return _smithy.isa(o, "UpdatePartitionRequest");
+  }
+}
+
+export interface UpdatePartitionResponse extends $MetadataBearer {
+  __type?: "UpdatePartitionResponse";
+}
+
+export namespace UpdatePartitionResponse {
+  export function isa(o: any): o is UpdatePartitionResponse {
+    return _smithy.isa(o, "UpdatePartitionResponse");
+  }
+}
+
+export interface UpdateTableRequest {
+  __type?: "UpdateTableRequest";
+  /**
+   *
+   *          <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
+   *       ID is used by default.</p>
+   *
+   */
+  CatalogId?: string;
+
+  /**
+   *
+   *          <p>The name of the catalog database in which the table resides. For Hive
+   *       compatibility, this name is entirely lowercase.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>By default, <code>UpdateTable</code> always creates an archived version of the table
+   *       before updating it. However, if <code>skipArchive</code> is set to true,
+   *         <code>UpdateTable</code> does not create the archived version.</p>
+   *
+   */
+  SkipArchive?: boolean;
+
+  /**
+   *
+   *          <p>An updated <code>TableInput</code> object to define the metadata table
+   *       in the catalog.</p>
+   *
+   */
+  TableInput: TableInput | undefined;
+}
+
+export namespace UpdateTableRequest {
+  export function isa(o: any): o is UpdateTableRequest {
+    return _smithy.isa(o, "UpdateTableRequest");
+  }
+}
+
+export interface UpdateTableResponse extends $MetadataBearer {
+  __type?: "UpdateTableResponse";
+}
+
+export namespace UpdateTableResponse {
+  export function isa(o: any): o is UpdateTableResponse {
+    return _smithy.isa(o, "UpdateTableResponse");
+  }
+}
+
+export interface UpdateUserDefinedFunctionRequest {
+  __type?: "UpdateUserDefinedFunctionRequest";
+  /**
+   *
+   *          <p>The ID of the Data Catalog where the function to be updated is located. If none is
+   *       provided, the AWS account ID is used by default.</p>
+   *
+   */
+  CatalogId?: string;
+
+  /**
+   *
+   *          <p>The name of the catalog database where the function to be updated is
+   *       located.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>A <code>FunctionInput</code> object that redefines the function in the Data
+   *       Catalog.</p>
+   *
+   */
+  FunctionInput: UserDefinedFunctionInput | undefined;
+
+  /**
+   *
+   *          <p>The name of the function.</p>
+   *
+   */
+  FunctionName: string | undefined;
+}
+
+export namespace UpdateUserDefinedFunctionRequest {
+  export function isa(o: any): o is UpdateUserDefinedFunctionRequest {
+    return _smithy.isa(o, "UpdateUserDefinedFunctionRequest");
+  }
+}
+
+export interface UpdateUserDefinedFunctionResponse extends $MetadataBearer {
+  __type?: "UpdateUserDefinedFunctionResponse";
+}
+
+export namespace UpdateUserDefinedFunctionResponse {
+  export function isa(o: any): o is UpdateUserDefinedFunctionResponse {
+    return _smithy.isa(o, "UpdateUserDefinedFunctionResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Represents the equivalent of a Hive user-defined function
+ *       (<code>UDF</code>) definition.</p>
+ *
+ */
+export interface UserDefinedFunction {
+  __type?: "UserDefinedFunction";
+  /**
+   *
+   *          <p>The Java class that contains the function code.</p>
+   *
+   */
+  ClassName?: string;
+
+  /**
+   *
+   *          <p>The time at which the function was created.</p>
+   *
+   */
+  CreateTime?: Date;
+
+  /**
+   *
+   *          <p>The name of the function.</p>
+   *
+   */
+  FunctionName?: string;
+
+  /**
+   *
+   *          <p>The owner of the function.</p>
+   *
+   */
+  OwnerName?: string;
+
+  /**
+   *
+   *          <p>The owner type.</p>
+   *
+   */
+  OwnerType?: PrincipalType | string;
+
+  /**
+   *
+   *          <p>The resource URIs for the function.</p>
+   *
+   */
+  ResourceUris?: Array<ResourceUri>;
+}
+
+export namespace UserDefinedFunction {
+  export function isa(o: any): o is UserDefinedFunction {
+    return _smithy.isa(o, "UserDefinedFunction");
+  }
+}
+
+/**
+ *
+ *          <p>A structure used to create or update a user-defined function.</p>
+ *
+ */
+export interface UserDefinedFunctionInput {
+  __type?: "UserDefinedFunctionInput";
+  /**
+   *
+   *          <p>The Java class that contains the function code.</p>
+   *
+   */
+  ClassName?: string;
+
+  /**
+   *
+   *          <p>The name of the function.</p>
+   *
+   */
+  FunctionName?: string;
+
+  /**
+   *
+   *          <p>The owner of the function.</p>
+   *
+   */
+  OwnerName?: string;
+
+  /**
+   *
+   *          <p>The owner type.</p>
+   *
+   */
+  OwnerType?: PrincipalType | string;
+
+  /**
+   *
+   *          <p>The resource URIs for the function.</p>
+   *
+   */
+  ResourceUris?: Array<ResourceUri>;
+}
+
+export namespace UserDefinedFunctionInput {
+  export function isa(o: any): o is UserDefinedFunctionInput {
+    return _smithy.isa(o, "UserDefinedFunctionInput");
+  }
+}
+
+export interface BatchGetDevEndpointsRequest {
+  __type?: "BatchGetDevEndpointsRequest";
+  /**
+   *
+   *          <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
+   *         <code>ListDevEndpoint</code> operation.</p>
+   *
+   */
+  DevEndpointNames: Array<string> | undefined;
+}
+
+export namespace BatchGetDevEndpointsRequest {
+  export function isa(o: any): o is BatchGetDevEndpointsRequest {
+    return _smithy.isa(o, "BatchGetDevEndpointsRequest");
+  }
+}
+
+export interface BatchGetDevEndpointsResponse extends $MetadataBearer {
+  __type?: "BatchGetDevEndpointsResponse";
+  /**
+   *
+   *          <p>A list of <code>DevEndpoint</code> definitions.</p>
+   *
+   */
+  DevEndpoints?: Array<DevEndpoint>;
+
+  /**
+   *
+   *          <p>A list of <code>DevEndpoints</code> not found.</p>
+   *
+   */
+  DevEndpointsNotFound?: Array<string>;
+}
+
+export namespace BatchGetDevEndpointsResponse {
+  export function isa(o: any): o is BatchGetDevEndpointsResponse {
+    return _smithy.isa(o, "BatchGetDevEndpointsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies how Amazon CloudWatch data should be encrypted.</p>
+ *
+ */
+export interface CloudWatchEncryption {
+  __type?: "CloudWatchEncryption";
+  /**
+   *
+   *          <p>The encryption mode to use for CloudWatch data.</p>
+   *
+   */
+  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   *
+   */
+  KmsKeyArn?: string;
+}
+
+export namespace CloudWatchEncryption {
+  export function isa(o: any): o is CloudWatchEncryption {
+    return _smithy.isa(o, "CloudWatchEncryption");
+  }
+}
+
+export interface CreateDevEndpointRequest {
+  __type?: "CreateDevEndpointRequest";
+  /**
+   *
+   *   	      <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
+   *
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
+   *
+   */
+  EndpointName: string | undefined;
+
+  /**
+   *
+   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   *
+   *          <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
+   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
+   *       comma.</p>
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not yet supported.</p>
+   *          </note>
+   *
+   */
+  ExtraPythonLibsS3Path?: string;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
+   *
+   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue Data Processing Units (DPUs) to allocate to this
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  NumberOfNodes?: number;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
+   *
+   * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
+   *       attribute is provided for backward compatibility because the recommended attribute to use is
+   *       public keys.</p>
+   *
+   */
+  PublicKey?: string;
+
+  /**
+   *
+   *          <p>A list of public keys to be used by the development endpoints for authentication. The use
+   *       of this attribute is preferred over a single public key because the public keys allow you to
+   *       have a different private key per client.</p>
+   *
+   *          <note>
+   *             <p>If you previously created an endpoint with a public key, you must remove that key to be able
+   *         to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public
+   *         key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the
+   *           <code>addPublicKeys</code> attribute.</p>
+   *          </note>
+   *
+   */
+  PublicKeys?: Array<string>;
+
+  /**
+   *
+   *          <p>The IAM role for the <code>DevEndpoint</code>.</p>
+   *
+   */
+  RoleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>Security group IDs for the security groups to be used by the new
+   *       <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityGroupIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
+   *
+   */
+  SubnetId?: string;
+
+  /**
+   *
+   *          <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
+   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace CreateDevEndpointRequest {
+  export function isa(o: any): o is CreateDevEndpointRequest {
+    return _smithy.isa(o, "CreateDevEndpointRequest");
+  }
+}
+
+export interface CreateDevEndpointResponse extends $MetadataBearer {
+  __type?: "CreateDevEndpointResponse";
+  /**
+   *
+   *          <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
+   *
+   * 	        <p>Valid arguments are:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *
+   *
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
+   *
+   */
+  AvailabilityZone?: string;
+
+  /**
+   *
+   *          <p>The point in time at which this <code>DevEndpoint</code> was created.</p>
+   *
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   *
+   *          <p>The name assigned to the new <code>DevEndpoint</code>.</p>
+   *
+   */
+  EndpointName?: string;
+
+  /**
+   *
+   *          <p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in
+   *       your <code>DevEndpoint</code>.</p>
+   *
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   *
+   *          <p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  ExtraPythonLibsS3Path?: string;
+
+  /**
+   *
+   *          <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
+   *
+   */
+  FailureReason?: string;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>
+   *
+   */
+  NumberOfNodes?: number;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the role assigned to the new
+   *       <code>DevEndpoint</code>.</p>
+   *
+   */
+  RoleArn?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure being used with this
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityGroupIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The current status of the new <code>DevEndpoint</code>.</p>
+   *
+   */
+  Status?: string;
+
+  /**
+   *
+   *          <p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>
+   *
+   */
+  SubnetId?: string;
+
+  /**
+   *
+   *          <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
+   *
+   */
+  VpcId?: string;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
+   *
+   */
+  WorkerType?: WorkerType | string;
+
+  /**
+   *
+   *          <p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>
+   *
+   */
+  YarnEndpointAddress?: string;
+
+  /**
+   *
+   *          <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
+   *
+   */
+  ZeppelinRemoteSparkInterpreterPort?: number;
+}
+
+export namespace CreateDevEndpointResponse {
+  export function isa(o: any): o is CreateDevEndpointResponse {
+    return _smithy.isa(o, "CreateDevEndpointResponse");
+  }
+}
+
+export interface CreateSecurityConfigurationRequest {
+  __type?: "CreateSecurityConfigurationRequest";
+  /**
+   *
+   *          <p>The encryption configuration for the new security configuration.</p>
+   *
+   */
+  EncryptionConfiguration: EncryptionConfiguration | undefined;
+
+  /**
+   *
+   *          <p>The name for the new security configuration.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateSecurityConfigurationRequest {
+  export function isa(o: any): o is CreateSecurityConfigurationRequest {
+    return _smithy.isa(o, "CreateSecurityConfigurationRequest");
+  }
+}
+
+export interface CreateSecurityConfigurationResponse extends $MetadataBearer {
+  __type?: "CreateSecurityConfigurationResponse";
+  /**
+   *
+   *          <p>The time at which the new security configuration was created.</p>
+   *
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   *
+   *          <p>The name assigned to the new security configuration.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace CreateSecurityConfigurationResponse {
+  export function isa(o: any): o is CreateSecurityConfigurationResponse {
+    return _smithy.isa(o, "CreateSecurityConfigurationResponse");
+  }
+}
+
+export interface DeleteDevEndpointRequest {
+  __type?: "DeleteDevEndpointRequest";
+  /**
+   *
+   *          <p>The name of the <code>DevEndpoint</code>.</p>
+   *
+   */
+  EndpointName: string | undefined;
+}
+
+export namespace DeleteDevEndpointRequest {
+  export function isa(o: any): o is DeleteDevEndpointRequest {
+    return _smithy.isa(o, "DeleteDevEndpointRequest");
+  }
+}
+
+export interface DeleteDevEndpointResponse extends $MetadataBearer {
+  __type?: "DeleteDevEndpointResponse";
+}
+
+export namespace DeleteDevEndpointResponse {
+  export function isa(o: any): o is DeleteDevEndpointResponse {
+    return _smithy.isa(o, "DeleteDevEndpointResponse");
+  }
+}
+
+export interface DeleteSecurityConfigurationRequest {
+  __type?: "DeleteSecurityConfigurationRequest";
+  /**
+   *
+   *          <p>The name of the security configuration to delete.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteSecurityConfigurationRequest {
+  export function isa(o: any): o is DeleteSecurityConfigurationRequest {
+    return _smithy.isa(o, "DeleteSecurityConfigurationRequest");
+  }
+}
+
+export interface DeleteSecurityConfigurationResponse extends $MetadataBearer {
+  __type?: "DeleteSecurityConfigurationResponse";
+}
+
+export namespace DeleteSecurityConfigurationResponse {
+  export function isa(o: any): o is DeleteSecurityConfigurationResponse {
+    return _smithy.isa(o, "DeleteSecurityConfigurationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A development endpoint where a developer can remotely debug extract, transform, and load
+ *       (ETL) scripts.</p>
+ *
+ */
+export interface DevEndpoint {
+  __type?: "DevEndpoint";
+  /**
+   *
+   *   	      <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
+   *          <p>Valid arguments are:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *
+   *
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
+   *
+   */
+  AvailabilityZone?: string;
+
+  /**
+   *
+   *          <p>The point in time at which this DevEndpoint was created.</p>
+   *
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   *
+   *          <p>The name of the <code>DevEndpoint</code>.</p>
+   *
+   */
+  EndpointName?: string;
+
+  /**
+   *
+   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *          <note>
+   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
+   *          </note>
+   *
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   *
+   *          <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
+   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
+   *       comma.</p>
+   *
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not currently supported.</p>
+   *          </note>
+   *
+   */
+  ExtraPythonLibsS3Path?: string;
+
+  /**
+   *
+   *          <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
+   *
+   */
+  FailureReason?: string;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
+   *
+   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>The point in time at which this <code>DevEndpoint</code> was last modified.</p>
+   *
+   */
+  LastModifiedTimestamp?: Date;
+
+  /**
+   *
+   *          <p>The status of the last update.</p>
+   *
+   */
+  LastUpdateStatus?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue Data Processing Units (DPUs) allocated to this
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  NumberOfNodes?: number;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
+   *
+   * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>A private IP address to access the <code>DevEndpoint</code> within a VPC if the
+   *         <code>DevEndpoint</code> is created within one. The <code>PrivateAddress</code> field is
+   *       present only when you create the <code>DevEndpoint</code> within your VPC.</p>
+   *
+   */
+  PrivateAddress?: string;
+
+  /**
+   *
+   *          <p>The public IP address used by this <code>DevEndpoint</code>. The
+   *         <code>PublicAddress</code> field is present only when you create a non-virtual private cloud
+   *       (VPC) <code>DevEndpoint</code>.</p>
+   *
+   */
+  PublicAddress?: string;
+
+  /**
+   *
+   *          <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
+   *       attribute is provided for backward compatibility because the recommended attribute to use is
+   *       public keys.</p>
+   *
+   */
+  PublicKey?: string;
+
+  /**
+   *
+   *          <p>A list of public keys to be used by the <code>DevEndpoints</code> for authentication.
+   *       Using this attribute is preferred over a single public key because the public keys allow you
+   *       to have a different private key per client.</p>
+   *          <note>
+   *             <p>If you previously created an endpoint with a public key, you must remove that key to be
+   *         able to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API operation
+   *         with the public key content in the <code>deletePublicKeys</code> attribute, and the list of
+   *         new keys in the <code>addPublicKeys</code> attribute.</p>
+   *          </note>
+   *
+   */
+  PublicKeys?: Array<string>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the IAM role used in this
+   *       <code>DevEndpoint</code>.</p>
+   *
+   */
+  RoleArn?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>A list of security group identifiers used in this <code>DevEndpoint</code>.</p>
+   *
+   */
+  SecurityGroupIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The current status of this <code>DevEndpoint</code>.</p>
+   *
+   */
+  Status?: string;
+
+  /**
+   *
+   *          <p>The subnet ID for this <code>DevEndpoint</code>.</p>
+   *
+   */
+  SubnetId?: string;
+
+  /**
+   *
+   *          <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
+   *
+   */
+  VpcId?: string;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
+   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
+   *
+   */
+  WorkerType?: WorkerType | string;
+
+  /**
+   *
+   *          <p>The YARN endpoint address used by this <code>DevEndpoint</code>.</p>
+   *
+   */
+  YarnEndpointAddress?: string;
+
+  /**
+   *
+   *          <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
+   *
+   */
+  ZeppelinRemoteSparkInterpreterPort?: number;
+}
+
+export namespace DevEndpoint {
+  export function isa(o: any): o is DevEndpoint {
+    return _smithy.isa(o, "DevEndpoint");
+  }
+}
+
+/**
+ *
+ *          <p>Custom libraries to be loaded into a development endpoint.</p>
+ *
+ */
+export interface DevEndpointCustomLibraries {
+  __type?: "DevEndpointCustomLibraries";
+  /**
+   *
+   *          <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *          <note>
+   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
+   *          </note>
+   *
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   *
+   *          <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
+   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
+   *       complete paths separated by a comma.</p>
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not currently supported.</p>
+   *          </note>
+   *
+   */
+  ExtraPythonLibsS3Path?: string;
+}
+
+export namespace DevEndpointCustomLibraries {
+  export function isa(o: any): o is DevEndpointCustomLibraries {
+    return _smithy.isa(o, "DevEndpointCustomLibraries");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies an encryption configuration.</p>
+ *
+ */
+export interface EncryptionConfiguration {
+  __type?: "EncryptionConfiguration";
+  /**
+   *
+   *          <p>The encryption configuration for Amazon CloudWatch.</p>
+   *
+   */
+  CloudWatchEncryption?: CloudWatchEncryption;
+
+  /**
+   *
+   *          <p>The encryption configuration for job bookmarks.</p>
+   *
+   */
+  JobBookmarksEncryption?: JobBookmarksEncryption;
+
+  /**
+   *
+   *          <p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>
+   *
+   */
+  S3Encryption?: Array<S3Encryption>;
+}
+
+export namespace EncryptionConfiguration {
+  export function isa(o: any): o is EncryptionConfiguration {
+    return _smithy.isa(o, "EncryptionConfiguration");
+  }
+}
+
+export interface GetDevEndpointRequest {
+  __type?: "GetDevEndpointRequest";
+  /**
+   *
+   *          <p>Name of the <code>DevEndpoint</code> to retrieve information for.</p>
+   *
+   */
+  EndpointName: string | undefined;
+}
+
+export namespace GetDevEndpointRequest {
+  export function isa(o: any): o is GetDevEndpointRequest {
+    return _smithy.isa(o, "GetDevEndpointRequest");
+  }
+}
+
+export interface GetDevEndpointResponse extends $MetadataBearer {
+  __type?: "GetDevEndpointResponse";
+  /**
+   *
+   *          <p>A <code>DevEndpoint</code> definition.</p>
+   *
+   */
+  DevEndpoint?: DevEndpoint;
+}
+
+export namespace GetDevEndpointResponse {
+  export function isa(o: any): o is GetDevEndpointResponse {
+    return _smithy.isa(o, "GetDevEndpointResponse");
+  }
+}
+
+export interface GetDevEndpointsRequest {
+  __type?: "GetDevEndpointsRequest";
+  /**
+   *
+   *          <p>The maximum size of information to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetDevEndpointsRequest {
+  export function isa(o: any): o is GetDevEndpointsRequest {
+    return _smithy.isa(o, "GetDevEndpointsRequest");
+  }
+}
+
+export interface GetDevEndpointsResponse extends $MetadataBearer {
+  __type?: "GetDevEndpointsResponse";
+  /**
+   *
+   *          <p>A list of <code>DevEndpoint</code> definitions.</p>
+   *
+   */
+  DevEndpoints?: Array<DevEndpoint>;
+
+  /**
+   *
+   *          <p>A continuation token, if not all <code>DevEndpoint</code> definitions have yet been
+   *       returned.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetDevEndpointsResponse {
+  export function isa(o: any): o is GetDevEndpointsResponse {
+    return _smithy.isa(o, "GetDevEndpointsResponse");
+  }
+}
+
+export interface GetJobBookmarkRequest {
+  __type?: "GetJobBookmarkRequest";
+  /**
+   *
+   *          <p>The name of the job in question.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>The unique run identifier associated with this job run.</p>
+   *
+   */
+  RunId?: string;
+}
+
+export namespace GetJobBookmarkRequest {
+  export function isa(o: any): o is GetJobBookmarkRequest {
+    return _smithy.isa(o, "GetJobBookmarkRequest");
+  }
+}
+
+export interface GetJobBookmarkResponse extends $MetadataBearer {
+  __type?: "GetJobBookmarkResponse";
+  /**
+   *
+   *          <p>A structure that defines a point that a job can resume processing.</p>
+   *
+   */
+  JobBookmarkEntry?: JobBookmarkEntry;
+}
+
+export namespace GetJobBookmarkResponse {
+  export function isa(o: any): o is GetJobBookmarkResponse {
+    return _smithy.isa(o, "GetJobBookmarkResponse");
+  }
+}
+
+export interface GetSecurityConfigurationRequest {
+  __type?: "GetSecurityConfigurationRequest";
+  /**
+   *
+   *          <p>The name of the security configuration to retrieve.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace GetSecurityConfigurationRequest {
+  export function isa(o: any): o is GetSecurityConfigurationRequest {
+    return _smithy.isa(o, "GetSecurityConfigurationRequest");
+  }
+}
+
+export interface GetSecurityConfigurationResponse extends $MetadataBearer {
+  __type?: "GetSecurityConfigurationResponse";
+  /**
+   *
+   *          <p>The requested security configuration.</p>
+   *
+   */
+  SecurityConfiguration?: SecurityConfiguration;
+}
+
+export namespace GetSecurityConfigurationResponse {
+  export function isa(o: any): o is GetSecurityConfigurationResponse {
+    return _smithy.isa(o, "GetSecurityConfigurationResponse");
+  }
+}
+
+export interface GetSecurityConfigurationsRequest {
+  __type?: "GetSecurityConfigurationsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetSecurityConfigurationsRequest {
+  export function isa(o: any): o is GetSecurityConfigurationsRequest {
+    return _smithy.isa(o, "GetSecurityConfigurationsRequest");
+  }
+}
+
+export interface GetSecurityConfigurationsResponse extends $MetadataBearer {
+  __type?: "GetSecurityConfigurationsResponse";
+  /**
+   *
+   *          <p>A continuation token, if there are more security
+   *       configurations to return.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of security configurations.</p>
+   *
+   */
+  SecurityConfigurations?: Array<SecurityConfiguration>;
+}
+
+export namespace GetSecurityConfigurationsResponse {
+  export function isa(o: any): o is GetSecurityConfigurationsResponse {
+    return _smithy.isa(o, "GetSecurityConfigurationsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Defines a point that a job can resume processing.</p>
+ *
+ */
+export interface JobBookmarkEntry {
+  __type?: "JobBookmarkEntry";
+  /**
+   *
+   *          <p>The attempt ID number.</p>
+   *
+   */
+  Attempt?: number;
+
+  /**
+   *
+   *          <p>The bookmark itself.</p>
+   *
+   */
+  JobBookmark?: string;
+
+  /**
+   *
+   *          <p>The name of the job in question.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The unique run identifier associated with the previous job run.</p>
+   *
+   */
+  PreviousRunId?: string;
+
+  /**
+   *
+   *          <p>The run ID number.</p>
+   *
+   */
+  Run?: number;
+
+  /**
+   *
+   *          <p>The run ID number.</p>
+   *
+   */
+  RunId?: string;
+
+  /**
+   *
+   *          <p>The version of the job.</p>
+   *
+   */
+  Version?: number;
+}
+
+export namespace JobBookmarkEntry {
+  export function isa(o: any): o is JobBookmarkEntry {
+    return _smithy.isa(o, "JobBookmarkEntry");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies how job bookmark data should be encrypted.</p>
+ *
+ */
+export interface JobBookmarksEncryption {
+  __type?: "JobBookmarksEncryption";
+  /**
+   *
+   *          <p>The encryption mode to use for job bookmarks data.</p>
+   *
+   */
+  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   *
+   */
+  KmsKeyArn?: string;
+}
+
+export namespace JobBookmarksEncryption {
+  export function isa(o: any): o is JobBookmarksEncryption {
+    return _smithy.isa(o, "JobBookmarksEncryption");
+  }
+}
+
+export interface ListDevEndpointsRequest {
+  __type?: "ListDevEndpointsRequest";
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies to return only these tagged resources.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListDevEndpointsRequest {
+  export function isa(o: any): o is ListDevEndpointsRequest {
+    return _smithy.isa(o, "ListDevEndpointsRequest");
+  }
+}
+
+export interface ListDevEndpointsResponse extends $MetadataBearer {
+  __type?: "ListDevEndpointsResponse";
+  /**
+   *
+   *          <p>The names of all the <code>DevEndpoint</code>s in the account, or the
+   *         <code>DevEndpoint</code>s with the specified tags.</p>
+   *
+   */
+  DevEndpointNames?: Array<string>;
+
+  /**
+   *
+   *          <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListDevEndpointsResponse {
+  export function isa(o: any): o is ListDevEndpointsResponse {
+    return _smithy.isa(o, "ListDevEndpointsResponse");
+  }
+}
+
+export interface ResetJobBookmarkRequest {
+  __type?: "ResetJobBookmarkRequest";
+  /**
+   *
+   *          <p>The name of the job in question.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>The unique run identifier associated with this job run.</p>
+   *
+   */
+  RunId?: string;
+}
+
+export namespace ResetJobBookmarkRequest {
+  export function isa(o: any): o is ResetJobBookmarkRequest {
+    return _smithy.isa(o, "ResetJobBookmarkRequest");
+  }
+}
+
+export interface ResetJobBookmarkResponse extends $MetadataBearer {
+  __type?: "ResetJobBookmarkResponse";
+  /**
+   *
+   *          <p>The reset bookmark entry.</p>
+   *
+   */
+  JobBookmarkEntry?: JobBookmarkEntry;
+}
+
+export namespace ResetJobBookmarkResponse {
+  export function isa(o: any): o is ResetJobBookmarkResponse {
+    return _smithy.isa(o, "ResetJobBookmarkResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.</p>
+ *
+ */
+export interface S3Encryption {
+  __type?: "S3Encryption";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
+   *
+   */
+  KmsKeyArn?: string;
+
+  /**
+   *
+   *          <p>The encryption mode to use for Amazon S3 data.</p>
+   *
+   */
+  S3EncryptionMode?: S3EncryptionMode | string;
+}
+
+export namespace S3Encryption {
+  export function isa(o: any): o is S3Encryption {
+    return _smithy.isa(o, "S3Encryption");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a security configuration.</p>
+ *
+ */
+export interface SecurityConfiguration {
+  __type?: "SecurityConfiguration";
+  /**
+   *
+   *          <p>The time at which this security configuration was created.</p>
+   *
+   */
+  CreatedTimeStamp?: Date;
+
+  /**
+   *
+   *          <p>The encryption configuration associated with this security configuration.</p>
+   *
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   *
+   *          <p>The name of the security configuration.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace SecurityConfiguration {
+  export function isa(o: any): o is SecurityConfiguration {
+    return _smithy.isa(o, "SecurityConfiguration");
+  }
+}
+
+export interface UpdateDevEndpointRequest {
+  __type?: "UpdateDevEndpointRequest";
+  /**
+   *
+   *   	      <p>The map of arguments to add the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   *
+   * 	        <p>Valid arguments are:</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *
+   *
+   */
+  AddArguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
+   *
+   */
+  AddPublicKeys?: Array<string>;
+
+  /**
+   *
+   *          <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
+   *
+   */
+  CustomLibraries?: DevEndpointCustomLibraries;
+
+  /**
+   *
+   *   	      <p>The list of argument keys to be deleted from the map of arguments used to configure the
+   *         <code>DevEndpoint</code>.</p>
+   *
+   */
+  DeleteArguments?: Array<string>;
+
+  /**
+   *
+   *          <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
+   *
+   */
+  DeletePublicKeys?: Array<string>;
+
+  /**
+   *
+   *          <p>The name of the <code>DevEndpoint</code> to be updated.</p>
+   *
+   */
+  EndpointName: string | undefined;
+
+  /**
+   *
+   *          <p>The public key for the <code>DevEndpoint</code> to use.</p>
+   *
+   */
+  PublicKey?: string;
+
+  /**
+   *
+   *          <p>
+   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
+   *       needs to be updated, or <code>False</code> if otherwise.</p>
+   *
+   */
+  UpdateEtlLibraries?: boolean;
+}
+
+export namespace UpdateDevEndpointRequest {
+  export function isa(o: any): o is UpdateDevEndpointRequest {
+    return _smithy.isa(o, "UpdateDevEndpointRequest");
+  }
+}
+
+export interface UpdateDevEndpointResponse extends $MetadataBearer {
+  __type?: "UpdateDevEndpointResponse";
+}
+
+export namespace UpdateDevEndpointResponse {
+  export function isa(o: any): o is UpdateDevEndpointResponse {
+    return _smithy.isa(o, "UpdateDevEndpointResponse");
+  }
+}
+
+export interface CancelMLTaskRunRequest {
+  __type?: "CancelMLTaskRunRequest";
+  /**
+   *
+   *          <p>A unique identifier for the task run.</p>
+   *
+   */
+  TaskRunId: string | undefined;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace CancelMLTaskRunRequest {
+  export function isa(o: any): o is CancelMLTaskRunRequest {
+    return _smithy.isa(o, "CancelMLTaskRunRequest");
+  }
+}
+
+export interface CancelMLTaskRunResponse extends $MetadataBearer {
+  __type?: "CancelMLTaskRunResponse";
+  /**
+   *
+   *          <p>The status for this run.</p>
+   *
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   *
+   *          <p>The unique identifier for the task run.</p>
+   *
+   */
+  TaskRunId?: string;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId?: string;
+}
+
+export namespace CancelMLTaskRunResponse {
+  export function isa(o: any): o is CancelMLTaskRunResponse {
+    return _smithy.isa(o, "CancelMLTaskRunResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+ *
+ * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+ *
+ */
+export interface ConfusionMatrix {
+  __type?: "ConfusionMatrix";
+  /**
+   *
+   *          <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
+   *
+   */
+  NumFalseNegatives?: number;
+
+  /**
+   *
+   *          <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
+   *       in the confusion matrix for your transform.</p>
+   *
+   */
+  NumFalsePositives?: number;
+
+  /**
+   *
+   *          <p>The number of nonmatches in the data that the transform correctly rejected, in the
+   *       confusion matrix for your transform.</p>
+   *
+   */
+  NumTrueNegatives?: number;
+
+  /**
+   *
+   *          <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
+   *
+   */
+  NumTruePositives?: number;
+}
+
+export namespace ConfusionMatrix {
+  export function isa(o: any): o is ConfusionMatrix {
+    return _smithy.isa(o, "ConfusionMatrix");
+  }
+}
+
+export interface CreateMLTransformRequest {
+  __type?: "CreateMLTransformRequest";
+  /**
+   *
+   *          <p>A description of the machine learning transform that is being defined. The default is an
+   *       empty string.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>A list of AWS Glue table definitions used by the transform.</p>
+   *
+   */
+  InputRecordTables: Array<GlueTable> | undefined;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   * 			      <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>The unique name that you give the transform when you create it.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   *
+   * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The algorithmic parameters that are specific to the transform type used. Conditionally
+   *       dependent on the transform type.</p>
+   *
+   */
+  Parameters: TransformParameters | undefined;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  Role: string | undefined;
+
+  /**
+   *
+   *          <p>The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace CreateMLTransformRequest {
+  export function isa(o: any): o is CreateMLTransformRequest {
+    return _smithy.isa(o, "CreateMLTransformRequest");
+  }
+}
+
+export interface CreateMLTransformResponse extends $MetadataBearer {
+  __type?: "CreateMLTransformResponse";
+  /**
+   *
+   *          <p>A unique identifier that is generated for the transform.</p>
+   *
+   */
+  TransformId?: string;
+}
+
+export namespace CreateMLTransformResponse {
+  export function isa(o: any): o is CreateMLTransformResponse {
+    return _smithy.isa(o, "CreateMLTransformResponse");
+  }
+}
+
+export interface DeleteMLTransformRequest {
+  __type?: "DeleteMLTransformRequest";
+  /**
+   *
+   *          <p>The unique identifier of the transform to delete.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace DeleteMLTransformRequest {
+  export function isa(o: any): o is DeleteMLTransformRequest {
+    return _smithy.isa(o, "DeleteMLTransformRequest");
+  }
+}
+
+export interface DeleteMLTransformResponse extends $MetadataBearer {
+  __type?: "DeleteMLTransformResponse";
+  /**
+   *
+   *          <p>The unique identifier of the transform that was deleted.</p>
+   *
+   */
+  TransformId?: string;
+}
+
+export namespace DeleteMLTransformResponse {
+  export function isa(o: any): o is DeleteMLTransformResponse {
+    return _smithy.isa(o, "DeleteMLTransformResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+ *
+ */
+export interface EvaluationMetrics {
+  __type?: "EvaluationMetrics";
+  /**
+   *
+   *          <p>The evaluation metrics for the find matches algorithm.</p>
+   *
+   */
+  FindMatchesMetrics?: FindMatchesMetrics;
+
+  /**
+   *
+   *          <p>The type of machine learning transform.</p>
+   *
+   */
+  TransformType: TransformType | string | undefined;
+}
+
+export namespace EvaluationMetrics {
+  export function isa(o: any): o is EvaluationMetrics {
+    return _smithy.isa(o, "EvaluationMetrics");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies configuration properties for an exporting labels task run.</p>
+ *
+ */
+export interface ExportLabelsTaskRunProperties {
+  __type?: "ExportLabelsTaskRunProperties";
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you will export the
+   *       labels.</p>
+   *
+   */
+  OutputS3Path?: string;
+}
+
+export namespace ExportLabelsTaskRunProperties {
+  export function isa(o: any): o is ExportLabelsTaskRunProperties {
+    return _smithy.isa(o, "ExportLabelsTaskRunProperties");
+  }
+}
+
+/**
+ *
+ *          <p>The evaluation metrics for the find matches algorithm. The quality of your machine
+ *       learning transform is measured by getting your transform to predict some matches and comparing
+ *       the results to known matches from the same dataset. The quality metrics are based on a subset
+ *       of your data, so they are not precise.</p>
+ *
+ */
+export interface FindMatchesMetrics {
+  __type?: "FindMatchesMetrics";
+  /**
+   *
+   *          <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
+   *       quality of the transform, that is independent of the choice made for precision vs. recall.
+   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
+   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   *
+   */
+  AreaUnderPRCurve?: number;
+
+  /**
+   *
+   *          <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+   *
+   */
+  ConfusionMatrix?: ConfusionMatrix;
+
+  /**
+   *
+   *          <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
+   *
+   */
+  F1?: number;
+
+  /**
+   *
+   *          <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   *
+   */
+  Precision?: number;
+
+  /**
+   *
+   *          <p>The recall metric indicates that for an actual match, how often your transform predicts
+   *       the match. Specifically, it measures how well the transform finds true positives from the
+   *       total records in the source data.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   *
+   */
+  Recall?: number;
+}
+
+export namespace FindMatchesMetrics {
+  export function isa(o: any): o is FindMatchesMetrics {
+    return _smithy.isa(o, "FindMatchesMetrics");
+  }
+}
+
+/**
+ *
+ *          <p>The parameters to configure the find matches transform.</p>
+ *
+ */
+export interface FindMatchesParameters {
+  __type?: "FindMatchesParameters";
+  /**
+   *
+   *          <p>The value that is selected when tuning your transform for a balance between accuracy and
+   *       cost. A value of 0.5 means that the system balances accuracy and cost concerns. A value of 1.0
+   *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
+   *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
+   *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
+   *
+   * 	        <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
+   *
+   * 	        <p>Cost measures how many compute resources, and thus money, are consumed to run the
+   *       transform.</p>
+   *
+   */
+  AccuracyCostTradeoff?: number;
+
+  /**
+   *
+   *          <p>The value to switch on or off to force the output to match the provided labels from users. If the value is <code>True</code>, the <code>find matches</code> transform forces the output to match the provided labels. The results override the normal conflation results. If the value is <code>False</code>, the <code>find matches</code> transform does not ensure all the labels provided are respected, and the results rely on the trained model.</p>
+   *          <p>Note that setting this value to true may increase the conflation execution time.</p>
+   *
+   */
+  EnforceProvidedLabels?: boolean;
+
+  /**
+   *
+   *          <p>The value selected when tuning your transform for a balance between precision and recall.
+   *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
+   *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
+   *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
+   *
+   * 	        <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
+   *
+   * 	        <p>The recall metric indicates that for an actual match, how often your model predicts the
+   *       match.</p>
+   *
+   */
+  PrecisionRecallTradeoff?: number;
+
+  /**
+   *
+   *          <p>The name of a column that uniquely identifies rows in the source table. Used to help identify matching records.</p>
+   *
+   */
+  PrimaryKeyColumnName?: string;
+}
+
+export namespace FindMatchesParameters {
+  export function isa(o: any): o is FindMatchesParameters {
+    return _smithy.isa(o, "FindMatchesParameters");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies configuration properties for a Find Matches task run.</p>
+ *
+ */
+export interface FindMatchesTaskRunProperties {
+  __type?: "FindMatchesTaskRunProperties";
+  /**
+   *
+   *          <p>The job ID for the Find Matches task run.</p>
+   *
+   */
+  JobId?: string;
+
+  /**
+   *
+   *          <p>The name assigned to the job for the Find Matches task run.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The job run ID for the Find Matches task run.</p>
+   *
+   */
+  JobRunId?: string;
+}
+
+export namespace FindMatchesTaskRunProperties {
+  export function isa(o: any): o is FindMatchesTaskRunProperties {
+    return _smithy.isa(o, "FindMatchesTaskRunProperties");
+  }
+}
+
+export interface GetMLTaskRunRequest {
+  __type?: "GetMLTaskRunRequest";
+  /**
+   *
+   *          <p>The unique identifier of the task run.</p>
+   *
+   */
+  TaskRunId: string | undefined;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace GetMLTaskRunRequest {
+  export function isa(o: any): o is GetMLTaskRunRequest {
+    return _smithy.isa(o, "GetMLTaskRunRequest");
+  }
+}
+
+export interface GetMLTaskRunResponse extends $MetadataBearer {
+  __type?: "GetMLTaskRunResponse";
+  /**
+   *
+   *          <p>The date and time when this task run was completed.</p>
+   *
+   */
+  CompletedOn?: Date;
+
+  /**
+   *
+   *          <p>The error strings that are associated with the task run.</p>
+   *
+   */
+  ErrorString?: string;
+
+  /**
+   *
+   *          <p>The amount of time (in seconds) that the task run consumed resources.</p>
+   *
+   */
+  ExecutionTime?: number;
+
+  /**
+   *
+   *          <p>The date and time when this task run was last modified.</p>
+   *
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   *
+   *          <p>The names of the log groups that are associated with the task run.</p>
+   *
+   */
+  LogGroupName?: string;
+
+  /**
+   *
+   *          <p>The list of properties that are associated with the task run.</p>
+   *
+   */
+  Properties?: TaskRunProperties;
+
+  /**
+   *
+   *          <p>The date and time when this task run started.</p>
+   *
+   */
+  StartedOn?: Date;
+
+  /**
+   *
+   *          <p>The status for this task run.</p>
+   *
+   */
+  Status?: TaskStatusType | string;
+
+  /**
+   *
+   *          <p>The unique run identifier associated with this run.</p>
+   *
+   */
+  TaskRunId?: string;
+
+  /**
+   *
+   *          <p>The unique identifier of the task run.</p>
+   *
+   */
+  TransformId?: string;
+}
+
+export namespace GetMLTaskRunResponse {
+  export function isa(o: any): o is GetMLTaskRunResponse {
+    return _smithy.isa(o, "GetMLTaskRunResponse");
+  }
+}
+
+export interface GetMLTaskRunsRequest {
+  __type?: "GetMLTaskRunsRequest";
+  /**
+   *
+   *          <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
+   *
+   */
+  Filter?: TaskRunFilterCriteria;
+
+  /**
+   *
+   *          <p>The maximum number of results to return. </p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A token for pagination of the results. The default is empty.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
+   *
+   */
+  Sort?: TaskRunSortCriteria;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace GetMLTaskRunsRequest {
+  export function isa(o: any): o is GetMLTaskRunsRequest {
+    return _smithy.isa(o, "GetMLTaskRunsRequest");
+  }
+}
+
+export interface GetMLTaskRunsResponse extends $MetadataBearer {
+  __type?: "GetMLTaskRunsResponse";
+  /**
+   *
+   *          <p>A pagination token, if more results are available.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of task runs that are associated with the transform.</p>
+   *
+   */
+  TaskRuns?: Array<TaskRun>;
+}
+
+export namespace GetMLTaskRunsResponse {
+  export function isa(o: any): o is GetMLTaskRunsResponse {
+    return _smithy.isa(o, "GetMLTaskRunsResponse");
+  }
+}
+
+export interface GetMLTransformRequest {
+  __type?: "GetMLTransformRequest";
+  /**
+   *
+   *          <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace GetMLTransformRequest {
+  export function isa(o: any): o is GetMLTransformRequest {
+    return _smithy.isa(o, "GetMLTransformRequest");
+  }
+}
+
+export interface GetMLTransformResponse extends $MetadataBearer {
+  __type?: "GetMLTransformResponse";
+  /**
+   *
+   *          <p>The date and time when the transform was created.</p>
+   *
+   */
+  CreatedOn?: Date;
+
+  /**
+   *
+   *          <p>A description of the transform.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The latest evaluation metrics.</p>
+   *
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
+   *
+   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>A list of AWS Glue table definitions used by the transform.</p>
+   *
+   */
+  InputRecordTables?: Array<GlueTable>;
+
+  /**
+   *
+   *          <p>The number of labels available for this transform.</p>
+   *
+   */
+  LabelCount?: number;
+
+  /**
+   *
+   *          <p>The date and time when the transform was last modified.</p>
+   *
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>The unique name given to the transform when it was created.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The configuration parameters that are specific to the algorithm used.</p>
+   *
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>The <code>Map<Column, Type></code> object that represents the schema that this
+   *       transform accepts. Has an upper bound of 100 columns.</p>
+   *
+   */
+  Schema?: Array<SchemaColumn>;
+
+  /**
+   *
+   *          <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   *
+   */
+  Status?: TransformStatusType | string;
+
+  /**
+   *
+   *          <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   *
+   */
+  TransformId?: string;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace GetMLTransformResponse {
+  export function isa(o: any): o is GetMLTransformResponse {
+    return _smithy.isa(o, "GetMLTransformResponse");
+  }
+}
+
+export interface GetMLTransformsRequest {
+  __type?: "GetMLTransformsRequest";
+  /**
+   *
+   *          <p>The filter transformation criteria.</p>
+   *
+   */
+  Filter?: TransformFilterCriteria;
+
+  /**
+   *
+   *          <p>The maximum number of results to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A paginated token to offset the results.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>The sorting criteria.</p>
+   *
+   */
+  Sort?: TransformSortCriteria;
+}
+
+export namespace GetMLTransformsRequest {
+  export function isa(o: any): o is GetMLTransformsRequest {
+    return _smithy.isa(o, "GetMLTransformsRequest");
+  }
+}
+
+export interface GetMLTransformsResponse extends $MetadataBearer {
+  __type?: "GetMLTransformsResponse";
+  /**
+   *
+   *          <p>A pagination token, if more results are available.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of machine learning transforms.</p>
+   *
+   */
+  Transforms: Array<MLTransform> | undefined;
+}
+
+export namespace GetMLTransformsResponse {
+  export function isa(o: any): o is GetMLTransformsResponse {
+    return _smithy.isa(o, "GetMLTransformsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The database and table in the AWS Glue Data Catalog that is used for input or output data.</p>
+ *
+ */
+export interface GlueTable {
+  __type?: "GlueTable";
+  /**
+   *
+   *          <p>A unique identifier for the AWS Glue Data Catalog.</p>
+   *
+   */
+  CatalogId?: string;
+
+  /**
+   *
+   *          <p>The name of the connection to the AWS Glue Data Catalog.</p>
+   *
+   */
+  ConnectionName?: string;
+
+  /**
+   *
+   *          <p>A database name in the AWS Glue Data Catalog.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>A table name in the AWS Glue Data Catalog.</p>
+   *
+   */
+  TableName: string | undefined;
+}
+
+export namespace GlueTable {
+  export function isa(o: any): o is GlueTable {
+    return _smithy.isa(o, "GlueTable");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies configuration properties for an importing labels task run.</p>
+ *
+ */
+export interface ImportLabelsTaskRunProperties {
+  __type?: "ImportLabelsTaskRunProperties";
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service (Amazon S3) path from where you will import the
+   *       labels.</p>
+   *
+   */
+  InputS3Path?: string;
+
+  /**
+   *
+   *          <p>Indicates whether to overwrite your existing labels.</p>
+   *
+   */
+  Replace?: boolean;
+}
+
+export namespace ImportLabelsTaskRunProperties {
+  export function isa(o: any): o is ImportLabelsTaskRunProperties {
+    return _smithy.isa(o, "ImportLabelsTaskRunProperties");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies configuration properties for a labeling set generation task run.</p>
+ *
+ */
+export interface LabelingSetGenerationTaskRunProperties {
+  __type?: "LabelingSetGenerationTaskRunProperties";
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you will generate the labeling
+   *       set.</p>
+   *
+   */
+  OutputS3Path?: string;
+}
+
+export namespace LabelingSetGenerationTaskRunProperties {
+  export function isa(o: any): o is LabelingSetGenerationTaskRunProperties {
+    return _smithy.isa(o, "LabelingSetGenerationTaskRunProperties");
+  }
+}
+
+/**
+ *
+ *          <p>A structure for a machine learning transform.</p>
+ *
+ */
+export interface MLTransform {
+  __type?: "MLTransform";
+  /**
+   *
+   *          <p>A timestamp. The time and date that this machine learning transform was created.</p>
+   *
+   */
+  CreatedOn?: Date;
+
+  /**
+   *
+   *          <p>A user-defined, long-form description text for the machine learning transform.
+   *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+   *
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
+   *
+   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>A list of AWS Glue table definitions used by the transform.</p>
+   *
+   */
+  InputRecordTables?: Array<GlueTable>;
+
+  /**
+   *
+   *          <p>A count identifier for the labeling files generated by AWS Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
+   *
+   */
+  LabelCount?: number;
+
+  /**
+   *
+   *          <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
+   *
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   *
+   * 	        <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="http://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   * 		       <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
+   *       learning transform fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
+   *       and can be changed at any time.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
+   *
+   * 	        <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
+   *       behavior of the machine learning transform by specifying what data it learns from and your
+   *       preference on various tradeoffs (such as precious vs. recall, or accuracy vs. cost).</p>
+   *
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>A map of key-value pairs representing the columns and data types that this transform can
+   *       run against. Has an upper bound of 100 columns.</p>
+   *
+   */
+  Schema?: Array<SchemaColumn>;
+
+  /**
+   *
+   *          <p>The current status of the machine learning transform.</p>
+   *
+   */
+  Status?: TransformStatusType | string;
+
+  /**
+   *
+   *          <p>The timeout in minutes of the machine learning transform.</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The unique transform ID that is generated for the machine learning transform. The ID is
+   *       guaranteed to be unique and does not change.</p>
+   *
+   */
+  TransformId?: string;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 	        <p>
+   *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code> can be set.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace MLTransform {
+  export function isa(o: any): o is MLTransform {
+    return _smithy.isa(o, "MLTransform");
+  }
+}
+
+/**
+ *
+ *          <p>The machine learning transform is not ready to run.</p>
+ *
+ */
+export interface MLTransformNotReadyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "MLTransformNotReadyException";
+  name: "MLTransformNotReadyException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace MLTransformNotReadyException {
+  export function isa(o: any): o is MLTransformNotReadyException {
+    return _smithy.isa(o, "MLTransformNotReadyException");
+  }
+}
+
+/**
+ *
+ *          <p>A key-value pair representing a column and data type that this transform can
+ *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
+ *
+ */
+export interface SchemaColumn {
+  __type?: "SchemaColumn";
+  /**
+   *
+   *          <p>The type of data in the column.</p>
+   *
+   */
+  DataType?: string;
+
+  /**
+   *
+   *          <p>The name of the column.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace SchemaColumn {
+  export function isa(o: any): o is SchemaColumn {
+    return _smithy.isa(o, "SchemaColumn");
+  }
+}
+
+export enum SortDirectionType {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
+}
+
+export interface StartExportLabelsTaskRunRequest {
+  __type?: "StartExportLabelsTaskRunRequest";
+  /**
+   *
+   *          <p>The Amazon S3 path where you export the labels.</p>
+   *
+   */
+  OutputS3Path: string | undefined;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace StartExportLabelsTaskRunRequest {
+  export function isa(o: any): o is StartExportLabelsTaskRunRequest {
+    return _smithy.isa(o, "StartExportLabelsTaskRunRequest");
+  }
+}
+
+export interface StartExportLabelsTaskRunResponse extends $MetadataBearer {
+  __type?: "StartExportLabelsTaskRunResponse";
+  /**
+   *
+   *          <p>The unique identifier for the task run.</p>
+   *
+   */
+  TaskRunId?: string;
+}
+
+export namespace StartExportLabelsTaskRunResponse {
+  export function isa(o: any): o is StartExportLabelsTaskRunResponse {
+    return _smithy.isa(o, "StartExportLabelsTaskRunResponse");
+  }
+}
+
+export interface StartImportLabelsTaskRunRequest {
+  __type?: "StartImportLabelsTaskRunRequest";
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service (Amazon S3) path from where you import the
+   *       labels.</p>
+   *
+   */
+  InputS3Path: string | undefined;
+
+  /**
+   *
+   *          <p>Indicates whether to overwrite your existing labels.</p>
+   *
+   */
+  ReplaceAllLabels?: boolean;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace StartImportLabelsTaskRunRequest {
+  export function isa(o: any): o is StartImportLabelsTaskRunRequest {
+    return _smithy.isa(o, "StartImportLabelsTaskRunRequest");
+  }
+}
+
+export interface StartImportLabelsTaskRunResponse extends $MetadataBearer {
+  __type?: "StartImportLabelsTaskRunResponse";
+  /**
+   *
+   *          <p>The unique identifier for the task run.</p>
+   *
+   */
+  TaskRunId?: string;
+}
+
+export namespace StartImportLabelsTaskRunResponse {
+  export function isa(o: any): o is StartImportLabelsTaskRunResponse {
+    return _smithy.isa(o, "StartImportLabelsTaskRunResponse");
+  }
+}
+
+export interface StartMLEvaluationTaskRunRequest {
+  __type?: "StartMLEvaluationTaskRunRequest";
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace StartMLEvaluationTaskRunRequest {
+  export function isa(o: any): o is StartMLEvaluationTaskRunRequest {
+    return _smithy.isa(o, "StartMLEvaluationTaskRunRequest");
+  }
+}
+
+export interface StartMLEvaluationTaskRunResponse extends $MetadataBearer {
+  __type?: "StartMLEvaluationTaskRunResponse";
+  /**
+   *
+   *          <p>The unique identifier associated with this run.</p>
+   *
+   */
+  TaskRunId?: string;
+}
+
+export namespace StartMLEvaluationTaskRunResponse {
+  export function isa(o: any): o is StartMLEvaluationTaskRunResponse {
+    return _smithy.isa(o, "StartMLEvaluationTaskRunResponse");
+  }
+}
+
+export interface StartMLLabelingSetGenerationTaskRunRequest {
+  __type?: "StartMLLabelingSetGenerationTaskRunRequest";
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling
+   *       set.</p>
+   *
+   */
+  OutputS3Path: string | undefined;
+
+  /**
+   *
+   *          <p>The unique identifier of the machine learning transform.</p>
+   *
+   */
+  TransformId: string | undefined;
+}
+
+export namespace StartMLLabelingSetGenerationTaskRunRequest {
+  export function isa(o: any): o is StartMLLabelingSetGenerationTaskRunRequest {
+    return _smithy.isa(o, "StartMLLabelingSetGenerationTaskRunRequest");
+  }
+}
+
+export interface StartMLLabelingSetGenerationTaskRunResponse
+  extends $MetadataBearer {
+  __type?: "StartMLLabelingSetGenerationTaskRunResponse";
+  /**
+   *
+   *          <p>The unique run identifier that is associated with this task run.</p>
+   *
+   */
+  TaskRunId?: string;
+}
+
+export namespace StartMLLabelingSetGenerationTaskRunResponse {
+  export function isa(
+    o: any
+  ): o is StartMLLabelingSetGenerationTaskRunResponse {
+    return _smithy.isa(o, "StartMLLabelingSetGenerationTaskRunResponse");
   }
 }
 
@@ -11675,6 +7311,12 @@ export namespace TaskRunProperties {
   }
 }
 
+export enum TaskRunSortColumnType {
+  STARTED = "STARTED",
+  STATUS = "STATUS",
+  TASK_RUN_TYPE = "TASK_RUN_TYPE"
+}
+
 /**
  *
  *          <p>The sorting criteria that are used to sort the list of task runs for the machine learning
@@ -11704,6 +7346,24 @@ export namespace TaskRunSortCriteria {
   export function isa(o: any): o is TaskRunSortCriteria {
     return _smithy.isa(o, "TaskRunSortCriteria");
   }
+}
+
+export enum TaskStatusType {
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUCCEEDED = "SUCCEEDED",
+  TIMEOUT = "TIMEOUT"
+}
+
+export enum TaskType {
+  EVALUATION = "EVALUATION",
+  EXPORT_LABELS = "EXPORT_LABELS",
+  FIND_MATCHES = "FIND_MATCHES",
+  IMPORT_LABELS = "IMPORT_LABELS",
+  LABELING_SET_GENERATION = "LABELING_SET_GENERATION"
 }
 
 /**
@@ -11817,6 +7477,14 @@ export namespace TransformParameters {
   }
 }
 
+export enum TransformSortColumnType {
+  CREATED = "CREATED",
+  LAST_MODIFIED = "LAST_MODIFIED",
+  NAME = "NAME",
+  STATUS = "STATUS",
+  TRANSFORM_TYPE = "TRANSFORM_TYPE"
+}
+
 /**
  *
  *          <p>The sorting criteria that are associated with the machine learning transform.</p>
@@ -11847,741 +7515,14 @@ export namespace TransformSortCriteria {
   }
 }
 
-/**
- *
- *          <p>Information about a specific trigger.</p>
- *
- */
-export interface Trigger {
-  __type?: "Trigger";
-  /**
-   *
-   *          <p>The actions initiated by this trigger.</p>
-   *
-   */
-  Actions?: Array<Action>;
-
-  /**
-   *
-   *          <p>A description of this trigger.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>Reserved for future use.</p>
-   *
-   */
-  Id?: string;
-
-  /**
-   *
-   *          <p>The name of the trigger.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The predicate of this trigger, which defines when it will fire.</p>
-   *
-   */
-  Predicate?: Predicate;
-
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
-   *       Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  Schedule?: string;
-
-  /**
-   *
-   *          <p>The current state of the trigger.</p>
-   *
-   */
-  State?: TriggerState | string;
-
-  /**
-   *
-   *          <p>The type of trigger that this is.</p>
-   *
-   */
-  Type?: TriggerType | string;
-
-  /**
-   *
-   *          <p>The name of the workflow associated with the trigger.</p>
-   *
-   */
-  WorkflowName?: string;
+export enum TransformStatusType {
+  DELETING = "DELETING",
+  NOT_READY = "NOT_READY",
+  READY = "READY"
 }
 
-export namespace Trigger {
-  export function isa(o: any): o is Trigger {
-    return _smithy.isa(o, "Trigger");
-  }
-}
-
-/**
- *
- *          <p>The details of a Trigger node present in the workflow.</p>
- *
- */
-export interface TriggerNodeDetails {
-  __type?: "TriggerNodeDetails";
-  /**
-   *
-   *          <p>The information of the trigger represented by the trigger node.</p>
-   *
-   */
-  Trigger?: Trigger;
-}
-
-export namespace TriggerNodeDetails {
-  export function isa(o: any): o is TriggerNodeDetails {
-    return _smithy.isa(o, "TriggerNodeDetails");
-  }
-}
-
-/**
- *
- *          <p>A structure used to provide information used to update a trigger. This object updates the
- *       previous trigger definition by overwriting it completely.</p>
- *
- */
-export interface TriggerUpdate {
-  __type?: "TriggerUpdate";
-  /**
-   *
-   *          <p>The actions initiated by this trigger.</p>
-   *
-   */
-  Actions?: Array<Action>;
-
-  /**
-   *
-   *          <p>A description of this trigger.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>Reserved for future use.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *          <p>The predicate of this trigger, which defines when it will fire.</p>
-   *
-   */
-  Predicate?: Predicate;
-
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
-   *       Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  Schedule?: string;
-}
-
-export namespace TriggerUpdate {
-  export function isa(o: any): o is TriggerUpdate {
-    return _smithy.isa(o, "TriggerUpdate");
-  }
-}
-
-export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the resource from which to remove the tags.</p>
-   *
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   *
-   *          <p>Tags to remove from this resource.</p>
-   *
-   */
-  TagsToRemove: Array<string> | undefined;
-}
-
-export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
-  }
-}
-
-export interface UntagResourceResponse extends $MetadataBearer {
-  __type?: "UntagResourceResponse";
-}
-
-export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
-  }
-}
-
-export interface UpdateClassifierRequest {
-  __type?: "UpdateClassifierRequest";
-  /**
-   *
-   *          <p>A <code>CsvClassifier</code> object with updated fields.</p>
-   *
-   */
-  CsvClassifier?: UpdateCsvClassifierRequest;
-
-  /**
-   *
-   *          <p>A <code>GrokClassifier</code> object with updated fields.</p>
-   *
-   */
-  GrokClassifier?: UpdateGrokClassifierRequest;
-
-  /**
-   *
-   *          <p>A <code>JsonClassifier</code> object with updated fields.</p>
-   *
-   */
-  JsonClassifier?: UpdateJsonClassifierRequest;
-
-  /**
-   *
-   *          <p>An <code>XMLClassifier</code> object with updated fields.</p>
-   *
-   */
-  XMLClassifier?: UpdateXMLClassifierRequest;
-}
-
-export namespace UpdateClassifierRequest {
-  export function isa(o: any): o is UpdateClassifierRequest {
-    return _smithy.isa(o, "UpdateClassifierRequest");
-  }
-}
-
-export interface UpdateClassifierResponse extends $MetadataBearer {
-  __type?: "UpdateClassifierResponse";
-}
-
-export namespace UpdateClassifierResponse {
-  export function isa(o: any): o is UpdateClassifierResponse {
-    return _smithy.isa(o, "UpdateClassifierResponse");
-  }
-}
-
-export interface UpdateConnectionRequest {
-  __type?: "UpdateConnectionRequest";
-  /**
-   *
-   *          <p>The ID of the Data Catalog in which the connection resides. If none is provided, the AWS
-   *       account ID is used by default.</p>
-   *
-   */
-  CatalogId?: string;
-
-  /**
-   *
-   *          <p>A <code>ConnectionInput</code> object that redefines the connection
-   *       in question.</p>
-   *
-   */
-  ConnectionInput: ConnectionInput | undefined;
-
-  /**
-   *
-   *          <p>The name of the connection definition to update.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace UpdateConnectionRequest {
-  export function isa(o: any): o is UpdateConnectionRequest {
-    return _smithy.isa(o, "UpdateConnectionRequest");
-  }
-}
-
-export interface UpdateConnectionResponse extends $MetadataBearer {
-  __type?: "UpdateConnectionResponse";
-}
-
-export namespace UpdateConnectionResponse {
-  export function isa(o: any): o is UpdateConnectionResponse {
-    return _smithy.isa(o, "UpdateConnectionResponse");
-  }
-}
-
-export interface UpdateCrawlerRequest {
-  __type?: "UpdateCrawlerRequest";
-  /**
-   *
-   *          <p>A list of custom classifiers that the user
-   *       has registered. By default, all built-in classifiers are included in a crawl,
-   *       but these custom classifiers always override the default classifiers
-   *       for a given classification.</p>
-   *
-   */
-  Classifiers?: Array<string>;
-
-  /**
-   *
-   *          <p>The crawler configuration information. This versioned JSON string allows users to specify
-   *       aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a
-   *         Crawler</a>.</p>
-   *
-   */
-  Configuration?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
-   *
-   */
-  CrawlerSecurityConfiguration?: string;
-
-  /**
-   *
-   *          <p>The AWS Glue database where results are stored, such as:
-   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
-   *
-   */
-  DatabaseName?: string;
-
-  /**
-   *
-   *          <p>A description of the new crawler.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>Name of the new crawler.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler
-   *       to access customer resources.</p>
-   *
-   */
-  Role?: string;
-
-  /**
-   *
-   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
-   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
-   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  Schedule?: string;
-
-  /**
-   *
-   *          <p>The policy for the crawler's update and deletion behavior.</p>
-   *
-   */
-  SchemaChangePolicy?: SchemaChangePolicy;
-
-  /**
-   *
-   *          <p>The table prefix used for catalog tables that are created.</p>
-   *
-   */
-  TablePrefix?: string;
-
-  /**
-   *
-   *          <p>A list of targets to crawl.</p>
-   *
-   */
-  Targets?: CrawlerTargets;
-}
-
-export namespace UpdateCrawlerRequest {
-  export function isa(o: any): o is UpdateCrawlerRequest {
-    return _smithy.isa(o, "UpdateCrawlerRequest");
-  }
-}
-
-export interface UpdateCrawlerResponse extends $MetadataBearer {
-  __type?: "UpdateCrawlerResponse";
-}
-
-export namespace UpdateCrawlerResponse {
-  export function isa(o: any): o is UpdateCrawlerResponse {
-    return _smithy.isa(o, "UpdateCrawlerResponse");
-  }
-}
-
-export interface UpdateCrawlerScheduleRequest {
-  __type?: "UpdateCrawlerScheduleRequest";
-  /**
-   *
-   *          <p>The name of the crawler whose schedule to update.</p>
-   *
-   */
-  CrawlerName: string | undefined;
-
-  /**
-   *
-   *          <p>The updated <code>cron</code> expression used to specify the schedule. For more
-   *       information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
-   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
-   *
-   */
-  Schedule?: string;
-}
-
-export namespace UpdateCrawlerScheduleRequest {
-  export function isa(o: any): o is UpdateCrawlerScheduleRequest {
-    return _smithy.isa(o, "UpdateCrawlerScheduleRequest");
-  }
-}
-
-export interface UpdateCrawlerScheduleResponse extends $MetadataBearer {
-  __type?: "UpdateCrawlerScheduleResponse";
-}
-
-export namespace UpdateCrawlerScheduleResponse {
-  export function isa(o: any): o is UpdateCrawlerScheduleResponse {
-    return _smithy.isa(o, "UpdateCrawlerScheduleResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a custom CSV classifier to be updated.</p>
- *
- */
-export interface UpdateCsvClassifierRequest {
-  __type?: "UpdateCsvClassifierRequest";
-  /**
-   *
-   *          <p>Enables the processing of files that contain only one column.</p>
-   *
-   */
-  AllowSingleColumn?: boolean;
-
-  /**
-   *
-   *          <p>Indicates whether the CSV file contains a header.</p>
-   *
-   */
-  ContainsHeader?: CsvHeaderOption | string;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
-   *
-   */
-  Delimiter?: string;
-
-  /**
-   *
-   *          <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
-   *
-   */
-  DisableValueTrimming?: boolean;
-
-  /**
-   *
-   *          <p>A list of strings representing column names.</p>
-   *
-   */
-  Header?: Array<string>;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>A custom symbol to denote what combines content into a single column value. It must be
-   *       different from the column delimiter.</p>
-   *
-   */
-  QuoteSymbol?: string;
-}
-
-export namespace UpdateCsvClassifierRequest {
-  export function isa(o: any): o is UpdateCsvClassifierRequest {
-    return _smithy.isa(o, "UpdateCsvClassifierRequest");
-  }
-}
-
-export interface UpdateDatabaseRequest {
-  __type?: "UpdateDatabaseRequest";
-  /**
-   *
-   *          <p>The ID of the Data Catalog in which the metadata database resides. If none is provided,
-   *       the AWS account ID is used by default.</p>
-   *
-   */
-  CatalogId?: string;
-
-  /**
-   *
-   *          <p>A <code>DatabaseInput</code> object specifying the new definition
-   *       of the metadata database in the catalog.</p>
-   *
-   */
-  DatabaseInput: DatabaseInput | undefined;
-
-  /**
-   *
-   *          <p>The name of the database to update in the catalog. For Hive
-   *       compatibility, this is folded to lowercase.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace UpdateDatabaseRequest {
-  export function isa(o: any): o is UpdateDatabaseRequest {
-    return _smithy.isa(o, "UpdateDatabaseRequest");
-  }
-}
-
-export interface UpdateDatabaseResponse extends $MetadataBearer {
-  __type?: "UpdateDatabaseResponse";
-}
-
-export namespace UpdateDatabaseResponse {
-  export function isa(o: any): o is UpdateDatabaseResponse {
-    return _smithy.isa(o, "UpdateDatabaseResponse");
-  }
-}
-
-export interface UpdateDevEndpointRequest {
-  __type?: "UpdateDevEndpointRequest";
-  /**
-   *
-   *   	      <p>The map of arguments to add the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"--enable-glue-datacatalog": ""</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "3"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"GLUE_PYTHON_VERSION": "2"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   *
-   *
-   */
-  AddArguments?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The list of public keys for the <code>DevEndpoint</code> to use.</p>
-   *
-   */
-  AddPublicKeys?: Array<string>;
-
-  /**
-   *
-   *          <p>Custom Python or Java libraries to be loaded in the <code>DevEndpoint</code>.</p>
-   *
-   */
-  CustomLibraries?: DevEndpointCustomLibraries;
-
-  /**
-   *
-   *   	      <p>The list of argument keys to be deleted from the map of arguments used to configure the
-   *         <code>DevEndpoint</code>.</p>
-   *
-   */
-  DeleteArguments?: Array<string>;
-
-  /**
-   *
-   *          <p>The list of public keys to be deleted from the <code>DevEndpoint</code>.</p>
-   *
-   */
-  DeletePublicKeys?: Array<string>;
-
-  /**
-   *
-   *          <p>The name of the <code>DevEndpoint</code> to be updated.</p>
-   *
-   */
-  EndpointName: string | undefined;
-
-  /**
-   *
-   *          <p>The public key for the <code>DevEndpoint</code> to use.</p>
-   *
-   */
-  PublicKey?: string;
-
-  /**
-   *
-   *          <p>
-   *             <code>True</code> if the list of custom libraries to be loaded in the development endpoint
-   *       needs to be updated, or <code>False</code> if otherwise.</p>
-   *
-   */
-  UpdateEtlLibraries?: boolean;
-}
-
-export namespace UpdateDevEndpointRequest {
-  export function isa(o: any): o is UpdateDevEndpointRequest {
-    return _smithy.isa(o, "UpdateDevEndpointRequest");
-  }
-}
-
-export interface UpdateDevEndpointResponse extends $MetadataBearer {
-  __type?: "UpdateDevEndpointResponse";
-}
-
-export namespace UpdateDevEndpointResponse {
-  export function isa(o: any): o is UpdateDevEndpointResponse {
-    return _smithy.isa(o, "UpdateDevEndpointResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a grok classifier to update when passed to
- *       <code>UpdateClassifier</code>.</p>
- *
- */
-export interface UpdateGrokClassifierRequest {
-  __type?: "UpdateGrokClassifierRequest";
-  /**
-   *
-   *          <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs,
-   *       Amazon CloudWatch Logs, and so on.</p>
-   *
-   */
-  Classification?: string;
-
-  /**
-   *
-   *          <p>Optional custom grok patterns used by this classifier.</p>
-   *
-   */
-  CustomPatterns?: string;
-
-  /**
-   *
-   *          <p>The grok pattern used by this classifier.</p>
-   *
-   */
-  GrokPattern?: string;
-
-  /**
-   *
-   *          <p>The name of the <code>GrokClassifier</code>.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace UpdateGrokClassifierRequest {
-  export function isa(o: any): o is UpdateGrokClassifierRequest {
-    return _smithy.isa(o, "UpdateGrokClassifierRequest");
-  }
-}
-
-export interface UpdateJobRequest {
-  __type?: "UpdateJobRequest";
-  /**
-   *
-   *          <p>The name of the job definition to update.</p>
-   *
-   */
-  JobName: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies the values with which to update the job definition.</p>
-   *
-   */
-  JobUpdate: JobUpdate | undefined;
-}
-
-export namespace UpdateJobRequest {
-  export function isa(o: any): o is UpdateJobRequest {
-    return _smithy.isa(o, "UpdateJobRequest");
-  }
-}
-
-export interface UpdateJobResponse extends $MetadataBearer {
-  __type?: "UpdateJobResponse";
-  /**
-   *
-   *          <p>Returns the name of the updated job definition.</p>
-   *
-   */
-  JobName?: string;
-}
-
-export namespace UpdateJobResponse {
-  export function isa(o: any): o is UpdateJobResponse {
-    return _smithy.isa(o, "UpdateJobResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies a JSON classifier to be updated.</p>
- *
- */
-export interface UpdateJsonClassifierRequest {
-  __type?: "UpdateJsonClassifierRequest";
-  /**
-   *
-   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
-   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
-   *
-   */
-  JsonPath?: string;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-}
-
-export namespace UpdateJsonClassifierRequest {
-  export function isa(o: any): o is UpdateJsonClassifierRequest {
-    return _smithy.isa(o, "UpdateJsonClassifierRequest");
-  }
+export enum TransformType {
+  FIND_MATCHES = "FIND_MATCHES"
 }
 
 export interface UpdateMLTransformRequest {
@@ -12704,111 +7645,2859 @@ export namespace UpdateMLTransformResponse {
   }
 }
 
-export interface UpdatePartitionRequest {
-  __type?: "UpdatePartitionRequest";
+/**
+ *
+ *          <p>Defines an action to be initiated by a trigger.</p>
+ *
+ */
+export interface Action {
+  __type?: "Action";
   /**
    *
-   *          <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
-   *       the AWS account ID is used by default.</p>
+   *          <p>The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
    *
    */
-  CatalogId?: string;
+  Arguments?: { [key: string]: string };
 
   /**
    *
-   *          <p>The name of the catalog database in which the table in question
-   *       resides.</p>
+   *          <p>The name of the crawler to be used with this action.</p>
    *
    */
-  DatabaseName: string | undefined;
+  CrawlerName?: string;
 
   /**
    *
-   *          <p>The new partition object to update the partition to.</p>
+   *          <p>The name of a job to be executed.</p>
    *
    */
-  PartitionInput: PartitionInput | undefined;
+  JobName?: string;
 
   /**
    *
-   *          <p>A list of the values defining the partition.</p>
+   *          <p>Specifies configuration properties of a job run notification.</p>
    *
    */
-  PartitionValueList: Array<string> | undefined;
+  NotificationProperty?: NotificationProperty;
 
   /**
    *
-   *          <p>The name of the table in which the partition to be updated is located.</p>
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *       action.</p>
    *
    */
-  TableName: string | undefined;
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
+   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
+   *
+   */
+  Timeout?: number;
 }
 
-export namespace UpdatePartitionRequest {
-  export function isa(o: any): o is UpdatePartitionRequest {
-    return _smithy.isa(o, "UpdatePartitionRequest");
+export namespace Action {
+  export function isa(o: any): o is Action {
+    return _smithy.isa(o, "Action");
   }
 }
 
-export interface UpdatePartitionResponse extends $MetadataBearer {
-  __type?: "UpdatePartitionResponse";
+export interface BatchGetJobsRequest {
+  __type?: "BatchGetJobsRequest";
+  /**
+   *
+   *          <p>A list of job names, which might be the names returned from the <code>ListJobs</code>
+   *       operation.</p>
+   *
+   */
+  JobNames: Array<string> | undefined;
 }
 
-export namespace UpdatePartitionResponse {
-  export function isa(o: any): o is UpdatePartitionResponse {
-    return _smithy.isa(o, "UpdatePartitionResponse");
+export namespace BatchGetJobsRequest {
+  export function isa(o: any): o is BatchGetJobsRequest {
+    return _smithy.isa(o, "BatchGetJobsRequest");
   }
 }
 
-export interface UpdateTableRequest {
-  __type?: "UpdateTableRequest";
+export interface BatchGetJobsResponse extends $MetadataBearer {
+  __type?: "BatchGetJobsResponse";
   /**
    *
-   *          <p>The ID of the Data Catalog where the table resides. If none is provided, the AWS account
-   *       ID is used by default.</p>
+   *          <p>A list of job definitions.</p>
    *
    */
-  CatalogId?: string;
+  Jobs?: Array<Job>;
 
   /**
    *
-   *          <p>The name of the catalog database in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
+   *          <p>A list of names of jobs not found.</p>
    *
    */
-  DatabaseName: string | undefined;
-
-  /**
-   *
-   *          <p>By default, <code>UpdateTable</code> always creates an archived version of the table
-   *       before updating it. However, if <code>skipArchive</code> is set to true,
-   *         <code>UpdateTable</code> does not create the archived version.</p>
-   *
-   */
-  SkipArchive?: boolean;
-
-  /**
-   *
-   *          <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   *
-   */
-  TableInput: TableInput | undefined;
+  JobsNotFound?: Array<string>;
 }
 
-export namespace UpdateTableRequest {
-  export function isa(o: any): o is UpdateTableRequest {
-    return _smithy.isa(o, "UpdateTableRequest");
+export namespace BatchGetJobsResponse {
+  export function isa(o: any): o is BatchGetJobsResponse {
+    return _smithy.isa(o, "BatchGetJobsResponse");
   }
 }
 
-export interface UpdateTableResponse extends $MetadataBearer {
-  __type?: "UpdateTableResponse";
+export interface BatchGetTriggersRequest {
+  __type?: "BatchGetTriggersRequest";
+  /**
+   *
+   *          <p>A list of trigger names, which may be the names returned from the <code>ListTriggers</code> operation.</p>
+   *
+   */
+  TriggerNames: Array<string> | undefined;
 }
 
-export namespace UpdateTableResponse {
-  export function isa(o: any): o is UpdateTableResponse {
-    return _smithy.isa(o, "UpdateTableResponse");
+export namespace BatchGetTriggersRequest {
+  export function isa(o: any): o is BatchGetTriggersRequest {
+    return _smithy.isa(o, "BatchGetTriggersRequest");
+  }
+}
+
+export interface BatchGetTriggersResponse extends $MetadataBearer {
+  __type?: "BatchGetTriggersResponse";
+  /**
+   *
+   *          <p>A list of trigger definitions.</p>
+   *
+   */
+  Triggers?: Array<Trigger>;
+
+  /**
+   *
+   *          <p>A list of names of triggers not found.</p>
+   *
+   */
+  TriggersNotFound?: Array<string>;
+}
+
+export namespace BatchGetTriggersResponse {
+  export function isa(o: any): o is BatchGetTriggersResponse {
+    return _smithy.isa(o, "BatchGetTriggersResponse");
+  }
+}
+
+export interface BatchGetWorkflowsRequest {
+  __type?: "BatchGetWorkflowsRequest";
+  /**
+   *
+   *          <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+   *
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   *
+   *          <p>A list of workflow names, which may be the names returned from the <code>ListWorkflows</code> operation.</p>
+   *
+   */
+  Names: Array<string> | undefined;
+}
+
+export namespace BatchGetWorkflowsRequest {
+  export function isa(o: any): o is BatchGetWorkflowsRequest {
+    return _smithy.isa(o, "BatchGetWorkflowsRequest");
+  }
+}
+
+export interface BatchGetWorkflowsResponse extends $MetadataBearer {
+  __type?: "BatchGetWorkflowsResponse";
+  /**
+   *
+   *          <p>A list of names of workflows not found.</p>
+   *
+   */
+  MissingWorkflows?: Array<string>;
+
+  /**
+   *
+   *          <p>A list of workflow resource metadata.</p>
+   *
+   */
+  Workflows?: Array<Workflow>;
+}
+
+export namespace BatchGetWorkflowsResponse {
+  export function isa(o: any): o is BatchGetWorkflowsResponse {
+    return _smithy.isa(o, "BatchGetWorkflowsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Records an error that occurred when attempting to stop a
+ *       specified job run.</p>
+ *
+ */
+export interface BatchStopJobRunError {
+  __type?: "BatchStopJobRunError";
+  /**
+   *
+   *          <p>Specifies details about the error that was encountered.</p>
+   *
+   */
+  ErrorDetail?: ErrorDetail;
+
+  /**
+   *
+   *          <p>The name of the job definition that is used in the job run in question.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The <code>JobRunId</code> of the job run in question.</p>
+   *
+   */
+  JobRunId?: string;
+}
+
+export namespace BatchStopJobRunError {
+  export function isa(o: any): o is BatchStopJobRunError {
+    return _smithy.isa(o, "BatchStopJobRunError");
+  }
+}
+
+export interface BatchStopJobRunRequest {
+  __type?: "BatchStopJobRunRequest";
+  /**
+   *
+   *          <p>The name of the job definition for which to stop job runs.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>A list of the <code>JobRunIds</code> that should be stopped for that job
+   *       definition.</p>
+   *
+   */
+  JobRunIds: Array<string> | undefined;
+}
+
+export namespace BatchStopJobRunRequest {
+  export function isa(o: any): o is BatchStopJobRunRequest {
+    return _smithy.isa(o, "BatchStopJobRunRequest");
+  }
+}
+
+export interface BatchStopJobRunResponse extends $MetadataBearer {
+  __type?: "BatchStopJobRunResponse";
+  /**
+   *
+   *          <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
+   *       including the <code>JobRunId</code> for which each error was encountered and details about the
+   *       error.</p>
+   *
+   */
+  Errors?: Array<BatchStopJobRunError>;
+
+  /**
+   *
+   *          <p>A list of the JobRuns that were successfully submitted for stopping.</p>
+   *
+   */
+  SuccessfulSubmissions?: Array<BatchStopJobRunSuccessfulSubmission>;
+}
+
+export namespace BatchStopJobRunResponse {
+  export function isa(o: any): o is BatchStopJobRunResponse {
+    return _smithy.isa(o, "BatchStopJobRunResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Records a successful request to stop a specified <code>JobRun</code>.</p>
+ *
+ */
+export interface BatchStopJobRunSuccessfulSubmission {
+  __type?: "BatchStopJobRunSuccessfulSubmission";
+  /**
+   *
+   *          <p>The name of the job definition used in the job run that was stopped.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The <code>JobRunId</code> of the job run that was stopped.</p>
+   *
+   */
+  JobRunId?: string;
+}
+
+export namespace BatchStopJobRunSuccessfulSubmission {
+  export function isa(o: any): o is BatchStopJobRunSuccessfulSubmission {
+    return _smithy.isa(o, "BatchStopJobRunSuccessfulSubmission");
+  }
+}
+
+/**
+ *
+ *          <p>Defines a condition under which a trigger fires.</p>
+ *
+ */
+export interface Condition {
+  __type?: "Condition";
+  /**
+   *
+   *          <p>The state of the crawler to which this condition applies.</p>
+   *
+   */
+  CrawlState?: CrawlState | string;
+
+  /**
+   *
+   *          <p>The name of the crawler to which this condition applies.</p>
+   *
+   */
+  CrawlerName?: string;
+
+  /**
+   *
+   *          <p>The name of the job whose <code>JobRuns</code> this condition applies to, and on which
+   *       this trigger waits.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>A logical operator.</p>
+   *
+   */
+  LogicalOperator?: LogicalOperator | string;
+
+  /**
+   *
+   *          <p>The condition state. Currently, the values supported are <code>SUCCEEDED</code>,
+   *       <code>STOPPED</code>, <code>TIMEOUT</code>, and <code>FAILED</code>.</p>
+   *
+   */
+  State?: JobRunState | string;
+}
+
+export namespace Condition {
+  export function isa(o: any): o is Condition {
+    return _smithy.isa(o, "Condition");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies the connections used by a job.</p>
+ *
+ */
+export interface ConnectionsList {
+  __type?: "ConnectionsList";
+  /**
+   *
+   *          <p>A list of connections used by the job.</p>
+   *
+   */
+  Connections?: Array<string>;
+}
+
+export namespace ConnectionsList {
+  export function isa(o: any): o is ConnectionsList {
+    return _smithy.isa(o, "ConnectionsList");
+  }
+}
+
+/**
+ *
+ *          <p>The details of a crawl in the workflow.</p>
+ *
+ */
+export interface Crawl {
+  __type?: "Crawl";
+  /**
+   *
+   *          <p>The date and time on which the crawl completed.</p>
+   *
+   */
+  CompletedOn?: Date;
+
+  /**
+   *
+   *          <p>The error message associated with the crawl.</p>
+   *
+   */
+  ErrorMessage?: string;
+
+  /**
+   *
+   *          <p>The log group associated with the crawl.</p>
+   *
+   */
+  LogGroup?: string;
+
+  /**
+   *
+   *          <p>The log stream associated with the crawl.</p>
+   *
+   */
+  LogStream?: string;
+
+  /**
+   *
+   *          <p>The date and time on which the crawl started.</p>
+   *
+   */
+  StartedOn?: Date;
+
+  /**
+   *
+   *          <p>The state of the crawler.</p>
+   *
+   */
+  State?: CrawlState | string;
+}
+
+export namespace Crawl {
+  export function isa(o: any): o is Crawl {
+    return _smithy.isa(o, "Crawl");
+  }
+}
+
+export enum CrawlState {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+/**
+ *
+ *          <p>The details of a Crawler node present in the workflow.</p>
+ *
+ */
+export interface CrawlerNodeDetails {
+  __type?: "CrawlerNodeDetails";
+  /**
+   *
+   *          <p>A list of crawls represented by the crawl node.</p>
+   *
+   */
+  Crawls?: Array<Crawl>;
+}
+
+export namespace CrawlerNodeDetails {
+  export function isa(o: any): o is CrawlerNodeDetails {
+    return _smithy.isa(o, "CrawlerNodeDetails");
+  }
+}
+
+export interface CreateJobRequest {
+  __type?: "CreateJobRequest";
+  /**
+   *
+   *          <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can
+   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
+   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
+   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *       page</a>.</p>
+   *
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   *
+   *          <p>The <code>JobCommand</code> that executes this job.</p>
+   *
+   */
+  Command: JobCommand | undefined;
+
+  /**
+   *
+   *          <p>The connections used for this job.</p>
+   *
+   */
+  Connections?: ConnectionsList;
+
+  /**
+   *
+   *          <p>The default arguments for this job.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   *
+   */
+  DefaultArguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>Description of the job being defined.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
+   *       for this job.</p>
+   *
+   */
+  ExecutionProperty?: ExecutionProperty;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>This field is reserved for future use.</p>
+   *
+   */
+  LogUri?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
+   *        of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *        For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
+   *          pricing page</a>.</p>
+   *
+   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job or an Apache Spark ETL job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry this job if it fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>The name you assign to this job definition. It must be unique in your account.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies configuration properties of a job notification.</p>
+   *
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   *
+   * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
+   *
+   */
+  Role: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *       job.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The job timeout in minutes.  This is the maximum time that a job run
+   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
+   *       status. The default is 2,880 minutes (48 hours).</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace CreateJobRequest {
+  export function isa(o: any): o is CreateJobRequest {
+    return _smithy.isa(o, "CreateJobRequest");
+  }
+}
+
+export interface CreateJobResponse extends $MetadataBearer {
+  __type?: "CreateJobResponse";
+  /**
+   *
+   *          <p>The unique name that was provided for this job definition.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace CreateJobResponse {
+  export function isa(o: any): o is CreateJobResponse {
+    return _smithy.isa(o, "CreateJobResponse");
+  }
+}
+
+export interface CreateTriggerRequest {
+  __type?: "CreateTriggerRequest";
+  /**
+   *
+   *          <p>The actions initiated by this trigger when it fires.</p>
+   *
+   */
+  Actions: Array<Action> | undefined;
+
+  /**
+   *
+   *          <p>A description of the new trigger.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The name of the trigger.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>A predicate to specify when the new trigger should fire.</p>
+   *          <p>This field is required when the trigger type is <code>CONDITIONAL</code>.</p>
+   *
+   */
+  Predicate?: Predicate;
+
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   *          <p>This field is required when the trigger type is SCHEDULED.</p>
+   *
+   */
+  Schedule?: string;
+
+  /**
+   *
+   *          <p>Set to <code>true</code> to start <code>SCHEDULED</code> and <code>CONDITIONAL</code>
+   *       triggers when created. True is not supported for <code>ON_DEMAND</code> triggers.</p>
+   *
+   */
+  StartOnCreation?: boolean;
+
+  /**
+   *
+   *          <p>The tags to use with this trigger. You may use tags to limit access to the trigger.
+   *       For more information about tags in AWS Glue, see
+   *       <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+   *         Glue</a> in the developer guide. </p>
+   *
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The type of the new trigger.</p>
+   *
+   */
+  Type: TriggerType | string | undefined;
+
+  /**
+   *
+   *          <p>The name of the workflow associated with the trigger.</p>
+   *
+   */
+  WorkflowName?: string;
+}
+
+export namespace CreateTriggerRequest {
+  export function isa(o: any): o is CreateTriggerRequest {
+    return _smithy.isa(o, "CreateTriggerRequest");
+  }
+}
+
+export interface CreateTriggerResponse extends $MetadataBearer {
+  __type?: "CreateTriggerResponse";
+  /**
+   *
+   *          <p>The name of the trigger.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace CreateTriggerResponse {
+  export function isa(o: any): o is CreateTriggerResponse {
+    return _smithy.isa(o, "CreateTriggerResponse");
+  }
+}
+
+export interface CreateWorkflowRequest {
+  __type?: "CreateWorkflowRequest";
+  /**
+   *
+   *          <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   *
+   */
+  DefaultRunProperties?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>A description of the workflow.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The name to be assigned to the workflow. It should be unique within your account.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The tags to be used with this workflow.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateWorkflowRequest {
+  export function isa(o: any): o is CreateWorkflowRequest {
+    return _smithy.isa(o, "CreateWorkflowRequest");
+  }
+}
+
+export interface CreateWorkflowResponse extends $MetadataBearer {
+  __type?: "CreateWorkflowResponse";
+  /**
+   *
+   *          <p>The name of the workflow which was provided as part of the request.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace CreateWorkflowResponse {
+  export function isa(o: any): o is CreateWorkflowResponse {
+    return _smithy.isa(o, "CreateWorkflowResponse");
+  }
+}
+
+export interface DeleteJobRequest {
+  __type?: "DeleteJobRequest";
+  /**
+   *
+   *          <p>The name of the job definition to delete.</p>
+   *
+   */
+  JobName: string | undefined;
+}
+
+export namespace DeleteJobRequest {
+  export function isa(o: any): o is DeleteJobRequest {
+    return _smithy.isa(o, "DeleteJobRequest");
+  }
+}
+
+export interface DeleteJobResponse extends $MetadataBearer {
+  __type?: "DeleteJobResponse";
+  /**
+   *
+   *          <p>The name of the job definition that was deleted.</p>
+   *
+   */
+  JobName?: string;
+}
+
+export namespace DeleteJobResponse {
+  export function isa(o: any): o is DeleteJobResponse {
+    return _smithy.isa(o, "DeleteJobResponse");
+  }
+}
+
+export interface DeleteTriggerRequest {
+  __type?: "DeleteTriggerRequest";
+  /**
+   *
+   *          <p>The name of the trigger to delete.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteTriggerRequest {
+  export function isa(o: any): o is DeleteTriggerRequest {
+    return _smithy.isa(o, "DeleteTriggerRequest");
+  }
+}
+
+export interface DeleteTriggerResponse extends $MetadataBearer {
+  __type?: "DeleteTriggerResponse";
+  /**
+   *
+   *          <p>The name of the trigger that was deleted.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace DeleteTriggerResponse {
+  export function isa(o: any): o is DeleteTriggerResponse {
+    return _smithy.isa(o, "DeleteTriggerResponse");
+  }
+}
+
+export interface DeleteWorkflowRequest {
+  __type?: "DeleteWorkflowRequest";
+  /**
+   *
+   *          <p>Name of the workflow to be deleted.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteWorkflowRequest {
+  export function isa(o: any): o is DeleteWorkflowRequest {
+    return _smithy.isa(o, "DeleteWorkflowRequest");
+  }
+}
+
+export interface DeleteWorkflowResponse extends $MetadataBearer {
+  __type?: "DeleteWorkflowResponse";
+  /**
+   *
+   *          <p>Name of the workflow specified in input.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace DeleteWorkflowResponse {
+  export function isa(o: any): o is DeleteWorkflowResponse {
+    return _smithy.isa(o, "DeleteWorkflowResponse");
+  }
+}
+
+/**
+ *
+ *          <p>An edge represents a directed connection between two AWS Glue components which are part of the workflow the
+ *       edge belongs to.</p>
+ *
+ */
+export interface Edge {
+  __type?: "Edge";
+  /**
+   *
+   *          <p>The unique of the node within the workflow where the edge ends.</p>
+   *
+   */
+  DestinationId?: string;
+
+  /**
+   *
+   *          <p>The unique of the node within the workflow where the edge starts.</p>
+   *
+   */
+  SourceId?: string;
+}
+
+export namespace Edge {
+  export function isa(o: any): o is Edge {
+    return _smithy.isa(o, "Edge");
+  }
+}
+
+/**
+ *
+ *          <p>An execution property of a job.</p>
+ *
+ */
+export interface ExecutionProperty {
+  __type?: "ExecutionProperty";
+  /**
+   *
+   *          <p>The maximum number of concurrent runs allowed for the job.
+   *       The default is 1. An error is returned when this threshold is reached.
+   *       The maximum value you can specify is controlled by a service limit.</p>
+   *
+   */
+  MaxConcurrentRuns?: number;
+}
+
+export namespace ExecutionProperty {
+  export function isa(o: any): o is ExecutionProperty {
+    return _smithy.isa(o, "ExecutionProperty");
+  }
+}
+
+export interface GetJobRequest {
+  __type?: "GetJobRequest";
+  /**
+   *
+   *          <p>The name of the job definition to retrieve.</p>
+   *
+   */
+  JobName: string | undefined;
+}
+
+export namespace GetJobRequest {
+  export function isa(o: any): o is GetJobRequest {
+    return _smithy.isa(o, "GetJobRequest");
+  }
+}
+
+export interface GetJobResponse extends $MetadataBearer {
+  __type?: "GetJobResponse";
+  /**
+   *
+   *          <p>The requested job definition.</p>
+   *
+   */
+  Job?: Job;
+}
+
+export namespace GetJobResponse {
+  export function isa(o: any): o is GetJobResponse {
+    return _smithy.isa(o, "GetJobResponse");
+  }
+}
+
+export interface GetJobRunRequest {
+  __type?: "GetJobRunRequest";
+  /**
+   *
+   *          <p>Name of the job definition being run.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>True if a list of predecessor runs should be returned.</p>
+   *
+   */
+  PredecessorsIncluded?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the job run.</p>
+   *
+   */
+  RunId: string | undefined;
+}
+
+export namespace GetJobRunRequest {
+  export function isa(o: any): o is GetJobRunRequest {
+    return _smithy.isa(o, "GetJobRunRequest");
+  }
+}
+
+export interface GetJobRunResponse extends $MetadataBearer {
+  __type?: "GetJobRunResponse";
+  /**
+   *
+   *          <p>The requested job-run metadata.</p>
+   *
+   */
+  JobRun?: JobRun;
+}
+
+export namespace GetJobRunResponse {
+  export function isa(o: any): o is GetJobRunResponse {
+    return _smithy.isa(o, "GetJobRunResponse");
+  }
+}
+
+export interface GetJobRunsRequest {
+  __type?: "GetJobRunsRequest";
+  /**
+   *
+   *          <p>The name of the job definition for which to retrieve all job runs.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>The maximum size of the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobRunsRequest {
+  export function isa(o: any): o is GetJobRunsRequest {
+    return _smithy.isa(o, "GetJobRunsRequest");
+  }
+}
+
+export interface GetJobRunsResponse extends $MetadataBearer {
+  __type?: "GetJobRunsResponse";
+  /**
+   *
+   *          <p>A list of job-run metadata objects.</p>
+   *
+   */
+  JobRuns?: Array<JobRun>;
+
+  /**
+   *
+   *          <p>A continuation token, if not all requested job runs have been returned.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobRunsResponse {
+  export function isa(o: any): o is GetJobRunsResponse {
+    return _smithy.isa(o, "GetJobRunsResponse");
+  }
+}
+
+export interface GetJobsRequest {
+  __type?: "GetJobsRequest";
+  /**
+   *
+   *          <p>The maximum size of the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobsRequest {
+  export function isa(o: any): o is GetJobsRequest {
+    return _smithy.isa(o, "GetJobsRequest");
+  }
+}
+
+export interface GetJobsResponse extends $MetadataBearer {
+  __type?: "GetJobsResponse";
+  /**
+   *
+   *          <p>A list of job definitions.</p>
+   *
+   */
+  Jobs?: Array<Job>;
+
+  /**
+   *
+   *          <p>A continuation token, if not all job definitions have yet been returned.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetJobsResponse {
+  export function isa(o: any): o is GetJobsResponse {
+    return _smithy.isa(o, "GetJobsResponse");
+  }
+}
+
+export interface GetTriggerRequest {
+  __type?: "GetTriggerRequest";
+  /**
+   *
+   *          <p>The name of the trigger to retrieve.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace GetTriggerRequest {
+  export function isa(o: any): o is GetTriggerRequest {
+    return _smithy.isa(o, "GetTriggerRequest");
+  }
+}
+
+export interface GetTriggerResponse extends $MetadataBearer {
+  __type?: "GetTriggerResponse";
+  /**
+   *
+   *          <p>The requested trigger definition.</p>
+   *
+   */
+  Trigger?: Trigger;
+}
+
+export namespace GetTriggerResponse {
+  export function isa(o: any): o is GetTriggerResponse {
+    return _smithy.isa(o, "GetTriggerResponse");
+  }
+}
+
+export interface GetTriggersRequest {
+  __type?: "GetTriggersRequest";
+  /**
+   *
+   *          <p>The name of the job to retrieve triggers for. The trigger that can start this job is
+   *       returned, and if there is no such trigger, all triggers are returned.</p>
+   *
+   */
+  DependentJobName?: string;
+
+  /**
+   *
+   *          <p>The maximum size of the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetTriggersRequest {
+  export function isa(o: any): o is GetTriggersRequest {
+    return _smithy.isa(o, "GetTriggersRequest");
+  }
+}
+
+export interface GetTriggersResponse extends $MetadataBearer {
+  __type?: "GetTriggersResponse";
+  /**
+   *
+   *          <p>A continuation token, if not all the requested triggers
+   *       have yet been returned.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of triggers for the specified job.</p>
+   *
+   */
+  Triggers?: Array<Trigger>;
+}
+
+export namespace GetTriggersResponse {
+  export function isa(o: any): o is GetTriggersResponse {
+    return _smithy.isa(o, "GetTriggersResponse");
+  }
+}
+
+export interface GetWorkflowRequest {
+  __type?: "GetWorkflowRequest";
+  /**
+   *
+   *         <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
+   *
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   *
+   *         <p>The name of the workflow to retrieve.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace GetWorkflowRequest {
+  export function isa(o: any): o is GetWorkflowRequest {
+    return _smithy.isa(o, "GetWorkflowRequest");
+  }
+}
+
+export interface GetWorkflowResponse extends $MetadataBearer {
+  __type?: "GetWorkflowResponse";
+  /**
+   *
+   *         <p>The resource metadata for the workflow.</p>
+   *
+   */
+  Workflow?: Workflow;
+}
+
+export namespace GetWorkflowResponse {
+  export function isa(o: any): o is GetWorkflowResponse {
+    return _smithy.isa(o, "GetWorkflowResponse");
+  }
+}
+
+export interface GetWorkflowRunPropertiesRequest {
+  __type?: "GetWorkflowRunPropertiesRequest";
+  /**
+   *
+   *          <p>Name of the workflow which was run.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of the workflow run whose run properties should be returned.</p>
+   *
+   */
+  RunId: string | undefined;
+}
+
+export namespace GetWorkflowRunPropertiesRequest {
+  export function isa(o: any): o is GetWorkflowRunPropertiesRequest {
+    return _smithy.isa(o, "GetWorkflowRunPropertiesRequest");
+  }
+}
+
+export interface GetWorkflowRunPropertiesResponse extends $MetadataBearer {
+  __type?: "GetWorkflowRunPropertiesResponse";
+  /**
+   *
+   *          <p>The workflow run properties which were set during the specified run.</p>
+   *
+   */
+  RunProperties?: { [key: string]: string };
+}
+
+export namespace GetWorkflowRunPropertiesResponse {
+  export function isa(o: any): o is GetWorkflowRunPropertiesResponse {
+    return _smithy.isa(o, "GetWorkflowRunPropertiesResponse");
+  }
+}
+
+export interface GetWorkflowRunRequest {
+  __type?: "GetWorkflowRunRequest";
+  /**
+   *
+   *          <p>Specifies whether to include the workflow graph in response or not.</p>
+   *
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   *
+   *          <p>Name of the workflow being run.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of the workflow run.</p>
+   *
+   */
+  RunId: string | undefined;
+}
+
+export namespace GetWorkflowRunRequest {
+  export function isa(o: any): o is GetWorkflowRunRequest {
+    return _smithy.isa(o, "GetWorkflowRunRequest");
+  }
+}
+
+export interface GetWorkflowRunResponse extends $MetadataBearer {
+  __type?: "GetWorkflowRunResponse";
+  /**
+   *
+   *          <p>The requested workflow run metadata.</p>
+   *
+   */
+  Run?: WorkflowRun;
+}
+
+export namespace GetWorkflowRunResponse {
+  export function isa(o: any): o is GetWorkflowRunResponse {
+    return _smithy.isa(o, "GetWorkflowRunResponse");
+  }
+}
+
+export interface GetWorkflowRunsRequest {
+  __type?: "GetWorkflowRunsRequest";
+  /**
+   *
+   *          <p>Specifies whether to include the workflow graph in response or not.</p>
+   *
+   */
+  IncludeGraph?: boolean;
+
+  /**
+   *
+   *          <p>The maximum number of workflow runs to be included in the response.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>Name of the workflow whose metadata of runs should be returned.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The maximum size of the response.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetWorkflowRunsRequest {
+  export function isa(o: any): o is GetWorkflowRunsRequest {
+    return _smithy.isa(o, "GetWorkflowRunsRequest");
+  }
+}
+
+export interface GetWorkflowRunsResponse extends $MetadataBearer {
+  __type?: "GetWorkflowRunsResponse";
+  /**
+   *
+   *          <p>A continuation token, if not all requested workflow runs have been returned.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>A list of workflow run metadata objects.</p>
+   *
+   */
+  Runs?: Array<WorkflowRun>;
+}
+
+export namespace GetWorkflowRunsResponse {
+  export function isa(o: any): o is GetWorkflowRunsResponse {
+    return _smithy.isa(o, "GetWorkflowRunsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a job definition.</p>
+ *
+ */
+export interface Job {
+  __type?: "Job";
+  /**
+   *
+   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can
+   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
+   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
+   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *       page</a>.</p>
+   * 	        <p></p>
+   *
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   *
+   *          <p>The <code>JobCommand</code> that executes this job.</p>
+   *
+   */
+  Command?: JobCommand;
+
+  /**
+   *
+   *          <p>The connections used for this job.</p>
+   *
+   */
+  Connections?: ConnectionsList;
+
+  /**
+   *
+   *          <p>The time and date that this job definition was created.</p>
+   *
+   */
+  CreatedOn?: Date;
+
+  /**
+   *
+   *          <p>The default arguments for this job, specified as name-value pairs.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   *
+   */
+  DefaultArguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>A description of the job.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
+   *       for this job.</p>
+   *
+   */
+  ExecutionProperty?: ExecutionProperty;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>The last point in time when this job definition was modified.</p>
+   *
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   *
+   *          <p>This field is reserved for future use.</p>
+   *
+   */
+  LogUri?: string;
+
+  /**
+   *
+   * 	        <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
+   *       pricing page</a>.</p>
+   *
+   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
+   * 	        <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job or an Apache Spark ETL job:</p>
+   *         <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry this job after a JobRun fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>The name you assign to this job definition.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>Specifies configuration properties of a job notification.</p>
+   *
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   *
+   * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *       job.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The job timeout in minutes.  This is the maximum time that a job run
+   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
+   *       status. The default is 2,880 minutes (48 hours).</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace Job {
+  export function isa(o: any): o is Job {
+    return _smithy.isa(o, "Job");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies code executed when a job is run.</p>
+ *
+ */
+export interface JobCommand {
+  __type?: "JobCommand";
+  /**
+   *
+   *          <p>The name of the job command. For an Apache Spark ETL job, this must be
+   *         <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The Python version being used to execute a Python shell job. Allowed values are 2 or 3.</p>
+   *
+   */
+  PythonVersion?: string;
+
+  /**
+   *
+   *          <p>Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a
+   *       job.</p>
+   *
+   */
+  ScriptLocation?: string;
+}
+
+export namespace JobCommand {
+  export function isa(o: any): o is JobCommand {
+    return _smithy.isa(o, "JobCommand");
+  }
+}
+
+/**
+ *
+ *          <p>The details of a Job node present in the workflow.</p>
+ *
+ */
+export interface JobNodeDetails {
+  __type?: "JobNodeDetails";
+  /**
+   *
+   *          <p>The information for the job runs represented by the job node.</p>
+   *
+   */
+  JobRuns?: Array<JobRun>;
+}
+
+export namespace JobNodeDetails {
+  export function isa(o: any): o is JobNodeDetails {
+    return _smithy.isa(o, "JobNodeDetails");
+  }
+}
+
+/**
+ *
+ *          <p>Contains information about a job run.</p>
+ *
+ */
+export interface JobRun {
+  __type?: "JobRun";
+  /**
+   *
+   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) allocated to this JobRun.
+   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
+   *         pricing page</a>.</p>
+   *
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   *
+   *          <p>The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   *
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The number of the attempt to run this job.</p>
+   *
+   */
+  Attempt?: number;
+
+  /**
+   *
+   *          <p>The date and time that this job run completed.</p>
+   *
+   */
+  CompletedOn?: Date;
+
+  /**
+   *
+   *          <p>An error message associated with this job run.</p>
+   *
+   */
+  ErrorMessage?: string;
+
+  /**
+   *
+   *          <p>The amount of time (in seconds) that the job run consumed resources.</p>
+   *
+   */
+  ExecutionTime?: number;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>The ID of this job run.</p>
+   *
+   */
+  Id?: string;
+
+  /**
+   *
+   *          <p>The name of the job definition being used in this run.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The current state of the job run.</p>
+   *
+   */
+  JobRunState?: JobRunState | string;
+
+  /**
+   *
+   *          <p>The last time that this job run was modified.</p>
+   *
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   *
+   *          <p>The name of the log group for secure logging that can be server-side encrypted in Amazon
+   *       CloudWatch using AWS KMS. This name can be <code>/aws-glue/jobs/</code>, in which case the
+   *       default encryption is <code>NONE</code>. If you add a role name and
+   *       <code>SecurityConfiguration</code> name (in other words,
+   *       <code>/aws-glue/jobs-yourRoleName-yourSecurityConfigurationName/</code>), then that security
+   *       configuration is used to encrypt the log group.</p>
+   *
+   */
+  LogGroupName?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
+   *         pricing page</a>.</p>
+   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job or an Apache Spark ETL job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>Specifies configuration properties of a job run notification.</p>
+   *
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   *
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>A list of predecessors to this job run.</p>
+   *
+   */
+  PredecessorRuns?: Array<Predecessor>;
+
+  /**
+   *
+   *          <p>The ID of the previous run of this job. For example, the <code>JobRunId</code> specified
+   *       in the <code>StartJobRun</code> action.</p>
+   *
+   */
+  PreviousRunId?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
+   *       run.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The date and time at which this job run was started.</p>
+   *
+   */
+  StartedOn?: Date;
+
+  /**
+   *
+   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
+   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The name of the trigger that started this job run.</p>
+   *
+   */
+  TriggerName?: string;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace JobRun {
+  export function isa(o: any): o is JobRun {
+    return _smithy.isa(o, "JobRun");
+  }
+}
+
+export enum JobRunState {
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUCCEEDED = "SUCCEEDED",
+  TIMEOUT = "TIMEOUT"
+}
+
+/**
+ *
+ *          <p>Specifies information used to update an existing job definition. The previous job
+ *       definition is completely overwritten by this information.</p>
+ *
+ */
+export interface JobUpdate {
+  __type?: "JobUpdate";
+  /**
+   *
+   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can
+   *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
+   *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
+   *       see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *       page</a>.</p>
+   *
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   *
+   *          <p>The <code>JobCommand</code> that executes this job (required).</p>
+   *
+   */
+  Command?: JobCommand;
+
+  /**
+   *
+   *          <p>The connections used for this job.</p>
+   *
+   */
+  Connections?: ConnectionsList;
+
+  /**
+   *
+   *          <p>The default arguments for this job.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   *
+   */
+  DefaultArguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>Description of the job being defined.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>An <code>ExecutionProperty</code> specifying the maximum number of concurrent runs allowed
+   *       for this job.</p>
+   *
+   */
+  ExecutionProperty?: ExecutionProperty;
+
+  /**
+   *
+   *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
+   *
+   *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *
+   */
+  GlueVersion?: string;
+
+  /**
+   *
+   *          <p>This field is reserved for future use.</p>
+   *
+   */
+  LogUri?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
+   *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</p>
+   *
+   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job or an Apache Spark ETL job:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>The maximum number of times to retry this job if it fails.</p>
+   *
+   */
+  MaxRetries?: number;
+
+  /**
+   *
+   *          <p>Specifies the configuration properties of a job notification.</p>
+   *
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   *
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The name or Amazon Resource Name (ARN) of the IAM role associated with this job
+   *       (required).</p>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *       job.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The job timeout in minutes.  This is the maximum time that a job run
+   *       can consume resources before it is terminated and enters <code>TIMEOUT</code>
+   *       status. The default is 2,880 minutes (48 hours).</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace JobUpdate {
+  export function isa(o: any): o is JobUpdate {
+    return _smithy.isa(o, "JobUpdate");
+  }
+}
+
+export interface ListJobsRequest {
+  __type?: "ListJobsRequest";
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies to return only these tagged resources.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListJobsRequest {
+  export function isa(o: any): o is ListJobsRequest {
+    return _smithy.isa(o, "ListJobsRequest");
+  }
+}
+
+export interface ListJobsResponse extends $MetadataBearer {
+  __type?: "ListJobsResponse";
+  /**
+   *
+   *          <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
+   *
+   */
+  JobNames?: Array<string>;
+
+  /**
+   *
+   *          <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListJobsResponse {
+  export function isa(o: any): o is ListJobsResponse {
+    return _smithy.isa(o, "ListJobsResponse");
+  }
+}
+
+export interface ListTriggersRequest {
+  __type?: "ListTriggersRequest";
+  /**
+   *
+   *          <p> The name of the job for which to retrieve triggers. The trigger that can start this job
+   *       is returned. If there is no such trigger, all triggers are returned.</p>
+   *
+   */
+  DependentJobName?: string;
+
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies to return only these tagged resources.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTriggersRequest {
+  export function isa(o: any): o is ListTriggersRequest {
+    return _smithy.isa(o, "ListTriggersRequest");
+  }
+}
+
+export interface ListTriggersResponse extends $MetadataBearer {
+  __type?: "ListTriggersResponse";
+  /**
+   *
+   *          <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
+   *
+   */
+  TriggerNames?: Array<string>;
+}
+
+export namespace ListTriggersResponse {
+  export function isa(o: any): o is ListTriggersResponse {
+    return _smithy.isa(o, "ListTriggersResponse");
+  }
+}
+
+export interface ListWorkflowsRequest {
+  __type?: "ListWorkflowsRequest";
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListWorkflowsRequest {
+  export function isa(o: any): o is ListWorkflowsRequest {
+    return _smithy.isa(o, "ListWorkflowsRequest");
+  }
+}
+
+export interface ListWorkflowsResponse extends $MetadataBearer {
+  __type?: "ListWorkflowsResponse";
+  /**
+   *
+   *          <p>A continuation token, if not all workflow names have been returned.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>List of names of workflows in the account.</p>
+   *
+   */
+  Workflows?: Array<string>;
+}
+
+export namespace ListWorkflowsResponse {
+  export function isa(o: any): o is ListWorkflowsResponse {
+    return _smithy.isa(o, "ListWorkflowsResponse");
+  }
+}
+
+export enum Logical {
+  AND = "AND",
+  ANY = "ANY"
+}
+
+export enum LogicalOperator {
+  EQUALS = "EQUALS"
+}
+
+/**
+ *
+ *          <p>A node represents an AWS Glue component like Trigger, Job etc. which is part of a workflow.</p>
+ *
+ */
+export interface Node {
+  __type?: "Node";
+  /**
+   *
+   *          <p>Details of the crawler when the node represents a crawler.</p>
+   *
+   */
+  CrawlerDetails?: CrawlerNodeDetails;
+
+  /**
+   *
+   *          <p>Details of the Job when the node represents a Job.</p>
+   *
+   */
+  JobDetails?: JobNodeDetails;
+
+  /**
+   *
+   *          <p>The name of the AWS Glue component represented by the node.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>Details of the Trigger when the node represents a Trigger.</p>
+   *
+   */
+  TriggerDetails?: TriggerNodeDetails;
+
+  /**
+   *
+   *          <p>The type of AWS Glue component represented by the node.</p>
+   *
+   */
+  Type?: NodeType | string;
+
+  /**
+   *
+   *          <p>The unique Id assigned to the node within the workflow.</p>
+   *
+   */
+  UniqueId?: string;
+}
+
+export namespace Node {
+  export function isa(o: any): o is Node {
+    return _smithy.isa(o, "Node");
+  }
+}
+
+export enum NodeType {
+  CRAWLER = "CRAWLER",
+  JOB = "JOB",
+  TRIGGER = "TRIGGER"
+}
+
+/**
+ *
+ *          <p>Specifies configuration properties of a notification.</p>
+ *
+ */
+export interface NotificationProperty {
+  __type?: "NotificationProperty";
+  /**
+   *
+   *          <p>After a job run starts, the number of minutes to wait before
+   *       sending a job run delay notification.</p>
+   *
+   */
+  NotifyDelayAfter?: number;
+}
+
+export namespace NotificationProperty {
+  export function isa(o: any): o is NotificationProperty {
+    return _smithy.isa(o, "NotificationProperty");
+  }
+}
+
+/**
+ *
+ *          <p>A job run that was used in the predicate of a conditional trigger
+ *       that triggered this job run.</p>
+ *
+ */
+export interface Predecessor {
+  __type?: "Predecessor";
+  /**
+   *
+   *          <p>The name of the job definition used by the predecessor job run.</p>
+   *
+   */
+  JobName?: string;
+
+  /**
+   *
+   *          <p>The job-run ID of the predecessor job run.</p>
+   *
+   */
+  RunId?: string;
+}
+
+export namespace Predecessor {
+  export function isa(o: any): o is Predecessor {
+    return _smithy.isa(o, "Predecessor");
+  }
+}
+
+/**
+ *
+ *          <p>Defines the predicate of the trigger, which determines when it fires.</p>
+ *
+ */
+export interface Predicate {
+  __type?: "Predicate";
+  /**
+   *
+   *          <p>A list of the conditions that determine when the trigger will fire.</p>
+   *
+   */
+  Conditions?: Array<Condition>;
+
+  /**
+   *
+   *          <p>An optional field if only one condition is listed. If multiple conditions are listed, then
+   *       this field is required.</p>
+   *
+   */
+  Logical?: Logical | string;
+}
+
+export namespace Predicate {
+  export function isa(o: any): o is Predicate {
+    return _smithy.isa(o, "Predicate");
+  }
+}
+
+export interface PutWorkflowRunPropertiesRequest {
+  __type?: "PutWorkflowRunPropertiesRequest";
+  /**
+   *
+   *          <p>Name of the workflow which was run.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of the workflow run for which the run properties should be updated.</p>
+   *
+   */
+  RunId: string | undefined;
+
+  /**
+   *
+   *          <p>The properties to put for the specified run.</p>
+   *
+   */
+  RunProperties: { [key: string]: string } | undefined;
+}
+
+export namespace PutWorkflowRunPropertiesRequest {
+  export function isa(o: any): o is PutWorkflowRunPropertiesRequest {
+    return _smithy.isa(o, "PutWorkflowRunPropertiesRequest");
+  }
+}
+
+export interface PutWorkflowRunPropertiesResponse extends $MetadataBearer {
+  __type?: "PutWorkflowRunPropertiesResponse";
+}
+
+export namespace PutWorkflowRunPropertiesResponse {
+  export function isa(o: any): o is PutWorkflowRunPropertiesResponse {
+    return _smithy.isa(o, "PutWorkflowRunPropertiesResponse");
+  }
+}
+
+export interface StartJobRunRequest {
+  __type?: "StartJobRunRequest";
+  /**
+   *
+   *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun.
+   *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
+   *         pricing page</a>.</p>
+   *
+   */
+  AllocatedCapacity?: number;
+
+  /**
+   *
+   *          <p>The job arguments specifically for this run. For this job run, they replace the default arguments set in the job definition itself.</p>
+   *          <p>You can specify arguments here that your own job-execution script
+   *       consumes, as well as arguments that AWS Glue itself consumes.</p>
+   *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> topic in the developer guide.</p>
+   *          <p>For information about the key-value pairs that AWS Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+   *
+   */
+  Arguments?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The name of the job definition to use.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of a previous <code>JobRun</code> to retry.</p>
+   *
+   */
+  JobRunId?: string;
+
+  /**
+   *
+   *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
+   *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+   *       For more information, see the <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/">AWS Glue
+   *         pricing page</a>.</p>
+   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *       running a Python shell job, or an Apache Spark ETL job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
+   *         allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  MaxCapacity?: number;
+
+  /**
+   *
+   *          <p>Specifies configuration properties of a job run notification.</p>
+   *
+   */
+  NotificationProperty?: NotificationProperty;
+
+  /**
+   *
+   *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
+   *
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
+   *       run.</p>
+   *
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
+   *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default
+   *       is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.</p>
+   *
+   */
+  Timeout?: number;
+
+  /**
+   *
+   *          <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  WorkerType?: WorkerType | string;
+}
+
+export namespace StartJobRunRequest {
+  export function isa(o: any): o is StartJobRunRequest {
+    return _smithy.isa(o, "StartJobRunRequest");
+  }
+}
+
+export interface StartJobRunResponse extends $MetadataBearer {
+  __type?: "StartJobRunResponse";
+  /**
+   *
+   *          <p>The ID assigned to this job run.</p>
+   *
+   */
+  JobRunId?: string;
+}
+
+export namespace StartJobRunResponse {
+  export function isa(o: any): o is StartJobRunResponse {
+    return _smithy.isa(o, "StartJobRunResponse");
+  }
+}
+
+export interface StartTriggerRequest {
+  __type?: "StartTriggerRequest";
+  /**
+   *
+   *          <p>The name of the trigger to start.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace StartTriggerRequest {
+  export function isa(o: any): o is StartTriggerRequest {
+    return _smithy.isa(o, "StartTriggerRequest");
+  }
+}
+
+export interface StartTriggerResponse extends $MetadataBearer {
+  __type?: "StartTriggerResponse";
+  /**
+   *
+   *          <p>The name of the trigger that was started.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace StartTriggerResponse {
+  export function isa(o: any): o is StartTriggerResponse {
+    return _smithy.isa(o, "StartTriggerResponse");
+  }
+}
+
+export interface StartWorkflowRunRequest {
+  __type?: "StartWorkflowRunRequest";
+  /**
+   *
+   *          <p>The name of the workflow to start.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace StartWorkflowRunRequest {
+  export function isa(o: any): o is StartWorkflowRunRequest {
+    return _smithy.isa(o, "StartWorkflowRunRequest");
+  }
+}
+
+export interface StartWorkflowRunResponse extends $MetadataBearer {
+  __type?: "StartWorkflowRunResponse";
+  /**
+   *
+   *          <p>An Id for the new run.</p>
+   *
+   */
+  RunId?: string;
+}
+
+export namespace StartWorkflowRunResponse {
+  export function isa(o: any): o is StartWorkflowRunResponse {
+    return _smithy.isa(o, "StartWorkflowRunResponse");
+  }
+}
+
+export interface StopTriggerRequest {
+  __type?: "StopTriggerRequest";
+  /**
+   *
+   *          <p>The name of the trigger to stop.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace StopTriggerRequest {
+  export function isa(o: any): o is StopTriggerRequest {
+    return _smithy.isa(o, "StopTriggerRequest");
+  }
+}
+
+export interface StopTriggerResponse extends $MetadataBearer {
+  __type?: "StopTriggerResponse";
+  /**
+   *
+   *          <p>The name of the trigger that was stopped.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace StopTriggerResponse {
+  export function isa(o: any): o is StopTriggerResponse {
+    return _smithy.isa(o, "StopTriggerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a specific trigger.</p>
+ *
+ */
+export interface Trigger {
+  __type?: "Trigger";
+  /**
+   *
+   *          <p>The actions initiated by this trigger.</p>
+   *
+   */
+  Actions?: Array<Action>;
+
+  /**
+   *
+   *          <p>A description of this trigger.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>Reserved for future use.</p>
+   *
+   */
+  Id?: string;
+
+  /**
+   *
+   *          <p>The name of the trigger.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The predicate of this trigger, which defines when it will fire.</p>
+   *
+   */
+  Predicate?: Predicate;
+
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+   *       Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  Schedule?: string;
+
+  /**
+   *
+   *          <p>The current state of the trigger.</p>
+   *
+   */
+  State?: TriggerState | string;
+
+  /**
+   *
+   *          <p>The type of trigger that this is.</p>
+   *
+   */
+  Type?: TriggerType | string;
+
+  /**
+   *
+   *          <p>The name of the workflow associated with the trigger.</p>
+   *
+   */
+  WorkflowName?: string;
+}
+
+export namespace Trigger {
+  export function isa(o: any): o is Trigger {
+    return _smithy.isa(o, "Trigger");
+  }
+}
+
+/**
+ *
+ *          <p>The details of a Trigger node present in the workflow.</p>
+ *
+ */
+export interface TriggerNodeDetails {
+  __type?: "TriggerNodeDetails";
+  /**
+   *
+   *          <p>The information of the trigger represented by the trigger node.</p>
+   *
+   */
+  Trigger?: Trigger;
+}
+
+export namespace TriggerNodeDetails {
+  export function isa(o: any): o is TriggerNodeDetails {
+    return _smithy.isa(o, "TriggerNodeDetails");
+  }
+}
+
+export enum TriggerState {
+  ACTIVATED = "ACTIVATED",
+  ACTIVATING = "ACTIVATING",
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DEACTIVATED = "DEACTIVATED",
+  DEACTIVATING = "DEACTIVATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING"
+}
+
+export enum TriggerType {
+  CONDITIONAL = "CONDITIONAL",
+  ON_DEMAND = "ON_DEMAND",
+  SCHEDULED = "SCHEDULED"
+}
+
+/**
+ *
+ *          <p>A structure used to provide information used to update a trigger. This object updates the
+ *       previous trigger definition by overwriting it completely.</p>
+ *
+ */
+export interface TriggerUpdate {
+  __type?: "TriggerUpdate";
+  /**
+   *
+   *          <p>The actions initiated by this trigger.</p>
+   *
+   */
+  Actions?: Array<Action>;
+
+  /**
+   *
+   *          <p>A description of this trigger.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>Reserved for future use.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The predicate of this trigger, which defines when it will fire.</p>
+   *
+   */
+  Predicate?: Predicate;
+
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+   *       Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  Schedule?: string;
+}
+
+export namespace TriggerUpdate {
+  export function isa(o: any): o is TriggerUpdate {
+    return _smithy.isa(o, "TriggerUpdate");
+  }
+}
+
+export interface UpdateJobRequest {
+  __type?: "UpdateJobRequest";
+  /**
+   *
+   *          <p>The name of the job definition to update.</p>
+   *
+   */
+  JobName: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies the values with which to update the job definition.</p>
+   *
+   */
+  JobUpdate: JobUpdate | undefined;
+}
+
+export namespace UpdateJobRequest {
+  export function isa(o: any): o is UpdateJobRequest {
+    return _smithy.isa(o, "UpdateJobRequest");
+  }
+}
+
+export interface UpdateJobResponse extends $MetadataBearer {
+  __type?: "UpdateJobResponse";
+  /**
+   *
+   *          <p>Returns the name of the updated job definition.</p>
+   *
+   */
+  JobName?: string;
+}
+
+export namespace UpdateJobResponse {
+  export function isa(o: any): o is UpdateJobResponse {
+    return _smithy.isa(o, "UpdateJobResponse");
   }
 }
 
@@ -12848,56 +10537,6 @@ export interface UpdateTriggerResponse extends $MetadataBearer {
 export namespace UpdateTriggerResponse {
   export function isa(o: any): o is UpdateTriggerResponse {
     return _smithy.isa(o, "UpdateTriggerResponse");
-  }
-}
-
-export interface UpdateUserDefinedFunctionRequest {
-  __type?: "UpdateUserDefinedFunctionRequest";
-  /**
-   *
-   *          <p>The ID of the Data Catalog where the function to be updated is located. If none is
-   *       provided, the AWS account ID is used by default.</p>
-   *
-   */
-  CatalogId?: string;
-
-  /**
-   *
-   *          <p>The name of the catalog database where the function to be updated is
-   *       located.</p>
-   *
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   *
-   *          <p>A <code>FunctionInput</code> object that redefines the function in the Data
-   *       Catalog.</p>
-   *
-   */
-  FunctionInput: UserDefinedFunctionInput | undefined;
-
-  /**
-   *
-   *          <p>The name of the function.</p>
-   *
-   */
-  FunctionName: string | undefined;
-}
-
-export namespace UpdateUserDefinedFunctionRequest {
-  export function isa(o: any): o is UpdateUserDefinedFunctionRequest {
-    return _smithy.isa(o, "UpdateUserDefinedFunctionRequest");
-  }
-}
-
-export interface UpdateUserDefinedFunctionResponse extends $MetadataBearer {
-  __type?: "UpdateUserDefinedFunctionResponse";
-}
-
-export namespace UpdateUserDefinedFunctionResponse {
-  export function isa(o: any): o is UpdateUserDefinedFunctionResponse {
-    return _smithy.isa(o, "UpdateUserDefinedFunctionResponse");
   }
 }
 
@@ -12944,201 +10583,6 @@ export interface UpdateWorkflowResponse extends $MetadataBearer {
 export namespace UpdateWorkflowResponse {
   export function isa(o: any): o is UpdateWorkflowResponse {
     return _smithy.isa(o, "UpdateWorkflowResponse");
-  }
-}
-
-/**
- *
- *          <p>Specifies an XML classifier to be updated.</p>
- *
- */
-export interface UpdateXMLClassifierRequest {
-  __type?: "UpdateXMLClassifierRequest";
-  /**
-   *
-   *          <p>An identifier of the data format that the classifier matches.</p>
-   *
-   */
-  Classification?: string;
-
-  /**
-   *
-   *          <p>The name of the classifier.</p>
-   *
-   */
-  Name: string | undefined;
-
-  /**
-   *
-   *          <p>The XML tag designating the element that contains each record in an XML document being
-   *       parsed. This cannot identify a self-closing element (closed by <code>/></code>). An empty
-   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
-   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
-   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
-   *
-   */
-  RowTag?: string;
-}
-
-export namespace UpdateXMLClassifierRequest {
-  export function isa(o: any): o is UpdateXMLClassifierRequest {
-    return _smithy.isa(o, "UpdateXMLClassifierRequest");
-  }
-}
-
-/**
- *
- *          <p>Represents the equivalent of a Hive user-defined function
- *       (<code>UDF</code>) definition.</p>
- *
- */
-export interface UserDefinedFunction {
-  __type?: "UserDefinedFunction";
-  /**
-   *
-   *          <p>The Java class that contains the function code.</p>
-   *
-   */
-  ClassName?: string;
-
-  /**
-   *
-   *          <p>The time at which the function was created.</p>
-   *
-   */
-  CreateTime?: Date;
-
-  /**
-   *
-   *          <p>The name of the function.</p>
-   *
-   */
-  FunctionName?: string;
-
-  /**
-   *
-   *          <p>The owner of the function.</p>
-   *
-   */
-  OwnerName?: string;
-
-  /**
-   *
-   *          <p>The owner type.</p>
-   *
-   */
-  OwnerType?: PrincipalType | string;
-
-  /**
-   *
-   *          <p>The resource URIs for the function.</p>
-   *
-   */
-  ResourceUris?: Array<ResourceUri>;
-}
-
-export namespace UserDefinedFunction {
-  export function isa(o: any): o is UserDefinedFunction {
-    return _smithy.isa(o, "UserDefinedFunction");
-  }
-}
-
-/**
- *
- *          <p>A structure used to create or update a user-defined function.</p>
- *
- */
-export interface UserDefinedFunctionInput {
-  __type?: "UserDefinedFunctionInput";
-  /**
-   *
-   *          <p>The Java class that contains the function code.</p>
-   *
-   */
-  ClassName?: string;
-
-  /**
-   *
-   *          <p>The name of the function.</p>
-   *
-   */
-  FunctionName?: string;
-
-  /**
-   *
-   *          <p>The owner of the function.</p>
-   *
-   */
-  OwnerName?: string;
-
-  /**
-   *
-   *          <p>The owner type.</p>
-   *
-   */
-  OwnerType?: PrincipalType | string;
-
-  /**
-   *
-   *          <p>The resource URIs for the function.</p>
-   *
-   */
-  ResourceUris?: Array<ResourceUri>;
-}
-
-export namespace UserDefinedFunctionInput {
-  export function isa(o: any): o is UserDefinedFunctionInput {
-    return _smithy.isa(o, "UserDefinedFunctionInput");
-  }
-}
-
-/**
- *
- *          <p>A value could not be validated.</p>
- *
- */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ValidationException";
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
-  }
-}
-
-/**
- *
- *          <p>There was a version conflict.</p>
- *
- */
-export interface VersionMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "VersionMismatchException";
-  name: "VersionMismatchException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the problem.</p>
-   *
-   */
-  Message?: string;
-}
-
-export namespace VersionMismatchException {
-  export function isa(o: any): o is VersionMismatchException {
-    return _smithy.isa(o, "VersionMismatchException");
   }
 }
 
@@ -13360,6 +10804,2562 @@ export interface WorkflowRunStatistics {
 export namespace WorkflowRunStatistics {
   export function isa(o: any): o is WorkflowRunStatistics {
     return _smithy.isa(o, "WorkflowRunStatistics");
+  }
+}
+
+export enum WorkflowRunStatus {
+  COMPLETED = "COMPLETED",
+  RUNNING = "RUNNING"
+}
+
+export interface BatchGetCrawlersRequest {
+  __type?: "BatchGetCrawlersRequest";
+  /**
+   *
+   *          <p>A list of crawler names, which might be the names returned from the
+   *         <code>ListCrawlers</code> operation.</p>
+   *
+   */
+  CrawlerNames: Array<string> | undefined;
+}
+
+export namespace BatchGetCrawlersRequest {
+  export function isa(o: any): o is BatchGetCrawlersRequest {
+    return _smithy.isa(o, "BatchGetCrawlersRequest");
+  }
+}
+
+export interface BatchGetCrawlersResponse extends $MetadataBearer {
+  __type?: "BatchGetCrawlersResponse";
+  /**
+   *
+   *          <p>A list of crawler definitions.</p>
+   *
+   */
+  Crawlers?: Array<Crawler>;
+
+  /**
+   *
+   *          <p>A list of names of crawlers that were not found.</p>
+   *
+   */
+  CrawlersNotFound?: Array<string>;
+}
+
+export namespace BatchGetCrawlersResponse {
+  export function isa(o: any): o is BatchGetCrawlersResponse {
+    return _smithy.isa(o, "BatchGetCrawlersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a table definition in the AWS Glue Data Catalog.</p>
+ *
+ */
+export interface CatalogEntry {
+  __type?: "CatalogEntry";
+  /**
+   *
+   *          <p>The database in which the table metadata resides.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the table in question.</p>
+   *
+   */
+  TableName: string | undefined;
+}
+
+export namespace CatalogEntry {
+  export function isa(o: any): o is CatalogEntry {
+    return _smithy.isa(o, "CatalogEntry");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies an AWS Glue Data Catalog target.</p>
+ *
+ */
+export interface CatalogTarget {
+  __type?: "CatalogTarget";
+  /**
+   *
+   *          <p>The name of the database to be synchronized.</p>
+   *
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   *
+   *          <p>A list of the tables to be synchronized.</p>
+   *
+   */
+  Tables: Array<string> | undefined;
+}
+
+export namespace CatalogTarget {
+  export function isa(o: any): o is CatalogTarget {
+    return _smithy.isa(o, "CatalogTarget");
+  }
+}
+
+/**
+ *
+ *          <p>Classifiers are triggered during a crawl task. A classifier checks whether a given file is
+ *       in a format it can handle. If it is, the classifier creates a schema in the form of a
+ *         <code>StructType</code> object that matches that data format.</p>
+ *          <p>You can use the standard classifiers that AWS Glue provides, or you can write your own
+ *       classifiers to best categorize your data sources and specify the appropriate schemas to use
+ *       for them. A classifier can be a <code>grok</code> classifier, an <code>XML</code> classifier,
+ *       a <code>JSON</code> classifier, or a custom <code>CSV</code> classifier, as specified in one
+ *       of the fields in the <code>Classifier</code> object.</p>
+ *
+ */
+export interface Classifier {
+  __type?: "Classifier";
+  /**
+   *
+   *          <p>A classifier for comma-separated values (CSV).</p>
+   *
+   */
+  CsvClassifier?: CsvClassifier;
+
+  /**
+   *
+   *          <p>A classifier that uses <code>grok</code>.</p>
+   *
+   */
+  GrokClassifier?: GrokClassifier;
+
+  /**
+   *
+   *          <p>A classifier for JSON content.</p>
+   *
+   */
+  JsonClassifier?: JsonClassifier;
+
+  /**
+   *
+   *          <p>A classifier for XML content.</p>
+   *
+   */
+  XMLClassifier?: XMLClassifier;
+}
+
+export namespace Classifier {
+  export function isa(o: any): o is Classifier {
+    return _smithy.isa(o, "Classifier");
+  }
+}
+
+/**
+ *
+ *          <p>Represents a directional edge in a directed acyclic graph (DAG).</p>
+ *
+ */
+export interface CodeGenEdge {
+  __type?: "CodeGenEdge";
+  /**
+   *
+   *          <p>The ID of the node at which the edge starts.</p>
+   *
+   */
+  Source: string | undefined;
+
+  /**
+   *
+   *          <p>The ID of the node at which the edge ends.</p>
+   *
+   */
+  Target: string | undefined;
+
+  /**
+   *
+   *          <p>The target of the edge.</p>
+   *
+   */
+  TargetParameter?: string;
+}
+
+export namespace CodeGenEdge {
+  export function isa(o: any): o is CodeGenEdge {
+    return _smithy.isa(o, "CodeGenEdge");
+  }
+}
+
+/**
+ *
+ *          <p>Represents a node in a directed acyclic graph (DAG)</p>
+ *
+ */
+export interface CodeGenNode {
+  __type?: "CodeGenNode";
+  /**
+   *
+   *          <p>Properties of the node, in the form of name-value pairs.</p>
+   *
+   */
+  Args: Array<CodeGenNodeArg> | undefined;
+
+  /**
+   *
+   *          <p>A node identifier that is unique within the node's graph.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>The line number of the node.</p>
+   *
+   */
+  LineNumber?: number;
+
+  /**
+   *
+   *          <p>The type of node that this is.</p>
+   *
+   */
+  NodeType: string | undefined;
+}
+
+export namespace CodeGenNode {
+  export function isa(o: any): o is CodeGenNode {
+    return _smithy.isa(o, "CodeGenNode");
+  }
+}
+
+/**
+ *
+ *          <p>An argument or property of a node.</p>
+ *
+ */
+export interface CodeGenNodeArg {
+  __type?: "CodeGenNodeArg";
+  /**
+   *
+   *          <p>The name of the argument or property.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>True if the value is used as a parameter.</p>
+   *
+   */
+  Param?: boolean;
+
+  /**
+   *
+   *          <p>The value of the argument or property.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace CodeGenNodeArg {
+  export function isa(o: any): o is CodeGenNodeArg {
+    return _smithy.isa(o, "CodeGenNodeArg");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a crawler program that examines a data source and uses classifiers to try to
+ *       determine its schema. If successful, the crawler records metadata concerning the data source
+ *       in the AWS Glue Data Catalog.</p>
+ *
+ */
+export interface Crawler {
+  __type?: "Crawler";
+  /**
+   *
+   *          <p>A list of UTF-8 strings that specify the custom classifiers that are associated
+   *      with the crawler.</p>
+   *
+   */
+  Classifiers?: Array<string>;
+
+  /**
+   *
+   *          <p>Crawler configuration information. This versioned JSON string allows users
+   *         to specify aspects of a crawler's behavior.
+   *         For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
+   *
+   */
+  Configuration?: string;
+
+  /**
+   *
+   *          <p>If the crawler is running, contains the total time elapsed since the last crawl
+   *       began.</p>
+   *
+   */
+  CrawlElapsedTime?: number;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   *
+   */
+  CrawlerSecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The time that the crawler was created.</p>
+   *
+   */
+  CreationTime?: Date;
+
+  /**
+   *
+   *          <p>The name of the database in which the crawler's output is stored.</p>
+   *
+   */
+  DatabaseName?: string;
+
+  /**
+   *
+   *          <p>A description of the crawler.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The status of the last crawl, and potentially error information if
+   *       an error occurred.</p>
+   *
+   */
+  LastCrawl?: LastCrawlInfo;
+
+  /**
+   *
+   *          <p>The time that the crawler was last updated.</p>
+   *
+   */
+  LastUpdated?: Date;
+
+  /**
+   *
+   *          <p>The name of the crawler.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources,
+   *       such as Amazon Simple Storage Service (Amazon S3) data.</p>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>For scheduled crawlers, the schedule when the crawler runs.</p>
+   *
+   */
+  Schedule?: Schedule;
+
+  /**
+   *
+   *          <p>The policy that specifies update and delete behaviors for the crawler.</p>
+   *
+   */
+  SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   *
+   *          <p>Indicates whether the crawler is running, or whether a run is pending.</p>
+   *
+   */
+  State?: CrawlerState | string;
+
+  /**
+   *
+   *          <p>The prefix added to the names of tables that are created.</p>
+   *
+   */
+  TablePrefix?: string;
+
+  /**
+   *
+   *          <p>A collection of targets to crawl.</p>
+   *
+   */
+  Targets?: CrawlerTargets;
+
+  /**
+   *
+   *          <p>The version of the crawler.</p>
+   *
+   */
+  Version?: number;
+}
+
+export namespace Crawler {
+  export function isa(o: any): o is Crawler {
+    return _smithy.isa(o, "Crawler");
+  }
+}
+
+/**
+ *
+ *          <p>Metrics for a specified crawler.</p>
+ *
+ */
+export interface CrawlerMetrics {
+  __type?: "CrawlerMetrics";
+  /**
+   *
+   *          <p>The name of the crawler.</p>
+   *
+   */
+  CrawlerName?: string;
+
+  /**
+   *
+   *          <p>The duration of the crawler's most recent run, in seconds.</p>
+   *
+   */
+  LastRuntimeSeconds?: number;
+
+  /**
+   *
+   *          <p>The median duration of this crawler's runs, in seconds.</p>
+   *
+   */
+  MedianRuntimeSeconds?: number;
+
+  /**
+   *
+   *          <p>True if the crawler is still estimating how long it will take to complete this run.</p>
+   *
+   */
+  StillEstimating?: boolean;
+
+  /**
+   *
+   *          <p>The number of tables created by this crawler.</p>
+   *
+   */
+  TablesCreated?: number;
+
+  /**
+   *
+   *          <p>The number of tables deleted by this crawler.</p>
+   *
+   */
+  TablesDeleted?: number;
+
+  /**
+   *
+   *          <p>The number of tables updated by this crawler.</p>
+   *
+   */
+  TablesUpdated?: number;
+
+  /**
+   *
+   *          <p>The estimated time left to complete a running crawl.</p>
+   *
+   */
+  TimeLeftSeconds?: number;
+}
+
+export namespace CrawlerMetrics {
+  export function isa(o: any): o is CrawlerMetrics {
+    return _smithy.isa(o, "CrawlerMetrics");
+  }
+}
+
+/**
+ *
+ *          <p>The specified crawler is not running.</p>
+ *
+ */
+export interface CrawlerNotRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CrawlerNotRunningException";
+  name: "CrawlerNotRunningException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace CrawlerNotRunningException {
+  export function isa(o: any): o is CrawlerNotRunningException {
+    return _smithy.isa(o, "CrawlerNotRunningException");
+  }
+}
+
+/**
+ *
+ *          <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ */
+export interface CrawlerRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CrawlerRunningException";
+  name: "CrawlerRunningException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace CrawlerRunningException {
+  export function isa(o: any): o is CrawlerRunningException {
+    return _smithy.isa(o, "CrawlerRunningException");
+  }
+}
+
+export enum CrawlerState {
+  READY = "READY",
+  RUNNING = "RUNNING",
+  STOPPING = "STOPPING"
+}
+
+/**
+ *
+ *          <p>The specified crawler is stopping.</p>
+ *
+ */
+export interface CrawlerStoppingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CrawlerStoppingException";
+  name: "CrawlerStoppingException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace CrawlerStoppingException {
+  export function isa(o: any): o is CrawlerStoppingException {
+    return _smithy.isa(o, "CrawlerStoppingException");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies data stores to crawl.</p>
+ *
+ */
+export interface CrawlerTargets {
+  __type?: "CrawlerTargets";
+  /**
+   *
+   *          <p>Specifies AWS Glue Data Catalog targets.</p>
+   *
+   */
+  CatalogTargets?: Array<CatalogTarget>;
+
+  /**
+   *
+   *          <p>Specifies Amazon DynamoDB targets.</p>
+   *
+   */
+  DynamoDBTargets?: Array<DynamoDBTarget>;
+
+  /**
+   *
+   *          <p>Specifies JDBC targets.</p>
+   *
+   */
+  JdbcTargets?: Array<JdbcTarget>;
+
+  /**
+   *
+   *          <p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>
+   *
+   */
+  S3Targets?: Array<S3Target>;
+}
+
+export namespace CrawlerTargets {
+  export function isa(o: any): o is CrawlerTargets {
+    return _smithy.isa(o, "CrawlerTargets");
+  }
+}
+
+export interface CreateClassifierRequest {
+  __type?: "CreateClassifierRequest";
+  /**
+   *
+   *          <p>A <code>CsvClassifier</code> object specifying the classifier
+   *       to create.</p>
+   *
+   */
+  CsvClassifier?: CreateCsvClassifierRequest;
+
+  /**
+   *
+   *          <p>A <code>GrokClassifier</code> object specifying the classifier
+   *       to create.</p>
+   *
+   */
+  GrokClassifier?: CreateGrokClassifierRequest;
+
+  /**
+   *
+   *          <p>A <code>JsonClassifier</code> object specifying the classifier
+   *       to create.</p>
+   *
+   */
+  JsonClassifier?: CreateJsonClassifierRequest;
+
+  /**
+   *
+   *          <p>An <code>XMLClassifier</code> object specifying the classifier
+   *       to create.</p>
+   *
+   */
+  XMLClassifier?: CreateXMLClassifierRequest;
+}
+
+export namespace CreateClassifierRequest {
+  export function isa(o: any): o is CreateClassifierRequest {
+    return _smithy.isa(o, "CreateClassifierRequest");
+  }
+}
+
+export interface CreateClassifierResponse extends $MetadataBearer {
+  __type?: "CreateClassifierResponse";
+}
+
+export namespace CreateClassifierResponse {
+  export function isa(o: any): o is CreateClassifierResponse {
+    return _smithy.isa(o, "CreateClassifierResponse");
+  }
+}
+
+export interface CreateCrawlerRequest {
+  __type?: "CreateCrawlerRequest";
+  /**
+   *
+   *          <p>A list of custom classifiers that the user has registered. By default, all built-in
+   *       classifiers are included in a crawl, but these custom classifiers always override the default
+   *       classifiers for a given classification.</p>
+   *
+   */
+  Classifiers?: Array<string>;
+
+  /**
+   *
+   *          <p>The crawler configuration information. This versioned JSON string allows users to specify
+   *       aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a
+   *         Crawler</a>.</p>
+   *
+   */
+  Configuration?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   *
+   */
+  CrawlerSecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The AWS Glue database where results are written, such as:
+   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
+   *
+   */
+  DatabaseName?: string;
+
+  /**
+   *
+   *          <p>A description of the new crawler.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>Name of the new crawler.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
+   *       access customer resources.</p>
+   *
+   */
+  Role: string | undefined;
+
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
+   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
+   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  Schedule?: string;
+
+  /**
+   *
+   *          <p>The policy for the crawler's update and deletion behavior.</p>
+   *
+   */
+  SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   *
+   *          <p>The table prefix used for catalog tables that are created.</p>
+   *
+   */
+  TablePrefix?: string;
+
+  /**
+   *
+   *          <p>The tags to use with this crawler request. You can use tags to limit access to the
+   *       crawler. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS
+   *         Glue</a>.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>A list of collection of targets to crawl.</p>
+   *
+   */
+  Targets: CrawlerTargets | undefined;
+}
+
+export namespace CreateCrawlerRequest {
+  export function isa(o: any): o is CreateCrawlerRequest {
+    return _smithy.isa(o, "CreateCrawlerRequest");
+  }
+}
+
+export interface CreateCrawlerResponse extends $MetadataBearer {
+  __type?: "CreateCrawlerResponse";
+}
+
+export namespace CreateCrawlerResponse {
+  export function isa(o: any): o is CreateCrawlerResponse {
+    return _smithy.isa(o, "CreateCrawlerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a custom CSV classifier for <code>CreateClassifier</code> to create.</p>
+ *
+ */
+export interface CreateCsvClassifierRequest {
+  __type?: "CreateCsvClassifierRequest";
+  /**
+   *
+   *          <p>Enables the processing of files that contain only one column.</p>
+   *
+   */
+  AllowSingleColumn?: boolean;
+
+  /**
+   *
+   *          <p>Indicates whether the CSV file contains a header.</p>
+   *
+   */
+  ContainsHeader?: CsvHeaderOption | string;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
+   *
+   */
+  Delimiter?: string;
+
+  /**
+   *
+   *          <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
+   *
+   */
+  DisableValueTrimming?: boolean;
+
+  /**
+   *
+   *          <p>A list of strings representing column names.</p>
+   *
+   */
+  Header?: Array<string>;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.</p>
+   *
+   */
+  QuoteSymbol?: string;
+}
+
+export namespace CreateCsvClassifierRequest {
+  export function isa(o: any): o is CreateCsvClassifierRequest {
+    return _smithy.isa(o, "CreateCsvClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a <code>grok</code> classifier for <code>CreateClassifier</code>
+ *       to create.</p>
+ *
+ */
+export interface CreateGrokClassifierRequest {
+  __type?: "CreateGrokClassifierRequest";
+  /**
+   *
+   *          <p>An identifier of the data format that the classifier matches,
+   *       such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.</p>
+   *
+   */
+  Classification: string | undefined;
+
+  /**
+   *
+   *          <p>Optional custom grok patterns used by this classifier.</p>
+   *
+   */
+  CustomPatterns?: string;
+
+  /**
+   *
+   *          <p>The grok pattern used by this classifier.</p>
+   *
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the new classifier.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateGrokClassifierRequest {
+  export function isa(o: any): o is CreateGrokClassifierRequest {
+    return _smithy.isa(o, "CreateGrokClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
+ *
+ */
+export interface CreateJsonClassifierRequest {
+  __type?: "CreateJsonClassifierRequest";
+  /**
+   *
+   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
+   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   *
+   */
+  JsonPath: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateJsonClassifierRequest {
+  export function isa(o: any): o is CreateJsonClassifierRequest {
+    return _smithy.isa(o, "CreateJsonClassifierRequest");
+  }
+}
+
+export interface CreateScriptRequest {
+  __type?: "CreateScriptRequest";
+  /**
+   *
+   *          <p>A list of the edges in the DAG.</p>
+   *
+   */
+  DagEdges?: Array<CodeGenEdge>;
+
+  /**
+   *
+   *          <p>A list of the nodes in the DAG.</p>
+   *
+   */
+  DagNodes?: Array<CodeGenNode>;
+
+  /**
+   *
+   *          <p>The programming language of the resulting code from the DAG.</p>
+   *
+   */
+  Language?: Language | string;
+}
+
+export namespace CreateScriptRequest {
+  export function isa(o: any): o is CreateScriptRequest {
+    return _smithy.isa(o, "CreateScriptRequest");
+  }
+}
+
+export interface CreateScriptResponse extends $MetadataBearer {
+  __type?: "CreateScriptResponse";
+  /**
+   *
+   *          <p>The Python script generated from the DAG.</p>
+   *
+   */
+  PythonScript?: string;
+
+  /**
+   *
+   *          <p>The Scala code generated from the DAG.</p>
+   *
+   */
+  ScalaCode?: string;
+}
+
+export namespace CreateScriptResponse {
+  export function isa(o: any): o is CreateScriptResponse {
+    return _smithy.isa(o, "CreateScriptResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
+ *
+ */
+export interface CreateXMLClassifierRequest {
+  __type?: "CreateXMLClassifierRequest";
+  /**
+   *
+   *          <p>An identifier of the data format that the classifier matches.</p>
+   *
+   */
+  Classification: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   *
+   */
+  RowTag?: string;
+}
+
+export namespace CreateXMLClassifierRequest {
+  export function isa(o: any): o is CreateXMLClassifierRequest {
+    return _smithy.isa(o, "CreateXMLClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>A classifier for custom <code>CSV</code> content.</p>
+ *
+ */
+export interface CsvClassifier {
+  __type?: "CsvClassifier";
+  /**
+   *
+   *          <p>Enables the processing of files that contain only one column.</p>
+   *
+   */
+  AllowSingleColumn?: boolean;
+
+  /**
+   *
+   *          <p>Indicates whether the CSV file contains a header.</p>
+   *
+   */
+  ContainsHeader?: CsvHeaderOption | string;
+
+  /**
+   *
+   *          <p>The time that this classifier was registered.</p>
+   *
+   */
+  CreationTime?: Date;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
+   *
+   */
+  Delimiter?: string;
+
+  /**
+   *
+   *          <p>Specifies not to trim values before identifying the type of column values. The default
+   *       value is <code>true</code>.</p>
+   *
+   */
+  DisableValueTrimming?: boolean;
+
+  /**
+   *
+   *          <p>A list of strings representing column names.</p>
+   *
+   */
+  Header?: Array<string>;
+
+  /**
+   *
+   *          <p>The time that this classifier was last updated.</p>
+   *
+   */
+  LastUpdated?: Date;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what combines content into a single column value. It must be
+   *       different from the column delimiter.</p>
+   *
+   */
+  QuoteSymbol?: string;
+
+  /**
+   *
+   *          <p>The version of this classifier.</p>
+   *
+   */
+  Version?: number;
+}
+
+export namespace CsvClassifier {
+  export function isa(o: any): o is CsvClassifier {
+    return _smithy.isa(o, "CsvClassifier");
+  }
+}
+
+export enum CsvHeaderOption {
+  ABSENT = "ABSENT",
+  PRESENT = "PRESENT",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum DeleteBehavior {
+  DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
+  DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
+  LOG = "LOG"
+}
+
+export interface DeleteClassifierRequest {
+  __type?: "DeleteClassifierRequest";
+  /**
+   *
+   *          <p>Name of the classifier to remove.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteClassifierRequest {
+  export function isa(o: any): o is DeleteClassifierRequest {
+    return _smithy.isa(o, "DeleteClassifierRequest");
+  }
+}
+
+export interface DeleteClassifierResponse extends $MetadataBearer {
+  __type?: "DeleteClassifierResponse";
+}
+
+export namespace DeleteClassifierResponse {
+  export function isa(o: any): o is DeleteClassifierResponse {
+    return _smithy.isa(o, "DeleteClassifierResponse");
+  }
+}
+
+export interface DeleteCrawlerRequest {
+  __type?: "DeleteCrawlerRequest";
+  /**
+   *
+   *          <p>The name of the crawler to remove.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteCrawlerRequest {
+  export function isa(o: any): o is DeleteCrawlerRequest {
+    return _smithy.isa(o, "DeleteCrawlerRequest");
+  }
+}
+
+export interface DeleteCrawlerResponse extends $MetadataBearer {
+  __type?: "DeleteCrawlerResponse";
+}
+
+export namespace DeleteCrawlerResponse {
+  export function isa(o: any): o is DeleteCrawlerResponse {
+    return _smithy.isa(o, "DeleteCrawlerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies an Amazon DynamoDB table to crawl.</p>
+ *
+ */
+export interface DynamoDBTarget {
+  __type?: "DynamoDBTarget";
+  /**
+   *
+   *          <p>The name of the DynamoDB table to crawl.</p>
+   *
+   */
+  Path?: string;
+}
+
+export namespace DynamoDBTarget {
+  export function isa(o: any): o is DynamoDBTarget {
+    return _smithy.isa(o, "DynamoDBTarget");
+  }
+}
+
+export interface GetClassifierRequest {
+  __type?: "GetClassifierRequest";
+  /**
+   *
+   *          <p>Name of the classifier to retrieve.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace GetClassifierRequest {
+  export function isa(o: any): o is GetClassifierRequest {
+    return _smithy.isa(o, "GetClassifierRequest");
+  }
+}
+
+export interface GetClassifierResponse extends $MetadataBearer {
+  __type?: "GetClassifierResponse";
+  /**
+   *
+   *          <p>The requested classifier.</p>
+   *
+   */
+  Classifier?: Classifier;
+}
+
+export namespace GetClassifierResponse {
+  export function isa(o: any): o is GetClassifierResponse {
+    return _smithy.isa(o, "GetClassifierResponse");
+  }
+}
+
+export interface GetClassifiersRequest {
+  __type?: "GetClassifiersRequest";
+  /**
+   *
+   *          <p>The size of the list to return (optional).</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>An optional continuation token.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetClassifiersRequest {
+  export function isa(o: any): o is GetClassifiersRequest {
+    return _smithy.isa(o, "GetClassifiersRequest");
+  }
+}
+
+export interface GetClassifiersResponse extends $MetadataBearer {
+  __type?: "GetClassifiersResponse";
+  /**
+   *
+   *          <p>The requested list of classifier
+   *       objects.</p>
+   *
+   */
+  Classifiers?: Array<Classifier>;
+
+  /**
+   *
+   *          <p>A continuation token.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetClassifiersResponse {
+  export function isa(o: any): o is GetClassifiersResponse {
+    return _smithy.isa(o, "GetClassifiersResponse");
+  }
+}
+
+export interface GetCrawlerMetricsRequest {
+  __type?: "GetCrawlerMetricsRequest";
+  /**
+   *
+   *          <p>A list of the names of crawlers about which to retrieve metrics.</p>
+   *
+   */
+  CrawlerNameList?: Array<string>;
+
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation call.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlerMetricsRequest {
+  export function isa(o: any): o is GetCrawlerMetricsRequest {
+    return _smithy.isa(o, "GetCrawlerMetricsRequest");
+  }
+}
+
+export interface GetCrawlerMetricsResponse extends $MetadataBearer {
+  __type?: "GetCrawlerMetricsResponse";
+  /**
+   *
+   *          <p>A list of metrics for the specified crawler.</p>
+   *
+   */
+  CrawlerMetricsList?: Array<CrawlerMetrics>;
+
+  /**
+   *
+   *          <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlerMetricsResponse {
+  export function isa(o: any): o is GetCrawlerMetricsResponse {
+    return _smithy.isa(o, "GetCrawlerMetricsResponse");
+  }
+}
+
+export interface GetCrawlerRequest {
+  __type?: "GetCrawlerRequest";
+  /**
+   *
+   *          <p>The name of the crawler to retrieve metadata for.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace GetCrawlerRequest {
+  export function isa(o: any): o is GetCrawlerRequest {
+    return _smithy.isa(o, "GetCrawlerRequest");
+  }
+}
+
+export interface GetCrawlerResponse extends $MetadataBearer {
+  __type?: "GetCrawlerResponse";
+  /**
+   *
+   *          <p>The metadata for the specified crawler.</p>
+   *
+   */
+  Crawler?: Crawler;
+}
+
+export namespace GetCrawlerResponse {
+  export function isa(o: any): o is GetCrawlerResponse {
+    return _smithy.isa(o, "GetCrawlerResponse");
+  }
+}
+
+export interface GetCrawlersRequest {
+  __type?: "GetCrawlersRequest";
+  /**
+   *
+   *          <p>The number of crawlers to return on each call.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlersRequest {
+  export function isa(o: any): o is GetCrawlersRequest {
+    return _smithy.isa(o, "GetCrawlersRequest");
+  }
+}
+
+export interface GetCrawlersResponse extends $MetadataBearer {
+  __type?: "GetCrawlersResponse";
+  /**
+   *
+   *          <p>A list of crawler metadata.</p>
+   *
+   */
+  Crawlers?: Array<Crawler>;
+
+  /**
+   *
+   *          <p>A continuation token, if the returned list has not reached the end
+   *       of those defined in this customer account.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlersResponse {
+  export function isa(o: any): o is GetCrawlersResponse {
+    return _smithy.isa(o, "GetCrawlersResponse");
+  }
+}
+
+export interface GetDataflowGraphRequest {
+  __type?: "GetDataflowGraphRequest";
+  /**
+   *
+   *          <p>The Python script to transform.</p>
+   *
+   */
+  PythonScript?: string;
+}
+
+export namespace GetDataflowGraphRequest {
+  export function isa(o: any): o is GetDataflowGraphRequest {
+    return _smithy.isa(o, "GetDataflowGraphRequest");
+  }
+}
+
+export interface GetDataflowGraphResponse extends $MetadataBearer {
+  __type?: "GetDataflowGraphResponse";
+  /**
+   *
+   *          <p>A list of the edges in the resulting DAG.</p>
+   *
+   */
+  DagEdges?: Array<CodeGenEdge>;
+
+  /**
+   *
+   *          <p>A list of the nodes in the resulting DAG.</p>
+   *
+   */
+  DagNodes?: Array<CodeGenNode>;
+}
+
+export namespace GetDataflowGraphResponse {
+  export function isa(o: any): o is GetDataflowGraphResponse {
+    return _smithy.isa(o, "GetDataflowGraphResponse");
+  }
+}
+
+export interface GetMappingRequest {
+  __type?: "GetMappingRequest";
+  /**
+   *
+   *          <p>Parameters for the mapping.</p>
+   *
+   */
+  Location?: Location;
+
+  /**
+   *
+   *          <p>A list of target tables.</p>
+   *
+   */
+  Sinks?: Array<CatalogEntry>;
+
+  /**
+   *
+   *          <p>Specifies the source table.</p>
+   *
+   */
+  Source: CatalogEntry | undefined;
+}
+
+export namespace GetMappingRequest {
+  export function isa(o: any): o is GetMappingRequest {
+    return _smithy.isa(o, "GetMappingRequest");
+  }
+}
+
+export interface GetMappingResponse extends $MetadataBearer {
+  __type?: "GetMappingResponse";
+  /**
+   *
+   *          <p>A list of mappings to the specified targets.</p>
+   *
+   */
+  Mapping: Array<MappingEntry> | undefined;
+}
+
+export namespace GetMappingResponse {
+  export function isa(o: any): o is GetMappingResponse {
+    return _smithy.isa(o, "GetMappingResponse");
+  }
+}
+
+export interface GetPlanRequest {
+  __type?: "GetPlanRequest";
+  /**
+   *
+   *          <p>The programming language of the code to perform the mapping.</p>
+   *
+   */
+  Language?: Language | string;
+
+  /**
+   *
+   *          <p>The parameters for the mapping.</p>
+   *
+   */
+  Location?: Location;
+
+  /**
+   *
+   *          <p>The list of mappings from a source table to target tables.</p>
+   *
+   */
+  Mapping: Array<MappingEntry> | undefined;
+
+  /**
+   *
+   *          <p>The target tables.</p>
+   *
+   */
+  Sinks?: Array<CatalogEntry>;
+
+  /**
+   *
+   *          <p>The source table.</p>
+   *
+   */
+  Source: CatalogEntry | undefined;
+}
+
+export namespace GetPlanRequest {
+  export function isa(o: any): o is GetPlanRequest {
+    return _smithy.isa(o, "GetPlanRequest");
+  }
+}
+
+export interface GetPlanResponse extends $MetadataBearer {
+  __type?: "GetPlanResponse";
+  /**
+   *
+   *          <p>A Python script to perform the mapping.</p>
+   *
+   */
+  PythonScript?: string;
+
+  /**
+   *
+   *          <p>The Scala code to perform the mapping.</p>
+   *
+   */
+  ScalaCode?: string;
+}
+
+export namespace GetPlanResponse {
+  export function isa(o: any): o is GetPlanResponse {
+    return _smithy.isa(o, "GetPlanResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A classifier that uses <code>grok</code> patterns.</p>
+ *
+ */
+export interface GrokClassifier {
+  __type?: "GrokClassifier";
+  /**
+   *
+   *          <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and
+   *       so on.</p>
+   *
+   */
+  Classification: string | undefined;
+
+  /**
+   *
+   *          <p>The time that this classifier was registered.</p>
+   *
+   */
+  CreationTime?: Date;
+
+  /**
+   *
+   *          <p>Optional custom grok patterns defined by this classifier. For more information, see custom
+   *       patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom Classifiers</a>.</p>
+   *
+   */
+  CustomPatterns?: string;
+
+  /**
+   *
+   *          <p>The grok pattern applied to a data store by this classifier. For more information, see
+   *       built-in patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing Custom
+   *         Classifiers</a>.</p>
+   *
+   */
+  GrokPattern: string | undefined;
+
+  /**
+   *
+   *          <p>The time that this classifier was last updated.</p>
+   *
+   */
+  LastUpdated?: Date;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The version of this classifier.</p>
+   *
+   */
+  Version?: number;
+}
+
+export namespace GrokClassifier {
+  export function isa(o: any): o is GrokClassifier {
+    return _smithy.isa(o, "GrokClassifier");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a JDBC data store to crawl.</p>
+ *
+ */
+export interface JdbcTarget {
+  __type?: "JdbcTarget";
+  /**
+   *
+   *          <p>The name of the connection to use to connect to the JDBC target.</p>
+   *
+   */
+  ConnectionName?: string;
+
+  /**
+   *
+   *          <p>A list of glob patterns used to exclude from the crawl.
+   *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
+   *
+   */
+  Exclusions?: Array<string>;
+
+  /**
+   *
+   *          <p>The path of the JDBC target.</p>
+   *
+   */
+  Path?: string;
+}
+
+export namespace JdbcTarget {
+  export function isa(o: any): o is JdbcTarget {
+    return _smithy.isa(o, "JdbcTarget");
+  }
+}
+
+/**
+ *
+ *          <p>A classifier for <code>JSON</code> content.</p>
+ *
+ */
+export interface JsonClassifier {
+  __type?: "JsonClassifier";
+  /**
+   *
+   *          <p>The time that this classifier was registered.</p>
+   *
+   */
+  CreationTime?: Date;
+
+  /**
+   *
+   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
+   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   *
+   */
+  JsonPath: string | undefined;
+
+  /**
+   *
+   *          <p>The time that this classifier was last updated.</p>
+   *
+   */
+  LastUpdated?: Date;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The version of this classifier.</p>
+   *
+   */
+  Version?: number;
+}
+
+export namespace JsonClassifier {
+  export function isa(o: any): o is JsonClassifier {
+    return _smithy.isa(o, "JsonClassifier");
+  }
+}
+
+export enum Language {
+  PYTHON = "PYTHON",
+  SCALA = "SCALA"
+}
+
+/**
+ *
+ *          <p>Status and error information about the most recent crawl.</p>
+ *
+ */
+export interface LastCrawlInfo {
+  __type?: "LastCrawlInfo";
+  /**
+   *
+   *          <p>If an error occurred, the error information about the last crawl.</p>
+   *
+   */
+  ErrorMessage?: string;
+
+  /**
+   *
+   *          <p>The log group for the last crawl.</p>
+   *
+   */
+  LogGroup?: string;
+
+  /**
+   *
+   *          <p>The log stream for the last crawl.</p>
+   *
+   */
+  LogStream?: string;
+
+  /**
+   *
+   *          <p>The prefix for a message about this crawl.</p>
+   *
+   */
+  MessagePrefix?: string;
+
+  /**
+   *
+   *          <p>The time at which the crawl started.</p>
+   *
+   */
+  StartTime?: Date;
+
+  /**
+   *
+   *          <p>Status of the last crawl.</p>
+   *
+   */
+  Status?: LastCrawlStatus | string;
+}
+
+export namespace LastCrawlInfo {
+  export function isa(o: any): o is LastCrawlInfo {
+    return _smithy.isa(o, "LastCrawlInfo");
+  }
+}
+
+export enum LastCrawlStatus {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export interface ListCrawlersRequest {
+  __type?: "ListCrawlersRequest";
+  /**
+   *
+   *          <p>The maximum size of a list to return.</p>
+   *
+   */
+  MaxResults?: number;
+
+  /**
+   *
+   *          <p>A continuation token, if this is a continuation request.</p>
+   *
+   */
+  NextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies to return only these tagged resources.</p>
+   *
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListCrawlersRequest {
+  export function isa(o: any): o is ListCrawlersRequest {
+    return _smithy.isa(o, "ListCrawlersRequest");
+  }
+}
+
+export interface ListCrawlersResponse extends $MetadataBearer {
+  __type?: "ListCrawlersResponse";
+  /**
+   *
+   *          <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
+   *
+   */
+  CrawlerNames?: Array<string>;
+
+  /**
+   *
+   *          <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   *
+   */
+  NextToken?: string;
+}
+
+export namespace ListCrawlersResponse {
+  export function isa(o: any): o is ListCrawlersResponse {
+    return _smithy.isa(o, "ListCrawlersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The location of resources.</p>
+ *
+ */
+export interface Location {
+  __type?: "Location";
+  /**
+   *
+   *          <p>An Amazon DynamoDB table location.</p>
+   *
+   */
+  DynamoDB?: Array<CodeGenNodeArg>;
+
+  /**
+   *
+   *          <p>A JDBC location.</p>
+   *
+   */
+  Jdbc?: Array<CodeGenNodeArg>;
+
+  /**
+   *
+   *          <p>An Amazon Simple Storage Service (Amazon S3) location.</p>
+   *
+   */
+  S3?: Array<CodeGenNodeArg>;
+}
+
+export namespace Location {
+  export function isa(o: any): o is Location {
+    return _smithy.isa(o, "Location");
+  }
+}
+
+/**
+ *
+ *          <p>Defines a mapping.</p>
+ *
+ */
+export interface MappingEntry {
+  __type?: "MappingEntry";
+  /**
+   *
+   *          <p>The source path.</p>
+   *
+   */
+  SourcePath?: string;
+
+  /**
+   *
+   *          <p>The name of the source table.</p>
+   *
+   */
+  SourceTable?: string;
+
+  /**
+   *
+   *          <p>The source type.</p>
+   *
+   */
+  SourceType?: string;
+
+  /**
+   *
+   *          <p>The target path.</p>
+   *
+   */
+  TargetPath?: string;
+
+  /**
+   *
+   *          <p>The target table.</p>
+   *
+   */
+  TargetTable?: string;
+
+  /**
+   *
+   *          <p>The target type.</p>
+   *
+   */
+  TargetType?: string;
+}
+
+export namespace MappingEntry {
+  export function isa(o: any): o is MappingEntry {
+    return _smithy.isa(o, "MappingEntry");
+  }
+}
+
+/**
+ *
+ *          <p>There is no applicable schedule.</p>
+ *
+ */
+export interface NoScheduleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoScheduleException";
+  name: "NoScheduleException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace NoScheduleException {
+  export function isa(o: any): o is NoScheduleException {
+    return _smithy.isa(o, "NoScheduleException");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a data store in Amazon Simple Storage Service (Amazon S3).</p>
+ *
+ */
+export interface S3Target {
+  __type?: "S3Target";
+  /**
+   *
+   *          <p>A list of glob patterns used to exclude from the crawl.
+   *       For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
+   *
+   */
+  Exclusions?: Array<string>;
+
+  /**
+   *
+   *          <p>The path to the Amazon S3 target.</p>
+   *
+   */
+  Path?: string;
+}
+
+export namespace S3Target {
+  export function isa(o: any): o is S3Target {
+    return _smithy.isa(o, "S3Target");
+  }
+}
+
+/**
+ *
+ *          <p>A scheduling object using a <code>cron</code> statement to schedule an event.</p>
+ *
+ */
+export interface Schedule {
+  __type?: "Schedule";
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
+   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
+   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  ScheduleExpression?: string;
+
+  /**
+   *
+   *          <p>The state of the schedule.</p>
+   *
+   */
+  State?: ScheduleState | string;
+}
+
+export namespace Schedule {
+  export function isa(o: any): o is Schedule {
+    return _smithy.isa(o, "Schedule");
+  }
+}
+
+export enum ScheduleState {
+  NOT_SCHEDULED = "NOT_SCHEDULED",
+  SCHEDULED = "SCHEDULED",
+  TRANSITIONING = "TRANSITIONING"
+}
+
+/**
+ *
+ *          <p>The specified scheduler is not running.</p>
+ *
+ */
+export interface SchedulerNotRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SchedulerNotRunningException";
+  name: "SchedulerNotRunningException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace SchedulerNotRunningException {
+  export function isa(o: any): o is SchedulerNotRunningException {
+    return _smithy.isa(o, "SchedulerNotRunningException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified scheduler is already running.</p>
+ *
+ */
+export interface SchedulerRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SchedulerRunningException";
+  name: "SchedulerRunningException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace SchedulerRunningException {
+  export function isa(o: any): o is SchedulerRunningException {
+    return _smithy.isa(o, "SchedulerRunningException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified scheduler is transitioning.</p>
+ *
+ */
+export interface SchedulerTransitioningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SchedulerTransitioningException";
+  name: "SchedulerTransitioningException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the problem.</p>
+   *
+   */
+  Message?: string;
+}
+
+export namespace SchedulerTransitioningException {
+  export function isa(o: any): o is SchedulerTransitioningException {
+    return _smithy.isa(o, "SchedulerTransitioningException");
+  }
+}
+
+/**
+ *
+ *          <p>A policy that specifies update and deletion behaviors for the crawler.</p>
+ *
+ */
+export interface SchemaChangePolicy {
+  __type?: "SchemaChangePolicy";
+  /**
+   *
+   *          <p>The deletion behavior when the crawler finds a deleted object.</p>
+   *
+   */
+  DeleteBehavior?: DeleteBehavior | string;
+
+  /**
+   *
+   *          <p>The update behavior when the crawler finds a changed schema.</p>
+   *
+   */
+  UpdateBehavior?: UpdateBehavior | string;
+}
+
+export namespace SchemaChangePolicy {
+  export function isa(o: any): o is SchemaChangePolicy {
+    return _smithy.isa(o, "SchemaChangePolicy");
+  }
+}
+
+export interface StartCrawlerRequest {
+  __type?: "StartCrawlerRequest";
+  /**
+   *
+   *          <p>Name of the crawler to start.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace StartCrawlerRequest {
+  export function isa(o: any): o is StartCrawlerRequest {
+    return _smithy.isa(o, "StartCrawlerRequest");
+  }
+}
+
+export interface StartCrawlerResponse extends $MetadataBearer {
+  __type?: "StartCrawlerResponse";
+}
+
+export namespace StartCrawlerResponse {
+  export function isa(o: any): o is StartCrawlerResponse {
+    return _smithy.isa(o, "StartCrawlerResponse");
+  }
+}
+
+export interface StartCrawlerScheduleRequest {
+  __type?: "StartCrawlerScheduleRequest";
+  /**
+   *
+   *          <p>Name of the crawler to schedule.</p>
+   *
+   */
+  CrawlerName: string | undefined;
+}
+
+export namespace StartCrawlerScheduleRequest {
+  export function isa(o: any): o is StartCrawlerScheduleRequest {
+    return _smithy.isa(o, "StartCrawlerScheduleRequest");
+  }
+}
+
+export interface StartCrawlerScheduleResponse extends $MetadataBearer {
+  __type?: "StartCrawlerScheduleResponse";
+}
+
+export namespace StartCrawlerScheduleResponse {
+  export function isa(o: any): o is StartCrawlerScheduleResponse {
+    return _smithy.isa(o, "StartCrawlerScheduleResponse");
+  }
+}
+
+export interface StopCrawlerRequest {
+  __type?: "StopCrawlerRequest";
+  /**
+   *
+   *          <p>Name of the crawler to stop.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace StopCrawlerRequest {
+  export function isa(o: any): o is StopCrawlerRequest {
+    return _smithy.isa(o, "StopCrawlerRequest");
+  }
+}
+
+export interface StopCrawlerResponse extends $MetadataBearer {
+  __type?: "StopCrawlerResponse";
+}
+
+export namespace StopCrawlerResponse {
+  export function isa(o: any): o is StopCrawlerResponse {
+    return _smithy.isa(o, "StopCrawlerResponse");
+  }
+}
+
+export interface StopCrawlerScheduleRequest {
+  __type?: "StopCrawlerScheduleRequest";
+  /**
+   *
+   *          <p>Name of the crawler whose schedule state to set.</p>
+   *
+   */
+  CrawlerName: string | undefined;
+}
+
+export namespace StopCrawlerScheduleRequest {
+  export function isa(o: any): o is StopCrawlerScheduleRequest {
+    return _smithy.isa(o, "StopCrawlerScheduleRequest");
+  }
+}
+
+export interface StopCrawlerScheduleResponse extends $MetadataBearer {
+  __type?: "StopCrawlerScheduleResponse";
+}
+
+export namespace StopCrawlerScheduleResponse {
+  export function isa(o: any): o is StopCrawlerScheduleResponse {
+    return _smithy.isa(o, "StopCrawlerScheduleResponse");
+  }
+}
+
+export enum UpdateBehavior {
+  LOG = "LOG",
+  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE"
+}
+
+export interface UpdateClassifierRequest {
+  __type?: "UpdateClassifierRequest";
+  /**
+   *
+   *          <p>A <code>CsvClassifier</code> object with updated fields.</p>
+   *
+   */
+  CsvClassifier?: UpdateCsvClassifierRequest;
+
+  /**
+   *
+   *          <p>A <code>GrokClassifier</code> object with updated fields.</p>
+   *
+   */
+  GrokClassifier?: UpdateGrokClassifierRequest;
+
+  /**
+   *
+   *          <p>A <code>JsonClassifier</code> object with updated fields.</p>
+   *
+   */
+  JsonClassifier?: UpdateJsonClassifierRequest;
+
+  /**
+   *
+   *          <p>An <code>XMLClassifier</code> object with updated fields.</p>
+   *
+   */
+  XMLClassifier?: UpdateXMLClassifierRequest;
+}
+
+export namespace UpdateClassifierRequest {
+  export function isa(o: any): o is UpdateClassifierRequest {
+    return _smithy.isa(o, "UpdateClassifierRequest");
+  }
+}
+
+export interface UpdateClassifierResponse extends $MetadataBearer {
+  __type?: "UpdateClassifierResponse";
+}
+
+export namespace UpdateClassifierResponse {
+  export function isa(o: any): o is UpdateClassifierResponse {
+    return _smithy.isa(o, "UpdateClassifierResponse");
+  }
+}
+
+export interface UpdateCrawlerRequest {
+  __type?: "UpdateCrawlerRequest";
+  /**
+   *
+   *          <p>A list of custom classifiers that the user
+   *       has registered. By default, all built-in classifiers are included in a crawl,
+   *       but these custom classifiers always override the default classifiers
+   *       for a given classification.</p>
+   *
+   */
+  Classifiers?: Array<string>;
+
+  /**
+   *
+   *          <p>The crawler configuration information. This versioned JSON string allows users to specify
+   *       aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a
+   *         Crawler</a>.</p>
+   *
+   */
+  Configuration?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   *
+   */
+  CrawlerSecurityConfiguration?: string;
+
+  /**
+   *
+   *          <p>The AWS Glue database where results are stored, such as:
+   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
+   *
+   */
+  DatabaseName?: string;
+
+  /**
+   *
+   *          <p>A description of the new crawler.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>Name of the new crawler.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role or Amazon Resource Name (ARN) of an IAM role that is used by the new crawler
+   *       to access customer resources.</p>
+   *
+   */
+  Role?: string;
+
+  /**
+   *
+   *          <p>A <code>cron</code> expression used to specify the schedule. For more information, see
+   *         <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
+   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  Schedule?: string;
+
+  /**
+   *
+   *          <p>The policy for the crawler's update and deletion behavior.</p>
+   *
+   */
+  SchemaChangePolicy?: SchemaChangePolicy;
+
+  /**
+   *
+   *          <p>The table prefix used for catalog tables that are created.</p>
+   *
+   */
+  TablePrefix?: string;
+
+  /**
+   *
+   *          <p>A list of targets to crawl.</p>
+   *
+   */
+  Targets?: CrawlerTargets;
+}
+
+export namespace UpdateCrawlerRequest {
+  export function isa(o: any): o is UpdateCrawlerRequest {
+    return _smithy.isa(o, "UpdateCrawlerRequest");
+  }
+}
+
+export interface UpdateCrawlerResponse extends $MetadataBearer {
+  __type?: "UpdateCrawlerResponse";
+}
+
+export namespace UpdateCrawlerResponse {
+  export function isa(o: any): o is UpdateCrawlerResponse {
+    return _smithy.isa(o, "UpdateCrawlerResponse");
+  }
+}
+
+export interface UpdateCrawlerScheduleRequest {
+  __type?: "UpdateCrawlerScheduleRequest";
+  /**
+   *
+   *          <p>The name of the crawler whose schedule to update.</p>
+   *
+   */
+  CrawlerName: string | undefined;
+
+  /**
+   *
+   *          <p>The updated <code>cron</code> expression used to specify the schedule. For more
+   *       information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run something every day
+   *       at 12:15 UTC, specify <code>cron(15 12 * * ? *)</code>.</p>
+   *
+   */
+  Schedule?: string;
+}
+
+export namespace UpdateCrawlerScheduleRequest {
+  export function isa(o: any): o is UpdateCrawlerScheduleRequest {
+    return _smithy.isa(o, "UpdateCrawlerScheduleRequest");
+  }
+}
+
+export interface UpdateCrawlerScheduleResponse extends $MetadataBearer {
+  __type?: "UpdateCrawlerScheduleResponse";
+}
+
+export namespace UpdateCrawlerScheduleResponse {
+  export function isa(o: any): o is UpdateCrawlerScheduleResponse {
+    return _smithy.isa(o, "UpdateCrawlerScheduleResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a custom CSV classifier to be updated.</p>
+ *
+ */
+export interface UpdateCsvClassifierRequest {
+  __type?: "UpdateCsvClassifierRequest";
+  /**
+   *
+   *          <p>Enables the processing of files that contain only one column.</p>
+   *
+   */
+  AllowSingleColumn?: boolean;
+
+  /**
+   *
+   *          <p>Indicates whether the CSV file contains a header.</p>
+   *
+   */
+  ContainsHeader?: CsvHeaderOption | string;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what separates each column entry in the row.</p>
+   *
+   */
+  Delimiter?: string;
+
+  /**
+   *
+   *          <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
+   *
+   */
+  DisableValueTrimming?: boolean;
+
+  /**
+   *
+   *          <p>A list of strings representing column names.</p>
+   *
+   */
+  Header?: Array<string>;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>A custom symbol to denote what combines content into a single column value. It must be
+   *       different from the column delimiter.</p>
+   *
+   */
+  QuoteSymbol?: string;
+}
+
+export namespace UpdateCsvClassifierRequest {
+  export function isa(o: any): o is UpdateCsvClassifierRequest {
+    return _smithy.isa(o, "UpdateCsvClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a grok classifier to update when passed to
+ *       <code>UpdateClassifier</code>.</p>
+ *
+ */
+export interface UpdateGrokClassifierRequest {
+  __type?: "UpdateGrokClassifierRequest";
+  /**
+   *
+   *          <p>An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs,
+   *       Amazon CloudWatch Logs, and so on.</p>
+   *
+   */
+  Classification?: string;
+
+  /**
+   *
+   *          <p>Optional custom grok patterns used by this classifier.</p>
+   *
+   */
+  CustomPatterns?: string;
+
+  /**
+   *
+   *          <p>The grok pattern used by this classifier.</p>
+   *
+   */
+  GrokPattern?: string;
+
+  /**
+   *
+   *          <p>The name of the <code>GrokClassifier</code>.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateGrokClassifierRequest {
+  export function isa(o: any): o is UpdateGrokClassifierRequest {
+    return _smithy.isa(o, "UpdateGrokClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies a JSON classifier to be updated.</p>
+ *
+ */
+export interface UpdateJsonClassifierRequest {
+  __type?: "UpdateJsonClassifierRequest";
+  /**
+   *
+   *          <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify. AWS
+   *       Glue supports a subset of <code>JsonPath</code>, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   *
+   */
+  JsonPath?: string;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateJsonClassifierRequest {
+  export function isa(o: any): o is UpdateJsonClassifierRequest {
+    return _smithy.isa(o, "UpdateJsonClassifierRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies an XML classifier to be updated.</p>
+ *
+ */
+export interface UpdateXMLClassifierRequest {
+  __type?: "UpdateXMLClassifierRequest";
+  /**
+   *
+   *          <p>An identifier of the data format that the classifier matches.</p>
+   *
+   */
+  Classification?: string;
+
+  /**
+   *
+   *          <p>The name of the classifier.</p>
+   *
+   */
+  Name: string | undefined;
+
+  /**
+   *
+   *          <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This cannot identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   *
+   */
+  RowTag?: string;
+}
+
+export namespace UpdateXMLClassifierRequest {
+  export function isa(o: any): o is UpdateXMLClassifierRequest {
+    return _smithy.isa(o, "UpdateXMLClassifierRequest");
   }
 }
 

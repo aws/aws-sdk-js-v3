@@ -1,6 +1,66 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ *
+ *          <p>The request failed due to an unknown error.</p>
+ *
+ */
+export interface InternalServiceError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServiceError";
+  name: "InternalServiceError";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalServiceError {
+  export function isa(o: any): o is InternalServiceError {
+    return _smithy.isa(o, "InternalServiceError");
+  }
+}
+
+/**
+ *
+ *          <p>One of the arguments provided is invalid for this request.</p>
+ *
+ */
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export function isa(o: any): o is InvalidArgumentException {
+    return _smithy.isa(o, "InvalidArgumentException");
+  }
+}
+
+/**
+ *
+ *          <p>The user is not authorized to perform this request.</p>
+ *
+ */
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotAuthorizedException";
+  name: "NotAuthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotAuthorizedException {
+  export function isa(o: any): o is NotAuthorizedException {
+    return _smithy.isa(o, "NotAuthorizedException");
+  }
+}
+
 export enum ServiceType {
   RDS = "RDS"
 }
@@ -571,46 +631,6 @@ export namespace GetResourceMetricsResponse {
 
 /**
  *
- *          <p>The request failed due to an unknown error.</p>
- *
- */
-export interface InternalServiceError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServiceError";
-  name: "InternalServiceError";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace InternalServiceError {
-  export function isa(o: any): o is InternalServiceError {
-    return _smithy.isa(o, "InternalServiceError");
-  }
-}
-
-/**
- *
- *          <p>One of the arguments provided is invalid for this request.</p>
- *
- */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidArgumentException";
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
-  }
-}
-
-/**
- *
  *          <p>A time-ordered series of data points, correpsonding to a dimension of a Performance Insights
  *       metric.</p>
  *
@@ -699,26 +719,6 @@ export interface MetricQuery {
 export namespace MetricQuery {
   export function isa(o: any): o is MetricQuery {
     return _smithy.isa(o, "MetricQuery");
-  }
-}
-
-/**
- *
- *          <p>The user is not authorized to perform this request.</p>
- *
- */
-export interface NotAuthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotAuthorizedException";
-  name: "NotAuthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
   }
 }
 

@@ -1,16 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum EventType {
-  ANSWERED = "ANSWERED",
-  BUSY = "BUSY",
-  COMPLETED_CALL = "COMPLETED_CALL",
-  FAILED = "FAILED",
-  INITIATED_CALL = "INITIATED_CALL",
-  NO_ANSWER = "NO_ANSWER",
-  RINGING = "RINGING"
-}
-
 /**
  * The resource specified in your request already exists.
  */
@@ -302,6 +292,16 @@ export namespace EventDestinationDefinition {
   export function isa(o: any): o is EventDestinationDefinition {
     return _smithy.isa(o, "EventDestinationDefinition");
   }
+}
+
+export enum EventType {
+  ANSWERED = "ANSWERED",
+  BUSY = "BUSY",
+  COMPLETED_CALL = "COMPLETED_CALL",
+  FAILED = "FAILED",
+  INITIATED_CALL = "INITIATED_CALL",
+  NO_ANSWER = "NO_ANSWER",
+  RINGING = "RINGING"
 }
 
 export interface GetConfigurationSetEventDestinationsRequest {

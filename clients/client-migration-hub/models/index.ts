@@ -1,32 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ApplicationStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
-}
-
-export enum ResourceAttributeType {
-  BIOS_ID = "BIOS_ID",
-  FQDN = "FQDN",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  MOTHERBOARD_SERIAL_NUMBER = "MOTHERBOARD_SERIAL_NUMBER",
-  VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
-  VM_MANAGER_ID = "VM_MANAGER_ID",
-  VM_NAME = "VM_NAME",
-  VM_PATH = "VM_PATH"
-}
-
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
-}
-
 /**
  *
  *          <p>You do not have sufficient access to perform this action.</p>
@@ -45,6 +19,12 @@ export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
     return _smithy.isa(o, "AccessDeniedException");
   }
+}
+
+export enum ApplicationStatus {
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED"
 }
 
 export interface AssociateCreatedArtifactRequest {
@@ -1243,6 +1223,19 @@ export namespace ResourceAttribute {
   }
 }
 
+export enum ResourceAttributeType {
+  BIOS_ID = "BIOS_ID",
+  FQDN = "FQDN",
+  IPV4_ADDRESS = "IPV4_ADDRESS",
+  IPV6_ADDRESS = "IPV6_ADDRESS",
+  MAC_ADDRESS = "MAC_ADDRESS",
+  MOTHERBOARD_SERIAL_NUMBER = "MOTHERBOARD_SERIAL_NUMBER",
+  VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
+  VM_MANAGER_ID = "VM_MANAGER_ID",
+  VM_NAME = "VM_NAME",
+  VM_PATH = "VM_PATH"
+}
+
 /**
  *
  *          <p>Exception raised when the request references a resource (Application Discovery Service
@@ -1284,6 +1277,13 @@ export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
     return _smithy.isa(o, "ServiceUnavailableException");
   }
+}
+
+export enum Status {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED"
 }
 
 /**

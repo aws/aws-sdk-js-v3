@@ -1,122 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AgentStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE"
-}
-
-export enum Atime {
-  BEST_EFFORT = "BEST_EFFORT",
-  NONE = "NONE"
-}
-
-export enum EndpointType {
-  FIPS = "FIPS",
-  PRIVATE_LINK = "PRIVATE_LINK",
-  PUBLIC = "PUBLIC"
-}
-
-export enum FilterType {
-  SIMPLE_PATTERN = "SIMPLE_PATTERN"
-}
-
-export enum Gid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE"
-}
-
-export enum Mtime {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE"
-}
-
-export enum NfsVersion {
-  AUTOMATIC = "AUTOMATIC",
-  NFS3 = "NFS3",
-  NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1"
-}
-
-export enum OverwriteMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
-}
-
-export enum PhaseStatus {
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS"
-}
-
-export enum PosixPermissions {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE"
-}
-
-export enum PreserveDeletedFiles {
-  PRESERVE = "PRESERVE",
-  REMOVE = "REMOVE"
-}
-
-export enum PreserveDevices {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE"
-}
-
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA"
-}
-
-export enum SmbVersion {
-  AUTOMATIC = "AUTOMATIC",
-  SMB2 = "SMB2",
-  SMB3 = "SMB3"
-}
-
-export enum TaskExecutionStatus {
-  ERROR = "ERROR",
-  LAUNCHING = "LAUNCHING",
-  PREPARING = "PREPARING",
-  QUEUED = "QUEUED",
-  SUCCESS = "SUCCESS",
-  TRANSFERRING = "TRANSFERRING",
-  VERIFYING = "VERIFYING"
-}
-
-export enum TaskQueueing {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum TaskStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  UNAVAILABLE = "UNAVAILABLE"
-}
-
-export enum Uid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE"
-}
-
-export enum VerifyMode {
-  NONE = "NONE",
-  ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT"
-}
-
 /**
  *
  *          <p>Represents a single entry in a list of agents. <code>AgentListEntry</code> returns an
@@ -152,6 +36,16 @@ export namespace AgentListEntry {
   export function isa(o: any): o is AgentListEntry {
     return _smithy.isa(o, "AgentListEntry");
   }
+}
+
+export enum AgentStatus {
+  OFFLINE = "OFFLINE",
+  ONLINE = "ONLINE"
+}
+
+export enum Atime {
+  BEST_EFFORT = "BEST_EFFORT",
+  NONE = "NONE"
 }
 
 /**
@@ -1636,6 +1530,12 @@ export namespace Ec2Config {
   }
 }
 
+export enum EndpointType {
+  FIPS = "FIPS",
+  PRIVATE_LINK = "PRIVATE_LINK",
+  PUBLIC = "PUBLIC"
+}
+
 /**
  *
  *          <p>Specifies which files, folders and objects to include or exclude when transferring files
@@ -1668,6 +1568,17 @@ export namespace FilterRule {
   export function isa(o: any): o is FilterRule {
     return _smithy.isa(o, "FilterRule");
   }
+}
+
+export enum FilterType {
+  SIMPLE_PATTERN = "SIMPLE_PATTERN"
+}
+
+export enum Gid {
+  BOTH = "BOTH",
+  INT_VALUE = "INT_VALUE",
+  NAME = "NAME",
+  NONE = "NONE"
 }
 
 /**
@@ -2061,6 +1972,11 @@ export namespace LocationListEntry {
   }
 }
 
+export enum Mtime {
+  NONE = "NONE",
+  PRESERVE = "PRESERVE"
+}
+
 /**
  *
  *          <p>Represents the mount options that are available for DataSync to access an NFS
@@ -2110,6 +2026,13 @@ export namespace NfsMountOptions {
   export function isa(o: any): o is NfsMountOptions {
     return _smithy.isa(o, "NfsMountOptions");
   }
+}
+
+export enum NfsVersion {
+  AUTOMATIC = "AUTOMATIC",
+  NFS3 = "NFS3",
+  NFS4_0 = "NFS4_0",
+  NFS4_1 = "NFS4_1"
 }
 
 /**
@@ -2299,6 +2222,32 @@ export namespace Options {
   }
 }
 
+export enum OverwriteMode {
+  ALWAYS = "ALWAYS",
+  NEVER = "NEVER"
+}
+
+export enum PhaseStatus {
+  ERROR = "ERROR",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS"
+}
+
+export enum PosixPermissions {
+  NONE = "NONE",
+  PRESERVE = "PRESERVE"
+}
+
+export enum PreserveDeletedFiles {
+  PRESERVE = "PRESERVE",
+  REMOVE = "REMOVE"
+}
+
+export enum PreserveDevices {
+  NONE = "NONE",
+  PRESERVE = "PRESERVE"
+}
+
 /**
  *
  *          <p>The VPC endpoint, subnet and security group that an agent uses to access IP addresses in a
@@ -2373,6 +2322,15 @@ export namespace S3Config {
   }
 }
 
+export enum S3StorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  STANDARD = "STANDARD",
+  STANDARD_IA = "STANDARD_IA"
+}
+
 /**
  *
  *          <p>Represents the mount options that are available for DataSync to access an SMB
@@ -2395,6 +2353,12 @@ export namespace SmbMountOptions {
   export function isa(o: any): o is SmbMountOptions {
     return _smithy.isa(o, "SmbMountOptions");
   }
+}
+
+export enum SmbVersion {
+  AUTOMATIC = "AUTOMATIC",
+  SMB2 = "SMB2",
+  SMB3 = "SMB3"
 }
 
 /**
@@ -2647,6 +2611,16 @@ export namespace TaskExecutionResultDetail {
   }
 }
 
+export enum TaskExecutionStatus {
+  ERROR = "ERROR",
+  LAUNCHING = "LAUNCHING",
+  PREPARING = "PREPARING",
+  QUEUED = "QUEUED",
+  SUCCESS = "SUCCESS",
+  TRANSFERRING = "TRANSFERRING",
+  VERIFYING = "VERIFYING"
+}
+
 /**
  *
  *          <p>Represents a single entry in a list of tasks. <code>TaskListEntry</code> returns an
@@ -2686,6 +2660,11 @@ export namespace TaskListEntry {
   }
 }
 
+export enum TaskQueueing {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 /**
  *
  *          <p>Specifies the schedule you want your task to use for repeated executions. For more
@@ -2707,6 +2686,21 @@ export namespace TaskSchedule {
   export function isa(o: any): o is TaskSchedule {
     return _smithy.isa(o, "TaskSchedule");
   }
+}
+
+export enum TaskStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING",
+  UNAVAILABLE = "UNAVAILABLE"
+}
+
+export enum Uid {
+  BOTH = "BOTH",
+  INT_VALUE = "INT_VALUE",
+  NAME = "NAME",
+  NONE = "NONE"
 }
 
 /**
@@ -2865,4 +2859,10 @@ export namespace UpdateTaskResponse {
   export function isa(o: any): o is UpdateTaskResponse {
     return _smithy.isa(o, "UpdateTaskResponse");
   }
+}
+
+export enum VerifyMode {
+  NONE = "NONE",
+  ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
+  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT"
 }

@@ -3,139 +3,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  *
- *         <p></p>
- *
- */
-export interface AddAttachmentsToSetRequest {
-  __type?: "AddAttachmentsToSetRequest";
-  /**
-   *
-   *         <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
-   *             a new attachment set is created, and the ID of the set is returned in the response. If
-   *             an <code>attachmentSetId</code> is specified, the attachments are added to the specified
-   *             set, if it exists.</p>
-   *
-   */
-  attachmentSetId?: string;
-
-  /**
-   *
-   *         <p>One or more attachments to add to the set. The limit is 3 attachments per set, and
-   *             the size limit is 5 MB per attachment.</p>
-   *
-   */
-  attachments: Array<Attachment> | undefined;
-}
-
-export namespace AddAttachmentsToSetRequest {
-  export function isa(o: any): o is AddAttachmentsToSetRequest {
-    return _smithy.isa(o, "AddAttachmentsToSetRequest");
-  }
-}
-
-/**
- *
- *         <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
- *
- */
-export interface AddAttachmentsToSetResponse extends $MetadataBearer {
-  __type?: "AddAttachmentsToSetResponse";
-  /**
-   *
-   *         <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified,
-   *             a new attachment set is created, and the ID of the set is returned in the response. If
-   *             an <code>attachmentSetId</code> was specified, the attachments are added to the
-   *             specified set, if it exists.</p>
-   *
-   */
-  attachmentSetId?: string;
-
-  /**
-   *
-   *         <p>The time and date when the attachment set expires.</p>
-   *
-   */
-  expiryTime?: string;
-}
-
-export namespace AddAttachmentsToSetResponse {
-  export function isa(o: any): o is AddAttachmentsToSetResponse {
-    return _smithy.isa(o, "AddAttachmentsToSetResponse");
-  }
-}
-
-/**
- *
- *         <p>To be written.</p>
- *
- */
-export interface AddCommunicationToCaseRequest {
-  __type?: "AddCommunicationToCaseRequest";
-  /**
-   *
-   *         <p>The ID of a set of one or more attachments for the communication to add to the
-   *             case. Create the set by calling <a>AddAttachmentsToSet</a>
-   *          </p>
-   *
-   */
-  attachmentSetId?: string;
-
-  /**
-   *
-   *         <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *          </p>
-   *
-   */
-  caseId?: string;
-
-  /**
-   *
-   *         <p>The email addresses in the CC line of an email to be added to the support
-   *             case.</p>
-   *
-   */
-  ccEmailAddresses?: Array<string>;
-
-  /**
-   *
-   *         <p>The body of an email communication to add to the support case.</p>
-   *
-   */
-  communicationBody: string | undefined;
-}
-
-export namespace AddCommunicationToCaseRequest {
-  export function isa(o: any): o is AddCommunicationToCaseRequest {
-    return _smithy.isa(o, "AddCommunicationToCaseRequest");
-  }
-}
-
-/**
- *
- *         <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
- *
- */
-export interface AddCommunicationToCaseResponse extends $MetadataBearer {
-  __type?: "AddCommunicationToCaseResponse";
-  /**
-   *
-   *         <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
-   *             error.</p>
-   *
-   */
-  result?: boolean;
-}
-
-export namespace AddCommunicationToCaseResponse {
-  export function isa(o: any): o is AddCommunicationToCaseResponse {
-    return _smithy.isa(o, "AddCommunicationToCaseResponse");
-  }
-}
-
-/**
- *
  *         <p>An attachment to a case communication. The attachment consists of the file name and
  *             the content of the file.</p>
  *
@@ -190,163 +57,6 @@ export interface AttachmentDetails {
 export namespace AttachmentDetails {
   export function isa(o: any): o is AttachmentDetails {
     return _smithy.isa(o, "AttachmentDetails");
-  }
-}
-
-/**
- *
- *         <p>An attachment with the specified ID could not be found.</p>
- *
- */
-export interface AttachmentIdNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AttachmentIdNotFound";
-  name: "AttachmentIdNotFound";
-  $fault: "client";
-  /**
-   *
-   *         <p>An attachment with the specified ID could not be found.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AttachmentIdNotFound {
-  export function isa(o: any): o is AttachmentIdNotFound {
-    return _smithy.isa(o, "AttachmentIdNotFound");
-  }
-}
-
-/**
- *
- *         <p>The limit for the number of attachment sets created in a short period of time has
- *             been exceeded.</p>
- *
- */
-export interface AttachmentLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AttachmentLimitExceeded";
-  name: "AttachmentLimitExceeded";
-  $fault: "client";
-  /**
-   *
-   *         <p>The limit for the number of attachment sets created in a short period of time has
-   *             been exceeded.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AttachmentLimitExceeded {
-  export function isa(o: any): o is AttachmentLimitExceeded {
-    return _smithy.isa(o, "AttachmentLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>The expiration time of the attachment set has passed. The set expires 1 hour after
- *             it is created.</p>
- *
- */
-export interface AttachmentSetExpired
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AttachmentSetExpired";
-  name: "AttachmentSetExpired";
-  $fault: "client";
-  /**
-   *
-   *         <p>The expiration time of the attachment set has passed. The set expires 1 hour after
-   *             it is created.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetExpired {
-  export function isa(o: any): o is AttachmentSetExpired {
-    return _smithy.isa(o, "AttachmentSetExpired");
-  }
-}
-
-/**
- *
- *         <p>An attachment set with the specified ID could not be found.</p>
- *
- */
-export interface AttachmentSetIdNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AttachmentSetIdNotFound";
-  name: "AttachmentSetIdNotFound";
-  $fault: "client";
-  /**
-   *
-   *         <p>An attachment set with the specified ID could not be found.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetIdNotFound {
-  export function isa(o: any): o is AttachmentSetIdNotFound {
-    return _smithy.isa(o, "AttachmentSetIdNotFound");
-  }
-}
-
-/**
- *
- *         <p>A limit for the size of an attachment set has been exceeded. The limits are 3
- *             attachments and 5 MB per attachment.</p>
- *
- */
-export interface AttachmentSetSizeLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AttachmentSetSizeLimitExceeded";
-  name: "AttachmentSetSizeLimitExceeded";
-  $fault: "client";
-  /**
-   *
-   *         <p>A limit for the size of an attachment set has been exceeded. The limits are 3
-   *             attachments and 5 MB per attachment.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AttachmentSetSizeLimitExceeded {
-  export function isa(o: any): o is AttachmentSetSizeLimitExceeded {
-    return _smithy.isa(o, "AttachmentSetSizeLimitExceeded");
-  }
-}
-
-/**
- *
- *         <p>The case creation limit for the account has been exceeded.</p>
- *
- */
-export interface CaseCreationLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CaseCreationLimitExceeded";
-  name: "CaseCreationLimitExceeded";
-  $fault: "client";
-  /**
-   *
-   *         <p>An error message that indicates that you have exceeded the number of cases you can
-   *             have open.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CaseCreationLimitExceeded {
-  export function isa(o: any): o is CaseCreationLimitExceeded {
-    return _smithy.isa(o, "CaseCreationLimitExceeded");
   }
 }
 
@@ -534,31 +244,6 @@ export namespace CaseDetails {
 
 /**
  *
- *         <p>The requested <code>caseId</code> could not be located.</p>
- *
- */
-export interface CaseIdNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CaseIdNotFound";
-  name: "CaseIdNotFound";
-  $fault: "client";
-  /**
-   *
-   *         <p>The requested <code>CaseId</code> could not be located.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CaseIdNotFound {
-  export function isa(o: any): o is CaseIdNotFound {
-    return _smithy.isa(o, "CaseIdNotFound");
-  }
-}
-
-/**
- *
  *         <p>A JSON-formatted name/value pair that represents the category name and category
  *             code of the problem, selected from the <a>DescribeServices</a> response for
  *             each AWS service.</p>
@@ -642,6 +327,442 @@ export interface Communication {
 export namespace Communication {
   export function isa(o: any): o is Communication {
     return _smithy.isa(o, "Communication");
+  }
+}
+
+/**
+ *
+ *         <p>The five most recent communications associated with the case.</p>
+ *
+ */
+export interface RecentCaseCommunications {
+  __type?: "RecentCaseCommunications";
+  /**
+   *
+   *         <p>The five most recent communications associated with the case.</p>
+   *
+   */
+  communications?: Array<Communication>;
+
+  /**
+   *
+   *         <p>A resumption point for pagination.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace RecentCaseCommunications {
+  export function isa(o: any): o is RecentCaseCommunications {
+    return _smithy.isa(o, "RecentCaseCommunications");
+  }
+}
+
+/**
+ *
+ *         <p>Information about an AWS service returned by the <a>DescribeServices</a>
+ *             operation.</p>
+ *
+ */
+export interface Service {
+  __type?: "Service";
+  /**
+   *
+   *         <p>A list of categories that describe the type of support issue a case describes.
+   *             Categories consist of a category name and a category code. Category names and codes are
+   *             passed to AWS Support when you call <a>CreateCase</a>.</p>
+   *
+   */
+  categories?: Array<Category>;
+
+  /**
+   *
+   *         <p>The code for an AWS service returned by the <a>DescribeServices</a>
+   *             response. The <code>name</code> element contains the corresponding friendly
+   *             name.</p>
+   *
+   */
+  code?: string;
+
+  /**
+   *
+   *         <p>The friendly name for an AWS service. The <code>code</code> element contains the
+   *             corresponding code.</p>
+   *
+   */
+  name?: string;
+}
+
+export namespace Service {
+  export function isa(o: any): o is Service {
+    return _smithy.isa(o, "Service");
+  }
+}
+
+/**
+ *
+ *         <p>An attachment with the specified ID could not be found.</p>
+ *
+ */
+export interface AttachmentIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AttachmentIdNotFound";
+  name: "AttachmentIdNotFound";
+  $fault: "client";
+  /**
+   *
+   *         <p>An attachment with the specified ID could not be found.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace AttachmentIdNotFound {
+  export function isa(o: any): o is AttachmentIdNotFound {
+    return _smithy.isa(o, "AttachmentIdNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>The limit for the number of attachment sets created in a short period of time has
+ *             been exceeded.</p>
+ *
+ */
+export interface AttachmentLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AttachmentLimitExceeded";
+  name: "AttachmentLimitExceeded";
+  $fault: "client";
+  /**
+   *
+   *         <p>The limit for the number of attachment sets created in a short period of time has
+   *             been exceeded.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace AttachmentLimitExceeded {
+  export function isa(o: any): o is AttachmentLimitExceeded {
+    return _smithy.isa(o, "AttachmentLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>The expiration time of the attachment set has passed. The set expires 1 hour after
+ *             it is created.</p>
+ *
+ */
+export interface AttachmentSetExpired
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AttachmentSetExpired";
+  name: "AttachmentSetExpired";
+  $fault: "client";
+  /**
+   *
+   *         <p>The expiration time of the attachment set has passed. The set expires 1 hour after
+   *             it is created.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetExpired {
+  export function isa(o: any): o is AttachmentSetExpired {
+    return _smithy.isa(o, "AttachmentSetExpired");
+  }
+}
+
+/**
+ *
+ *         <p>An attachment set with the specified ID could not be found.</p>
+ *
+ */
+export interface AttachmentSetIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AttachmentSetIdNotFound";
+  name: "AttachmentSetIdNotFound";
+  $fault: "client";
+  /**
+   *
+   *         <p>An attachment set with the specified ID could not be found.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetIdNotFound {
+  export function isa(o: any): o is AttachmentSetIdNotFound {
+    return _smithy.isa(o, "AttachmentSetIdNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>A limit for the size of an attachment set has been exceeded. The limits are 3
+ *             attachments and 5 MB per attachment.</p>
+ *
+ */
+export interface AttachmentSetSizeLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AttachmentSetSizeLimitExceeded";
+  name: "AttachmentSetSizeLimitExceeded";
+  $fault: "client";
+  /**
+   *
+   *         <p>A limit for the size of an attachment set has been exceeded. The limits are 3
+   *             attachments and 5 MB per attachment.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace AttachmentSetSizeLimitExceeded {
+  export function isa(o: any): o is AttachmentSetSizeLimitExceeded {
+    return _smithy.isa(o, "AttachmentSetSizeLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>The case creation limit for the account has been exceeded.</p>
+ *
+ */
+export interface CaseCreationLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CaseCreationLimitExceeded";
+  name: "CaseCreationLimitExceeded";
+  $fault: "client";
+  /**
+   *
+   *         <p>An error message that indicates that you have exceeded the number of cases you can
+   *             have open.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace CaseCreationLimitExceeded {
+  export function isa(o: any): o is CaseCreationLimitExceeded {
+    return _smithy.isa(o, "CaseCreationLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>The requested <code>caseId</code> could not be located.</p>
+ *
+ */
+export interface CaseIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CaseIdNotFound";
+  name: "CaseIdNotFound";
+  $fault: "client";
+  /**
+   *
+   *         <p>The requested <code>CaseId</code> could not be located.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace CaseIdNotFound {
+  export function isa(o: any): o is CaseIdNotFound {
+    return _smithy.isa(o, "CaseIdNotFound");
+  }
+}
+
+/**
+ *
+ *         <p>The limit for the number of <a>DescribeAttachment</a> requests in a
+ *             short period of time has been exceeded.</p>
+ *
+ */
+export interface DescribeAttachmentLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DescribeAttachmentLimitExceeded";
+  name: "DescribeAttachmentLimitExceeded";
+  $fault: "client";
+  /**
+   *
+   *         <p>The limit for the number of <a>DescribeAttachment</a> requests in a
+   *             short period of time has been exceeded.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DescribeAttachmentLimitExceeded {
+  export function isa(o: any): o is DescribeAttachmentLimitExceeded {
+    return _smithy.isa(o, "DescribeAttachmentLimitExceeded");
+  }
+}
+
+/**
+ *
+ *         <p>An internal server error occurred.</p>
+ *
+ */
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServerError";
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   *
+   *         <p>An internal server error occurred.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export function isa(o: any): o is InternalServerError {
+    return _smithy.isa(o, "InternalServerError");
+  }
+}
+
+/**
+ *
+ *         <p></p>
+ *
+ */
+export interface AddAttachmentsToSetRequest {
+  __type?: "AddAttachmentsToSetRequest";
+  /**
+   *
+   *         <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not specified,
+   *             a new attachment set is created, and the ID of the set is returned in the response. If
+   *             an <code>attachmentSetId</code> is specified, the attachments are added to the specified
+   *             set, if it exists.</p>
+   *
+   */
+  attachmentSetId?: string;
+
+  /**
+   *
+   *         <p>One or more attachments to add to the set. The limit is 3 attachments per set, and
+   *             the size limit is 5 MB per attachment.</p>
+   *
+   */
+  attachments: Array<Attachment> | undefined;
+}
+
+export namespace AddAttachmentsToSetRequest {
+  export function isa(o: any): o is AddAttachmentsToSetRequest {
+    return _smithy.isa(o, "AddAttachmentsToSetRequest");
+  }
+}
+
+/**
+ *
+ *         <p>The ID and expiry time of the attachment set returned by the <a>AddAttachmentsToSet</a> operation.</p>
+ *
+ */
+export interface AddAttachmentsToSetResponse extends $MetadataBearer {
+  __type?: "AddAttachmentsToSetResponse";
+  /**
+   *
+   *         <p>The ID of the attachment set. If an <code>attachmentSetId</code> was not specified,
+   *             a new attachment set is created, and the ID of the set is returned in the response. If
+   *             an <code>attachmentSetId</code> was specified, the attachments are added to the
+   *             specified set, if it exists.</p>
+   *
+   */
+  attachmentSetId?: string;
+
+  /**
+   *
+   *         <p>The time and date when the attachment set expires.</p>
+   *
+   */
+  expiryTime?: string;
+}
+
+export namespace AddAttachmentsToSetResponse {
+  export function isa(o: any): o is AddAttachmentsToSetResponse {
+    return _smithy.isa(o, "AddAttachmentsToSetResponse");
+  }
+}
+
+/**
+ *
+ *         <p>To be written.</p>
+ *
+ */
+export interface AddCommunicationToCaseRequest {
+  __type?: "AddCommunicationToCaseRequest";
+  /**
+   *
+   *         <p>The ID of a set of one or more attachments for the communication to add to the
+   *             case. Create the set by calling <a>AddAttachmentsToSet</a>
+   *          </p>
+   *
+   */
+  attachmentSetId?: string;
+
+  /**
+   *
+   *         <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *          </p>
+   *
+   */
+  caseId?: string;
+
+  /**
+   *
+   *         <p>The email addresses in the CC line of an email to be added to the support
+   *             case.</p>
+   *
+   */
+  ccEmailAddresses?: Array<string>;
+
+  /**
+   *
+   *         <p>The body of an email communication to add to the support case.</p>
+   *
+   */
+  communicationBody: string | undefined;
+}
+
+export namespace AddCommunicationToCaseRequest {
+  export function isa(o: any): o is AddCommunicationToCaseRequest {
+    return _smithy.isa(o, "AddCommunicationToCaseRequest");
+  }
+}
+
+/**
+ *
+ *         <p>The result of the <a>AddCommunicationToCase</a> operation.</p>
+ *
+ */
+export interface AddCommunicationToCaseResponse extends $MetadataBearer {
+  __type?: "AddCommunicationToCaseResponse";
+  /**
+   *
+   *         <p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an
+   *             error.</p>
+   *
+   */
+  result?: boolean;
+}
+
+export namespace AddCommunicationToCaseResponse {
+  export function isa(o: any): o is AddCommunicationToCaseResponse {
+    return _smithy.isa(o, "AddCommunicationToCaseResponse");
   }
 }
 
@@ -751,33 +872,6 @@ export interface CreateCaseResponse extends $MetadataBearer {
 export namespace CreateCaseResponse {
   export function isa(o: any): o is CreateCaseResponse {
     return _smithy.isa(o, "CreateCaseResponse");
-  }
-}
-
-/**
- *
- *         <p>The limit for the number of <a>DescribeAttachment</a> requests in a
- *             short period of time has been exceeded.</p>
- *
- */
-export interface DescribeAttachmentLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DescribeAttachmentLimitExceeded";
-  name: "DescribeAttachmentLimitExceeded";
-  $fault: "client";
-  /**
-   *
-   *         <p>The limit for the number of <a>DescribeAttachment</a> requests in a
-   *             short period of time has been exceeded.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DescribeAttachmentLimitExceeded {
-  export function isa(o: any): o is DescribeAttachmentLimitExceeded {
-    return _smithy.isa(o, "DescribeAttachmentLimitExceeded");
   }
 }
 
@@ -1092,6 +1186,122 @@ export namespace DescribeSeverityLevelsResponse {
   }
 }
 
+export interface ResolveCaseRequest {
+  __type?: "ResolveCaseRequest";
+  /**
+   *
+   *         <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   *             alphanumeric string formatted as shown in this example:
+   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *          </p>
+   *
+   */
+  caseId?: string;
+}
+
+export namespace ResolveCaseRequest {
+  export function isa(o: any): o is ResolveCaseRequest {
+    return _smithy.isa(o, "ResolveCaseRequest");
+  }
+}
+
+/**
+ *
+ *         <p>The status of the case returned by the <a>ResolveCase</a>
+ *             operation.</p>
+ *
+ */
+export interface ResolveCaseResponse extends $MetadataBearer {
+  __type?: "ResolveCaseResponse";
+  /**
+   *
+   *         <p>The status of the case after the <a>ResolveCase</a> request was
+   *             processed.</p>
+   *
+   */
+  finalCaseStatus?: string;
+
+  /**
+   *
+   *         <p>The status of the case when the <a>ResolveCase</a> request was
+   *             sent.</p>
+   *
+   */
+  initialCaseStatus?: string;
+}
+
+export namespace ResolveCaseResponse {
+  export function isa(o: any): o is ResolveCaseResponse {
+    return _smithy.isa(o, "ResolveCaseResponse");
+  }
+}
+
+/**
+ *
+ *         <p>A code and name pair that represents the severity level of a support case. The
+ *             available values depend on the support plan for the account. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
+ *                 Severity</a>.</p>
+ *
+ */
+export interface SeverityLevel {
+  __type?: "SeverityLevel";
+  /**
+   *
+   *         <p>The code for case severity level.</p>
+   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
+   *                 <code>urgent</code> | <code>critical</code>
+   *          </p>
+   *
+   */
+  code?: string;
+
+  /**
+   *
+   *         <p>The name of the severity level that corresponds to the severity level
+   *             code.</p>
+   *         <note>
+   *             <p>The values returned by the API differ from the values that are displayed in the
+   *                 AWS Support Center. For example, for the code "low", the API name is "Low", but the
+   *                 name in the Support Center is "General guidance". These are the Support Center
+   *                 code/name mappings:</p>
+   *             <ul>
+   *                <li>
+   *                     <p>
+   *                      <code>low</code>: General guidance</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>normal</code>: System impaired</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>high</code>: Production system impaired</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>urgent</code>: Production system down</p>
+   *                 </li>
+   *                <li>
+   *                     <p>
+   *                      <code>critical</code>: Business-critical system down</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
+   *                 Severity</a>
+   *          </p>
+   *
+   */
+  name?: string;
+}
+
+export namespace SeverityLevel {
+  export function isa(o: any): o is SeverityLevel {
+    return _smithy.isa(o, "SeverityLevel");
+  }
+}
+
 /**
  *
  *         <p></p>
@@ -1280,59 +1490,6 @@ export namespace DescribeTrustedAdvisorChecksResponse {
 
 /**
  *
- *         <p>An internal server error occurred.</p>
- *
- */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServerError";
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   *
-   *         <p>An internal server error occurred.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
-  }
-}
-
-/**
- *
- *         <p>The five most recent communications associated with the case.</p>
- *
- */
-export interface RecentCaseCommunications {
-  __type?: "RecentCaseCommunications";
-  /**
-   *
-   *         <p>The five most recent communications associated with the case.</p>
-   *
-   */
-  communications?: Array<Communication>;
-
-  /**
-   *
-   *         <p>A resumption point for pagination.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace RecentCaseCommunications {
-  export function isa(o: any): o is RecentCaseCommunications {
-    return _smithy.isa(o, "RecentCaseCommunications");
-  }
-}
-
-/**
- *
  *         <p></p>
  *
  */
@@ -1372,163 +1529,6 @@ export interface RefreshTrustedAdvisorCheckResponse extends $MetadataBearer {
 export namespace RefreshTrustedAdvisorCheckResponse {
   export function isa(o: any): o is RefreshTrustedAdvisorCheckResponse {
     return _smithy.isa(o, "RefreshTrustedAdvisorCheckResponse");
-  }
-}
-
-export interface ResolveCaseRequest {
-  __type?: "ResolveCaseRequest";
-  /**
-   *
-   *         <p>The AWS Support case ID requested or returned in the call. The case ID is an
-   *             alphanumeric string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
-   *          </p>
-   *
-   */
-  caseId?: string;
-}
-
-export namespace ResolveCaseRequest {
-  export function isa(o: any): o is ResolveCaseRequest {
-    return _smithy.isa(o, "ResolveCaseRequest");
-  }
-}
-
-/**
- *
- *         <p>The status of the case returned by the <a>ResolveCase</a>
- *             operation.</p>
- *
- */
-export interface ResolveCaseResponse extends $MetadataBearer {
-  __type?: "ResolveCaseResponse";
-  /**
-   *
-   *         <p>The status of the case after the <a>ResolveCase</a> request was
-   *             processed.</p>
-   *
-   */
-  finalCaseStatus?: string;
-
-  /**
-   *
-   *         <p>The status of the case when the <a>ResolveCase</a> request was
-   *             sent.</p>
-   *
-   */
-  initialCaseStatus?: string;
-}
-
-export namespace ResolveCaseResponse {
-  export function isa(o: any): o is ResolveCaseResponse {
-    return _smithy.isa(o, "ResolveCaseResponse");
-  }
-}
-
-/**
- *
- *         <p>Information about an AWS service returned by the <a>DescribeServices</a>
- *             operation.</p>
- *
- */
-export interface Service {
-  __type?: "Service";
-  /**
-   *
-   *         <p>A list of categories that describe the type of support issue a case describes.
-   *             Categories consist of a category name and a category code. Category names and codes are
-   *             passed to AWS Support when you call <a>CreateCase</a>.</p>
-   *
-   */
-  categories?: Array<Category>;
-
-  /**
-   *
-   *         <p>The code for an AWS service returned by the <a>DescribeServices</a>
-   *             response. The <code>name</code> element contains the corresponding friendly
-   *             name.</p>
-   *
-   */
-  code?: string;
-
-  /**
-   *
-   *         <p>The friendly name for an AWS service. The <code>code</code> element contains the
-   *             corresponding code.</p>
-   *
-   */
-  name?: string;
-}
-
-export namespace Service {
-  export function isa(o: any): o is Service {
-    return _smithy.isa(o, "Service");
-  }
-}
-
-/**
- *
- *         <p>A code and name pair that represents the severity level of a support case. The
- *             available values depend on the support plan for the account. For more information, see
- *                 <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
- *                 Severity</a>.</p>
- *
- */
-export interface SeverityLevel {
-  __type?: "SeverityLevel";
-  /**
-   *
-   *         <p>The code for case severity level.</p>
-   *         <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> |
-   *                 <code>urgent</code> | <code>critical</code>
-   *          </p>
-   *
-   */
-  code?: string;
-
-  /**
-   *
-   *         <p>The name of the severity level that corresponds to the severity level
-   *             code.</p>
-   *         <note>
-   *             <p>The values returned by the API differ from the values that are displayed in the
-   *                 AWS Support Center. For example, for the code "low", the API name is "Low", but the
-   *                 name in the Support Center is "General guidance". These are the Support Center
-   *                 code/name mappings:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>
-   *                      <code>low</code>: General guidance</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>normal</code>: System impaired</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>high</code>: Production system impaired</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>urgent</code>: Production system down</p>
-   *                 </li>
-   *                <li>
-   *                     <p>
-   *                      <code>critical</code>: Business-critical system down</p>
-   *                 </li>
-   *             </ul>
-   *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing a
-   *                 Severity</a>
-   *          </p>
-   *
-   */
-  name?: string;
-}
-
-export namespace SeverityLevel {
-  export function isa(o: any): o is SeverityLevel {
-    return _smithy.isa(o, "SeverityLevel");
   }
 }
 

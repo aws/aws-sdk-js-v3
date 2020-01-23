@@ -1,33 +1,262 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BusinessReportFailureCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  NO_SUCH_BUCKET = "NO_SUCH_BUCKET"
+/**
+ *
+ *          <p>The resource being created already exists.</p>
+ *
+ */
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AlreadyExistsException";
+  name: "AlreadyExistsException";
+  $fault: "client";
+  Message?: string;
 }
 
-export enum BusinessReportFormat {
-  CSV = "CSV",
-  CSV_ZIP = "CSV_ZIP"
+export namespace AlreadyExistsException {
+  export function isa(o: any): o is AlreadyExistsException {
+    return _smithy.isa(o, "AlreadyExistsException");
+  }
 }
 
-export enum BusinessReportInterval {
-  ONE_DAY = "ONE_DAY",
-  ONE_WEEK = "ONE_WEEK",
-  THIRTY_DAYS = "THIRTY_DAYS"
+/**
+ *
+ *          <p>There is a concurrent modification of resources.</p>
+ *
+ */
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConcurrentModificationException";
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  Message?: string;
 }
 
-export enum BusinessReportStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+export namespace ConcurrentModificationException {
+  export function isa(o: any): o is ConcurrentModificationException {
+    return _smithy.isa(o, "ConcurrentModificationException");
+  }
+}
+
+/**
+ *
+ *          <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ */
+export interface DeviceNotRegisteredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DeviceNotRegisteredException";
+  name: "DeviceNotRegisteredException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DeviceNotRegisteredException {
+  export function isa(o: any): o is DeviceNotRegisteredException {
+    return _smithy.isa(o, "DeviceNotRegisteredException");
+  }
+}
+
+/**
+ *
+ *          <p>A filter name and value pair that is used to return a more specific list of results.
+ *          Filters can be used to match a set of resources by various criteria.</p>
+ *
+ */
+export interface Filter {
+  __type?: "Filter";
+  /**
+   *
+   *          <p>The key of a filter.</p>
+   *
+   */
+  Key: string | undefined;
+
+  /**
+   *
+   *          <p>The values of a filter.</p>
+   *
+   */
+  Values: Array<string> | undefined;
+}
+
+export namespace Filter {
+  export function isa(o: any): o is Filter {
+    return _smithy.isa(o, "Filter");
+  }
+}
+
+/**
+ *
+ *          <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>The name sent in the request is already in use.</p>
+ *
+ */
+export interface NameInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NameInUseException";
+  name: "NameInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NameInUseException {
+  export function isa(o: any): o is NameInUseException {
+    return _smithy.isa(o, "NameInUseException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource is not found.</p>
+ *
+ */
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotFoundException";
+  name: "NotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotFoundException {
+  export function isa(o: any): o is NotFoundException {
+    return _smithy.isa(o, "NotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource in the request is already in use.</p>
+ *
+ */
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceInUseException";
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
+   *
+   */
+  ClientRequestToken?: string;
+
+  Message?: string;
+}
+
+export namespace ResourceInUseException {
+  export function isa(o: any): o is ResourceInUseException {
+    return _smithy.isa(o, "ResourceInUseException");
+  }
+}
+
+/**
+ *
+ *          <p>The caller has no permissions to operate on the resource involved in the API call.</p>
+ *
+ */
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnauthorizedException";
+  name: "UnauthorizedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnauthorizedException {
+  export function isa(o: any): o is UnauthorizedException {
+    return _smithy.isa(o, "UnauthorizedException");
+  }
 }
 
 export enum CommsProtocol {
   H323 = "H323",
   SIP = "SIP",
   SIPS = "SIPS"
+}
+
+/**
+ *
+ *         <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
+ *
+ */
+export interface ConferenceProvider {
+  __type?: "ConferenceProvider";
+  /**
+   *
+   *         <p>The ARN of the newly created conference provider.</p>
+   *
+   */
+  Arn?: string;
+
+  /**
+   *
+   *         <p>The IP endpoint and protocol for calling.</p>
+   *
+   */
+  IPDialIn?: IPDialIn;
+
+  /**
+   *
+   *         <p>The meeting settings for the conference provider.</p>
+   *
+   */
+  MeetingSetting?: MeetingSetting;
+
+  /**
+   *
+   *         <p>The name of the conference provider.</p>
+   *
+   */
+  Name?: string;
+
+  /**
+   *
+   *         <p>The information for PSTN conferencing.</p>
+   *
+   */
+  PSTNDialIn?: PSTNDialIn;
+
+  /**
+   *
+   *         <p>The type of conference providers.</p>
+   *
+   */
+  Type?: ConferenceProviderType | string;
+}
+
+export namespace ConferenceProvider {
+  export function isa(o: any): o is ConferenceProvider {
+    return _smithy.isa(o, "ConferenceProvider");
+  }
 }
 
 export enum ConferenceProviderType {
@@ -43,107 +272,108 @@ export enum ConferenceProviderType {
   ZOOM = "ZOOM"
 }
 
-export enum ConnectionStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE"
+/**
+ *
+ *         <p>The IP endpoint and protocol for calling.</p>
+ *
+ */
+export interface IPDialIn {
+  __type?: "IPDialIn";
+  /**
+   *
+   *         <p>The protocol, including SIP, SIPS, and H323.</p>
+   *
+   */
+  CommsProtocol: CommsProtocol | string | undefined;
+
+  /**
+   *
+   *         <p>The IP address.</p>
+   *
+   */
+  Endpoint: string | undefined;
 }
 
-export enum DeviceEventType {
-  CONNECTION_STATUS = "CONNECTION_STATUS",
-  DEVICE_STATUS = "DEVICE_STATUS"
+export namespace IPDialIn {
+  export function isa(o: any): o is IPDialIn {
+    return _smithy.isa(o, "IPDialIn");
+  }
 }
 
-export enum DeviceStatus {
-  DEREGISTERED = "DEREGISTERED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY",
-  WAS_OFFLINE = "WAS_OFFLINE"
+/**
+ *
+ *         <p>The values that indicate whether a pin is always required (YES), never required (NO),
+ *             or OPTIONAL.</p>
+ *         <ul>
+ *             <li>
+ *                 <p>If YES, Alexa will always ask for a meeting pin.</p>
+ *             </li>
+ *             <li>
+ *                 <p>If NO, Alexa will never ask for a meeting pin.</p>
+ *             </li>
+ *             <li>
+ *                 <p>If OPTIONAL, Alexa will ask if you have a meeting pin and if the customer responds
+ *                     with yes, it will ask for the meeting pin.</p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface MeetingSetting {
+  __type?: "MeetingSetting";
+  /**
+   *
+   *         <p>The values that indicate whether the pin is always required.</p>
+   *
+   */
+  RequirePin: RequirePin | string | undefined;
 }
 
-export enum DeviceStatusDetailCode {
-  ASSOCIATION_REJECTION = "ASSOCIATION_REJECTION",
-  AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE",
-  CERTIFICATE_ISSUING_LIMIT_EXCEEDED = "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
-  CREDENTIALS_ACCESS_FAILURE = "CREDENTIALS_ACCESS_FAILURE",
-  DEVICE_SOFTWARE_UPDATE_NEEDED = "DEVICE_SOFTWARE_UPDATE_NEEDED",
-  DEVICE_WAS_OFFLINE = "DEVICE_WAS_OFFLINE",
-  DHCP_FAILURE = "DHCP_FAILURE",
-  DNS_FAILURE = "DNS_FAILURE",
-  INTERNET_UNAVAILABLE = "INTERNET_UNAVAILABLE",
-  INVALID_CERTIFICATE_AUTHORITY = "INVALID_CERTIFICATE_AUTHORITY",
-  INVALID_PASSWORD_STATE = "INVALID_PASSWORD_STATE",
-  NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
-  PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
-  TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
+export namespace MeetingSetting {
+  export function isa(o: any): o is MeetingSetting {
+    return _smithy.isa(o, "MeetingSetting");
+  }
 }
 
-export enum DeviceUsageType {
-  VOICE = "VOICE"
+/**
+ *
+ *         <p>The information for public switched telephone network (PSTN) conferencing.</p>
+ *
+ */
+export interface PSTNDialIn {
+  __type?: "PSTNDialIn";
+  /**
+   *
+   *         <p>The zip code.</p>
+   *
+   */
+  CountryCode: string | undefined;
+
+  /**
+   *
+   *         <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
+   *
+   */
+  OneClickIdDelay: string | undefined;
+
+  /**
+   *
+   *         <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
+   *
+   */
+  OneClickPinDelay: string | undefined;
+
+  /**
+   *
+   *         <p>The phone number to call to join the conference.</p>
+   *
+   */
+  PhoneNumber: string | undefined;
 }
 
-export enum DistanceUnit {
-  IMPERIAL = "IMPERIAL",
-  METRIC = "METRIC"
-}
-
-export enum EnablementType {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING"
-}
-
-export enum EnablementTypeFilter {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING"
-}
-
-export enum EndOfMeetingReminderType {
-  ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
-  ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
-  CHIME = "CHIME",
-  KNOCK = "KNOCK"
-}
-
-export enum EnrollmentStatus {
-  DEREGISTERING = "DEREGISTERING",
-  DISASSOCIATING = "DISASSOCIATING",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-  REGISTERED = "REGISTERED"
-}
-
-export enum Feature {
-  ALL = "ALL",
-  BLUETOOTH = "BLUETOOTH",
-  LISTS = "LISTS",
-  NETWORK_PROFILE = "NETWORK_PROFILE",
-  NOTIFICATIONS = "NOTIFICATIONS",
-  SETTINGS = "SETTINGS",
-  SKILLS = "SKILLS",
-  VOLUME = "VOLUME"
-}
-
-export enum Locale {
-  en_US = "en-US"
-}
-
-export enum NetworkEapMethod {
-  EAP_TLS = "EAP_TLS"
-}
-
-export enum NetworkSecurityType {
-  OPEN = "OPEN",
-  WEP = "WEP",
-  WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
-  WPA2_PSK = "WPA2_PSK",
-  WPA_PSK = "WPA_PSK"
-}
-
-export enum PhoneNumberType {
-  HOME = "HOME",
-  MOBILE = "MOBILE",
-  WORK = "WORK"
+export namespace PSTNDialIn {
+  export function isa(o: any): o is PSTNDialIn {
+    return _smithy.isa(o, "PSTNDialIn");
+  }
 }
 
 export enum RequirePin {
@@ -152,36 +382,229 @@ export enum RequirePin {
   YES = "YES"
 }
 
-export enum SipType {
-  WORK = "WORK"
+/**
+ *
+ *          <p>The audio message. There is a 1 MB limit on the audio file input and the only supported
+ *          format is MP3. To convert your MP3 audio files to an Alexa-friendly,  </p>
+ *          <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter
+ *          software. One option for this is a command-line tool, FFmpeg. For more information, see
+ *             <a href="https://www.ffmpeg.org/">FFmpeg</a>. The following command converts the
+ *          provided <input-file> to an MP3 file that is played in the announcement:</p>
+ *          <p>
+ *             <code>ffmpeg -i <input-file> -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000
+ *             <output-file.mp3></code>
+ *          </p>
+ *
+ */
+export interface Audio {
+  __type?: "Audio";
+  /**
+   *
+   *          <p>The locale of the audio message. Currently, en-US is supported.</p>
+   *
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   *
+   *          <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations
+   *          comprised of safe characters are valid. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters">Safe Characters</a>.</p>
+   *
+   */
+  Location: string | undefined;
 }
 
-export enum SkillType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC"
+export namespace Audio {
+  export function isa(o: any): o is Audio {
+    return _smithy.isa(o, "Audio");
+  }
 }
 
-export enum SkillTypeFilter {
-  ALL = "ALL",
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC"
+/**
+ *
+ *          <p>The content definition. This can contain only one text, SSML, or audio list
+ *          object.</p>
+ *
+ */
+export interface Content {
+  __type?: "Content";
+  /**
+   *
+   *          <p>The list of audio messages.</p>
+   *
+   */
+  AudioList?: Array<Audio>;
+
+  /**
+   *
+   *          <p>The list of SSML messages.</p>
+   *
+   */
+  SsmlList?: Array<Ssml>;
+
+  /**
+   *
+   *          <p>The list of text messages.</p>
+   *
+   */
+  TextList?: Array<Text>;
 }
 
-export enum SortValue {
-  ASC = "ASC",
-  DESC = "DESC"
+export namespace Content {
+  export function isa(o: any): o is Content {
+    return _smithy.isa(o, "Content");
+  }
 }
 
-export enum TemperatureUnit {
-  CELSIUS = "CELSIUS",
-  FAHRENHEIT = "FAHRENHEIT"
+export enum Locale {
+  en_US = "en-US"
 }
 
-export enum WakeWord {
-  ALEXA = "ALEXA",
-  AMAZON = "AMAZON",
-  COMPUTER = "COMPUTER",
-  ECHO = "ECHO"
+export interface SendAnnouncementRequest {
+  __type?: "SendAnnouncementRequest";
+  /**
+   *
+   *          <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
+   *
+   */
+  ClientRequestToken: string | undefined;
+
+  /**
+   *
+   *          <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
+   *
+   */
+  Content: Content | undefined;
+
+  /**
+   *
+   *          <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
+   *
+   */
+  RoomFilters: Array<Filter> | undefined;
+
+  /**
+   *
+   *          <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
+   *          announcement is not delivered.</p>
+   *
+   */
+  TimeToLiveInSeconds?: number;
+}
+
+export namespace SendAnnouncementRequest {
+  export function isa(o: any): o is SendAnnouncementRequest {
+    return _smithy.isa(o, "SendAnnouncementRequest");
+  }
+}
+
+export interface SendAnnouncementResponse extends $MetadataBearer {
+  __type?: "SendAnnouncementResponse";
+  /**
+   *
+   *          <p>The identifier of the announcement.</p>
+   *
+   */
+  AnnouncementArn?: string;
+}
+
+export namespace SendAnnouncementResponse {
+  export function isa(o: any): o is SendAnnouncementResponse {
+    return _smithy.isa(o, "SendAnnouncementResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
+ *
+ */
+export interface Ssml {
+  __type?: "Ssml";
+  /**
+   *
+   *          <p>The locale of the SSML message. Currently, en-US is supported.</p>
+   *
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   *
+   *          <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace Ssml {
+  export function isa(o: any): o is Ssml {
+    return _smithy.isa(o, "Ssml");
+  }
+}
+
+/**
+ *
+ *          <p>The text message.</p>
+ *
+ */
+export interface Text {
+  __type?: "Text";
+  /**
+   *
+   *          <p>The locale of the text message. Currently, en-US is supported.</p>
+   *
+   */
+  Locale: Locale | string | undefined;
+
+  /**
+   *
+   *          <p>The value of the text message.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace Text {
+  export function isa(o: any): o is Text {
+    return _smithy.isa(o, "Text");
+  }
+}
+
+export interface DeleteDeviceUsageDataRequest {
+  __type?: "DeleteDeviceUsageDataRequest";
+  /**
+   *
+   *          <p>The ARN of the device.</p>
+   *
+   */
+  DeviceArn: string | undefined;
+
+  /**
+   *
+   *          <p>The type of usage data to delete.</p>
+   *
+   */
+  DeviceUsageType: DeviceUsageType | string | undefined;
+}
+
+export namespace DeleteDeviceUsageDataRequest {
+  export function isa(o: any): o is DeleteDeviceUsageDataRequest {
+    return _smithy.isa(o, "DeleteDeviceUsageDataRequest");
+  }
+}
+
+export interface DeleteDeviceUsageDataResponse extends $MetadataBearer {
+  __type?: "DeleteDeviceUsageDataResponse";
+}
+
+export namespace DeleteDeviceUsageDataResponse {
+  export function isa(o: any): o is DeleteDeviceUsageDataResponse {
+    return _smithy.isa(o, "DeleteDeviceUsageDataResponse");
+  }
+}
+
+export enum DeviceUsageType {
+  VOICE = "VOICE"
 }
 
 /**
@@ -251,26 +674,6 @@ export interface AddressBookData {
 export namespace AddressBookData {
   export function isa(o: any): o is AddressBookData {
     return _smithy.isa(o, "AddressBookData");
-  }
-}
-
-/**
- *
- *          <p>The resource being created already exists.</p>
- *
- */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AlreadyExistsException";
-  name: "AlreadyExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  export function isa(o: any): o is AlreadyExistsException {
-    return _smithy.isa(o, "AlreadyExistsException");
   }
 }
 
@@ -495,44 +898,6 @@ export namespace AssociateSkillWithUsersResponse {
 
 /**
  *
- *          <p>The audio message. There is a 1 MB limit on the audio file input and the only supported
- *          format is MP3. To convert your MP3 audio files to an Alexa-friendly,  </p>
- *          <p>required codec version (MPEG version 2) and bit rate (48 kbps), you might use converter
- *          software. One option for this is a command-line tool, FFmpeg. For more information, see
- *             <a href="https://www.ffmpeg.org/">FFmpeg</a>. The following command converts the
- *          provided <input-file> to an MP3 file that is played in the announcement:</p>
- *          <p>
- *             <code>ffmpeg -i <input-file> -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000
- *             <output-file.mp3></code>
- *          </p>
- *
- */
-export interface Audio {
-  __type?: "Audio";
-  /**
-   *
-   *          <p>The locale of the audio message. Currently, en-US is supported.</p>
-   *
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   *
-   *          <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations
-   *          comprised of safe characters are valid. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters">Safe Characters</a>.</p>
-   *
-   */
-  Location: string | undefined;
-}
-
-export namespace Audio {
-  export function isa(o: any): o is Audio {
-    return _smithy.isa(o, "Audio");
-  }
-}
-
-/**
- *
  *          <p>Usage report with specified parameters.</p>
  *
  */
@@ -600,6 +965,23 @@ export namespace BusinessReportContentRange {
   export function isa(o: any): o is BusinessReportContentRange {
     return _smithy.isa(o, "BusinessReportContentRange");
   }
+}
+
+export enum BusinessReportFailureCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
+  NO_SUCH_BUCKET = "NO_SUCH_BUCKET"
+}
+
+export enum BusinessReportFormat {
+  CSV = "CSV",
+  CSV_ZIP = "CSV_ZIP"
+}
+
+export enum BusinessReportInterval {
+  ONE_DAY = "ONE_DAY",
+  ONE_WEEK = "ONE_WEEK",
+  THIRTY_DAYS = "THIRTY_DAYS"
 }
 
 /**
@@ -723,6 +1105,12 @@ export namespace BusinessReportSchedule {
   }
 }
 
+export enum BusinessReportStatus {
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
 /**
  *
  *          <p>The skill store category that is shown. Alexa skills are assigned a specific skill
@@ -754,26 +1142,6 @@ export namespace Category {
 
 /**
  *
- *          <p>There is a concurrent modification of resources.</p>
- *
- */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConcurrentModificationException";
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
-  }
-}
-
-/**
- *
  *          <p>The default conference provider that is used if no other scheduled meetings are
  *          detected.</p>
  *
@@ -794,60 +1162,9 @@ export namespace ConferencePreference {
   }
 }
 
-/**
- *
- *         <p>An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom. </p>
- *
- */
-export interface ConferenceProvider {
-  __type?: "ConferenceProvider";
-  /**
-   *
-   *         <p>The ARN of the newly created conference provider.</p>
-   *
-   */
-  Arn?: string;
-
-  /**
-   *
-   *         <p>The IP endpoint and protocol for calling.</p>
-   *
-   */
-  IPDialIn?: IPDialIn;
-
-  /**
-   *
-   *         <p>The meeting settings for the conference provider.</p>
-   *
-   */
-  MeetingSetting?: MeetingSetting;
-
-  /**
-   *
-   *         <p>The name of the conference provider.</p>
-   *
-   */
-  Name?: string;
-
-  /**
-   *
-   *         <p>The information for PSTN conferencing.</p>
-   *
-   */
-  PSTNDialIn?: PSTNDialIn;
-
-  /**
-   *
-   *         <p>The type of conference providers.</p>
-   *
-   */
-  Type?: ConferenceProviderType | string;
-}
-
-export namespace ConferenceProvider {
-  export function isa(o: any): o is ConferenceProvider {
-    return _smithy.isa(o, "ConferenceProvider");
-  }
+export enum ConnectionStatus {
+  OFFLINE = "OFFLINE",
+  ONLINE = "ONLINE"
 }
 
 /**
@@ -977,42 +1294,6 @@ export interface ContactData {
 export namespace ContactData {
   export function isa(o: any): o is ContactData {
     return _smithy.isa(o, "ContactData");
-  }
-}
-
-/**
- *
- *          <p>The content definition. This can contain only one text, SSML, or audio list
- *          object.</p>
- *
- */
-export interface Content {
-  __type?: "Content";
-  /**
-   *
-   *          <p>The list of audio messages.</p>
-   *
-   */
-  AudioList?: Array<Audio>;
-
-  /**
-   *
-   *          <p>The list of SSML messages.</p>
-   *
-   */
-  SsmlList?: Array<Ssml>;
-
-  /**
-   *
-   *          <p>The list of text messages.</p>
-   *
-   */
-  TextList?: Array<Text>;
-}
-
-export namespace Content {
-  export function isa(o: any): o is Content {
-    return _smithy.isa(o, "Content");
   }
 }
 
@@ -1995,39 +2276,6 @@ export namespace DeleteDeviceResponse {
   }
 }
 
-export interface DeleteDeviceUsageDataRequest {
-  __type?: "DeleteDeviceUsageDataRequest";
-  /**
-   *
-   *          <p>The ARN of the device.</p>
-   *
-   */
-  DeviceArn: string | undefined;
-
-  /**
-   *
-   *          <p>The type of usage data to delete.</p>
-   *
-   */
-  DeviceUsageType: DeviceUsageType | string | undefined;
-}
-
-export namespace DeleteDeviceUsageDataRequest {
-  export function isa(o: any): o is DeleteDeviceUsageDataRequest {
-    return _smithy.isa(o, "DeleteDeviceUsageDataRequest");
-  }
-}
-
-export interface DeleteDeviceUsageDataResponse extends $MetadataBearer {
-  __type?: "DeleteDeviceUsageDataResponse";
-}
-
-export namespace DeleteDeviceUsageDataResponse {
-  export function isa(o: any): o is DeleteDeviceUsageDataResponse {
-    return _smithy.isa(o, "DeleteDeviceUsageDataResponse");
-  }
-}
-
 export interface DeleteGatewayGroupRequest {
   __type?: "DeleteGatewayGroupRequest";
   /**
@@ -2524,6 +2772,11 @@ export namespace DeviceEvent {
   }
 }
 
+export enum DeviceEventType {
+  CONNECTION_STATUS = "CONNECTION_STATUS",
+  DEVICE_STATUS = "DEVICE_STATUS"
+}
+
 /**
  *
  *          <p>Detailed information about a device's network profile.</p>
@@ -2559,24 +2812,12 @@ export namespace DeviceNetworkProfileInfo {
   }
 }
 
-/**
- *
- *          <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
- *
- */
-export interface DeviceNotRegisteredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DeviceNotRegisteredException";
-  name: "DeviceNotRegisteredException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace DeviceNotRegisteredException {
-  export function isa(o: any): o is DeviceNotRegisteredException {
-    return _smithy.isa(o, "DeviceNotRegisteredException");
-  }
+export enum DeviceStatus {
+  DEREGISTERED = "DEREGISTERED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  READY = "READY",
+  WAS_OFFLINE = "WAS_OFFLINE"
 }
 
 /**
@@ -2605,6 +2846,24 @@ export namespace DeviceStatusDetail {
   export function isa(o: any): o is DeviceStatusDetail {
     return _smithy.isa(o, "DeviceStatusDetail");
   }
+}
+
+export enum DeviceStatusDetailCode {
+  ASSOCIATION_REJECTION = "ASSOCIATION_REJECTION",
+  AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE",
+  CERTIFICATE_ISSUING_LIMIT_EXCEEDED = "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
+  CREDENTIALS_ACCESS_FAILURE = "CREDENTIALS_ACCESS_FAILURE",
+  DEVICE_SOFTWARE_UPDATE_NEEDED = "DEVICE_SOFTWARE_UPDATE_NEEDED",
+  DEVICE_WAS_OFFLINE = "DEVICE_WAS_OFFLINE",
+  DHCP_FAILURE = "DHCP_FAILURE",
+  DNS_FAILURE = "DNS_FAILURE",
+  INTERNET_UNAVAILABLE = "INTERNET_UNAVAILABLE",
+  INVALID_CERTIFICATE_AUTHORITY = "INVALID_CERTIFICATE_AUTHORITY",
+  INVALID_PASSWORD_STATE = "INVALID_PASSWORD_STATE",
+  NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
+  PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
+  TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
+  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
 }
 
 /**
@@ -2790,6 +3049,21 @@ export namespace DisassociateSkillGroupFromRoomResponse {
   }
 }
 
+export enum DistanceUnit {
+  IMPERIAL = "IMPERIAL",
+  METRIC = "METRIC"
+}
+
+export enum EnablementType {
+  ENABLED = "ENABLED",
+  PENDING = "PENDING"
+}
+
+export enum EnablementTypeFilter {
+  ENABLED = "ENABLED",
+  PENDING = "PENDING"
+}
+
 /**
  *
  *          <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
@@ -2826,33 +3100,30 @@ export namespace EndOfMeetingReminder {
   }
 }
 
-/**
- *
- *          <p>A filter name and value pair that is used to return a more specific list of results.
- *          Filters can be used to match a set of resources by various criteria.</p>
- *
- */
-export interface Filter {
-  __type?: "Filter";
-  /**
-   *
-   *          <p>The key of a filter.</p>
-   *
-   */
-  Key: string | undefined;
-
-  /**
-   *
-   *          <p>The values of a filter.</p>
-   *
-   */
-  Values: Array<string> | undefined;
+export enum EndOfMeetingReminderType {
+  ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
+  ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
+  CHIME = "CHIME",
+  KNOCK = "KNOCK"
 }
 
-export namespace Filter {
-  export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
-  }
+export enum EnrollmentStatus {
+  DEREGISTERING = "DEREGISTERING",
+  DISASSOCIATING = "DISASSOCIATING",
+  INITIALIZED = "INITIALIZED",
+  PENDING = "PENDING",
+  REGISTERED = "REGISTERED"
+}
+
+export enum Feature {
+  ALL = "ALL",
+  BLUETOOTH = "BLUETOOTH",
+  LISTS = "LISTS",
+  NETWORK_PROFILE = "NETWORK_PROFILE",
+  NOTIFICATIONS = "NOTIFICATIONS",
+  SETTINGS = "SETTINGS",
+  SKILLS = "SKILLS",
+  VOLUME = "VOLUME"
 }
 
 export interface ForgetSmartHomeAppliancesRequest {
@@ -3488,34 +3759,6 @@ export namespace GetSkillGroupResponse {
 
 /**
  *
- *         <p>The IP endpoint and protocol for calling.</p>
- *
- */
-export interface IPDialIn {
-  __type?: "IPDialIn";
-  /**
-   *
-   *         <p>The protocol, including SIP, SIPS, and H323.</p>
-   *
-   */
-  CommsProtocol: CommsProtocol | string | undefined;
-
-  /**
-   *
-   *         <p>The IP address.</p>
-   *
-   */
-  Endpoint: string | undefined;
-}
-
-export namespace IPDialIn {
-  export function isa(o: any): o is IPDialIn {
-    return _smithy.isa(o, "IPDialIn");
-  }
-}
-
-/**
- *
  *          <p>Settings for the instant booking feature that are applied to a room profile. When users
  *          start their meeting with Alexa, Alexa  automatically books the room for the configured
  *          duration if the room is available.</p>
@@ -3642,26 +3885,6 @@ export interface InvalidUserStatusException
 export namespace InvalidUserStatusException {
   export function isa(o: any): o is InvalidUserStatusException {
     return _smithy.isa(o, "InvalidUserStatusException");
-  }
-}
-
-/**
- *
- *          <p>You are performing an action that would put you beyond your account's limits.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
   }
 }
 
@@ -4254,58 +4477,8 @@ export namespace MeetingRoomConfiguration {
   }
 }
 
-/**
- *
- *         <p>The values that indicate whether a pin is always required (YES), never required (NO),
- *             or OPTIONAL.</p>
- *         <ul>
- *             <li>
- *                 <p>If YES, Alexa will always ask for a meeting pin.</p>
- *             </li>
- *             <li>
- *                 <p>If NO, Alexa will never ask for a meeting pin.</p>
- *             </li>
- *             <li>
- *                 <p>If OPTIONAL, Alexa will ask if you have a meeting pin and if the customer responds
- *                     with yes, it will ask for the meeting pin.</p>
- *             </li>
- *          </ul>
- *
- */
-export interface MeetingSetting {
-  __type?: "MeetingSetting";
-  /**
-   *
-   *         <p>The values that indicate whether the pin is always required.</p>
-   *
-   */
-  RequirePin: RequirePin | string | undefined;
-}
-
-export namespace MeetingSetting {
-  export function isa(o: any): o is MeetingSetting {
-    return _smithy.isa(o, "MeetingSetting");
-  }
-}
-
-/**
- *
- *          <p>The name sent in the request is already in use.</p>
- *
- */
-export interface NameInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NameInUseException";
-  name: "NameInUseException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NameInUseException {
-  export function isa(o: any): o is NameInUseException {
-    return _smithy.isa(o, "NameInUseException");
-  }
+export enum NetworkEapMethod {
+  EAP_TLS = "EAP_TLS"
 }
 
 /**
@@ -4464,66 +4637,12 @@ export namespace NetworkProfileData {
   }
 }
 
-/**
- *
- *          <p>The resource is not found.</p>
- *
- */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotFoundException";
-  name: "NotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
-  }
-}
-
-/**
- *
- *         <p>The information for public switched telephone network (PSTN) conferencing.</p>
- *
- */
-export interface PSTNDialIn {
-  __type?: "PSTNDialIn";
-  /**
-   *
-   *         <p>The zip code.</p>
-   *
-   */
-  CountryCode: string | undefined;
-
-  /**
-   *
-   *         <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-   *
-   */
-  OneClickIdDelay: string | undefined;
-
-  /**
-   *
-   *         <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-   *
-   */
-  OneClickPinDelay: string | undefined;
-
-  /**
-   *
-   *         <p>The phone number to call to join the conference.</p>
-   *
-   */
-  PhoneNumber: string | undefined;
-}
-
-export namespace PSTNDialIn {
-  export function isa(o: any): o is PSTNDialIn {
-    return _smithy.isa(o, "PSTNDialIn");
-  }
+export enum NetworkSecurityType {
+  OPEN = "OPEN",
+  WEP = "WEP",
+  WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
+  WPA2_PSK = "WPA2_PSK",
+  WPA_PSK = "WPA_PSK"
 }
 
 /**
@@ -4552,6 +4671,12 @@ export namespace PhoneNumber {
   export function isa(o: any): o is PhoneNumber {
     return _smithy.isa(o, "PhoneNumber");
   }
+}
+
+export enum PhoneNumberType {
+  HOME = "HOME",
+  MOBILE = "MOBILE",
+  WORK = "WORK"
 }
 
 /**
@@ -5083,33 +5208,6 @@ export interface ResourceAssociatedException
 export namespace ResourceAssociatedException {
   export function isa(o: any): o is ResourceAssociatedException {
     return _smithy.isa(o, "ResourceAssociatedException");
-  }
-}
-
-/**
- *
- *          <p>The resource in the request is already in use.</p>
- *
- */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceInUseException";
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
-   *
-   */
-  ClientRequestToken?: string;
-
-  Message?: string;
-}
-
-export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
   }
 }
 
@@ -5873,60 +5971,6 @@ export namespace SearchUsersResponse {
   }
 }
 
-export interface SendAnnouncementRequest {
-  __type?: "SendAnnouncementRequest";
-  /**
-   *
-   *          <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
-   *
-   */
-  ClientRequestToken: string | undefined;
-
-  /**
-   *
-   *          <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
-   *
-   */
-  Content: Content | undefined;
-
-  /**
-   *
-   *          <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
-   *
-   */
-  RoomFilters: Array<Filter> | undefined;
-
-  /**
-   *
-   *          <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
-   *          announcement is not delivered.</p>
-   *
-   */
-  TimeToLiveInSeconds?: number;
-}
-
-export namespace SendAnnouncementRequest {
-  export function isa(o: any): o is SendAnnouncementRequest {
-    return _smithy.isa(o, "SendAnnouncementRequest");
-  }
-}
-
-export interface SendAnnouncementResponse extends $MetadataBearer {
-  __type?: "SendAnnouncementResponse";
-  /**
-   *
-   *          <p>The identifier of the announcement.</p>
-   *
-   */
-  AnnouncementArn?: string;
-}
-
-export namespace SendAnnouncementResponse {
-  export function isa(o: any): o is SendAnnouncementResponse {
-    return _smithy.isa(o, "SendAnnouncementResponse");
-  }
-}
-
 export interface SendInvitationRequest {
   __type?: "SendInvitationRequest";
   /**
@@ -5979,6 +6023,10 @@ export namespace SipAddress {
   export function isa(o: any): o is SipAddress {
     return _smithy.isa(o, "SipAddress");
   }
+}
+
+export enum SipType {
+  WORK = "WORK"
 }
 
 /**
@@ -6206,6 +6254,17 @@ export namespace SkillSummary {
   }
 }
 
+export enum SkillType {
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC"
+}
+
+export enum SkillTypeFilter {
+  ALL = "ALL",
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC"
+}
+
 /**
  *
  *          <p>The detailed information about an Alexa skill.</p>
@@ -6333,32 +6392,9 @@ export namespace Sort {
   }
 }
 
-/**
- *
- *          <p>The SSML message. For more information, see <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML Reference</a>.</p>
- *
- */
-export interface Ssml {
-  __type?: "Ssml";
-  /**
-   *
-   *          <p>The locale of the SSML message. Currently, en-US is supported.</p>
-   *
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   *
-   *          <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace Ssml {
-  export function isa(o: any): o is Ssml {
-    return _smithy.isa(o, "Ssml");
-  }
+export enum SortValue {
+  ASC = "ASC",
+  DESC = "DESC"
 }
 
 export interface StartDeviceSyncRequest {
@@ -6490,52 +6526,9 @@ export namespace TagResourceResponse {
   }
 }
 
-/**
- *
- *          <p>The text message.</p>
- *
- */
-export interface Text {
-  __type?: "Text";
-  /**
-   *
-   *          <p>The locale of the text message. Currently, en-US is supported.</p>
-   *
-   */
-  Locale: Locale | string | undefined;
-
-  /**
-   *
-   *          <p>The value of the text message.</p>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace Text {
-  export function isa(o: any): o is Text {
-    return _smithy.isa(o, "Text");
-  }
-}
-
-/**
- *
- *          <p>The caller has no permissions to operate on the resource involved in the API call.</p>
- *
- */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnauthorizedException";
-  name: "UnauthorizedException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
-  }
+export enum TemperatureUnit {
+  CELSIUS = "CELSIUS",
+  FAHRENHEIT = "FAHRENHEIT"
 }
 
 export interface UntagResourceRequest {
@@ -7391,4 +7384,11 @@ export namespace UserData {
   export function isa(o: any): o is UserData {
     return _smithy.isa(o, "UserData");
   }
+}
+
+export enum WakeWord {
+  ALEXA = "ALEXA",
+  AMAZON = "AMAZON",
+  COMPUTER = "COMPUTER",
+  ECHO = "ECHO"
 }

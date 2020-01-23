@@ -16,65 +16,6 @@ export enum DASHDisplayFragmentTimestamp {
   NEVER = "NEVER"
 }
 
-export enum DASHFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
-}
-
-export enum DASHPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND"
-}
-
-export enum FragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
-}
-
-export enum HLSDiscontinuityMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-  ON_DISCONTINUITY = "ON_DISCONTINUITY"
-}
-
-export enum HLSDisplayFragmentTimestamp {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
-}
-
-export enum HLSFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
-}
-
-export enum HLSPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND"
-}
-
-/**
- *
- *         <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
- *
- */
-export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClientLimitExceededException";
-  name: "ClientLimitExceededException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ClientLimitExceededException {
-  export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
-  }
-}
-
 /**
  *
  *         <p>Contains the range of timestamps for the requested media, and the source of the
@@ -124,6 +65,17 @@ export namespace DASHFragmentSelector {
   export function isa(o: any): o is DASHFragmentSelector {
     return _smithy.isa(o, "DASHFragmentSelector");
   }
+}
+
+export enum DASHFragmentSelectorType {
+  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+}
+
+export enum DASHPlaybackMode {
+  LIVE = "LIVE",
+  LIVE_REPLAY = "LIVE_REPLAY",
+  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -280,6 +232,11 @@ export namespace FragmentSelector {
   export function isa(o: any): o is FragmentSelector {
     return _smithy.isa(o, "FragmentSelector");
   }
+}
+
+export enum FragmentSelectorType {
+  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
 }
 
 export interface GetDASHStreamingSessionURLInput {
@@ -791,6 +748,17 @@ export namespace GetMediaForFragmentListOutput {
   }
 }
 
+export enum HLSDiscontinuityMode {
+  ALWAYS = "ALWAYS",
+  NEVER = "NEVER",
+  ON_DISCONTINUITY = "ON_DISCONTINUITY"
+}
+
+export enum HLSDisplayFragmentTimestamp {
+  ALWAYS = "ALWAYS",
+  NEVER = "NEVER"
+}
+
 /**
  *
  *         <p>Contains the range of timestamps for the requested media, and the source of the
@@ -840,6 +808,17 @@ export namespace HLSFragmentSelector {
   export function isa(o: any): o is HLSFragmentSelector {
     return _smithy.isa(o, "HLSFragmentSelector");
   }
+}
+
+export enum HLSFragmentSelectorType {
+  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+}
+
+export enum HLSPlaybackMode {
+  LIVE = "LIVE",
+  LIVE_REPLAY = "LIVE_REPLAY",
+  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -896,48 +875,6 @@ export interface HLSTimestampRange {
 export namespace HLSTimestampRange {
   export function isa(o: any): o is HLSTimestampRange {
     return _smithy.isa(o, "HLSTimestampRange");
-  }
-}
-
-/**
- *
- *         <p>A specified parameter exceeds its restrictions, is not supported, or can't be
- *             used.</p>
- *
- */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidArgumentException";
-  name: "InvalidArgumentException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidArgumentException {
-  export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
-  }
-}
-
-/**
- *
- *         <p>The codec private data in at least one of the tracks of the video stream is not valid
- *             for this operation.</p>
- *
- */
-export interface InvalidCodecPrivateDataException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidCodecPrivateDataException";
-  name: "InvalidCodecPrivateDataException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidCodecPrivateDataException {
-  export function isa(o: any): o is InvalidCodecPrivateDataException {
-    return _smithy.isa(o, "InvalidCodecPrivateDataException");
   }
 }
 
@@ -1005,6 +942,99 @@ export interface ListFragmentsOutput extends $MetadataBearer {
 export namespace ListFragmentsOutput {
   export function isa(o: any): o is ListFragmentsOutput {
     return _smithy.isa(o, "ListFragmentsOutput");
+  }
+}
+
+/**
+ *
+ *         <p>The range of timestamps for which to return fragments.</p>
+ *
+ */
+export interface TimestampRange {
+  __type?: "TimestampRange";
+  /**
+   *
+   *         <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
+   *
+   *
+   */
+  EndTimestamp: Date | undefined;
+
+  /**
+   *
+   *         <p>The starting timestamp in the range of timestamps for which to return
+   *             fragments.</p>
+   *
+   */
+  StartTimestamp: Date | undefined;
+}
+
+export namespace TimestampRange {
+  export function isa(o: any): o is TimestampRange {
+    return _smithy.isa(o, "TimestampRange");
+  }
+}
+
+/**
+ *
+ *         <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ */
+export interface ClientLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClientLimitExceededException";
+  name: "ClientLimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ClientLimitExceededException {
+  export function isa(o: any): o is ClientLimitExceededException {
+    return _smithy.isa(o, "ClientLimitExceededException");
+  }
+}
+
+/**
+ *
+ *         <p>A specified parameter exceeds its restrictions, is not supported, or can't be
+ *             used.</p>
+ *
+ */
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidArgumentException";
+  name: "InvalidArgumentException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidArgumentException {
+  export function isa(o: any): o is InvalidArgumentException {
+    return _smithy.isa(o, "InvalidArgumentException");
+  }
+}
+
+/**
+ *
+ *         <p>The codec private data in at least one of the tracks of the video stream is not valid
+ *             for this operation.</p>
+ *
+ */
+export interface InvalidCodecPrivateDataException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidCodecPrivateDataException";
+  name: "InvalidCodecPrivateDataException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidCodecPrivateDataException {
+  export function isa(o: any): o is InvalidCodecPrivateDataException {
+    return _smithy.isa(o, "InvalidCodecPrivateDataException");
   }
 }
 
@@ -1096,36 +1126,6 @@ export interface ResourceNotFoundException
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- *         <p>The range of timestamps for which to return fragments.</p>
- *
- */
-export interface TimestampRange {
-  __type?: "TimestampRange";
-  /**
-   *
-   *         <p>The ending timestamp in the range of timestamps for which to return fragments.</p>
-   *
-   *
-   */
-  EndTimestamp: Date | undefined;
-
-  /**
-   *
-   *         <p>The starting timestamp in the range of timestamps for which to return
-   *             fragments.</p>
-   *
-   */
-  StartTimestamp: Date | undefined;
-}
-
-export namespace TimestampRange {
-  export function isa(o: any): o is TimestampRange {
-    return _smithy.isa(o, "TimestampRange");
   }
 }
 

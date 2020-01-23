@@ -1,131 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ContextKeyTypeEnum {
-  BINARY = "binary",
-  BINARY_LIST = "binaryList",
-  BOOLEAN = "boolean",
-  BOOLEAN_LIST = "booleanList",
-  DATE = "date",
-  DATE_LIST = "dateList",
-  IP = "ip",
-  IP_LIST = "ipList",
-  NUMERIC = "numeric",
-  NUMERIC_LIST = "numericList",
-  STRING = "string",
-  STRING_LIST = "stringList"
-}
-
-export enum DeletionTaskStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum EntityType {
-  AWSManagedPolicy = "AWSManagedPolicy",
-  Group = "Group",
-  LocalManagedPolicy = "LocalManagedPolicy",
-  Role = "Role",
-  User = "User"
-}
-
-export enum PermissionsBoundaryAttachmentType {
-  Policy = "PermissionsBoundaryPolicy"
-}
-
-export enum PolicyEvaluationDecisionType {
-  ALLOWED = "allowed",
-  EXPLICIT_DENY = "explicitDeny",
-  IMPLICIT_DENY = "implicitDeny"
-}
-
-export enum PolicySourceType {
-  AWS_MANAGED = "aws-managed",
-  GROUP = "group",
-  NONE = "none",
-  RESOURCE = "resource",
-  ROLE = "role",
-  USER = "user",
-  USER_MANAGED = "user-managed"
-}
-
-export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
-
-export type ReportFormatType = "text/csv";
-
-export enum ReportStateType {
-  COMPLETE = "COMPLETE",
-  INPROGRESS = "INPROGRESS",
-  STARTED = "STARTED"
-}
-
-export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
-
-export type EncodingType = "PEM" | "SSH";
-
-export enum GlobalEndpointTokenVersion {
-  v1Token = "v1Token",
-  v2Token = "v2Token"
-}
-
-export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
-
-export enum PolicyOwnerEntityType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER"
-}
-
-export enum PolicyScopeType {
-  AWS = "AWS",
-  All = "All",
-  Local = "Local"
-}
-
-export enum PolicyType {
-  INLINE = "INLINE",
-  MANAGED = "MANAGED"
-}
-
-export enum SortKeyType {
-  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
-  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
-  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
-}
-
-export type StatusType = "Active" | "Inactive";
-
-export type SummaryKeyType =
-  | "AccessKeysPerUserQuota"
-  | "AccountAccessKeysPresent"
-  | "AccountMFAEnabled"
-  | "AccountSigningCertificatesPresent"
-  | "AttachedPoliciesPerGroupQuota"
-  | "AttachedPoliciesPerRoleQuota"
-  | "AttachedPoliciesPerUserQuota"
-  | "GlobalEndpointTokenVersion"
-  | "GroupPolicySizeQuota"
-  | "Groups"
-  | "GroupsPerUserQuota"
-  | "GroupsQuota"
-  | "MFADevices"
-  | "MFADevicesInUse"
-  | "Policies"
-  | "PoliciesQuota"
-  | "PolicySizeQuota"
-  | "PolicyVersionsInUse"
-  | "PolicyVersionsInUseQuota"
-  | "ServerCertificates"
-  | "ServerCertificatesQuota"
-  | "SigningCertificatesPerUserQuota"
-  | "UserPolicySizeQuota"
-  | "Users"
-  | "UsersQuota"
-  | "VersionsPerPolicyQuota";
-
 /**
  *
  *          <p>An object that contains details about when a principal in the reported AWS Organizations entity
@@ -709,6 +584,21 @@ export namespace ContextEntry {
   export function isa(o: any): o is ContextEntry {
     return _smithy.isa(o, "ContextEntry");
   }
+}
+
+export enum ContextKeyTypeEnum {
+  BINARY = "binary",
+  BINARY_LIST = "binaryList",
+  BOOLEAN = "boolean",
+  BOOLEAN_LIST = "booleanList",
+  DATE = "date",
+  DATE_LIST = "dateList",
+  IP = "ip",
+  IP_LIST = "ipList",
+  NUMERIC = "numeric",
+  NUMERIC_LIST = "numericList",
+  STRING = "string",
+  STRING_LIST = "stringList"
 }
 
 export interface CreateAccessKeyRequest {
@@ -2255,6 +2145,13 @@ export namespace DeletionTaskFailureReasonType {
   }
 }
 
+export enum DeletionTaskStatusType {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
 export interface DetachGroupPolicyRequest {
   __type?: "DetachGroupPolicyRequest";
   /**
@@ -2567,6 +2464,14 @@ export namespace EntityTemporarilyUnmodifiableException {
   export function isa(o: any): o is EntityTemporarilyUnmodifiableException {
     return _smithy.isa(o, "EntityTemporarilyUnmodifiableException");
   }
+}
+
+export enum EntityType {
+  AWSManagedPolicy = "AWSManagedPolicy",
+  Group = "Group",
+  LocalManagedPolicy = "LocalManagedPolicy",
+  Role = "Role",
+  User = "User"
 }
 
 /**
@@ -7558,6 +7463,10 @@ export namespace PasswordPolicyViolationException {
   }
 }
 
+export enum PermissionsBoundaryAttachmentType {
+  Policy = "PermissionsBoundaryPolicy"
+}
+
 /**
  *
  *          <p>Contains information about a managed policy.</p>
@@ -7696,6 +7605,12 @@ export namespace PolicyDetail {
   export function isa(o: any): o is PolicyDetail {
     return _smithy.isa(o, "PolicyDetail");
   }
+}
+
+export enum PolicyEvaluationDecisionType {
+  ALLOWED = "allowed",
+  EXPLICIT_DENY = "explicitDeny",
+  IMPLICIT_DENY = "implicitDeny"
 }
 
 /**
@@ -7867,6 +7782,18 @@ export namespace PolicyRole {
     return _smithy.isa(o, "PolicyRole");
   }
 }
+
+export enum PolicySourceType {
+  AWS_MANAGED = "aws-managed",
+  GROUP = "group",
+  NONE = "none",
+  RESOURCE = "resource",
+  ROLE = "role",
+  USER = "user",
+  USER_MANAGED = "user-managed"
+}
+
+export type PolicyUsageType = "PermissionsBoundary" | "PermissionsPolicy";
 
 /**
  *
@@ -8280,6 +8207,8 @@ export namespace RemoveUserFromGroupRequest {
   }
 }
 
+export type ReportFormatType = "text/csv";
+
 /**
  *
  *          <p>The request failed because the maximum number of concurrent requests for this
@@ -8299,6 +8228,12 @@ export namespace ReportGenerationLimitExceededException {
   export function isa(o: any): o is ReportGenerationLimitExceededException {
     return _smithy.isa(o, "ReportGenerationLimitExceededException");
   }
+}
+
+export enum ReportStateType {
+  COMPLETE = "COMPLETE",
+  INPROGRESS = "INPROGRESS",
+  STARTED = "STARTED"
 }
 
 export interface ResetServiceSpecificCredentialRequest {
@@ -11223,3 +11158,68 @@ export namespace VirtualMFADevice {
     return _smithy.isa(o, "VirtualMFADevice");
   }
 }
+
+export type AssignmentStatusType = "Any" | "Assigned" | "Unassigned";
+
+export type EncodingType = "PEM" | "SSH";
+
+export enum GlobalEndpointTokenVersion {
+  v1Token = "v1Token",
+  v2Token = "v2Token"
+}
+
+export type JobStatusType = "COMPLETED" | "FAILED" | "IN_PROGRESS";
+
+export enum PolicyOwnerEntityType {
+  GROUP = "GROUP",
+  ROLE = "ROLE",
+  USER = "USER"
+}
+
+export enum PolicyScopeType {
+  AWS = "AWS",
+  All = "All",
+  Local = "Local"
+}
+
+export enum PolicyType {
+  INLINE = "INLINE",
+  MANAGED = "MANAGED"
+}
+
+export enum SortKeyType {
+  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
+  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
+  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
+  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING"
+}
+
+export type StatusType = "Active" | "Inactive";
+
+export type SummaryKeyType =
+  | "AccessKeysPerUserQuota"
+  | "AccountAccessKeysPresent"
+  | "AccountMFAEnabled"
+  | "AccountSigningCertificatesPresent"
+  | "AttachedPoliciesPerGroupQuota"
+  | "AttachedPoliciesPerRoleQuota"
+  | "AttachedPoliciesPerUserQuota"
+  | "GlobalEndpointTokenVersion"
+  | "GroupPolicySizeQuota"
+  | "Groups"
+  | "GroupsPerUserQuota"
+  | "GroupsQuota"
+  | "MFADevices"
+  | "MFADevicesInUse"
+  | "Policies"
+  | "PoliciesQuota"
+  | "PolicySizeQuota"
+  | "PolicyVersionsInUse"
+  | "PolicyVersionsInUseQuota"
+  | "ServerCertificates"
+  | "ServerCertificatesQuota"
+  | "SigningCertificatesPerUserQuota"
+  | "UserPolicySizeQuota"
+  | "Users"
+  | "UsersQuota"
+  | "VersionsPerPolicyQuota";

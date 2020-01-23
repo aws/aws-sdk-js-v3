@@ -109,26 +109,6 @@ export namespace GetRecommendationsResponse {
 
 /**
  *
- *          <p>Provide a valid value for the field or parameter.</p>
- *
- */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidInputException";
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
-  }
-}
-
-/**
- *
  *
  *          <p>An object that identifies an item.</p>
  *          <p>The  and
@@ -148,6 +128,26 @@ export interface PredictedItem {
 export namespace PredictedItem {
   export function isa(o: any): o is PredictedItem {
     return _smithy.isa(o, "PredictedItem");
+  }
+}
+
+/**
+ *
+ *          <p>Provide a valid value for the field or parameter.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
   }
 }
 

@@ -1,49 +1,157 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ChannelStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
+/**
+ *
+ *          <p>There was an internal failure.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
 }
 
-export enum ComputeType {
-  ACU_1 = "ACU_1",
-  ACU_2 = "ACU_2"
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
 }
 
-export enum DatasetActionType {
-  CONTAINER = "CONTAINER",
-  QUERY = "QUERY"
+/**
+ *
+ *          <p>The request was not valid.</p>
+ *
+ */
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequestException";
+  name: "InvalidRequestException";
+  $fault: "client";
+  message?: string;
 }
 
-export enum DatasetContentState {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED"
+export namespace InvalidRequestException {
+  export function isa(o: any): o is InvalidRequestException {
+    return _smithy.isa(o, "InvalidRequestException");
+  }
 }
 
-export enum DatasetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
+/**
+ *
+ *          <p>The command caused an internal limit to be exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
 }
 
-export enum DatastoreStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
 }
 
-export enum LoggingLevel {
-  ERROR = "ERROR"
+/**
+ *
+ *          <p>A resource with the same name already exists.</p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+  /**
+   *
+   *          <p>The ARN of the resource.</p>
+   *
+   */
+  resourceArn?: string;
+
+  /**
+   *
+   *          <p>The ID of the resource.</p>
+   *
+   */
+  resourceId?: string;
 }
 
-export enum ReprocessingStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>A resource with the specified name could not be found.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>The service is temporarily unavailable.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was denied due to request throttling.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
 }
 
 /**
@@ -84,108 +192,6 @@ export interface AddAttributesActivity {
 export namespace AddAttributesActivity {
   export function isa(o: any): o is AddAttributesActivity {
     return _smithy.isa(o, "AddAttributesActivity");
-  }
-}
-
-/**
- *
- *          <p>Contains informations about errors.</p>
- *
- */
-export interface BatchPutMessageErrorEntry {
-  __type?: "BatchPutMessageErrorEntry";
-  /**
-   *
-   *          <p>The code associated with the error.</p>
-   *
-   */
-  errorCode?: string;
-
-  /**
-   *
-   *          <p>The message associated with the error.</p>
-   *
-   */
-  errorMessage?: string;
-
-  /**
-   *
-   *          <p>The ID of the message that caused the error. (See the value corresponding to the
-   *           "messageId" key in the message object.)</p>
-   *
-   */
-  messageId?: string;
-}
-
-export namespace BatchPutMessageErrorEntry {
-  export function isa(o: any): o is BatchPutMessageErrorEntry {
-    return _smithy.isa(o, "BatchPutMessageErrorEntry");
-  }
-}
-
-export interface BatchPutMessageRequest {
-  __type?: "BatchPutMessageRequest";
-  /**
-   *
-   *          <p>The name of the channel where the messages are sent.</p>
-   *
-   */
-  channelName: string | undefined;
-
-  /**
-   *
-   *          <p>The list of messages to be sent. Each message has format:
-   *           '{ "messageId": "string", "payload": "string"}'.</p>
-   *          <p>Note that the field names of message payloads (data) that you send to AWS IoT Analytics:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must contain only alphanumeric characters and undescores (_); no other special
-   *               characters are allowed.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must begin with an alphabetic character or single underscore (_).</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot contain hyphens (-).</p>
-   *             </li>
-   *             <li>
-   *                <p>In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be greater than 255 characters.</p>
-   *             </li>
-   *             <li>
-   *                <p>Are case-insensitive. (Fields named "foo" and "FOO" in the same payload are
-   *               considered duplicates.)</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
-   *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
-   *
-   */
-  messages: Array<Message> | undefined;
-}
-
-export namespace BatchPutMessageRequest {
-  export function isa(o: any): o is BatchPutMessageRequest {
-    return _smithy.isa(o, "BatchPutMessageRequest");
-  }
-}
-
-export interface BatchPutMessageResponse extends $MetadataBearer {
-  __type?: "BatchPutMessageResponse";
-  /**
-   *
-   *          <p>A list of any errors encountered when sending the messages to the channel.</p>
-   *
-   */
-  batchPutMessageErrorEntries?: Array<BatchPutMessageErrorEntry>;
-}
-
-export namespace BatchPutMessageResponse {
-  export function isa(o: any): o is BatchPutMessageResponse {
-    return _smithy.isa(o, "BatchPutMessageResponse");
   }
 }
 
@@ -344,6 +350,12 @@ export namespace ChannelStatistics {
   }
 }
 
+export enum ChannelStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
+}
+
 /**
  *
  *          <p>Where channel data is stored. You may choose one of "serviceManagedS3" or "customerManagedS3"
@@ -453,6 +465,11 @@ export namespace ChannelSummary {
   export function isa(o: any): o is ChannelSummary {
     return _smithy.isa(o, "ChannelSummary");
   }
+}
+
+export enum ComputeType {
+  ACU_1 = "ACU_1",
+  ACU_2 = "ACU_2"
 }
 
 /**
@@ -1148,6 +1165,11 @@ export namespace DatasetActionSummary {
   }
 }
 
+export enum DatasetActionType {
+  CONTAINER = "CONTAINER",
+  QUERY = "QUERY"
+}
+
 /**
  *
  *          <p>The destination to which data set contents are delivered.</p>
@@ -1202,6 +1224,12 @@ export namespace DatasetContentDeliveryRule {
   export function isa(o: any): o is DatasetContentDeliveryRule {
     return _smithy.isa(o, "DatasetContentDeliveryRule");
   }
+}
+
+export enum DatasetContentState {
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -1331,6 +1359,12 @@ export namespace DatasetEntry {
   export function isa(o: any): o is DatasetEntry {
     return _smithy.isa(o, "DatasetEntry");
   }
+}
+
+export enum DatasetStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -1547,6 +1581,12 @@ export namespace DatastoreStatistics {
   export function isa(o: any): o is DatastoreStatistics {
     return _smithy.isa(o, "DatastoreStatistics");
   }
+}
+
+export enum DatastoreStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -2224,46 +2264,6 @@ export namespace GlueConfiguration {
 
 /**
  *
- *          <p>There was an internal failure.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>The request was not valid.</p>
- *
- */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequestException";
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
-  }
-}
-
-/**
- *
  *          <p>Configuration information for delivery of data set contents to AWS IoT Events.</p>
  *
  */
@@ -2332,26 +2332,6 @@ export interface LambdaActivity {
 export namespace LambdaActivity {
   export function isa(o: any): o is LambdaActivity {
     return _smithy.isa(o, "LambdaActivity");
-  }
-}
-
-/**
- *
- *          <p>The command caused an internal limit to be exceeded.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
   }
 }
 
@@ -2650,6 +2630,10 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
+export enum LoggingLevel {
+  ERROR = "ERROR"
+}
+
 /**
  *
  *          <p>Information about logging options.</p>
@@ -2725,36 +2709,6 @@ export interface MathActivity {
 export namespace MathActivity {
   export function isa(o: any): o is MathActivity {
     return _smithy.isa(o, "MathActivity");
-  }
-}
-
-/**
- *
- *          <p>Information about a message.</p>
- *
- */
-export interface Message {
-  __type?: "Message";
-  /**
-   *
-   *          <p>The ID you wish to assign to the message. Each "messageId" must be unique
-   *           within each batch sent.</p>
-   *
-   */
-  messageId: string | undefined;
-
-  /**
-   *
-   *          <p>The payload of the message. This may be a JSON string or a Base64-encoded string
-   *           representing binary data (in which case you must decode it by means of a pipeline activity).</p>
-   *
-   */
-  payload: Uint8Array | undefined;
-}
-
-export namespace Message {
-  export function isa(o: any): o is Message {
-    return _smithy.isa(o, "Message");
   }
 }
 
@@ -3037,6 +2991,13 @@ export namespace RemoveAttributesActivity {
   }
 }
 
+export enum ReprocessingStatus {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
 /**
  *
  *          <p>Information about pipeline reprocessing.</p>
@@ -3074,39 +3035,6 @@ export namespace ReprocessingSummary {
 
 /**
  *
- *          <p>A resource with the same name already exists.</p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-  /**
-   *
-   *          <p>The ARN of the resource.</p>
-   *
-   */
-  resourceArn?: string;
-
-  /**
-   *
-   *          <p>The ID of the resource.</p>
-   *
-   */
-  resourceId?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
  *          <p>The configuration of the resource used to execute the "containerAction".</p>
  *
  */
@@ -3132,26 +3060,6 @@ export interface ResourceConfiguration {
 export namespace ResourceConfiguration {
   export function isa(o: any): o is ResourceConfiguration {
     return _smithy.isa(o, "ResourceConfiguration");
-  }
-}
-
-/**
- *
- *          <p>A resource with the specified name could not be found.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -3463,26 +3371,6 @@ export namespace ServiceManagedDatastoreS3StorageSummary {
 
 /**
  *
- *          <p>The service is temporarily unavailable.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
-}
-
-/**
- *
  *          <p>The SQL query to modify the message.</p>
  *
  */
@@ -3613,26 +3501,6 @@ export interface TagResourceResponse extends $MetadataBearer {
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
     return _smithy.isa(o, "TagResourceResponse");
-  }
-}
-
-/**
- *
- *          <p>The request was denied due to request throttling.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
   }
 }
 
@@ -3929,5 +3797,137 @@ export interface VersioningConfiguration {
 export namespace VersioningConfiguration {
   export function isa(o: any): o is VersioningConfiguration {
     return _smithy.isa(o, "VersioningConfiguration");
+  }
+}
+
+/**
+ *
+ *          <p>Contains informations about errors.</p>
+ *
+ */
+export interface BatchPutMessageErrorEntry {
+  __type?: "BatchPutMessageErrorEntry";
+  /**
+   *
+   *          <p>The code associated with the error.</p>
+   *
+   */
+  errorCode?: string;
+
+  /**
+   *
+   *          <p>The message associated with the error.</p>
+   *
+   */
+  errorMessage?: string;
+
+  /**
+   *
+   *          <p>The ID of the message that caused the error. (See the value corresponding to the
+   *           "messageId" key in the message object.)</p>
+   *
+   */
+  messageId?: string;
+}
+
+export namespace BatchPutMessageErrorEntry {
+  export function isa(o: any): o is BatchPutMessageErrorEntry {
+    return _smithy.isa(o, "BatchPutMessageErrorEntry");
+  }
+}
+
+export interface BatchPutMessageRequest {
+  __type?: "BatchPutMessageRequest";
+  /**
+   *
+   *          <p>The name of the channel where the messages are sent.</p>
+   *
+   */
+  channelName: string | undefined;
+
+  /**
+   *
+   *          <p>The list of messages to be sent. Each message has format:
+   *           '{ "messageId": "string", "payload": "string"}'.</p>
+   *          <p>Note that the field names of message payloads (data) that you send to AWS IoT Analytics:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Must contain only alphanumeric characters and undescores (_); no other special
+   *               characters are allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with an alphabetic character or single underscore (_).</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot contain hyphens (-).</p>
+   *             </li>
+   *             <li>
+   *                <p>In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be greater than 255 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>Are case-insensitive. (Fields named "foo" and "FOO" in the same payload are
+   *               considered duplicates.)</p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29},
+   *  {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.  </p>
+   *
+   */
+  messages: Array<Message> | undefined;
+}
+
+export namespace BatchPutMessageRequest {
+  export function isa(o: any): o is BatchPutMessageRequest {
+    return _smithy.isa(o, "BatchPutMessageRequest");
+  }
+}
+
+export interface BatchPutMessageResponse extends $MetadataBearer {
+  __type?: "BatchPutMessageResponse";
+  /**
+   *
+   *          <p>A list of any errors encountered when sending the messages to the channel.</p>
+   *
+   */
+  batchPutMessageErrorEntries?: Array<BatchPutMessageErrorEntry>;
+}
+
+export namespace BatchPutMessageResponse {
+  export function isa(o: any): o is BatchPutMessageResponse {
+    return _smithy.isa(o, "BatchPutMessageResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a message.</p>
+ *
+ */
+export interface Message {
+  __type?: "Message";
+  /**
+   *
+   *          <p>The ID you wish to assign to the message. Each "messageId" must be unique
+   *           within each batch sent.</p>
+   *
+   */
+  messageId: string | undefined;
+
+  /**
+   *
+   *          <p>The payload of the message. This may be a JSON string or a Base64-encoded string
+   *           representing binary data (in which case you must decode it by means of a pipeline activity).</p>
+   *
+   */
+  payload: Uint8Array | undefined;
+}
+
+export namespace Message {
+  export function isa(o: any): o is Message {
+    return _smithy.isa(o, "Message");
   }
 }

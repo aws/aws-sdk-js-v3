@@ -1,48 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BudgetType {
-  Cost = "COST",
-  RICoverage = "RI_COVERAGE",
-  RIUtilization = "RI_UTILIZATION",
-  SPCoverage = "SAVINGS_PLANS_COVERAGE",
-  SPUtilization = "SAVINGS_PLANS_UTILIZATION",
-  Usage = "USAGE"
-}
-
-export enum ComparisonOperator {
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN"
-}
-
-export enum NotificationState {
-  ALARM = "ALARM",
-  OK = "OK"
-}
-
-export enum NotificationType {
-  ACTUAL = "ACTUAL",
-  FORECASTED = "FORECASTED"
-}
-
-export enum SubscriptionType {
-  EMAIL = "EMAIL",
-  SNS = "SNS"
-}
-
-export enum ThresholdType {
-  ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
-  PERCENTAGE = "PERCENTAGE"
-}
-
-export enum TimeUnit {
-  ANNUALLY = "ANNUALLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  QUARTERLY = "QUARTERLY"
-}
-
 /**
  *
  *          <p>You are not authorized to use this operation with the given parameters.</p>
@@ -248,6 +206,15 @@ export namespace BudgetPerformanceHistory {
   }
 }
 
+export enum BudgetType {
+  Cost = "COST",
+  RICoverage = "RI_COVERAGE",
+  RIUtilization = "RI_UTILIZATION",
+  SPCoverage = "SAVINGS_PLANS_COVERAGE",
+  SPUtilization = "SAVINGS_PLANS_UTILIZATION",
+  Usage = "USAGE"
+}
+
 /**
  *
  * 		       <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
@@ -310,6 +277,12 @@ export namespace CalculatedSpend {
   export function isa(o: any): o is CalculatedSpend {
     return _smithy.isa(o, "CalculatedSpend");
   }
+}
+
+export enum ComparisonOperator {
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  LESS_THAN = "LESS_THAN"
 }
 
 /**
@@ -1304,6 +1277,16 @@ export namespace Notification {
   }
 }
 
+export enum NotificationState {
+  ALARM = "ALARM",
+  OK = "OK"
+}
+
+export enum NotificationType {
+  ACTUAL = "ACTUAL",
+  FORECASTED = "FORECASTED"
+}
+
 /**
  *
  * 		       <p>A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
@@ -1411,6 +1394,16 @@ export namespace Subscriber {
   }
 }
 
+export enum SubscriptionType {
+  EMAIL = "EMAIL",
+  SNS = "SNS"
+}
+
+export enum ThresholdType {
+  ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
+  PERCENTAGE = "PERCENTAGE"
+}
+
 /**
  *
  * 		       <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date. </p>
@@ -1439,6 +1432,13 @@ export namespace TimePeriod {
   export function isa(o: any): o is TimePeriod {
     return _smithy.isa(o, "TimePeriod");
   }
+}
+
+export enum TimeUnit {
+  ANNUALLY = "ANNUALLY",
+  DAILY = "DAILY",
+  MONTHLY = "MONTHLY",
+  QUARTERLY = "QUARTERLY"
 }
 
 /**

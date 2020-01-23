@@ -29,10 +29,6 @@ export enum DataSetType {
   US_SALES_AND_USE_TAX_RECORDS = "us_sales_and_use_tax_records"
 }
 
-export type SupportDataSetType =
-  | "customer_support_contacts_data"
-  | "test_customer_support_contacts_data";
-
 /**
  *
  *         Container for the parameters to the GenerateDataSet operation.
@@ -368,3 +364,7 @@ export namespace StartSupportDataExportResult {
     return _smithy.isa(o, "StartSupportDataExportResult");
   }
 }
+
+export type SupportDataSetType =
+  | "customer_support_contacts_data"
+  | "test_customer_support_contacts_data";

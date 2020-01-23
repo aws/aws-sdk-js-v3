@@ -1,99 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  SNAPPY = "Snappy",
-  UNCOMPRESSED = "UNCOMPRESSED",
-  ZIP = "ZIP"
-}
-
-export enum DeliveryStreamEncryptionStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  DISABLING_FAILED = "DISABLING_FAILED",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  ENABLING_FAILED = "ENABLING_FAILED"
-}
-
-export enum DeliveryStreamFailureType {
-  CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED",
-  DISABLED_KMS_KEY = "DISABLED_KMS_KEY",
-  INVALID_KMS_KEY = "INVALID_KMS_KEY",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-  KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED",
-  RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR"
-}
-
-export enum DeliveryStreamStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATING_FAILED = "CREATING_FAILED",
-  DELETING = "DELETING",
-  DELETING_FAILED = "DELETING_FAILED"
-}
-
-export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
-
-export type ElasticsearchIndexRotationPeriod =
-  | "NoRotation"
-  | "OneDay"
-  | "OneHour"
-  | "OneMonth"
-  | "OneWeek";
-
-export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
-
-export type HECEndpointType = "Event" | "Raw";
-
-export enum KeyType {
-  AWS_OWNED_CMK = "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
-}
-
-export type NoEncryptionConfig = "NoEncryption";
-
-export enum OrcCompression {
-  NONE = "NONE",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB"
-}
-
-export enum OrcFormatVersion {
-  V0_11 = "V0_11",
-  V0_12 = "V0_12"
-}
-
-export enum ParquetCompression {
-  GZIP = "GZIP",
-  SNAPPY = "SNAPPY",
-  UNCOMPRESSED = "UNCOMPRESSED"
-}
-
-export enum ParquetWriterVersion {
-  V1 = "V1",
-  V2 = "V2"
-}
-
-export enum ProcessorParameterName {
-  BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
-  BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
-  LAMBDA_ARN = "LambdaArn",
-  LAMBDA_NUMBER_OF_RETRIES = "NumberOfRetries",
-  ROLE_ARN = "RoleArn"
-}
-
-export type ProcessorType = "Lambda";
-
-export type RedshiftS3BackupMode = "Disabled" | "Enabled";
-
-export type S3BackupMode = "Disabled" | "Enabled";
-
-export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
-
 /**
  *
  *          <p>Describes hints for the buffering to perform before delivering data to the
@@ -171,6 +78,13 @@ export namespace CloudWatchLoggingOptions {
   export function isa(o: any): o is CloudWatchLoggingOptions {
     return _smithy.isa(o, "CloudWatchLoggingOptions");
   }
+}
+
+export enum CompressionFormat {
+  GZIP = "GZIP",
+  SNAPPY = "Snappy",
+  UNCOMPRESSED = "UNCOMPRESSED",
+  ZIP = "ZIP"
 }
 
 /**
@@ -666,6 +580,36 @@ export namespace DeliveryStreamEncryptionConfigurationInput {
     return _smithy.isa(o, "DeliveryStreamEncryptionConfigurationInput");
   }
 }
+
+export enum DeliveryStreamEncryptionStatus {
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  DISABLING_FAILED = "DISABLING_FAILED",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+  ENABLING_FAILED = "ENABLING_FAILED"
+}
+
+export enum DeliveryStreamFailureType {
+  CREATE_KMS_GRANT_FAILED = "CREATE_KMS_GRANT_FAILED",
+  DISABLED_KMS_KEY = "DISABLED_KMS_KEY",
+  INVALID_KMS_KEY = "INVALID_KMS_KEY",
+  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
+  KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED",
+  RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED",
+  UNKNOWN_ERROR = "UNKNOWN_ERROR"
+}
+
+export enum DeliveryStreamStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  CREATING_FAILED = "CREATING_FAILED",
+  DELETING = "DELETING",
+  DELETING_FAILED = "DELETING_FAILED"
+}
+
+export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
 
 export interface DescribeDeliveryStreamInput {
   __type?: "DescribeDeliveryStreamInput";
@@ -1191,6 +1135,13 @@ export namespace ElasticsearchDestinationUpdate {
   }
 }
 
+export type ElasticsearchIndexRotationPeriod =
+  | "NoRotation"
+  | "OneDay"
+  | "OneHour"
+  | "OneMonth"
+  | "OneWeek";
+
 /**
  *
  *          <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
@@ -1217,6 +1168,8 @@ export namespace ElasticsearchRetryOptions {
     return _smithy.isa(o, "ElasticsearchRetryOptions");
   }
 }
+
+export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
 
 /**
  *
@@ -1593,6 +1546,8 @@ export namespace FailureDescription {
   }
 }
 
+export type HECEndpointType = "Event" | "Raw";
+
 /**
  *
  *          <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing
@@ -1714,6 +1669,11 @@ export namespace KMSEncryptionConfig {
   export function isa(o: any): o is KMSEncryptionConfig {
     return _smithy.isa(o, "KMSEncryptionConfig");
   }
+}
+
+export enum KeyType {
+  AWS_OWNED_CMK = "AWS_OWNED_CMK",
+  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
 }
 
 /**
@@ -1944,6 +1904,8 @@ export namespace ListTagsForDeliveryStreamOutput {
   }
 }
 
+export type NoEncryptionConfig = "NoEncryption";
+
 /**
  *
  *          <p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means
@@ -1990,6 +1952,17 @@ export namespace OpenXJsonSerDe {
   export function isa(o: any): o is OpenXJsonSerDe {
     return _smithy.isa(o, "OpenXJsonSerDe");
   }
+}
+
+export enum OrcCompression {
+  NONE = "NONE",
+  SNAPPY = "SNAPPY",
+  ZLIB = "ZLIB"
+}
+
+export enum OrcFormatVersion {
+  V0_11 = "V0_11",
+  V0_12 = "V0_12"
 }
 
 /**
@@ -2116,6 +2089,12 @@ export namespace OutputFormatConfiguration {
   }
 }
 
+export enum ParquetCompression {
+  GZIP = "GZIP",
+  SNAPPY = "SNAPPY",
+  UNCOMPRESSED = "UNCOMPRESSED"
+}
+
 /**
  *
  *          <p>A serializer to use for converting data to the Parquet format before storing it in
@@ -2177,6 +2156,11 @@ export namespace ParquetSerDe {
   export function isa(o: any): o is ParquetSerDe {
     return _smithy.isa(o, "ParquetSerDe");
   }
+}
+
+export enum ParquetWriterVersion {
+  V1 = "V1",
+  V2 = "V2"
 }
 
 /**
@@ -2262,6 +2246,16 @@ export namespace ProcessorParameter {
     return _smithy.isa(o, "ProcessorParameter");
   }
 }
+
+export enum ProcessorParameterName {
+  BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
+  BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
+  LAMBDA_ARN = "LambdaArn",
+  LAMBDA_NUMBER_OF_RETRIES = "NumberOfRetries",
+  ROLE_ARN = "RoleArn"
+}
+
+export type ProcessorType = "Lambda";
 
 export interface PutRecordBatchInput {
   __type?: "PutRecordBatchInput";
@@ -2734,6 +2728,8 @@ export namespace RedshiftRetryOptions {
   }
 }
 
+export type RedshiftS3BackupMode = "Disabled" | "Enabled";
+
 /**
  *
  *          <p>The resource is already in use and not available for this operation.</p>
@@ -2783,6 +2779,8 @@ export namespace ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
   }
 }
+
+export type S3BackupMode = "Disabled" | "Enabled";
 
 /**
  *
@@ -3472,6 +3470,8 @@ export namespace SplunkRetryOptions {
     return _smithy.isa(o, "SplunkRetryOptions");
   }
 }
+
+export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
 
 export interface StartDeliveryStreamEncryptionInput {
   __type?: "StartDeliveryStreamEncryptionInput";

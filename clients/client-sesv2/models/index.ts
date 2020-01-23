@@ -1,58 +1,35 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BehaviorOnMxFailure {
-  REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE"
+/**
+ *
+ *         <p>An object that contains information about your account's suppression preferences.</p>
+ *
+ */
+export interface SuppressionAttributes {
+  __type?: "SuppressionAttributes";
+  /**
+   *
+   *         <p>A list of reasons to suppress email addresses. The only valid reasons are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLAINT</code> – Amazon SES will suppress an email address that receives a complaint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  SuppressedReasons?: Array<SuppressionListReason | string>;
 }
 
-export enum DeliverabilityDashboardAccountStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION"
-}
-
-export enum DeliverabilityTestStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
-export enum DimensionValueSource {
-  EMAIL_HEADER = "EMAIL_HEADER",
-  LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG"
-}
-
-export enum DkimStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
-}
-
-export enum EventType {
-  BOUNCE = "BOUNCE",
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  OPEN = "OPEN",
-  REJECT = "REJECT",
-  RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND"
-}
-
-export enum IdentityType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN"
-}
-
-export enum MailFromDomainStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
+export namespace SuppressionAttributes {
+  export function isa(o: any): o is SuppressionAttributes {
+    return _smithy.isa(o, "SuppressionAttributes");
+  }
 }
 
 export enum SuppressionListReason {
@@ -60,14 +37,99 @@ export enum SuppressionListReason {
   COMPLAINT = "COMPLAINT"
 }
 
-export enum TlsPolicy {
-  OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE"
+/**
+ *
+ *         <p>An object that contains information about your account's suppression preferences.</p>
+ *
+ */
+export interface SuppressionOptions {
+  __type?: "SuppressionOptions";
+  /**
+   *
+   *         <p>A list of reasons to suppress email addresses. The only valid reasons are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLAINT</code> – Amazon SES will suppress an email address that receives a complaint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  SuppressedReasons?: Array<SuppressionListReason | string>;
 }
 
-export enum WarmupStatus {
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS"
+export namespace SuppressionOptions {
+  export function isa(o: any): o is SuppressionOptions {
+    return _smithy.isa(o, "SuppressionOptions");
+  }
+}
+
+/**
+ *
+ *         <p>An object that defines the tags that are associated with a resource.
+ *                 A <i>tag</i> is a label that you optionally define and associate with
+ *             a resource. Tags can help you categorize and manage resources in different ways, such as
+ *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
+ *             tags.</p>
+ *         <p>Each tag consists of a required <i>tag key</i> and an
+ *                 associated <i>tag value</i>, both of which you define. A tag key is a
+ *             general label that acts as a category for a more specific tag value. A tag value acts as
+ *             a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
+ *             value can contain as many as 256 characters. The characters can be Unicode letters,
+ *             digits, white space, or one of the following symbols: _ . : / = + -. The following
+ *             additional restrictions apply to tags:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Tag keys and values are case sensitive.</p>
+ *             </li>
+ *             <li>
+ *                 <p>For each associated resource, each tag key must be unique and it can have only
+ *                     one value.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
+ *                     any tag keys or values that you define. In addition, you can't edit or remove
+ *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
+ *                     against the limit of 50 tags per resource.</p>
+ *             </li>
+ *             <li>
+ *                 <p>You can associate tags with public or shared resources, but the tags are
+ *                     available only for your AWS account, not any other accounts that share the
+ *                     resource. In addition, the tags are available only for resources that are
+ *                     located in the specified AWS Region for your AWS account.</p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   *
+   *         <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
+   *             128 characters. The minimum length is 1 character.</p>
+   *
+   */
+  Key: string | undefined;
+
+  /**
+   *
+   *         <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
+   *             value is 256 characters. The minimum length is 0 characters. If you don't want a
+   *             resource to have a specific tag value, don't specify a value for this parameter. If you
+   *             don't specify a value, Amazon SES sets the value to an empty string.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export function isa(o: any): o is Tag {
+    return _smithy.isa(o, "Tag");
+  }
 }
 
 /**
@@ -129,6 +191,11 @@ export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
     return _smithy.isa(o, "BadRequestException");
   }
+}
+
+export enum BehaviorOnMxFailure {
+  REJECT_MESSAGE = "REJECT_MESSAGE",
+  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE"
 }
 
 /**
@@ -973,6 +1040,12 @@ export namespace DeleteSuppressedDestinationResponse {
   }
 }
 
+export enum DeliverabilityDashboardAccountStatus {
+  ACTIVE = "ACTIVE",
+  DISABLED = "DISABLED",
+  PENDING_EXPIRATION = "PENDING_EXPIRATION"
+}
+
 /**
  *
  *         <p>An object that contains metadata related to a predictive inbox placement test.</p>
@@ -1030,6 +1103,11 @@ export namespace DeliverabilityTestReport {
   export function isa(o: any): o is DeliverabilityTestReport {
     return _smithy.isa(o, "DeliverabilityTestReport");
   }
+}
+
+export enum DeliverabilityTestStatus {
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -1102,6 +1180,12 @@ export namespace Destination {
   }
 }
 
+export enum DimensionValueSource {
+  EMAIL_HEADER = "EMAIL_HEADER",
+  LINK_TAG = "LINK_TAG",
+  MESSAGE_TAG = "MESSAGE_TAG"
+}
+
 /**
  *
  *         <p>An object that contains information about the DKIM configuration for an email
@@ -1172,6 +1256,14 @@ export namespace DkimAttributes {
   export function isa(o: any): o is DkimAttributes {
     return _smithy.isa(o, "DkimAttributes");
   }
+}
+
+export enum DkimStatus {
+  FAILED = "FAILED",
+  NOT_STARTED = "NOT_STARTED",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
 }
 
 /**
@@ -1610,6 +1702,17 @@ export namespace EventDestinationDefinition {
   export function isa(o: any): o is EventDestinationDefinition {
     return _smithy.isa(o, "EventDestinationDefinition");
   }
+}
+
+export enum EventType {
+  BOUNCE = "BOUNCE",
+  CLICK = "CLICK",
+  COMPLAINT = "COMPLAINT",
+  DELIVERY = "DELIVERY",
+  OPEN = "OPEN",
+  REJECT = "REJECT",
+  RENDERING_FAILURE = "RENDERING_FAILURE",
+  SEND = "SEND"
 }
 
 /**
@@ -2479,6 +2582,12 @@ export namespace IdentityInfo {
   }
 }
 
+export enum IdentityType {
+  DOMAIN = "DOMAIN",
+  EMAIL_ADDRESS = "EMAIL_ADDRESS",
+  MANAGED_DOMAIN = "MANAGED_DOMAIN"
+}
+
 /**
  *
  *         <p>An object that contains information about the inbox placement data settings for a
@@ -3168,6 +3277,13 @@ export namespace MailFromDomainNotVerifiedException {
   export function isa(o: any): o is MailFromDomainNotVerifiedException {
     return _smithy.isa(o, "MailFromDomainNotVerifiedException");
   }
+}
+
+export enum MailFromDomainStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  SUCCESS = "SUCCESS",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
 }
 
 /**
@@ -4566,132 +4682,6 @@ export namespace SuppressedDestinationSummary {
   }
 }
 
-/**
- *
- *         <p>An object that contains information about your account's suppression preferences.</p>
- *
- */
-export interface SuppressionAttributes {
-  __type?: "SuppressionAttributes";
-  /**
-   *
-   *         <p>A list of reasons to suppress email addresses. The only valid reasons are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>COMPLAINT</code> – Amazon SES will suppress an email address that receives a complaint.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  SuppressedReasons?: Array<SuppressionListReason | string>;
-}
-
-export namespace SuppressionAttributes {
-  export function isa(o: any): o is SuppressionAttributes {
-    return _smithy.isa(o, "SuppressionAttributes");
-  }
-}
-
-/**
- *
- *         <p>An object that contains information about your account's suppression preferences.</p>
- *
- */
-export interface SuppressionOptions {
-  __type?: "SuppressionOptions";
-  /**
-   *
-   *         <p>A list of reasons to suppress email addresses. The only valid reasons are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>COMPLAINT</code> – Amazon SES will suppress an email address that receives a complaint.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  SuppressedReasons?: Array<SuppressionListReason | string>;
-}
-
-export namespace SuppressionOptions {
-  export function isa(o: any): o is SuppressionOptions {
-    return _smithy.isa(o, "SuppressionOptions");
-  }
-}
-
-/**
- *
- *         <p>An object that defines the tags that are associated with a resource.
- *                 A <i>tag</i> is a label that you optionally define and associate with
- *             a resource. Tags can help you categorize and manage resources in different ways, such as
- *             by purpose, owner, environment, or other criteria. A resource can have as many as 50
- *             tags.</p>
- *         <p>Each tag consists of a required <i>tag key</i> and an
- *                 associated <i>tag value</i>, both of which you define. A tag key is a
- *             general label that acts as a category for a more specific tag value. A tag value acts as
- *             a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag
- *             value can contain as many as 256 characters. The characters can be Unicode letters,
- *             digits, white space, or one of the following symbols: _ . : / = + -. The following
- *             additional restrictions apply to tags:</p>
- *         <ul>
- *             <li>
- *                 <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                 <p>For each associated resource, each tag key must be unique and it can have only
- *                     one value.</p>
- *             </li>
- *             <li>
- *                 <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
- *                     any tag keys or values that you define. In addition, you can't edit or remove
- *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
- *                     against the limit of 50 tags per resource.</p>
- *             </li>
- *             <li>
- *                 <p>You can associate tags with public or shared resources, but the tags are
- *                     available only for your AWS account, not any other accounts that share the
- *                     resource. In addition, the tags are available only for resources that are
- *                     located in the specified AWS Region for your AWS account.</p>
- *             </li>
- *          </ul>
- *
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   *
-   *         <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is
-   *             128 characters. The minimum length is 1 character.</p>
-   *
-   */
-  Key: string | undefined;
-
-  /**
-   *
-   *         <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag
-   *             value is 256 characters. The minimum length is 0 characters. If you don't want a
-   *             resource to have a specific tag value, don't specify a value for this parameter. If you
-   *             don't specify a value, Amazon SES sets the value to an empty string.</p>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
-  }
-}
-
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
@@ -4760,6 +4750,11 @@ export namespace Template {
   export function isa(o: any): o is Template {
     return _smithy.isa(o, "Template");
   }
+}
+
+export enum TlsPolicy {
+  OPTIONAL = "OPTIONAL",
+  REQUIRE = "REQUIRE"
 }
 
 /**
@@ -4951,4 +4946,9 @@ export namespace VolumeStatistics {
   export function isa(o: any): o is VolumeStatistics {
     return _smithy.isa(o, "VolumeStatistics");
   }
+}
+
+export enum WarmupStatus {
+  DONE = "DONE",
+  IN_PROGRESS = "IN_PROGRESS"
 }

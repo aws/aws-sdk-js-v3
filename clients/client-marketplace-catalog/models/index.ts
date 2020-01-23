@@ -1,19 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ChangeStatus {
-  APPLYING = "APPLYING",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
-}
-
 /**
  *
  *         <p>Access is denied.</p>
@@ -187,6 +174,14 @@ export namespace ChangeSetSummaryListItem {
   export function isa(o: any): o is ChangeSetSummaryListItem {
     return _smithy.isa(o, "ChangeSetSummaryListItem");
   }
+}
+
+export enum ChangeStatus {
+  APPLYING = "APPLYING",
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  PREPARING = "PREPARING",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -873,6 +868,11 @@ export namespace Sort {
   export function isa(o: any): o is Sort {
     return _smithy.isa(o, "Sort");
   }
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
 }
 
 export interface StartChangeSetRequest {

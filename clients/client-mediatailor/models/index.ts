@@ -1,11 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum OriginManifestType {
-  MULTI_PERIOD = "MULTI_PERIOD",
-  SINGLE_PERIOD = "SINGLE_PERIOD"
-}
-
 /**
  * <p>Invalid request parameters.</p>
  */
@@ -315,6 +310,11 @@ export namespace LivePreRollConfiguration {
   export function isa(o: any): o is LivePreRollConfiguration {
     return _smithy.isa(o, "LivePreRollConfiguration");
   }
+}
+
+export enum OriginManifestType {
+  MULTI_PERIOD = "MULTI_PERIOD",
+  SINGLE_PERIOD = "SINGLE_PERIOD"
 }
 
 /**

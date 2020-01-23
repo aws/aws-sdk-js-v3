@@ -1,19 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ContainerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
-}
-
-export enum MethodName {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  PUT = "PUT"
-}
-
 /**
  *
  *          <p>This section describes operations that you can perform on an AWS Elemental MediaStore
@@ -119,6 +106,12 @@ export namespace ContainerNotFoundException {
   export function isa(o: any): o is ContainerNotFoundException {
     return _smithy.isa(o, "ContainerNotFoundException");
   }
+}
+
+export enum ContainerStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -617,6 +610,13 @@ export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
     return _smithy.isa(o, "ListTagsForResourceOutput");
   }
+}
+
+export enum MethodName {
+  DELETE = "DELETE",
+  GET = "GET",
+  HEAD = "HEAD",
+  PUT = "PUT"
 }
 
 /**

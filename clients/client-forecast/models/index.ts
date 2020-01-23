@@ -8,43 +8,6 @@ export enum AttributeType {
   TIMESTAMP = "timestamp"
 }
 
-export enum DatasetType {
-  ITEM_METADATA = "ITEM_METADATA",
-  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
-}
-
-export enum Domain {
-  CUSTOM = "CUSTOM",
-  EC2_CAPACITY = "EC2_CAPACITY",
-  INVENTORY_PLANNING = "INVENTORY_PLANNING",
-  METRICS = "METRICS",
-  RETAIL = "RETAIL",
-  WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE"
-}
-
-export enum EvaluationType {
-  COMPUTED = "COMPUTED",
-  SUMMARY = "SUMMARY"
-}
-
-export enum FeaturizationMethodName {
-  filling = "filling"
-}
-
-export enum FilterConditionString {
-  IS = "IS",
-  IS_NOT = "IS_NOT"
-}
-
-export enum ScalingType {
-  Auto = "Auto",
-  Linear = "Linear",
-  Logarithmic = "Logarithmic",
-  ReverseLogarithmic = "ReverseLogarithmic"
-}
-
 /**
  *
  *          <p>Specifies a categorical hyperparameter and it's range of tunable values.
@@ -888,6 +851,12 @@ export namespace DatasetSummary {
   export function isa(o: any): o is DatasetSummary {
     return _smithy.isa(o, "DatasetSummary");
   }
+}
+
+export enum DatasetType {
+  ITEM_METADATA = "ITEM_METADATA",
+  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
+  TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
 }
 
 export interface DeleteDatasetGroupRequest {
@@ -1805,6 +1774,16 @@ export namespace DescribePredictorResponse {
   }
 }
 
+export enum Domain {
+  CUSTOM = "CUSTOM",
+  EC2_CAPACITY = "EC2_CAPACITY",
+  INVENTORY_PLANNING = "INVENTORY_PLANNING",
+  METRICS = "METRICS",
+  RETAIL = "RETAIL",
+  WEB_TRAFFIC = "WEB_TRAFFIC",
+  WORK_FORCE = "WORK_FORCE"
+}
+
 /**
  *
  *          <p>An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to
@@ -1908,6 +1887,11 @@ export namespace EvaluationResult {
   export function isa(o: any): o is EvaluationResult {
     return _smithy.isa(o, "EvaluationResult");
   }
+}
+
+export enum EvaluationType {
+  COMPUTED = "COMPUTED",
+  SUMMARY = "SUMMARY"
 }
 
 /**
@@ -2096,6 +2080,10 @@ export namespace FeaturizationMethod {
   }
 }
 
+export enum FeaturizationMethodName {
+  filling = "filling"
+}
+
 /**
  *
  *          <p>Describes a filter for choosing a subset of objects. Each filter consists of a
@@ -2134,6 +2122,11 @@ export namespace Filter {
   export function isa(o: any): o is Filter {
     return _smithy.isa(o, "Filter");
   }
+}
+
+export enum FilterConditionString {
+  IS = "IS",
+  IS_NOT = "IS_NOT"
 }
 
 /**
@@ -3308,6 +3301,13 @@ export namespace S3Config {
   export function isa(o: any): o is S3Config {
     return _smithy.isa(o, "S3Config");
   }
+}
+
+export enum ScalingType {
+  Auto = "Auto",
+  Linear = "Linear",
+  Logarithmic = "Logarithmic",
+  ReverseLogarithmic = "ReverseLogarithmic"
 }
 
 /**

@@ -1,24 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ItemType {
-  PRONUNCIATION = "pronunciation",
-  PUNCTUATION = "punctuation"
-}
-
-export enum LanguageCode {
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR"
-}
-
-export enum MediaEncoding {
-  PCM = "pcm"
-}
-
 /**
  *
  *          <p>A list of possible transcriptions for the audio.</p>
@@ -66,6 +48,44 @@ export interface AudioEvent {
 export namespace AudioEvent {
   export function isa(o: any): o is AudioEvent {
     return _smithy.isa(o, "AudioEvent");
+  }
+}
+
+/**
+ *
+ *          <p>Represents the audio stream from your application to Amazon Transcribe.</p>
+ *
+ */
+export type AudioStream =
+  | AudioStream.AudioEventMember
+  | AudioStream.$UnknownMember;
+
+export namespace AudioStream {
+  interface $Base {
+    __type?: "AudioStream";
+  }
+  /**
+   *
+   *          <p>A blob of audio from your application. You audio stream consists of one or more audio
+   *       events.</p>
+   *
+   */
+  export interface AudioEventMember extends $Base {
+    AudioEvent: AudioEvent;
+    $unknown?: never;
+  }
+  export interface $UnknownMember extends $Base {
+    AudioEvent?: never;
+    $unknown: [string, any];
+  }
+  export interface Visitor<T> {
+    AudioEvent: (value: AudioEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+  export function visit<T>(value: AudioStream, visitor: Visitor<T>): T {
+    if (value.AudioEvent !== undefined)
+      return visitor.AudioEvent(value.AudioEvent);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
 
@@ -178,6 +198,20 @@ export namespace Item {
   export function isa(o: any): o is Item {
     return _smithy.isa(o, "Item");
   }
+}
+
+export enum ItemType {
+  PRONUNCIATION = "pronunciation",
+  PUNCTUATION = "punctuation"
+}
+
+export enum LanguageCode {
+  EN_AU = "en-AU",
+  EN_GB = "en-GB",
+  EN_US = "en-US",
+  ES_US = "es-US",
+  FR_CA = "fr-CA",
+  FR_FR = "fr-FR"
 }
 
 /**
@@ -421,44 +455,6 @@ export namespace TranscriptEvent {
 
 /**
  *
- *          <p>Represents the audio stream from your application to Amazon Transcribe.</p>
- *
- */
-export type AudioStream =
-  | AudioStream.AudioEventMember
-  | AudioStream.$UnknownMember;
-
-export namespace AudioStream {
-  interface $Base {
-    __type?: "AudioStream";
-  }
-  /**
-   *
-   *          <p>A blob of audio from your application. You audio stream consists of one or more audio
-   *       events.</p>
-   *
-   */
-  export interface AudioEventMember extends $Base {
-    AudioEvent: AudioEvent;
-    $unknown?: never;
-  }
-  export interface $UnknownMember extends $Base {
-    AudioEvent?: never;
-    $unknown: [string, any];
-  }
-  export interface Visitor<T> {
-    AudioEvent: (value: AudioEvent) => T;
-    _: (name: string, value: any) => T;
-  }
-  export function visit<T>(value: AudioStream, visitor: Visitor<T>): T {
-    if (value.AudioEvent !== undefined)
-      return visitor.AudioEvent(value.AudioEvent);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
-}
-
-/**
- *
  *          <p>Represents the transcription result stream from Amazon Transcribe to your application.</p>
  *
  */
@@ -577,4 +573,8 @@ export namespace TranscriptResultStream {
       return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
+}
+
+export enum MediaEncoding {
+  PCM = "pcm"
 }

@@ -1,52 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BackupJobState {
-  ABORTED = "ABORTED",
-  ABORTING = "ABORTING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING"
-}
-
-export enum BackupVaultEvent {
-  BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED",
-  BACKUP_JOB_STARTED = "BACKUP_JOB_STARTED",
-  BACKUP_PLAN_CREATED = "BACKUP_PLAN_CREATED",
-  BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED",
-  RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED",
-  RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED",
-  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED"
-}
-
-export enum ConditionType {
-  STRINGEQUALS = "STRINGEQUALS"
-}
-
-export enum RecoveryPointStatus {
-  COMPLETED = "COMPLETED",
-  DELETING = "DELETING",
-  EXPIRED = "EXPIRED",
-  PARTIAL = "PARTIAL"
-}
-
-export enum RestoreJobStatus {
-  ABORTED = "ABORTED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING"
-}
-
-export enum StorageClass {
-  COLD = "COLD",
-  DELETED = "DELETED",
-  WARM = "WARM"
-}
-
 /**
  *
  *          <p>The required resource already exists.</p>
@@ -261,6 +215,17 @@ export namespace BackupJob {
   export function isa(o: any): o is BackupJob {
     return _smithy.isa(o, "BackupJob");
   }
+}
+
+export enum BackupJobState {
+  ABORTED = "ABORTED",
+  ABORTING = "ABORTING",
+  COMPLETED = "COMPLETED",
+  CREATED = "CREATED",
+  EXPIRED = "EXPIRED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING"
 }
 
 /**
@@ -712,6 +677,16 @@ export namespace BackupSelectionsListMember {
   }
 }
 
+export enum BackupVaultEvent {
+  BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED",
+  BACKUP_JOB_STARTED = "BACKUP_JOB_STARTED",
+  BACKUP_PLAN_CREATED = "BACKUP_PLAN_CREATED",
+  BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED",
+  RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED",
+  RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED",
+  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED"
+}
+
 /**
  *
  *          <p>Contains metadata about a backup vault.</p>
@@ -857,6 +832,10 @@ export namespace Condition {
   export function isa(o: any): o is Condition {
     return _smithy.isa(o, "Condition");
   }
+}
+
+export enum ConditionType {
+  STRINGEQUALS = "STRINGEQUALS"
 }
 
 export interface CreateBackupPlanInput {
@@ -3734,6 +3713,13 @@ export namespace RecoveryPointCreator {
   }
 }
 
+export enum RecoveryPointStatus {
+  COMPLETED = "COMPLETED",
+  DELETING = "DELETING",
+  EXPIRED = "EXPIRED",
+  PARTIAL = "PARTIAL"
+}
+
 /**
  *
  *          <p>A resource that is required for the action doesn't exist.</p>
@@ -3766,6 +3752,14 @@ export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
   }
+}
+
+export enum RestoreJobStatus {
+  ABORTED = "ABORTED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING"
 }
 
 /**
@@ -4131,6 +4125,12 @@ export namespace StopBackupJobInput {
   export function isa(o: any): o is StopBackupJobInput {
     return _smithy.isa(o, "StopBackupJobInput");
   }
+}
+
+export enum StorageClass {
+  COLD = "COLD",
+  DELETED = "DELETED",
+  WARM = "WARM"
 }
 
 export interface TagResourceInput {

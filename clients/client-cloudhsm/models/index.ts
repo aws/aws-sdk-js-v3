@@ -1,31 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ClientVersion {
-  FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3"
-}
-
-export enum CloudHsmObjectState {
-  DEGRADED = "DEGRADED",
-  READY = "READY",
-  UPDATING = "UPDATING"
-}
-
-export enum HsmStatus {
-  DEGRADED = "DEGRADED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING"
-}
-
-export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION"
-}
-
 export interface AddTagsToResourceRequest {
   __type?: "AddTagsToResourceRequest";
   /**
@@ -65,6 +40,11 @@ export namespace AddTagsToResourceResponse {
   }
 }
 
+export enum ClientVersion {
+  FIVE_ONE = "5.1",
+  FIVE_THREE = "5.3"
+}
+
 /**
  *
  *          <p>Indicates that an internal error occurred.</p>
@@ -95,6 +75,12 @@ export namespace CloudHsmInternalException {
   export function isa(o: any): o is CloudHsmInternalException {
     return _smithy.isa(o, "CloudHsmInternalException");
   }
+}
+
+export enum CloudHsmObjectState {
+  DEGRADED = "DEGRADED",
+  READY = "READY",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -875,6 +861,16 @@ export namespace GetConfigResponse {
   }
 }
 
+export enum HsmStatus {
+  DEGRADED = "DEGRADED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+  UPDATING = "UPDATING"
+}
+
 /**
  *
  *          <p>Indicates that one or more of the request parameters are not valid.</p>
@@ -1305,6 +1301,10 @@ export namespace RemoveTagsFromResourceResponse {
   export function isa(o: any): o is RemoveTagsFromResourceResponse {
     return _smithy.isa(o, "RemoveTagsFromResourceResponse");
   }
+}
+
+export enum SubscriptionType {
+  PRODUCTION = "PRODUCTION"
 }
 
 /**

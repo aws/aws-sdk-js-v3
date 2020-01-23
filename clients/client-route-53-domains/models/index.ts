@@ -1,321 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type ContactType =
-  | "ASSOCIATION"
-  | "COMPANY"
-  | "PERSON"
-  | "PUBLIC_BODY"
-  | "RESELLER";
-
-export type CountryCode =
-  | "AD"
-  | "AE"
-  | "AF"
-  | "AG"
-  | "AI"
-  | "AL"
-  | "AM"
-  | "AN"
-  | "AO"
-  | "AQ"
-  | "AR"
-  | "AS"
-  | "AT"
-  | "AU"
-  | "AW"
-  | "AZ"
-  | "BA"
-  | "BB"
-  | "BD"
-  | "BE"
-  | "BF"
-  | "BG"
-  | "BH"
-  | "BI"
-  | "BJ"
-  | "BL"
-  | "BM"
-  | "BN"
-  | "BO"
-  | "BR"
-  | "BS"
-  | "BT"
-  | "BW"
-  | "BY"
-  | "BZ"
-  | "CA"
-  | "CC"
-  | "CD"
-  | "CF"
-  | "CG"
-  | "CH"
-  | "CI"
-  | "CK"
-  | "CL"
-  | "CM"
-  | "CN"
-  | "CO"
-  | "CR"
-  | "CU"
-  | "CV"
-  | "CX"
-  | "CY"
-  | "CZ"
-  | "DE"
-  | "DJ"
-  | "DK"
-  | "DM"
-  | "DO"
-  | "DZ"
-  | "EC"
-  | "EE"
-  | "EG"
-  | "ER"
-  | "ES"
-  | "ET"
-  | "FI"
-  | "FJ"
-  | "FK"
-  | "FM"
-  | "FO"
-  | "FR"
-  | "GA"
-  | "GB"
-  | "GD"
-  | "GE"
-  | "GH"
-  | "GI"
-  | "GL"
-  | "GM"
-  | "GN"
-  | "GQ"
-  | "GR"
-  | "GT"
-  | "GU"
-  | "GW"
-  | "GY"
-  | "HK"
-  | "HN"
-  | "HR"
-  | "HT"
-  | "HU"
-  | "ID"
-  | "IE"
-  | "IL"
-  | "IM"
-  | "IN"
-  | "IQ"
-  | "IR"
-  | "IS"
-  | "IT"
-  | "JM"
-  | "JO"
-  | "JP"
-  | "KE"
-  | "KG"
-  | "KH"
-  | "KI"
-  | "KM"
-  | "KN"
-  | "KP"
-  | "KR"
-  | "KW"
-  | "KY"
-  | "KZ"
-  | "LA"
-  | "LB"
-  | "LC"
-  | "LI"
-  | "LK"
-  | "LR"
-  | "LS"
-  | "LT"
-  | "LU"
-  | "LV"
-  | "LY"
-  | "MA"
-  | "MC"
-  | "MD"
-  | "ME"
-  | "MF"
-  | "MG"
-  | "MH"
-  | "MK"
-  | "ML"
-  | "MM"
-  | "MN"
-  | "MO"
-  | "MP"
-  | "MR"
-  | "MS"
-  | "MT"
-  | "MU"
-  | "MV"
-  | "MW"
-  | "MX"
-  | "MY"
-  | "MZ"
-  | "NA"
-  | "NC"
-  | "NE"
-  | "NG"
-  | "NI"
-  | "NL"
-  | "NO"
-  | "NP"
-  | "NR"
-  | "NU"
-  | "NZ"
-  | "OM"
-  | "PA"
-  | "PE"
-  | "PF"
-  | "PG"
-  | "PH"
-  | "PK"
-  | "PL"
-  | "PM"
-  | "PN"
-  | "PR"
-  | "PT"
-  | "PW"
-  | "PY"
-  | "QA"
-  | "RO"
-  | "RS"
-  | "RU"
-  | "RW"
-  | "SA"
-  | "SB"
-  | "SC"
-  | "SD"
-  | "SE"
-  | "SG"
-  | "SH"
-  | "SI"
-  | "SK"
-  | "SL"
-  | "SM"
-  | "SN"
-  | "SO"
-  | "SR"
-  | "ST"
-  | "SV"
-  | "SY"
-  | "SZ"
-  | "TC"
-  | "TD"
-  | "TG"
-  | "TH"
-  | "TJ"
-  | "TK"
-  | "TL"
-  | "TM"
-  | "TN"
-  | "TO"
-  | "TR"
-  | "TT"
-  | "TV"
-  | "TW"
-  | "TZ"
-  | "UA"
-  | "UG"
-  | "US"
-  | "UY"
-  | "UZ"
-  | "VA"
-  | "VC"
-  | "VE"
-  | "VG"
-  | "VI"
-  | "VN"
-  | "VU"
-  | "WF"
-  | "WS"
-  | "YE"
-  | "YT"
-  | "ZA"
-  | "ZM"
-  | "ZW";
-
-export type DomainAvailability =
-  | "AVAILABLE"
-  | "AVAILABLE_PREORDER"
-  | "AVAILABLE_RESERVED"
-  | "DONT_KNOW"
-  | "RESERVED"
-  | "UNAVAILABLE"
-  | "UNAVAILABLE_PREMIUM"
-  | "UNAVAILABLE_RESTRICTED";
-
-export enum ExtraParamName {
-  AU_ID_NUMBER = "AU_ID_NUMBER",
-  AU_ID_TYPE = "AU_ID_TYPE",
-  BIRTH_CITY = "BIRTH_CITY",
-  BIRTH_COUNTRY = "BIRTH_COUNTRY",
-  BIRTH_DATE_IN_YYYY_MM_DD = "BIRTH_DATE_IN_YYYY_MM_DD",
-  BIRTH_DEPARTMENT = "BIRTH_DEPARTMENT",
-  BRAND_NUMBER = "BRAND_NUMBER",
-  CA_BUSINESS_ENTITY_TYPE = "CA_BUSINESS_ENTITY_TYPE",
-  CA_LEGAL_TYPE = "CA_LEGAL_TYPE",
-  DOCUMENT_NUMBER = "DOCUMENT_NUMBER",
-  DUNS_NUMBER = "DUNS_NUMBER",
-  ES_IDENTIFICATION = "ES_IDENTIFICATION",
-  ES_IDENTIFICATION_TYPE = "ES_IDENTIFICATION_TYPE",
-  ES_LEGAL_FORM = "ES_LEGAL_FORM",
-  FI_BUSINESS_NUMBER = "FI_BUSINESS_NUMBER",
-  FI_NATIONALITY = "FI_NATIONALITY",
-  FI_ORGANIZATION_TYPE = "FI_ORGANIZATION_TYPE",
-  IT_PIN = "IT_PIN",
-  IT_REGISTRANT_ENTITY_TYPE = "IT_REGISTRANT_ENTITY_TYPE",
-  ONWER_FI_ID_NUMBER = "FI_ID_NUMBER",
-  RU_PASSPORT_DATA = "RU_PASSPORT_DATA",
-  SE_ID_NUMBER = "SE_ID_NUMBER",
-  SG_ID_NUMBER = "SG_ID_NUMBER",
-  UK_COMPANY_NUMBER = "UK_COMPANY_NUMBER",
-  UK_CONTACT_TYPE = "UK_CONTACT_TYPE",
-  VAT_NUMBER = "VAT_NUMBER"
-}
-
-export type OperationStatus =
-  | "ERROR"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUBMITTED"
-  | "SUCCESSFUL";
-
-export enum OperationType {
-  ADD_DNSSEC = "ADD_DNSSEC",
-  CHANGE_DOMAIN_OWNER = "CHANGE_DOMAIN_OWNER",
-  CHANGE_PRIVACY_PROTECTION = "CHANGE_PRIVACY_PROTECTION",
-  DELETE_DOMAIN = "DELETE_DOMAIN",
-  DISABLE_AUTORENEW = "DISABLE_AUTORENEW",
-  DOMAIN_LOCK = "DOMAIN_LOCK",
-  ENABLE_AUTORENEW = "ENABLE_AUTORENEW",
-  EXPIRE_DOMAIN = "EXPIRE_DOMAIN",
-  PUSH_DOMAIN = "PUSH_DOMAIN",
-  REGISTER_DOMAIN = "REGISTER_DOMAIN",
-  REMOVE_DNSSEC = "REMOVE_DNSSEC",
-  RENEW_DOMAIN = "RENEW_DOMAIN",
-  TRANSFER_IN_DOMAIN = "TRANSFER_IN_DOMAIN",
-  TRANSFER_OUT_DOMAIN = "TRANSFER_OUT_DOMAIN",
-  UPDATE_DOMAIN_CONTACT = "UPDATE_DOMAIN_CONTACT",
-  UPDATE_NAMESERVER = "UPDATE_NAMESERVER"
-}
-
-export enum ReachabilityStatus {
-  DONE = "DONE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING"
-}
-
-export enum Transferable {
-  DONT_KNOW = "DONT_KNOW",
-  TRANSFERABLE = "TRANSFERABLE",
-  UNTRANSFERABLE = "UNTRANSFERABLE"
-}
-
 /**
  *
  * 		       <p>Information for one billing record.</p>
@@ -636,6 +321,244 @@ export namespace ContactDetail {
   }
 }
 
+export type ContactType =
+  | "ASSOCIATION"
+  | "COMPANY"
+  | "PERSON"
+  | "PUBLIC_BODY"
+  | "RESELLER";
+
+export type CountryCode =
+  | "AD"
+  | "AE"
+  | "AF"
+  | "AG"
+  | "AI"
+  | "AL"
+  | "AM"
+  | "AN"
+  | "AO"
+  | "AQ"
+  | "AR"
+  | "AS"
+  | "AT"
+  | "AU"
+  | "AW"
+  | "AZ"
+  | "BA"
+  | "BB"
+  | "BD"
+  | "BE"
+  | "BF"
+  | "BG"
+  | "BH"
+  | "BI"
+  | "BJ"
+  | "BL"
+  | "BM"
+  | "BN"
+  | "BO"
+  | "BR"
+  | "BS"
+  | "BT"
+  | "BW"
+  | "BY"
+  | "BZ"
+  | "CA"
+  | "CC"
+  | "CD"
+  | "CF"
+  | "CG"
+  | "CH"
+  | "CI"
+  | "CK"
+  | "CL"
+  | "CM"
+  | "CN"
+  | "CO"
+  | "CR"
+  | "CU"
+  | "CV"
+  | "CX"
+  | "CY"
+  | "CZ"
+  | "DE"
+  | "DJ"
+  | "DK"
+  | "DM"
+  | "DO"
+  | "DZ"
+  | "EC"
+  | "EE"
+  | "EG"
+  | "ER"
+  | "ES"
+  | "ET"
+  | "FI"
+  | "FJ"
+  | "FK"
+  | "FM"
+  | "FO"
+  | "FR"
+  | "GA"
+  | "GB"
+  | "GD"
+  | "GE"
+  | "GH"
+  | "GI"
+  | "GL"
+  | "GM"
+  | "GN"
+  | "GQ"
+  | "GR"
+  | "GT"
+  | "GU"
+  | "GW"
+  | "GY"
+  | "HK"
+  | "HN"
+  | "HR"
+  | "HT"
+  | "HU"
+  | "ID"
+  | "IE"
+  | "IL"
+  | "IM"
+  | "IN"
+  | "IQ"
+  | "IR"
+  | "IS"
+  | "IT"
+  | "JM"
+  | "JO"
+  | "JP"
+  | "KE"
+  | "KG"
+  | "KH"
+  | "KI"
+  | "KM"
+  | "KN"
+  | "KP"
+  | "KR"
+  | "KW"
+  | "KY"
+  | "KZ"
+  | "LA"
+  | "LB"
+  | "LC"
+  | "LI"
+  | "LK"
+  | "LR"
+  | "LS"
+  | "LT"
+  | "LU"
+  | "LV"
+  | "LY"
+  | "MA"
+  | "MC"
+  | "MD"
+  | "ME"
+  | "MF"
+  | "MG"
+  | "MH"
+  | "MK"
+  | "ML"
+  | "MM"
+  | "MN"
+  | "MO"
+  | "MP"
+  | "MR"
+  | "MS"
+  | "MT"
+  | "MU"
+  | "MV"
+  | "MW"
+  | "MX"
+  | "MY"
+  | "MZ"
+  | "NA"
+  | "NC"
+  | "NE"
+  | "NG"
+  | "NI"
+  | "NL"
+  | "NO"
+  | "NP"
+  | "NR"
+  | "NU"
+  | "NZ"
+  | "OM"
+  | "PA"
+  | "PE"
+  | "PF"
+  | "PG"
+  | "PH"
+  | "PK"
+  | "PL"
+  | "PM"
+  | "PN"
+  | "PR"
+  | "PT"
+  | "PW"
+  | "PY"
+  | "QA"
+  | "RO"
+  | "RS"
+  | "RU"
+  | "RW"
+  | "SA"
+  | "SB"
+  | "SC"
+  | "SD"
+  | "SE"
+  | "SG"
+  | "SH"
+  | "SI"
+  | "SK"
+  | "SL"
+  | "SM"
+  | "SN"
+  | "SO"
+  | "SR"
+  | "ST"
+  | "SV"
+  | "SY"
+  | "SZ"
+  | "TC"
+  | "TD"
+  | "TG"
+  | "TH"
+  | "TJ"
+  | "TK"
+  | "TL"
+  | "TM"
+  | "TN"
+  | "TO"
+  | "TR"
+  | "TT"
+  | "TV"
+  | "TW"
+  | "TZ"
+  | "UA"
+  | "UG"
+  | "US"
+  | "UY"
+  | "UZ"
+  | "VA"
+  | "VC"
+  | "VE"
+  | "VG"
+  | "VI"
+  | "VN"
+  | "VU"
+  | "WF"
+  | "WS"
+  | "YE"
+  | "YT"
+  | "ZA"
+  | "ZM"
+  | "ZW";
+
 /**
  *
  * 		       <p>The DeleteTagsForDomainRequest includes the following elements.</p>
@@ -742,6 +665,16 @@ export namespace DisableDomainTransferLockResponse {
     return _smithy.isa(o, "DisableDomainTransferLockResponse");
   }
 }
+
+export type DomainAvailability =
+  | "AVAILABLE"
+  | "AVAILABLE_PREORDER"
+  | "AVAILABLE_RESERVED"
+  | "DONT_KNOW"
+  | "RESERVED"
+  | "UNAVAILABLE"
+  | "UNAVAILABLE_PREMIUM"
+  | "UNAVAILABLE_RESTRICTED";
 
 /**
  *
@@ -1113,6 +1046,35 @@ export namespace ExtraParam {
   export function isa(o: any): o is ExtraParam {
     return _smithy.isa(o, "ExtraParam");
   }
+}
+
+export enum ExtraParamName {
+  AU_ID_NUMBER = "AU_ID_NUMBER",
+  AU_ID_TYPE = "AU_ID_TYPE",
+  BIRTH_CITY = "BIRTH_CITY",
+  BIRTH_COUNTRY = "BIRTH_COUNTRY",
+  BIRTH_DATE_IN_YYYY_MM_DD = "BIRTH_DATE_IN_YYYY_MM_DD",
+  BIRTH_DEPARTMENT = "BIRTH_DEPARTMENT",
+  BRAND_NUMBER = "BRAND_NUMBER",
+  CA_BUSINESS_ENTITY_TYPE = "CA_BUSINESS_ENTITY_TYPE",
+  CA_LEGAL_TYPE = "CA_LEGAL_TYPE",
+  DOCUMENT_NUMBER = "DOCUMENT_NUMBER",
+  DUNS_NUMBER = "DUNS_NUMBER",
+  ES_IDENTIFICATION = "ES_IDENTIFICATION",
+  ES_IDENTIFICATION_TYPE = "ES_IDENTIFICATION_TYPE",
+  ES_LEGAL_FORM = "ES_LEGAL_FORM",
+  FI_BUSINESS_NUMBER = "FI_BUSINESS_NUMBER",
+  FI_NATIONALITY = "FI_NATIONALITY",
+  FI_ORGANIZATION_TYPE = "FI_ORGANIZATION_TYPE",
+  IT_PIN = "IT_PIN",
+  IT_REGISTRANT_ENTITY_TYPE = "IT_REGISTRANT_ENTITY_TYPE",
+  ONWER_FI_ID_NUMBER = "FI_ID_NUMBER",
+  RU_PASSPORT_DATA = "RU_PASSPORT_DATA",
+  SE_ID_NUMBER = "SE_ID_NUMBER",
+  SG_ID_NUMBER = "SG_ID_NUMBER",
+  UK_COMPANY_NUMBER = "UK_COMPANY_NUMBER",
+  UK_CONTACT_TYPE = "UK_CONTACT_TYPE",
+  VAT_NUMBER = "VAT_NUMBER"
 }
 
 export interface GetContactReachabilityStatusRequest {
@@ -1757,6 +1719,13 @@ export namespace OperationLimitExceeded {
   }
 }
 
+export type OperationStatus =
+  | "ERROR"
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "SUBMITTED"
+  | "SUCCESSFUL";
+
 /**
  *
  * 		       <p>OperationSummary includes the following elements.</p>
@@ -1797,6 +1766,31 @@ export namespace OperationSummary {
   export function isa(o: any): o is OperationSummary {
     return _smithy.isa(o, "OperationSummary");
   }
+}
+
+export enum OperationType {
+  ADD_DNSSEC = "ADD_DNSSEC",
+  CHANGE_DOMAIN_OWNER = "CHANGE_DOMAIN_OWNER",
+  CHANGE_PRIVACY_PROTECTION = "CHANGE_PRIVACY_PROTECTION",
+  DELETE_DOMAIN = "DELETE_DOMAIN",
+  DISABLE_AUTORENEW = "DISABLE_AUTORENEW",
+  DOMAIN_LOCK = "DOMAIN_LOCK",
+  ENABLE_AUTORENEW = "ENABLE_AUTORENEW",
+  EXPIRE_DOMAIN = "EXPIRE_DOMAIN",
+  PUSH_DOMAIN = "PUSH_DOMAIN",
+  REGISTER_DOMAIN = "REGISTER_DOMAIN",
+  REMOVE_DNSSEC = "REMOVE_DNSSEC",
+  RENEW_DOMAIN = "RENEW_DOMAIN",
+  TRANSFER_IN_DOMAIN = "TRANSFER_IN_DOMAIN",
+  TRANSFER_OUT_DOMAIN = "TRANSFER_OUT_DOMAIN",
+  UPDATE_DOMAIN_CONTACT = "UPDATE_DOMAIN_CONTACT",
+  UPDATE_NAMESERVER = "UPDATE_NAMESERVER"
+}
+
+export enum ReachabilityStatus {
+  DONE = "DONE",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING"
 }
 
 /**
@@ -2273,6 +2267,12 @@ export namespace TransferDomainResponse {
   export function isa(o: any): o is TransferDomainResponse {
     return _smithy.isa(o, "TransferDomainResponse");
   }
+}
+
+export enum Transferable {
+  DONT_KNOW = "DONT_KNOW",
+  TRANSFERABLE = "TRANSFERABLE",
+  UNTRANSFERABLE = "UNTRANSFERABLE"
 }
 
 /**

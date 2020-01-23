@@ -1,45 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BrokerState {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
-  RUNNING = "RUNNING"
-}
-
-export enum ChangeType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE"
-}
-
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY"
-}
-
-export enum DeploymentMode {
-  ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
-  SINGLE_INSTANCE = "SINGLE_INSTANCE"
-}
-
-export enum EngineType {
-  ACTIVEMQ = "ACTIVEMQ"
-}
-
-export enum SanitizationWarningReason {
-  DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
-  DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED"
-}
-
 /**
  * Name of the availability zone.
  */
@@ -164,6 +125,14 @@ export namespace BrokerInstanceOption {
   }
 }
 
+export enum BrokerState {
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
+  REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
+  RUNNING = "RUNNING"
+}
+
 /**
  * The Amazon Resource Name (ARN) of the broker.
  */
@@ -209,6 +178,12 @@ export namespace BrokerSummary {
   export function isa(o: any): o is BrokerSummary {
     return _smithy.isa(o, "BrokerSummary");
   }
+}
+
+export enum ChangeType {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPDATE = "UPDATE"
 }
 
 /**
@@ -616,6 +591,16 @@ export namespace CreateUserResponse {
   }
 }
 
+export enum DayOfWeek {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY"
+}
+
 export interface DeleteBrokerRequest {
   __type?: "DeleteBrokerRequest";
   /**
@@ -690,6 +675,11 @@ export namespace DeleteUserResponse {
   export function isa(o: any): o is DeleteUserResponse {
     return _smithy.isa(o, "DeleteUserResponse");
   }
+}
+
+export enum DeploymentMode {
+  ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
+  SINGLE_INSTANCE = "SINGLE_INSTANCE"
 }
 
 export interface DescribeBrokerEngineTypesRequest {
@@ -1120,6 +1110,10 @@ export namespace EncryptionOptions {
   export function isa(o: any): o is EncryptionOptions {
     return _smithy.isa(o, "EncryptionOptions");
   }
+}
+
+export enum EngineType {
+  ACTIVEMQ = "ACTIVEMQ"
 }
 
 /**
@@ -1562,6 +1556,12 @@ export namespace SanitizationWarning {
   export function isa(o: any): o is SanitizationWarning {
     return _smithy.isa(o, "SanitizationWarning");
   }
+}
+
+export enum SanitizationWarningReason {
+  DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
+  DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
+  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED"
 }
 
 /**

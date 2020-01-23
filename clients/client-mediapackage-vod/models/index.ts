@@ -7,22 +7,6 @@ export enum AdMarkers {
   SCTE35_ENHANCED = "SCTE35_ENHANCED"
 }
 
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES"
-}
-
-export enum Profile {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE"
-}
-
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
-}
-
 /**
  * A MediaPackage VOD Asset resource.
  */
@@ -661,6 +645,11 @@ export namespace EgressEndpoint {
   }
 }
 
+export enum EncryptionMethod {
+  AES_128 = "AES_128",
+  SAMPLE_AES = "SAMPLE_AES"
+}
+
 /**
  * The client is not authorized to access the requested resource.
  */
@@ -1099,6 +1088,11 @@ export namespace PackagingGroup {
   }
 }
 
+export enum Profile {
+  HBBTV_1_5 = "HBBTV_1_5",
+  NONE = "NONE"
+}
+
 /**
  * An unexpected error occurred.
  */
@@ -1144,6 +1138,12 @@ export namespace SpekeKeyProvider {
   export function isa(o: any): o is SpekeKeyProvider {
     return _smithy.isa(o, "SpekeKeyProvider");
   }
+}
+
+export enum StreamOrder {
+  ORIGINAL = "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
 }
 
 /**

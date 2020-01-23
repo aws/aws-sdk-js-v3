@@ -7,80 +7,6 @@ export enum AdjustmentType {
   PercentChangeInCapacity = "PercentChangeInCapacity"
 }
 
-export enum MetricAggregationType {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum"
-}
-
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum"
-}
-
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
-  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance"
-}
-
-export enum PolicyType {
-  StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling"
-}
-
-export enum ScalableDimension {
-  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
-  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
-  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount"
-}
-
-export enum ScalingActivityStatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Overridden = "Overridden",
-  Pending = "Pending",
-  Successful = "Successful",
-  Unfulfilled = "Unfulfilled"
-}
-
-export enum ServiceNamespace {
-  APPSTREAM = "appstream",
-  COMPREHEND = "comprehend",
-  CUSTOM_RESOURCE = "custom-resource",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  EMR = "elasticmapreduce",
-  LAMBDA = "lambda",
-  RDS = "rds",
-  SAGEMAKER = "sagemaker"
-}
-
 /**
  *
  *          <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
@@ -1451,6 +1377,12 @@ export namespace LimitExceededException {
   }
 }
 
+export enum MetricAggregationType {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum"
+}
+
 /**
  *
  *          <p>Describes the dimension names and values associated with a metric.</p>
@@ -1479,6 +1411,31 @@ export namespace MetricDimension {
   }
 }
 
+export enum MetricStatistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum"
+}
+
+export enum MetricType {
+  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
+  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
+  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
+  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
+  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
+  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
+  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance"
+}
+
 /**
  *
  *          <p>The specified object could not be found. For any operation that depends on the existence
@@ -1501,6 +1458,11 @@ export namespace ObjectNotFoundException {
   export function isa(o: any): o is ObjectNotFoundException {
     return _smithy.isa(o, "ObjectNotFoundException");
   }
+}
+
+export enum PolicyType {
+  StepScaling = "StepScaling",
+  TargetTrackingScaling = "TargetTrackingScaling"
 }
 
 /**
@@ -2142,6 +2104,22 @@ export namespace RegisterScalableTargetResponse {
   }
 }
 
+export enum ScalableDimension {
+  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
+  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
+  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount = "ecs:service:DesiredCount",
+  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
+  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
+  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
+  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount"
+}
+
 /**
  *
  *          <p>Represents a scalable target.</p>
@@ -2540,6 +2518,15 @@ export namespace ScalingActivity {
   }
 }
 
+export enum ScalingActivityStatusCode {
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Overridden = "Overridden",
+  Pending = "Pending",
+  Successful = "Successful",
+  Unfulfilled = "Unfulfilled"
+}
+
 /**
  *
  *          <p>Represents a scaling policy to use with Application Auto Scaling.</p>
@@ -2931,6 +2918,19 @@ export namespace ScheduledAction {
   export function isa(o: any): o is ScheduledAction {
     return _smithy.isa(o, "ScheduledAction");
   }
+}
+
+export enum ServiceNamespace {
+  APPSTREAM = "appstream",
+  COMPREHEND = "comprehend",
+  CUSTOM_RESOURCE = "custom-resource",
+  DYNAMODB = "dynamodb",
+  EC2 = "ec2",
+  ECS = "ecs",
+  EMR = "elasticmapreduce",
+  LAMBDA = "lambda",
+  RDS = "rds",
+  SAGEMAKER = "sagemaker"
 }
 
 /**

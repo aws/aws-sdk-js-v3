@@ -1,15 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum RecipeProvider {
-  SERVICE = "SERVICE"
-}
-
-export enum TrainingMode {
-  FULL = "FULL",
-  UPDATE = "UPDATE"
-}
-
 /**
  *
  *          <p>Describes a custom algorithm.</p>
@@ -2864,66 +2855,6 @@ export namespace IntegerHyperParameterRange {
   }
 }
 
-/**
- *
- *          <p>Provide a valid value for the field or parameter.</p>
- *
- */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidInputException";
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
-  }
-}
-
-/**
- *
- *          <p>The token is not valid.</p>
- *
- */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidNextTokenException";
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
-  }
-}
-
-/**
- *
- *          <p>The limit on the number of requests per second has been exceeded.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
 export interface ListBatchInferenceJobsRequest {
   __type?: "ListBatchInferenceJobsRequest";
   /**
@@ -3546,6 +3477,10 @@ export namespace Recipe {
   }
 }
 
+export enum RecipeProvider {
+  SERVICE = "SERVICE"
+}
+
 /**
  *
  *          <p>Provides a summary of the properties of a recipe. For a complete listing, call the
@@ -3594,66 +3529,6 @@ export interface RecipeSummary {
 export namespace RecipeSummary {
   export function isa(o: any): o is RecipeSummary {
     return _smithy.isa(o, "RecipeSummary");
-  }
-}
-
-/**
- *
- *          <p>The specified resource already exists.</p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
- *          <p>The specified resource is in use.</p>
- *
- */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceInUseException";
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
-  }
-}
-
-/**
- *
- *          <p>Could not find the specified resource.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -4113,6 +3988,11 @@ export namespace SolutionVersionSummary {
   }
 }
 
+export enum TrainingMode {
+  FULL = "FULL",
+  UPDATE = "UPDATE"
+}
+
 export interface UpdateCampaignRequest {
   __type?: "UpdateCampaignRequest";
   /**
@@ -4157,5 +4037,125 @@ export interface UpdateCampaignResponse extends $MetadataBearer {
 export namespace UpdateCampaignResponse {
   export function isa(o: any): o is UpdateCampaignResponse {
     return _smithy.isa(o, "UpdateCampaignResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Provide a valid value for the field or parameter.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
+/**
+ *
+ *          <p>The token is not valid.</p>
+ *
+ */
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidNextTokenException {
+  export function isa(o: any): o is InvalidNextTokenException {
+    return _smithy.isa(o, "InvalidNextTokenException");
+  }
+}
+
+/**
+ *
+ *          <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource already exists.</p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource is in use.</p>
+ *
+ */
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceInUseException";
+  name: "ResourceInUseException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export function isa(o: any): o is ResourceInUseException {
+    return _smithy.isa(o, "ResourceInUseException");
+  }
+}
+
+/**
+ *
+ *          <p>Could not find the specified resource.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
   }
 }

@@ -1,240 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ApplicationRevisionSortBy {
-  FirstUsedTime = "firstUsedTime",
-  LastUsedTime = "lastUsedTime",
-  RegisterTime = "registerTime"
-}
-
-export enum AutoRollbackEvent {
-  DEPLOYMENT_FAILURE = "DEPLOYMENT_FAILURE",
-  DEPLOYMENT_STOP_ON_ALARM = "DEPLOYMENT_STOP_ON_ALARM",
-  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST"
-}
-
-export enum BundleType {
-  JSON = "JSON",
-  Tar = "tar",
-  TarGZip = "tgz",
-  YAML = "YAML",
-  Zip = "zip"
-}
-
-export enum ComputePlatform {
-  ECS = "ECS",
-  LAMBDA = "Lambda",
-  SERVER = "Server"
-}
-
-export enum DeploymentCreator {
-  Autoscaling = "autoscaling",
-  CodeDeployRollback = "codeDeployRollback",
-  User = "user"
-}
-
-export enum DeploymentOption {
-  WITHOUT_TRAFFIC_CONTROL = "WITHOUT_TRAFFIC_CONTROL",
-  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL"
-}
-
-export enum DeploymentReadyAction {
-  CONTINUE_DEPLOYMENT = "CONTINUE_DEPLOYMENT",
-  STOP_DEPLOYMENT = "STOP_DEPLOYMENT"
-}
-
-export enum DeploymentStatus {
-  CREATED = "Created",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  QUEUED = "Queued",
-  READY = "Ready",
-  STOPPED = "Stopped",
-  SUCCEEDED = "Succeeded"
-}
-
-export enum DeploymentTargetType {
-  ECS_TARGET = "ECSTarget",
-  INSTANCE_TARGET = "InstanceTarget",
-  LAMBDA_TARGET = "LambdaTarget"
-}
-
-export enum DeploymentType {
-  BLUE_GREEN = "BLUE_GREEN",
-  IN_PLACE = "IN_PLACE"
-}
-
-export enum DeploymentWaitType {
-  READY_WAIT = "READY_WAIT",
-  TERMINATION_WAIT = "TERMINATION_WAIT"
-}
-
-export enum EC2TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY"
-}
-
-export enum ErrorCode {
-  AGENT_ISSUE = "AGENT_ISSUE",
-  ALARM_ACTIVE = "ALARM_ACTIVE",
-  APPLICATION_MISSING = "APPLICATION_MISSING",
-  AUTOSCALING_VALIDATION_ERROR = "AUTOSCALING_VALIDATION_ERROR",
-  AUTO_SCALING_CONFIGURATION = "AUTO_SCALING_CONFIGURATION",
-  AUTO_SCALING_IAM_ROLE_PERMISSIONS = "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
-  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND = "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
-  CUSTOMER_APPLICATION_UNHEALTHY = "CUSTOMER_APPLICATION_UNHEALTHY",
-  DEPLOYMENT_GROUP_MISSING = "DEPLOYMENT_GROUP_MISSING",
-  ECS_UPDATE_ERROR = "ECS_UPDATE_ERROR",
-  ELASTIC_LOAD_BALANCING_INVALID = "ELASTIC_LOAD_BALANCING_INVALID",
-  ELB_INVALID_INSTANCE = "ELB_INVALID_INSTANCE",
-  HEALTH_CONSTRAINTS = "HEALTH_CONSTRAINTS",
-  HEALTH_CONSTRAINTS_INVALID = "HEALTH_CONSTRAINTS_INVALID",
-  HOOK_EXECUTION_FAILURE = "HOOK_EXECUTION_FAILURE",
-  IAM_ROLE_MISSING = "IAM_ROLE_MISSING",
-  IAM_ROLE_PERMISSIONS = "IAM_ROLE_PERMISSIONS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_ECS_SERVICE = "INVALID_ECS_SERVICE",
-  INVALID_LAMBDA_CONFIGURATION = "INVALID_LAMBDA_CONFIGURATION",
-  INVALID_LAMBDA_FUNCTION = "INVALID_LAMBDA_FUNCTION",
-  INVALID_REVISION = "INVALID_REVISION",
-  MANUAL_STOP = "MANUAL_STOP",
-  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION = "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
-  MISSING_ELB_INFORMATION = "MISSING_ELB_INFORMATION",
-  MISSING_GITHUB_TOKEN = "MISSING_GITHUB_TOKEN",
-  NO_EC2_SUBSCRIPTION = "NO_EC2_SUBSCRIPTION",
-  NO_INSTANCES = "NO_INSTANCES",
-  OVER_MAX_INSTANCES = "OVER_MAX_INSTANCES",
-  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
-  REVISION_MISSING = "REVISION_MISSING",
-  THROTTLED = "THROTTLED",
-  TIMEOUT = "TIMEOUT"
-}
-
-export enum FileExistsBehavior {
-  DISALLOW = "DISALLOW",
-  OVERWRITE = "OVERWRITE",
-  RETAIN = "RETAIN"
-}
-
-export enum GreenFleetProvisioningAction {
-  COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
-  DISCOVER_EXISTING = "DISCOVER_EXISTING"
-}
-
-export enum InstanceAction {
-  KEEP_ALIVE = "KEEP_ALIVE",
-  TERMINATE = "TERMINATE"
-}
-
-export enum InstanceStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
-}
-
-export enum _InstanceType {
-  BLUE = "Blue",
-  GREEN = "Green"
-}
-
-export enum LifecycleErrorCode {
-  SCRIPT_FAILED = "ScriptFailed",
-  SCRIPT_MISSING = "ScriptMissing",
-  SCRIPT_NOT_EXECUTABLE = "ScriptNotExecutable",
-  SCRIPT_TIMED_OUT = "ScriptTimedOut",
-  SUCCESS = "Success",
-  UNKNOWN_ERROR = "UnknownError"
-}
-
-export enum LifecycleEventStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
-}
-
-export enum ListStateFilterAction {
-  Exclude = "exclude",
-  Ignore = "ignore",
-  Include = "include"
-}
-
-export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
-
-export enum RegistrationStatus {
-  Deregistered = "Deregistered",
-  Registered = "Registered"
-}
-
-export enum RevisionLocationType {
-  AppSpecContent = "AppSpecContent",
-  GitHub = "GitHub",
-  S3 = "S3",
-  String = "String"
-}
-
-export enum SortOrder {
-  Ascending = "ascending",
-  Descending = "descending"
-}
-
-export enum StopStatus {
-  PENDING = "Pending",
-  SUCCEEDED = "Succeeded"
-}
-
-export enum TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY"
-}
-
-export enum TargetFilterName {
-  SERVER_INSTANCE_LABEL = "ServerInstanceLabel",
-  TARGET_STATUS = "TargetStatus"
-}
-
-export enum TargetLabel {
-  BLUE = "Blue",
-  GREEN = "Green"
-}
-
-export enum TargetStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
-}
-
-export enum TrafficRoutingType {
-  AllAtOnce = "AllAtOnce",
-  TimeBasedCanary = "TimeBasedCanary",
-  TimeBasedLinear = "TimeBasedLinear"
-}
-
-export enum TriggerEventType {
-  DEPLOYMENT_FAILURE = "DeploymentFailure",
-  DEPLOYMENT_READY = "DeploymentReady",
-  DEPLOYMENT_ROLLBACK = "DeploymentRollback",
-  DEPLOYMENT_START = "DeploymentStart",
-  DEPLOYMENT_STOP = "DeploymentStop",
-  DEPLOYMENT_SUCCESS = "DeploymentSuccess",
-  INSTANCE_FAILURE = "InstanceFailure",
-  INSTANCE_READY = "InstanceReady",
-  INSTANCE_START = "InstanceStart",
-  INSTANCE_SUCCESS = "InstanceSuccess"
-}
-
 /**
  *
  *         <p>Represents the input of, and adds tags to, an on-premises instance operation.</p>
@@ -557,6 +323,12 @@ export namespace ApplicationNameRequiredException {
   }
 }
 
+export enum ApplicationRevisionSortBy {
+  FirstUsedTime = "firstUsedTime",
+  LastUsedTime = "lastUsedTime",
+  RegisterTime = "registerTime"
+}
+
 /**
  *
  *         <p>
@@ -612,6 +384,12 @@ export namespace AutoRollbackConfiguration {
   export function isa(o: any): o is AutoRollbackConfiguration {
     return _smithy.isa(o, "AutoRollbackConfiguration");
   }
+}
+
+export enum AutoRollbackEvent {
+  DEPLOYMENT_FAILURE = "DEPLOYMENT_FAILURE",
+  DEPLOYMENT_STOP_ON_ALARM = "DEPLOYMENT_STOP_ON_ALARM",
+  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST"
 }
 
 /**
@@ -1161,6 +939,20 @@ export namespace BucketNameFilterRequiredException {
   export function isa(o: any): o is BucketNameFilterRequiredException {
     return _smithy.isa(o, "BucketNameFilterRequiredException");
   }
+}
+
+export enum BundleType {
+  JSON = "JSON",
+  Tar = "tar",
+  TarGZip = "tgz",
+  YAML = "YAML",
+  Zip = "zip"
+}
+
+export enum ComputePlatform {
+  ECS = "ECS",
+  LAMBDA = "Lambda",
+  SERVER = "Server"
 }
 
 export interface ContinueDeploymentInput {
@@ -2013,6 +1805,12 @@ export namespace DeploymentConfigNameRequiredException {
   }
 }
 
+export enum DeploymentCreator {
+  Autoscaling = "autoscaling",
+  CodeDeployRollback = "codeDeployRollback",
+  User = "user"
+}
+
 /**
  *
  *         <p>The deployment with the IAM user or AWS account does not exist.</p>
@@ -2682,6 +2480,11 @@ export namespace DeploymentNotStartedException {
   }
 }
 
+export enum DeploymentOption {
+  WITHOUT_TRAFFIC_CONTROL = "WITHOUT_TRAFFIC_CONTROL",
+  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL"
+}
+
 /**
  *
  *         <p>Information about the deployment status of the instances in the deployment.</p>
@@ -2740,6 +2543,11 @@ export namespace DeploymentOverview {
   }
 }
 
+export enum DeploymentReadyAction {
+  CONTINUE_DEPLOYMENT = "CONTINUE_DEPLOYMENT",
+  STOP_DEPLOYMENT = "STOP_DEPLOYMENT"
+}
+
 /**
  *
  *         <p>Information about how traffic is rerouted to instances in a replacement environment in
@@ -2783,6 +2591,16 @@ export namespace DeploymentReadyOption {
   export function isa(o: any): o is DeploymentReadyOption {
     return _smithy.isa(o, "DeploymentReadyOption");
   }
+}
+
+export enum DeploymentStatus {
+  CREATED = "Created",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  QUEUED = "Queued",
+  READY = "Ready",
+  STOPPED = "Stopped",
+  SUCCEEDED = "Succeeded"
 }
 
 /**
@@ -2934,6 +2752,22 @@ export namespace DeploymentTargetListSizeExceededException {
   export function isa(o: any): o is DeploymentTargetListSizeExceededException {
     return _smithy.isa(o, "DeploymentTargetListSizeExceededException");
   }
+}
+
+export enum DeploymentTargetType {
+  ECS_TARGET = "ECSTarget",
+  INSTANCE_TARGET = "InstanceTarget",
+  LAMBDA_TARGET = "LambdaTarget"
+}
+
+export enum DeploymentType {
+  BLUE_GREEN = "BLUE_GREEN",
+  IN_PLACE = "IN_PLACE"
+}
+
+export enum DeploymentWaitType {
+  READY_WAIT = "READY_WAIT",
+  TERMINATION_WAIT = "TERMINATION_WAIT"
 }
 
 /**
@@ -3092,6 +2926,12 @@ export namespace EC2TagFilter {
   export function isa(o: any): o is EC2TagFilter {
     return _smithy.isa(o, "EC2TagFilter");
   }
+}
+
+export enum EC2TagFilterType {
+  KEY_AND_VALUE = "KEY_AND_VALUE",
+  KEY_ONLY = "KEY_ONLY",
+  VALUE_ONLY = "VALUE_ONLY"
 }
 
 /**
@@ -3364,6 +3204,42 @@ export namespace ELBInfo {
   }
 }
 
+export enum ErrorCode {
+  AGENT_ISSUE = "AGENT_ISSUE",
+  ALARM_ACTIVE = "ALARM_ACTIVE",
+  APPLICATION_MISSING = "APPLICATION_MISSING",
+  AUTOSCALING_VALIDATION_ERROR = "AUTOSCALING_VALIDATION_ERROR",
+  AUTO_SCALING_CONFIGURATION = "AUTO_SCALING_CONFIGURATION",
+  AUTO_SCALING_IAM_ROLE_PERMISSIONS = "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
+  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND = "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
+  CUSTOMER_APPLICATION_UNHEALTHY = "CUSTOMER_APPLICATION_UNHEALTHY",
+  DEPLOYMENT_GROUP_MISSING = "DEPLOYMENT_GROUP_MISSING",
+  ECS_UPDATE_ERROR = "ECS_UPDATE_ERROR",
+  ELASTIC_LOAD_BALANCING_INVALID = "ELASTIC_LOAD_BALANCING_INVALID",
+  ELB_INVALID_INSTANCE = "ELB_INVALID_INSTANCE",
+  HEALTH_CONSTRAINTS = "HEALTH_CONSTRAINTS",
+  HEALTH_CONSTRAINTS_INVALID = "HEALTH_CONSTRAINTS_INVALID",
+  HOOK_EXECUTION_FAILURE = "HOOK_EXECUTION_FAILURE",
+  IAM_ROLE_MISSING = "IAM_ROLE_MISSING",
+  IAM_ROLE_PERMISSIONS = "IAM_ROLE_PERMISSIONS",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INVALID_ECS_SERVICE = "INVALID_ECS_SERVICE",
+  INVALID_LAMBDA_CONFIGURATION = "INVALID_LAMBDA_CONFIGURATION",
+  INVALID_LAMBDA_FUNCTION = "INVALID_LAMBDA_FUNCTION",
+  INVALID_REVISION = "INVALID_REVISION",
+  MANUAL_STOP = "MANUAL_STOP",
+  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION = "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
+  MISSING_ELB_INFORMATION = "MISSING_ELB_INFORMATION",
+  MISSING_GITHUB_TOKEN = "MISSING_GITHUB_TOKEN",
+  NO_EC2_SUBSCRIPTION = "NO_EC2_SUBSCRIPTION",
+  NO_INSTANCES = "NO_INSTANCES",
+  OVER_MAX_INSTANCES = "OVER_MAX_INSTANCES",
+  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
+  REVISION_MISSING = "REVISION_MISSING",
+  THROTTLED = "THROTTLED",
+  TIMEOUT = "TIMEOUT"
+}
+
 /**
  *
  *         <p>Information about a deployment error.</p>
@@ -3445,6 +3321,12 @@ export namespace ErrorInformation {
   export function isa(o: any): o is ErrorInformation {
     return _smithy.isa(o, "ErrorInformation");
   }
+}
+
+export enum FileExistsBehavior {
+  DISALLOW = "DISALLOW",
+  OVERWRITE = "OVERWRITE",
+  RETAIN = "RETAIN"
 }
 
 /**
@@ -3952,6 +3834,11 @@ export namespace GitHubLocation {
   }
 }
 
+export enum GreenFleetProvisioningAction {
+  COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
+  DISCOVER_EXISTING = "DISCOVER_EXISTING"
+}
+
 /**
  *
  *         <p>Information about the instances that belong to the replacement environment in a
@@ -4084,6 +3971,11 @@ export namespace IamUserArnRequiredException {
   export function isa(o: any): o is IamUserArnRequiredException {
     return _smithy.isa(o, "IamUserArnRequiredException");
   }
+}
+
+export enum InstanceAction {
+  KEEP_ALIVE = "KEEP_ALIVE",
+  TERMINATE = "TERMINATE"
 }
 
 /**
@@ -4301,6 +4193,16 @@ export namespace InstanceNotRegisteredException {
   }
 }
 
+export enum InstanceStatus {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  READY = "Ready",
+  SKIPPED = "Skipped",
+  SUCCEEDED = "Succeeded",
+  UNKNOWN = "Unknown"
+}
+
 /**
  *
  *         <p>Information about an instance in a deployment.</p>
@@ -4450,6 +4352,11 @@ export namespace InstanceTarget {
   export function isa(o: any): o is InstanceTarget {
     return _smithy.isa(o, "InstanceTarget");
   }
+}
+
+export enum _InstanceType {
+  BLUE = "Blue",
+  GREEN = "Green"
 }
 
 /**
@@ -6025,6 +5932,15 @@ export namespace LastDeploymentInfo {
   }
 }
 
+export enum LifecycleErrorCode {
+  SCRIPT_FAILED = "ScriptFailed",
+  SCRIPT_MISSING = "ScriptMissing",
+  SCRIPT_NOT_EXECUTABLE = "ScriptNotExecutable",
+  SCRIPT_TIMED_OUT = "ScriptTimedOut",
+  SUCCESS = "Success",
+  UNKNOWN_ERROR = "UnknownError"
+}
+
 /**
  *
  *         <p>Information about a deployment lifecycle event.</p>
@@ -6119,6 +6035,15 @@ export namespace LifecycleEventAlreadyCompletedException {
   export function isa(o: any): o is LifecycleEventAlreadyCompletedException {
     return _smithy.isa(o, "LifecycleEventAlreadyCompletedException");
   }
+}
+
+export enum LifecycleEventStatus {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  SKIPPED = "Skipped",
+  SUCCEEDED = "Succeeded",
+  UNKNOWN = "Unknown"
 }
 
 /**
@@ -6861,6 +6786,12 @@ export namespace ListOnPremisesInstancesOutput {
   }
 }
 
+export enum ListStateFilterAction {
+  Exclude = "exclude",
+  Ignore = "ignore",
+  Include = "include"
+}
+
 export interface ListTagsForResourceInput {
   __type?: "ListTagsForResourceInput";
   /**
@@ -7018,6 +6949,8 @@ export namespace MinimumHealthyHosts {
     return _smithy.isa(o, "MinimumHealthyHosts");
   }
 }
+
+export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
 
 /**
  *
@@ -7247,6 +7180,11 @@ export namespace RegisterOnPremisesInstanceInput {
   }
 }
 
+export enum RegistrationStatus {
+  Deregistered = "Deregistered",
+  Registered = "Registered"
+}
+
 /**
  *
  *         <p>Represents the input of a RemoveTagsFromOnPremisesInstances operation.</p>
@@ -7445,6 +7383,13 @@ export namespace RevisionLocation {
   }
 }
 
+export enum RevisionLocationType {
+  AppSpecContent = "AppSpecContent",
+  GitHub = "GitHub",
+  S3 = "S3",
+  String = "String"
+}
+
 /**
  *
  *         <p>The revision ID was not specified.</p>
@@ -7616,6 +7561,11 @@ export namespace SkipWaitTimeForInstanceTerminationInput {
   }
 }
 
+export enum SortOrder {
+  Ascending = "ascending",
+  Descending = "descending"
+}
+
 /**
  *
  *         <p> Represents the input of a StopDeployment operation. </p>
@@ -7679,6 +7629,11 @@ export namespace StopDeploymentOutput {
   export function isa(o: any): o is StopDeploymentOutput {
     return _smithy.isa(o, "StopDeploymentOutput");
   }
+}
+
+export enum StopStatus {
+  PENDING = "Pending",
+  SUCCEEDED = "Succeeded"
 }
 
 /**
@@ -7753,6 +7708,12 @@ export namespace TagFilter {
   export function isa(o: any): o is TagFilter {
     return _smithy.isa(o, "TagFilter");
   }
+}
+
+export enum TagFilterType {
+  KEY_AND_VALUE = "KEY_AND_VALUE",
+  KEY_ONLY = "KEY_ONLY",
+  VALUE_ONLY = "VALUE_ONLY"
 }
 
 /**
@@ -7868,6 +7829,11 @@ export namespace TagSetListLimitExceededException {
   }
 }
 
+export enum TargetFilterName {
+  SERVER_INSTANCE_LABEL = "ServerInstanceLabel",
+  TARGET_STATUS = "TargetStatus"
+}
+
 /**
  *
  *         <p>Information about a target group in Elastic Load Balancing to use in a deployment.
@@ -7973,6 +7939,21 @@ export namespace TargetInstances {
   export function isa(o: any): o is TargetInstances {
     return _smithy.isa(o, "TargetInstances");
   }
+}
+
+export enum TargetLabel {
+  BLUE = "Blue",
+  GREEN = "Green"
+}
+
+export enum TargetStatus {
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  READY = "Ready",
+  SKIPPED = "Skipped",
+  SUCCEEDED = "Succeeded",
+  UNKNOWN = "Unknown"
 }
 
 /**
@@ -8164,6 +8145,12 @@ export namespace TrafficRoutingConfig {
   }
 }
 
+export enum TrafficRoutingType {
+  AllAtOnce = "AllAtOnce",
+  TimeBasedCanary = "TimeBasedCanary",
+  TimeBasedLinear = "TimeBasedLinear"
+}
+
 /**
  *
  *         <p>Information about notification triggers for the deployment group.</p>
@@ -8198,6 +8185,19 @@ export namespace TriggerConfig {
   export function isa(o: any): o is TriggerConfig {
     return _smithy.isa(o, "TriggerConfig");
   }
+}
+
+export enum TriggerEventType {
+  DEPLOYMENT_FAILURE = "DeploymentFailure",
+  DEPLOYMENT_READY = "DeploymentReady",
+  DEPLOYMENT_ROLLBACK = "DeploymentRollback",
+  DEPLOYMENT_START = "DeploymentStart",
+  DEPLOYMENT_STOP = "DeploymentStop",
+  DEPLOYMENT_SUCCESS = "DeploymentSuccess",
+  INSTANCE_FAILURE = "InstanceFailure",
+  INSTANCE_READY = "InstanceReady",
+  INSTANCE_START = "InstanceStart",
+  INSTANCE_SUCCESS = "InstanceSuccess"
 }
 
 /**

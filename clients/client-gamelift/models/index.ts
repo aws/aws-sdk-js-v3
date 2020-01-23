@@ -1,251 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type AcceptanceType = "ACCEPT" | "REJECT";
-
-export enum BackfillMode {
-  AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL"
-}
-
-export enum BuildStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  READY = "READY"
-}
-
-export enum CertificateType {
-  Disabled = "DISABLED",
-  Generated = "GENERATED"
-}
-
-export enum ComparisonOperatorType {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold"
-}
-
-export type EC2InstanceType =
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.large"
-  | "c5.xlarge"
-  | "m3.2xlarge"
-  | "m3.large"
-  | "m3.medium"
-  | "m3.xlarge"
-  | "m4.10xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.large"
-  | "m5.xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r4.16xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.large"
-  | "r5.xlarge"
-  | "t2.large"
-  | "t2.medium"
-  | "t2.micro"
-  | "t2.small";
-
-export enum EventCode {
-  FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
-  FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
-  FLEET_BINARY_DOWNLOAD_FAILED = "FLEET_BINARY_DOWNLOAD_FAILED",
-  FLEET_CREATED = "FLEET_CREATED",
-  FLEET_CREATION_EXTRACTING_BUILD = "FLEET_CREATION_EXTRACTING_BUILD",
-  FLEET_CREATION_RUNNING_INSTALLER = "FLEET_CREATION_RUNNING_INSTALLER",
-  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG = "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
-  FLEET_DELETED = "FLEET_DELETED",
-  FLEET_INITIALIZATION_FAILED = "FLEET_INITIALIZATION_FAILED",
-  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED = "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
-  FLEET_SCALING_EVENT = "FLEET_SCALING_EVENT",
-  FLEET_STATE_ACTIVATING = "FLEET_STATE_ACTIVATING",
-  FLEET_STATE_ACTIVE = "FLEET_STATE_ACTIVE",
-  FLEET_STATE_BUILDING = "FLEET_STATE_BUILDING",
-  FLEET_STATE_DOWNLOADING = "FLEET_STATE_DOWNLOADING",
-  FLEET_STATE_ERROR = "FLEET_STATE_ERROR",
-  FLEET_STATE_VALIDATING = "FLEET_STATE_VALIDATING",
-  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE = "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
-  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND = "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
-  FLEET_VALIDATION_TIMED_OUT = "FLEET_VALIDATION_TIMED_OUT",
-  FLEET_VPC_PEERING_DELETED = "FLEET_VPC_PEERING_DELETED",
-  FLEET_VPC_PEERING_FAILED = "FLEET_VPC_PEERING_FAILED",
-  FLEET_VPC_PEERING_SUCCEEDED = "FLEET_VPC_PEERING_SUCCEEDED",
-  GAME_SESSION_ACTIVATION_TIMEOUT = "GAME_SESSION_ACTIVATION_TIMEOUT",
-  GENERIC_EVENT = "GENERIC_EVENT",
-  INSTANCE_INTERRUPTED = "INSTANCE_INTERRUPTED",
-  SERVER_PROCESS_CRASHED = "SERVER_PROCESS_CRASHED",
-  SERVER_PROCESS_FORCE_TERMINATED = "SERVER_PROCESS_FORCE_TERMINATED",
-  SERVER_PROCESS_INVALID_PATH = "SERVER_PROCESS_INVALID_PATH",
-  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
-  SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
-  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY"
-}
-
-export enum FleetAction {
-  AutoScaling = "AUTO_SCALING"
-}
-
-export enum FleetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  DELETING = "DELETING",
-  DOWNLOADING = "DOWNLOADING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-  TERMINATED = "TERMINATED",
-  VALIDATING = "VALIDATING"
-}
-
-export enum FleetType {
-  OnDemand = "ON_DEMAND",
-  Spot = "SPOT"
-}
-
-export enum GameSessionPlacementState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FULFILLED = "FULFILLED",
-  PENDING = "PENDING",
-  TIMED_OUT = "TIMED_OUT"
-}
-
-export enum GameSessionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
-}
-
-export enum GameSessionStatusReason {
-  INTERRUPTED = "INTERRUPTED"
-}
-
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING"
-}
-
-export enum IpProtocol {
-  TCP = "TCP",
-  UDP = "UDP"
-}
-
-export type MatchmakingConfigurationStatus =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "FAILED"
-  | "PLACING"
-  | "QUEUED"
-  | "REQUIRES_ACCEPTANCE"
-  | "SEARCHING"
-  | "TIMED_OUT";
-
-export type MetricName =
-  | "ActivatingGameSessions"
-  | "ActiveGameSessions"
-  | "ActiveInstances"
-  | "AvailableGameSessions"
-  | "AvailablePlayerSessions"
-  | "CurrentPlayerSessions"
-  | "IdleInstances"
-  | "PercentAvailableGameSessions"
-  | "PercentIdleInstances"
-  | "QueueDepth"
-  | "WaitTime";
-
-export enum OperatingSystem {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  AMAZON_LINUX_2 = "AMAZON_LINUX_2",
-  WINDOWS_2012 = "WINDOWS_2012"
-}
-
-export enum PlayerSessionCreationPolicy {
-  ACCEPT_ALL = "ACCEPT_ALL",
-  DENY_ALL = "DENY_ALL"
-}
-
-export enum PlayerSessionStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETED = "COMPLETED",
-  RESERVED = "RESERVED",
-  TIMEDOUT = "TIMEDOUT"
-}
-
-export enum PolicyType {
-  RuleBased = "RuleBased",
-  TargetBased = "TargetBased"
-}
-
-export enum ProtectionPolicy {
-  FullProtection = "FullProtection",
-  NoProtection = "NoProtection"
-}
-
-export enum RoutingStrategyType {
-  SIMPLE = "SIMPLE",
-  TERMINAL = "TERMINAL"
-}
-
-export enum ScalingAdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity"
-}
-
-export enum ScalingStatusType {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATE_REQUESTED = "UPDATE_REQUESTED",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Represents the input for a request action.</p>
@@ -292,6 +47,8 @@ export namespace AcceptMatchOutput {
     return _smithy.isa(o, "AcceptMatchOutput");
   }
 }
+
+export type AcceptanceType = "ACCEPT" | "REJECT";
 
 /**
  *
@@ -474,6 +231,11 @@ export namespace AwsCredentials {
   }
 }
 
+export enum BackfillMode {
+  AUTOMATIC = "AUTOMATIC",
+  MANUAL = "MANUAL"
+}
+
 /**
  *
  *         <p>Properties describing a custom game build.</p>
@@ -589,6 +351,12 @@ export namespace Build {
   }
 }
 
+export enum BuildStatus {
+  FAILED = "FAILED",
+  INITIALIZED = "INITIALIZED",
+  READY = "READY"
+}
+
 export interface CertificateConfiguration {
   __type?: "CertificateConfiguration";
   CertificateType: CertificateType | string | undefined;
@@ -598,6 +366,18 @@ export namespace CertificateConfiguration {
   export function isa(o: any): o is CertificateConfiguration {
     return _smithy.isa(o, "CertificateConfiguration");
   }
+}
+
+export enum CertificateType {
+  Disabled = "DISABLED",
+  Generated = "GENERATED"
+}
+
+export enum ComparisonOperatorType {
+  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold = "GreaterThanThreshold",
+  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
+  LessThanThreshold = "LessThanThreshold"
 }
 
 /**
@@ -3533,6 +3313,66 @@ export namespace EC2InstanceLimit {
   }
 }
 
+export type EC2InstanceType =
+  | "c3.2xlarge"
+  | "c3.4xlarge"
+  | "c3.8xlarge"
+  | "c3.large"
+  | "c3.xlarge"
+  | "c4.2xlarge"
+  | "c4.4xlarge"
+  | "c4.8xlarge"
+  | "c4.large"
+  | "c4.xlarge"
+  | "c5.12xlarge"
+  | "c5.18xlarge"
+  | "c5.24xlarge"
+  | "c5.2xlarge"
+  | "c5.4xlarge"
+  | "c5.9xlarge"
+  | "c5.large"
+  | "c5.xlarge"
+  | "m3.2xlarge"
+  | "m3.large"
+  | "m3.medium"
+  | "m3.xlarge"
+  | "m4.10xlarge"
+  | "m4.2xlarge"
+  | "m4.4xlarge"
+  | "m4.large"
+  | "m4.xlarge"
+  | "m5.12xlarge"
+  | "m5.16xlarge"
+  | "m5.24xlarge"
+  | "m5.2xlarge"
+  | "m5.4xlarge"
+  | "m5.8xlarge"
+  | "m5.large"
+  | "m5.xlarge"
+  | "r3.2xlarge"
+  | "r3.4xlarge"
+  | "r3.8xlarge"
+  | "r3.large"
+  | "r3.xlarge"
+  | "r4.16xlarge"
+  | "r4.2xlarge"
+  | "r4.4xlarge"
+  | "r4.8xlarge"
+  | "r4.large"
+  | "r4.xlarge"
+  | "r5.12xlarge"
+  | "r5.16xlarge"
+  | "r5.24xlarge"
+  | "r5.2xlarge"
+  | "r5.4xlarge"
+  | "r5.8xlarge"
+  | "r5.large"
+  | "r5.xlarge"
+  | "t2.large"
+  | "t2.medium"
+  | "t2.micro"
+  | "t2.small";
+
 /**
  *
  *         <p>Log entry describing an event that involves Amazon GameLift resources (such as a fleet). In
@@ -3724,6 +3564,46 @@ export namespace Event {
   export function isa(o: any): o is Event {
     return _smithy.isa(o, "Event");
   }
+}
+
+export enum EventCode {
+  FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
+  FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
+  FLEET_BINARY_DOWNLOAD_FAILED = "FLEET_BINARY_DOWNLOAD_FAILED",
+  FLEET_CREATED = "FLEET_CREATED",
+  FLEET_CREATION_EXTRACTING_BUILD = "FLEET_CREATION_EXTRACTING_BUILD",
+  FLEET_CREATION_RUNNING_INSTALLER = "FLEET_CREATION_RUNNING_INSTALLER",
+  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG = "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
+  FLEET_DELETED = "FLEET_DELETED",
+  FLEET_INITIALIZATION_FAILED = "FLEET_INITIALIZATION_FAILED",
+  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED = "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
+  FLEET_SCALING_EVENT = "FLEET_SCALING_EVENT",
+  FLEET_STATE_ACTIVATING = "FLEET_STATE_ACTIVATING",
+  FLEET_STATE_ACTIVE = "FLEET_STATE_ACTIVE",
+  FLEET_STATE_BUILDING = "FLEET_STATE_BUILDING",
+  FLEET_STATE_DOWNLOADING = "FLEET_STATE_DOWNLOADING",
+  FLEET_STATE_ERROR = "FLEET_STATE_ERROR",
+  FLEET_STATE_VALIDATING = "FLEET_STATE_VALIDATING",
+  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE = "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
+  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND = "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
+  FLEET_VALIDATION_TIMED_OUT = "FLEET_VALIDATION_TIMED_OUT",
+  FLEET_VPC_PEERING_DELETED = "FLEET_VPC_PEERING_DELETED",
+  FLEET_VPC_PEERING_FAILED = "FLEET_VPC_PEERING_FAILED",
+  FLEET_VPC_PEERING_SUCCEEDED = "FLEET_VPC_PEERING_SUCCEEDED",
+  GAME_SESSION_ACTIVATION_TIMEOUT = "GAME_SESSION_ACTIVATION_TIMEOUT",
+  GENERIC_EVENT = "GENERIC_EVENT",
+  INSTANCE_INTERRUPTED = "INSTANCE_INTERRUPTED",
+  SERVER_PROCESS_CRASHED = "SERVER_PROCESS_CRASHED",
+  SERVER_PROCESS_FORCE_TERMINATED = "SERVER_PROCESS_FORCE_TERMINATED",
+  SERVER_PROCESS_INVALID_PATH = "SERVER_PROCESS_INVALID_PATH",
+  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
+  SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
+  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
+  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY"
+}
+
+export enum FleetAction {
+  AutoScaling = "AUTO_SCALING"
 }
 
 /**
@@ -4208,6 +4088,23 @@ export namespace FleetCapacityExceededException {
   export function isa(o: any): o is FleetCapacityExceededException {
     return _smithy.isa(o, "FleetCapacityExceededException");
   }
+}
+
+export enum FleetStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  BUILDING = "BUILDING",
+  DELETING = "DELETING",
+  DOWNLOADING = "DOWNLOADING",
+  ERROR = "ERROR",
+  NEW = "NEW",
+  TERMINATED = "TERMINATED",
+  VALIDATING = "VALIDATING"
+}
+
+export enum FleetType {
+  OnDemand = "ON_DEMAND",
+  Spot = "SPOT"
 }
 
 /**
@@ -4900,6 +4797,14 @@ export namespace GameSessionPlacement {
   }
 }
 
+export enum GameSessionPlacementState {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  FULFILLED = "FULFILLED",
+  PENDING = "PENDING",
+  TIMED_OUT = "TIMED_OUT"
+}
+
 /**
  *
  *         <p>Configuration of a queue that is used to process game session placement requests.
@@ -5041,6 +4946,18 @@ export namespace GameSessionQueueDestination {
   export function isa(o: any): o is GameSessionQueueDestination {
     return _smithy.isa(o, "GameSessionQueueDestination");
   }
+}
+
+export enum GameSessionStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  ERROR = "ERROR",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING"
+}
+
+export enum GameSessionStatusReason {
+  INTERRUPTED = "INTERRUPTED"
 }
 
 /**
@@ -5331,6 +5248,12 @@ export namespace InstanceCredentials {
   }
 }
 
+export enum InstanceStatus {
+  ACTIVE = "ACTIVE",
+  PENDING = "PENDING",
+  TERMINATING = "TERMINATING"
+}
+
 /**
  *
  *         <p>The service encountered an unrecoverable internal failure while processing the
@@ -5466,6 +5389,11 @@ export namespace IpPermission {
   export function isa(o: any): o is IpPermission {
     return _smithy.isa(o, "IpPermission");
   }
+}
+
+export enum IpProtocol {
+  TCP = "TCP",
+  UDP = "UDP"
 }
 
 /**
@@ -5939,6 +5867,16 @@ export namespace MatchmakingConfiguration {
   }
 }
 
+export type MatchmakingConfigurationStatus =
+  | "CANCELLED"
+  | "COMPLETED"
+  | "FAILED"
+  | "PLACING"
+  | "QUEUED"
+  | "REQUIRES_ACCEPTANCE"
+  | "SEARCHING"
+  | "TIMED_OUT";
+
 /**
  *
  *         <p>Set of rule statements, used with FlexMatch, that determine how to build your player
@@ -6162,6 +6100,19 @@ export namespace MatchmakingTicket {
   }
 }
 
+export type MetricName =
+  | "ActivatingGameSessions"
+  | "ActiveGameSessions"
+  | "ActiveInstances"
+  | "AvailableGameSessions"
+  | "AvailablePlayerSessions"
+  | "CurrentPlayerSessions"
+  | "IdleInstances"
+  | "PercentAvailableGameSessions"
+  | "PercentIdleInstances"
+  | "QueueDepth"
+  | "WaitTime";
+
 /**
  *
  *         <p>A service resource associated with the request could not be found. Clients should
@@ -6181,6 +6132,12 @@ export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
     return _smithy.isa(o, "NotFoundException");
   }
+}
+
+export enum OperatingSystem {
+  AMAZON_LINUX = "AMAZON_LINUX",
+  AMAZON_LINUX_2 = "AMAZON_LINUX_2",
+  WINDOWS_2012 = "WINDOWS_2012"
 }
 
 /**
@@ -6555,6 +6512,28 @@ export namespace PlayerSession {
   export function isa(o: any): o is PlayerSession {
     return _smithy.isa(o, "PlayerSession");
   }
+}
+
+export enum PlayerSessionCreationPolicy {
+  ACCEPT_ALL = "ACCEPT_ALL",
+  DENY_ALL = "DENY_ALL"
+}
+
+export enum PlayerSessionStatus {
+  ACTIVE = "ACTIVE",
+  COMPLETED = "COMPLETED",
+  RESERVED = "RESERVED",
+  TIMEDOUT = "TIMEDOUT"
+}
+
+export enum PolicyType {
+  RuleBased = "RuleBased",
+  TargetBased = "TargetBased"
+}
+
+export enum ProtectionPolicy {
+  FullProtection = "FullProtection",
+  NoProtection = "NoProtection"
 }
 
 /**
@@ -6970,6 +6949,11 @@ export namespace RoutingStrategy {
   }
 }
 
+export enum RoutingStrategyType {
+  SIMPLE = "SIMPLE",
+  TERMINAL = "TERMINAL"
+}
+
 /**
  *
  *         <p>A collection of server process configurations that describe what processes to run
@@ -7167,6 +7151,12 @@ export namespace S3Location {
   export function isa(o: any): o is S3Location {
     return _smithy.isa(o, "S3Location");
   }
+}
+
+export enum ScalingAdjustmentType {
+  ChangeInCapacity = "ChangeInCapacity",
+  ExactCapacity = "ExactCapacity",
+  PercentChangeInCapacity = "PercentChangeInCapacity"
 }
 
 /**
@@ -7441,6 +7431,16 @@ export namespace ScalingPolicy {
   export function isa(o: any): o is ScalingPolicy {
     return _smithy.isa(o, "ScalingPolicy");
   }
+}
+
+export enum ScalingStatusType {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  DELETE_REQUESTED = "DELETE_REQUESTED",
+  DELETING = "DELETING",
+  ERROR = "ERROR",
+  UPDATE_REQUESTED = "UPDATE_REQUESTED",
+  UPDATING = "UPDATING"
 }
 
 /**

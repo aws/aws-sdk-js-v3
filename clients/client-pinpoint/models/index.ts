@@ -1,151 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum Action {
-  DEEP_LINK = "DEEP_LINK",
-  OPEN_APP = "OPEN_APP",
-  URL = "URL"
-}
-
-export enum AttributeType {
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE"
-}
-
-export enum CampaignStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  EXECUTING = "EXECUTING",
-  PAUSED = "PAUSED",
-  PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
-  SCHEDULED = "SCHEDULED"
-}
-
-export enum ChannelType {
-  ADM = "ADM",
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  APNS_VOIP = "APNS_VOIP",
-  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
-  BAIDU = "BAIDU",
-  CUSTOM = "CUSTOM",
-  EMAIL = "EMAIL",
-  GCM = "GCM",
-  SMS = "SMS",
-  VOICE = "VOICE"
-}
-
-export enum DeliveryStatus {
-  DUPLICATE = "DUPLICATE",
-  OPT_OUT = "OPT_OUT",
-  PERMANENT_FAILURE = "PERMANENT_FAILURE",
-  SUCCESSFUL = "SUCCESSFUL",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-  THROTTLED = "THROTTLED",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
-}
-
-export enum DimensionType {
-  EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE"
-}
-
-export enum Duration {
-  DAY_14 = "DAY_14",
-  DAY_30 = "DAY_30",
-  DAY_7 = "DAY_7",
-  HR_24 = "HR_24"
-}
-
-export enum FilterType {
-  ENDPOINT = "ENDPOINT",
-  SYSTEM = "SYSTEM"
-}
-
-export enum Format {
-  CSV = "CSV",
-  JSON = "JSON"
-}
-
-export enum Frequency {
-  DAILY = "DAILY",
-  EVENT = "EVENT",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-  ONCE = "ONCE",
-  WEEKLY = "WEEKLY"
-}
-
-export enum Include {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE"
-}
-
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETING = "COMPLETING",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  INITIALIZING = "INITIALIZING",
-  PENDING_JOB = "PENDING_JOB",
-  PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION",
-  PROCESSING = "PROCESSING"
-}
-
-export enum MessageType {
-  PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL"
-}
-
-export enum Mode {
-  DELIVERY = "DELIVERY",
-  FILTER = "FILTER"
-}
-
-export enum Operator {
-  ALL = "ALL",
-  ANY = "ANY"
-}
-
-export enum RecencyType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
-}
-
-export enum SegmentType {
-  DIMENSIONAL = "DIMENSIONAL",
-  IMPORT = "IMPORT"
-}
-
-export enum SourceType {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE"
-}
-
-export enum State {
-  ACTIVE = "ACTIVE",
-  CANCELLED = "CANCELLED",
-  CLOSED = "CLOSED",
-  COMPLETED = "COMPLETED",
-  DRAFT = "DRAFT"
-}
-
-export enum TemplateType {
-  EMAIL = "EMAIL",
-  PUSH = "PUSH",
-  SMS = "SMS",
-  VOICE = "VOICE"
-}
-
-export enum Type {
-  ALL = "ALL",
-  ANY = "ANY",
-  NONE = "NONE"
-}
-
 /**
  * <p>Specifies the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
  */
@@ -972,6 +827,12 @@ export namespace APNSVoipSandboxChannelResponse {
   }
 }
 
+export enum Action {
+  DEEP_LINK = "DEEP_LINK",
+  OPEN_APP = "OPEN_APP",
+  URL = "URL"
+}
+
 /**
  * <p>Provides information about the activities that were performed by a campaign.</p>
  */
@@ -1370,6 +1231,11 @@ export namespace AttributeDimension {
   export function isa(o: any): o is AttributeDimension {
     return _smithy.isa(o, "AttributeDimension");
   }
+}
+
+export enum AttributeType {
+  EXCLUSIVE = "EXCLUSIVE",
+  INCLUSIVE = "INCLUSIVE"
 }
 
 /**
@@ -1949,6 +1815,15 @@ export namespace CampaignState {
   }
 }
 
+export enum CampaignStatus {
+  COMPLETED = "COMPLETED",
+  DELETED = "DELETED",
+  EXECUTING = "EXECUTING",
+  PAUSED = "PAUSED",
+  PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
+  SCHEDULED = "SCHEDULED"
+}
+
 /**
  * <p>Provides information about the configuration and other settings for all the campaigns that are associated with an application.</p>
  */
@@ -2026,6 +1901,20 @@ export namespace ChannelResponse {
   export function isa(o: any): o is ChannelResponse {
     return _smithy.isa(o, "ChannelResponse");
   }
+}
+
+export enum ChannelType {
+  ADM = "ADM",
+  APNS = "APNS",
+  APNS_SANDBOX = "APNS_SANDBOX",
+  APNS_VOIP = "APNS_VOIP",
+  APNS_VOIP_SANDBOX = "APNS_VOIP_SANDBOX",
+  BAIDU = "BAIDU",
+  CUSTOM = "CUSTOM",
+  EMAIL = "EMAIL",
+  GCM = "GCM",
+  SMS = "SMS",
+  VOICE = "VOICE"
 }
 
 /**
@@ -3192,6 +3081,21 @@ export namespace DeleteVoiceTemplateResponse {
   }
 }
 
+export enum DeliveryStatus {
+  DUPLICATE = "DUPLICATE",
+  OPT_OUT = "OPT_OUT",
+  PERMANENT_FAILURE = "PERMANENT_FAILURE",
+  SUCCESSFUL = "SUCCESSFUL",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
+  THROTTLED = "THROTTLED",
+  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
+}
+
+export enum DimensionType {
+  EXCLUSIVE = "EXCLUSIVE",
+  INCLUSIVE = "INCLUSIVE"
+}
+
 /**
  * <p>Specifies the settings and content for the default message and any default messages that you tailored for specific channels.</p>
  */
@@ -3247,6 +3151,13 @@ export namespace DirectMessageConfiguration {
   export function isa(o: any): o is DirectMessageConfiguration {
     return _smithy.isa(o, "DirectMessageConfiguration");
   }
+}
+
+export enum Duration {
+  DAY_14 = "DAY_14",
+  DAY_30 = "DAY_30",
+  DAY_7 = "DAY_7",
+  HR_24 = "HR_24"
 }
 
 /**
@@ -4429,6 +4340,11 @@ export namespace ExportJobsResponse {
   }
 }
 
+export enum FilterType {
+  ENDPOINT = "ENDPOINT",
+  SYSTEM = "SYSTEM"
+}
+
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -4453,6 +4369,20 @@ export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
     return _smithy.isa(o, "ForbiddenException");
   }
+}
+
+export enum Format {
+  CSV = "CSV",
+  JSON = "JSON"
+}
+
+export enum Frequency {
+  DAILY = "DAILY",
+  EVENT = "EVENT",
+  HOURLY = "HOURLY",
+  MONTHLY = "MONTHLY",
+  ONCE = "ONCE",
+  WEEKLY = "WEEKLY"
 }
 
 /**
@@ -6386,6 +6316,12 @@ export namespace ImportJobsResponse {
   }
 }
 
+export enum Include {
+  ALL = "ALL",
+  ANY = "ANY",
+  NONE = "NONE"
+}
+
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -6432,6 +6368,18 @@ export namespace ItemResponse {
   export function isa(o: any): o is ItemResponse {
     return _smithy.isa(o, "ItemResponse");
   }
+}
+
+export enum JobStatus {
+  COMPLETED = "COMPLETED",
+  COMPLETING = "COMPLETING",
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  FAILING = "FAILING",
+  INITIALIZING = "INITIALIZING",
+  PENDING_JOB = "PENDING_JOB",
+  PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION",
+  PROCESSING = "PROCESSING"
 }
 
 /**
@@ -7118,6 +7066,11 @@ export namespace MessageResult {
   }
 }
 
+export enum MessageType {
+  PROMOTIONAL = "PROMOTIONAL",
+  TRANSACTIONAL = "TRANSACTIONAL"
+}
+
 /**
  * <p>Provides information about an API request or response.</p>
  */
@@ -7164,6 +7117,11 @@ export namespace MetricDimension {
   export function isa(o: any): o is MetricDimension {
     return _smithy.isa(o, "MetricDimension");
   }
+}
+
+export enum Mode {
+  DELIVERY = "DELIVERY",
+  FILTER = "FILTER"
 }
 
 /**
@@ -7344,6 +7302,11 @@ export namespace NumberValidateResponse {
   export function isa(o: any): o is NumberValidateResponse {
     return _smithy.isa(o, "NumberValidateResponse");
   }
+}
+
+export enum Operator {
+  ALL = "ALL",
+  ANY = "ANY"
 }
 
 export interface PhoneNumberValidateRequest {
@@ -7734,6 +7697,11 @@ export namespace RecencyDimension {
   export function isa(o: any): o is RecencyDimension {
     return _smithy.isa(o, "RecencyDimension");
   }
+}
+
+export enum RecencyType {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
 }
 
 export interface RemoveAttributesRequest {
@@ -8443,6 +8411,11 @@ export namespace SegmentResponse {
   }
 }
 
+export enum SegmentType {
+  DIMENSIONAL = "DIMENSIONAL",
+  IMPORT = "IMPORT"
+}
+
 /**
  * <p>Provides information about all the segments that are associated with an application.</p>
  */
@@ -8725,6 +8698,12 @@ export namespace SimpleEmailPart {
   }
 }
 
+export enum SourceType {
+  ALL = "ALL",
+  ANY = "ANY",
+  NONE = "NONE"
+}
+
 /**
  * <p>Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.</p>
  */
@@ -8745,6 +8724,14 @@ export namespace StartCondition {
   export function isa(o: any): o is StartCondition {
     return _smithy.isa(o, "StartCondition");
   }
+}
+
+export enum State {
+  ACTIVE = "ACTIVE",
+  CANCELLED = "CANCELLED",
+  CLOSED = "CLOSED",
+  COMPLETED = "COMPLETED",
+  DRAFT = "DRAFT"
 }
 
 export interface TagResourceRequest {
@@ -8884,6 +8871,13 @@ export namespace TemplateResponse {
   }
 }
 
+export enum TemplateType {
+  EMAIL = "EMAIL",
+  PUSH = "PUSH",
+  SMS = "SMS",
+  VOICE = "VOICE"
+}
+
 /**
  * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
  */
@@ -8982,6 +8976,12 @@ export namespace TreatmentResource {
   export function isa(o: any): o is TreatmentResource {
     return _smithy.isa(o, "TreatmentResource");
   }
+}
+
+export enum Type {
+  ALL = "ALL",
+  ANY = "ANY",
+  NONE = "NONE"
 }
 
 export interface UntagResourceRequest {

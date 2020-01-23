@@ -1,128 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AccessPropertyValue {
-  ALLOW = "ALLOW",
-  DENY = "DENY"
-}
-
-export enum Compute {
-  GRAPHICS = "GRAPHICS",
-  GRAPHICSPRO = "GRAPHICSPRO",
-  PERFORMANCE = "PERFORMANCE",
-  POWER = "POWER",
-  POWERPRO = "POWERPRO",
-  STANDARD = "STANDARD",
-  VALUE = "VALUE"
-}
-
-export enum ConnectionState {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-  UNKNOWN = "UNKNOWN"
-}
-
-export enum DedicatedTenancyModificationStateEnum {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
-export enum DedicatedTenancySupportEnum {
-  ENABLED = "ENABLED"
-}
-
-export enum DedicatedTenancySupportResultEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum ModificationResourceEnum {
-  COMPUTE_TYPE = "COMPUTE_TYPE",
-  ROOT_VOLUME = "ROOT_VOLUME",
-  USER_VOLUME = "USER_VOLUME"
-}
-
-export enum ModificationStateEnum {
-  UPDATE_INITIATED = "UPDATE_INITIATED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
-}
-
-export enum OperatingSystemType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS"
-}
-
-export enum ReconnectEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum RunningMode {
-  ALWAYS_ON = "ALWAYS_ON",
-  AUTO_STOP = "AUTO_STOP"
-}
-
-export enum TargetWorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE"
-}
-
-export enum Tenancy {
-  DEDICATED = "DEDICATED",
-  SHARED = "SHARED"
-}
-
-export enum WorkspaceDirectoryState {
-  DEREGISTERED = "DEREGISTERED",
-  DEREGISTERING = "DEREGISTERING",
-  ERROR = "ERROR",
-  REGISTERED = "REGISTERED",
-  REGISTERING = "REGISTERING"
-}
-
-export enum WorkspaceDirectoryType {
-  AD_CONNECTOR = "AD_CONNECTOR",
-  SIMPLE_AD = "SIMPLE_AD"
-}
-
-export enum WorkspaceImageIngestionProcess {
-  BYOL_GRAPHICS = "BYOL_GRAPHICS",
-  BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
-  BYOL_REGULAR = "BYOL_REGULAR"
-}
-
-export enum WorkspaceImageRequiredTenancy {
-  DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT"
-}
-
-export enum WorkspaceImageState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING"
-}
-
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *          <p>The user is not authorized to access a resource.</p>
@@ -141,6 +19,11 @@ export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
     return _smithy.isa(o, "AccessDeniedException");
   }
+}
+
+export enum AccessPropertyValue {
+  ALLOW = "ALLOW",
+  DENY = "DENY"
 }
 
 /**
@@ -319,6 +202,16 @@ export namespace ClientPropertiesResult {
   }
 }
 
+export enum Compute {
+  GRAPHICS = "GRAPHICS",
+  GRAPHICSPRO = "GRAPHICSPRO",
+  PERFORMANCE = "PERFORMANCE",
+  POWER = "POWER",
+  POWERPRO = "POWERPRO",
+  STANDARD = "STANDARD",
+  VALUE = "VALUE"
+}
+
 /**
  *
  *          <p>Describes the compute type.</p>
@@ -338,6 +231,12 @@ export namespace ComputeType {
   export function isa(o: any): o is ComputeType {
     return _smithy.isa(o, "ComputeType");
   }
+}
+
+export enum ConnectionState {
+  CONNECTED = "CONNECTED",
+  DISCONNECTED = "DISCONNECTED",
+  UNKNOWN = "UNKNOWN"
 }
 
 export interface CopyWorkspaceImageRequest {
@@ -527,6 +426,21 @@ export namespace CreateWorkspacesResult {
   export function isa(o: any): o is CreateWorkspacesResult {
     return _smithy.isa(o, "CreateWorkspacesResult");
   }
+}
+
+export enum DedicatedTenancyModificationStateEnum {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
+}
+
+export enum DedicatedTenancySupportEnum {
+  ENABLED = "ENABLED"
+}
+
+export enum DedicatedTenancySupportResultEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -1546,6 +1460,12 @@ export namespace ListAvailableManagementCidrRangesResult {
   }
 }
 
+export enum ModificationResourceEnum {
+  COMPUTE_TYPE = "COMPUTE_TYPE",
+  ROOT_VOLUME = "ROOT_VOLUME",
+  USER_VOLUME = "USER_VOLUME"
+}
+
 /**
  *
  *          <p>Describes a WorkSpace modification.</p>
@@ -1572,6 +1492,11 @@ export namespace ModificationState {
   export function isa(o: any): o is ModificationState {
     return _smithy.isa(o, "ModificationState");
   }
+}
+
+export enum ModificationStateEnum {
+  UPDATE_INITIATED = "UPDATE_INITIATED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 }
 
 export interface ModifyAccountRequest {
@@ -1831,6 +1756,11 @@ export namespace OperatingSystem {
   }
 }
 
+export enum OperatingSystemType {
+  LINUX = "LINUX",
+  WINDOWS = "WINDOWS"
+}
+
 /**
  *
  *          <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
@@ -1975,6 +1905,11 @@ export namespace RebuildWorkspacesResult {
   export function isa(o: any): o is RebuildWorkspacesResult {
     return _smithy.isa(o, "RebuildWorkspacesResult");
   }
+}
+
+export enum ReconnectEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
 export interface RegisterWorkspaceDirectoryRequest {
@@ -2279,6 +2214,11 @@ export namespace RootStorage {
   }
 }
 
+export enum RunningMode {
+  ALWAYS_ON = "ALWAYS_ON",
+  AUTO_STOP = "AUTO_STOP"
+}
+
 /**
  *
  *          <p>Describes the self-service permissions for a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
@@ -2483,6 +2423,16 @@ export namespace Tag {
   export function isa(o: any): o is Tag {
     return _smithy.isa(o, "Tag");
   }
+}
+
+export enum TargetWorkspaceState {
+  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
+  AVAILABLE = "AVAILABLE"
+}
+
+export enum Tenancy {
+  DEDICATED = "DEDICATED",
+  SHARED = "SHARED"
 }
 
 /**
@@ -3132,6 +3082,19 @@ export namespace WorkspaceDirectory {
   }
 }
 
+export enum WorkspaceDirectoryState {
+  DEREGISTERED = "DEREGISTERED",
+  DEREGISTERING = "DEREGISTERING",
+  ERROR = "ERROR",
+  REGISTERED = "REGISTERED",
+  REGISTERING = "REGISTERING"
+}
+
+export enum WorkspaceDirectoryType {
+  AD_CONNECTOR = "AD_CONNECTOR",
+  SIMPLE_AD = "SIMPLE_AD"
+}
+
 /**
  *
  *          <p>Describes a WorkSpace image.</p>
@@ -3203,6 +3166,23 @@ export namespace WorkspaceImage {
   export function isa(o: any): o is WorkspaceImage {
     return _smithy.isa(o, "WorkspaceImage");
   }
+}
+
+export enum WorkspaceImageIngestionProcess {
+  BYOL_GRAPHICS = "BYOL_GRAPHICS",
+  BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
+  BYOL_REGULAR = "BYOL_REGULAR"
+}
+
+export enum WorkspaceImageRequiredTenancy {
+  DEDICATED = "DEDICATED",
+  DEFAULT = "DEFAULT"
+}
+
+export enum WorkspaceImageState {
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  PENDING = "PENDING"
 }
 
 /**
@@ -3326,6 +3306,26 @@ export namespace WorkspaceRequest {
   export function isa(o: any): o is WorkspaceRequest {
     return _smithy.isa(o, "WorkspaceRequest");
   }
+}
+
+export enum WorkspaceState {
+  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  IMPAIRED = "IMPAIRED",
+  MAINTENANCE = "MAINTENANCE",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  REBUILDING = "REBUILDING",
+  RESTORING = "RESTORING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+  UNHEALTHY = "UNHEALTHY",
+  UPDATING = "UPDATING"
 }
 
 /**

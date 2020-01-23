@@ -1,262 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AgentUpdateStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STAGED = "STAGED",
-  STAGING = "STAGING",
-  UPDATED = "UPDATED",
-  UPDATING = "UPDATING"
-}
-
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum CapacityProviderField {
-  TAGS = "TAGS"
-}
-
-export enum CapacityProviderStatus {
-  ACTIVE = "ACTIVE"
-}
-
-export enum ClusterField {
-  ATTACHMENTS = "ATTACHMENTS",
-  SETTINGS = "SETTINGS",
-  STATISTICS = "STATISTICS",
-  TAGS = "TAGS"
-}
-
-export enum ClusterSettingName {
-  CONTAINER_INSIGHTS = "containerInsights"
-}
-
-export enum Compatibility {
-  EC2 = "EC2",
-  FARGATE = "FARGATE"
-}
-
-export enum Connectivity {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED"
-}
-
-export enum ContainerCondition {
-  COMPLETE = "COMPLETE",
-  HEALTHY = "HEALTHY",
-  START = "START",
-  SUCCESS = "SUCCESS"
-}
-
-export enum ContainerInstanceField {
-  TAGS = "TAGS"
-}
-
-export enum ContainerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DEREGISTERING = "DEREGISTERING",
-  DRAINING = "DRAINING",
-  REGISTERING = "REGISTERING",
-  REGISTRATION_FAILED = "REGISTRATION_FAILED"
-}
-
-export enum DeploymentControllerType {
-  CODE_DEPLOY = "CODE_DEPLOY",
-  ECS = "ECS",
-  EXTERNAL = "EXTERNAL"
-}
-
-export enum DesiredStatus {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED"
-}
-
-export enum DeviceCgroupPermission {
-  MKNOD = "mknod",
-  READ = "read",
-  WRITE = "write"
-}
-
-export enum FirelensConfigurationType {
-  FLUENTBIT = "fluentbit",
-  FLUENTD = "fluentd"
-}
-
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
-}
-
-export enum IpcMode {
-  HOST = "host",
-  NONE = "none",
-  TASK = "task"
-}
-
-export enum LaunchType {
-  EC2 = "EC2",
-  FARGATE = "FARGATE"
-}
-
-export enum LogDriver {
-  AWSFIRELENS = "awsfirelens",
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog"
-}
-
-export enum ManagedScalingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum ManagedTerminationProtection {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum NetworkMode {
-  AWSVPC = "awsvpc",
-  BRIDGE = "bridge",
-  HOST = "host",
-  NONE = "none"
-}
-
-export enum PidMode {
-  HOST = "host",
-  TASK = "task"
-}
-
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf"
-}
-
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread"
-}
-
-export enum PlatformDeviceType {
-  GPU = "GPU"
-}
-
-export enum PropagateTags {
-  SERVICE = "SERVICE",
-  TASK_DEFINITION = "TASK_DEFINITION"
-}
-
-export enum ProxyConfigurationType {
-  APPMESH = "APPMESH"
-}
-
-export enum ResourceType {
-  GPU = "GPU",
-  INFERENCE_ACCELERATOR = "InferenceAccelerator"
-}
-
-export enum ScaleUnit {
-  PERCENT = "PERCENT"
-}
-
-export enum SchedulingStrategy {
-  DAEMON = "DAEMON",
-  REPLICA = "REPLICA"
-}
-
-export enum Scope {
-  SHARED = "shared",
-  TASK = "task"
-}
-
-export enum ServiceField {
-  TAGS = "TAGS"
-}
-
-export enum SettingName {
-  AWSVPC_TRUNKING = "awsvpcTrunking",
-  CONTAINER_INSIGHTS = "containerInsights",
-  CONTAINER_INSTANCE_LONG_ARN_FORMAT = "containerInstanceLongArnFormat",
-  SERVICE_LONG_ARN_FORMAT = "serviceLongArnFormat",
-  TASK_LONG_ARN_FORMAT = "taskLongArnFormat"
-}
-
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC"
-}
-
-export enum StabilityStatus {
-  STABILIZING = "STABILIZING",
-  STEADY_STATE = "STEADY_STATE"
-}
-
-export enum TargetType {
-  CONTAINER_INSTANCE = "container-instance"
-}
-
-export enum TaskDefinitionFamilyStatus {
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  INACTIVE = "INACTIVE"
-}
-
-export enum TaskDefinitionField {
-  TAGS = "TAGS"
-}
-
-export enum TaskDefinitionPlacementConstraintType {
-  MEMBER_OF = "memberOf"
-}
-
-export enum TaskDefinitionStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
-}
-
-export enum TaskField {
-  TAGS = "TAGS"
-}
-
-export enum TaskStopCode {
-  ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
-  TASK_FAILED_TO_START = "TaskFailedToStart",
-  USER_INITIATED = "UserInitiated"
-}
-
-export enum TransportProtocol {
-  TCP = "tcp",
-  UDP = "udp"
-}
-
-export enum UlimitName {
-  CORE = "core",
-  CPU = "cpu",
-  DATA = "data",
-  FSIZE = "fsize",
-  LOCKS = "locks",
-  MEMLOCK = "memlock",
-  MSGQUEUE = "msgqueue",
-  NICE = "nice",
-  NOFILE = "nofile",
-  NPROC = "nproc",
-  RSS = "rss",
-  RTPRIO = "rtprio",
-  RTTIME = "rttime",
-  SIGPENDING = "sigpending",
-  STACK = "stack"
-}
-
 /**
  *
  *         <p>You do not have authorization to perform the requested action.</p>
@@ -275,6 +19,20 @@ export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
     return _smithy.isa(o, "AccessDeniedException");
   }
+}
+
+export enum AgentUpdateStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  STAGED = "STAGED",
+  STAGING = "STAGING",
+  UPDATED = "UPDATED",
+  UPDATING = "UPDATING"
+}
+
+export enum AssignPublicIp {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -614,6 +372,14 @@ export namespace CapacityProvider {
   }
 }
 
+export enum CapacityProviderField {
+  TAGS = "TAGS"
+}
+
+export enum CapacityProviderStatus {
+  ACTIVE = "ACTIVE"
+}
+
 /**
  *
  *         <p>The details of a capacity provider strategy.</p>
@@ -943,6 +709,13 @@ export namespace ClusterContainsTasksException {
   }
 }
 
+export enum ClusterField {
+  ATTACHMENTS = "ATTACHMENTS",
+  SETTINGS = "SETTINGS",
+  STATISTICS = "STATISTICS",
+  TAGS = "TAGS"
+}
+
 /**
  *
  *         <p>The specified cluster could not be found. You can view your available clusters with
@@ -997,6 +770,20 @@ export namespace ClusterSetting {
   export function isa(o: any): o is ClusterSetting {
     return _smithy.isa(o, "ClusterSetting");
   }
+}
+
+export enum ClusterSettingName {
+  CONTAINER_INSIGHTS = "containerInsights"
+}
+
+export enum Compatibility {
+  EC2 = "EC2",
+  FARGATE = "FARGATE"
+}
+
+export enum Connectivity {
+  CONNECTED = "CONNECTED",
+  DISCONNECTED = "DISCONNECTED"
 }
 
 /**
@@ -1132,6 +919,13 @@ export namespace Container {
   export function isa(o: any): o is Container {
     return _smithy.isa(o, "Container");
   }
+}
+
+export enum ContainerCondition {
+  COMPLETE = "COMPLETE",
+  HEALTHY = "HEALTHY",
+  START = "START",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -2111,6 +1905,18 @@ export namespace ContainerInstance {
   export function isa(o: any): o is ContainerInstance {
     return _smithy.isa(o, "ContainerInstance");
   }
+}
+
+export enum ContainerInstanceField {
+  TAGS = "TAGS"
+}
+
+export enum ContainerInstanceStatus {
+  ACTIVE = "ACTIVE",
+  DEREGISTERING = "DEREGISTERING",
+  DRAINING = "DRAINING",
+  REGISTERING = "REGISTERING",
+  REGISTRATION_FAILED = "REGISTRATION_FAILED"
 }
 
 /**
@@ -3426,6 +3232,12 @@ export namespace DeploymentController {
   }
 }
 
+export enum DeploymentControllerType {
+  CODE_DEPLOY = "CODE_DEPLOY",
+  ECS = "ECS",
+  EXTERNAL = "EXTERNAL"
+}
+
 export interface DeregisterContainerInstanceRequest {
   __type?: "DeregisterContainerInstanceRequest";
   /**
@@ -4002,6 +3814,12 @@ export namespace DescribeTasksResponse {
   }
 }
 
+export enum DesiredStatus {
+  PENDING = "PENDING",
+  RUNNING = "RUNNING",
+  STOPPED = "STOPPED"
+}
+
 /**
  *
  *         <p>An object representing a container instance host device.</p>
@@ -4037,6 +3855,12 @@ export namespace Device {
   export function isa(o: any): o is Device {
     return _smithy.isa(o, "Device");
   }
+}
+
+export enum DeviceCgroupPermission {
+  MKNOD = "mknod",
+  READ = "read",
+  WRITE = "write"
 }
 
 export interface DiscoverPollEndpointRequest {
@@ -4233,6 +4057,11 @@ export namespace FirelensConfiguration {
   }
 }
 
+export enum FirelensConfigurationType {
+  FLUENTBIT = "fluentbit",
+  FLUENTD = "fluentd"
+}
+
 /**
  *
  *         <p>An object representing a container health check. Health check parameters that are
@@ -4320,6 +4149,12 @@ export namespace HealthCheck {
   export function isa(o: any): o is HealthCheck {
     return _smithy.isa(o, "HealthCheck");
   }
+}
+
+export enum HealthStatus {
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY",
+  UNKNOWN = "UNKNOWN"
 }
 
 /**
@@ -4465,6 +4300,12 @@ export namespace InvalidParameterException {
   }
 }
 
+export enum IpcMode {
+  HOST = "host",
+  NONE = "none",
+  TASK = "task"
+}
+
 /**
  *
  *         <p>The Linux capabilities for the container that are added to or dropped from the default
@@ -4555,6 +4396,11 @@ export namespace KeyValuePair {
   export function isa(o: any): o is KeyValuePair {
     return _smithy.isa(o, "KeyValuePair");
   }
+}
+
+export enum LaunchType {
+  EC2 = "EC2",
+  FARGATE = "FARGATE"
 }
 
 /**
@@ -5611,6 +5457,17 @@ export namespace LogConfiguration {
   }
 }
 
+export enum LogDriver {
+  AWSFIRELENS = "awsfirelens",
+  AWSLOGS = "awslogs",
+  FLUENTD = "fluentd",
+  GELF = "gelf",
+  JOURNALD = "journald",
+  JSON_FILE = "json-file",
+  SPLUNK = "splunk",
+  SYSLOG = "syslog"
+}
+
 /**
  *
  *         <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
@@ -5663,6 +5520,16 @@ export namespace ManagedScaling {
   export function isa(o: any): o is ManagedScaling {
     return _smithy.isa(o, "ManagedScaling");
   }
+}
+
+export enum ManagedScalingStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum ManagedTerminationProtection {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -5831,6 +5698,13 @@ export namespace NetworkInterface {
   }
 }
 
+export enum NetworkMode {
+  AWSVPC = "awsvpc",
+  BRIDGE = "bridge",
+  HOST = "host",
+  NONE = "none"
+}
+
 /**
  *
  *         <p>There is no update available for this Amazon ECS container agent. This could be because the
@@ -5851,6 +5725,11 @@ export namespace NoUpdateAvailableException {
   export function isa(o: any): o is NoUpdateAvailableException {
     return _smithy.isa(o, "NoUpdateAvailableException");
   }
+}
+
+export enum PidMode {
+  HOST = "host",
+  TASK = "task"
 }
 
 /**
@@ -5891,6 +5770,11 @@ export namespace PlacementConstraint {
   export function isa(o: any): o is PlacementConstraint {
     return _smithy.isa(o, "PlacementConstraint");
   }
+}
+
+export enum PlacementConstraintType {
+  DISTINCT_INSTANCE = "distinctInstance",
+  MEMBER_OF = "memberOf"
 }
 
 /**
@@ -5934,6 +5818,12 @@ export namespace PlacementStrategy {
   }
 }
 
+export enum PlacementStrategyType {
+  BINPACK = "binpack",
+  RANDOM = "random",
+  SPREAD = "spread"
+}
+
 /**
  *
  *         <p>The devices that are available on the container instance. The only supported device
@@ -5964,6 +5854,10 @@ export namespace PlatformDevice {
   export function isa(o: any): o is PlatformDevice {
     return _smithy.isa(o, "PlatformDevice");
   }
+}
+
+export enum PlatformDeviceType {
+  GPU = "GPU"
 }
 
 /**
@@ -6094,6 +5988,11 @@ export namespace PortMapping {
   }
 }
 
+export enum PropagateTags {
+  SERVICE = "SERVICE",
+  TASK_DEFINITION = "TASK_DEFINITION"
+}
+
 /**
  *
  *         <p>The configuration details for the App Mesh proxy.</p>
@@ -6181,6 +6080,10 @@ export namespace ProxyConfiguration {
   export function isa(o: any): o is ProxyConfiguration {
     return _smithy.isa(o, "ProxyConfiguration");
   }
+}
+
+export enum ProxyConfigurationType {
+  APPMESH = "APPMESH"
 }
 
 export interface PutAccountSettingDefaultRequest {
@@ -7030,6 +6933,11 @@ export namespace ResourceRequirement {
   }
 }
 
+export enum ResourceType {
+  GPU = "GPU",
+  INFERENCE_ACCELERATOR = "InferenceAccelerator"
+}
+
 export interface RunTaskRequest {
   __type?: "RunTaskRequest";
   /**
@@ -7296,6 +7204,20 @@ export namespace Scale {
   export function isa(o: any): o is Scale {
     return _smithy.isa(o, "Scale");
   }
+}
+
+export enum ScaleUnit {
+  PERCENT = "PERCENT"
+}
+
+export enum SchedulingStrategy {
+  DAEMON = "DAEMON",
+  REPLICA = "REPLICA"
+}
+
+export enum Scope {
+  SHARED = "shared",
+  TASK = "task"
 }
 
 /**
@@ -7700,6 +7622,10 @@ export namespace ServiceEvent {
   }
 }
 
+export enum ServiceField {
+  TAGS = "TAGS"
+}
+
 /**
  *
  *         <p>The specified service is not active. You can't update a service that is inactive. If
@@ -7836,6 +7762,24 @@ export namespace Setting {
   export function isa(o: any): o is Setting {
     return _smithy.isa(o, "Setting");
   }
+}
+
+export enum SettingName {
+  AWSVPC_TRUNKING = "awsvpcTrunking",
+  CONTAINER_INSIGHTS = "containerInsights",
+  CONTAINER_INSTANCE_LONG_ARN_FORMAT = "containerInstanceLongArnFormat",
+  SERVICE_LONG_ARN_FORMAT = "serviceLongArnFormat",
+  TASK_LONG_ARN_FORMAT = "taskLongArnFormat"
+}
+
+export enum SortOrder {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
+export enum StabilityStatus {
+  STABILIZING = "STABILIZING",
+  STEADY_STATE = "STEADY_STATE"
 }
 
 export interface StartTaskRequest {
@@ -8462,6 +8406,10 @@ export namespace TargetNotFoundException {
   export function isa(o: any): o is TargetNotFoundException {
     return _smithy.isa(o, "TargetNotFoundException");
   }
+}
+
+export enum TargetType {
+  CONTAINER_INSTANCE = "container-instance"
 }
 
 /**
@@ -9128,6 +9076,16 @@ export namespace TaskDefinition {
   }
 }
 
+export enum TaskDefinitionFamilyStatus {
+  ACTIVE = "ACTIVE",
+  ALL = "ALL",
+  INACTIVE = "INACTIVE"
+}
+
+export enum TaskDefinitionField {
+  TAGS = "TAGS"
+}
+
 /**
  *
  *         <p>An object representing a constraint on task placement in the task definition. For more
@@ -9163,6 +9121,19 @@ export namespace TaskDefinitionPlacementConstraint {
   export function isa(o: any): o is TaskDefinitionPlacementConstraint {
     return _smithy.isa(o, "TaskDefinitionPlacementConstraint");
   }
+}
+
+export enum TaskDefinitionPlacementConstraintType {
+  MEMBER_OF = "memberOf"
+}
+
+export enum TaskDefinitionStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
+}
+
+export enum TaskField {
+  TAGS = "TAGS"
 }
 
 /**
@@ -9476,6 +9447,12 @@ export namespace TaskSetNotFoundException {
   }
 }
 
+export enum TaskStopCode {
+  ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
+  TASK_FAILED_TO_START = "TaskFailedToStart",
+  USER_INITIATED = "UserInitiated"
+}
+
 /**
  *
  *         <p>The container path, mount options, and size of the tmpfs mount.</p>
@@ -9518,6 +9495,11 @@ export namespace Tmpfs {
   }
 }
 
+export enum TransportProtocol {
+  TCP = "tcp",
+  UDP = "udp"
+}
+
 /**
  *
  *         <p>The <code>ulimit</code> settings to pass to the container.</p>
@@ -9551,6 +9533,24 @@ export namespace Ulimit {
   export function isa(o: any): o is Ulimit {
     return _smithy.isa(o, "Ulimit");
   }
+}
+
+export enum UlimitName {
+  CORE = "core",
+  CPU = "cpu",
+  DATA = "data",
+  FSIZE = "fsize",
+  LOCKS = "locks",
+  MEMLOCK = "memlock",
+  MSGQUEUE = "msgqueue",
+  NICE = "nice",
+  NOFILE = "nofile",
+  NPROC = "nproc",
+  RSS = "rss",
+  RTPRIO = "rtprio",
+  RTTIME = "rttime",
+  SIGPENDING = "sigpending",
+  STACK = "stack"
 }
 
 /**

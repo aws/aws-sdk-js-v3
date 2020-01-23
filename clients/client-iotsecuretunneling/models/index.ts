@@ -1,16 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ConnectionStatus {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED"
-}
-
-export enum TunnelStatus {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN"
-}
-
 export interface CloseTunnelRequest {
   __type?: "CloseTunnelRequest";
   /**
@@ -72,6 +62,11 @@ export namespace ConnectionState {
   export function isa(o: any): o is ConnectionState {
     return _smithy.isa(o, "ConnectionState");
   }
+}
+
+export enum ConnectionStatus {
+  CONNECTED = "CONNECTED",
+  DISCONNECTED = "DISCONNECTED"
 }
 
 export interface DescribeTunnelRequest {
@@ -519,6 +514,11 @@ export namespace Tunnel {
   export function isa(o: any): o is Tunnel {
     return _smithy.isa(o, "Tunnel");
   }
+}
+
+export enum TunnelStatus {
+  CLOSED = "CLOSED",
+  OPEN = "OPEN"
 }
 
 /**

@@ -1,104 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type DeploymentStatus =
-  | "COMPLETED"
-  | "ELIGIBLE"
-  | "IN_PROGRESS"
-  | "NOT_ELIGIBLE"
-  | "PENDING_UPDATE";
-
-export type ESPartitionInstanceType =
-  | "c4.2xlarge.elasticsearch"
-  | "c4.4xlarge.elasticsearch"
-  | "c4.8xlarge.elasticsearch"
-  | "c4.large.elasticsearch"
-  | "c4.xlarge.elasticsearch"
-  | "c5.18xlarge.elasticsearch"
-  | "c5.2xlarge.elasticsearch"
-  | "c5.4xlarge.elasticsearch"
-  | "c5.9xlarge.elasticsearch"
-  | "c5.large.elasticsearch"
-  | "c5.xlarge.elasticsearch"
-  | "d2.2xlarge.elasticsearch"
-  | "d2.4xlarge.elasticsearch"
-  | "d2.8xlarge.elasticsearch"
-  | "d2.xlarge.elasticsearch"
-  | "i2.2xlarge.elasticsearch"
-  | "i2.xlarge.elasticsearch"
-  | "i3.16xlarge.elasticsearch"
-  | "i3.2xlarge.elasticsearch"
-  | "i3.4xlarge.elasticsearch"
-  | "i3.8xlarge.elasticsearch"
-  | "i3.large.elasticsearch"
-  | "i3.xlarge.elasticsearch"
-  | "m3.2xlarge.elasticsearch"
-  | "m3.large.elasticsearch"
-  | "m3.medium.elasticsearch"
-  | "m3.xlarge.elasticsearch"
-  | "m4.10xlarge.elasticsearch"
-  | "m4.2xlarge.elasticsearch"
-  | "m4.4xlarge.elasticsearch"
-  | "m4.large.elasticsearch"
-  | "m4.xlarge.elasticsearch"
-  | "m5.12xlarge.elasticsearch"
-  | "m5.2xlarge.elasticsearch"
-  | "m5.4xlarge.elasticsearch"
-  | "m5.large.elasticsearch"
-  | "m5.xlarge.elasticsearch"
-  | "r3.2xlarge.elasticsearch"
-  | "r3.4xlarge.elasticsearch"
-  | "r3.8xlarge.elasticsearch"
-  | "r3.large.elasticsearch"
-  | "r3.xlarge.elasticsearch"
-  | "r4.16xlarge.elasticsearch"
-  | "r4.2xlarge.elasticsearch"
-  | "r4.4xlarge.elasticsearch"
-  | "r4.8xlarge.elasticsearch"
-  | "r4.large.elasticsearch"
-  | "r4.xlarge.elasticsearch"
-  | "r5.12xlarge.elasticsearch"
-  | "r5.2xlarge.elasticsearch"
-  | "r5.4xlarge.elasticsearch"
-  | "r5.large.elasticsearch"
-  | "r5.xlarge.elasticsearch"
-  | "t2.medium.elasticsearch"
-  | "t2.micro.elasticsearch"
-  | "t2.small.elasticsearch"
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
-
-export type ESWarmPartitionInstanceType =
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
-
-export type LogType =
-  | "ES_APPLICATION_LOGS"
-  | "INDEX_SLOW_LOGS"
-  | "SEARCH_SLOW_LOGS";
-
-export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
-
-export type ReservedElasticsearchInstancePaymentOption =
-  | "ALL_UPFRONT"
-  | "NO_UPFRONT"
-  | "PARTIAL_UPFRONT";
-
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
-}
-
-export type UpgradeStatus =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "SUCCEEDED_WITH_ISSUES";
-
-export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
-
-export type VolumeType = "gp2" | "io1" | "standard";
-
 /**
  *
  *       <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
@@ -252,31 +154,6 @@ export interface AdvancedOptionsStatus {
 export namespace AdvancedOptionsStatus {
   export function isa(o: any): o is AdvancedOptionsStatus {
     return _smithy.isa(o, "AdvancedOptionsStatus");
-  }
-}
-
-/**
- *
- *       <p>An error occurred while processing the request.</p>
- *
- */
-export interface BaseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BaseException";
-  name: "BaseException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace BaseException {
-  export function isa(o: any): o is BaseException {
-    return _smithy.isa(o, "BaseException");
   }
 }
 
@@ -600,6 +477,13 @@ export namespace DeleteElasticsearchDomainResponse {
     return _smithy.isa(o, "DeleteElasticsearchDomainResponse");
   }
 }
+
+export type DeploymentStatus =
+  | "COMPLETED"
+  | "ELIGIBLE"
+  | "IN_PROGRESS"
+  | "NOT_ELIGIBLE"
+  | "PENDING_UPDATE";
 
 /**
  *
@@ -978,31 +862,6 @@ export namespace DescribeReservedElasticsearchInstancesResponse {
 
 /**
  *
- *       <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
- *
- */
-export interface DisabledOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DisabledOperationException";
-  name: "DisabledOperationException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DisabledOperationException {
-  export function isa(o: any): o is DisabledOperationException {
-    return _smithy.isa(o, "DisabledOperationException");
-  }
-}
-
-/**
- *
  *     <p>Options to configure endpoint for the Elasticsearch domain.</p>
  *
  */
@@ -1152,6 +1011,70 @@ export namespace EBSOptionsStatus {
     return _smithy.isa(o, "EBSOptionsStatus");
   }
 }
+
+export type ESPartitionInstanceType =
+  | "c4.2xlarge.elasticsearch"
+  | "c4.4xlarge.elasticsearch"
+  | "c4.8xlarge.elasticsearch"
+  | "c4.large.elasticsearch"
+  | "c4.xlarge.elasticsearch"
+  | "c5.18xlarge.elasticsearch"
+  | "c5.2xlarge.elasticsearch"
+  | "c5.4xlarge.elasticsearch"
+  | "c5.9xlarge.elasticsearch"
+  | "c5.large.elasticsearch"
+  | "c5.xlarge.elasticsearch"
+  | "d2.2xlarge.elasticsearch"
+  | "d2.4xlarge.elasticsearch"
+  | "d2.8xlarge.elasticsearch"
+  | "d2.xlarge.elasticsearch"
+  | "i2.2xlarge.elasticsearch"
+  | "i2.xlarge.elasticsearch"
+  | "i3.16xlarge.elasticsearch"
+  | "i3.2xlarge.elasticsearch"
+  | "i3.4xlarge.elasticsearch"
+  | "i3.8xlarge.elasticsearch"
+  | "i3.large.elasticsearch"
+  | "i3.xlarge.elasticsearch"
+  | "m3.2xlarge.elasticsearch"
+  | "m3.large.elasticsearch"
+  | "m3.medium.elasticsearch"
+  | "m3.xlarge.elasticsearch"
+  | "m4.10xlarge.elasticsearch"
+  | "m4.2xlarge.elasticsearch"
+  | "m4.4xlarge.elasticsearch"
+  | "m4.large.elasticsearch"
+  | "m4.xlarge.elasticsearch"
+  | "m5.12xlarge.elasticsearch"
+  | "m5.2xlarge.elasticsearch"
+  | "m5.4xlarge.elasticsearch"
+  | "m5.large.elasticsearch"
+  | "m5.xlarge.elasticsearch"
+  | "r3.2xlarge.elasticsearch"
+  | "r3.4xlarge.elasticsearch"
+  | "r3.8xlarge.elasticsearch"
+  | "r3.large.elasticsearch"
+  | "r3.xlarge.elasticsearch"
+  | "r4.16xlarge.elasticsearch"
+  | "r4.2xlarge.elasticsearch"
+  | "r4.4xlarge.elasticsearch"
+  | "r4.8xlarge.elasticsearch"
+  | "r4.large.elasticsearch"
+  | "r4.xlarge.elasticsearch"
+  | "r5.12xlarge.elasticsearch"
+  | "r5.2xlarge.elasticsearch"
+  | "r5.4xlarge.elasticsearch"
+  | "r5.large.elasticsearch"
+  | "r5.xlarge.elasticsearch"
+  | "t2.medium.elasticsearch"
+  | "t2.micro.elasticsearch"
+  | "t2.small.elasticsearch"
+  | "ultrawarm1.large.elasticsearch"
+  | "ultrawarm1.medium.elasticsearch";
+
+export type ESWarmPartitionInstanceType =
+  | "ultrawarm1.large.elasticsearch"
+  | "ultrawarm1.medium.elasticsearch";
 
 /**
  *
@@ -1909,81 +1832,6 @@ export namespace InstanceLimits {
 
 /**
  *
- *       <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
- *
- */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalException";
-  name: "InternalException";
-  $fault: "server";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalException {
-  export function isa(o: any): o is InternalException {
-    return _smithy.isa(o, "InternalException");
-  }
-}
-
-/**
- *
- *       <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
- *
- */
-export interface InvalidTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidTypeException";
-  name: "InvalidTypeException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidTypeException {
-  export function isa(o: any): o is InvalidTypeException {
-    return _smithy.isa(o, "InvalidTypeException");
-  }
-}
-
-/**
- *
- *       <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-/**
- *
  *     <p>
  *       Limits for given InstanceType and for each of it's role.
  *       <br></br>
@@ -2360,6 +2208,11 @@ export namespace LogPublishingOptionsStatus {
   }
 }
 
+export type LogType =
+  | "ES_APPLICATION_LOGS"
+  | "INDEX_SLOW_LOGS"
+  | "SEARCH_SLOW_LOGS";
+
 /**
  *
  *        <p>Specifies the node-to-node encryption options.</p>
@@ -2408,6 +2261,8 @@ export namespace NodeToNodeEncryptionOptionsStatus {
     return _smithy.isa(o, "NodeToNodeEncryptionOptionsStatus");
   }
 }
+
+export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
 
 /**
  *
@@ -2763,55 +2618,10 @@ export namespace ReservedElasticsearchInstanceOffering {
   }
 }
 
-/**
- *
- *       <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
- *       <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *       <p>A description of the error.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
+export type ReservedElasticsearchInstancePaymentOption =
+  | "ALL_UPFRONT"
+  | "NO_UPFRONT"
+  | "PARTIAL_UPFRONT";
 
 /**
  *
@@ -3078,6 +2888,11 @@ export namespace StorageTypeLimit {
   export function isa(o: any): o is StorageTypeLimit {
     return _smithy.isa(o, "StorageTypeLimit");
   }
+}
+
+export enum TLSSecurityPolicy {
+  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
 }
 
 /**
@@ -3360,6 +3175,14 @@ export namespace UpgradeHistory {
   }
 }
 
+export type UpgradeStatus =
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "SUCCEEDED_WITH_ISSUES";
+
+export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
+
 /**
  *
  *     <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
@@ -3515,6 +3338,204 @@ export namespace VPCOptions {
   }
 }
 
+export type VolumeType = "gp2" | "io1" | "standard";
+
+/**
+ *
+ *       <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
+ *
+ */
+export interface ZoneAwarenessConfig {
+  __type?: "ZoneAwarenessConfig";
+  /**
+   *
+   *       <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
+   *
+   */
+  AvailabilityZoneCount?: number;
+}
+
+export namespace ZoneAwarenessConfig {
+  export function isa(o: any): o is ZoneAwarenessConfig {
+    return _smithy.isa(o, "ZoneAwarenessConfig");
+  }
+}
+
+/**
+ *
+ *       <p>An error occurred while processing the request.</p>
+ *
+ */
+export interface BaseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BaseException";
+  name: "BaseException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace BaseException {
+  export function isa(o: any): o is BaseException {
+    return _smithy.isa(o, "BaseException");
+  }
+}
+
+/**
+ *
+ *       <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ */
+export interface DisabledOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DisabledOperationException";
+  name: "DisabledOperationException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DisabledOperationException {
+  export function isa(o: any): o is DisabledOperationException {
+    return _smithy.isa(o, "DisabledOperationException");
+  }
+}
+
+/**
+ *
+ *       <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ */
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalException";
+  name: "InternalException";
+  $fault: "server";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InternalException {
+  export function isa(o: any): o is InternalException {
+    return _smithy.isa(o, "InternalException");
+  }
+}
+
+/**
+ *
+ *       <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
+ *
+ */
+export interface InvalidTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidTypeException";
+  name: "InvalidTypeException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidTypeException {
+  export function isa(o: any): o is InvalidTypeException {
+    return _smithy.isa(o, "InvalidTypeException");
+  }
+}
+
+/**
+ *
+ *       <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ *       <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *       <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *       <p>A description of the error.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
 /**
  *
  *       <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
@@ -3537,26 +3558,5 @@ export interface ValidationException
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
     return _smithy.isa(o, "ValidationException");
-  }
-}
-
-/**
- *
- *       <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
- *
- */
-export interface ZoneAwarenessConfig {
-  __type?: "ZoneAwarenessConfig";
-  /**
-   *
-   *       <p>An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled</p>
-   *
-   */
-  AvailabilityZoneCount?: number;
-}
-
-export namespace ZoneAwarenessConfig {
-  export function isa(o: any): o is ZoneAwarenessConfig {
-    return _smithy.isa(o, "ZoneAwarenessConfig");
   }
 }

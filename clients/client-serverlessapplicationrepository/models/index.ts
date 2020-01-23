@@ -1,19 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum Capability {
-  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM = "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY"
-}
-
-export enum Status {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PREPARING = "PREPARING"
-}
-
 /**
  * <p>A nested application summary.</p>
  */
@@ -140,6 +127,13 @@ export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
     return _smithy.isa(o, "BadRequestException");
   }
+}
+
+export enum Capability {
+  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
+  CAPABILITY_IAM = "CAPABILITY_IAM",
+  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
+  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY"
 }
 
 /**
@@ -1264,6 +1258,12 @@ export namespace RollbackTrigger {
   export function isa(o: any): o is RollbackTrigger {
     return _smithy.isa(o, "RollbackTrigger");
   }
+}
+
+export enum Status {
+  ACTIVE = "ACTIVE",
+  EXPIRED = "EXPIRED",
+  PREPARING = "PREPARING"
 }
 
 /**

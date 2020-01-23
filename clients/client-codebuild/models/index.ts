@@ -1,6 +1,26 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ *
+ *          <p>An AWS service limit was exceeded for the calling AWS account.</p>
+ *
+ */
+export interface AccountLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AccountLimitExceededException";
+  name: "AccountLimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AccountLimitExceededException {
+  export function isa(o: any): o is AccountLimitExceededException {
+    return _smithy.isa(o, "AccountLimitExceededException");
+  }
+}
+
 export enum ArtifactNamespace {
   BUILD_ID = "BUILD_ID",
   NONE = "NONE"
@@ -21,182 +41,6 @@ export enum AuthType {
   BASIC_AUTH = "BASIC_AUTH",
   OAUTH = "OAUTH",
   PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN"
-}
-
-export enum BuildPhaseType {
-  BUILD = "BUILD",
-  COMPLETED = "COMPLETED",
-  DOWNLOAD_SOURCE = "DOWNLOAD_SOURCE",
-  FINALIZING = "FINALIZING",
-  INSTALL = "INSTALL",
-  POST_BUILD = "POST_BUILD",
-  PRE_BUILD = "PRE_BUILD",
-  PROVISIONING = "PROVISIONING",
-  QUEUED = "QUEUED",
-  SUBMITTED = "SUBMITTED",
-  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS"
-}
-
-export enum CacheMode {
-  LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
-  LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
-  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE"
-}
-
-export enum CacheType {
-  LOCAL = "LOCAL",
-  NO_CACHE = "NO_CACHE",
-  S3 = "S3"
-}
-
-export enum ComputeType {
-  BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
-}
-
-export enum CredentialProviderType {
-  SECRETS_MANAGER = "SECRETS_MANAGER"
-}
-
-export enum EnvironmentType {
-  ARM_CONTAINER = "ARM_CONTAINER",
-  LINUX_CONTAINER = "LINUX_CONTAINER",
-  LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER",
-  WINDOWS_CONTAINER = "WINDOWS_CONTAINER"
-}
-
-export enum EnvironmentVariableType {
-  PARAMETER_STORE = "PARAMETER_STORE",
-  PLAINTEXT = "PLAINTEXT",
-  SECRETS_MANAGER = "SECRETS_MANAGER"
-}
-
-export enum ImagePullCredentialsType {
-  CODEBUILD = "CODEBUILD",
-  SERVICE_ROLE = "SERVICE_ROLE"
-}
-
-export enum LanguageType {
-  ANDROID = "ANDROID",
-  BASE = "BASE",
-  DOCKER = "DOCKER",
-  DOTNET = "DOTNET",
-  GOLANG = "GOLANG",
-  JAVA = "JAVA",
-  NODE_JS = "NODE_JS",
-  PHP = "PHP",
-  PYTHON = "PYTHON",
-  RUBY = "RUBY"
-}
-
-export enum LogsConfigStatusType {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum PlatformType {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  DEBIAN = "DEBIAN",
-  UBUNTU = "UBUNTU",
-  WINDOWS_SERVER = "WINDOWS_SERVER"
-}
-
-export enum ProjectSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME"
-}
-
-export enum ReportExportConfigType {
-  NO_EXPORT = "NO_EXPORT",
-  S3 = "S3"
-}
-
-export enum ReportGroupSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME"
-}
-
-export enum ReportPackagingType {
-  NONE = "NONE",
-  ZIP = "ZIP"
-}
-
-export enum ReportStatusType {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  GENERATING = "GENERATING",
-  INCOMPLETE = "INCOMPLETE",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum ReportType {
-  TEST = "TEST"
-}
-
-export enum ServerType {
-  BITBUCKET = "BITBUCKET",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
-}
-
-export enum SortOrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
-}
-
-export enum SourceAuthType {
-  OAUTH = "OAUTH"
-}
-
-export enum SourceType {
-  BITBUCKET = "BITBUCKET",
-  CODECOMMIT = "CODECOMMIT",
-  CODEPIPELINE = "CODEPIPELINE",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-  NO_SOURCE = "NO_SOURCE",
-  S3 = "S3"
-}
-
-export enum StatusType {
-  FAILED = "FAILED",
-  FAULT = "FAULT",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
-}
-
-export enum WebhookFilterType {
-  ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID",
-  BASE_REF = "BASE_REF",
-  EVENT = "EVENT",
-  FILE_PATH = "FILE_PATH",
-  HEAD_REF = "HEAD_REF"
-}
-
-/**
- *
- *          <p>An AWS service limit was exceeded for the calling AWS account.</p>
- *
- */
-export interface AccountLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AccountLimitExceededException";
-  name: "AccountLimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AccountLimitExceededException {
-  export function isa(o: any): o is AccountLimitExceededException {
-    return _smithy.isa(o, "AccountLimitExceededException");
-  }
 }
 
 export interface BatchDeleteBuildsInput {
@@ -966,6 +810,32 @@ export namespace BuildPhase {
   }
 }
 
+export enum BuildPhaseType {
+  BUILD = "BUILD",
+  COMPLETED = "COMPLETED",
+  DOWNLOAD_SOURCE = "DOWNLOAD_SOURCE",
+  FINALIZING = "FINALIZING",
+  INSTALL = "INSTALL",
+  POST_BUILD = "POST_BUILD",
+  PRE_BUILD = "PRE_BUILD",
+  PROVISIONING = "PROVISIONING",
+  QUEUED = "QUEUED",
+  SUBMITTED = "SUBMITTED",
+  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS"
+}
+
+export enum CacheMode {
+  LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
+  LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
+  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE"
+}
+
+export enum CacheType {
+  LOCAL = "LOCAL",
+  NO_CACHE = "NO_CACHE",
+  S3 = "S3"
+}
+
 /**
  *
  *          <p> Information about Amazon CloudWatch Logs for a build project. </p>
@@ -1011,6 +881,13 @@ export namespace CloudWatchLogsConfig {
   export function isa(o: any): o is CloudWatchLogsConfig {
     return _smithy.isa(o, "CloudWatchLogsConfig");
   }
+}
+
+export enum ComputeType {
+  BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
+  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
 }
 
 export interface CreateProjectInput {
@@ -1333,6 +1210,10 @@ export namespace CreateWebhookOutput {
   }
 }
 
+export enum CredentialProviderType {
+  SECRETS_MANAGER = "SECRETS_MANAGER"
+}
+
 export interface DeleteProjectInput {
   __type?: "DeleteProjectInput";
   /**
@@ -1648,6 +1529,13 @@ export namespace EnvironmentPlatform {
   }
 }
 
+export enum EnvironmentType {
+  ARM_CONTAINER = "ARM_CONTAINER",
+  LINUX_CONTAINER = "LINUX_CONTAINER",
+  LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER",
+  WINDOWS_CONTAINER = "WINDOWS_CONTAINER"
+}
+
 /**
  *
  *          <p>Information about an environment variable for a build project or a build.</p>
@@ -1701,6 +1589,12 @@ export namespace EnvironmentVariable {
   export function isa(o: any): o is EnvironmentVariable {
     return _smithy.isa(o, "EnvironmentVariable");
   }
+}
+
+export enum EnvironmentVariableType {
+  PARAMETER_STORE = "PARAMETER_STORE",
+  PLAINTEXT = "PLAINTEXT",
+  SECRETS_MANAGER = "SECRETS_MANAGER"
 }
 
 /**
@@ -1767,6 +1661,11 @@ export namespace GitSubmodulesConfig {
   export function isa(o: any): o is GitSubmodulesConfig {
     return _smithy.isa(o, "GitSubmodulesConfig");
   }
+}
+
+export enum ImagePullCredentialsType {
+  CODEBUILD = "CODEBUILD",
+  SERVICE_ROLE = "SERVICE_ROLE"
 }
 
 export interface ImportSourceCredentialsInput {
@@ -1888,6 +1787,19 @@ export namespace InvalidateProjectCacheOutput {
   export function isa(o: any): o is InvalidateProjectCacheOutput {
     return _smithy.isa(o, "InvalidateProjectCacheOutput");
   }
+}
+
+export enum LanguageType {
+  ANDROID = "ANDROID",
+  BASE = "BASE",
+  DOCKER = "DOCKER",
+  DOTNET = "DOTNET",
+  GOLANG = "GOLANG",
+  JAVA = "JAVA",
+  NODE_JS = "NODE_JS",
+  PHP = "PHP",
+  PYTHON = "PYTHON",
+  RUBY = "RUBY"
 }
 
 export interface ListBuildsForProjectInput {
@@ -2481,6 +2393,11 @@ export namespace LogsConfig {
   }
 }
 
+export enum LogsConfigStatusType {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 /**
  *
  *          <p>Information about build logs in Amazon CloudWatch Logs.</p>
@@ -2635,6 +2552,13 @@ export namespace PhaseContext {
   export function isa(o: any): o is PhaseContext {
     return _smithy.isa(o, "PhaseContext");
   }
+}
+
+export enum PlatformType {
+  AMAZON_LINUX = "AMAZON_LINUX",
+  DEBIAN = "DEBIAN",
+  UBUNTU = "UBUNTU",
+  WINDOWS_SERVER = "WINDOWS_SERVER"
 }
 
 /**
@@ -3443,6 +3367,12 @@ export namespace ProjectEnvironment {
   }
 }
 
+export enum ProjectSortByType {
+  CREATED_TIME = "CREATED_TIME",
+  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
+  NAME = "NAME"
+}
+
 /**
  *
  *          <p>Information about the build input source code for the build project.</p>
@@ -3899,6 +3829,11 @@ export namespace ReportExportConfig {
   }
 }
 
+export enum ReportExportConfigType {
+  NO_EXPORT = "NO_EXPORT",
+  S3 = "S3"
+}
+
 /**
  *
  *          <p>
@@ -3993,6 +3928,29 @@ export namespace ReportGroup {
   export function isa(o: any): o is ReportGroup {
     return _smithy.isa(o, "ReportGroup");
   }
+}
+
+export enum ReportGroupSortByType {
+  CREATED_TIME = "CREATED_TIME",
+  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
+  NAME = "NAME"
+}
+
+export enum ReportPackagingType {
+  NONE = "NONE",
+  ZIP = "ZIP"
+}
+
+export enum ReportStatusType {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  GENERATING = "GENERATING",
+  INCOMPLETE = "INCOMPLETE",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum ReportType {
+  TEST = "TEST"
 }
 
 /**
@@ -4158,6 +4116,17 @@ export namespace S3ReportExportConfig {
   }
 }
 
+export enum ServerType {
+  BITBUCKET = "BITBUCKET",
+  GITHUB = "GITHUB",
+  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
+}
+
+export enum SortOrderType {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
+}
+
 /**
  *
  *          <p>Information about the authorization settings for AWS CodeBuild to access the source code to be
@@ -4193,6 +4162,10 @@ export namespace SourceAuth {
   export function isa(o: any): o is SourceAuth {
     return _smithy.isa(o, "SourceAuth");
   }
+}
+
+export enum SourceAuthType {
+  OAUTH = "OAUTH"
 }
 
 /**
@@ -4237,6 +4210,16 @@ export namespace SourceCredentialsInfo {
   export function isa(o: any): o is SourceCredentialsInfo {
     return _smithy.isa(o, "SourceCredentialsInfo");
   }
+}
+
+export enum SourceType {
+  BITBUCKET = "BITBUCKET",
+  CODECOMMIT = "CODECOMMIT",
+  CODEPIPELINE = "CODEPIPELINE",
+  GITHUB = "GITHUB",
+  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
+  NO_SOURCE = "NO_SOURCE",
+  S3 = "S3"
 }
 
 export interface StartBuildInput {
@@ -4538,6 +4521,15 @@ export namespace StartBuildOutput {
   export function isa(o: any): o is StartBuildOutput {
     return _smithy.isa(o, "StartBuildOutput");
   }
+}
+
+export enum StatusType {
+  FAILED = "FAILED",
+  FAULT = "FAULT",
+  IN_PROGRESS = "IN_PROGRESS",
+  STOPPED = "STOPPED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT"
 }
 
 export interface StopBuildInput {
@@ -5325,4 +5317,12 @@ export namespace WebhookFilter {
   export function isa(o: any): o is WebhookFilter {
     return _smithy.isa(o, "WebhookFilter");
   }
+}
+
+export enum WebhookFilterType {
+  ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID",
+  BASE_REF = "BASE_REF",
+  EVENT = "EVENT",
+  FILE_PATH = "FILE_PATH",
+  HEAD_REF = "HEAD_REF"
 }

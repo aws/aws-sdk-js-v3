@@ -1,85 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ActionTypeEnum {
-  AUTHENTICATE_COGNITO = "authenticate-cognito",
-  AUTHENTICATE_OIDC = "authenticate-oidc",
-  FIXED_RESPONSE = "fixed-response",
-  FORWARD = "forward",
-  REDIRECT = "redirect"
-}
-
-export enum AuthenticateCognitoActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny"
-}
-
-export enum AuthenticateOidcActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny"
-}
-
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4"
-}
-
-export enum LoadBalancerSchemeEnum {
-  INTERNAL = "internal",
-  INTERNET_FACING = "internet-facing"
-}
-
-export enum LoadBalancerStateEnum {
-  ACTIVE = "active",
-  ACTIVE_IMPAIRED = "active_impaired",
-  FAILED = "failed",
-  PROVISIONING = "provisioning"
-}
-
-export enum LoadBalancerTypeEnum {
-  APPLICATION = "application",
-  NETWORK = "network"
-}
-
-export type ProtocolEnum = "HTTP" | "HTTPS" | "TCP" | "TCP_UDP" | "TLS" | "UDP";
-
-export enum RedirectActionStatusCodeEnum {
-  HTTP_301 = "HTTP_301",
-  HTTP_302 = "HTTP_302"
-}
-
-export enum TargetHealthReasonEnum {
-  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
-  INTERNAL_ERROR = "Elb.InternalError",
-  INVALID_STATE = "Target.InvalidState",
-  IP_UNUSABLE = "Target.IpUnusable",
-  NOT_IN_USE = "Target.NotInUse",
-  NOT_REGISTERED = "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
-  TIMEOUT = "Target.Timeout"
-}
-
-export enum TargetHealthStateEnum {
-  DRAINING = "draining",
-  HEALTHY = "healthy",
-  INITIAL = "initial",
-  UNAVAILABLE = "unavailable",
-  UNHEALTHY = "unhealthy",
-  UNUSED = "unused"
-}
-
-export enum TargetTypeEnum {
-  INSTANCE = "instance",
-  IP = "ip",
-  LAMBDA = "lambda"
-}
-
 /**
  *
  *          <p>Information about an action.</p>
@@ -161,6 +82,14 @@ export namespace Action {
   export function isa(o: any): o is Action {
     return _smithy.isa(o, "Action");
   }
+}
+
+export enum ActionTypeEnum {
+  AUTHENTICATE_COGNITO = "authenticate-cognito",
+  AUTHENTICATE_OIDC = "authenticate-oidc",
+  FIXED_RESPONSE = "fixed-response",
+  FORWARD = "forward",
+  REDIRECT = "redirect"
 }
 
 export interface AddListenerCertificatesInput {
@@ -256,6 +185,12 @@ export namespace AllocationIdNotFoundException {
   }
 }
 
+export enum AuthenticateCognitoActionConditionalBehaviorEnum {
+  ALLOW = "allow",
+  AUTHENTICATE = "authenticate",
+  DENY = "deny"
+}
+
 /**
  *
  *          <p>Request parameters to use when integrating with Amazon Cognito to authenticate users.</p>
@@ -339,6 +274,12 @@ export namespace AuthenticateCognitoActionConfig {
   export function isa(o: any): o is AuthenticateCognitoActionConfig {
     return _smithy.isa(o, "AuthenticateCognitoActionConfig");
   }
+}
+
+export enum AuthenticateOidcActionConditionalBehaviorEnum {
+  ALLOW = "allow",
+  AUTHENTICATE = "authenticate",
+  DENY = "deny"
 }
 
 /**
@@ -2111,6 +2052,11 @@ export namespace InvalidTargetException {
   }
 }
 
+export enum IpAddressType {
+  DUALSTACK = "dualstack",
+  IPV4 = "ipv4"
+}
+
 /**
  *
  *          <p>Information about an Elastic Load Balancing resource limit for your AWS
@@ -2503,6 +2449,11 @@ export namespace LoadBalancerNotFoundException {
   }
 }
 
+export enum LoadBalancerSchemeEnum {
+  INTERNAL = "internal",
+  INTERNET_FACING = "internet-facing"
+}
+
 /**
  *
  *          <p>Information about the state of the load balancer.</p>
@@ -2532,6 +2483,18 @@ export namespace LoadBalancerState {
   export function isa(o: any): o is LoadBalancerState {
     return _smithy.isa(o, "LoadBalancerState");
   }
+}
+
+export enum LoadBalancerStateEnum {
+  ACTIVE = "active",
+  ACTIVE_IMPAIRED = "active_impaired",
+  FAILED = "failed",
+  PROVISIONING = "provisioning"
+}
+
+export enum LoadBalancerTypeEnum {
+  APPLICATION = "application",
+  NETWORK = "network"
 }
 
 /**
@@ -2962,6 +2925,8 @@ export namespace PriorityInUseException {
   }
 }
 
+export type ProtocolEnum = "HTTP" | "HTTPS" | "TCP" | "TCP_UDP" | "TLS" | "UDP";
+
 /**
  *
  *          <p>Information about a query string condition.</p>
@@ -3102,6 +3067,11 @@ export namespace RedirectActionConfig {
   export function isa(o: any): o is RedirectActionConfig {
     return _smithy.isa(o, "RedirectActionConfig");
   }
+}
+
+export enum RedirectActionStatusCodeEnum {
+  HTTP_301 = "HTTP_301",
+  HTTP_302 = "HTTP_302"
 }
 
 export interface RegisterTargetsInput {
@@ -4365,6 +4335,36 @@ export namespace TargetHealthDescription {
   export function isa(o: any): o is TargetHealthDescription {
     return _smithy.isa(o, "TargetHealthDescription");
   }
+}
+
+export enum TargetHealthReasonEnum {
+  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
+  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
+  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
+  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
+  INTERNAL_ERROR = "Elb.InternalError",
+  INVALID_STATE = "Target.InvalidState",
+  IP_UNUSABLE = "Target.IpUnusable",
+  NOT_IN_USE = "Target.NotInUse",
+  NOT_REGISTERED = "Target.NotRegistered",
+  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
+  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
+  TIMEOUT = "Target.Timeout"
+}
+
+export enum TargetHealthStateEnum {
+  DRAINING = "draining",
+  HEALTHY = "healthy",
+  INITIAL = "initial",
+  UNAVAILABLE = "unavailable",
+  UNHEALTHY = "unhealthy",
+  UNUSED = "unused"
+}
+
+export enum TargetTypeEnum {
+  INSTANCE = "instance",
+  IP = "ip",
+  LAMBDA = "lambda"
 }
 
 /**

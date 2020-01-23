@@ -1,58 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ClusterState {
-  AWAITING_QUORUM = "AwaitingQuorum",
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_USE = "InUse",
-  PENDING = "Pending"
-}
-
-export enum JobState {
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-  IN_TRANSIT_TO_AWS = "InTransitToAWS",
-  IN_TRANSIT_TO_CUSTOMER = "InTransitToCustomer",
-  LISTING = "Listing",
-  NEW = "New",
-  PENDING = "Pending",
-  PREPARING_APPLIANCE = "PreparingAppliance",
-  PREPARING_SHIPMENT = "PreparingShipment",
-  WITH_AWS = "WithAWS",
-  WITH_AWS_SORTING_FACILITY = "WithAWSSortingFacility",
-  WITH_CUSTOMER = "WithCustomer"
-}
-
-export enum JobType {
-  EXPORT = "EXPORT",
-  IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE"
-}
-
-export enum ShippingOption {
-  EXPRESS = "EXPRESS",
-  NEXT_DAY = "NEXT_DAY",
-  SECOND_DAY = "SECOND_DAY",
-  STANDARD = "STANDARD"
-}
-
-export enum SnowballCapacity {
-  NO_PREFERENCE = "NoPreference",
-  T100 = "T100",
-  T42 = "T42",
-  T50 = "T50",
-  T80 = "T80"
-}
-
-export enum SnowballType {
-  EDGE = "EDGE",
-  EDGE_C = "EDGE_C",
-  EDGE_CG = "EDGE_CG",
-  STANDARD = "STANDARD"
-}
-
 /**
  *
  *          <p>The address that you want the Snowball or Snowballs associated with a specific job to
@@ -440,6 +388,14 @@ export namespace ClusterMetadata {
   export function isa(o: any): o is ClusterMetadata {
     return _smithy.isa(o, "ClusterMetadata");
   }
+}
+
+export enum ClusterState {
+  AWAITING_QUORUM = "AwaitingQuorum",
+  CANCELLED = "Cancelled",
+  COMPLETE = "Complete",
+  IN_USE = "InUse",
+  PENDING = "Pending"
 }
 
 /**
@@ -1637,6 +1593,28 @@ export namespace JobResource {
   }
 }
 
+export enum JobState {
+  CANCELLED = "Cancelled",
+  COMPLETE = "Complete",
+  IN_PROGRESS = "InProgress",
+  IN_TRANSIT_TO_AWS = "InTransitToAWS",
+  IN_TRANSIT_TO_CUSTOMER = "InTransitToCustomer",
+  LISTING = "Listing",
+  NEW = "New",
+  PENDING = "Pending",
+  PREPARING_APPLIANCE = "PreparingAppliance",
+  PREPARING_SHIPMENT = "PreparingShipment",
+  WITH_AWS = "WithAWS",
+  WITH_AWS_SORTING_FACILITY = "WithAWSSortingFacility",
+  WITH_CUSTOMER = "WithCustomer"
+}
+
+export enum JobType {
+  EXPORT = "EXPORT",
+  IMPORT = "IMPORT",
+  LOCAL_USE = "LOCAL_USE"
+}
+
 /**
  *
  *          <p>The provided AWS Key Management Service key lacks the permissions to perform the
@@ -2109,6 +2087,28 @@ export namespace ShippingDetails {
   export function isa(o: any): o is ShippingDetails {
     return _smithy.isa(o, "ShippingDetails");
   }
+}
+
+export enum ShippingOption {
+  EXPRESS = "EXPRESS",
+  NEXT_DAY = "NEXT_DAY",
+  SECOND_DAY = "SECOND_DAY",
+  STANDARD = "STANDARD"
+}
+
+export enum SnowballCapacity {
+  NO_PREFERENCE = "NoPreference",
+  T100 = "T100",
+  T42 = "T42",
+  T50 = "T50",
+  T80 = "T80"
+}
+
+export enum SnowballType {
+  EDGE = "EDGE",
+  EDGE_C = "EDGE_C",
+  EDGE_CG = "EDGE_CG",
+  STANDARD = "STANDARD"
 }
 
 /**

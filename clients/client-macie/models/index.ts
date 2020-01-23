@@ -1,15 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum S3ContinuousClassificationType {
-  FULL = "FULL"
-}
-
-export enum S3OneTimeClassificationType {
-  FULL = "FULL",
-  NONE = "NONE"
-}
-
 /**
  *
  *          <p>You do not have required permissions to access the requested resource.</p>
@@ -481,6 +472,15 @@ export namespace MemberAccount {
   export function isa(o: any): o is MemberAccount {
     return _smithy.isa(o, "MemberAccount");
   }
+}
+
+export enum S3ContinuousClassificationType {
+  FULL = "FULL"
+}
+
+export enum S3OneTimeClassificationType {
+  FULL = "FULL",
+  NONE = "NONE"
 }
 
 /**

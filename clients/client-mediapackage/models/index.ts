@@ -14,65 +14,6 @@ export enum AdsOnDeliveryRestrictions {
   UNRESTRICTED = "UNRESTRICTED"
 }
 
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES"
-}
-
-export enum ManifestLayout {
-  COMPACT = "COMPACT",
-  FULL = "FULL"
-}
-
-export enum Origination {
-  ALLOW = "ALLOW",
-  DENY = "DENY"
-}
-
-export enum PlaylistType {
-  EVENT = "EVENT",
-  NONE = "NONE",
-  VOD = "VOD"
-}
-
-export enum Profile {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE"
-}
-
-export enum SegmentTemplateFormat {
-  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE"
-}
-
-export enum Status {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
-}
-
-export enum __AdTriggersElement {
-  BREAK = "BREAK",
-  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
-  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
-  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
-  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
-  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
-  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT = "SPLICE_INSERT"
-}
-
-export enum __PeriodTriggersElement {
-  ADS = "ADS"
-}
-
 /**
  * A Channel resource configuration.
  */
@@ -961,6 +902,11 @@ export namespace DescribeOriginEndpointResponse {
   }
 }
 
+export enum EncryptionMethod {
+  AES_128 = "AES_128",
+  SAMPLE_AES = "SAMPLE_AES"
+}
+
 /**
  * The client is not authorized to access the requested resource.
  */
@@ -1560,6 +1506,11 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
+export enum ManifestLayout {
+  COMPACT = "COMPACT",
+  FULL = "FULL"
+}
+
 /**
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
@@ -1721,6 +1672,22 @@ export namespace OriginEndpoint {
   }
 }
 
+export enum Origination {
+  ALLOW = "ALLOW",
+  DENY = "DENY"
+}
+
+export enum PlaylistType {
+  EVENT = "EVENT",
+  NONE = "NONE",
+  VOD = "VOD"
+}
+
+export enum Profile {
+  HBBTV_1_5 = "HBBTV_1_5",
+  NONE = "NONE"
+}
+
 export interface RotateChannelCredentialsRequest {
   __type?: "RotateChannelCredentialsRequest";
   /**
@@ -1854,6 +1821,12 @@ export namespace S3Destination {
   }
 }
 
+export enum SegmentTemplateFormat {
+  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE"
+}
+
 /**
  * An unexpected error occurred.
  */
@@ -1912,6 +1885,18 @@ export namespace SpekeKeyProvider {
   export function isa(o: any): o is SpekeKeyProvider {
     return _smithy.isa(o, "SpekeKeyProvider");
   }
+}
+
+export enum Status {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum StreamOrder {
+  ORIGINAL = "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
 }
 
 /**
@@ -2223,4 +2208,19 @@ export namespace UpdateOriginEndpointResponse {
   export function isa(o: any): o is UpdateOriginEndpointResponse {
     return _smithy.isa(o, "UpdateOriginEndpointResponse");
   }
+}
+
+export enum __AdTriggersElement {
+  BREAK = "BREAK",
+  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
+  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
+  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
+  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
+  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
+  SPLICE_INSERT = "SPLICE_INSERT"
+}
+
+export enum __PeriodTriggersElement {
+  ADS = "ADS"
 }

@@ -1,10 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum TargetType {
-  ACCOUNT = "ACCOUNT"
-}
-
 /**
  *
  *          <p>You do not have sufficient access to perform this action.</p>
@@ -332,4 +328,8 @@ export namespace Target {
   export function isa(o: any): o is Target {
     return _smithy.isa(o, "Target");
   }
+}
+
+export enum TargetType {
+  ACCOUNT = "ACCOUNT"
 }

@@ -1,132 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum Engine {
-  NEURAL = "neural",
-  STANDARD = "standard"
-}
-
-export type Gender = "Female" | "Male";
-
-export type LanguageCode =
-  | "arb"
-  | "cmn-CN"
-  | "cy-GB"
-  | "da-DK"
-  | "de-DE"
-  | "en-AU"
-  | "en-GB"
-  | "en-GB-WLS"
-  | "en-IN"
-  | "en-US"
-  | "es-ES"
-  | "es-MX"
-  | "es-US"
-  | "fr-CA"
-  | "fr-FR"
-  | "hi-IN"
-  | "is-IS"
-  | "it-IT"
-  | "ja-JP"
-  | "ko-KR"
-  | "nb-NO"
-  | "nl-NL"
-  | "pl-PL"
-  | "pt-BR"
-  | "pt-PT"
-  | "ro-RO"
-  | "ru-RU"
-  | "sv-SE"
-  | "tr-TR";
-
-export enum OutputFormat {
-  JSON = "json",
-  MP3 = "mp3",
-  OGG_VORBIS = "ogg_vorbis",
-  PCM = "pcm"
-}
-
-export enum SpeechMarkType {
-  SENTENCE = "sentence",
-  SSML = "ssml",
-  VISEME = "viseme",
-  WORD = "word"
-}
-
-export enum TaskStatus {
-  COMPLETED = "completed",
-  FAILED = "failed",
-  IN_PROGRESS = "inProgress",
-  SCHEDULED = "scheduled"
-}
-
-export enum TextType {
-  SSML = "ssml",
-  TEXT = "text"
-}
-
-export type VoiceId =
-  | "Aditi"
-  | "Amy"
-  | "Astrid"
-  | "Bianca"
-  | "Brian"
-  | "Camila"
-  | "Carla"
-  | "Carmen"
-  | "Celine"
-  | "Chantal"
-  | "Conchita"
-  | "Cristiano"
-  | "Dora"
-  | "Emma"
-  | "Enrique"
-  | "Ewa"
-  | "Filiz"
-  | "Geraint"
-  | "Giorgio"
-  | "Gwyneth"
-  | "Hans"
-  | "Ines"
-  | "Ivy"
-  | "Jacek"
-  | "Jan"
-  | "Joanna"
-  | "Joey"
-  | "Justin"
-  | "Karl"
-  | "Kendra"
-  | "Kimberly"
-  | "Lea"
-  | "Liv"
-  | "Lotte"
-  | "Lucia"
-  | "Lupe"
-  | "Mads"
-  | "Maja"
-  | "Marlene"
-  | "Mathieu"
-  | "Matthew"
-  | "Maxim"
-  | "Mia"
-  | "Miguel"
-  | "Mizuki"
-  | "Naja"
-  | "Nicole"
-  | "Penelope"
-  | "Raveena"
-  | "Ricardo"
-  | "Ruben"
-  | "Russell"
-  | "Salli"
-  | "Seoyeon"
-  | "Takumi"
-  | "Tatyana"
-  | "Vicki"
-  | "Vitoria"
-  | "Zeina"
-  | "Zhiyu";
-
 export interface DeleteLexiconInput {
   __type?: "DeleteLexiconInput";
   /**
@@ -225,6 +99,11 @@ export namespace DescribeVoicesOutput {
   }
 }
 
+export enum Engine {
+  NEURAL = "neural",
+  STANDARD = "standard"
+}
+
 /**
  *
  *          <p>This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine
@@ -245,6 +124,8 @@ export namespace EngineNotSupportedException {
     return _smithy.isa(o, "EngineNotSupportedException");
   }
 }
+
+export type Gender = "Female" | "Male";
 
 export interface GetLexiconInput {
   __type?: "GetLexiconInput";
@@ -483,6 +364,37 @@ export namespace InvalidTaskIdException {
     return _smithy.isa(o, "InvalidTaskIdException");
   }
 }
+
+export type LanguageCode =
+  | "arb"
+  | "cmn-CN"
+  | "cy-GB"
+  | "da-DK"
+  | "de-DE"
+  | "en-AU"
+  | "en-GB"
+  | "en-GB-WLS"
+  | "en-IN"
+  | "en-US"
+  | "es-ES"
+  | "es-MX"
+  | "es-US"
+  | "fr-CA"
+  | "fr-FR"
+  | "hi-IN"
+  | "is-IS"
+  | "it-IT"
+  | "ja-JP"
+  | "ko-KR"
+  | "nb-NO"
+  | "nl-NL"
+  | "pl-PL"
+  | "pt-BR"
+  | "pt-PT"
+  | "ro-RO"
+  | "ru-RU"
+  | "sv-SE"
+  | "tr-TR";
 
 /**
  *
@@ -828,6 +740,13 @@ export namespace MaxLexiconsNumberExceededException {
   }
 }
 
+export enum OutputFormat {
+  JSON = "json",
+  MP3 = "mp3",
+  OGG_VORBIS = "ogg_vorbis",
+  PCM = "pcm"
+}
+
 export interface PutLexiconInput {
   __type?: "PutLexiconInput";
   /**
@@ -882,6 +801,13 @@ export namespace ServiceFailureException {
   export function isa(o: any): o is ServiceFailureException {
     return _smithy.isa(o, "ServiceFailureException");
   }
+}
+
+export enum SpeechMarkType {
+  SENTENCE = "sentence",
+  SSML = "ssml",
+  VISEME = "viseme",
+  WORD = "word"
 }
 
 /**
@@ -1341,6 +1267,13 @@ export namespace SynthesizeSpeechOutput {
   }
 }
 
+export enum TaskStatus {
+  COMPLETED = "completed",
+  FAILED = "failed",
+  IN_PROGRESS = "inProgress",
+  SCHEDULED = "scheduled"
+}
+
 /**
  *
  *          <p>The value of the "Text" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for
@@ -1362,6 +1295,11 @@ export namespace TextLengthExceededException {
   export function isa(o: any): o is TextLengthExceededException {
     return _smithy.isa(o, "TextLengthExceededException");
   }
+}
+
+export enum TextType {
+  SSML = "ssml",
+  TEXT = "text"
 }
 
 /**
@@ -1473,3 +1411,65 @@ export namespace Voice {
     return _smithy.isa(o, "Voice");
   }
 }
+
+export type VoiceId =
+  | "Aditi"
+  | "Amy"
+  | "Astrid"
+  | "Bianca"
+  | "Brian"
+  | "Camila"
+  | "Carla"
+  | "Carmen"
+  | "Celine"
+  | "Chantal"
+  | "Conchita"
+  | "Cristiano"
+  | "Dora"
+  | "Emma"
+  | "Enrique"
+  | "Ewa"
+  | "Filiz"
+  | "Geraint"
+  | "Giorgio"
+  | "Gwyneth"
+  | "Hans"
+  | "Ines"
+  | "Ivy"
+  | "Jacek"
+  | "Jan"
+  | "Joanna"
+  | "Joey"
+  | "Justin"
+  | "Karl"
+  | "Kendra"
+  | "Kimberly"
+  | "Lea"
+  | "Liv"
+  | "Lotte"
+  | "Lucia"
+  | "Lupe"
+  | "Mads"
+  | "Maja"
+  | "Marlene"
+  | "Mathieu"
+  | "Matthew"
+  | "Maxim"
+  | "Mia"
+  | "Miguel"
+  | "Mizuki"
+  | "Naja"
+  | "Nicole"
+  | "Penelope"
+  | "Raveena"
+  | "Ricardo"
+  | "Ruben"
+  | "Russell"
+  | "Salli"
+  | "Seoyeon"
+  | "Takumi"
+  | "Tatyana"
+  | "Vicki"
+  | "Vitoria"
+  | "Zeina"
+  | "Zhiyu";

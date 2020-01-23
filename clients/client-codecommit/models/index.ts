@@ -1,99 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ApprovalState {
-  APPROVE = "APPROVE",
-  REVOKE = "REVOKE"
-}
-
-export enum ChangeTypeEnum {
-  ADDED = "A",
-  DELETED = "D",
-  MODIFIED = "M"
-}
-
-export enum ConflictDetailLevelTypeEnum {
-  FILE_LEVEL = "FILE_LEVEL",
-  LINE_LEVEL = "LINE_LEVEL"
-}
-
-export enum ConflictResolutionStrategyTypeEnum {
-  ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
-  ACCEPT_SOURCE = "ACCEPT_SOURCE",
-  AUTOMERGE = "AUTOMERGE",
-  NONE = "NONE"
-}
-
-export enum FileModeTypeEnum {
-  EXECUTABLE = "EXECUTABLE",
-  NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK"
-}
-
-export enum MergeOptionTypeEnum {
-  FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
-  SQUASH_MERGE = "SQUASH_MERGE",
-  THREE_WAY_MERGE = "THREE_WAY_MERGE"
-}
-
-export enum ObjectTypeEnum {
-  DIRECTORY = "DIRECTORY",
-  FILE = "FILE",
-  GIT_LINK = "GIT_LINK",
-  SYMBOLIC_LINK = "SYMBOLIC_LINK"
-}
-
-export enum OrderEnum {
-  ASCENDING = "ascending",
-  DESCENDING = "descending"
-}
-
-export enum OverrideStatus {
-  OVERRIDE = "OVERRIDE",
-  REVOKE = "REVOKE"
-}
-
-export enum PullRequestEventType {
-  PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
-  PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
-  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
-  PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED",
-  PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED",
-  PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
-  PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
-  PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED"
-}
-
-export enum PullRequestStatusEnum {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN"
-}
-
-export enum RelativeFileVersionEnum {
-  AFTER = "AFTER",
-  BEFORE = "BEFORE"
-}
-
-export enum ReplacementTypeEnum {
-  KEEP_BASE = "KEEP_BASE",
-  KEEP_DESTINATION = "KEEP_DESTINATION",
-  KEEP_SOURCE = "KEEP_SOURCE",
-  USE_NEW_CONTENT = "USE_NEW_CONTENT"
-}
-
-export enum RepositoryTriggerEventEnum {
-  ALL = "all",
-  CREATE_REFERENCE = "createReference",
-  DELETE_REFERENCE = "deleteReference",
-  UPDATE_REFERENCE = "updateReference"
-}
-
-export enum SortByEnum {
-  MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName"
-}
-
 /**
  *
  *         <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
@@ -582,6 +489,11 @@ export namespace ApprovalRuleTemplateNameRequiredException {
   export function isa(o: any): o is ApprovalRuleTemplateNameRequiredException {
     return _smithy.isa(o, "ApprovalRuleTemplateNameRequiredException");
   }
+}
+
+export enum ApprovalState {
+  APPROVE = "APPROVE",
+  REVOKE = "REVOKE"
 }
 
 /**
@@ -1521,6 +1433,12 @@ export namespace CannotModifyApprovalRuleFromTemplateException {
   }
 }
 
+export enum ChangeTypeEnum {
+  ADDED = "A",
+  DELETED = "D",
+  MODIFIED = "M"
+}
+
 /**
  *
  *         <p>A client request token is required. A client request token is an unique,
@@ -2214,6 +2132,11 @@ export namespace Conflict {
   }
 }
 
+export enum ConflictDetailLevelTypeEnum {
+  FILE_LEVEL = "FILE_LEVEL",
+  LINE_LEVEL = "LINE_LEVEL"
+}
+
 /**
  *
  *         <p>Information about the metadata for a conflict in a merge operation.</p>
@@ -2332,6 +2255,13 @@ export namespace ConflictResolution {
   export function isa(o: any): o is ConflictResolution {
     return _smithy.isa(o, "ConflictResolution");
   }
+}
+
+export enum ConflictResolutionStrategyTypeEnum {
+  ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
+  ACCEPT_SOURCE = "ACCEPT_SOURCE",
+  AUTOMERGE = "AUTOMERGE",
+  NONE = "NONE"
 }
 
 export interface CreateApprovalRuleTemplateInput {
@@ -4029,6 +3959,12 @@ export namespace FileModeRequiredException {
   export function isa(o: any): o is FileModeRequiredException {
     return _smithy.isa(o, "FileModeRequiredException");
   }
+}
+
+export enum FileModeTypeEnum {
+  EXECUTABLE = "EXECUTABLE",
+  NORMAL = "NORMAL",
+  SYMLINK = "SYMLINK"
 }
 
 /**
@@ -8259,6 +8195,12 @@ export namespace MergeOptionRequiredException {
   }
 }
 
+export enum MergeOptionTypeEnum {
+  FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
+  SQUASH_MERGE = "SQUASH_MERGE",
+  THREE_WAY_MERGE = "THREE_WAY_MERGE"
+}
+
 export interface MergePullRequestByFastForwardInput {
   __type?: "MergePullRequestByFastForwardInput";
   /**
@@ -8668,6 +8610,13 @@ export namespace NumberOfRulesExceededException {
   }
 }
 
+export enum ObjectTypeEnum {
+  DIRECTORY = "DIRECTORY",
+  FILE = "FILE",
+  GIT_LINK = "GIT_LINK",
+  SYMBOLIC_LINK = "SYMBOLIC_LINK"
+}
+
 /**
  *
  *         <p>Information about the type of an object in a merge operation.</p>
@@ -8702,6 +8651,11 @@ export namespace ObjectTypes {
   export function isa(o: any): o is ObjectTypes {
     return _smithy.isa(o, "ObjectTypes");
   }
+}
+
+export enum OrderEnum {
+  ASCENDING = "ascending",
+  DESCENDING = "descending"
 }
 
 /**
@@ -8789,6 +8743,11 @@ export namespace OverridePullRequestApprovalRulesInput {
   export function isa(o: any): o is OverridePullRequestApprovalRulesInput {
     return _smithy.isa(o, "OverridePullRequestApprovalRulesInput");
   }
+}
+
+export enum OverrideStatus {
+  OVERRIDE = "OVERRIDE",
+  REVOKE = "REVOKE"
 }
 
 /**
@@ -9575,6 +9534,18 @@ export namespace PullRequestEvent {
   }
 }
 
+export enum PullRequestEventType {
+  PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
+  PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
+  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
+  PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED",
+  PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED",
+  PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
+  PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
+  PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
+  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED"
+}
+
 /**
  *
  *         <p>A pull request ID is required, but none was provided.</p>
@@ -9698,6 +9669,11 @@ export namespace PullRequestStatusChangedEventMetadata {
   export function isa(o: any): o is PullRequestStatusChangedEventMetadata {
     return _smithy.isa(o, "PullRequestStatusChangedEventMetadata");
   }
+}
+
+export enum PullRequestStatusEnum {
+  CLOSED = "CLOSED",
+  OPEN = "OPEN"
 }
 
 /**
@@ -10097,6 +10073,11 @@ export namespace ReferenceTypeNotSupportedException {
   }
 }
 
+export enum RelativeFileVersionEnum {
+  AFTER = "AFTER",
+  BEFORE = "BEFORE"
+}
+
 /**
  *
  *         <p>Information about a replacement content entry in the conflict of a merge or pull request operation.</p>
@@ -10162,6 +10143,13 @@ export namespace ReplacementContentRequiredException {
   export function isa(o: any): o is ReplacementContentRequiredException {
     return _smithy.isa(o, "ReplacementContentRequiredException");
   }
+}
+
+export enum ReplacementTypeEnum {
+  KEEP_BASE = "KEEP_BASE",
+  KEEP_DESTINATION = "KEEP_DESTINATION",
+  KEEP_SOURCE = "KEEP_SOURCE",
+  USE_NEW_CONTENT = "USE_NEW_CONTENT"
 }
 
 /**
@@ -10570,6 +10558,13 @@ export namespace RepositoryTriggerDestinationArnRequiredException {
   }
 }
 
+export enum RepositoryTriggerEventEnum {
+  ALL = "all",
+  CREATE_REFERENCE = "createReference",
+  DELETE_REFERENCE = "deleteReference",
+  UPDATE_REFERENCE = "updateReference"
+}
+
 /**
  *
  *         <p>At least one event for the trigger is required, but was not specified.</p>
@@ -10856,6 +10851,11 @@ export namespace SetFileModeEntry {
   export function isa(o: any): o is SetFileModeEntry {
     return _smithy.isa(o, "SetFileModeEntry");
   }
+}
+
+export enum SortByEnum {
+  MODIFIED_DATE = "lastModifiedDate",
+  REPOSITORY_NAME = "repositoryName"
 }
 
 /**

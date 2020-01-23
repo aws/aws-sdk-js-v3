@@ -7,122 +7,6 @@ export enum AlgorithmSpec {
   RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5"
 }
 
-export enum ConnectionErrorCodeType {
-  CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND",
-  INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
-  NETWORK_ERRORS = "NETWORK_ERRORS",
-  USER_LOCKED_OUT = "USER_LOCKED_OUT"
-}
-
-export enum ConnectionStateType {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  DISCONNECTED = "DISCONNECTED",
-  DISCONNECTING = "DISCONNECTING",
-  FAILED = "FAILED"
-}
-
-export enum CustomerMasterKeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
-}
-
-export enum DataKeyPairSpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096"
-}
-
-export enum DataKeySpec {
-  AES_128 = "AES_128",
-  AES_256 = "AES_256"
-}
-
-export enum EncryptionAlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
-}
-
-export enum ExpirationModelType {
-  KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
-  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES"
-}
-
-export enum GrantOperation {
-  CreateGrant = "CreateGrant",
-  Decrypt = "Decrypt",
-  DescribeKey = "DescribeKey",
-  Encrypt = "Encrypt",
-  GenerateDataKey = "GenerateDataKey",
-  GenerateDataKeyPair = "GenerateDataKeyPair",
-  GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
-  GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
-  GetPublicKey = "GetPublicKey",
-  ReEncryptFrom = "ReEncryptFrom",
-  ReEncryptTo = "ReEncryptTo",
-  RetireGrant = "RetireGrant",
-  Sign = "Sign",
-  Verify = "Verify"
-}
-
-export enum KeyManagerType {
-  AWS = "AWS",
-  CUSTOMER = "CUSTOMER"
-}
-
-export enum KeyState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-  PendingDeletion = "PendingDeletion",
-  PendingImport = "PendingImport",
-  Unavailable = "Unavailable"
-}
-
-export enum KeyUsageType {
-  ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
-  SIGN_VERIFY = "SIGN_VERIFY"
-}
-
-export enum MessageType {
-  DIGEST = "DIGEST",
-  RAW = "RAW"
-}
-
-export enum OriginType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  AWS_KMS = "AWS_KMS",
-  EXTERNAL = "EXTERNAL"
-}
-
-export enum SigningAlgorithmSpec {
-  ECDSA_SHA_256 = "ECDSA_SHA_256",
-  ECDSA_SHA_384 = "ECDSA_SHA_384",
-  ECDSA_SHA_512 = "ECDSA_SHA_512",
-  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
-  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
-  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
-  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
-  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
-}
-
-export enum WrappingKeySpec {
-  RSA_2048 = "RSA_2048"
-}
-
 /**
  *
  *          <p>Contains information about an alias.</p>
@@ -398,6 +282,23 @@ export namespace ConnectCustomKeyStoreResponse {
   export function isa(o: any): o is ConnectCustomKeyStoreResponse {
     return _smithy.isa(o, "ConnectCustomKeyStoreResponse");
   }
+}
+
+export enum ConnectionErrorCodeType {
+  CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND",
+  INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
+  NETWORK_ERRORS = "NETWORK_ERRORS",
+  USER_LOCKED_OUT = "USER_LOCKED_OUT"
+}
+
+export enum ConnectionStateType {
+  CONNECTED = "CONNECTED",
+  CONNECTING = "CONNECTING",
+  DISCONNECTED = "DISCONNECTED",
+  DISCONNECTING = "DISCONNECTING",
+  FAILED = "FAILED"
 }
 
 export interface CreateAliasRequest {
@@ -1062,6 +963,32 @@ export namespace CustomKeyStoresListEntry {
   }
 }
 
+export enum CustomerMasterKeySpec {
+  ECC_NIST_P256 = "ECC_NIST_P256",
+  ECC_NIST_P384 = "ECC_NIST_P384",
+  ECC_NIST_P521 = "ECC_NIST_P521",
+  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
+  RSA_2048 = "RSA_2048",
+  RSA_3072 = "RSA_3072",
+  RSA_4096 = "RSA_4096",
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
+}
+
+export enum DataKeyPairSpec {
+  ECC_NIST_P256 = "ECC_NIST_P256",
+  ECC_NIST_P384 = "ECC_NIST_P384",
+  ECC_NIST_P521 = "ECC_NIST_P521",
+  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
+  RSA_2048 = "RSA_2048",
+  RSA_3072 = "RSA_3072",
+  RSA_4096 = "RSA_4096"
+}
+
+export enum DataKeySpec {
+  AES_128 = "AES_128",
+  AES_256 = "AES_256"
+}
+
 export interface DecryptRequest {
   __type?: "DecryptRequest";
   /**
@@ -1689,6 +1616,17 @@ export namespace EncryptResponse {
   export function isa(o: any): o is EncryptResponse {
     return _smithy.isa(o, "EncryptResponse");
   }
+}
+
+export enum EncryptionAlgorithmSpec {
+  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
+}
+
+export enum ExpirationModelType {
+  KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
+  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES"
 }
 
 /**
@@ -2654,6 +2592,23 @@ export namespace GrantListEntry {
   }
 }
 
+export enum GrantOperation {
+  CreateGrant = "CreateGrant",
+  Decrypt = "Decrypt",
+  DescribeKey = "DescribeKey",
+  Encrypt = "Encrypt",
+  GenerateDataKey = "GenerateDataKey",
+  GenerateDataKeyPair = "GenerateDataKeyPair",
+  GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
+  GetPublicKey = "GetPublicKey",
+  ReEncryptFrom = "ReEncryptFrom",
+  ReEncryptTo = "ReEncryptTo",
+  RetireGrant = "RetireGrant",
+  Sign = "Sign",
+  Verify = "Verify"
+}
+
 export interface ImportKeyMaterialRequest {
   __type?: "ImportKeyMaterialRequest";
   /**
@@ -3055,6 +3010,11 @@ export namespace KeyListEntry {
   }
 }
 
+export enum KeyManagerType {
+  AWS = "AWS",
+  CUSTOMER = "CUSTOMER"
+}
+
 /**
  *
  *          <p>Contains metadata about a customer master key (CMK).</p>
@@ -3218,6 +3178,14 @@ export namespace KeyMetadata {
   }
 }
 
+export enum KeyState {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+  PendingDeletion = "PendingDeletion",
+  PendingImport = "PendingImport",
+  Unavailable = "Unavailable"
+}
+
 /**
  *
  *          <p>The request was rejected because the specified CMK was not available. You can retry the
@@ -3237,6 +3205,11 @@ export namespace KeyUnavailableException {
   export function isa(o: any): o is KeyUnavailableException {
     return _smithy.isa(o, "KeyUnavailableException");
   }
+}
+
+export enum KeyUsageType {
+  ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
+  SIGN_VERIFY = "SIGN_VERIFY"
 }
 
 /**
@@ -3716,6 +3689,11 @@ export namespace MalformedPolicyDocumentException {
   }
 }
 
+export enum MessageType {
+  DIGEST = "DIGEST",
+  RAW = "RAW"
+}
+
 /**
  *
  *          <p>The request was rejected because the specified entity or resource could not be
@@ -3735,6 +3713,12 @@ export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
     return _smithy.isa(o, "NotFoundException");
   }
+}
+
+export enum OriginType {
+  AWS_CLOUDHSM = "AWS_CLOUDHSM",
+  AWS_KMS = "AWS_KMS",
+  EXTERNAL = "EXTERNAL"
 }
 
 export interface PutKeyPolicyRequest {
@@ -4252,6 +4236,18 @@ export namespace SignResponse {
   }
 }
 
+export enum SigningAlgorithmSpec {
+  ECDSA_SHA_256 = "ECDSA_SHA_256",
+  ECDSA_SHA_384 = "ECDSA_SHA_384",
+  ECDSA_SHA_512 = "ECDSA_SHA_512",
+  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
+  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
+  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
+  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
+  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
+  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
+}
+
 /**
  *
  *          <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are
@@ -4649,4 +4645,8 @@ export namespace VerifyResponse {
   export function isa(o: any): o is VerifyResponse {
     return _smithy.isa(o, "VerifyResponse");
   }
+}
+
+export enum WrappingKeySpec {
+  RSA_2048 = "RSA_2048"
 }

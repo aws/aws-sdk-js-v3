@@ -1,18 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ProviderType {
-  CODE_COMMIT = "CodeCommit",
-  GIT_HUB = "GitHub"
-}
-
-export enum RepositoryAssociationState {
-  ASSOCIATED = "Associated",
-  ASSOCIATING = "Associating",
-  DISASSOCIATING = "Disassociating",
-  FAILED = "Failed"
-}
-
 /**
  *
  *          <p>You do not have sufficient access to perform this action.</p>
@@ -329,6 +317,11 @@ export namespace NotFoundException {
   }
 }
 
+export enum ProviderType {
+  CODE_COMMIT = "CodeCommit",
+  GIT_HUB = "GitHub"
+}
+
 /**
  *
  *          <p>Information about a repository.</p>
@@ -425,6 +418,13 @@ export namespace RepositoryAssociation {
   export function isa(o: any): o is RepositoryAssociation {
     return _smithy.isa(o, "RepositoryAssociation");
   }
+}
+
+export enum RepositoryAssociationState {
+  ASSOCIATED = "Associated",
+  ASSOCIATING = "Associating",
+  DISASSOCIATING = "Disassociating",
+  FAILED = "Failed"
 }
 
 /**

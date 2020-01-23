@@ -1,103 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL"
-}
-
-export enum DeploymentTarget {
-  CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS"
-}
-
-export enum EntityFilterName {
-  NAME = "NAME",
-  NAMESPACE = "NAMESPACE",
-  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
-}
-
-export enum EntityType {
-  ACTION = "ACTION",
-  CAPABILITY = "CAPABILITY",
-  DEVICE = "DEVICE",
-  DEVICE_MODEL = "DEVICE_MODEL",
-  ENUM = "ENUM",
-  EVENT = "EVENT",
-  MAPPING = "MAPPING",
-  PROPERTY = "PROPERTY",
-  SERVICE = "SERVICE",
-  STATE = "STATE"
-}
-
-export enum FlowExecutionEventType {
-  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
-  ACTIVITY_FAILED = "ACTIVITY_FAILED",
-  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
-  ACTIVITY_STARTED = "ACTIVITY_STARTED",
-  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
-  EXECUTION_ABORTED = "EXECUTION_ABORTED",
-  EXECUTION_FAILED = "EXECUTION_FAILED",
-  EXECUTION_STARTED = "EXECUTION_STARTED",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
-  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
-  STEP_FAILED = "STEP_FAILED",
-  STEP_STARTED = "STEP_STARTED",
-  STEP_SUCCEEDED = "STEP_SUCCEEDED",
-  THING_ACTION_TASK = "THING_ACTION_TASK",
-  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
-}
-
-export enum FlowExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
-}
-
-export enum NamespaceDeletionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED"
-}
-
-export enum SystemInstanceDeploymentStatus {
-  BOOTSTRAP = "BOOTSTRAP",
-  DELETED_IN_TARGET = "DELETED_IN_TARGET",
-  DEPLOYED_IN_TARGET = "DEPLOYED_IN_TARGET",
-  DEPLOY_IN_PROGRESS = "DEPLOY_IN_PROGRESS",
-  FAILED = "FAILED",
-  NOT_DEPLOYED = "NOT_DEPLOYED",
-  PENDING_DELETE = "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS"
-}
-
-export enum SystemInstanceFilterName {
-  GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
-  STATUS = "STATUS",
-  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID"
-}
-
-export enum SystemTemplateFilterName {
-  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID"
-}
-
-export enum UploadStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 export interface AssociateEntityToThingRequest {
   __type?: "AssociateEntityToThingRequest";
   /**
@@ -300,34 +203,6 @@ export namespace CreateSystemTemplateResponse {
   }
 }
 
-/**
- *
- *          <p>A document that defines an entity. </p>
- *
- */
-export interface DefinitionDocument {
-  __type?: "DefinitionDocument";
-  /**
-   *
-   *          <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
-   *
-   */
-  language: DefinitionLanguage | string | undefined;
-
-  /**
-   *
-   *          <p>The GraphQL text that defines the entity.</p>
-   *
-   */
-  text: string | undefined;
-}
-
-export namespace DefinitionDocument {
-  export function isa(o: any): o is DefinitionDocument {
-    return _smithy.isa(o, "DefinitionDocument");
-  }
-}
-
 export interface DeleteFlowTemplateRequest {
   __type?: "DeleteFlowTemplateRequest";
   /**
@@ -444,34 +319,6 @@ export interface DeleteSystemTemplateResponse extends $MetadataBearer {
 export namespace DeleteSystemTemplateResponse {
   export function isa(o: any): o is DeleteSystemTemplateResponse {
     return _smithy.isa(o, "DeleteSystemTemplateResponse");
-  }
-}
-
-/**
- *
- *          <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
- *
- */
-export interface DependencyRevision {
-  __type?: "DependencyRevision";
-  /**
-   *
-   *          <p>The ID of the workflow or system.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *          <p>The revision number of the workflow or system.</p>
-   *
-   */
-  revisionNumber?: number;
-}
-
-export namespace DependencyRevision {
-  export function isa(o: any): o is DependencyRevision {
-    return _smithy.isa(o, "DependencyRevision");
   }
 }
 
@@ -668,289 +515,6 @@ export interface DissociateEntityFromThingResponse extends $MetadataBearer {
 export namespace DissociateEntityFromThingResponse {
   export function isa(o: any): o is DissociateEntityFromThingResponse {
     return _smithy.isa(o, "DissociateEntityFromThingResponse");
-  }
-}
-
-/**
- *
- *          <p>Describes the properties of an entity.</p>
- *
- */
-export interface EntityDescription {
-  __type?: "EntityDescription";
-  /**
-   *
-   *          <p>The entity ARN.</p>
-   *
-   */
-  arn?: string;
-
-  /**
-   *
-   *          <p>The time at which the entity was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The definition document of the entity.</p>
-   *
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   *
-   *          <p>The entity ID.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *          <p>The entity type.</p>
-   *
-   */
-  type?: EntityType | string;
-}
-
-export namespace EntityDescription {
-  export function isa(o: any): o is EntityDescription {
-    return _smithy.isa(o, "EntityDescription");
-  }
-}
-
-/**
- *
- *          <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
- *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
- *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
- *
- */
-export interface EntityFilter {
-  __type?: "EntityFilter";
-  /**
-   *
-   *          <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
-   *          you can filter on the ID of a property that is used in a state.</p>
-   *
-   */
-  name?: EntityFilterName | string;
-
-  /**
-   *
-   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   *
-   */
-  value?: Array<string>;
-}
-
-export namespace EntityFilter {
-  export function isa(o: any): o is EntityFilter {
-    return _smithy.isa(o, "EntityFilter");
-  }
-}
-
-/**
- *
- *          <p>An object that contains information about a flow event.</p>
- *
- */
-export interface FlowExecutionMessage {
-  __type?: "FlowExecutionMessage";
-  /**
-   *
-   *          <p>The type of flow event .</p>
-   *
-   */
-  eventType?: FlowExecutionEventType | string;
-
-  /**
-   *
-   *          <p>The unique identifier of the message.</p>
-   *
-   */
-  messageId?: string;
-
-  /**
-   *
-   *          <p>A string containing information about the flow event.</p>
-   *
-   */
-  payload?: string;
-
-  /**
-   *
-   *          <p>The date and time when the message was last updated.</p>
-   *
-   */
-  timestamp?: Date;
-}
-
-export namespace FlowExecutionMessage {
-  export function isa(o: any): o is FlowExecutionMessage {
-    return _smithy.isa(o, "FlowExecutionMessage");
-  }
-}
-
-/**
- *
- *          <p>An object that contains summary information about a flow execution.</p>
- *
- */
-export interface FlowExecutionSummary {
-  __type?: "FlowExecutionSummary";
-  /**
-   *
-   *          <p>The date and time when the flow execution summary was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The ID of the flow execution.</p>
-   *
-   */
-  flowExecutionId?: string;
-
-  /**
-   *
-   *          <p>The ID of the flow.</p>
-   *
-   */
-  flowTemplateId?: string;
-
-  /**
-   *
-   *          <p>The current status of the flow execution.</p>
-   *
-   */
-  status?: FlowExecutionStatus | string;
-
-  /**
-   *
-   *          <p>The ID of the system instance that contains the flow.</p>
-   *
-   */
-  systemInstanceId?: string;
-
-  /**
-   *
-   *          <p>The date and time when the flow execution summary was last updated.</p>
-   *
-   */
-  updatedAt?: Date;
-}
-
-export namespace FlowExecutionSummary {
-  export function isa(o: any): o is FlowExecutionSummary {
-    return _smithy.isa(o, "FlowExecutionSummary");
-  }
-}
-
-/**
- *
- *          <p>An object that contains a workflow's definition and summary information.</p>
- *
- */
-export interface FlowTemplateDescription {
-  __type?: "FlowTemplateDescription";
-  /**
-   *
-   *          <p>A workflow's definition document.</p>
-   *
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   *
-   *          <p>An object that contains summary information about a workflow.</p>
-   *
-   */
-  summary?: FlowTemplateSummary;
-
-  /**
-   *
-   *          <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
-   *
-   */
-  validatedNamespaceVersion?: number;
-}
-
-export namespace FlowTemplateDescription {
-  export function isa(o: any): o is FlowTemplateDescription {
-    return _smithy.isa(o, "FlowTemplateDescription");
-  }
-}
-
-/**
- *
- *          <p>An object that filters a workflow search.</p>
- *
- */
-export interface FlowTemplateFilter {
-  __type?: "FlowTemplateFilter";
-  /**
-   *
-   *          <p>The name of the search filter field.</p>
-   *
-   */
-  name: FlowTemplateFilterName | string | undefined;
-
-  /**
-   *
-   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   *
-   */
-  value: Array<string> | undefined;
-}
-
-export namespace FlowTemplateFilter {
-  export function isa(o: any): o is FlowTemplateFilter {
-    return _smithy.isa(o, "FlowTemplateFilter");
-  }
-}
-
-/**
- *
- *          <p>An object that contains summary information about a workflow.</p>
- *
- */
-export interface FlowTemplateSummary {
-  __type?: "FlowTemplateSummary";
-  /**
-   *
-   *          <p>The ARN of the workflow.</p>
-   *
-   */
-  arn?: string;
-
-  /**
-   *
-   *          <p>The date when the workflow was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The ID of the workflow.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *          <p>The revision number of the workflow.</p>
-   *
-   */
-  revisionNumber?: number;
-}
-
-export namespace FlowTemplateSummary {
-  export function isa(o: any): o is FlowTemplateSummary {
-    return _smithy.isa(o, "FlowTemplateSummary");
   }
 }
 
@@ -1361,66 +925,6 @@ export namespace GetUploadStatusResponse {
   }
 }
 
-/**
- *
- *          <p></p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequestException";
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
 export interface ListFlowExecutionMessagesRequest {
   __type?: "ListFlowExecutionMessagesRequest";
   /**
@@ -1524,94 +1028,6 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
     return _smithy.isa(o, "ListTagsForResourceResponse");
-  }
-}
-
-/**
- *
- *          <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
- *
- */
-export interface MetricsConfiguration {
-  __type?: "MetricsConfiguration";
-  /**
-   *
-   *          <p>A Boolean that specifies whether cloud metrics are collected.</p>
-   *
-   */
-  cloudMetricEnabled?: boolean;
-
-  /**
-   *
-   *          <p>The ARN of the role that is used to collect cloud metrics.</p>
-   *
-   */
-  metricRuleRoleArn?: string;
-}
-
-export namespace MetricsConfiguration {
-  export function isa(o: any): o is MetricsConfiguration {
-    return _smithy.isa(o, "MetricsConfiguration");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceInUseException";
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1985,313 +1401,6 @@ export namespace SearchThingsResponse {
   }
 }
 
-/**
- *
- *          <p>An object that contains a system instance definition and summary information.</p>
- *
- */
-export interface SystemInstanceDescription {
-  __type?: "SystemInstanceDescription";
-  /**
-   *
-   *          <p>A document that defines an entity. </p>
-   *
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   *
-   *          <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
-   *       cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other
-   *       AWS services that the flow uses.</p>
-   *
-   */
-  flowActionsRoleArn?: string;
-
-  /**
-   *
-   *          <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
-   *
-   */
-  metricsConfiguration?: MetricsConfiguration;
-
-  /**
-   *
-   *          <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>
-   *
-   */
-  s3BucketName?: string;
-
-  /**
-   *
-   *          <p>An object that contains summary information about a system instance.</p>
-   *
-   */
-  summary?: SystemInstanceSummary;
-
-  /**
-   *
-   *          <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
-   *
-   */
-  validatedDependencyRevisions?: Array<DependencyRevision>;
-
-  /**
-   *
-   *          <p>The version of the user's namespace against which the system instance was validated.</p>
-   *
-   */
-  validatedNamespaceVersion?: number;
-}
-
-export namespace SystemInstanceDescription {
-  export function isa(o: any): o is SystemInstanceDescription {
-    return _smithy.isa(o, "SystemInstanceDescription");
-  }
-}
-
-/**
- *
- *          <p>An object that filters a system instance search.
- *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
- *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
- *
- */
-export interface SystemInstanceFilter {
-  __type?: "SystemInstanceFilter";
-  /**
-   *
-   *          <p>The name of the search filter field.</p>
-   *
-   */
-  name?: SystemInstanceFilterName | string;
-
-  /**
-   *
-   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
-   *
-   */
-  value?: Array<string>;
-}
-
-export namespace SystemInstanceFilter {
-  export function isa(o: any): o is SystemInstanceFilter {
-    return _smithy.isa(o, "SystemInstanceFilter");
-  }
-}
-
-/**
- *
- *          <p>An object that contains summary information about a system instance.</p>
- *
- */
-export interface SystemInstanceSummary {
-  __type?: "SystemInstanceSummary";
-  /**
-   *
-   *          <p>The ARN of the system instance.</p>
-   *
-   */
-  arn?: string;
-
-  /**
-   *
-   *          <p>The date when the system instance was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The ID of the Greengrass group where the system instance is deployed.</p>
-   *
-   */
-  greengrassGroupId?: string;
-
-  /**
-   *
-   *          <p>The ID of the Greengrass group where the system instance is deployed.</p>
-   *
-   */
-  greengrassGroupName?: string;
-
-  /**
-   *
-   *          <p>The version of the Greengrass group where the system instance is deployed.</p>
-   *
-   */
-  greengrassGroupVersionId?: string;
-
-  /**
-   *
-   *          <p>The ID of the system instance.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *          <p>The status of the system instance.</p>
-   *
-   */
-  status?: SystemInstanceDeploymentStatus | string;
-
-  /**
-   *
-   *          <p>The target of the system instance.</p>
-   *
-   */
-  target?: DeploymentTarget | string;
-
-  /**
-   *
-   *          <p>
-   *
-   *          The date and time when the system instance was last updated.</p>
-   *
-   */
-  updatedAt?: Date;
-}
-
-export namespace SystemInstanceSummary {
-  export function isa(o: any): o is SystemInstanceSummary {
-    return _smithy.isa(o, "SystemInstanceSummary");
-  }
-}
-
-/**
- *
- *          <p>An object that contains a system's definition document and summary information.</p>
- *
- */
-export interface SystemTemplateDescription {
-  __type?: "SystemTemplateDescription";
-  /**
-   *
-   *          <p>The definition document of a system.</p>
-   *
-   */
-  definition?: DefinitionDocument;
-
-  /**
-   *
-   *          <p>An object that contains summary information about a system.</p>
-   *
-   */
-  summary?: SystemTemplateSummary;
-
-  /**
-   *
-   *          <p>The namespace version against which the system was validated. Use this value in your system instance.</p>
-   *
-   */
-  validatedNamespaceVersion?: number;
-}
-
-export namespace SystemTemplateDescription {
-  export function isa(o: any): o is SystemTemplateDescription {
-    return _smithy.isa(o, "SystemTemplateDescription");
-  }
-}
-
-/**
- *
- *          <p>An object that filters a system search.</p>
- *
- */
-export interface SystemTemplateFilter {
-  __type?: "SystemTemplateFilter";
-  /**
-   *
-   *          <p>The name of the system search filter field.</p>
-   *
-   */
-  name: SystemTemplateFilterName | string | undefined;
-
-  /**
-   *
-   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   *
-   */
-  value: Array<string> | undefined;
-}
-
-export namespace SystemTemplateFilter {
-  export function isa(o: any): o is SystemTemplateFilter {
-    return _smithy.isa(o, "SystemTemplateFilter");
-  }
-}
-
-/**
- *
- *          <p>An object that contains information about a system.</p>
- *
- */
-export interface SystemTemplateSummary {
-  __type?: "SystemTemplateSummary";
-  /**
-   *
-   *          <p>The ARN of the system.</p>
-   *
-   */
-  arn?: string;
-
-  /**
-   *
-   *          <p>The date when the system was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The ID of the system.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *          <p>The revision number of the system.</p>
-   *
-   */
-  revisionNumber?: number;
-}
-
-export namespace SystemTemplateSummary {
-  export function isa(o: any): o is SystemTemplateSummary {
-    return _smithy.isa(o, "SystemTemplateSummary");
-  }
-}
-
-/**
- *
- *          <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
- *
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   *
-   *          <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
-   *
-   */
-  key: string | undefined;
-
-  /**
-   *
-   *          <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
-   *
-   */
-  value: string | undefined;
-}
-
-export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
-  }
-}
-
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
@@ -2322,54 +1431,6 @@ export interface TagResourceResponse extends $MetadataBearer {
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
     return _smithy.isa(o, "TagResourceResponse");
-  }
-}
-
-/**
- *
- *          <p>An AWS IoT thing.</p>
- *
- */
-export interface Thing {
-  __type?: "Thing";
-  /**
-   *
-   *          <p>The ARN of the thing.</p>
-   *
-   */
-  thingArn?: string;
-
-  /**
-   *
-   *          <p>The name of the thing.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace Thing {
-  export function isa(o: any): o is Thing {
-    return _smithy.isa(o, "Thing");
-  }
-}
-
-/**
- *
- *          <p></p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
   }
 }
 
@@ -2586,5 +1647,944 @@ export interface UploadEntityDefinitionsResponse extends $MetadataBearer {
 export namespace UploadEntityDefinitionsResponse {
   export function isa(o: any): o is UploadEntityDefinitionsResponse {
     return _smithy.isa(o, "UploadEntityDefinitionsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Metadata assigned to an AWS IoT Things Graph resource consisting of a key-value pair.</p>
+ *
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   *
+   *          <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
+   *
+   */
+  key: string | undefined;
+
+  /**
+   *
+   *          <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
+   *
+   */
+  value: string | undefined;
+}
+
+export namespace Tag {
+  export function isa(o: any): o is Tag {
+    return _smithy.isa(o, "Tag");
+  }
+}
+
+/**
+ *
+ *          <p>A document that defines an entity. </p>
+ *
+ */
+export interface DefinitionDocument {
+  __type?: "DefinitionDocument";
+  /**
+   *
+   *          <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
+   *
+   */
+  language: DefinitionLanguage | string | undefined;
+
+  /**
+   *
+   *          <p>The GraphQL text that defines the entity.</p>
+   *
+   */
+  text: string | undefined;
+}
+
+export namespace DefinitionDocument {
+  export function isa(o: any): o is DefinitionDocument {
+    return _smithy.isa(o, "DefinitionDocument");
+  }
+}
+
+export enum DefinitionLanguage {
+  GRAPHQL = "GRAPHQL"
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequestException";
+  name: "InvalidRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export function isa(o: any): o is InvalidRequestException {
+    return _smithy.isa(o, "InvalidRequestException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceInUseException";
+  name: "ResourceInUseException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export function isa(o: any): o is ResourceInUseException {
+    return _smithy.isa(o, "ResourceInUseException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p></p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
+}
+
+/**
+ *
+ *          <p>Describes the properties of an entity.</p>
+ *
+ */
+export interface EntityDescription {
+  __type?: "EntityDescription";
+  /**
+   *
+   *          <p>The entity ARN.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>The time at which the entity was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The definition document of the entity.</p>
+   *
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   *
+   *          <p>The entity ID.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *          <p>The entity type.</p>
+   *
+   */
+  type?: EntityType | string;
+}
+
+export namespace EntityDescription {
+  export function isa(o: any): o is EntityDescription {
+    return _smithy.isa(o, "EntityDescription");
+  }
+}
+
+/**
+ *
+ *          <p>An object that filters an entity search. Multiple filters function as OR criteria in the search. For example a search that includes
+ *       a <code>NAMESPACE</code> and a <code>REFERENCED_ENTITY_ID</code> filter searches for entities in the specified namespace that use the entity specified by
+ *       the value of <code>REFERENCED_ENTITY_ID</code>.</p>
+ *
+ */
+export interface EntityFilter {
+  __type?: "EntityFilter";
+  /**
+   *
+   *          <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
+   *          you can filter on the ID of a property that is used in a state.</p>
+   *
+   */
+  name?: EntityFilterName | string;
+
+  /**
+   *
+   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   *
+   */
+  value?: Array<string>;
+}
+
+export namespace EntityFilter {
+  export function isa(o: any): o is EntityFilter {
+    return _smithy.isa(o, "EntityFilter");
+  }
+}
+
+export enum EntityFilterName {
+  NAME = "NAME",
+  NAMESPACE = "NAMESPACE",
+  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
+  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
+}
+
+export enum EntityType {
+  ACTION = "ACTION",
+  CAPABILITY = "CAPABILITY",
+  DEVICE = "DEVICE",
+  DEVICE_MODEL = "DEVICE_MODEL",
+  ENUM = "ENUM",
+  EVENT = "EVENT",
+  MAPPING = "MAPPING",
+  PROPERTY = "PROPERTY",
+  SERVICE = "SERVICE",
+  STATE = "STATE"
+}
+
+export enum NamespaceDeletionStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum NamespaceDeletionStatusErrorCodes {
+  VALIDATION_FAILED = "VALIDATION_FAILED"
+}
+
+/**
+ *
+ *          <p>An AWS IoT thing.</p>
+ *
+ */
+export interface Thing {
+  __type?: "Thing";
+  /**
+   *
+   *          <p>The ARN of the thing.</p>
+   *
+   */
+  thingArn?: string;
+
+  /**
+   *
+   *          <p>The name of the thing.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace Thing {
+  export function isa(o: any): o is Thing {
+    return _smithy.isa(o, "Thing");
+  }
+}
+
+export enum UploadStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+/**
+ *
+ *          <p>An object that contains the ID and revision number of a workflow or system that is part of a deployment.</p>
+ *
+ */
+export interface DependencyRevision {
+  __type?: "DependencyRevision";
+  /**
+   *
+   *          <p>The ID of the workflow or system.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *          <p>The revision number of the workflow or system.</p>
+   *
+   */
+  revisionNumber?: number;
+}
+
+export namespace DependencyRevision {
+  export function isa(o: any): o is DependencyRevision {
+    return _smithy.isa(o, "DependencyRevision");
+  }
+}
+
+export enum DeploymentTarget {
+  CLOUD = "CLOUD",
+  GREENGRASS = "GREENGRASS"
+}
+
+export enum FlowExecutionEventType {
+  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
+  ACTIVITY_FAILED = "ACTIVITY_FAILED",
+  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
+  ACTIVITY_STARTED = "ACTIVITY_STARTED",
+  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
+  EXECUTION_ABORTED = "EXECUTION_ABORTED",
+  EXECUTION_FAILED = "EXECUTION_FAILED",
+  EXECUTION_STARTED = "EXECUTION_STARTED",
+  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
+  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
+  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
+  STEP_FAILED = "STEP_FAILED",
+  STEP_STARTED = "STEP_STARTED",
+  STEP_SUCCEEDED = "STEP_SUCCEEDED",
+  THING_ACTION_TASK = "THING_ACTION_TASK",
+  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
+  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
+}
+
+/**
+ *
+ *          <p>An object that contains information about a flow event.</p>
+ *
+ */
+export interface FlowExecutionMessage {
+  __type?: "FlowExecutionMessage";
+  /**
+   *
+   *          <p>The type of flow event .</p>
+   *
+   */
+  eventType?: FlowExecutionEventType | string;
+
+  /**
+   *
+   *          <p>The unique identifier of the message.</p>
+   *
+   */
+  messageId?: string;
+
+  /**
+   *
+   *          <p>A string containing information about the flow event.</p>
+   *
+   */
+  payload?: string;
+
+  /**
+   *
+   *          <p>The date and time when the message was last updated.</p>
+   *
+   */
+  timestamp?: Date;
+}
+
+export namespace FlowExecutionMessage {
+  export function isa(o: any): o is FlowExecutionMessage {
+    return _smithy.isa(o, "FlowExecutionMessage");
+  }
+}
+
+export enum FlowExecutionStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+/**
+ *
+ *          <p>An object that contains summary information about a flow execution.</p>
+ *
+ */
+export interface FlowExecutionSummary {
+  __type?: "FlowExecutionSummary";
+  /**
+   *
+   *          <p>The date and time when the flow execution summary was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The ID of the flow execution.</p>
+   *
+   */
+  flowExecutionId?: string;
+
+  /**
+   *
+   *          <p>The ID of the flow.</p>
+   *
+   */
+  flowTemplateId?: string;
+
+  /**
+   *
+   *          <p>The current status of the flow execution.</p>
+   *
+   */
+  status?: FlowExecutionStatus | string;
+
+  /**
+   *
+   *          <p>The ID of the system instance that contains the flow.</p>
+   *
+   */
+  systemInstanceId?: string;
+
+  /**
+   *
+   *          <p>The date and time when the flow execution summary was last updated.</p>
+   *
+   */
+  updatedAt?: Date;
+}
+
+export namespace FlowExecutionSummary {
+  export function isa(o: any): o is FlowExecutionSummary {
+    return _smithy.isa(o, "FlowExecutionSummary");
+  }
+}
+
+/**
+ *
+ *          <p>An object that contains a workflow's definition and summary information.</p>
+ *
+ */
+export interface FlowTemplateDescription {
+  __type?: "FlowTemplateDescription";
+  /**
+   *
+   *          <p>A workflow's definition document.</p>
+   *
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   *
+   *          <p>An object that contains summary information about a workflow.</p>
+   *
+   */
+  summary?: FlowTemplateSummary;
+
+  /**
+   *
+   *          <p>The version of the user's namespace against which the workflow was validated. Use this value in your system instance.</p>
+   *
+   */
+  validatedNamespaceVersion?: number;
+}
+
+export namespace FlowTemplateDescription {
+  export function isa(o: any): o is FlowTemplateDescription {
+    return _smithy.isa(o, "FlowTemplateDescription");
+  }
+}
+
+/**
+ *
+ *          <p>An object that filters a workflow search.</p>
+ *
+ */
+export interface FlowTemplateFilter {
+  __type?: "FlowTemplateFilter";
+  /**
+   *
+   *          <p>The name of the search filter field.</p>
+   *
+   */
+  name: FlowTemplateFilterName | string | undefined;
+
+  /**
+   *
+   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   *
+   */
+  value: Array<string> | undefined;
+}
+
+export namespace FlowTemplateFilter {
+  export function isa(o: any): o is FlowTemplateFilter {
+    return _smithy.isa(o, "FlowTemplateFilter");
+  }
+}
+
+export enum FlowTemplateFilterName {
+  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
+}
+
+/**
+ *
+ *          <p>An object that contains summary information about a workflow.</p>
+ *
+ */
+export interface FlowTemplateSummary {
+  __type?: "FlowTemplateSummary";
+  /**
+   *
+   *          <p>The ARN of the workflow.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>The date when the workflow was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The ID of the workflow.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *          <p>The revision number of the workflow.</p>
+   *
+   */
+  revisionNumber?: number;
+}
+
+export namespace FlowTemplateSummary {
+  export function isa(o: any): o is FlowTemplateSummary {
+    return _smithy.isa(o, "FlowTemplateSummary");
+  }
+}
+
+/**
+ *
+ *          <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+ *
+ */
+export interface MetricsConfiguration {
+  __type?: "MetricsConfiguration";
+  /**
+   *
+   *          <p>A Boolean that specifies whether cloud metrics are collected.</p>
+   *
+   */
+  cloudMetricEnabled?: boolean;
+
+  /**
+   *
+   *          <p>The ARN of the role that is used to collect cloud metrics.</p>
+   *
+   */
+  metricRuleRoleArn?: string;
+}
+
+export namespace MetricsConfiguration {
+  export function isa(o: any): o is MetricsConfiguration {
+    return _smithy.isa(o, "MetricsConfiguration");
+  }
+}
+
+export enum SystemInstanceDeploymentStatus {
+  BOOTSTRAP = "BOOTSTRAP",
+  DELETED_IN_TARGET = "DELETED_IN_TARGET",
+  DEPLOYED_IN_TARGET = "DEPLOYED_IN_TARGET",
+  DEPLOY_IN_PROGRESS = "DEPLOY_IN_PROGRESS",
+  FAILED = "FAILED",
+  NOT_DEPLOYED = "NOT_DEPLOYED",
+  PENDING_DELETE = "PENDING_DELETE",
+  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS"
+}
+
+/**
+ *
+ *          <p>An object that contains a system instance definition and summary information.</p>
+ *
+ */
+export interface SystemInstanceDescription {
+  __type?: "SystemInstanceDescription";
+  /**
+   *
+   *          <p>A document that defines an entity. </p>
+   *
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   *
+   *          <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
+   *       cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other
+   *       AWS services that the flow uses.</p>
+   *
+   */
+  flowActionsRoleArn?: string;
+
+  /**
+   *
+   *          <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+   *
+   */
+  metricsConfiguration?: MetricsConfiguration;
+
+  /**
+   *
+   *          <p>The Amazon Simple Storage Service bucket where information about a system instance is stored.</p>
+   *
+   */
+  s3BucketName?: string;
+
+  /**
+   *
+   *          <p>An object that contains summary information about a system instance.</p>
+   *
+   */
+  summary?: SystemInstanceSummary;
+
+  /**
+   *
+   *          <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
+   *
+   */
+  validatedDependencyRevisions?: Array<DependencyRevision>;
+
+  /**
+   *
+   *          <p>The version of the user's namespace against which the system instance was validated.</p>
+   *
+   */
+  validatedNamespaceVersion?: number;
+}
+
+export namespace SystemInstanceDescription {
+  export function isa(o: any): o is SystemInstanceDescription {
+    return _smithy.isa(o, "SystemInstanceDescription");
+  }
+}
+
+/**
+ *
+ *          <p>An object that filters a system instance search.
+ *          Multiple filters function as OR criteria in the search. For example a search that includes a GREENGRASS_GROUP_NAME and a
+ *          STATUS filter searches for system instances in the specified Greengrass group that have the specified status.</p>
+ *
+ */
+export interface SystemInstanceFilter {
+  __type?: "SystemInstanceFilter";
+  /**
+   *
+   *          <p>The name of the search filter field.</p>
+   *
+   */
+  name?: SystemInstanceFilterName | string;
+
+  /**
+   *
+   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
+   *
+   */
+  value?: Array<string>;
+}
+
+export namespace SystemInstanceFilter {
+  export function isa(o: any): o is SystemInstanceFilter {
+    return _smithy.isa(o, "SystemInstanceFilter");
+  }
+}
+
+export enum SystemInstanceFilterName {
+  GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
+  STATUS = "STATUS",
+  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID"
+}
+
+/**
+ *
+ *          <p>An object that contains summary information about a system instance.</p>
+ *
+ */
+export interface SystemInstanceSummary {
+  __type?: "SystemInstanceSummary";
+  /**
+   *
+   *          <p>The ARN of the system instance.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>The date when the system instance was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   *
+   */
+  greengrassGroupId?: string;
+
+  /**
+   *
+   *          <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   *
+   */
+  greengrassGroupName?: string;
+
+  /**
+   *
+   *          <p>The version of the Greengrass group where the system instance is deployed.</p>
+   *
+   */
+  greengrassGroupVersionId?: string;
+
+  /**
+   *
+   *          <p>The ID of the system instance.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *          <p>The status of the system instance.</p>
+   *
+   */
+  status?: SystemInstanceDeploymentStatus | string;
+
+  /**
+   *
+   *          <p>The target of the system instance.</p>
+   *
+   */
+  target?: DeploymentTarget | string;
+
+  /**
+   *
+   *          <p>
+   *
+   *          The date and time when the system instance was last updated.</p>
+   *
+   */
+  updatedAt?: Date;
+}
+
+export namespace SystemInstanceSummary {
+  export function isa(o: any): o is SystemInstanceSummary {
+    return _smithy.isa(o, "SystemInstanceSummary");
+  }
+}
+
+/**
+ *
+ *          <p>An object that contains a system's definition document and summary information.</p>
+ *
+ */
+export interface SystemTemplateDescription {
+  __type?: "SystemTemplateDescription";
+  /**
+   *
+   *          <p>The definition document of a system.</p>
+   *
+   */
+  definition?: DefinitionDocument;
+
+  /**
+   *
+   *          <p>An object that contains summary information about a system.</p>
+   *
+   */
+  summary?: SystemTemplateSummary;
+
+  /**
+   *
+   *          <p>The namespace version against which the system was validated. Use this value in your system instance.</p>
+   *
+   */
+  validatedNamespaceVersion?: number;
+}
+
+export namespace SystemTemplateDescription {
+  export function isa(o: any): o is SystemTemplateDescription {
+    return _smithy.isa(o, "SystemTemplateDescription");
+  }
+}
+
+/**
+ *
+ *          <p>An object that filters a system search.</p>
+ *
+ */
+export interface SystemTemplateFilter {
+  __type?: "SystemTemplateFilter";
+  /**
+   *
+   *          <p>The name of the system search filter field.</p>
+   *
+   */
+  name: SystemTemplateFilterName | string | undefined;
+
+  /**
+   *
+   *          <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   *
+   */
+  value: Array<string> | undefined;
+}
+
+export namespace SystemTemplateFilter {
+  export function isa(o: any): o is SystemTemplateFilter {
+    return _smithy.isa(o, "SystemTemplateFilter");
+  }
+}
+
+export enum SystemTemplateFilterName {
+  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID"
+}
+
+/**
+ *
+ *          <p>An object that contains information about a system.</p>
+ *
+ */
+export interface SystemTemplateSummary {
+  __type?: "SystemTemplateSummary";
+  /**
+   *
+   *          <p>The ARN of the system.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>The date when the system was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The ID of the system.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *          <p>The revision number of the system.</p>
+   *
+   */
+  revisionNumber?: number;
+}
+
+export namespace SystemTemplateSummary {
+  export function isa(o: any): o is SystemTemplateSummary {
+    return _smithy.isa(o, "SystemTemplateSummary");
   }
 }

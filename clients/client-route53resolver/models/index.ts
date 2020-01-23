@@ -1,60 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum IpAddressStatus {
-  Attached = "ATTACHED",
-  Attaching = "ATTACHING",
-  Creating = "CREATING",
-  DeleteFailedFasExpired = "DELETE_FAILED_FAS_EXPIRED",
-  Deleting = "DELETING",
-  Detaching = "DETACHING",
-  FailedCreation = "FAILED_CREATION",
-  FailedResourceGone = "FAILED_RESOURCE_GONE",
-  RemapAttaching = "REMAP_ATTACHING",
-  RemapDetaching = "REMAP_DETACHING"
-}
-
-export enum ResolverEndpointDirection {
-  Inbound = "INBOUND",
-  Outbound = "OUTBOUND"
-}
-
-export enum ResolverEndpointStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  AutoRecovering = "AUTO_RECOVERING",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Operational = "OPERATIONAL",
-  Updating = "UPDATING"
-}
-
-export enum ResolverRuleAssociationStatus {
-  Complete = "COMPLETE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Overridden = "OVERRIDDEN"
-}
-
-export enum ResolverRuleStatus {
-  Complete = "COMPLETE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Updating = "UPDATING"
-}
-
-export enum RuleTypeOption {
-  Forward = "FORWARD",
-  Recursive = "RECURSIVE",
-  System = "SYSTEM"
-}
-
-export enum ShareStatus {
-  NotShared = "NOT_SHARED",
-  SharedByMe = "SHARED_BY_ME",
-  SharedWithMe = "SHARED_WITH_ME"
-}
-
 export interface AssociateResolverEndpointIpAddressRequest {
   __type?: "AssociateResolverEndpointIpAddressRequest";
   /**
@@ -827,6 +773,19 @@ export namespace IpAddressResponse {
   }
 }
 
+export enum IpAddressStatus {
+  Attached = "ATTACHED",
+  Attaching = "ATTACHING",
+  Creating = "CREATING",
+  DeleteFailedFasExpired = "DELETE_FAILED_FAS_EXPIRED",
+  Deleting = "DELETING",
+  Detaching = "DETACHING",
+  FailedCreation = "FAILED_CREATION",
+  FailedResourceGone = "FAILED_RESOURCE_GONE",
+  RemapAttaching = "REMAP_ATTACHING",
+  RemapDetaching = "REMAP_DETACHING"
+}
+
 /**
  *
  * 		       <p>In an <a>UpdateResolverEndpoint</a> request, information about an IP address to update.</p>
@@ -1385,6 +1344,20 @@ export namespace ResolverEndpoint {
   }
 }
 
+export enum ResolverEndpointDirection {
+  Inbound = "INBOUND",
+  Outbound = "OUTBOUND"
+}
+
+export enum ResolverEndpointStatus {
+  ActionNeeded = "ACTION_NEEDED",
+  AutoRecovering = "AUTO_RECOVERING",
+  Creating = "CREATING",
+  Deleting = "DELETING",
+  Operational = "OPERATIONAL",
+  Updating = "UPDATING"
+}
+
 /**
  *
  * 		       <p>For queries that originate in your VPC, detailed information about a resolver rule, which specifies how to route DNS queries
@@ -1549,6 +1522,14 @@ export namespace ResolverRuleAssociation {
   }
 }
 
+export enum ResolverRuleAssociationStatus {
+  Complete = "COMPLETE",
+  Creating = "CREATING",
+  Deleting = "DELETING",
+  Failed = "FAILED",
+  Overridden = "OVERRIDDEN"
+}
+
 /**
  *
  * 		       <p>In an <a>UpdateResolverRule</a> request, information about the changes that you want to make.</p>
@@ -1583,6 +1564,13 @@ export namespace ResolverRuleConfig {
   export function isa(o: any): o is ResolverRuleConfig {
     return _smithy.isa(o, "ResolverRuleConfig");
   }
+}
+
+export enum ResolverRuleStatus {
+  Complete = "COMPLETE",
+  Deleting = "DELETING",
+  Failed = "FAILED",
+  Updating = "UPDATING"
 }
 
 /**
@@ -1687,6 +1675,18 @@ export namespace ResourceUnavailableException {
   export function isa(o: any): o is ResourceUnavailableException {
     return _smithy.isa(o, "ResourceUnavailableException");
   }
+}
+
+export enum RuleTypeOption {
+  Forward = "FORWARD",
+  Recursive = "RECURSIVE",
+  System = "SYSTEM"
+}
+
+export enum ShareStatus {
+  NotShared = "NOT_SHARED",
+  SharedByMe = "SHARED_BY_ME",
+  SharedWithMe = "SHARED_WITH_ME"
 }
 
 /**

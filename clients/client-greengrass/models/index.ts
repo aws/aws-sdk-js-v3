@@ -1,85 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BulkDeploymentStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  Initializing = "Initializing",
-  Running = "Running",
-  Stopped = "Stopped",
-  Stopping = "Stopping"
-}
-
-export enum DeploymentType {
-  ForceResetDeployment = "ForceResetDeployment",
-  NewDeployment = "NewDeployment",
-  Redeployment = "Redeployment",
-  ResetDeployment = "ResetDeployment"
-}
-
-export enum EncodingType {
-  binary = "binary",
-  json = "json"
-}
-
-export enum FunctionIsolationMode {
-  GreengrassContainer = "GreengrassContainer",
-  NoContainer = "NoContainer"
-}
-
-export enum LoggerComponent {
-  GreengrassSystem = "GreengrassSystem",
-  Lambda = "Lambda"
-}
-
-export enum LoggerLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  WARN = "WARN"
-}
-
-export enum LoggerType {
-  AWSCloudWatch = "AWSCloudWatch",
-  FileSystem = "FileSystem"
-}
-
-export enum Permission {
-  ro = "ro",
-  rw = "rw"
-}
-
-export enum SoftwareToUpdate {
-  core = "core",
-  ota_agent = "ota_agent"
-}
-
-export enum UpdateAgentLogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  NONE = "NONE",
-  TRACE = "TRACE",
-  VERBOSE = "VERBOSE",
-  WARN = "WARN"
-}
-
-export enum UpdateTargetsArchitecture {
-  aarch64 = "aarch64",
-  armv6l = "armv6l",
-  armv7l = "armv7l",
-  x86_64 = "x86_64"
-}
-
-export enum UpdateTargetsOperatingSystem {
-  amazon_linux = "amazon_linux",
-  openwrt = "openwrt",
-  raspbian = "raspbian",
-  ubuntu = "ubuntu"
-}
-
 export interface AssociateRoleToGroupRequest {
   __type?: "AssociateRoleToGroupRequest";
   /**
@@ -271,6 +192,15 @@ export namespace BulkDeploymentResult {
   export function isa(o: any): o is BulkDeploymentResult {
     return _smithy.isa(o, "BulkDeploymentResult");
   }
+}
+
+export enum BulkDeploymentStatus {
+  Completed = "Completed",
+  Failed = "Failed",
+  Initializing = "Initializing",
+  Running = "Running",
+  Stopped = "Stopped",
+  Stopping = "Stopping"
 }
 
 /**
@@ -1892,6 +1822,13 @@ export namespace Deployment {
   }
 }
 
+export enum DeploymentType {
+  ForceResetDeployment = "ForceResetDeployment",
+  NewDeployment = "NewDeployment",
+  Redeployment = "Redeployment",
+  ResetDeployment = "ResetDeployment"
+}
+
 /**
  * Information about a device.
  */
@@ -1992,6 +1929,11 @@ export namespace DisassociateServiceRoleFromAccountResponse {
   export function isa(o: any): o is DisassociateServiceRoleFromAccountResponse {
     return _smithy.isa(o, "DisassociateServiceRoleFromAccountResponse");
   }
+}
+
+export enum EncodingType {
+  binary = "binary",
+  json = "json"
 }
 
 /**
@@ -2203,6 +2145,11 @@ export namespace FunctionExecutionConfig {
   export function isa(o: any): o is FunctionExecutionConfig {
     return _smithy.isa(o, "FunctionExecutionConfig");
   }
+}
+
+export enum FunctionIsolationMode {
+  GreengrassContainer = "GreengrassContainer",
+  NoContainer = "NoContainer"
 }
 
 /**
@@ -4573,6 +4520,11 @@ export namespace Logger {
   }
 }
 
+export enum LoggerComponent {
+  GreengrassSystem = "GreengrassSystem",
+  Lambda = "Lambda"
+}
+
 /**
  * Information about a logger definition version.
  */
@@ -4588,6 +4540,24 @@ export namespace LoggerDefinitionVersion {
   export function isa(o: any): o is LoggerDefinitionVersion {
     return _smithy.isa(o, "LoggerDefinitionVersion");
   }
+}
+
+export enum LoggerLevel {
+  DEBUG = "DEBUG",
+  ERROR = "ERROR",
+  FATAL = "FATAL",
+  INFO = "INFO",
+  WARN = "WARN"
+}
+
+export enum LoggerType {
+  AWSCloudWatch = "AWSCloudWatch",
+  FileSystem = "FileSystem"
+}
+
+export enum Permission {
+  ro = "ro",
+  rw = "rw"
 }
 
 /**
@@ -4837,6 +4807,11 @@ export namespace SecretsManagerSecretResourceData {
   }
 }
 
+export enum SoftwareToUpdate {
+  core = "core",
+  ota_agent = "ota_agent"
+}
+
 export interface StartBulkDeploymentRequest {
   __type?: "StartBulkDeploymentRequest";
   /**
@@ -4997,6 +4972,17 @@ export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
     return _smithy.isa(o, "UntagResourceRequest");
   }
+}
+
+export enum UpdateAgentLogLevel {
+  DEBUG = "DEBUG",
+  ERROR = "ERROR",
+  FATAL = "FATAL",
+  INFO = "INFO",
+  NONE = "NONE",
+  TRACE = "TRACE",
+  VERBOSE = "VERBOSE",
+  WARN = "WARN"
 }
 
 /**
@@ -5316,6 +5302,20 @@ export namespace UpdateSubscriptionDefinitionResponse {
   export function isa(o: any): o is UpdateSubscriptionDefinitionResponse {
     return _smithy.isa(o, "UpdateSubscriptionDefinitionResponse");
   }
+}
+
+export enum UpdateTargetsArchitecture {
+  aarch64 = "aarch64",
+  armv6l = "armv6l",
+  armv7l = "armv7l",
+  x86_64 = "x86_64"
+}
+
+export enum UpdateTargetsOperatingSystem {
+  amazon_linux = "amazon_linux",
+  openwrt = "openwrt",
+  raspbian = "raspbian",
+  ubuntu = "ubuntu"
 }
 
 /**

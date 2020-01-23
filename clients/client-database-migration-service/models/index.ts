@@ -1,93 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AuthMechanismValue {
-  DEFAULT = "default",
-  MONGODB_CR = "mongodb_cr",
-  SCRAM_SHA_1 = "scram_sha_1"
-}
-
-export enum AuthTypeValue {
-  NO = "no",
-  PASSWORD = "password"
-}
-
-export enum CompressionTypeValue {
-  GZIP = "gzip",
-  NONE = "none"
-}
-
-export enum DataFormatValue {
-  CSV = "csv",
-  PARQUET = "parquet"
-}
-
-export enum DmsSslModeValue {
-  NONE = "none",
-  REQUIRE = "require",
-  VERIFY_CA = "verify-ca",
-  VERIFY_FULL = "verify-full"
-}
-
-export enum EncodingTypeValue {
-  PLAIN = "plain",
-  PLAIN_DICTIONARY = "plain-dictionary",
-  RLE_DICTIONARY = "rle-dictionary"
-}
-
-export enum EncryptionModeValue {
-  SSE_KMS = "sse-kms",
-  SSE_S3 = "sse-s3"
-}
-
-export enum MessageFormatValue {
-  JSON = "json"
-}
-
-export enum MigrationTypeValue {
-  CDC = "cdc",
-  FULL_LOAD = "full-load",
-  FULL_LOAD_AND_CDC = "full-load-and-cdc"
-}
-
-export enum NestingLevelValue {
-  NONE = "none",
-  ONE = "one"
-}
-
-export enum ParquetVersionValue {
-  PARQUET_1_0 = "parquet-1-0",
-  PARQUET_2_0 = "parquet-2-0"
-}
-
-export enum RefreshSchemasStatusTypeValue {
-  FAILED = "failed",
-  REFRESHING = "refreshing",
-  SUCCESSFUL = "successful"
-}
-
-export enum ReleaseStatusValues {
-  BETA = "beta"
-}
-
-export enum ReloadOptionValue {
-  DATA_RELOAD = "data-reload",
-  VALIDATE_ONLY = "validate-only"
-}
-
-export enum ReplicationEndpointTypeValue {
-  SOURCE = "source",
-  TARGET = "target"
-}
-
-export type SourceType = "replication-instance";
-
-export enum StartReplicationTaskTypeValue {
-  RELOAD_TARGET = "reload-target",
-  RESUME_PROCESSING = "resume-processing",
-  START_REPLICATION = "start-replication"
-}
-
 /**
  *
  *         <p>AWS DMS was denied access to the endpoint. Check that the
@@ -111,6 +24,455 @@ export interface AccessDeniedFault
 export namespace AccessDeniedFault {
   export function isa(o: any): o is AccessDeniedFault {
     return _smithy.isa(o, "AccessDeniedFault");
+  }
+}
+
+/**
+ *
+ *         <p>There are not enough resources allocated to the database migration.</p>
+ *
+ */
+export interface InsufficientResourceCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientResourceCapacityFault";
+  name: "InsufficientResourceCapacityFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InsufficientResourceCapacityFault {
+  export function isa(o: any): o is InsufficientResourceCapacityFault {
+    return _smithy.isa(o, "InsufficientResourceCapacityFault");
+  }
+}
+
+/**
+ *
+ *         <p>The certificate was not valid.</p>
+ *
+ */
+export interface InvalidCertificateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidCertificateFault";
+  name: "InvalidCertificateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCertificateFault {
+  export function isa(o: any): o is InvalidCertificateFault {
+    return _smithy.isa(o, "InvalidCertificateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ */
+export interface InvalidResourceStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidResourceStateFault";
+  name: "InvalidResourceStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidResourceStateFault {
+  export function isa(o: any): o is InvalidResourceStateFault {
+    return _smithy.isa(o, "InvalidResourceStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The subnet provided is invalid.</p>
+ *
+ */
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubnet";
+  name: "InvalidSubnet";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export function isa(o: any): o is InvalidSubnet {
+    return _smithy.isa(o, "InvalidSubnet");
+  }
+}
+
+/**
+ *
+ *         <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ */
+export interface KMSAccessDeniedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSAccessDeniedFault";
+  name: "KMSAccessDeniedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSAccessDeniedFault {
+  export function isa(o: any): o is KMSAccessDeniedFault {
+    return _smithy.isa(o, "KMSAccessDeniedFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified master key (CMK) isn't enabled.</p>
+ *
+ */
+export interface KMSDisabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSDisabledFault";
+  name: "KMSDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSDisabledFault {
+  export function isa(o: any): o is KMSDisabledFault {
+    return _smithy.isa(o, "KMSDisabledFault");
+  }
+}
+
+/**
+ *
+ *         <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
+ *
+ */
+export interface KMSInvalidStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSInvalidStateFault";
+  name: "KMSInvalidStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSInvalidStateFault {
+  export function isa(o: any): o is KMSInvalidStateFault {
+    return _smithy.isa(o, "KMSInvalidStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>AWS DMS cannot access the AWS KMS key.</p>
+ *
+ */
+export interface KMSKeyNotAccessibleFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSKeyNotAccessibleFault";
+  name: "KMSKeyNotAccessibleFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace KMSKeyNotAccessibleFault {
+  export function isa(o: any): o is KMSKeyNotAccessibleFault {
+    return _smithy.isa(o, "KMSKeyNotAccessibleFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified AWS KMS entity or resource can't be found.</p>
+ *
+ */
+export interface KMSNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSNotFoundFault";
+  name: "KMSNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSNotFoundFault {
+  export function isa(o: any): o is KMSNotFoundFault {
+    return _smithy.isa(o, "KMSNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>This request triggered AWS KMS request throttling.</p>
+ *
+ */
+export interface KMSThrottlingFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSThrottlingFault";
+  name: "KMSThrottlingFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KMSThrottlingFault {
+  export function isa(o: any): o is KMSThrottlingFault {
+    return _smithy.isa(o, "KMSThrottlingFault");
+  }
+}
+
+/**
+ *
+ *         <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ *
+ */
+export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
+  export function isa(
+    o: any
+  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs {
+    return _smithy.isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
+  }
+}
+
+/**
+ *
+ *         <p>The resource you are attempting to create already exists.</p>
+ *
+ */
+export interface ResourceAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsFault";
+  name: "ResourceAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+
+  resourceArn?: string;
+}
+
+export namespace ResourceAlreadyExistsFault {
+  export function isa(o: any): o is ResourceAlreadyExistsFault {
+    return _smithy.isa(o, "ResourceAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>The resource could not be found.</p>
+ *
+ */
+export interface ResourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundFault";
+  name: "ResourceNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundFault {
+  export function isa(o: any): o is ResourceNotFoundFault {
+    return _smithy.isa(o, "ResourceNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The quota for this resource quota has been exceeded.</p>
+ *
+ */
+export interface ResourceQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceQuotaExceededFault";
+  name: "ResourceQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceQuotaExceededFault {
+  export function isa(o: any): o is ResourceQuotaExceededFault {
+    return _smithy.isa(o, "ResourceQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The SNS topic is invalid.</p>
+ *
+ */
+export interface SNSInvalidTopicFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSInvalidTopicFault";
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export function isa(o: any): o is SNSInvalidTopicFault {
+    return _smithy.isa(o, "SNSInvalidTopicFault");
+  }
+}
+
+/**
+ *
+ *          <p>You are not authorized for the SNS subscription.</p>
+ *
+ */
+export interface SNSNoAuthorizationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSNoAuthorizationFault";
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export function isa(o: any): o is SNSNoAuthorizationFault {
+    return _smithy.isa(o, "SNSNoAuthorizationFault");
+  }
+}
+
+/**
+ *
+ *         <p>The storage quota has been exceeded.</p>
+ *
+ */
+export interface StorageQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "StorageQuotaExceededFault";
+  name: "StorageQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace StorageQuotaExceededFault {
+  export function isa(o: any): o is StorageQuotaExceededFault {
+    return _smithy.isa(o, "StorageQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified subnet is already in use.</p>
+ *
+ */
+export interface SubnetAlreadyInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetAlreadyInUse";
+  name: "SubnetAlreadyInUse";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SubnetAlreadyInUse {
+  export function isa(o: any): o is SubnetAlreadyInUse {
+    return _smithy.isa(o, "SubnetAlreadyInUse");
+  }
+}
+
+/**
+ *
+ *         <p>An upgrade dependency is preventing the database migration.</p>
+ *
+ */
+export interface UpgradeDependencyFailureFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UpgradeDependencyFailureFault";
+  name: "UpgradeDependencyFailureFault";
+  $fault: "client";
+  /**
+   *
+   *          <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace UpgradeDependencyFailureFault {
+  export function isa(o: any): o is UpgradeDependencyFailureFault {
+    return _smithy.isa(o, "UpgradeDependencyFailureFault");
   }
 }
 
@@ -269,6 +631,17 @@ export namespace ApplyPendingMaintenanceActionResponse {
   }
 }
 
+export enum AuthMechanismValue {
+  DEFAULT = "default",
+  MONGODB_CR = "mongodb_cr",
+  SCRAM_SHA_1 = "scram_sha_1"
+}
+
+export enum AuthTypeValue {
+  NO = "no",
+  PASSWORD = "password"
+}
+
 /**
  *
  *          <p></p>
@@ -375,6 +748,11 @@ export namespace Certificate {
   export function isa(o: any): o is Certificate {
     return _smithy.isa(o, "Certificate");
   }
+}
+
+export enum CompressionTypeValue {
+  GZIP = "gzip",
+  NONE = "none"
 }
 
 /**
@@ -1181,6 +1559,11 @@ export namespace CreateReplicationTaskResponse {
   export function isa(o: any): o is CreateReplicationTaskResponse {
     return _smithy.isa(o, "CreateReplicationTaskResponse");
   }
+}
+
+export enum DataFormatValue {
+  CSV = "csv",
+  PARQUET = "parquet"
 }
 
 export interface DeleteCertificateMessage {
@@ -2774,6 +3157,13 @@ export namespace DescribeTableStatisticsResponse {
   }
 }
 
+export enum DmsSslModeValue {
+  NONE = "none",
+  REQUIRE = "require",
+  VERIFY_CA = "verify-ca",
+  VERIFY_FULL = "verify-full"
+}
+
 /**
  *
  *          <p> The settings in JSON format for the DMS Transfer type source endpoint. </p>
@@ -2865,6 +3255,17 @@ export namespace ElasticsearchSettings {
   export function isa(o: any): o is ElasticsearchSettings {
     return _smithy.isa(o, "ElasticsearchSettings");
   }
+}
+
+export enum EncodingTypeValue {
+  PLAIN = "plain",
+  PLAIN_DICTIONARY = "plain-dictionary",
+  RLE_DICTIONARY = "rle-dictionary"
+}
+
+export enum EncryptionModeValue {
+  SSE_KMS = "sse-kms",
+  SSE_S3 = "sse-s3"
 }
 
 /**
@@ -3340,226 +3741,6 @@ export namespace ImportCertificateResponse {
 
 /**
  *
- *         <p>There are not enough resources allocated to the database migration.</p>
- *
- */
-export interface InsufficientResourceCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientResourceCapacityFault";
-  name: "InsufficientResourceCapacityFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InsufficientResourceCapacityFault {
-  export function isa(o: any): o is InsufficientResourceCapacityFault {
-    return _smithy.isa(o, "InsufficientResourceCapacityFault");
-  }
-}
-
-/**
- *
- *         <p>The certificate was not valid.</p>
- *
- */
-export interface InvalidCertificateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidCertificateFault";
-  name: "InvalidCertificateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCertificateFault {
-  export function isa(o: any): o is InvalidCertificateFault {
-    return _smithy.isa(o, "InvalidCertificateFault");
-  }
-}
-
-/**
- *
- *         <p>The resource is in a state that prevents it from being used for database migration.</p>
- *
- */
-export interface InvalidResourceStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidResourceStateFault";
-  name: "InvalidResourceStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidResourceStateFault {
-  export function isa(o: any): o is InvalidResourceStateFault {
-    return _smithy.isa(o, "InvalidResourceStateFault");
-  }
-}
-
-/**
- *
- *         <p>The subnet provided is invalid.</p>
- *
- */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubnet";
-  name: "InvalidSubnet";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
-  }
-}
-
-/**
- *
- *         <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
- *
- */
-export interface KMSAccessDeniedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSAccessDeniedFault";
-  name: "KMSAccessDeniedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSAccessDeniedFault {
-  export function isa(o: any): o is KMSAccessDeniedFault {
-    return _smithy.isa(o, "KMSAccessDeniedFault");
-  }
-}
-
-/**
- *
- *         <p>The specified master key (CMK) isn't enabled.</p>
- *
- */
-export interface KMSDisabledFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSDisabledFault";
-  name: "KMSDisabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSDisabledFault {
-  export function isa(o: any): o is KMSDisabledFault {
-    return _smithy.isa(o, "KMSDisabledFault");
-  }
-}
-
-/**
- *
- *         <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
- *
- */
-export interface KMSInvalidStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSInvalidStateFault";
-  name: "KMSInvalidStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSInvalidStateFault {
-  export function isa(o: any): o is KMSInvalidStateFault {
-    return _smithy.isa(o, "KMSInvalidStateFault");
-  }
-}
-
-/**
- *
- *         <p>AWS DMS cannot access the AWS KMS key.</p>
- *
- */
-export interface KMSKeyNotAccessibleFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSKeyNotAccessibleFault";
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace KMSKeyNotAccessibleFault {
-  export function isa(o: any): o is KMSKeyNotAccessibleFault {
-    return _smithy.isa(o, "KMSKeyNotAccessibleFault");
-  }
-}
-
-/**
- *
- *         <p>The specified AWS KMS entity or resource can't be found.</p>
- *
- */
-export interface KMSNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSNotFoundFault";
-  name: "KMSNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSNotFoundFault {
-  export function isa(o: any): o is KMSNotFoundFault {
-    return _smithy.isa(o, "KMSNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>This request triggered AWS KMS request throttling.</p>
- *
- */
-export interface KMSThrottlingFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSThrottlingFault";
-  name: "KMSThrottlingFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace KMSThrottlingFault {
-  export function isa(o: any): o is KMSThrottlingFault {
-    return _smithy.isa(o, "KMSThrottlingFault");
-  }
-}
-
-/**
- *
  *          <p></p>
  *
  */
@@ -3636,6 +3817,16 @@ export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
     return _smithy.isa(o, "ListTagsForResourceResponse");
   }
+}
+
+export enum MessageFormatValue {
+  JSON = "json"
+}
+
+export enum MigrationTypeValue {
+  CDC = "cdc",
+  FULL_LOAD = "full-load",
+  FULL_LOAD_AND_CDC = "full-load-and-cdc"
 }
 
 /**
@@ -4375,6 +4566,11 @@ export namespace MongoDbSettings {
   }
 }
 
+export enum NestingLevelValue {
+  NONE = "none",
+  ONE = "one"
+}
+
 /**
  *
  *          <p></p>
@@ -4461,6 +4657,11 @@ export namespace OrderableReplicationInstance {
   export function isa(o: any): o is OrderableReplicationInstance {
     return _smithy.isa(o, "OrderableReplicationInstance");
   }
+}
+
+export enum ParquetVersionValue {
+  PARQUET_1_0 = "parquet-1-0",
+  PARQUET_2_0 = "parquet-2-0"
 }
 
 /**
@@ -4904,6 +5105,21 @@ export namespace RefreshSchemasStatus {
   }
 }
 
+export enum RefreshSchemasStatusTypeValue {
+  FAILED = "failed",
+  REFRESHING = "refreshing",
+  SUCCESSFUL = "successful"
+}
+
+export enum ReleaseStatusValues {
+  BETA = "beta"
+}
+
+export enum ReloadOptionValue {
+  DATA_RELOAD = "data-reload",
+  VALIDATE_ONLY = "validate-only"
+}
+
 export interface ReloadTablesMessage {
   __type?: "ReloadTablesMessage";
   /**
@@ -4995,6 +5211,11 @@ export namespace RemoveTagsFromResourceResponse {
   export function isa(o: any): o is RemoveTagsFromResourceResponse {
     return _smithy.isa(o, "RemoveTagsFromResourceResponse");
   }
+}
+
+export enum ReplicationEndpointTypeValue {
+  SOURCE = "source",
+  TARGET = "target"
 }
 
 /**
@@ -5338,33 +5559,6 @@ export namespace ReplicationSubnetGroup {
 
 /**
  *
- *         <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
- *
- */
-export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-  export function isa(
-    o: any
-  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-    return _smithy.isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
-  }
-}
-
-/**
- *
  *          <p></p>
  *
  */
@@ -5679,58 +5873,6 @@ export namespace ReplicationTaskStats {
 
 /**
  *
- *         <p>The resource you are attempting to create already exists.</p>
- *
- */
-export interface ResourceAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsFault";
-  name: "ResourceAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-
-  resourceArn?: string;
-}
-
-export namespace ResourceAlreadyExistsFault {
-  export function isa(o: any): o is ResourceAlreadyExistsFault {
-    return _smithy.isa(o, "ResourceAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *          <p>The resource could not be found.</p>
- *
- */
-export interface ResourceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundFault";
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  export function isa(o: any): o is ResourceNotFoundFault {
-    return _smithy.isa(o, "ResourceNotFoundFault");
-  }
-}
-
-/**
- *
  *          <p></p>
  *
  */
@@ -5756,31 +5898,6 @@ export interface ResourcePendingMaintenanceActions {
 export namespace ResourcePendingMaintenanceActions {
   export function isa(o: any): o is ResourcePendingMaintenanceActions {
     return _smithy.isa(o, "ResourcePendingMaintenanceActions");
-  }
-}
-
-/**
- *
- *         <p>The quota for this resource quota has been exceeded.</p>
- *
- */
-export interface ResourceQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceQuotaExceededFault";
-  name: "ResourceQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceQuotaExceededFault {
-  export function isa(o: any): o is ResourceQuotaExceededFault {
-    return _smithy.isa(o, "ResourceQuotaExceededFault");
   }
 }
 
@@ -6140,55 +6257,7 @@ export namespace S3Settings {
   }
 }
 
-/**
- *
- *         <p>The SNS topic is invalid.</p>
- *
- */
-export interface SNSInvalidTopicFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSInvalidTopicFault";
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  export function isa(o: any): o is SNSInvalidTopicFault {
-    return _smithy.isa(o, "SNSInvalidTopicFault");
-  }
-}
-
-/**
- *
- *          <p>You are not authorized for the SNS subscription.</p>
- *
- */
-export interface SNSNoAuthorizationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSNoAuthorizationFault";
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  export function isa(o: any): o is SNSNoAuthorizationFault {
-    return _smithy.isa(o, "SNSNoAuthorizationFault");
-  }
-}
+export type SourceType = "replication-instance";
 
 /**
  *
@@ -6323,6 +6392,12 @@ export namespace StartReplicationTaskResponse {
   }
 }
 
+export enum StartReplicationTaskTypeValue {
+  RELOAD_TARGET = "reload-target",
+  RESUME_PROCESSING = "resume-processing",
+  START_REPLICATION = "start-replication"
+}
+
 /**
  *
  *          <p></p>
@@ -6367,31 +6442,6 @@ export namespace StopReplicationTaskResponse {
 
 /**
  *
- *         <p>The storage quota has been exceeded.</p>
- *
- */
-export interface StorageQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "StorageQuotaExceededFault";
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  export function isa(o: any): o is StorageQuotaExceededFault {
-    return _smithy.isa(o, "StorageQuotaExceededFault");
-  }
-}
-
-/**
- *
  *          <p></p>
  *
  */
@@ -6422,31 +6472,6 @@ export interface Subnet {
 export namespace Subnet {
   export function isa(o: any): o is Subnet {
     return _smithy.isa(o, "Subnet");
-  }
-}
-
-/**
- *
- *          <p>The specified subnet is already in use.</p>
- *
- */
-export interface SubnetAlreadyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetAlreadyInUse";
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  export function isa(o: any): o is SubnetAlreadyInUse {
-    return _smithy.isa(o, "SubnetAlreadyInUse");
   }
 }
 
@@ -6765,31 +6790,6 @@ export interface TestConnectionResponse extends $MetadataBearer {
 export namespace TestConnectionResponse {
   export function isa(o: any): o is TestConnectionResponse {
     return _smithy.isa(o, "TestConnectionResponse");
-  }
-}
-
-/**
- *
- *         <p>An upgrade dependency is preventing the database migration.</p>
- *
- */
-export interface UpgradeDependencyFailureFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UpgradeDependencyFailureFault";
-  name: "UpgradeDependencyFailureFault";
-  $fault: "client";
-  /**
-   *
-   *          <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace UpgradeDependencyFailureFault {
-  export function isa(o: any): o is UpgradeDependencyFailureFault {
-    return _smithy.isa(o, "UpgradeDependencyFailureFault");
   }
 }
 

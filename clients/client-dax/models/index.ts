@@ -1,15 +1,47 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ *
+ *         <p>Two or more incompatible parameters were specified.</p>
+ *
+ */
+export interface InvalidParameterCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export function isa(o: any): o is InvalidParameterCombinationException {
+    return _smithy.isa(o, "InvalidParameterCombinationException");
+  }
+}
+
+/**
+ *
+ *         <p>The value for a parameter is invalid.</p>
+ *
+ */
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export function isa(o: any): o is InvalidParameterValueException {
+    return _smithy.isa(o, "InvalidParameterValueException");
+  }
+}
+
 export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
-
-export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
-
-export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
-
-export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
-
-export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 
 /**
  *
@@ -153,67 +185,6 @@ export interface Cluster {
 export namespace Cluster {
   export function isa(o: any): o is Cluster {
     return _smithy.isa(o, "Cluster");
-  }
-}
-
-/**
- *
- *         <p>You already have a DAX cluster with the given identifier.</p>
- *
- */
-export interface ClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterAlreadyExistsFault";
-  name: "ClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterAlreadyExistsFault {
-  export function isa(o: any): o is ClusterAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
- *
- */
-export interface ClusterNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterNotFoundFault";
-  name: "ClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterNotFoundFault {
-  export function isa(o: any): o is ClusterNotFoundFault {
-    return _smithy.isa(o, "ClusterNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
- *             account.</p>
- *
- */
-export interface ClusterQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterQuotaForCustomerExceededFault";
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterQuotaForCustomerExceededFault {
-  export function isa(o: any): o is ClusterQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "ClusterQuotaForCustomerExceededFault");
   }
 }
 
@@ -1171,167 +1142,7 @@ export namespace IncreaseReplicationFactorResponse {
   }
 }
 
-/**
- *
- *         <p>There are not enough system resources to create the cluster you requested (or to
- *             resize an already-existing cluster). </p>
- *
- */
-export interface InsufficientClusterCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientClusterCapacityFault";
-  name: "InsufficientClusterCapacityFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InsufficientClusterCapacityFault {
-  export function isa(o: any): o is InsufficientClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientClusterCapacityFault");
-  }
-}
-
-/**
- *
- *         <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
- *
- */
-export interface InvalidARNFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidARNFault";
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidARNFault {
-  export function isa(o: any): o is InvalidARNFault {
-    return _smithy.isa(o, "InvalidARNFault");
-  }
-}
-
-/**
- *
- *         <p>The requested DAX cluster is not in the <i>available</i>
- *             state.</p>
- *
- */
-export interface InvalidClusterStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterStateFault";
-  name: "InvalidClusterStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterStateFault {
-  export function isa(o: any): o is InvalidClusterStateFault {
-    return _smithy.isa(o, "InvalidClusterStateFault");
-  }
-}
-
-/**
- *
- *         <p>Two or more incompatible parameters were specified.</p>
- *
- */
-export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterCombinationException";
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  export function isa(o: any): o is InvalidParameterCombinationException {
-    return _smithy.isa(o, "InvalidParameterCombinationException");
-  }
-}
-
-/**
- *
- *         <p>One or more parameters in a parameter group are in an invalid state.</p>
- *
- */
-export interface InvalidParameterGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterGroupStateFault";
-  name: "InvalidParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidParameterGroupStateFault {
-  export function isa(o: any): o is InvalidParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidParameterGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The value for a parameter is invalid.</p>
- *
- */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterValueException";
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
-  }
-}
-
-/**
- *
- *         <p>An invalid subnet identifier was specified.</p>
- *
- */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubnet";
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
-  }
-}
-
-/**
- *
- *         <p>The VPC network is in an invalid state.</p>
- *
- */
-export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidVPCNetworkStateFault";
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
-  }
-}
+export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
 
 export interface ListTagsRequest {
   __type?: "ListTagsRequest";
@@ -1439,68 +1250,6 @@ export interface Node {
 export namespace Node {
   export function isa(o: any): o is Node {
     return _smithy.isa(o, "Node");
-  }
-}
-
-/**
- *
- *         <p>None of the nodes in the cluster have the given node ID.</p>
- *
- */
-export interface NodeNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeNotFoundFault";
-  name: "NodeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeNotFoundFault {
-  export function isa(o: any): o is NodeNotFoundFault {
-    return _smithy.isa(o, "NodeNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You have attempted to exceed the maximum number of nodes for a DAX
- *             cluster.</p>
- *
- */
-export interface NodeQuotaForClusterExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeQuotaForClusterExceededFault";
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForClusterExceededFault {
-  export function isa(o: any): o is NodeQuotaForClusterExceededFault {
-    return _smithy.isa(o, "NodeQuotaForClusterExceededFault");
-  }
-}
-
-/**
- *
- *         <p>You have attempted to exceed the maximum number of nodes for your AWS
- *             account.</p>
- *
- */
-export interface NodeQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeQuotaForCustomerExceededFault";
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForCustomerExceededFault {
-  export function isa(o: any): o is NodeQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "NodeQuotaForCustomerExceededFault");
   }
 }
 
@@ -1683,66 +1432,6 @@ export namespace ParameterGroup {
 
 /**
  *
- *         <p>The specified parameter group already exists.</p>
- *
- */
-export interface ParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ParameterGroupAlreadyExistsFault";
-  name: "ParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ParameterGroupAlreadyExistsFault {
-  export function isa(o: any): o is ParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ParameterGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The specified parameter group does not exist.</p>
- *
- */
-export interface ParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ParameterGroupNotFoundFault";
-  name: "ParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ParameterGroupNotFoundFault {
-  export function isa(o: any): o is ParameterGroupNotFoundFault {
-    return _smithy.isa(o, "ParameterGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You have attempted to exceed the maximum number of parameter groups.</p>
- *
- */
-export interface ParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ParameterGroupQuotaExceededFault";
-  name: "ParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ParameterGroupQuotaExceededFault {
-  export function isa(o: any): o is ParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "ParameterGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
  *         <p>The status of a parameter group.</p>
  *
  */
@@ -1803,6 +1492,8 @@ export namespace ParameterNameValue {
     return _smithy.isa(o, "ParameterNameValue");
   }
 }
+
+export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
 
 export interface RebootNodeRequest {
   __type?: "RebootNodeRequest";
@@ -1903,6 +1594,8 @@ export namespace SSESpecification {
   }
 }
 
+export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+
 /**
  *
  *         <p>An individual VPC security group and its status.</p>
@@ -1931,25 +1624,7 @@ export namespace SecurityGroupMembership {
   }
 }
 
-/**
- *
- *          <p>The specified service linked role (SLR) was not found.</p>
- *
- */
-export interface ServiceLinkedRoleNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceLinkedRoleNotFoundFault";
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceLinkedRoleNotFoundFault {
-  export function isa(o: any): o is ServiceLinkedRoleNotFoundFault {
-    return _smithy.isa(o, "ServiceLinkedRoleNotFoundFault");
-  }
-}
+export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 
 /**
  *
@@ -2037,127 +1712,6 @@ export namespace SubnetGroup {
 
 /**
  *
- *         <p>The specified subnet group already exists.</p>
- *
- */
-export interface SubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetGroupAlreadyExistsFault";
-  name: "SubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetGroupAlreadyExistsFault {
-  export function isa(o: any): o is SubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "SubnetGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The specified subnet group is currently in use.</p>
- *
- */
-export interface SubnetGroupInUseFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetGroupInUseFault";
-  name: "SubnetGroupInUseFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetGroupInUseFault {
-  export function isa(o: any): o is SubnetGroupInUseFault {
-    return _smithy.isa(o, "SubnetGroupInUseFault");
-  }
-}
-
-/**
- *
- *         <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
- *
- */
-export interface SubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetGroupNotFoundFault";
-  name: "SubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetGroupNotFoundFault {
-  export function isa(o: any): o is SubnetGroupNotFoundFault {
-    return _smithy.isa(o, "SubnetGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of
- *             subnets in a subnet group.</p>
- *
- */
-export interface SubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetGroupQuotaExceededFault";
-  name: "SubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetGroupQuotaExceededFault {
-  export function isa(o: any): o is SubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "SubnetGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The requested subnet is being used by another subnet group.</p>
- *
- */
-export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
-  __type: "SubnetInUse";
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetInUse {
-  export function isa(o: any): o is SubnetInUse {
-    return _smithy.isa(o, "SubnetInUse");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of
- *             subnets in a subnet group.</p>
- *
- */
-export interface SubnetQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetQuotaExceededFault";
-  name: "SubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetQuotaExceededFault {
-  export function isa(o: any): o is SubnetQuotaExceededFault {
-    return _smithy.isa(o, "SubnetQuotaExceededFault");
-  }
-}
-
-/**
- *
  *         <p>A description of a tag.  Every tag is a key-value pair. You can add up to 50 tags to a single
  *             DAX cluster.</p>
  *         <p>AWS-assigned tag names and values are automatically assigned the <code>aws:</code>
@@ -2188,46 +1742,6 @@ export interface Tag {
 export namespace Tag {
   export function isa(o: any): o is Tag {
     return _smithy.isa(o, "Tag");
-  }
-}
-
-/**
- *
- *         <p>The tag does not exist.</p>
- *
- */
-export interface TagNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TagNotFoundFault";
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagNotFoundFault {
-  export function isa(o: any): o is TagNotFoundFault {
-    return _smithy.isa(o, "TagNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
- *
- */
-export interface TagQuotaPerResourceExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TagQuotaPerResourceExceeded";
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagQuotaPerResourceExceeded {
-  export function isa(o: any): o is TagQuotaPerResourceExceeded {
-    return _smithy.isa(o, "TagQuotaPerResourceExceeded");
   }
 }
 
@@ -2469,5 +1983,491 @@ export interface UpdateSubnetGroupResponse extends $MetadataBearer {
 export namespace UpdateSubnetGroupResponse {
   export function isa(o: any): o is UpdateSubnetGroupResponse {
     return _smithy.isa(o, "UpdateSubnetGroupResponse");
+  }
+}
+
+/**
+ *
+ *         <p>You already have a DAX cluster with the given identifier.</p>
+ *
+ */
+export interface ClusterAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterAlreadyExistsFault";
+  name: "ClusterAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterAlreadyExistsFault {
+  export function isa(o: any): o is ClusterAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ */
+export interface ClusterNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterNotFoundFault";
+  name: "ClusterNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterNotFoundFault {
+  export function isa(o: any): o is ClusterNotFoundFault {
+    return _smithy.isa(o, "ClusterNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
+ *             account.</p>
+ *
+ */
+export interface ClusterQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterQuotaForCustomerExceededFault";
+  name: "ClusterQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterQuotaForCustomerExceededFault {
+  export function isa(o: any): o is ClusterQuotaForCustomerExceededFault {
+    return _smithy.isa(o, "ClusterQuotaForCustomerExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>There are not enough system resources to create the cluster you requested (or to
+ *             resize an already-existing cluster). </p>
+ *
+ */
+export interface InsufficientClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientClusterCapacityFault";
+  name: "InsufficientClusterCapacityFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientClusterCapacityFault {
+  export function isa(o: any): o is InsufficientClusterCapacityFault {
+    return _smithy.isa(o, "InsufficientClusterCapacityFault");
+  }
+}
+
+/**
+ *
+ *         <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+ *
+ */
+export interface InvalidARNFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidARNFault";
+  name: "InvalidARNFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidARNFault {
+  export function isa(o: any): o is InvalidARNFault {
+    return _smithy.isa(o, "InvalidARNFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ */
+export interface InvalidClusterStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterStateFault";
+  name: "InvalidClusterStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterStateFault {
+  export function isa(o: any): o is InvalidClusterStateFault {
+    return _smithy.isa(o, "InvalidClusterStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ */
+export interface InvalidParameterGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterGroupStateFault";
+  name: "InvalidParameterGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidParameterGroupStateFault {
+  export function isa(o: any): o is InvalidParameterGroupStateFault {
+    return _smithy.isa(o, "InvalidParameterGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>An invalid subnet identifier was specified.</p>
+ *
+ */
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubnet";
+  name: "InvalidSubnet";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export function isa(o: any): o is InvalidSubnet {
+    return _smithy.isa(o, "InvalidSubnet");
+  }
+}
+
+/**
+ *
+ *         <p>The VPC network is in an invalid state.</p>
+ *
+ */
+export interface InvalidVPCNetworkStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidVPCNetworkStateFault";
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export function isa(o: any): o is InvalidVPCNetworkStateFault {
+    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>None of the nodes in the cluster have the given node ID.</p>
+ *
+ */
+export interface NodeNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeNotFoundFault";
+  name: "NodeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeNotFoundFault {
+  export function isa(o: any): o is NodeNotFoundFault {
+    return _smithy.isa(o, "NodeNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have attempted to exceed the maximum number of nodes for a DAX
+ *             cluster.</p>
+ *
+ */
+export interface NodeQuotaForClusterExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeQuotaForClusterExceededFault";
+  name: "NodeQuotaForClusterExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForClusterExceededFault {
+  export function isa(o: any): o is NodeQuotaForClusterExceededFault {
+    return _smithy.isa(o, "NodeQuotaForClusterExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have attempted to exceed the maximum number of nodes for your AWS
+ *             account.</p>
+ *
+ */
+export interface NodeQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeQuotaForCustomerExceededFault";
+  name: "NodeQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForCustomerExceededFault {
+  export function isa(o: any): o is NodeQuotaForCustomerExceededFault {
+    return _smithy.isa(o, "NodeQuotaForCustomerExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified parameter group already exists.</p>
+ *
+ */
+export interface ParameterGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ParameterGroupAlreadyExistsFault";
+  name: "ParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ParameterGroupAlreadyExistsFault {
+  export function isa(o: any): o is ParameterGroupAlreadyExistsFault {
+    return _smithy.isa(o, "ParameterGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified parameter group does not exist.</p>
+ *
+ */
+export interface ParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ParameterGroupNotFoundFault";
+  name: "ParameterGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ParameterGroupNotFoundFault {
+  export function isa(o: any): o is ParameterGroupNotFoundFault {
+    return _smithy.isa(o, "ParameterGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have attempted to exceed the maximum number of parameter groups.</p>
+ *
+ */
+export interface ParameterGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ParameterGroupQuotaExceededFault";
+  name: "ParameterGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ParameterGroupQuotaExceededFault {
+  export function isa(o: any): o is ParameterGroupQuotaExceededFault {
+    return _smithy.isa(o, "ParameterGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified service linked role (SLR) was not found.</p>
+ *
+ */
+export interface ServiceLinkedRoleNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceLinkedRoleNotFoundFault";
+  name: "ServiceLinkedRoleNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ServiceLinkedRoleNotFoundFault {
+  export function isa(o: any): o is ServiceLinkedRoleNotFoundFault {
+    return _smithy.isa(o, "ServiceLinkedRoleNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified subnet group already exists.</p>
+ *
+ */
+export interface SubnetGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetGroupAlreadyExistsFault";
+  name: "SubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetGroupAlreadyExistsFault {
+  export function isa(o: any): o is SubnetGroupAlreadyExistsFault {
+    return _smithy.isa(o, "SubnetGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified subnet group is currently in use.</p>
+ *
+ */
+export interface SubnetGroupInUseFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetGroupInUseFault";
+  name: "SubnetGroupInUseFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetGroupInUseFault {
+  export function isa(o: any): o is SubnetGroupInUseFault {
+    return _smithy.isa(o, "SubnetGroupInUseFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested subnet group name does not refer to an existing subnet
+ *             group.</p>
+ *
+ */
+export interface SubnetGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetGroupNotFoundFault";
+  name: "SubnetGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetGroupNotFoundFault {
+  export function isa(o: any): o is SubnetGroupNotFoundFault {
+    return _smithy.isa(o, "SubnetGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
+ */
+export interface SubnetGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetGroupQuotaExceededFault";
+  name: "SubnetGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetGroupQuotaExceededFault {
+  export function isa(o: any): o is SubnetGroupQuotaExceededFault {
+    return _smithy.isa(o, "SubnetGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested subnet is being used by another subnet group.</p>
+ *
+ */
+export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
+  __type: "SubnetInUse";
+  name: "SubnetInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetInUse {
+  export function isa(o: any): o is SubnetInUse {
+    return _smithy.isa(o, "SubnetInUse");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
+ */
+export interface SubnetQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetQuotaExceededFault";
+  name: "SubnetQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetQuotaExceededFault {
+  export function isa(o: any): o is SubnetQuotaExceededFault {
+    return _smithy.isa(o, "SubnetQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The tag does not exist.</p>
+ *
+ */
+export interface TagNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TagNotFoundFault";
+  name: "TagNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagNotFoundFault {
+  export function isa(o: any): o is TagNotFoundFault {
+    return _smithy.isa(o, "TagNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+ *
+ */
+export interface TagQuotaPerResourceExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TagQuotaPerResourceExceeded";
+  name: "TagQuotaPerResourceExceeded";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagQuotaPerResourceExceeded {
+  export function isa(o: any): o is TagQuotaPerResourceExceeded {
+    return _smithy.isa(o, "TagQuotaPerResourceExceeded");
   }
 }

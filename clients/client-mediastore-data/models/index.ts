@@ -1,15 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ItemType {
-  FOLDER = "FOLDER",
-  OBJECT = "OBJECT"
-}
-
-export enum StorageClass {
-  TEMPORAL = "TEMPORAL"
-}
-
 /**
  *
  *          <p>The specified container was not found for the specified account.</p>
@@ -297,6 +288,11 @@ export namespace Item {
   }
 }
 
+export enum ItemType {
+  FOLDER = "FOLDER",
+  OBJECT = "OBJECT"
+}
+
 export interface ListItemsRequest {
   __type?: "ListItemsRequest";
   /**
@@ -503,4 +499,8 @@ export namespace RequestedRangeNotSatisfiableException {
   export function isa(o: any): o is RequestedRangeNotSatisfiableException {
     return _smithy.isa(o, "RequestedRangeNotSatisfiableException");
   }
+}
+
+export enum StorageClass {
+  TEMPORAL = "TEMPORAL"
 }

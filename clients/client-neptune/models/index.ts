@@ -1,15 +1,1505 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type ApplyMethod = "immediate" | "pending-reboot";
+/**
+ *
+ *          <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
+ *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ *
+ */
+export interface AuthorizationNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationNotFoundFault";
+  name: "AuthorizationNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
 
-export type SourceType =
-  | "db-cluster"
-  | "db-cluster-snapshot"
-  | "db-instance"
-  | "db-parameter-group"
-  | "db-security-group"
-  | "db-snapshot";
+export namespace AuthorizationNotFoundFault {
+  export function isa(o: any): o is AuthorizationNotFoundFault {
+    return _smithy.isa(o, "AuthorizationNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+ *
+ */
+export interface CertificateNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CertificateNotFoundFault";
+  name: "CertificateNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace CertificateNotFoundFault {
+  export function isa(o: any): o is CertificateNotFoundFault {
+    return _smithy.isa(o, "CertificateNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>User already has a DB cluster with the given identifier.</p>
+ *
+ */
+export interface DBClusterAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterAlreadyExistsFault";
+  name: "DBClusterAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterAlreadyExistsFault {
+  export function isa(o: any): o is DBClusterAlreadyExistsFault {
+    return _smithy.isa(o, "DBClusterAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ */
+export interface DBClusterNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterNotFoundFault";
+  name: "DBClusterNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterNotFoundFault {
+  export function isa(o: any): o is DBClusterNotFoundFault {
+    return _smithy.isa(o, "DBClusterNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBClusterParameterGroupName</i> does not refer to an
+ *       existing DB Cluster parameter group.</p>
+ *
+ */
+export interface DBClusterParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterParameterGroupNotFoundFault";
+  name: "DBClusterParameterGroupNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterParameterGroupNotFoundFault {
+  export function isa(o: any): o is DBClusterParameterGroupNotFoundFault {
+    return _smithy.isa(o, "DBClusterParameterGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ */
+export interface DBClusterQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterQuotaExceededFault";
+  name: "DBClusterQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterQuotaExceededFault {
+  export function isa(o: any): o is DBClusterQuotaExceededFault {
+    return _smithy.isa(o, "DBClusterQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+ *
+ */
+export interface DBClusterRoleAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterRoleAlreadyExistsFault";
+  name: "DBClusterRoleAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleAlreadyExistsFault {
+  export function isa(o: any): o is DBClusterRoleAlreadyExistsFault {
+    return _smithy.isa(o, "DBClusterRoleAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
+ *
+ */
+export interface DBClusterRoleNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterRoleNotFoundFault";
+  name: "DBClusterRoleNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleNotFoundFault {
+  export function isa(o: any): o is DBClusterRoleNotFoundFault {
+    return _smithy.isa(o, "DBClusterRoleNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ *
+ */
+export interface DBClusterRoleQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterRoleQuotaExceededFault";
+  name: "DBClusterRoleQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterRoleQuotaExceededFault {
+  export function isa(o: any): o is DBClusterRoleQuotaExceededFault {
+    return _smithy.isa(o, "DBClusterRoleQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>User already has a DB cluster snapshot with the given identifier.</p>
+ *
+ */
+export interface DBClusterSnapshotAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterSnapshotAlreadyExistsFault";
+  name: "DBClusterSnapshotAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterSnapshotAlreadyExistsFault {
+  export function isa(o: any): o is DBClusterSnapshotAlreadyExistsFault {
+    return _smithy.isa(o, "DBClusterSnapshotAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
+ *       DB cluster snapshot.</p>
+ *
+ */
+export interface DBClusterSnapshotNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBClusterSnapshotNotFoundFault";
+  name: "DBClusterSnapshotNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBClusterSnapshotNotFoundFault {
+  export function isa(o: any): o is DBClusterSnapshotNotFoundFault {
+    return _smithy.isa(o, "DBClusterSnapshotNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>User already has a DB instance with the given identifier.</p>
+ *
+ */
+export interface DBInstanceAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBInstanceAlreadyExistsFault";
+  name: "DBInstanceAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBInstanceAlreadyExistsFault {
+  export function isa(o: any): o is DBInstanceAlreadyExistsFault {
+    return _smithy.isa(o, "DBInstanceAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ */
+export interface DBInstanceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBInstanceNotFoundFault";
+  name: "DBInstanceNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBInstanceNotFoundFault {
+  export function isa(o: any): o is DBInstanceNotFoundFault {
+    return _smithy.isa(o, "DBInstanceNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>A DB parameter group with the same name exists.</p>
+ *
+ */
+export interface DBParameterGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBParameterGroupAlreadyExistsFault";
+  name: "DBParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupAlreadyExistsFault {
+  export function isa(o: any): o is DBParameterGroupAlreadyExistsFault {
+    return _smithy.isa(o, "DBParameterGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBParameterGroupName</i> does not refer to an
+ *       existing DB parameter group.</p>
+ *
+ */
+export interface DBParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBParameterGroupNotFoundFault";
+  name: "DBParameterGroupNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupNotFoundFault {
+  export function isa(o: any): o is DBParameterGroupNotFoundFault {
+    return _smithy.isa(o, "DBParameterGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
+ */
+export interface DBParameterGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBParameterGroupQuotaExceededFault";
+  name: "DBParameterGroupQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBParameterGroupQuotaExceededFault {
+  export function isa(o: any): o is DBParameterGroupQuotaExceededFault {
+    return _smithy.isa(o, "DBParameterGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBSecurityGroupName</i> does not refer
+ *       to an existing DB security group.</p>
+ *
+ */
+export interface DBSecurityGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSecurityGroupNotFoundFault";
+  name: "DBSecurityGroupNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSecurityGroupNotFoundFault {
+  export function isa(o: any): o is DBSecurityGroupNotFoundFault {
+    return _smithy.isa(o, "DBSecurityGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
+ *
+ */
+export interface DBSnapshotAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSnapshotAlreadyExistsFault";
+  name: "DBSnapshotAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSnapshotAlreadyExistsFault {
+  export function isa(o: any): o is DBSnapshotAlreadyExistsFault {
+    return _smithy.isa(o, "DBSnapshotAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+ *
+ */
+export interface DBSnapshotNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSnapshotNotFoundFault";
+  name: "DBSnapshotNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSnapshotNotFoundFault {
+  export function isa(o: any): o is DBSnapshotNotFoundFault {
+    return _smithy.isa(o, "DBSnapshotNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
+ *
+ */
+export interface DBSubnetGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSubnetGroupAlreadyExistsFault";
+  name: "DBSubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupAlreadyExistsFault {
+  export function isa(o: any): o is DBSubnetGroupAlreadyExistsFault {
+    return _smithy.isa(o, "DBSubnetGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *          <p>Subnets in the DB subnet group should cover at least two Availability
+ *       Zones unless there is only one Availability Zone.</p>
+ *
+ */
+export interface DBSubnetGroupDoesNotCoverEnoughAZs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSubnetGroupDoesNotCoverEnoughAZs";
+  name: "DBSubnetGroupDoesNotCoverEnoughAZs";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
+  export function isa(o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs {
+    return _smithy.isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>DBSubnetGroupName</i> does not refer to an
+ *       existing DB subnet group.</p>
+ *
+ */
+export interface DBSubnetGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSubnetGroupNotFoundFault";
+  name: "DBSubnetGroupNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupNotFoundFault {
+  export function isa(o: any): o is DBSubnetGroupNotFoundFault {
+    return _smithy.isa(o, "DBSubnetGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
+ *
+ */
+export interface DBSubnetGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSubnetGroupQuotaExceededFault";
+  name: "DBSubnetGroupQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSubnetGroupQuotaExceededFault {
+  export function isa(o: any): o is DBSubnetGroupQuotaExceededFault {
+    return _smithy.isa(o, "DBSubnetGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+ *
+ */
+export interface DBSubnetQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBSubnetQuotaExceededFault";
+  name: "DBSubnetQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBSubnetQuotaExceededFault {
+  export function isa(o: any): o is DBSubnetQuotaExceededFault {
+    return _smithy.isa(o, "DBSubnetQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+ *
+ */
+export interface DBUpgradeDependencyFailureFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DBUpgradeDependencyFailureFault";
+  name: "DBUpgradeDependencyFailureFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DBUpgradeDependencyFailureFault {
+  export function isa(o: any): o is DBUpgradeDependencyFailureFault {
+    return _smithy.isa(o, "DBUpgradeDependencyFailureFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ *
+ */
+export interface DomainNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DomainNotFoundFault";
+  name: "DomainNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace DomainNotFoundFault {
+  export function isa(o: any): o is DomainNotFoundFault {
+    return _smithy.isa(o, "DomainNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>You have exceeded the number of events you can subscribe to.</p>
+ *
+ */
+export interface EventSubscriptionQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "EventSubscriptionQuotaExceededFault";
+  name: "EventSubscriptionQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace EventSubscriptionQuotaExceededFault {
+  export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
+    return _smithy.isa(o, "EventSubscriptionQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed number of DB instances.</p>
+ *
+ */
+export interface InstanceQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InstanceQuotaExceededFault";
+  name: "InstanceQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InstanceQuotaExceededFault {
+  export function isa(o: any): o is InstanceQuotaExceededFault {
+    return _smithy.isa(o, "InstanceQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB cluster does not have enough capacity for the current operation.</p>
+ *
+ */
+export interface InsufficientDBClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientDBClusterCapacityFault";
+  name: "InsufficientDBClusterCapacityFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InsufficientDBClusterCapacityFault {
+  export function isa(o: any): o is InsufficientDBClusterCapacityFault {
+    return _smithy.isa(o, "InsufficientDBClusterCapacityFault");
+  }
+}
+
+/**
+ *
+ *          <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ *
+ */
+export interface InsufficientDBInstanceCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientDBInstanceCapacityFault";
+  name: "InsufficientDBInstanceCapacityFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InsufficientDBInstanceCapacityFault {
+  export function isa(o: any): o is InsufficientDBInstanceCapacityFault {
+    return _smithy.isa(o, "InsufficientDBInstanceCapacityFault");
+  }
+}
+
+/**
+ *
+ *          <p>There is insufficient storage available for the current action. You may
+ *        be able to resolve this error by updating your subnet group to use different
+ *        Availability Zones that have more storage available.</p>
+ *
+ */
+export interface InsufficientStorageClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientStorageClusterCapacityFault";
+  name: "InsufficientStorageClusterCapacityFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InsufficientStorageClusterCapacityFault {
+  export function isa(o: any): o is InsufficientStorageClusterCapacityFault {
+    return _smithy.isa(o, "InsufficientStorageClusterCapacityFault");
+  }
+}
+
+/**
+ *
+ *          <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ */
+export interface InvalidDBClusterSnapshotStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBClusterSnapshotStateFault";
+  name: "InvalidDBClusterSnapshotStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBClusterSnapshotStateFault {
+  export function isa(o: any): o is InvalidDBClusterSnapshotStateFault {
+    return _smithy.isa(o, "InvalidDBClusterSnapshotStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB cluster is not in a valid state.</p>
+ *
+ */
+export interface InvalidDBClusterStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBClusterStateFault";
+  name: "InvalidDBClusterStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBClusterStateFault {
+  export function isa(o: any): o is InvalidDBClusterStateFault {
+    return _smithy.isa(o, "InvalidDBClusterStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ */
+export interface InvalidDBInstanceStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBInstanceStateFault";
+  name: "InvalidDBInstanceStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBInstanceStateFault {
+  export function isa(o: any): o is InvalidDBInstanceStateFault {
+    return _smithy.isa(o, "InvalidDBInstanceStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
+ *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+ *
+ */
+export interface InvalidDBParameterGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBParameterGroupStateFault";
+  name: "InvalidDBParameterGroupStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBParameterGroupStateFault {
+  export function isa(o: any): o is InvalidDBParameterGroupStateFault {
+    return _smithy.isa(o, "InvalidDBParameterGroupStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The state of the DB security group does not allow deletion.</p>
+ *
+ */
+export interface InvalidDBSecurityGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBSecurityGroupStateFault";
+  name: "InvalidDBSecurityGroupStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSecurityGroupStateFault {
+  export function isa(o: any): o is InvalidDBSecurityGroupStateFault {
+    return _smithy.isa(o, "InvalidDBSecurityGroupStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The state of the DB snapshot does not allow deletion.</p>
+ *
+ */
+export interface InvalidDBSnapshotStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBSnapshotStateFault";
+  name: "InvalidDBSnapshotStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSnapshotStateFault {
+  export function isa(o: any): o is InvalidDBSnapshotStateFault {
+    return _smithy.isa(o, "InvalidDBSnapshotStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB subnet group cannot be deleted because it is in use.</p>
+ *
+ */
+export interface InvalidDBSubnetGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBSubnetGroupStateFault";
+  name: "InvalidDBSubnetGroupStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSubnetGroupStateFault {
+  export function isa(o: any): o is InvalidDBSubnetGroupStateFault {
+    return _smithy.isa(o, "InvalidDBSubnetGroupStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB subnet is not in the <i>available</i> state.</p>
+ *
+ */
+export interface InvalidDBSubnetStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidDBSubnetStateFault";
+  name: "InvalidDBSubnetStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidDBSubnetStateFault {
+  export function isa(o: any): o is InvalidDBSubnetStateFault {
+    return _smithy.isa(o, "InvalidDBSubnetStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>The event subscription is in an invalid state.</p>
+ *
+ */
+export interface InvalidEventSubscriptionStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidEventSubscriptionStateFault";
+  name: "InvalidEventSubscriptionStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidEventSubscriptionStateFault {
+  export function isa(o: any): o is InvalidEventSubscriptionStateFault {
+    return _smithy.isa(o, "InvalidEventSubscriptionStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+ *
+ */
+export interface InvalidRestoreFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRestoreFault";
+  name: "InvalidRestoreFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidRestoreFault {
+  export function isa(o: any): o is InvalidRestoreFault {
+    return _smithy.isa(o, "InvalidRestoreFault");
+  }
+}
+
+/**
+ *
+ *          <p>The requested subnet is invalid, or multiple subnets were requested that are
+ *       not all in a common VPC.</p>
+ *
+ */
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubnet";
+  name: "InvalidSubnet";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export function isa(o: any): o is InvalidSubnet {
+    return _smithy.isa(o, "InvalidSubnet");
+  }
+}
+
+/**
+ *
+ *          <p>DB subnet group does not cover all Availability Zones after it is created
+ *       because users' change.</p>
+ *
+ */
+export interface InvalidVPCNetworkStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidVPCNetworkStateFault";
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export function isa(o: any): o is InvalidVPCNetworkStateFault {
+    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+  }
+}
+
+/**
+ *
+ *          <p>Error accessing KMS key.</p>
+ *
+ */
+export interface KMSKeyNotAccessibleFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "KMSKeyNotAccessibleFault";
+  name: "KMSKeyNotAccessibleFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace KMSKeyNotAccessibleFault {
+  export function isa(o: any): o is KMSKeyNotAccessibleFault {
+    return _smithy.isa(o, "KMSKeyNotAccessibleFault");
+  }
+}
+
+/**
+ *
+ *          <p>The designated option group could not be found.</p>
+ *
+ */
+export interface OptionGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "OptionGroupNotFoundFault";
+  name: "OptionGroupNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace OptionGroupNotFoundFault {
+  export function isa(o: any): o is OptionGroupNotFoundFault {
+    return _smithy.isa(o, "OptionGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ */
+export interface ProvisionedIopsNotAvailableInAZFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ProvisionedIopsNotAvailableInAZFault";
+  name: "ProvisionedIopsNotAvailableInAZFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ProvisionedIopsNotAvailableInAZFault {
+  export function isa(o: any): o is ProvisionedIopsNotAvailableInAZFault {
+    return _smithy.isa(o, "ProvisionedIopsNotAvailableInAZFault");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource ID was not found.</p>
+ *
+ */
+export interface ResourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundFault";
+  name: "ResourceNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundFault {
+  export function isa(o: any): o is ResourceNotFoundFault {
+    return _smithy.isa(o, "ResourceNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>The SNS topic is invalid.</p>
+ *
+ */
+export interface SNSInvalidTopicFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSInvalidTopicFault";
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export function isa(o: any): o is SNSInvalidTopicFault {
+    return _smithy.isa(o, "SNSInvalidTopicFault");
+  }
+}
+
+/**
+ *
+ *          <p>There is no SNS authorization.</p>
+ *
+ */
+export interface SNSNoAuthorizationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSNoAuthorizationFault";
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export function isa(o: any): o is SNSNoAuthorizationFault {
+    return _smithy.isa(o, "SNSNoAuthorizationFault");
+  }
+}
+
+/**
+ *
+ *          <p>The ARN of the SNS topic could not be found.</p>
+ *
+ */
+export interface SNSTopicArnNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSTopicArnNotFoundFault";
+  name: "SNSTopicArnNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SNSTopicArnNotFoundFault {
+  export function isa(o: any): o is SNSTopicArnNotFoundFault {
+    return _smithy.isa(o, "SNSTopicArnNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ *
+ */
+export interface SharedSnapshotQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SharedSnapshotQuotaExceededFault";
+  name: "SharedSnapshotQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SharedSnapshotQuotaExceededFault {
+  export function isa(o: any): o is SharedSnapshotQuotaExceededFault {
+    return _smithy.isa(o, "SharedSnapshotQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ *
+ */
+export interface SnapshotQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotQuotaExceededFault";
+  name: "SnapshotQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SnapshotQuotaExceededFault {
+  export function isa(o: any): o is SnapshotQuotaExceededFault {
+    return _smithy.isa(o, "SnapshotQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>The source could not be found.</p>
+ *
+ */
+export interface SourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SourceNotFoundFault";
+  name: "SourceNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SourceNotFoundFault {
+  export function isa(o: any): o is SourceNotFoundFault {
+    return _smithy.isa(o, "SourceNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ */
+export interface StorageQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "StorageQuotaExceededFault";
+  name: "StorageQuotaExceededFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace StorageQuotaExceededFault {
+  export function isa(o: any): o is StorageQuotaExceededFault {
+    return _smithy.isa(o, "StorageQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *          <p>
+ *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ *
+ */
+export interface StorageTypeNotSupportedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "StorageTypeNotSupportedFault";
+  name: "StorageTypeNotSupportedFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace StorageTypeNotSupportedFault {
+  export function isa(o: any): o is StorageTypeNotSupportedFault {
+    return _smithy.isa(o, "StorageTypeNotSupportedFault");
+  }
+}
+
+/**
+ *
+ *          <p>The DB subnet is already in use in the Availability Zone.</p>
+ *
+ */
+export interface SubnetAlreadyInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetAlreadyInUse";
+  name: "SubnetAlreadyInUse";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SubnetAlreadyInUse {
+  export function isa(o: any): o is SubnetAlreadyInUse {
+    return _smithy.isa(o, "SubnetAlreadyInUse");
+  }
+}
+
+/**
+ *
+ *          <p>This subscription already exists.</p>
+ *
+ */
+export interface SubscriptionAlreadyExistFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionAlreadyExistFault";
+  name: "SubscriptionAlreadyExistFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SubscriptionAlreadyExistFault {
+  export function isa(o: any): o is SubscriptionAlreadyExistFault {
+    return _smithy.isa(o, "SubscriptionAlreadyExistFault");
+  }
+}
+
+/**
+ *
+ *          <p>The designated subscription category could not be found.</p>
+ *
+ */
+export interface SubscriptionCategoryNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionCategoryNotFoundFault";
+  name: "SubscriptionCategoryNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SubscriptionCategoryNotFoundFault {
+  export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
+    return _smithy.isa(o, "SubscriptionCategoryNotFoundFault");
+  }
+}
+
+/**
+ *
+ *          <p>The designated subscription could not be found.</p>
+ *
+ */
+export interface SubscriptionNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionNotFoundFault";
+  name: "SubscriptionNotFoundFault";
+  $fault: "client";
+  /**
+   *
+   *          <p>A message describing the details of the problem.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SubscriptionNotFoundFault {
+  export function isa(o: any): o is SubscriptionNotFoundFault {
+    return _smithy.isa(o, "SubscriptionNotFoundFault");
+  }
+}
 
 export interface AddRoleToDBClusterMessage {
   __type?: "AddRoleToDBClusterMessage";
@@ -103,6 +1593,8 @@ export namespace AddTagsToResourceMessage {
   }
 }
 
+export type ApplyMethod = "immediate" | "pending-reboot";
+
 export interface ApplyPendingMaintenanceActionMessage {
   __type?: "ApplyPendingMaintenanceActionMessage";
   /**
@@ -157,32 +1649,6 @@ export namespace ApplyPendingMaintenanceActionMessage {
 
 /**
  *
- *          <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
- *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
- *
- */
-export interface AuthorizationNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationNotFoundFault";
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  export function isa(o: any): o is AuthorizationNotFoundFault {
-    return _smithy.isa(o, "AuthorizationNotFoundFault");
-  }
-}
-
-/**
- *
  *          <p>Specifies an Availability Zone.</p>
  *
  *
@@ -200,32 +1666,6 @@ export interface AvailabilityZone {
 export namespace AvailabilityZone {
   export function isa(o: any): o is AvailabilityZone {
     return _smithy.isa(o, "AvailabilityZone");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
- *
- */
-export interface CertificateNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CertificateNotFoundFault";
-  name: "CertificateNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CertificateNotFoundFault {
-  export function isa(o: any): o is CertificateNotFoundFault {
-    return _smithy.isa(o, "CertificateNotFoundFault");
   }
 }
 
@@ -1822,31 +3262,6 @@ export namespace DBCluster {
 
 /**
  *
- *          <p>User already has a DB cluster with the given identifier.</p>
- *
- */
-export interface DBClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterAlreadyExistsFault";
-  name: "DBClusterAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterAlreadyExistsFault");
-  }
-}
-
-/**
- *
  *          <p>Contains information about an instance that is part of a DB cluster.</p>
  *
  */
@@ -1910,32 +3325,6 @@ export interface DBClusterMessage extends $MetadataBearer {
 export namespace DBClusterMessage {
   export function isa(o: any): o is DBClusterMessage {
     return _smithy.isa(o, "DBClusterMessage");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
- *
- */
-export interface DBClusterNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterNotFoundFault";
-  name: "DBClusterNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterNotFoundFault {
-  export function isa(o: any): o is DBClusterNotFoundFault {
-    return _smithy.isa(o, "DBClusterNotFoundFault");
   }
 }
 
@@ -2067,33 +3456,6 @@ export namespace DBClusterParameterGroupNameMessage {
   }
 }
 
-/**
- *
- *          <p>
- *             <i>DBClusterParameterGroupName</i> does not refer to an
- *       existing DB Cluster parameter group.</p>
- *
- */
-export interface DBClusterParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterParameterGroupNotFoundFault";
-  name: "DBClusterParameterGroupNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterParameterGroupNotFoundFault {
-  export function isa(o: any): o is DBClusterParameterGroupNotFoundFault {
-    return _smithy.isa(o, "DBClusterParameterGroupNotFoundFault");
-  }
-}
-
 export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
   __type?: "DBClusterParameterGroupsMessage";
   /**
@@ -2117,31 +3479,6 @@ export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
 export namespace DBClusterParameterGroupsMessage {
   export function isa(o: any): o is DBClusterParameterGroupsMessage {
     return _smithy.isa(o, "DBClusterParameterGroupsMessage");
-  }
-}
-
-/**
- *
- *          <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
- *
- */
-export interface DBClusterQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterQuotaExceededFault";
-  name: "DBClusterQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterQuotaExceededFault {
-  export function isa(o: any): o is DBClusterQuotaExceededFault {
-    return _smithy.isa(o, "DBClusterQuotaExceededFault");
   }
 }
 
@@ -2191,81 +3528,6 @@ export interface DBClusterRole {
 export namespace DBClusterRole {
   export function isa(o: any): o is DBClusterRole {
     return _smithy.isa(o, "DBClusterRole");
-  }
-}
-
-/**
- *
- *          <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
- *
- */
-export interface DBClusterRoleAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterRoleAlreadyExistsFault";
-  name: "DBClusterRoleAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterRoleAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterRoleAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *          <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
- *
- */
-export interface DBClusterRoleNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterRoleNotFoundFault";
-  name: "DBClusterRoleNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleNotFoundFault {
-  export function isa(o: any): o is DBClusterRoleNotFoundFault {
-    return _smithy.isa(o, "DBClusterRoleNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
- *
- */
-export interface DBClusterRoleQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterRoleQuotaExceededFault";
-  name: "DBClusterRoleQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterRoleQuotaExceededFault {
-  export function isa(o: any): o is DBClusterRoleQuotaExceededFault {
-    return _smithy.isa(o, "DBClusterRoleQuotaExceededFault");
   }
 }
 
@@ -2433,31 +3695,6 @@ export namespace DBClusterSnapshot {
 
 /**
  *
- *          <p>User already has a DB cluster snapshot with the given identifier.</p>
- *
- */
-export interface DBClusterSnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterSnapshotAlreadyExistsFault";
-  name: "DBClusterSnapshotAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterSnapshotAlreadyExistsFault {
-  export function isa(o: any): o is DBClusterSnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterSnapshotAlreadyExistsFault");
-  }
-}
-
-/**
- *
  *          <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
  *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore
  *       a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
@@ -2545,33 +3782,6 @@ export interface DBClusterSnapshotMessage extends $MetadataBearer {
 export namespace DBClusterSnapshotMessage {
   export function isa(o: any): o is DBClusterSnapshotMessage {
     return _smithy.isa(o, "DBClusterSnapshotMessage");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
- *
- */
-export interface DBClusterSnapshotNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBClusterSnapshotNotFoundFault";
-  name: "DBClusterSnapshotNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBClusterSnapshotNotFoundFault {
-  export function isa(o: any): o is DBClusterSnapshotNotFoundFault {
-    return _smithy.isa(o, "DBClusterSnapshotNotFoundFault");
   }
 }
 
@@ -3108,31 +4318,6 @@ export namespace DBInstance {
   }
 }
 
-/**
- *
- *          <p>User already has a DB instance with the given identifier.</p>
- *
- */
-export interface DBInstanceAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBInstanceAlreadyExistsFault";
-  name: "DBInstanceAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBInstanceAlreadyExistsFault {
-  export function isa(o: any): o is DBInstanceAlreadyExistsFault {
-    return _smithy.isa(o, "DBInstanceAlreadyExistsFault");
-  }
-}
-
 export interface DBInstanceMessage extends $MetadataBearer {
   __type?: "DBInstanceMessage";
   /**
@@ -3155,32 +4340,6 @@ export interface DBInstanceMessage extends $MetadataBearer {
 export namespace DBInstanceMessage {
   export function isa(o: any): o is DBInstanceMessage {
     return _smithy.isa(o, "DBInstanceMessage");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
- *
- */
-export interface DBInstanceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBInstanceNotFoundFault";
-  name: "DBInstanceNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBInstanceNotFoundFault {
-  export function isa(o: any): o is DBInstanceNotFoundFault {
-    return _smithy.isa(o, "DBInstanceNotFoundFault");
   }
 }
 
@@ -3273,31 +4432,6 @@ export namespace DBParameterGroup {
   }
 }
 
-/**
- *
- *          <p>A DB parameter group with the same name exists.</p>
- *
- */
-export interface DBParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBParameterGroupAlreadyExistsFault";
-  name: "DBParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupAlreadyExistsFault {
-  export function isa(o: any): o is DBParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "DBParameterGroupAlreadyExistsFault");
-  }
-}
-
 export interface DBParameterGroupDetails extends $MetadataBearer {
   __type?: "DBParameterGroupDetails";
   /**
@@ -3336,58 +4470,6 @@ export interface DBParameterGroupNameMessage extends $MetadataBearer {
 export namespace DBParameterGroupNameMessage {
   export function isa(o: any): o is DBParameterGroupNameMessage {
     return _smithy.isa(o, "DBParameterGroupNameMessage");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
- *
- */
-export interface DBParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBParameterGroupNotFoundFault";
-  name: "DBParameterGroupNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupNotFoundFault {
-  export function isa(o: any): o is DBParameterGroupNotFoundFault {
-    return _smithy.isa(o, "DBParameterGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
- *
- */
-export interface DBParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBParameterGroupQuotaExceededFault";
-  name: "DBParameterGroupQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBParameterGroupQuotaExceededFault {
-  export function isa(o: any): o is DBParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "DBParameterGroupQuotaExceededFault");
   }
 }
 
@@ -3498,85 +4580,6 @@ export namespace DBSecurityGroupMembership {
 
 /**
  *
- *          <p>
- *             <i>DBSecurityGroupName</i> does not refer
- *       to an existing DB security group.</p>
- *
- */
-export interface DBSecurityGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSecurityGroupNotFoundFault";
-  name: "DBSecurityGroupNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSecurityGroupNotFoundFault {
-  export function isa(o: any): o is DBSecurityGroupNotFoundFault {
-    return _smithy.isa(o, "DBSecurityGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
- *
- */
-export interface DBSnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSnapshotAlreadyExistsFault";
-  name: "DBSnapshotAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSnapshotAlreadyExistsFault {
-  export function isa(o: any): o is DBSnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "DBSnapshotAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
- *
- */
-export interface DBSnapshotNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSnapshotNotFoundFault";
-  name: "DBSnapshotNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSnapshotNotFoundFault {
-  export function isa(o: any): o is DBSnapshotNotFoundFault {
-    return _smithy.isa(o, "DBSnapshotNotFoundFault");
-  }
-}
-
-/**
- *
  *          <p>Contains the details of an Amazon Neptune DB subnet group.</p>
  *          <p>This data type is used as a response element in the <a>DescribeDBSubnetGroups</a> action.</p>
  *
@@ -3632,58 +4635,6 @@ export namespace DBSubnetGroup {
   }
 }
 
-/**
- *
- *          <p>
- *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
- *
- */
-export interface DBSubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSubnetGroupAlreadyExistsFault";
-  name: "DBSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupAlreadyExistsFault {
-  export function isa(o: any): o is DBSubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "DBSubnetGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *          <p>Subnets in the DB subnet group should cover at least two Availability
- *       Zones unless there is only one Availability Zone.</p>
- *
- */
-export interface DBSubnetGroupDoesNotCoverEnoughAZs
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSubnetGroupDoesNotCoverEnoughAZs";
-  name: "DBSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  export function isa(o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs {
-    return _smithy.isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
-  }
-}
-
 export interface DBSubnetGroupMessage extends $MetadataBearer {
   __type?: "DBSubnetGroupMessage";
   /**
@@ -3706,108 +4657,6 @@ export interface DBSubnetGroupMessage extends $MetadataBearer {
 export namespace DBSubnetGroupMessage {
   export function isa(o: any): o is DBSubnetGroupMessage {
     return _smithy.isa(o, "DBSubnetGroupMessage");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
- *
- */
-export interface DBSubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSubnetGroupNotFoundFault";
-  name: "DBSubnetGroupNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupNotFoundFault {
-  export function isa(o: any): o is DBSubnetGroupNotFoundFault {
-    return _smithy.isa(o, "DBSubnetGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
- *
- */
-export interface DBSubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSubnetGroupQuotaExceededFault";
-  name: "DBSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSubnetGroupQuotaExceededFault {
-  export function isa(o: any): o is DBSubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "DBSubnetGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
- *
- */
-export interface DBSubnetQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBSubnetQuotaExceededFault";
-  name: "DBSubnetQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBSubnetQuotaExceededFault {
-  export function isa(o: any): o is DBSubnetQuotaExceededFault {
-    return _smithy.isa(o, "DBSubnetQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
- *
- */
-export interface DBUpgradeDependencyFailureFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DBUpgradeDependencyFailureFault";
-  name: "DBUpgradeDependencyFailureFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DBUpgradeDependencyFailureFault {
-  export function isa(o: any): o is DBUpgradeDependencyFailureFault {
-    return _smithy.isa(o, "DBUpgradeDependencyFailureFault");
   }
 }
 
@@ -5148,32 +5997,6 @@ export namespace DomainMembership {
 
 /**
  *
- *          <p>
- *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
- *
- */
-export interface DomainNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DomainNotFoundFault";
-  name: "DomainNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DomainNotFoundFault {
-  export function isa(o: any): o is DomainNotFoundFault {
-    return _smithy.isa(o, "DomainNotFoundFault");
-  }
-}
-
-/**
- *
  *          <p>A range of double values.</p>
  *
  */
@@ -5466,31 +6289,6 @@ export namespace EventSubscription {
   }
 }
 
-/**
- *
- *          <p>You have exceeded the number of events you can subscribe to.</p>
- *
- */
-export interface EventSubscriptionQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "EventSubscriptionQuotaExceededFault";
-  name: "EventSubscriptionQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace EventSubscriptionQuotaExceededFault {
-  export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
-    return _smithy.isa(o, "EventSubscriptionQuotaExceededFault");
-  }
-}
-
 export interface EventSubscriptionsMessage extends $MetadataBearer {
   __type?: "EventSubscriptionsMessage";
   /**
@@ -5598,436 +6396,6 @@ export interface Filter {
 export namespace Filter {
   export function isa(o: any): o is Filter {
     return _smithy.isa(o, "Filter");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed number of DB instances.</p>
- *
- */
-export interface InstanceQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InstanceQuotaExceededFault";
-  name: "InstanceQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InstanceQuotaExceededFault {
-  export function isa(o: any): o is InstanceQuotaExceededFault {
-    return _smithy.isa(o, "InstanceQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>The DB cluster does not have enough capacity for the current operation.</p>
- *
- */
-export interface InsufficientDBClusterCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientDBClusterCapacityFault";
-  name: "InsufficientDBClusterCapacityFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InsufficientDBClusterCapacityFault {
-  export function isa(o: any): o is InsufficientDBClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientDBClusterCapacityFault");
-  }
-}
-
-/**
- *
- *          <p>Specified DB instance class is not available in the specified Availability Zone.</p>
- *
- */
-export interface InsufficientDBInstanceCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientDBInstanceCapacityFault";
-  name: "InsufficientDBInstanceCapacityFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InsufficientDBInstanceCapacityFault {
-  export function isa(o: any): o is InsufficientDBInstanceCapacityFault {
-    return _smithy.isa(o, "InsufficientDBInstanceCapacityFault");
-  }
-}
-
-/**
- *
- *          <p>There is insufficient storage available for the current action. You may
- *        be able to resolve this error by updating your subnet group to use different
- *        Availability Zones that have more storage available.</p>
- *
- */
-export interface InsufficientStorageClusterCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientStorageClusterCapacityFault";
-  name: "InsufficientStorageClusterCapacityFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InsufficientStorageClusterCapacityFault {
-  export function isa(o: any): o is InsufficientStorageClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientStorageClusterCapacityFault");
-  }
-}
-
-/**
- *
- *          <p>The supplied value is not a valid DB cluster snapshot state.</p>
- *
- */
-export interface InvalidDBClusterSnapshotStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBClusterSnapshotStateFault";
-  name: "InvalidDBClusterSnapshotStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBClusterSnapshotStateFault {
-  export function isa(o: any): o is InvalidDBClusterSnapshotStateFault {
-    return _smithy.isa(o, "InvalidDBClusterSnapshotStateFault");
-  }
-}
-
-/**
- *
- *          <p>The DB cluster is not in a valid state.</p>
- *
- */
-export interface InvalidDBClusterStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBClusterStateFault";
-  name: "InvalidDBClusterStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBClusterStateFault {
-  export function isa(o: any): o is InvalidDBClusterStateFault {
-    return _smithy.isa(o, "InvalidDBClusterStateFault");
-  }
-}
-
-/**
- *
- *          <p>The specified DB instance is not in the <i>available</i> state.</p>
- *
- */
-export interface InvalidDBInstanceStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBInstanceStateFault";
-  name: "InvalidDBInstanceStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBInstanceStateFault {
-  export function isa(o: any): o is InvalidDBInstanceStateFault {
-    return _smithy.isa(o, "InvalidDBInstanceStateFault");
-  }
-}
-
-/**
- *
- *          <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
- *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
- *
- */
-export interface InvalidDBParameterGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBParameterGroupStateFault";
-  name: "InvalidDBParameterGroupStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBParameterGroupStateFault {
-  export function isa(o: any): o is InvalidDBParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidDBParameterGroupStateFault");
-  }
-}
-
-/**
- *
- *          <p>The state of the DB security group does not allow deletion.</p>
- *
- */
-export interface InvalidDBSecurityGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBSecurityGroupStateFault";
-  name: "InvalidDBSecurityGroupStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSecurityGroupStateFault {
-  export function isa(o: any): o is InvalidDBSecurityGroupStateFault {
-    return _smithy.isa(o, "InvalidDBSecurityGroupStateFault");
-  }
-}
-
-/**
- *
- *          <p>The state of the DB snapshot does not allow deletion.</p>
- *
- */
-export interface InvalidDBSnapshotStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBSnapshotStateFault";
-  name: "InvalidDBSnapshotStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSnapshotStateFault {
-  export function isa(o: any): o is InvalidDBSnapshotStateFault {
-    return _smithy.isa(o, "InvalidDBSnapshotStateFault");
-  }
-}
-
-/**
- *
- *          <p>The DB subnet group cannot be deleted because it is in use.</p>
- *
- */
-export interface InvalidDBSubnetGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBSubnetGroupStateFault";
-  name: "InvalidDBSubnetGroupStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSubnetGroupStateFault {
-  export function isa(o: any): o is InvalidDBSubnetGroupStateFault {
-    return _smithy.isa(o, "InvalidDBSubnetGroupStateFault");
-  }
-}
-
-/**
- *
- *          <p>The DB subnet is not in the <i>available</i> state.</p>
- *
- */
-export interface InvalidDBSubnetStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidDBSubnetStateFault";
-  name: "InvalidDBSubnetStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidDBSubnetStateFault {
-  export function isa(o: any): o is InvalidDBSubnetStateFault {
-    return _smithy.isa(o, "InvalidDBSubnetStateFault");
-  }
-}
-
-/**
- *
- *          <p>The event subscription is in an invalid state.</p>
- *
- */
-export interface InvalidEventSubscriptionStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidEventSubscriptionStateFault";
-  name: "InvalidEventSubscriptionStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidEventSubscriptionStateFault {
-  export function isa(o: any): o is InvalidEventSubscriptionStateFault {
-    return _smithy.isa(o, "InvalidEventSubscriptionStateFault");
-  }
-}
-
-/**
- *
- *          <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
- *
- */
-export interface InvalidRestoreFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRestoreFault";
-  name: "InvalidRestoreFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  export function isa(o: any): o is InvalidRestoreFault {
-    return _smithy.isa(o, "InvalidRestoreFault");
-  }
-}
-
-/**
- *
- *          <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
- *
- */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubnet";
-  name: "InvalidSubnet";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
-  }
-}
-
-/**
- *
- *          <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
- *
- */
-export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidVPCNetworkStateFault";
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
-  }
-}
-
-/**
- *
- *          <p>Error accessing KMS key.</p>
- *
- */
-export interface KMSKeyNotAccessibleFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "KMSKeyNotAccessibleFault";
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace KMSKeyNotAccessibleFault {
-  export function isa(o: any): o is KMSKeyNotAccessibleFault {
-    return _smithy.isa(o, "KMSKeyNotAccessibleFault");
   }
 }
 
@@ -6898,31 +7266,6 @@ export namespace OptionGroupMembership {
 
 /**
  *
- *          <p>The designated option group could not be found.</p>
- *
- */
-export interface OptionGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "OptionGroupNotFoundFault";
-  name: "OptionGroupNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace OptionGroupNotFoundFault {
-  export function isa(o: any): o is OptionGroupNotFoundFault {
-    return _smithy.isa(o, "OptionGroupNotFoundFault");
-  }
-}
-
-/**
- *
  *          <p>Contains a list of available options for a DB instance.</p>
  *          <p> This data type is used as a response element in the <a>DescribeOrderableDBInstanceOptions</a> action.</p>
  *
@@ -7450,31 +7793,6 @@ export namespace PromoteReadReplicaDBClusterMessage {
 
 /**
  *
- *          <p>Provisioned IOPS not available in the specified Availability Zone.</p>
- *
- */
-export interface ProvisionedIopsNotAvailableInAZFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ProvisionedIopsNotAvailableInAZFault";
-  name: "ProvisionedIopsNotAvailableInAZFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ProvisionedIopsNotAvailableInAZFault {
-  export function isa(o: any): o is ProvisionedIopsNotAvailableInAZFault {
-    return _smithy.isa(o, "ProvisionedIopsNotAvailableInAZFault");
-  }
-}
-
-/**
- *
  *          <p>A range of integer values.</p>
  *
  */
@@ -7694,31 +8012,6 @@ export interface ResetDBParameterGroupMessage {
 export namespace ResetDBParameterGroupMessage {
   export function isa(o: any): o is ResetDBParameterGroupMessage {
     return _smithy.isa(o, "ResetDBParameterGroupMessage");
-  }
-}
-
-/**
- *
- *          <p>The specified resource ID was not found.</p>
- *
- */
-export interface ResourceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundFault";
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  export function isa(o: any): o is ResourceNotFoundFault {
-    return _smithy.isa(o, "ResourceNotFoundFault");
   }
 }
 
@@ -8126,206 +8419,13 @@ export namespace RestoreDBClusterToPointInTimeMessage {
   }
 }
 
-/**
- *
- *          <p>The SNS topic is invalid.</p>
- *
- */
-export interface SNSInvalidTopicFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSInvalidTopicFault";
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  export function isa(o: any): o is SNSInvalidTopicFault {
-    return _smithy.isa(o, "SNSInvalidTopicFault");
-  }
-}
-
-/**
- *
- *          <p>There is no SNS authorization.</p>
- *
- */
-export interface SNSNoAuthorizationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSNoAuthorizationFault";
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  export function isa(o: any): o is SNSNoAuthorizationFault {
-    return _smithy.isa(o, "SNSNoAuthorizationFault");
-  }
-}
-
-/**
- *
- *          <p>The ARN of the SNS topic could not be found.</p>
- *
- */
-export interface SNSTopicArnNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSTopicArnNotFoundFault";
-  name: "SNSTopicArnNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SNSTopicArnNotFoundFault {
-  export function isa(o: any): o is SNSTopicArnNotFoundFault {
-    return _smithy.isa(o, "SNSTopicArnNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
- *
- */
-export interface SharedSnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SharedSnapshotQuotaExceededFault";
-  name: "SharedSnapshotQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SharedSnapshotQuotaExceededFault {
-  export function isa(o: any): o is SharedSnapshotQuotaExceededFault {
-    return _smithy.isa(o, "SharedSnapshotQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
- *
- */
-export interface SnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotQuotaExceededFault";
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  export function isa(o: any): o is SnapshotQuotaExceededFault {
-    return _smithy.isa(o, "SnapshotQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>The source could not be found.</p>
- *
- */
-export interface SourceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SourceNotFoundFault";
-  name: "SourceNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SourceNotFoundFault {
-  export function isa(o: any): o is SourceNotFoundFault {
-    return _smithy.isa(o, "SourceNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
- *
- */
-export interface StorageQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "StorageQuotaExceededFault";
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  export function isa(o: any): o is StorageQuotaExceededFault {
-    return _smithy.isa(o, "StorageQuotaExceededFault");
-  }
-}
-
-/**
- *
- *          <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
- *
- */
-export interface StorageTypeNotSupportedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "StorageTypeNotSupportedFault";
-  name: "StorageTypeNotSupportedFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace StorageTypeNotSupportedFault {
-  export function isa(o: any): o is StorageTypeNotSupportedFault {
-    return _smithy.isa(o, "StorageTypeNotSupportedFault");
-  }
-}
+export type SourceType =
+  | "db-cluster"
+  | "db-cluster-snapshot"
+  | "db-instance"
+  | "db-parameter-group"
+  | "db-security-group"
+  | "db-snapshot";
 
 /**
  *
@@ -8360,106 +8460,6 @@ export interface Subnet {
 export namespace Subnet {
   export function isa(o: any): o is Subnet {
     return _smithy.isa(o, "Subnet");
-  }
-}
-
-/**
- *
- *          <p>The DB subnet is already in use in the Availability Zone.</p>
- *
- */
-export interface SubnetAlreadyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetAlreadyInUse";
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  export function isa(o: any): o is SubnetAlreadyInUse {
-    return _smithy.isa(o, "SubnetAlreadyInUse");
-  }
-}
-
-/**
- *
- *          <p>This subscription already exists.</p>
- *
- */
-export interface SubscriptionAlreadyExistFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionAlreadyExistFault";
-  name: "SubscriptionAlreadyExistFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SubscriptionAlreadyExistFault {
-  export function isa(o: any): o is SubscriptionAlreadyExistFault {
-    return _smithy.isa(o, "SubscriptionAlreadyExistFault");
-  }
-}
-
-/**
- *
- *          <p>The designated subscription category could not be found.</p>
- *
- */
-export interface SubscriptionCategoryNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionCategoryNotFoundFault";
-  name: "SubscriptionCategoryNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SubscriptionCategoryNotFoundFault {
-  export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
-    return _smithy.isa(o, "SubscriptionCategoryNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>The designated subscription could not be found.</p>
- *
- */
-export interface SubscriptionNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionNotFoundFault";
-  name: "SubscriptionNotFoundFault";
-  $fault: "client";
-  /**
-   *
-   *          <p>A message describing the details of the problem.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  export function isa(o: any): o is SubscriptionNotFoundFault {
-    return _smithy.isa(o, "SubscriptionNotFoundFault");
   }
 }
 

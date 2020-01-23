@@ -1,100 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum BatchReadExceptionType {
-  AccessDeniedException = "AccessDeniedException",
-  CannotListParentOfRootException = "CannotListParentOfRootException",
-  DirectoryNotEnabledException = "DirectoryNotEnabledException",
-  FacetValidationException = "FacetValidationException",
-  InternalServiceException = "InternalServiceException",
-  InvalidArnException = "InvalidArnException",
-  InvalidNextTokenException = "InvalidNextTokenException",
-  LimitExceededException = "LimitExceededException",
-  NotIndexException = "NotIndexException",
-  NotNodeException = "NotNodeException",
-  NotPolicyException = "NotPolicyException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ValidationException = "ValidationException"
-}
-
-export enum BatchWriteExceptionType {
-  AccessDeniedException = "AccessDeniedException",
-  DirectoryNotEnabledException = "DirectoryNotEnabledException",
-  FacetValidationException = "FacetValidationException",
-  IndexedAttributeMissingException = "IndexedAttributeMissingException",
-  InternalServiceException = "InternalServiceException",
-  InvalidArnException = "InvalidArnException",
-  InvalidAttachmentException = "InvalidAttachmentException",
-  LimitExceededException = "LimitExceededException",
-  LinkNameAlreadyInUseException = "LinkNameAlreadyInUseException",
-  NotIndexException = "NotIndexException",
-  NotNodeException = "NotNodeException",
-  NotPolicyException = "NotPolicyException",
-  ObjectAlreadyDetachedException = "ObjectAlreadyDetachedException",
-  ObjectNotDetachedException = "ObjectNotDetachedException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  StillContainsLinksException = "StillContainsLinksException",
-  UnsupportedIndexTypeException = "UnsupportedIndexTypeException",
-  ValidationException = "ValidationException"
-}
-
-export enum ConsistencyLevel {
-  EVENTUAL = "EVENTUAL",
-  SERIALIZABLE = "SERIALIZABLE"
-}
-
-export enum DirectoryState {
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum FacetAttributeType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-  VARIANT = "VARIANT"
-}
-
-export enum FacetStyle {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC"
-}
-
-export enum ObjectType {
-  INDEX = "INDEX",
-  LEAF_NODE = "LEAF_NODE",
-  NODE = "NODE",
-  POLICY = "POLICY"
-}
-
-export enum RangeMode {
-  EXCLUSIVE = "EXCLUSIVE",
-  FIRST = "FIRST",
-  INCLUSIVE = "INCLUSIVE",
-  LAST = "LAST",
-  LAST_BEFORE_MISSING_VALUES = "LAST_BEFORE_MISSING_VALUES"
-}
-
-export enum RequiredAttributeBehavior {
-  NOT_REQUIRED = "NOT_REQUIRED",
-  REQUIRED_ALWAYS = "REQUIRED_ALWAYS"
-}
-
-export enum RuleType {
-  BINARY_LENGTH = "BINARY_LENGTH",
-  NUMBER_COMPARISON = "NUMBER_COMPARISON",
-  STRING_FROM_SET = "STRING_FROM_SET",
-  STRING_LENGTH = "STRING_LENGTH"
-}
-
-export enum UpdateActionType {
-  CREATE_OR_UPDATE = "CREATE_OR_UPDATE",
-  DELETE = "DELETE"
-}
-
 /**
  *
  *          <p>Access denied. Check your permissions.</p>
@@ -2039,6 +1945,22 @@ export namespace BatchReadException {
   }
 }
 
+export enum BatchReadExceptionType {
+  AccessDeniedException = "AccessDeniedException",
+  CannotListParentOfRootException = "CannotListParentOfRootException",
+  DirectoryNotEnabledException = "DirectoryNotEnabledException",
+  FacetValidationException = "FacetValidationException",
+  InternalServiceException = "InternalServiceException",
+  InvalidArnException = "InvalidArnException",
+  InvalidNextTokenException = "InvalidNextTokenException",
+  LimitExceededException = "LimitExceededException",
+  NotIndexException = "NotIndexException",
+  NotNodeException = "NotNodeException",
+  NotPolicyException = "NotPolicyException",
+  ResourceNotFoundException = "ResourceNotFoundException",
+  ValidationException = "ValidationException"
+}
+
 /**
  *
  *          <p>Represents the output of a <code>BatchRead</code> operation.</p>
@@ -2506,6 +2428,27 @@ export namespace BatchWriteException {
   }
 }
 
+export enum BatchWriteExceptionType {
+  AccessDeniedException = "AccessDeniedException",
+  DirectoryNotEnabledException = "DirectoryNotEnabledException",
+  FacetValidationException = "FacetValidationException",
+  IndexedAttributeMissingException = "IndexedAttributeMissingException",
+  InternalServiceException = "InternalServiceException",
+  InvalidArnException = "InvalidArnException",
+  InvalidAttachmentException = "InvalidAttachmentException",
+  LimitExceededException = "LimitExceededException",
+  LinkNameAlreadyInUseException = "LinkNameAlreadyInUseException",
+  NotIndexException = "NotIndexException",
+  NotNodeException = "NotNodeException",
+  NotPolicyException = "NotPolicyException",
+  ObjectAlreadyDetachedException = "ObjectAlreadyDetachedException",
+  ObjectNotDetachedException = "ObjectNotDetachedException",
+  ResourceNotFoundException = "ResourceNotFoundException",
+  StillContainsLinksException = "StillContainsLinksException",
+  UnsupportedIndexTypeException = "UnsupportedIndexTypeException",
+  ValidationException = "ValidationException"
+}
+
 /**
  *
  *          <p>Represents the output of a <code>BatchWrite</code> operation. </p>
@@ -2804,6 +2747,11 @@ export namespace CannotListParentOfRootException {
   export function isa(o: any): o is CannotListParentOfRootException {
     return _smithy.isa(o, "CannotListParentOfRootException");
   }
+}
+
+export enum ConsistencyLevel {
+  EVENTUAL = "EVENTUAL",
+  SERIALIZABLE = "SERIALIZABLE"
 }
 
 export interface CreateDirectoryRequest {
@@ -3595,6 +3543,12 @@ export namespace DirectoryNotEnabledException {
   }
 }
 
+export enum DirectoryState {
+  DELETED = "DELETED",
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 export interface DisableDirectoryRequest {
   __type?: "DisableDirectoryRequest";
   /**
@@ -3830,6 +3784,15 @@ export namespace FacetAttributeReference {
   }
 }
 
+export enum FacetAttributeType {
+  BINARY = "BINARY",
+  BOOLEAN = "BOOLEAN",
+  DATETIME = "DATETIME",
+  NUMBER = "NUMBER",
+  STRING = "STRING",
+  VARIANT = "VARIANT"
+}
+
 /**
  *
  *          <p>A structure that contains information used to update an attribute.</p>
@@ -3897,6 +3860,11 @@ export namespace FacetNotFoundException {
   export function isa(o: any): o is FacetNotFoundException {
     return _smithy.isa(o, "FacetNotFoundException");
   }
+}
+
+export enum FacetStyle {
+  DYNAMIC = "DYNAMIC",
+  STATIC = "STATIC"
 }
 
 /**
@@ -6217,6 +6185,13 @@ export namespace ObjectReference {
   }
 }
 
+export enum ObjectType {
+  INDEX = "INDEX",
+  LEAF_NODE = "LEAF_NODE",
+  NODE = "NODE",
+  POLICY = "POLICY"
+}
+
 /**
  *
  *          <p>Returns the path to the <code>ObjectIdentifiers</code> that is associated with the
@@ -6409,6 +6384,14 @@ export namespace PutSchemaFromJsonResponse {
   }
 }
 
+export enum RangeMode {
+  EXCLUSIVE = "EXCLUSIVE",
+  FIRST = "FIRST",
+  INCLUSIVE = "INCLUSIVE",
+  LAST = "LAST",
+  LAST_BEFORE_MISSING_VALUES = "LAST_BEFORE_MISSING_VALUES"
+}
+
 export interface RemoveFacetFromObjectRequest {
   __type?: "RemoveFacetFromObjectRequest";
   /**
@@ -6447,6 +6430,11 @@ export namespace RemoveFacetFromObjectResponse {
   export function isa(o: any): o is RemoveFacetFromObjectResponse {
     return _smithy.isa(o, "RemoveFacetFromObjectResponse");
   }
+}
+
+export enum RequiredAttributeBehavior {
+  NOT_REQUIRED = "NOT_REQUIRED",
+  REQUIRED_ALWAYS = "REQUIRED_ALWAYS"
 }
 
 /**
@@ -6516,6 +6504,13 @@ export namespace Rule {
   export function isa(o: any): o is Rule {
     return _smithy.isa(o, "Rule");
   }
+}
+
+export enum RuleType {
+  BINARY_LENGTH = "BINARY_LENGTH",
+  NUMBER_COMPARISON = "NUMBER_COMPARISON",
+  STRING_FROM_SET = "STRING_FROM_SET",
+  STRING_LENGTH = "STRING_LENGTH"
 }
 
 /**
@@ -7039,6 +7034,11 @@ export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
     return _smithy.isa(o, "UntagResourceResponse");
   }
+}
+
+export enum UpdateActionType {
+  CREATE_OR_UPDATE = "CREATE_OR_UPDATE",
+  DELETE = "DELETE"
 }
 
 export interface UpdateFacetRequest {

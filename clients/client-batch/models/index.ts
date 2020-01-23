@@ -6,75 +6,6 @@ export enum ArrayJobDependency {
   SEQUENTIAL = "SEQUENTIAL"
 }
 
-export enum CEState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum CEStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID"
-}
-
-export enum CEType {
-  MANAGED = "MANAGED",
-  UNMANAGED = "UNMANAGED"
-}
-
-export enum CRAllocationStrategy {
-  BEST_FIT = "BEST_FIT",
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
-}
-
-export enum CRType {
-  EC2 = "EC2",
-  SPOT = "SPOT"
-}
-
-export enum DeviceCgroupPermission {
-  MKNOD = "MKNOD",
-  READ = "READ",
-  WRITE = "WRITE"
-}
-
-export enum JQState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum JQStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID"
-}
-
-export enum JobDefinitionType {
-  Container = "container",
-  Multinode = "multinode"
-}
-
-export enum JobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNABLE = "RUNNABLE",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum ResourceType {
-  GPU = "GPU"
-}
-
 /**
  *
  *          <p>An object representing an AWS Batch array job.</p>
@@ -265,6 +196,36 @@ export namespace AttemptDetail {
   export function isa(o: any): o is AttemptDetail {
     return _smithy.isa(o, "AttemptDetail");
   }
+}
+
+export enum CEState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum CEStatus {
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  INVALID = "INVALID",
+  UPDATING = "UPDATING",
+  VALID = "VALID"
+}
+
+export enum CEType {
+  MANAGED = "MANAGED",
+  UNMANAGED = "UNMANAGED"
+}
+
+export enum CRAllocationStrategy {
+  BEST_FIT = "BEST_FIT",
+  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
+}
+
+export enum CRType {
+  EC2 = "EC2",
+  SPOT = "SPOT"
 }
 
 export interface CancelJobRequest {
@@ -1586,6 +1547,12 @@ export namespace Device {
   }
 }
 
+export enum DeviceCgroupPermission {
+  MKNOD = "MKNOD",
+  READ = "READ",
+  WRITE = "WRITE"
+}
+
 /**
  *
  *          <p>Determine whether your data volume persists on the host container instance and where it is stored. If this
@@ -1611,6 +1578,20 @@ export namespace Host {
   export function isa(o: any): o is Host {
     return _smithy.isa(o, "Host");
   }
+}
+
+export enum JQState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum JQStatus {
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  INVALID = "INVALID",
+  UPDATING = "UPDATING",
+  VALID = "VALID"
 }
 
 /**
@@ -1699,6 +1680,11 @@ export namespace JobDefinition {
   export function isa(o: any): o is JobDefinition {
     return _smithy.isa(o, "JobDefinition");
   }
+}
+
+export enum JobDefinitionType {
+  Container = "container",
+  Multinode = "multinode"
 }
 
 /**
@@ -1941,6 +1927,16 @@ export namespace JobQueueDetail {
   export function isa(o: any): o is JobQueueDetail {
     return _smithy.isa(o, "JobQueueDetail");
   }
+}
+
+export enum JobStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  RUNNABLE = "RUNNABLE",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  SUBMITTED = "SUBMITTED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -2645,6 +2641,10 @@ export namespace ResourceRequirement {
   export function isa(o: any): o is ResourceRequirement {
     return _smithy.isa(o, "ResourceRequirement");
   }
+}
+
+export enum ResourceType {
+  GPU = "GPU"
 }
 
 /**

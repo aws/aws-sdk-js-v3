@@ -1,39 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AuthorizationProviderType {
-  SAML = "SAML"
-}
-
-export enum DeviceStatus {
-  ACTIVE = "ACTIVE",
-  SIGNED_OUT = "SIGNED_OUT"
-}
-
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED_TO_ASSOCIATE = "FAILED_TO_ASSOCIATE",
-  FAILED_TO_DISASSOCIATE = "FAILED_TO_DISASSOCIATE",
-  INACTIVE = "INACTIVE",
-  PENDING_VALIDATION = "PENDING_VALIDATION"
-}
-
-export enum FleetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED_TO_CREATE = "FAILED_TO_CREATE",
-  FAILED_TO_DELETE = "FAILED_TO_DELETE"
-}
-
-export enum IdentityProviderType {
-  SAML = "SAML"
-}
-
 export interface AssociateDomainRequest {
   __type?: "AssociateDomainRequest";
   /**
@@ -182,6 +149,10 @@ export namespace AssociateWebsiteCertificateAuthorityResponse {
   ): o is AssociateWebsiteCertificateAuthorityResponse {
     return _smithy.isa(o, "AssociateWebsiteCertificateAuthorityResponse");
   }
+}
+
+export enum AuthorizationProviderType {
+  SAML = "SAML"
 }
 
 export interface CreateFleetRequest {
@@ -718,6 +689,11 @@ export namespace DescribeWebsiteCertificateAuthorityResponse {
   }
 }
 
+export enum DeviceStatus {
+  ACTIVE = "ACTIVE",
+  SIGNED_OUT = "SIGNED_OUT"
+}
+
 /**
  *
  *         <p>The summary of devices.</p>
@@ -855,6 +831,17 @@ export namespace DisassociateWebsiteCertificateAuthorityResponse {
   }
 }
 
+export enum DomainStatus {
+  ACTIVE = "ACTIVE",
+  ASSOCIATING = "ASSOCIATING",
+  DISASSOCIATED = "DISASSOCIATED",
+  DISASSOCIATING = "DISASSOCIATING",
+  FAILED_TO_ASSOCIATE = "FAILED_TO_ASSOCIATE",
+  FAILED_TO_DISASSOCIATE = "FAILED_TO_DISASSOCIATE",
+  INACTIVE = "INACTIVE",
+  PENDING_VALIDATION = "PENDING_VALIDATION"
+}
+
 /**
  *
  *         <p>The summary of the domain.</p>
@@ -895,6 +882,15 @@ export namespace DomainSummary {
   export function isa(o: any): o is DomainSummary {
     return _smithy.isa(o, "DomainSummary");
   }
+}
+
+export enum FleetStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  FAILED_TO_CREATE = "FAILED_TO_CREATE",
+  FAILED_TO_DELETE = "FAILED_TO_DELETE"
 }
 
 /**
@@ -958,6 +954,10 @@ export namespace FleetSummary {
   export function isa(o: any): o is FleetSummary {
     return _smithy.isa(o, "FleetSummary");
   }
+}
+
+export enum IdentityProviderType {
+  SAML = "SAML"
 }
 
 /**

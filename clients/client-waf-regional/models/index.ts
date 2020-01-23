@@ -1,376 +1,173 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ChangeAction {
-  DELETE = "DELETE",
-  INSERT = "INSERT"
+export interface AssociateWebACLRequest {
+  __type?: "AssociateWebACLRequest";
+  /**
+   *
+   *          <p>The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  </p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   *
+   *          <p>A unique identifier (ID) for the web ACL. </p>
+   *
+   */
+  WebACLId: string | undefined;
 }
 
-export enum ChangeTokenStatus {
-  INSYNC = "INSYNC",
-  PENDING = "PENDING",
-  PROVISIONED = "PROVISIONED"
+export namespace AssociateWebACLRequest {
+  export function isa(o: any): o is AssociateWebACLRequest {
+    return _smithy.isa(o, "AssociateWebACLRequest");
+  }
 }
 
-export enum ComparisonOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE"
+export interface AssociateWebACLResponse extends $MetadataBearer {
+  __type?: "AssociateWebACLResponse";
 }
 
-export enum GeoMatchConstraintType {
-  Country = "Country"
+export namespace AssociateWebACLResponse {
+  export function isa(o: any): o is AssociateWebACLResponse {
+    return _smithy.isa(o, "AssociateWebACLResponse");
+  }
 }
 
-export enum GeoMatchConstraintValue {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AX = "AX",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BQ = "BQ",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BV = "BV",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GF = "GF",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GP = "GP",
-  GQ = "GQ",
-  GR = "GR",
-  GS = "GS",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HM = "HM",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MQ = "MQ",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NF = "NF",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PS = "PS",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  SS = "SS",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TF = "TF",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  UM = "UM",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW"
+export interface DisassociateWebACLRequest {
+  __type?: "DisassociateWebACLRequest";
+  /**
+   *
+   *          <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  ResourceArn: string | undefined;
 }
 
-export enum IPSetDescriptorType {
-  IPV4 = "IPV4",
-  IPV6 = "IPV6"
+export namespace DisassociateWebACLRequest {
+  export function isa(o: any): o is DisassociateWebACLRequest {
+    return _smithy.isa(o, "DisassociateWebACLRequest");
+  }
 }
 
-export enum MatchFieldType {
-  ALL_QUERY_ARGS = "ALL_QUERY_ARGS",
-  BODY = "BODY",
-  HEADER = "HEADER",
-  METHOD = "METHOD",
-  QUERY_STRING = "QUERY_STRING",
-  SINGLE_QUERY_ARG = "SINGLE_QUERY_ARG",
-  URI = "URI"
+export interface DisassociateWebACLResponse extends $MetadataBearer {
+  __type?: "DisassociateWebACLResponse";
 }
 
-export enum ParameterExceptionField {
-  BYTE_MATCH_FIELD_TYPE = "BYTE_MATCH_FIELD_TYPE",
-  BYTE_MATCH_POSITIONAL_CONSTRAINT = "BYTE_MATCH_POSITIONAL_CONSTRAINT",
-  BYTE_MATCH_TEXT_TRANSFORMATION = "BYTE_MATCH_TEXT_TRANSFORMATION",
-  CHANGE_ACTION = "CHANGE_ACTION",
-  GEO_MATCH_LOCATION_TYPE = "GEO_MATCH_LOCATION_TYPE",
-  GEO_MATCH_LOCATION_VALUE = "GEO_MATCH_LOCATION_VALUE",
-  IPSET_TYPE = "IPSET_TYPE",
-  NEXT_MARKER = "NEXT_MARKER",
-  PREDICATE_TYPE = "PREDICATE_TYPE",
-  RATE_KEY = "RATE_KEY",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  RULE_TYPE = "RULE_TYPE",
-  SIZE_CONSTRAINT_COMPARISON_OPERATOR = "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
-  SQL_INJECTION_MATCH_FIELD_TYPE = "SQL_INJECTION_MATCH_FIELD_TYPE",
-  TAGS = "TAGS",
-  TAG_KEYS = "TAG_KEYS",
-  WAF_ACTION = "WAF_ACTION",
-  WAF_OVERRIDE_ACTION = "WAF_OVERRIDE_ACTION"
+export namespace DisassociateWebACLResponse {
+  export function isa(o: any): o is DisassociateWebACLResponse {
+    return _smithy.isa(o, "DisassociateWebACLResponse");
+  }
 }
 
-export enum ParameterExceptionReason {
-  ILLEGAL_ARGUMENT = "ILLEGAL_ARGUMENT",
-  ILLEGAL_COMBINATION = "ILLEGAL_COMBINATION",
-  INVALID_OPTION = "INVALID_OPTION",
-  INVALID_TAG_KEY = "INVALID_TAG_KEY"
+export interface GetWebACLForResourceRequest {
+  __type?: "GetWebACLForResourceRequest";
+  /**
+   *
+   *          <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
+   *          <p>The ARN should be in one of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  ResourceArn: string | undefined;
 }
 
-export enum PositionalConstraint {
-  CONTAINS = "CONTAINS",
-  CONTAINS_WORD = "CONTAINS_WORD",
-  ENDS_WITH = "ENDS_WITH",
-  EXACTLY = "EXACTLY",
-  STARTS_WITH = "STARTS_WITH"
+export namespace GetWebACLForResourceRequest {
+  export function isa(o: any): o is GetWebACLForResourceRequest {
+    return _smithy.isa(o, "GetWebACLForResourceRequest");
+  }
 }
 
-export enum PredicateType {
-  BYTE_MATCH = "ByteMatch",
-  GEO_MATCH = "GeoMatch",
-  IP_MATCH = "IPMatch",
-  REGEX_MATCH = "RegexMatch",
-  SIZE_CONSTRAINT = "SizeConstraint",
-  SQL_INJECTION_MATCH = "SqlInjectionMatch",
-  XSS_MATCH = "XssMatch"
+export interface GetWebACLForResourceResponse extends $MetadataBearer {
+  __type?: "GetWebACLForResourceResponse";
+  /**
+   *
+   *          <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
+   *
+   */
+  WebACLSummary?: WebACLSummary;
 }
 
-export enum RateKey {
-  IP = "IP"
+export namespace GetWebACLForResourceResponse {
+  export function isa(o: any): o is GetWebACLForResourceResponse {
+    return _smithy.isa(o, "GetWebACLForResourceResponse");
+  }
 }
 
-export enum ResourceType {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER"
+export interface ListResourcesForWebACLRequest {
+  __type?: "ListResourcesForWebACLRequest";
+  /**
+   *
+   *          <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
+   *
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   *
+   *          <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
+   *
+   */
+  WebACLId: string | undefined;
 }
 
-export enum TextTransformation {
-  CMD_LINE = "CMD_LINE",
-  COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE",
-  HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
-  LOWERCASE = "LOWERCASE",
-  NONE = "NONE",
-  URL_DECODE = "URL_DECODE"
+export namespace ListResourcesForWebACLRequest {
+  export function isa(o: any): o is ListResourcesForWebACLRequest {
+    return _smithy.isa(o, "ListResourcesForWebACLRequest");
+  }
 }
 
-export enum WafActionType {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-  COUNT = "COUNT"
+export interface ListResourcesForWebACLResponse extends $MetadataBearer {
+  __type?: "ListResourcesForWebACLResponse";
+  /**
+   *
+   *          <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
+   *
+   */
+  ResourceArns?: Array<string>;
 }
 
-export enum WafOverrideActionType {
-  COUNT = "COUNT",
-  NONE = "NONE"
-}
-
-export enum WafRuleType {
-  GROUP = "GROUP",
-  RATE_BASED = "RATE_BASED",
-  REGULAR = "REGULAR"
+export namespace ListResourcesForWebACLResponse {
+  export function isa(o: any): o is ListResourcesForWebACLResponse {
+    return _smithy.isa(o, "ListResourcesForWebACLResponse");
+  }
 }
 
 /**
@@ -505,52 +302,6 @@ export interface ActivatedRule {
 export namespace ActivatedRule {
   export function isa(o: any): o is ActivatedRule {
     return _smithy.isa(o, "ActivatedRule");
-  }
-}
-
-export interface AssociateWebACLRequest {
-  __type?: "AssociateWebACLRequest";
-  /**
-   *
-   *          <p>The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.  </p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   *
-   *          <p>A unique identifier (ID) for the web ACL. </p>
-   *
-   */
-  WebACLId: string | undefined;
-}
-
-export namespace AssociateWebACLRequest {
-  export function isa(o: any): o is AssociateWebACLRequest {
-    return _smithy.isa(o, "AssociateWebACLRequest");
-  }
-}
-
-export interface AssociateWebACLResponse extends $MetadataBearer {
-  __type?: "AssociateWebACLResponse";
-}
-
-export namespace AssociateWebACLResponse {
-  export function isa(o: any): o is AssociateWebACLResponse {
-    return _smithy.isa(o, "AssociateWebACLResponse");
   }
 }
 
@@ -901,6 +652,26 @@ export namespace ByteMatchTuple {
   export function isa(o: any): o is ByteMatchTuple {
     return _smithy.isa(o, "ByteMatchTuple");
   }
+}
+
+export enum ChangeAction {
+  DELETE = "DELETE",
+  INSERT = "INSERT"
+}
+
+export enum ChangeTokenStatus {
+  INSYNC = "INSYNC",
+  PENDING = "PENDING",
+  PROVISIONED = "PROVISIONED"
+}
+
+export enum ComparisonOperator {
+  EQ = "EQ",
+  GE = "GE",
+  GT = "GT",
+  LE = "LE",
+  LT = "LT",
+  NE = "NE"
 }
 
 export interface CreateByteMatchSetRequest {
@@ -2139,45 +1910,6 @@ export namespace DeleteXssMatchSetResponse {
   }
 }
 
-export interface DisassociateWebACLRequest {
-  __type?: "DisassociateWebACLRequest";
-  /**
-   *
-   *          <p>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed, either an application load balancer or Amazon API Gateway stage.</p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace DisassociateWebACLRequest {
-  export function isa(o: any): o is DisassociateWebACLRequest {
-    return _smithy.isa(o, "DisassociateWebACLRequest");
-  }
-}
-
-export interface DisassociateWebACLResponse extends $MetadataBearer {
-  __type?: "DisassociateWebACLResponse";
-}
-
-export namespace DisassociateWebACLResponse {
-  export function isa(o: any): o is DisassociateWebACLResponse {
-    return _smithy.isa(o, "DisassociateWebACLResponse");
-  }
-}
-
 /**
  *
  *          <p>The rule to exclude from a rule group. This is applicable only when the
@@ -2297,6 +2029,262 @@ export namespace GeoMatchConstraint {
   export function isa(o: any): o is GeoMatchConstraint {
     return _smithy.isa(o, "GeoMatchConstraint");
   }
+}
+
+export enum GeoMatchConstraintType {
+  Country = "Country"
+}
+
+export enum GeoMatchConstraintValue {
+  AD = "AD",
+  AE = "AE",
+  AF = "AF",
+  AG = "AG",
+  AI = "AI",
+  AL = "AL",
+  AM = "AM",
+  AO = "AO",
+  AQ = "AQ",
+  AR = "AR",
+  AS = "AS",
+  AT = "AT",
+  AU = "AU",
+  AW = "AW",
+  AX = "AX",
+  AZ = "AZ",
+  BA = "BA",
+  BB = "BB",
+  BD = "BD",
+  BE = "BE",
+  BF = "BF",
+  BG = "BG",
+  BH = "BH",
+  BI = "BI",
+  BJ = "BJ",
+  BL = "BL",
+  BM = "BM",
+  BN = "BN",
+  BO = "BO",
+  BQ = "BQ",
+  BR = "BR",
+  BS = "BS",
+  BT = "BT",
+  BV = "BV",
+  BW = "BW",
+  BY = "BY",
+  BZ = "BZ",
+  CA = "CA",
+  CC = "CC",
+  CD = "CD",
+  CF = "CF",
+  CG = "CG",
+  CH = "CH",
+  CI = "CI",
+  CK = "CK",
+  CL = "CL",
+  CM = "CM",
+  CN = "CN",
+  CO = "CO",
+  CR = "CR",
+  CU = "CU",
+  CV = "CV",
+  CW = "CW",
+  CX = "CX",
+  CY = "CY",
+  CZ = "CZ",
+  DE = "DE",
+  DJ = "DJ",
+  DK = "DK",
+  DM = "DM",
+  DO = "DO",
+  DZ = "DZ",
+  EC = "EC",
+  EE = "EE",
+  EG = "EG",
+  EH = "EH",
+  ER = "ER",
+  ES = "ES",
+  ET = "ET",
+  FI = "FI",
+  FJ = "FJ",
+  FK = "FK",
+  FM = "FM",
+  FO = "FO",
+  FR = "FR",
+  GA = "GA",
+  GB = "GB",
+  GD = "GD",
+  GE = "GE",
+  GF = "GF",
+  GG = "GG",
+  GH = "GH",
+  GI = "GI",
+  GL = "GL",
+  GM = "GM",
+  GN = "GN",
+  GP = "GP",
+  GQ = "GQ",
+  GR = "GR",
+  GS = "GS",
+  GT = "GT",
+  GU = "GU",
+  GW = "GW",
+  GY = "GY",
+  HK = "HK",
+  HM = "HM",
+  HN = "HN",
+  HR = "HR",
+  HT = "HT",
+  HU = "HU",
+  ID = "ID",
+  IE = "IE",
+  IL = "IL",
+  IM = "IM",
+  IN = "IN",
+  IO = "IO",
+  IQ = "IQ",
+  IR = "IR",
+  IS = "IS",
+  IT = "IT",
+  JE = "JE",
+  JM = "JM",
+  JO = "JO",
+  JP = "JP",
+  KE = "KE",
+  KG = "KG",
+  KH = "KH",
+  KI = "KI",
+  KM = "KM",
+  KN = "KN",
+  KP = "KP",
+  KR = "KR",
+  KW = "KW",
+  KY = "KY",
+  KZ = "KZ",
+  LA = "LA",
+  LB = "LB",
+  LC = "LC",
+  LI = "LI",
+  LK = "LK",
+  LR = "LR",
+  LS = "LS",
+  LT = "LT",
+  LU = "LU",
+  LV = "LV",
+  LY = "LY",
+  MA = "MA",
+  MC = "MC",
+  MD = "MD",
+  ME = "ME",
+  MF = "MF",
+  MG = "MG",
+  MH = "MH",
+  MK = "MK",
+  ML = "ML",
+  MM = "MM",
+  MN = "MN",
+  MO = "MO",
+  MP = "MP",
+  MQ = "MQ",
+  MR = "MR",
+  MS = "MS",
+  MT = "MT",
+  MU = "MU",
+  MV = "MV",
+  MW = "MW",
+  MX = "MX",
+  MY = "MY",
+  MZ = "MZ",
+  NA = "NA",
+  NC = "NC",
+  NE = "NE",
+  NF = "NF",
+  NG = "NG",
+  NI = "NI",
+  NL = "NL",
+  NO = "NO",
+  NP = "NP",
+  NR = "NR",
+  NU = "NU",
+  NZ = "NZ",
+  OM = "OM",
+  PA = "PA",
+  PE = "PE",
+  PF = "PF",
+  PG = "PG",
+  PH = "PH",
+  PK = "PK",
+  PL = "PL",
+  PM = "PM",
+  PN = "PN",
+  PR = "PR",
+  PS = "PS",
+  PT = "PT",
+  PW = "PW",
+  PY = "PY",
+  QA = "QA",
+  RE = "RE",
+  RO = "RO",
+  RS = "RS",
+  RU = "RU",
+  RW = "RW",
+  SA = "SA",
+  SB = "SB",
+  SC = "SC",
+  SD = "SD",
+  SE = "SE",
+  SG = "SG",
+  SH = "SH",
+  SI = "SI",
+  SJ = "SJ",
+  SK = "SK",
+  SL = "SL",
+  SM = "SM",
+  SN = "SN",
+  SO = "SO",
+  SR = "SR",
+  SS = "SS",
+  ST = "ST",
+  SV = "SV",
+  SX = "SX",
+  SY = "SY",
+  SZ = "SZ",
+  TC = "TC",
+  TD = "TD",
+  TF = "TF",
+  TG = "TG",
+  TH = "TH",
+  TJ = "TJ",
+  TK = "TK",
+  TL = "TL",
+  TM = "TM",
+  TN = "TN",
+  TO = "TO",
+  TR = "TR",
+  TT = "TT",
+  TV = "TV",
+  TW = "TW",
+  TZ = "TZ",
+  UA = "UA",
+  UG = "UG",
+  UM = "UM",
+  US = "US",
+  UY = "UY",
+  UZ = "UZ",
+  VA = "VA",
+  VC = "VC",
+  VE = "VE",
+  VG = "VG",
+  VI = "VI",
+  VN = "VN",
+  VU = "VU",
+  WF = "WF",
+  WS = "WS",
+  YE = "YE",
+  YT = "YT",
+  ZA = "ZA",
+  ZM = "ZM",
+  ZW = "ZW"
 }
 
 /**
@@ -3084,51 +3072,6 @@ export namespace GetSqlInjectionMatchSetResponse {
   }
 }
 
-export interface GetWebACLForResourceRequest {
-  __type?: "GetWebACLForResourceRequest";
-  /**
-   *
-   *          <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
-   *          <p>The ARN should be in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  ResourceArn: string | undefined;
-}
-
-export namespace GetWebACLForResourceRequest {
-  export function isa(o: any): o is GetWebACLForResourceRequest {
-    return _smithy.isa(o, "GetWebACLForResourceRequest");
-  }
-}
-
-export interface GetWebACLForResourceResponse extends $MetadataBearer {
-  __type?: "GetWebACLForResourceResponse";
-  /**
-   *
-   *          <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
-   *
-   */
-  WebACLSummary?: WebACLSummary;
-}
-
-export namespace GetWebACLForResourceResponse {
-  export function isa(o: any): o is GetWebACLForResourceResponse {
-    return _smithy.isa(o, "GetWebACLForResourceResponse");
-  }
-}
-
 export interface GetWebACLRequest {
   __type?: "GetWebACLRequest";
   /**
@@ -3444,6 +3387,11 @@ export namespace IPSetDescriptor {
   export function isa(o: any): o is IPSetDescriptor {
     return _smithy.isa(o, "IPSetDescriptor");
   }
+}
+
+export enum IPSetDescriptorType {
+  IPV4 = "IPV4",
+  IPV6 = "IPV6"
 }
 
 /**
@@ -3936,45 +3884,6 @@ export namespace ListRegexPatternSetsResponse {
   }
 }
 
-export interface ListResourcesForWebACLRequest {
-  __type?: "ListResourcesForWebACLRequest";
-  /**
-   *
-   *          <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
-   *
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   *
-   *          <p>The unique identifier (ID) of the web ACL for which to list the associated resources.</p>
-   *
-   */
-  WebACLId: string | undefined;
-}
-
-export namespace ListResourcesForWebACLRequest {
-  export function isa(o: any): o is ListResourcesForWebACLRequest {
-    return _smithy.isa(o, "ListResourcesForWebACLRequest");
-  }
-}
-
-export interface ListResourcesForWebACLResponse extends $MetadataBearer {
-  __type?: "ListResourcesForWebACLResponse";
-  /**
-   *
-   *          <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
-   *
-   */
-  ResourceArns?: Array<string>;
-}
-
-export namespace ListResourcesForWebACLResponse {
-  export function isa(o: any): o is ListResourcesForWebACLResponse {
-    return _smithy.isa(o, "ListResourcesForWebACLResponse");
-  }
-}
-
 export interface ListRuleGroupsRequest {
   __type?: "ListRuleGroupsRequest";
   /**
@@ -4430,6 +4339,52 @@ export namespace LoggingConfiguration {
   }
 }
 
+export enum MatchFieldType {
+  ALL_QUERY_ARGS = "ALL_QUERY_ARGS",
+  BODY = "BODY",
+  HEADER = "HEADER",
+  METHOD = "METHOD",
+  QUERY_STRING = "QUERY_STRING",
+  SINGLE_QUERY_ARG = "SINGLE_QUERY_ARG",
+  URI = "URI"
+}
+
+export enum ParameterExceptionField {
+  BYTE_MATCH_FIELD_TYPE = "BYTE_MATCH_FIELD_TYPE",
+  BYTE_MATCH_POSITIONAL_CONSTRAINT = "BYTE_MATCH_POSITIONAL_CONSTRAINT",
+  BYTE_MATCH_TEXT_TRANSFORMATION = "BYTE_MATCH_TEXT_TRANSFORMATION",
+  CHANGE_ACTION = "CHANGE_ACTION",
+  GEO_MATCH_LOCATION_TYPE = "GEO_MATCH_LOCATION_TYPE",
+  GEO_MATCH_LOCATION_VALUE = "GEO_MATCH_LOCATION_VALUE",
+  IPSET_TYPE = "IPSET_TYPE",
+  NEXT_MARKER = "NEXT_MARKER",
+  PREDICATE_TYPE = "PREDICATE_TYPE",
+  RATE_KEY = "RATE_KEY",
+  RESOURCE_ARN = "RESOURCE_ARN",
+  RULE_TYPE = "RULE_TYPE",
+  SIZE_CONSTRAINT_COMPARISON_OPERATOR = "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
+  SQL_INJECTION_MATCH_FIELD_TYPE = "SQL_INJECTION_MATCH_FIELD_TYPE",
+  TAGS = "TAGS",
+  TAG_KEYS = "TAG_KEYS",
+  WAF_ACTION = "WAF_ACTION",
+  WAF_OVERRIDE_ACTION = "WAF_OVERRIDE_ACTION"
+}
+
+export enum ParameterExceptionReason {
+  ILLEGAL_ARGUMENT = "ILLEGAL_ARGUMENT",
+  ILLEGAL_COMBINATION = "ILLEGAL_COMBINATION",
+  INVALID_OPTION = "INVALID_OPTION",
+  INVALID_TAG_KEY = "INVALID_TAG_KEY"
+}
+
+export enum PositionalConstraint {
+  CONTAINS = "CONTAINS",
+  CONTAINS_WORD = "CONTAINS_WORD",
+  ENDS_WITH = "ENDS_WITH",
+  EXACTLY = "EXACTLY",
+  STARTS_WITH = "STARTS_WITH"
+}
+
 /**
  *
  * 	        <p>Specifies the <a>ByteMatchSet</a>, <a>IPSet</a>, <a>SqlInjectionMatchSet</a>, <a>XssMatchSet</a>, <a>RegexMatchSet</a>,  <a>GeoMatchSet</a>, and <a>SizeConstraintSet</a> objects
@@ -4473,6 +4428,16 @@ export namespace Predicate {
   export function isa(o: any): o is Predicate {
     return _smithy.isa(o, "Predicate");
   }
+}
+
+export enum PredicateType {
+  BYTE_MATCH = "ByteMatch",
+  GEO_MATCH = "GeoMatch",
+  IP_MATCH = "IPMatch",
+  REGEX_MATCH = "RegexMatch",
+  SIZE_CONSTRAINT = "SizeConstraint",
+  SQL_INJECTION_MATCH = "SqlInjectionMatch",
+  XSS_MATCH = "XssMatch"
 }
 
 export interface PutLoggingConfigurationRequest {
@@ -4635,6 +4600,10 @@ export namespace RateBasedRule {
   export function isa(o: any): o is RateBasedRule {
     return _smithy.isa(o, "RateBasedRule");
   }
+}
+
+export enum RateKey {
+  IP = "IP"
 }
 
 /**
@@ -4997,6 +4966,11 @@ export namespace RegexPatternSetUpdate {
   export function isa(o: any): o is RegexPatternSetUpdate {
     return _smithy.isa(o, "RegexPatternSetUpdate");
   }
+}
+
+export enum ResourceType {
+  API_GATEWAY = "API_GATEWAY",
+  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER"
 }
 
 /**
@@ -5874,6 +5848,15 @@ export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
     return _smithy.isa(o, "TagResourceResponse");
   }
+}
+
+export enum TextTransformation {
+  CMD_LINE = "CMD_LINE",
+  COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE",
+  HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
+  LOWERCASE = "LOWERCASE",
+  NONE = "NONE",
+  URL_DECODE = "URL_DECODE"
 }
 
 /**
@@ -7239,6 +7222,12 @@ export namespace WafAction {
   }
 }
 
+export enum WafActionType {
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+  COUNT = "COUNT"
+}
+
 /**
  *
  *          <p>The action to take if any rule within the <code>RuleGroup</code> matches a request. </p>
@@ -7259,6 +7248,17 @@ export namespace WafOverrideAction {
   export function isa(o: any): o is WafOverrideAction {
     return _smithy.isa(o, "WafOverrideAction");
   }
+}
+
+export enum WafOverrideActionType {
+  COUNT = "COUNT",
+  NONE = "NONE"
+}
+
+export enum WafRuleType {
+  GROUP = "GROUP",
+  RATE_BASED = "RATE_BASED",
+  REGULAR = "REGULAR"
 }
 
 /**

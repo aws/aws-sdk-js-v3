@@ -1,157 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum Attribute {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT"
-}
-
-export enum CelebrityRecognitionSortBy {
-  ID = "ID",
-  TIMESTAMP = "TIMESTAMP"
-}
-
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
-}
-
-export enum ContentModerationSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP"
-}
-
-export type EmotionName =
-  | "ANGRY"
-  | "CALM"
-  | "CONFUSED"
-  | "DISGUSTED"
-  | "FEAR"
-  | "HAPPY"
-  | "SAD"
-  | "SURPRISED"
-  | "UNKNOWN";
-
-export enum FaceAttributes {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT"
-}
-
-export enum FaceSearchSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP"
-}
-
-export enum GenderType {
-  Female = "Female",
-  Male = "Male"
-}
-
-export enum LabelDetectionSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP"
-}
-
-export enum LandmarkType {
-  chinBottom = "chinBottom",
-  eyeLeft = "eyeLeft",
-  eyeRight = "eyeRight",
-  leftEyeBrowLeft = "leftEyeBrowLeft",
-  leftEyeBrowRight = "leftEyeBrowRight",
-  leftEyeBrowUp = "leftEyeBrowUp",
-  leftEyeDown = "leftEyeDown",
-  leftEyeLeft = "leftEyeLeft",
-  leftEyeRight = "leftEyeRight",
-  leftEyeUp = "leftEyeUp",
-  leftPupil = "leftPupil",
-  midJawlineLeft = "midJawlineLeft",
-  midJawlineRight = "midJawlineRight",
-  mouthDown = "mouthDown",
-  mouthLeft = "mouthLeft",
-  mouthRight = "mouthRight",
-  mouthUp = "mouthUp",
-  nose = "nose",
-  noseLeft = "noseLeft",
-  noseRight = "noseRight",
-  rightEyeBrowLeft = "rightEyeBrowLeft",
-  rightEyeBrowRight = "rightEyeBrowRight",
-  rightEyeBrowUp = "rightEyeBrowUp",
-  rightEyeDown = "rightEyeDown",
-  rightEyeLeft = "rightEyeLeft",
-  rightEyeRight = "rightEyeRight",
-  rightEyeUp = "rightEyeUp",
-  rightPupil = "rightPupil",
-  upperJawlineLeft = "upperJawlineLeft",
-  upperJawlineRight = "upperJawlineRight"
-}
-
-export enum OrientationCorrection {
-  ROTATE_0 = "ROTATE_0",
-  ROTATE_180 = "ROTATE_180",
-  ROTATE_270 = "ROTATE_270",
-  ROTATE_90 = "ROTATE_90"
-}
-
-export enum PersonTrackingSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP"
-}
-
-export enum ProjectStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING"
-}
-
-export enum ProjectVersionStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TRAINING_COMPLETED = "TRAINING_COMPLETED",
-  TRAINING_FAILED = "TRAINING_FAILED",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
-}
-
-export enum QualityFilter {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE"
-}
-
-export enum Reason {
-  EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
-  EXTREME_POSE = "EXTREME_POSE",
-  LOW_BRIGHTNESS = "LOW_BRIGHTNESS",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  LOW_FACE_QUALITY = "LOW_FACE_QUALITY",
-  LOW_SHARPNESS = "LOW_SHARPNESS",
-  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX"
-}
-
-export enum StreamProcessorStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING"
-}
-
-export enum TextTypes {
-  LINE = "LINE",
-  WORD = "WORD"
-}
-
-export enum VideoJobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  *          <p>You are not authorized to perform the action.</p>
@@ -226,6 +75,11 @@ export namespace Asset {
   export function isa(o: any): o is Asset {
     return _smithy.isa(o, "Asset");
   }
+}
+
+export enum Attribute {
+  ALL = "ALL",
+  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -452,6 +306,11 @@ export namespace CelebrityRecognition {
   export function isa(o: any): o is CelebrityRecognition {
     return _smithy.isa(o, "CelebrityRecognition");
   }
+}
+
+export enum CelebrityRecognitionSortBy {
+  ID = "ID",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 /**
@@ -708,6 +567,11 @@ export namespace ComparedSourceImageFace {
   }
 }
 
+export enum ContentClassifier {
+  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
+}
+
 /**
  *
  *         <p>Information about an unsafe content label detection in a stored video.</p>
@@ -735,6 +599,11 @@ export namespace ContentModerationDetection {
   export function isa(o: any): o is ContentModerationDetection {
     return _smithy.isa(o, "ContentModerationDetection");
   }
+}
+
+export enum ContentModerationSortBy {
+  NAME = "NAME",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 export interface CreateCollectionRequest {
@@ -1734,6 +1603,17 @@ export namespace Emotion {
   }
 }
 
+export type EmotionName =
+  | "ANGRY"
+  | "CALM"
+  | "CONFUSED"
+  | "DISGUSTED"
+  | "FEAR"
+  | "HAPPY"
+  | "SAD"
+  | "SURPRISED"
+  | "UNKNOWN";
+
 /**
  *
  *          <p>The evaluation results for the training of a model.</p>
@@ -1873,6 +1753,11 @@ export namespace Face {
   export function isa(o: any): o is Face {
     return _smithy.isa(o, "Face");
   }
+}
+
+export enum FaceAttributes {
+  ALL = "ALL",
+  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -2148,6 +2033,11 @@ export namespace FaceSearchSettings {
   }
 }
 
+export enum FaceSearchSortBy {
+  INDEX = "INDEX",
+  TIMESTAMP = "TIMESTAMP"
+}
+
 /**
  *
  *          <p>The predicted gender of a detected face.
@@ -2186,6 +2076,11 @@ export namespace Gender {
   export function isa(o: any): o is Gender {
     return _smithy.isa(o, "Gender");
   }
+}
+
+export enum GenderType {
+  Female = "Female",
+  Male = "Male"
 }
 
 /**
@@ -3510,6 +3405,11 @@ export namespace LabelDetection {
   }
 }
 
+export enum LabelDetectionSortBy {
+  NAME = "NAME",
+  TIMESTAMP = "TIMESTAMP"
+}
+
 /**
  *
  *          <p>Indicates the location of the landmark on the face.</p>
@@ -3547,6 +3447,39 @@ export namespace Landmark {
   export function isa(o: any): o is Landmark {
     return _smithy.isa(o, "Landmark");
   }
+}
+
+export enum LandmarkType {
+  chinBottom = "chinBottom",
+  eyeLeft = "eyeLeft",
+  eyeRight = "eyeRight",
+  leftEyeBrowLeft = "leftEyeBrowLeft",
+  leftEyeBrowRight = "leftEyeBrowRight",
+  leftEyeBrowUp = "leftEyeBrowUp",
+  leftEyeDown = "leftEyeDown",
+  leftEyeLeft = "leftEyeLeft",
+  leftEyeRight = "leftEyeRight",
+  leftEyeUp = "leftEyeUp",
+  leftPupil = "leftPupil",
+  midJawlineLeft = "midJawlineLeft",
+  midJawlineRight = "midJawlineRight",
+  mouthDown = "mouthDown",
+  mouthLeft = "mouthLeft",
+  mouthRight = "mouthRight",
+  mouthUp = "mouthUp",
+  nose = "nose",
+  noseLeft = "noseLeft",
+  noseRight = "noseRight",
+  rightEyeBrowLeft = "rightEyeBrowLeft",
+  rightEyeBrowRight = "rightEyeBrowRight",
+  rightEyeBrowUp = "rightEyeBrowUp",
+  rightEyeDown = "rightEyeDown",
+  rightEyeLeft = "rightEyeLeft",
+  rightEyeRight = "rightEyeRight",
+  rightEyeUp = "rightEyeUp",
+  rightPupil = "rightPupil",
+  upperJawlineLeft = "upperJawlineLeft",
+  upperJawlineRight = "upperJawlineRight"
 }
 
 /**
@@ -3871,6 +3804,13 @@ export namespace NotificationChannel {
   }
 }
 
+export enum OrientationCorrection {
+  ROTATE_0 = "ROTATE_0",
+  ROTATE_180 = "ROTATE_180",
+  ROTATE_270 = "ROTATE_270",
+  ROTATE_90 = "ROTATE_90"
+}
+
 /**
  *
  *          <p>The S3 bucket and folder location where training output is placed.</p>
@@ -4025,6 +3965,11 @@ export namespace PersonMatch {
   }
 }
 
+export enum PersonTrackingSortBy {
+  INDEX = "INDEX",
+  TIMESTAMP = "TIMESTAMP"
+}
+
 /**
  *
  *          <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios
@@ -4130,6 +4075,12 @@ export namespace ProjectDescription {
   }
 }
 
+export enum ProjectStatus {
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DELETING = "DELETING"
+}
+
 /**
  *
  *          <p>The description of a version of a model.</p>
@@ -4223,6 +4174,18 @@ export namespace ProjectVersionDescription {
   }
 }
 
+export enum ProjectVersionStatus {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  TRAINING_COMPLETED = "TRAINING_COMPLETED",
+  TRAINING_FAILED = "TRAINING_FAILED",
+  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
+}
+
 /**
  *
  *          <p>The number of requests exceeded your throughput limit. If you want to increase this
@@ -4244,6 +4207,24 @@ export namespace ProvisionedThroughputExceededException {
   export function isa(o: any): o is ProvisionedThroughputExceededException {
     return _smithy.isa(o, "ProvisionedThroughputExceededException");
   }
+}
+
+export enum QualityFilter {
+  AUTO = "AUTO",
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  NONE = "NONE"
+}
+
+export enum Reason {
+  EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
+  EXTREME_POSE = "EXTREME_POSE",
+  LOW_BRIGHTNESS = "LOW_BRIGHTNESS",
+  LOW_CONFIDENCE = "LOW_CONFIDENCE",
+  LOW_FACE_QUALITY = "LOW_FACE_QUALITY",
+  LOW_SHARPNESS = "LOW_SHARPNESS",
+  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX"
 }
 
 export interface RecognizeCelebritiesRequest {
@@ -5273,6 +5254,14 @@ export namespace StreamProcessorSettings {
   }
 }
 
+export enum StreamProcessorStatus {
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING"
+}
+
 /**
  *
  *          <p>The S3 bucket that contains the training summary. The training summary includes
@@ -5461,6 +5450,11 @@ export namespace TextDetection {
   }
 }
 
+export enum TextTypes {
+  LINE = "LINE",
+  WORD = "WORD"
+}
+
 /**
  *
  *          <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
@@ -5605,6 +5599,12 @@ export namespace Video {
   export function isa(o: any): o is Video {
     return _smithy.isa(o, "Video");
   }
+}
+
+export enum VideoJobStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**

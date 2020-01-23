@@ -1,100 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum ApiCacheStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING"
-}
-
-export enum ApiCacheType {
-  R4_2XLARGE = "R4_2XLARGE",
-  R4_4XLARGE = "R4_4XLARGE",
-  R4_8XLARGE = "R4_8XLARGE",
-  R4_LARGE = "R4_LARGE",
-  R4_XLARGE = "R4_XLARGE",
-  T2_MEDIUM = "T2_MEDIUM",
-  T2_SMALL = "T2_SMALL"
-}
-
-export enum ApiCachingBehavior {
-  FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
-  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING"
-}
-
-export enum AuthenticationType {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  OPENID_CONNECT = "OPENID_CONNECT"
-}
-
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM"
-}
-
-export enum ConflictDetectionType {
-  NONE = "NONE",
-  VERSION = "VERSION"
-}
-
-export enum ConflictHandlerType {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY"
-}
-
-export enum DataSourceType {
-  AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  HTTP = "HTTP",
-  NONE = "NONE",
-  RELATIONAL_DATABASE = "RELATIONAL_DATABASE"
-}
-
-export enum DefaultAction {
-  ALLOW = "ALLOW",
-  DENY = "DENY"
-}
-
-export enum FieldLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  NONE = "NONE"
-}
-
-export enum OutputType {
-  JSON = "JSON",
-  SDL = "SDL"
-}
-
-export enum RelationalDatabaseSourceType {
-  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT"
-}
-
-export enum ResolverKind {
-  PIPELINE = "PIPELINE",
-  UNIT = "UNIT"
-}
-
-export enum SchemaStatus {
-  Active = "ACTIVE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  NotApplicable = "NOT_APPLICABLE",
-  Processing = "PROCESSING",
-  Success = "SUCCESS"
-}
-
-export enum TypeDefinitionFormat {
-  JSON = "JSON",
-  SDL = "SDL"
-}
-
 /**
  *
  *          <p>You do not have access to perform this operation on this resource.</p>
@@ -264,6 +170,29 @@ export namespace ApiCache {
   }
 }
 
+export enum ApiCacheStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  MODIFYING = "MODIFYING"
+}
+
+export enum ApiCacheType {
+  R4_2XLARGE = "R4_2XLARGE",
+  R4_4XLARGE = "R4_4XLARGE",
+  R4_8XLARGE = "R4_8XLARGE",
+  R4_LARGE = "R4_LARGE",
+  R4_XLARGE = "R4_XLARGE",
+  T2_MEDIUM = "T2_MEDIUM",
+  T2_SMALL = "T2_SMALL"
+}
+
+export enum ApiCachingBehavior {
+  FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
+  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING"
+}
+
 /**
  *
  *          <p>Describes an API key.</p>
@@ -420,6 +349,13 @@ export namespace ApiLimitExceededException {
   }
 }
 
+export enum AuthenticationType {
+  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
+  API_KEY = "API_KEY",
+  AWS_IAM = "AWS_IAM",
+  OPENID_CONNECT = "OPENID_CONNECT"
+}
+
 /**
  *
  *          <p>The authorization config in case the HTTP endpoint requires authorization.</p>
@@ -453,6 +389,10 @@ export namespace AuthorizationConfig {
   export function isa(o: any): o is AuthorizationConfig {
     return _smithy.isa(o, "AuthorizationConfig");
   }
+}
+
+export enum AuthorizationType {
+  AWS_IAM = "AWS_IAM"
 }
 
 /**
@@ -589,6 +529,18 @@ export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
     return _smithy.isa(o, "ConcurrentModificationException");
   }
+}
+
+export enum ConflictDetectionType {
+  NONE = "NONE",
+  VERSION = "VERSION"
+}
+
+export enum ConflictHandlerType {
+  AUTOMERGE = "AUTOMERGE",
+  LAMBDA = "LAMBDA",
+  NONE = "NONE",
+  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY"
 }
 
 /**
@@ -1280,6 +1232,20 @@ export namespace DataSource {
   }
 }
 
+export enum DataSourceType {
+  AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
+  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
+  AWS_LAMBDA = "AWS_LAMBDA",
+  HTTP = "HTTP",
+  NONE = "NONE",
+  RELATIONAL_DATABASE = "RELATIONAL_DATABASE"
+}
+
+export enum DefaultAction {
+  ALLOW = "ALLOW",
+  DENY = "DENY"
+}
+
 /**
  *
  *         <p>Represents the input of a <code>DeleteApiCache</code> operation.</p>
@@ -1624,6 +1590,12 @@ export namespace ElasticsearchDataSourceConfig {
   export function isa(o: any): o is ElasticsearchDataSourceConfig {
     return _smithy.isa(o, "ElasticsearchDataSourceConfig");
   }
+}
+
+export enum FieldLogLevel {
+  ALL = "ALL",
+  ERROR = "ERROR",
+  NONE = "NONE"
 }
 
 /**
@@ -2831,6 +2803,11 @@ export namespace OpenIDConnectConfig {
   }
 }
 
+export enum OutputType {
+  JSON = "JSON",
+  SDL = "SDL"
+}
+
 /**
  *
  *          <p>The pipeline configuration for a resolver of kind <code>PIPELINE</code>.</p>
@@ -2936,6 +2913,10 @@ export namespace RelationalDatabaseDataSourceConfig {
   }
 }
 
+export enum RelationalDatabaseSourceType {
+  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT"
+}
+
 /**
  *
  *          <p>Describes a resolver.</p>
@@ -3032,6 +3013,20 @@ export namespace Resolver {
   export function isa(o: any): o is Resolver {
     return _smithy.isa(o, "Resolver");
   }
+}
+
+export enum ResolverKind {
+  PIPELINE = "PIPELINE",
+  UNIT = "UNIT"
+}
+
+export enum SchemaStatus {
+  Active = "ACTIVE",
+  Deleting = "DELETING",
+  Failed = "FAILED",
+  NotApplicable = "NOT_APPLICABLE",
+  Processing = "PROCESSING",
+  Success = "SUCCESS"
 }
 
 export interface StartSchemaCreationRequest {
@@ -3214,6 +3209,11 @@ export namespace Type {
   export function isa(o: any): o is Type {
     return _smithy.isa(o, "Type");
   }
+}
+
+export enum TypeDefinitionFormat {
+  JSON = "JSON",
+  SDL = "SDL"
 }
 
 /**

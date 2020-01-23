@@ -1,260 +1,6 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AssignmentStatus {
-  DISABLED = "DISABLED",
-  DRAFT = "DRAFT",
-  ENABLED = "ENABLED"
-}
-
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING"
-}
-
-export enum DashboardBehavior {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum DashboardErrorType {
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE"
-}
-
-export enum DashboardUIState {
-  COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED"
-}
-
-export enum DataSetImportMode {
-  DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE"
-}
-
-export enum DataSourceErrorInfoType {
-  CONFLICT = "CONFLICT",
-  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
-  TIMEOUT = "TIMEOUT",
-  UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST"
-}
-
-export enum DataSourceType {
-  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  ATHENA = "ATHENA",
-  AURORA = "AURORA",
-  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
-  GITHUB = "GITHUB",
-  JIRA = "JIRA",
-  MARIADB = "MARIADB",
-  MYSQL = "MYSQL",
-  POSTGRESQL = "POSTGRESQL",
-  PRESTO = "PRESTO",
-  REDSHIFT = "REDSHIFT",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SNOWFLAKE = "SNOWFLAKE",
-  SPARK = "SPARK",
-  SQLSERVER = "SQLSERVER",
-  TERADATA = "TERADATA",
-  TWITTER = "TWITTER"
-}
-
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION"
-}
-
-export enum FileFormat {
-  CLF = "CLF",
-  CSV = "CSV",
-  ELF = "ELF",
-  JSON = "JSON",
-  TSV = "TSV",
-  XLSX = "XLSX"
-}
-
-export enum GeoSpatialCountryCode {
-  US = "US"
-}
-
-export enum GeoSpatialDataRole {
-  CITY = "CITY",
-  COUNTRY = "COUNTRY",
-  COUNTY = "COUNTY",
-  LATITUDE = "LATITUDE",
-  LONGITUDE = "LONGITUDE",
-  POSTCODE = "POSTCODE",
-  STATE = "STATE"
-}
-
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT"
-}
-
-export enum IngestionErrorType {
-  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
-  CONNECTION_FAILURE = "CONNECTION_FAILURE",
-  CUSTOMER_ERROR = "CUSTOMER_ERROR",
-  DATA_SET_DELETED = "DATA_SET_DELETED",
-  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
-  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
-  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
-  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
-  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
-  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
-  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
-  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
-  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
-  INGESTION_CANCELED = "INGESTION_CANCELED",
-  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
-  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
-  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
-  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
-  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
-  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
-  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  QUERY_TIMEOUT = "QUERY_TIMEOUT",
-  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
-  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
-  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
-  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
-  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
-  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
-  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
-  SQL_EXCEPTION = "SQL_EXCEPTION",
-  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
-  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
-  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
-  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
-  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
-  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST"
-}
-
-export enum IngestionRequestSource {
-  MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED"
-}
-
-export enum IngestionRequestType {
-  EDIT = "EDIT",
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION"
-}
-
-export enum IngestionStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING"
-}
-
-export enum InputColumnDataType {
-  BIT = "BIT",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  JSON = "JSON",
-  STRING = "STRING"
-}
-
-export enum JoinType {
-  INNER = "INNER",
-  LEFT = "LEFT",
-  OUTER = "OUTER",
-  RIGHT = "RIGHT"
-}
-
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
-export enum RowLevelPermissionPolicy {
-  DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS"
-}
-
-export enum TemplateErrorType {
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE"
-}
-
-export enum TextQualifier {
-  DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE"
-}
-
-export enum UserRole {
-  ADMIN = "ADMIN",
-  AUTHOR = "AUTHOR",
-  READER = "READER",
-  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER"
-}
-
-/**
- *
- * 		       <p>You don't have access to this. The provided credentials couldn't be validated.
- * 			You might not be authorized to carry out the request. Ensure that your account is
- * 			authorized to use the Amazon QuickSight service, that your policies have the correct
- * 			permissions, and that you are using the correct access keys.</p>
- *
- */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AccessDeniedException";
-  name: "AccessDeniedException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request id for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace AccessDeniedException {
-  export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
-  }
-}
-
 /**
  *
  * 		       <p>The active AWS Identity and Access Management (IAM) policy assignment.</p>
@@ -323,6 +69,12 @@ export namespace AmazonElasticsearchParameters {
   export function isa(o: any): o is AmazonElasticsearchParameters {
     return _smithy.isa(o, "AmazonElasticsearchParameters");
   }
+}
+
+export enum AssignmentStatus {
+  DISABLED = "DISABLED",
+  DRAFT = "DRAFT",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -718,32 +470,6 @@ export interface ConcurrentUpdatingException
 export namespace ConcurrentUpdatingException {
   export function isa(o: any): o is ConcurrentUpdatingException {
     return _smithy.isa(o, "ConcurrentUpdatingException");
-  }
-}
-
-/**
- *
- * 		       <p>Updating or deleting a resource can cause an inconsistent state.</p>
- *
- */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConflictException";
-  name: "ConflictException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request id for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
   }
 }
 
@@ -1789,6 +1515,11 @@ export namespace Dashboard {
   }
 }
 
+export enum DashboardBehavior {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 /**
  *
  * 		       <p>Dashboard error.</p>
@@ -1815,6 +1546,17 @@ export namespace DashboardError {
   export function isa(o: any): o is DashboardError {
     return _smithy.isa(o, "DashboardError");
   }
+}
+
+export enum DashboardErrorType {
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE"
 }
 
 /**
@@ -1962,6 +1704,11 @@ export namespace DashboardSummary {
   export function isa(o: any): o is DashboardSummary {
     return _smithy.isa(o, "DashboardSummary");
   }
+}
+
+export enum DashboardUIState {
+  COLLAPSED = "COLLAPSED",
+  EXPANDED = "EXPANDED"
 }
 
 /**
@@ -2218,6 +1965,11 @@ export namespace DataSetConfiguration {
   export function isa(o: any): o is DataSetConfiguration {
     return _smithy.isa(o, "DataSetConfiguration");
   }
+}
+
+export enum DataSetImportMode {
+  DIRECT_QUERY = "DIRECT_QUERY",
+  SPICE = "SPICE"
 }
 
 /**
@@ -2477,6 +2229,15 @@ export namespace DataSourceErrorInfo {
   }
 }
 
+export enum DataSourceErrorInfoType {
+  CONFLICT = "CONFLICT",
+  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
+  TIMEOUT = "TIMEOUT",
+  UNKNOWN = "UNKNOWN",
+  UNKNOWN_HOST = "UNKNOWN_HOST"
+}
+
 /**
  *
  * 		       <p>The parameters that QuickSight uses to connect to your underlying source. This is a
@@ -2624,6 +2385,30 @@ export namespace DataSourceParameters {
   export function isa(o: any): o is DataSourceParameters {
     return _smithy.isa(o, "DataSourceParameters");
   }
+}
+
+export enum DataSourceType {
+  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
+  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
+  ATHENA = "ATHENA",
+  AURORA = "AURORA",
+  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
+  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
+  GITHUB = "GITHUB",
+  JIRA = "JIRA",
+  MARIADB = "MARIADB",
+  MYSQL = "MYSQL",
+  POSTGRESQL = "POSTGRESQL",
+  PRESTO = "PRESTO",
+  REDSHIFT = "REDSHIFT",
+  S3 = "S3",
+  SALESFORCE = "SALESFORCE",
+  SERVICENOW = "SERVICENOW",
+  SNOWFLAKE = "SNOWFLAKE",
+  SPARK = "SPARK",
+  SQLSERVER = "SQLSERVER",
+  TERADATA = "TERADATA",
+  TWITTER = "TWITTER"
 }
 
 /**
@@ -4032,6 +3817,15 @@ export namespace ExportToCSVOption {
   }
 }
 
+export enum FileFormat {
+  CLF = "CLF",
+  CSV = "CSV",
+  ELF = "ELF",
+  JSON = "JSON",
+  TSV = "TSV",
+  XLSX = "XLSX"
+}
+
 /**
  *
  * 		       <p>A transform operation that filters rows based on some condition.</p>
@@ -4087,6 +3881,20 @@ export namespace GeoSpatialColumnGroup {
   export function isa(o: any): o is GeoSpatialColumnGroup {
     return _smithy.isa(o, "GeoSpatialColumnGroup");
   }
+}
+
+export enum GeoSpatialCountryCode {
+  US = "US"
+}
+
+export enum GeoSpatialDataRole {
+  CITY = "CITY",
+  COUNTRY = "COUNTRY",
+  COUNTY = "COUNTY",
+  LATITUDE = "LATITUDE",
+  LONGITUDE = "LONGITUDE",
+  POSTCODE = "POSTCODE",
+  STATE = "STATE"
 }
 
 export interface GetDashboardEmbedUrlRequest {
@@ -4464,6 +4272,70 @@ export namespace Ingestion {
   }
 }
 
+export enum IngestionErrorType {
+  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
+  CONNECTION_FAILURE = "CONNECTION_FAILURE",
+  CUSTOMER_ERROR = "CUSTOMER_ERROR",
+  DATA_SET_DELETED = "DATA_SET_DELETED",
+  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
+  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
+  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
+  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
+  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
+  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
+  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
+  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
+  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
+  INGESTION_CANCELED = "INGESTION_CANCELED",
+  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
+  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
+  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
+  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
+  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
+  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
+  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
+  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
+  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
+  PERMISSION_DENIED = "PERMISSION_DENIED",
+  QUERY_TIMEOUT = "QUERY_TIMEOUT",
+  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
+  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
+  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
+  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
+  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
+  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
+  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
+  SQL_EXCEPTION = "SQL_EXCEPTION",
+  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
+  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
+  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
+  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
+  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
+  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
+  UNROUTABLE_HOST = "UNROUTABLE_HOST"
+}
+
+export enum IngestionRequestSource {
+  MANUAL = "MANUAL",
+  SCHEDULED = "SCHEDULED"
+}
+
+export enum IngestionRequestType {
+  EDIT = "EDIT",
+  FULL_REFRESH = "FULL_REFRESH",
+  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
+  INITIAL_INGESTION = "INITIAL_INGESTION"
+}
+
+export enum IngestionStatus {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  INITIALIZED = "INITIALIZED",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING"
+}
+
 /**
  *
  * 		       <p>Metadata on a column that is used as the input of a transform operation.</p>
@@ -4492,6 +4364,16 @@ export namespace InputColumn {
   }
 }
 
+export enum InputColumnDataType {
+  BIT = "BIT",
+  BOOLEAN = "BOOLEAN",
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  INTEGER = "INTEGER",
+  JSON = "JSON",
+  STRING = "STRING"
+}
+
 /**
  *
  * 		       <p>Integer parameter.</p>
@@ -4517,84 +4399,6 @@ export interface IntegerParameter {
 export namespace IntegerParameter {
   export function isa(o: any): o is IntegerParameter {
     return _smithy.isa(o, "IntegerParameter");
-  }
-}
-
-/**
- *
- * 		       <p>An internal failure occurred.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- * 		       <p>The <code>NextToken</code> value isn't valid.</p>
- *
- */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidNextTokenException";
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace InvalidNextTokenException {
-  export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
-  }
-}
-
-/**
- *
- * 		       <p>One or more parameters don't have a valid value.</p>
- *
- */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterValueException";
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -4661,37 +4465,11 @@ export namespace JoinInstruction {
   }
 }
 
-/**
- *
- * 		       <p>A limit is exceeded.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-
-  /**
-   *
-   * 		       <p>Limit exceeded.</p>
-   *
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
+export enum JoinType {
+  INNER = "INNER",
+  LEFT = "LEFT",
+  OUTER = "OUTER",
+  RIGHT = "RIGHT"
 }
 
 export interface ListDashboardVersionsRequest {
@@ -5986,32 +5764,6 @@ export namespace PostgreSqlParameters {
 
 /**
  *
- * 		       <p>One or more preconditions aren't met.</p>
- *
- */
-export interface PreconditionNotMetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "PreconditionNotMetException";
-  name: "PreconditionNotMetException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace PreconditionNotMetException {
-  export function isa(o: any): o is PreconditionNotMetException {
-    return _smithy.isa(o, "PreconditionNotMetException");
-  }
-}
-
-/**
- *
  * 		       <p>Presto parameters.</p>
  *
  */
@@ -6413,136 +6165,6 @@ export namespace RenameColumnOperation {
 
 /**
  *
- * 		       <p>The resource specified already exists. </p>
- *
- */
-export interface ResourceExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceExistsException";
-  name: "ResourceExistsException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceExistsException {
-  export function isa(o: any): o is ResourceExistsException {
-    return _smithy.isa(o, "ResourceExistsException");
-  }
-}
-
-/**
- *
- * 		       <p>One or more resources can't be found.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- * 		       <p>Permission for the resource.</p>
- *
- */
-export interface ResourcePermission {
-  __type?: "ResourcePermission";
-  /**
-   *
-   * 		       <p>The action to grant or revoke permissions on. For example,
-   * 			"quicksight:DescribeDashboard".</p>
-   *
-   */
-  Actions: Array<string> | undefined;
-
-  /**
-   *
-   * 		       <p>The Amazon Resource Name (ARN) of a QuickSight user or group, or an IAM ARN. If you are
-   * 			using cross-account resource sharing, this is the IAM ARN of an account root. Otherwise, it
-   * 			is the ARN of a QuickSight user or group. .</p>
-   *
-   */
-  Principal: string | undefined;
-}
-
-export namespace ResourcePermission {
-  export function isa(o: any): o is ResourcePermission {
-    return _smithy.isa(o, "ResourcePermission");
-  }
-}
-
-/**
- *
- * 		       <p>This resource is currently unavailable.</p>
- *
- */
-export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceUnavailableException";
-  name: "ResourceUnavailableException";
-  $fault: "server";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-
-  /**
-   *
-   * 		       <p>The resource type for this request.</p>
-   *
-   */
-  ResourceType?: ExceptionResourceType | string;
-}
-
-export namespace ResourceUnavailableException {
-  export function isa(o: any): o is ResourceUnavailableException {
-    return _smithy.isa(o, "ResourceUnavailableException");
-  }
-}
-
-/**
- *
  * 		       <p>Information on rows during a data set SPICE ingestion.</p>
  *
  */
@@ -6595,6 +6217,11 @@ export namespace RowLevelPermissionDataSet {
   export function isa(o: any): o is RowLevelPermissionDataSet {
     return _smithy.isa(o, "RowLevelPermissionDataSet");
   }
+}
+
+export enum RowLevelPermissionPolicy {
+  DENY_ACCESS = "DENY_ACCESS",
+  GRANT_ACCESS = "GRANT_ACCESS"
 }
 
 /**
@@ -6873,35 +6500,6 @@ export namespace StringParameter {
 
 /**
  *
- * 		       <p>The keys of the key-value pairs for the resource tag or tags assigned to the
- * 			resource.</p>
- *
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   *
-   * 		       <p>Tag key.</p>
-   *
-   */
-  Key: string | undefined;
-
-  /**
-   *
-   * 		       <p>Tag value.</p>
-   *
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
-  }
-}
-
-/**
- *
  * 		       <p>A transform operation that tags a column with additional information.</p>
  *
  */
@@ -7094,6 +6692,11 @@ export namespace TemplateError {
   export function isa(o: any): o is TemplateError {
     return _smithy.isa(o, "TemplateError");
   }
+}
+
+export enum TemplateErrorType {
+  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE = "INTERNAL_FAILURE"
 }
 
 /**
@@ -7380,30 +6983,9 @@ export namespace TeradataParameters {
   }
 }
 
-/**
- *
- * 		       <p>Access is throttled.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
-  }
+export enum TextQualifier {
+  DOUBLE_QUOTE = "DOUBLE_QUOTE",
+  SINGLE_QUOTE = "SINGLE_QUOTE"
 }
 
 /**
@@ -7490,35 +7072,6 @@ export interface TwitterParameters {
 export namespace TwitterParameters {
   export function isa(o: any): o is TwitterParameters {
     return _smithy.isa(o, "TwitterParameters");
-  }
-}
-
-/**
- *
- * 		       <p>This error indicates that you are calling an operation on an Amazon QuickSight
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
- *
- */
-export interface UnsupportedUserEditionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedUserEditionException";
-  name: "UnsupportedUserEditionException";
-  $fault: "client";
-  Message?: string;
-  /**
-   *
-   * 		       <p>The AWS request ID for this request.</p>
-   *
-   */
-  RequestId?: string;
-}
-
-export namespace UnsupportedUserEditionException {
-  export function isa(o: any): o is UnsupportedUserEditionException {
-    return _smithy.isa(o, "UnsupportedUserEditionException");
   }
 }
 
@@ -8813,6 +8366,14 @@ export namespace User {
   }
 }
 
+export enum UserRole {
+  ADMIN = "ADMIN",
+  AUTHOR = "AUTHOR",
+  READER = "READER",
+  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
+  RESTRICTED_READER = "RESTRICTED_READER"
+}
+
 /**
  *
  * 		       <p>VPC connection properties.</p>
@@ -8831,5 +8392,444 @@ export interface VpcConnectionProperties {
 export namespace VpcConnectionProperties {
   export function isa(o: any): o is VpcConnectionProperties {
     return _smithy.isa(o, "VpcConnectionProperties");
+  }
+}
+
+/**
+ *
+ * 		       <p>You don't have access to this. The provided credentials couldn't be validated.
+ * 			You might not be authorized to carry out the request. Ensure that your account is
+ * 			authorized to use the Amazon QuickSight service, that your policies have the correct
+ * 			permissions, and that you are using the correct access keys.</p>
+ *
+ */
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AccessDeniedException";
+  name: "AccessDeniedException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request id for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace AccessDeniedException {
+  export function isa(o: any): o is AccessDeniedException {
+    return _smithy.isa(o, "AccessDeniedException");
+  }
+}
+
+export enum ColumnDataType {
+  DATETIME = "DATETIME",
+  DECIMAL = "DECIMAL",
+  INTEGER = "INTEGER",
+  STRING = "STRING"
+}
+
+/**
+ *
+ * 		       <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ */
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConflictException";
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request id for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace ConflictException {
+  export function isa(o: any): o is ConflictException {
+    return _smithy.isa(o, "ConflictException");
+  }
+}
+
+export enum ExceptionResourceType {
+  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
+  DATA_SET = "DATA_SET",
+  DATA_SOURCE = "DATA_SOURCE",
+  GROUP = "GROUP",
+  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
+  INGESTION = "INGESTION",
+  NAMESPACE = "NAMESPACE",
+  USER = "USER",
+  VPC_CONNECTION = "VPC_CONNECTION"
+}
+
+export enum IdentityType {
+  IAM = "IAM",
+  QUICKSIGHT = "QUICKSIGHT"
+}
+
+/**
+ *
+ * 		       <p>An internal failure occurred.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
+}
+
+/**
+ *
+ * 		       <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ */
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidNextTokenException";
+  name: "InvalidNextTokenException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace InvalidNextTokenException {
+  export function isa(o: any): o is InvalidNextTokenException {
+    return _smithy.isa(o, "InvalidNextTokenException");
+  }
+}
+
+/**
+ *
+ * 		       <p>One or more parameters don't have a valid value.</p>
+ *
+ */
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export function isa(o: any): o is InvalidParameterValueException {
+    return _smithy.isa(o, "InvalidParameterValueException");
+  }
+}
+
+/**
+ *
+ * 		       <p>A limit is exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+
+  /**
+   *
+   * 		       <p>Limit exceeded.</p>
+   *
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
+ * 		       <p>One or more preconditions aren't met.</p>
+ *
+ */
+export interface PreconditionNotMetException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "PreconditionNotMetException";
+  name: "PreconditionNotMetException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace PreconditionNotMetException {
+  export function isa(o: any): o is PreconditionNotMetException {
+    return _smithy.isa(o, "PreconditionNotMetException");
+  }
+}
+
+/**
+ *
+ * 		       <p>The resource specified already exists. </p>
+ *
+ */
+export interface ResourceExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceExistsException";
+  name: "ResourceExistsException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceExistsException {
+  export function isa(o: any): o is ResourceExistsException {
+    return _smithy.isa(o, "ResourceExistsException");
+  }
+}
+
+/**
+ *
+ * 		       <p>One or more resources can't be found.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ * 		       <p>Permission for the resource.</p>
+ *
+ */
+export interface ResourcePermission {
+  __type?: "ResourcePermission";
+  /**
+   *
+   * 		       <p>The action to grant or revoke permissions on. For example,
+   * 			"quicksight:DescribeDashboard".</p>
+   *
+   */
+  Actions: Array<string> | undefined;
+
+  /**
+   *
+   * 		       <p>The Amazon Resource Name (ARN) of a QuickSight user or group, or an IAM ARN. If you are
+   * 			using cross-account resource sharing, this is the IAM ARN of an account root. Otherwise, it
+   * 			is the ARN of a QuickSight user or group. .</p>
+   *
+   */
+  Principal: string | undefined;
+}
+
+export namespace ResourcePermission {
+  export function isa(o: any): o is ResourcePermission {
+    return _smithy.isa(o, "ResourcePermission");
+  }
+}
+
+export enum ResourceStatus {
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+/**
+ *
+ * 		       <p>This resource is currently unavailable.</p>
+ *
+ */
+export interface ResourceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceUnavailableException";
+  name: "ResourceUnavailableException";
+  $fault: "server";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+
+  /**
+   *
+   * 		       <p>The resource type for this request.</p>
+   *
+   */
+  ResourceType?: ExceptionResourceType | string;
+}
+
+export namespace ResourceUnavailableException {
+  export function isa(o: any): o is ResourceUnavailableException {
+    return _smithy.isa(o, "ResourceUnavailableException");
+  }
+}
+
+/**
+ *
+ * 		       <p>The keys of the key-value pairs for the resource tag or tags assigned to the
+ * 			resource.</p>
+ *
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   *
+   * 		       <p>Tag key.</p>
+   *
+   */
+  Key: string | undefined;
+
+  /**
+   *
+   * 		       <p>Tag value.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export function isa(o: any): o is Tag {
+    return _smithy.isa(o, "Tag");
+  }
+}
+
+/**
+ *
+ * 		       <p>Access is throttled.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
+}
+
+/**
+ *
+ * 		       <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ *
+ */
+export interface UnsupportedUserEditionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedUserEditionException";
+  name: "UnsupportedUserEditionException";
+  $fault: "client";
+  Message?: string;
+  /**
+   *
+   * 		       <p>The AWS request ID for this request.</p>
+   *
+   */
+  RequestId?: string;
+}
+
+export namespace UnsupportedUserEditionException {
+  export function isa(o: any): o is UnsupportedUserEditionException {
+    return _smithy.isa(o, "UnsupportedUserEditionException");
   }
 }
