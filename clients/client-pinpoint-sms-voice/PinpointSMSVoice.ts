@@ -46,41 +46,76 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   /**
-   * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
+   * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
    */
-  public updateConfigurationSetEventDestination(
-    args: UpdateConfigurationSetEventDestinationCommandInput,
+  public createConfigurationSet(
+    args: CreateConfigurationSetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
-  public updateConfigurationSetEventDestination(
-    args: UpdateConfigurationSetEventDestinationCommandInput,
+  ): Promise<CreateConfigurationSetCommandOutput>;
+  public createConfigurationSet(
+    args: CreateConfigurationSetCommandInput,
+    cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
+  ): void;
+  public createConfigurationSet(
+    args: CreateConfigurationSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
+  ): void;
+  public createConfigurationSet(
+    args: CreateConfigurationSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationSetCommandOutput) => void
+  ): Promise<CreateConfigurationSetCommandOutput> | void {
+    const command = new CreateConfigurationSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create a new event destination in a configuration set.
+   */
+  public createConfigurationSetEventDestination(
+    args: CreateConfigurationSetEventDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
+  public createConfigurationSetEventDestination(
+    args: CreateConfigurationSetEventDestinationCommandInput,
     cb: (
       err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
+      data?: CreateConfigurationSetEventDestinationCommandOutput
     ) => void
   ): void;
-  public updateConfigurationSetEventDestination(
-    args: UpdateConfigurationSetEventDestinationCommandInput,
+  public createConfigurationSetEventDestination(
+    args: CreateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
+      data?: CreateConfigurationSetEventDestinationCommandOutput
     ) => void
   ): void;
-  public updateConfigurationSetEventDestination(
-    args: UpdateConfigurationSetEventDestinationCommandInput,
+  public createConfigurationSetEventDestination(
+    args: CreateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: UpdateConfigurationSetEventDestinationCommandOutput
+          data?: CreateConfigurationSetEventDestinationCommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: UpdateConfigurationSetEventDestinationCommandOutput
+      data?: CreateConfigurationSetEventDestinationCommandOutput
     ) => void
-  ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
-    const command = new UpdateConfigurationSetEventDestinationCommand(args);
+  ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
+    const command = new CreateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -116,6 +151,100 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
     cb?: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): Promise<DeleteConfigurationSetCommandOutput> | void {
     const command = new DeleteConfigurationSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Deletes an event destination in a configuration set.
+   */
+  public deleteConfigurationSetEventDestination(
+    args: DeleteConfigurationSetEventDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
+  public deleteConfigurationSetEventDestination(
+    args: DeleteConfigurationSetEventDestinationCommandInput,
+    cb: (
+      err: any,
+      data?: DeleteConfigurationSetEventDestinationCommandOutput
+    ) => void
+  ): void;
+  public deleteConfigurationSetEventDestination(
+    args: DeleteConfigurationSetEventDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DeleteConfigurationSetEventDestinationCommandOutput
+    ) => void
+  ): void;
+  public deleteConfigurationSetEventDestination(
+    args: DeleteConfigurationSetEventDestinationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DeleteConfigurationSetEventDestinationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DeleteConfigurationSetEventDestinationCommandOutput
+    ) => void
+  ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
+    const command = new DeleteConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
+   */
+  public getConfigurationSetEventDestinations(
+    args: GetConfigurationSetEventDestinationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
+  public getConfigurationSetEventDestinations(
+    args: GetConfigurationSetEventDestinationsCommandInput,
+    cb: (
+      err: any,
+      data?: GetConfigurationSetEventDestinationsCommandOutput
+    ) => void
+  ): void;
+  public getConfigurationSetEventDestinations(
+    args: GetConfigurationSetEventDestinationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: GetConfigurationSetEventDestinationsCommandOutput
+    ) => void
+  ): void;
+  public getConfigurationSetEventDestinations(
+    args: GetConfigurationSetEventDestinationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetConfigurationSetEventDestinationsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetConfigurationSetEventDestinationsCommandOutput
+    ) => void
+  ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
+    const command = new GetConfigurationSetEventDestinationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -198,170 +327,41 @@ export class PinpointSMSVoice extends PinpointSMSVoiceClient {
   }
 
   /**
-   * Deletes an event destination in a configuration set.
+   * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
    */
-  public deleteConfigurationSetEventDestination(
-    args: DeleteConfigurationSetEventDestinationCommandInput,
+  public updateConfigurationSetEventDestination(
+    args: UpdateConfigurationSetEventDestinationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
-  public deleteConfigurationSetEventDestination(
-    args: DeleteConfigurationSetEventDestinationCommandInput,
+  ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
+  public updateConfigurationSetEventDestination(
+    args: UpdateConfigurationSetEventDestinationCommandInput,
     cb: (
       err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
+      data?: UpdateConfigurationSetEventDestinationCommandOutput
     ) => void
   ): void;
-  public deleteConfigurationSetEventDestination(
-    args: DeleteConfigurationSetEventDestinationCommandInput,
+  public updateConfigurationSetEventDestination(
+    args: UpdateConfigurationSetEventDestinationCommandInput,
     options: __HttpHandlerOptions,
     cb: (
       err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
+      data?: UpdateConfigurationSetEventDestinationCommandOutput
     ) => void
   ): void;
-  public deleteConfigurationSetEventDestination(
-    args: DeleteConfigurationSetEventDestinationCommandInput,
+  public updateConfigurationSetEventDestination(
+    args: UpdateConfigurationSetEventDestinationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: DeleteConfigurationSetEventDestinationCommandOutput
+          data?: UpdateConfigurationSetEventDestinationCommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: DeleteConfigurationSetEventDestinationCommandOutput
+      data?: UpdateConfigurationSetEventDestinationCommandOutput
     ) => void
-  ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
-    const command = new DeleteConfigurationSetEventDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Create a new event destination in a configuration set.
-   */
-  public createConfigurationSetEventDestination(
-    args: CreateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
-  public createConfigurationSetEventDestination(
-    args: CreateConfigurationSetEventDestinationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
-  ): void;
-  public createConfigurationSetEventDestination(
-    args: CreateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
-  ): void;
-  public createConfigurationSetEventDestination(
-    args: CreateConfigurationSetEventDestinationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateConfigurationSetEventDestinationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateConfigurationSetEventDestinationCommandOutput
-    ) => void
-  ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
-    const command = new CreateConfigurationSetEventDestinationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.
-   */
-  public createConfigurationSet(
-    args: CreateConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateConfigurationSetCommandOutput>;
-  public createConfigurationSet(
-    args: CreateConfigurationSetCommandInput,
-    cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
-  ): void;
-  public createConfigurationSet(
-    args: CreateConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
-  ): void;
-  public createConfigurationSet(
-    args: CreateConfigurationSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationSetCommandOutput) => void),
-    cb?: (err: any, data?: CreateConfigurationSetCommandOutput) => void
-  ): Promise<CreateConfigurationSetCommandOutput> | void {
-    const command = new CreateConfigurationSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
-   */
-  public getConfigurationSetEventDestinations(
-    args: GetConfigurationSetEventDestinationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetConfigurationSetEventDestinationsCommandOutput>;
-  public getConfigurationSetEventDestinations(
-    args: GetConfigurationSetEventDestinationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
-  ): void;
-  public getConfigurationSetEventDestinations(
-    args: GetConfigurationSetEventDestinationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
-  ): void;
-  public getConfigurationSetEventDestinations(
-    args: GetConfigurationSetEventDestinationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetConfigurationSetEventDestinationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetConfigurationSetEventDestinationsCommandOutput
-    ) => void
-  ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
-    const command = new GetConfigurationSetEventDestinationsCommand(args);
+  ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
+    const command = new UpdateConfigurationSetEventDestinationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

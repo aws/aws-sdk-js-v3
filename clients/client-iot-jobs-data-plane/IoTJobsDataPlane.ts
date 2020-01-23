@@ -76,43 +76,6 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
 
   /**
    *
-   *          <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
-   *
-   */
-  public startNextPendingJobExecution(
-    args: StartNextPendingJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartNextPendingJobExecutionCommandOutput>;
-  public startNextPendingJobExecution(
-    args: StartNextPendingJobExecutionCommandInput,
-    cb: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
-  ): void;
-  public startNextPendingJobExecution(
-    args: StartNextPendingJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
-  ): void;
-  public startNextPendingJobExecution(
-    args: StartNextPendingJobExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartNextPendingJobExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
-  ): Promise<StartNextPendingJobExecutionCommandOutput> | void {
-    const command = new StartNextPendingJobExecutionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
    *
    */
@@ -137,6 +100,43 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
     cb?: (err: any, data?: GetPendingJobExecutionsCommandOutput) => void
   ): Promise<GetPendingJobExecutionsCommandOutput> | void {
     const command = new GetPendingJobExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
+   *
+   */
+  public startNextPendingJobExecution(
+    args: StartNextPendingJobExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNextPendingJobExecutionCommandOutput>;
+  public startNextPendingJobExecution(
+    args: StartNextPendingJobExecutionCommandInput,
+    cb: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
+  ): void;
+  public startNextPendingJobExecution(
+    args: StartNextPendingJobExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
+  ): void;
+  public startNextPendingJobExecution(
+    args: StartNextPendingJobExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartNextPendingJobExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
+  ): Promise<StartNextPendingJobExecutionCommandOutput> | void {
+    const command = new StartNextPendingJobExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
