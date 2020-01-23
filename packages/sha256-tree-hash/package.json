@@ -1,0 +1,28 @@
+{
+  "name": "@aws-sdk/sha256-tree-hash",
+  "version": "1.0.0-alpha.0",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/types": "^1.0.0-alpha.3",
+    "tslib": "^1.8.0"
+  },
+  "devDependencies": {
+    "@aws-crypto/sha256-js": "^0.1.0-preview.4",
+    "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
+    "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
+    "@types/jest": "^24.0.12",
+    "jest": "^24.7.1",
+    "typescript": "~3.4.0"
+  }
+}
