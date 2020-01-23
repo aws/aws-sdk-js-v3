@@ -1,6 +1,36 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum DeploymentState {
+  BAKING = "BAKING",
+  COMPLETE = "COMPLETE",
+  DEPLOYING = "DEPLOYING",
+  ROLLED_BACK = "ROLLED_BACK",
+  ROLLING_BACK = "ROLLING_BACK",
+  VALIDATING = "VALIDATING"
+}
+
+export enum EnvironmentState {
+  DEPLOYING = "DEPLOYING",
+  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
+  ROLLED_BACK = "ROLLED_BACK",
+  ROLLING_BACK = "ROLLING_BACK"
+}
+
+export enum GrowthType {
+  LINEAR = "LINEAR"
+}
+
+export enum ReplicateTo {
+  NONE = "NONE",
+  SSM_DOCUMENT = "SSM_DOCUMENT"
+}
+
+export enum ValidatorType {
+  JSON_SCHEMA = "JSON_SCHEMA",
+  LAMBDA = "LAMBDA"
+}
+
 export interface Application extends $MetadataBearer {
   __type?: "Application";
   /**
@@ -675,15 +705,6 @@ export namespace Deployment {
   }
 }
 
-export enum DeploymentState {
-  BAKING = "BAKING",
-  COMPLETE = "COMPLETE",
-  DEPLOYING = "DEPLOYING",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-  VALIDATING = "VALIDATING"
-}
-
 export interface DeploymentStrategies extends $MetadataBearer {
   __type?: "DeploymentStrategies";
   /**
@@ -946,13 +967,6 @@ export namespace Environment {
   }
 }
 
-export enum EnvironmentState {
-  DEPLOYING = "DEPLOYING",
-  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK"
-}
-
 export interface Environments extends $MetadataBearer {
   __type?: "Environments";
   /**
@@ -1129,10 +1143,6 @@ export namespace GetEnvironmentRequest {
   export function isa(o: any): o is GetEnvironmentRequest {
     return _smithy.isa(o, "GetEnvironmentRequest");
   }
-}
-
-export enum GrowthType {
-  LINEAR = "LINEAR"
 }
 
 /**
@@ -1345,11 +1355,6 @@ export namespace Monitor {
   export function isa(o: any): o is Monitor {
     return _smithy.isa(o, "Monitor");
   }
-}
-
-export enum ReplicateTo {
-  NONE = "NONE",
-  SSM_DOCUMENT = "SSM_DOCUMENT"
 }
 
 /**
@@ -1769,9 +1774,4 @@ export namespace Validator {
   export function isa(o: any): o is Validator {
     return _smithy.isa(o, "Validator");
   }
-}
-
-export enum ValidatorType {
-  JSON_SCHEMA = "JSON_SCHEMA",
-  LAMBDA = "LAMBDA"
 }

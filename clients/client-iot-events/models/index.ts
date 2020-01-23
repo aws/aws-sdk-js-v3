@@ -1,6 +1,34 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum DetectorModelVersionStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  DEPRECATED = "DEPRECATED",
+  DRAFT = "DRAFT",
+  FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
+  PAUSED = "PAUSED"
+}
+
+export enum EvaluationMethod {
+  BATCH = "BATCH",
+  SERIAL = "SERIAL"
+}
+
+export enum InputStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING"
+}
+
+export enum LoggingLevel {
+  DEBUG = "DEBUG",
+  ERROR = "ERROR",
+  INFO = "INFO"
+}
+
 /**
  *
  *         <p>An action to be performed when the <code>"condition"</code> is TRUE.</p>
@@ -630,16 +658,6 @@ export namespace DetectorModelSummary {
   }
 }
 
-export enum DetectorModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-  DRAFT = "DRAFT",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PAUSED = "PAUSED"
-}
-
 /**
  *
  *         <p>Information about the detector model version.</p>
@@ -710,11 +728,6 @@ export namespace DetectorModelVersionSummary {
   export function isa(o: any): o is DetectorModelVersionSummary {
     return _smithy.isa(o, "DetectorModelVersionSummary");
   }
-}
-
-export enum EvaluationMethod {
-  BATCH = "BATCH",
-  SERIAL = "SERIAL"
 }
 
 /**
@@ -894,13 +907,6 @@ export namespace InputDefinition {
   }
 }
 
-export enum InputStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Information about the input.</p>
@@ -954,6 +960,56 @@ export interface InputSummary {
 export namespace InputSummary {
   export function isa(o: any): o is InputSummary {
     return _smithy.isa(o, "InputSummary");
+  }
+}
+
+/**
+ *
+ *          <p>An internal failure occurred.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>The request was invalid.</p>
+ *
+ */
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequestException";
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export function isa(o: any): o is InvalidRequestException {
+    return _smithy.isa(o, "InvalidRequestException");
   }
 }
 
@@ -1019,6 +1075,31 @@ export interface LambdaAction {
 export namespace LambdaAction {
   export function isa(o: any): o is LambdaAction {
     return _smithy.isa(o, "LambdaAction");
+  }
+}
+
+/**
+ *
+ *          <p>A limit was exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
   }
 }
 
@@ -1202,12 +1283,6 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
-export enum LoggingLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO"
-}
-
 /**
  *
  *         <p>The values of the AWS IoT Events logging options.</p>
@@ -1365,6 +1440,95 @@ export namespace ResetTimerAction {
 
 /**
  *
+ *          <p>The resource already exists.</p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   *          <p>The ARN of the resource.</p>
+   *
+   */
+  resourceArn?: string;
+
+  /**
+   *
+   *          <p>The ID of the resource.</p>
+   *
+   */
+  resourceId?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource is in use.</p>
+ *
+ */
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceInUseException";
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  export function isa(o: any): o is ResourceInUseException {
+    return _smithy.isa(o, "ResourceInUseException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource was not found.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
  *         <p>Information required to publish the Amazon SNS message.</p>
  *
  */
@@ -1381,6 +1545,31 @@ export interface SNSTopicPublishAction {
 export namespace SNSTopicPublishAction {
   export function isa(o: any): o is SNSTopicPublishAction {
     return _smithy.isa(o, "SNSTopicPublishAction");
+  }
+}
+
+/**
+ *
+ *          <p>The service is currently unavailable.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -1578,6 +1767,31 @@ export namespace TagResourceResponse {
 
 /**
  *
+ *          <p>The request could not be completed due to throttling.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
+}
+
+/**
+ *
  *          <p>Specifies the actions performed and the next state entered when a <code>"condition"</code>
  *         evaluates to TRUE.</p>
  *
@@ -1617,6 +1831,31 @@ export interface TransitionEvent {
 export namespace TransitionEvent {
   export function isa(o: any): o is TransitionEvent {
     return _smithy.isa(o, "TransitionEvent");
+  }
+}
+
+/**
+ *
+ *          <p>The requested operation is not supported.</p>
+ *
+ */
+export interface UnsupportedOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedOperationException";
+  name: "UnsupportedOperationException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace UnsupportedOperationException {
+  export function isa(o: any): o is UnsupportedOperationException {
+    return _smithy.isa(o, "UnsupportedOperationException");
   }
 }
 
@@ -1758,244 +1997,5 @@ export interface UpdateInputResponse extends $MetadataBearer {
 export namespace UpdateInputResponse {
   export function isa(o: any): o is UpdateInputResponse {
     return _smithy.isa(o, "UpdateInputResponse");
-  }
-}
-
-/**
- *
- *          <p>An internal failure occurred.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>The request was invalid.</p>
- *
- */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequestException";
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
-  }
-}
-
-/**
- *
- *          <p>A limit was exceeded.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-/**
- *
- *          <p>The resource already exists.</p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   *          <p>The ARN of the resource.</p>
-   *
-   */
-  resourceArn?: string;
-
-  /**
-   *
-   *          <p>The ID of the resource.</p>
-   *
-   */
-  resourceId?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
- *          <p>The resource is in use.</p>
- *
- */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceInUseException";
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
-  }
-}
-
-/**
- *
- *          <p>The resource was not found.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>The service is currently unavailable.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
-}
-
-/**
- *
- *          <p>The request could not be completed due to throttling.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
-  }
-}
-
-/**
- *
- *          <p>The requested operation is not supported.</p>
- *
- */
-export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedOperationException";
-  name: "UnsupportedOperationException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  export function isa(o: any): o is UnsupportedOperationException {
-    return _smithy.isa(o, "UnsupportedOperationException");
   }
 }

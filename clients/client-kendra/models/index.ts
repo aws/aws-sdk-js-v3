@@ -1,6 +1,106 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AdditionalResultAttributeValueType {
+  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE"
+}
+
+export enum ContentType {
+  HTML = "HTML",
+  MS_WORD = "MS_WORD",
+  PDF = "PDF",
+  PLAIN_TEXT = "PLAIN_TEXT",
+  PPT = "PPT"
+}
+
+export enum DataSourceStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING"
+}
+
+export enum DataSourceSyncJobStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  INCOMPLETE = "INCOMPLETE",
+  STOPPING = "STOPPING",
+  SUCCEEDED = "SUCCEEDED",
+  SYNCING = "SYNCING"
+}
+
+export enum DataSourceType {
+  DATABASE = "DATABASE",
+  S3 = "S3",
+  SHAREPOINT = "SHAREPOINT"
+}
+
+export enum DatabaseEngineType {
+  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
+  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
+  RDS_MYSQL = "RDS_MYSQL",
+  RDS_POSTGRESQL = "RDS_POSTGRESQL"
+}
+
+export enum DocumentAttributeValueType {
+  DATE_VALUE = "DATE_VALUE",
+  LONG_VALUE = "LONG_VALUE",
+  STRING_LIST_VALUE = "STRING_LIST_VALUE",
+  STRING_VALUE = "STRING_VALUE"
+}
+
+export enum ErrorCode {
+  INTERNAL_ERROR = "InternalError",
+  INVALID_REQUEST = "InvalidRequest"
+}
+
+export enum FaqStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING"
+}
+
+export enum IndexStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  SYSTEM_UPDATING = "SYSTEM_UPDATING"
+}
+
+export enum Order {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
+}
+
+export enum PrincipalType {
+  GROUP = "GROUP",
+  USER = "USER"
+}
+
+export enum QueryResultType {
+  ANSWER = "ANSWER",
+  DOCUMENT = "DOCUMENT",
+  QUESTION_ANSWER = "QUESTION_ANSWER"
+}
+
+export enum ReadAccessType {
+  ALLOW = "ALLOW",
+  DENY = "DENY"
+}
+
+export enum RelevanceType {
+  NOT_RELEVANT = "NOT_RELEVANT",
+  RELEVANT = "RELEVANT"
+}
+
+export enum SharePointVersion {
+  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE"
+}
+
 /**
  *
  *         <p>Access Control List files for the documents in a data source.</p>
@@ -122,10 +222,6 @@ export namespace AdditionalResultAttributeValue {
   export function isa(o: any): o is AdditionalResultAttributeValue {
     return _smithy.isa(o, "AdditionalResultAttributeValue");
   }
-}
-
-export enum AdditionalResultAttributeValueType {
-  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE"
 }
 
 /**
@@ -538,14 +634,6 @@ export namespace ConnectionConfiguration {
   }
 }
 
-export enum ContentType {
-  HTML = "HTML",
-  MS_WORD = "MS_WORD",
-  PDF = "PDF",
-  PLAIN_TEXT = "PLAIN_TEXT",
-  PPT = "PPT"
-}
-
 export interface CreateDataSourceRequest {
   __type?: "CreateDataSourceRequest";
   /**
@@ -781,14 +869,6 @@ export namespace DataSourceConfiguration {
   }
 }
 
-export enum DataSourceStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Summary information for a Amazon Kendra data source. Returned in a call to .</p>
@@ -917,15 +997,6 @@ export namespace DataSourceSyncJob {
   }
 }
 
-export enum DataSourceSyncJobStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  SYNCING = "SYNCING"
-}
-
 /**
  *
  *         <p>Maps a column or attribute in the data source to an index field. You must first create
@@ -960,12 +1031,6 @@ export namespace DataSourceToIndexFieldMapping {
   export function isa(o: any): o is DataSourceToIndexFieldMapping {
     return _smithy.isa(o, "DataSourceToIndexFieldMapping");
   }
-}
-
-export enum DataSourceType {
-  DATABASE = "DATABASE",
-  S3 = "S3",
-  SHAREPOINT = "SHAREPOINT"
 }
 
 /**
@@ -1048,13 +1113,6 @@ export namespace DatabaseConfiguration {
   export function isa(o: any): o is DatabaseConfiguration {
     return _smithy.isa(o, "DatabaseConfiguration");
   }
-}
-
-export enum DatabaseEngineType {
-  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
-  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
-  RDS_MYSQL = "RDS_MYSQL",
-  RDS_POSTGRESQL = "RDS_POSTGRESQL"
 }
 
 export interface DeleteFaqRequest {
@@ -1597,13 +1655,6 @@ export namespace DocumentAttributeValueCountPair {
   }
 }
 
-export enum DocumentAttributeValueType {
-  DATE_VALUE = "DATE_VALUE",
-  LONG_VALUE = "LONG_VALUE",
-  STRING_LIST_VALUE = "STRING_LIST_VALUE",
-  STRING_VALUE = "STRING_VALUE"
-}
-
 /**
  *
  *         <p>Specifies the properties of a custom index field.</p>
@@ -1670,11 +1721,6 @@ export namespace DocumentsMetadataConfiguration {
   export function isa(o: any): o is DocumentsMetadataConfiguration {
     return _smithy.isa(o, "DocumentsMetadataConfiguration");
   }
-}
-
-export enum ErrorCode {
-  INTERNAL_ERROR = "InternalError",
-  INVALID_REQUEST = "InvalidRequest"
 }
 
 /**
@@ -1748,14 +1794,6 @@ export namespace FaqStatistics {
   export function isa(o: any): o is FaqStatistics {
     return _smithy.isa(o, "FaqStatistics");
   }
-}
-
-export enum FaqStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING"
 }
 
 /**
@@ -1926,14 +1964,6 @@ export namespace IndexStatistics {
   export function isa(o: any): o is IndexStatistics {
     return _smithy.isa(o, "IndexStatistics");
   }
-}
-
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING"
 }
 
 /**
@@ -2202,11 +2232,6 @@ export namespace ListIndicesResponse {
   }
 }
 
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
-}
-
 /**
  *
  *         <p>Provides user and group information for document access filtering.</p>
@@ -2240,11 +2265,6 @@ export namespace Principal {
   export function isa(o: any): o is Principal {
     return _smithy.isa(o, "Principal");
   }
-}
-
-export enum PrincipalType {
-  GROUP = "GROUP",
-  USER = "USER"
 }
 
 export interface QueryRequest {
@@ -2439,17 +2459,6 @@ export namespace QueryResultItem {
   }
 }
 
-export enum QueryResultType {
-  ANSWER = "ANSWER",
-  DOCUMENT = "DOCUMENT",
-  QUESTION_ANSWER = "QUESTION_ANSWER"
-}
-
-export enum ReadAccessType {
-  ALLOW = "ALLOW",
-  DENY = "DENY"
-}
-
 /**
  *
  *         <p>Provides information for manually tuning the relevance of a field in a search. When a
@@ -2553,11 +2562,6 @@ export namespace RelevanceFeedback {
   export function isa(o: any): o is RelevanceFeedback {
     return _smithy.isa(o, "RelevanceFeedback");
   }
-}
-
-export enum RelevanceType {
-  NOT_RELEVANT = "NOT_RELEVANT",
-  RELEVANT = "RELEVANT"
 }
 
 /**
@@ -2872,10 +2876,6 @@ export namespace SharePointConfiguration {
   export function isa(o: any): o is SharePointConfiguration {
     return _smithy.isa(o, "SharePointConfiguration");
   }
-}
-
-export enum SharePointVersion {
-  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE"
 }
 
 export interface StartDataSourceSyncJobRequest {

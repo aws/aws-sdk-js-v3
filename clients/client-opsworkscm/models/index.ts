@@ -1,6 +1,45 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum BackupStatus {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  OK = "OK"
+}
+
+export enum BackupType {
+  AUTOMATED = "AUTOMATED",
+  MANUAL = "MANUAL"
+}
+
+export enum MaintenanceStatus {
+  FAILED = "FAILED",
+  SUCCESS = "SUCCESS"
+}
+
+export enum NodeAssociationStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCESS = "SUCCESS"
+}
+
+export enum ServerStatus {
+  BACKING_UP = "BACKING_UP",
+  CONNECTION_LOST = "CONNECTION_LOST",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  HEALTHY = "HEALTHY",
+  MODIFYING = "MODIFYING",
+  RESTORING = "RESTORING",
+  RUNNING = "RUNNING",
+  SETUP = "SETUP",
+  TERMINATED = "TERMINATED",
+  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
+  UNHEALTHY = "UNHEALTHY"
+}
+
 /**
  *
  *          <p>Stores account attributes.
@@ -361,18 +400,6 @@ export namespace Backup {
   export function isa(o: any): o is Backup {
     return _smithy.isa(o, "Backup");
   }
-}
-
-export enum BackupStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK"
-}
-
-export enum BackupType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL"
 }
 
 export interface CreateBackupRequest {
@@ -1335,17 +1362,6 @@ export namespace LimitExceededException {
   }
 }
 
-export enum MaintenanceStatus {
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS"
-}
-
-export enum NodeAssociationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS"
-}
-
 /**
  *
  *          <p>The requested resource cannot be created because it already exists.
@@ -1752,22 +1768,6 @@ export namespace ServerEvent {
   export function isa(o: any): o is ServerEvent {
     return _smithy.isa(o, "ServerEvent");
   }
-}
-
-export enum ServerStatus {
-  BACKING_UP = "BACKING_UP",
-  CONNECTION_LOST = "CONNECTION_LOST",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALTHY = "HEALTHY",
-  MODIFYING = "MODIFYING",
-  RESTORING = "RESTORING",
-  RUNNING = "RUNNING",
-  SETUP = "SETUP",
-  TERMINATED = "TERMINATED",
-  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY"
 }
 
 export interface StartMaintenanceRequest {

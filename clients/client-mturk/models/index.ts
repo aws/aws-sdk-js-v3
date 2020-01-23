@@ -1,6 +1,99 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AssignmentStatus {
+  Approved = "Approved",
+  Rejected = "Rejected",
+  Submitted = "Submitted"
+}
+
+export enum Comparator {
+  DoesNotExist = "DoesNotExist",
+  EqualTo = "EqualTo",
+  Exists = "Exists",
+  GreaterThan = "GreaterThan",
+  GreaterThanOrEqualTo = "GreaterThanOrEqualTo",
+  In = "In",
+  LessThan = "LessThan",
+  LessThanOrEqualTo = "LessThanOrEqualTo",
+  NotEqualTo = "NotEqualTo",
+  NotIn = "NotIn"
+}
+
+export enum EventType {
+  AssignmentAbandoned = "AssignmentAbandoned",
+  AssignmentAccepted = "AssignmentAccepted",
+  AssignmentApproved = "AssignmentApproved",
+  AssignmentRejected = "AssignmentRejected",
+  AssignmentReturned = "AssignmentReturned",
+  AssignmentSubmitted = "AssignmentSubmitted",
+  HITCreated = "HITCreated",
+  HITDisposed = "HITDisposed",
+  HITExpired = "HITExpired",
+  HITExtended = "HITExtended",
+  HITReviewable = "HITReviewable",
+  Ping = "Ping"
+}
+
+export enum HITAccessActions {
+  Accept = "Accept",
+  DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
+  PreviewAndAccept = "PreviewAndAccept"
+}
+
+export enum HITReviewStatus {
+  MarkedForReview = "MarkedForReview",
+  NotReviewed = "NotReviewed",
+  ReviewedAppropriate = "ReviewedAppropriate",
+  ReviewedInappropriate = "ReviewedInappropriate"
+}
+
+export enum HITStatus {
+  Assignable = "Assignable",
+  Disposed = "Disposed",
+  Reviewable = "Reviewable",
+  Reviewing = "Reviewing",
+  Unassignable = "Unassignable"
+}
+
+export enum NotificationTransport {
+  Email = "Email",
+  SNS = "SNS",
+  SQS = "SQS"
+}
+
+export enum NotifyWorkersFailureCode {
+  HardFailure = "HardFailure",
+  SoftFailure = "SoftFailure"
+}
+
+export enum QualificationStatus {
+  Granted = "Granted",
+  Revoked = "Revoked"
+}
+
+export enum QualificationTypeStatus {
+  Active = "Active",
+  Inactive = "Inactive"
+}
+
+export enum ReviewActionStatus {
+  Cancelled = "Cancelled",
+  Failed = "Failed",
+  Intended = "Intended",
+  Succeeded = "Succeeded"
+}
+
+export enum ReviewPolicyLevel {
+  Assignment = "Assignment",
+  HIT = "HIT"
+}
+
+export enum ReviewableHITStatus {
+  Reviewable = "Reviewable",
+  Reviewing = "Reviewing"
+}
+
 export interface AcceptQualificationRequestRequest {
   __type?: "AcceptQualificationRequestRequest";
   /**
@@ -204,12 +297,6 @@ export namespace Assignment {
   }
 }
 
-export enum AssignmentStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-  Submitted = "Submitted"
-}
-
 export interface AssociateQualificationWithWorkerRequest {
   __type?: "AssociateQualificationWithWorkerRequest";
   /**
@@ -312,19 +399,6 @@ export namespace BonusPayment {
   export function isa(o: any): o is BonusPayment {
     return _smithy.isa(o, "BonusPayment");
   }
-}
-
-export enum Comparator {
-  DoesNotExist = "DoesNotExist",
-  EqualTo = "EqualTo",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEqualTo = "GreaterThanOrEqualTo",
-  In = "In",
-  LessThan = "LessThan",
-  LessThanOrEqualTo = "LessThanOrEqualTo",
-  NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn"
 }
 
 export interface CreateAdditionalAssignmentsForHITRequest {
@@ -1162,21 +1236,6 @@ export namespace DisassociateQualificationFromWorkerResponse {
   }
 }
 
-export enum EventType {
-  AssignmentAbandoned = "AssignmentAbandoned",
-  AssignmentAccepted = "AssignmentAccepted",
-  AssignmentApproved = "AssignmentApproved",
-  AssignmentRejected = "AssignmentRejected",
-  AssignmentReturned = "AssignmentReturned",
-  AssignmentSubmitted = "AssignmentSubmitted",
-  HITCreated = "HITCreated",
-  HITDisposed = "HITDisposed",
-  HITExpired = "HITExpired",
-  HITExtended = "HITExtended",
-  HITReviewable = "HITReviewable",
-  Ping = "Ping"
-}
-
 export interface GetAccountBalanceRequest {
   __type?: "GetAccountBalanceRequest";
 }
@@ -1592,12 +1651,6 @@ export namespace HIT {
   }
 }
 
-export enum HITAccessActions {
-  Accept = "Accept",
-  DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept"
-}
-
 /**
  *
  *         <p> The HITLayoutParameter data structure defines parameter
@@ -1631,21 +1684,6 @@ export namespace HITLayoutParameter {
   export function isa(o: any): o is HITLayoutParameter {
     return _smithy.isa(o, "HITLayoutParameter");
   }
-}
-
-export enum HITReviewStatus {
-  MarkedForReview = "MarkedForReview",
-  NotReviewed = "NotReviewed",
-  ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate"
-}
-
-export enum HITStatus {
-  Assignable = "Assignable",
-  Disposed = "Disposed",
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-  Unassignable = "Unassignable"
 }
 
 export interface ListAssignmentsForHITRequest {
@@ -2510,17 +2548,6 @@ export namespace NotificationSpecification {
   }
 }
 
-export enum NotificationTransport {
-  Email = "Email",
-  SNS = "SNS",
-  SQS = "SQS"
-}
-
-export enum NotifyWorkersFailureCode {
-  HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure"
-}
-
 /**
  *
  *         <p> When MTurk encounters an issue with notifying the Workers
@@ -2940,11 +2967,6 @@ export namespace QualificationRequirement {
   }
 }
 
-export enum QualificationStatus {
-  Granted = "Granted",
-  Revoked = "Revoked"
-}
-
 /**
  *
  *         <p> The QualificationType data structure represents a
@@ -3094,11 +3116,6 @@ export namespace QualificationType {
   }
 }
 
-export enum QualificationTypeStatus {
-  Active = "Active",
-  Inactive = "Inactive"
-}
-
 export interface RejectAssignmentRequest {
   __type?: "RejectAssignmentRequest";
   /**
@@ -3171,6 +3188,25 @@ export interface RejectQualificationRequestResponse extends $MetadataBearer {
 export namespace RejectQualificationRequestResponse {
   export function isa(o: any): o is RejectQualificationRequestResponse {
     return _smithy.isa(o, "RejectQualificationRequestResponse");
+  }
+}
+
+/**
+ *
+ *         <p>Your request is invalid.</p>
+ *
+ */
+export interface RequestError extends _smithy.SmithyException, $MetadataBearer {
+  __type: "RequestError";
+  name: "RequestError";
+  $fault: "client";
+  Message?: string;
+  TurkErrorCode?: string;
+}
+
+export namespace RequestError {
+  export function isa(o: any): o is RequestError {
+    return _smithy.isa(o, "RequestError");
   }
 }
 
@@ -3252,13 +3288,6 @@ export namespace ReviewActionDetail {
   }
 }
 
-export enum ReviewActionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  Intended = "Intended",
-  Succeeded = "Succeeded"
-}
-
 /**
  *
  *         <p> HIT Review Policy data structures represent HIT review
@@ -3289,11 +3318,6 @@ export namespace ReviewPolicy {
   export function isa(o: any): o is ReviewPolicy {
     return _smithy.isa(o, "ReviewPolicy");
   }
-}
-
-export enum ReviewPolicyLevel {
-  Assignment = "Assignment",
-  HIT = "HIT"
 }
 
 /**
@@ -3404,11 +3428,6 @@ export namespace ReviewResultDetail {
   }
 }
 
-export enum ReviewableHITStatus {
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing"
-}
-
 export interface SendBonusRequest {
   __type?: "SendBonusRequest";
   /**
@@ -3512,6 +3531,25 @@ export interface SendTestEventNotificationResponse extends $MetadataBearer {
 export namespace SendTestEventNotificationResponse {
   export function isa(o: any): o is SendTestEventNotificationResponse {
     return _smithy.isa(o, "SendTestEventNotificationResponse");
+  }
+}
+
+/**
+ *
+ *         <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ */
+export interface ServiceFault extends _smithy.SmithyException, $MetadataBearer {
+  __type: "ServiceFault";
+  name: "ServiceFault";
+  $fault: "server";
+  Message?: string;
+  TurkErrorCode?: string;
+}
+
+export namespace ServiceFault {
+  export function isa(o: any): o is ServiceFault {
+    return _smithy.isa(o, "ServiceFault");
   }
 }
 
@@ -3813,43 +3851,5 @@ export interface WorkerBlock {
 export namespace WorkerBlock {
   export function isa(o: any): o is WorkerBlock {
     return _smithy.isa(o, "WorkerBlock");
-  }
-}
-
-/**
- *
- *         <p>Your request is invalid.</p>
- *
- */
-export interface RequestError extends _smithy.SmithyException, $MetadataBearer {
-  __type: "RequestError";
-  name: "RequestError";
-  $fault: "client";
-  Message?: string;
-  TurkErrorCode?: string;
-}
-
-export namespace RequestError {
-  export function isa(o: any): o is RequestError {
-    return _smithy.isa(o, "RequestError");
-  }
-}
-
-/**
- *
- *         <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
- *
- */
-export interface ServiceFault extends _smithy.SmithyException, $MetadataBearer {
-  __type: "ServiceFault";
-  name: "ServiceFault";
-  $fault: "server";
-  Message?: string;
-  TurkErrorCode?: string;
-}
-
-export namespace ServiceFault {
-  export function isa(o: any): o is ServiceFault {
-    return _smithy.isa(o, "ServiceFault");
   }
 }

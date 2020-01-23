@@ -1,6 +1,124 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum CertificateStatus {
+  EXPIRED = "EXPIRED",
+  FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
+  ISSUED = "ISSUED",
+  PENDING_VALIDATION = "PENDING_VALIDATION",
+  REVOKED = "REVOKED",
+  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT"
+}
+
+export enum CertificateTransparencyLoggingPreference {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum CertificateType {
+  AMAZON_ISSUED = "AMAZON_ISSUED",
+  IMPORTED = "IMPORTED",
+  PRIVATE = "PRIVATE"
+}
+
+export enum DomainStatus {
+  FAILED = "FAILED",
+  PENDING_VALIDATION = "PENDING_VALIDATION",
+  SUCCESS = "SUCCESS"
+}
+
+export enum ExtendedKeyUsageName {
+  ANY = "ANY",
+  CODE_SIGNING = "CODE_SIGNING",
+  CUSTOM = "CUSTOM",
+  EMAIL_PROTECTION = "EMAIL_PROTECTION",
+  IPSEC_END_SYSTEM = "IPSEC_END_SYSTEM",
+  IPSEC_TUNNEL = "IPSEC_TUNNEL",
+  IPSEC_USER = "IPSEC_USER",
+  NONE = "NONE",
+  OCSP_SIGNING = "OCSP_SIGNING",
+  TIME_STAMPING = "TIME_STAMPING",
+  TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
+  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION"
+}
+
+export enum FailureReason {
+  ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
+  CAA_ERROR = "CAA_ERROR",
+  DOMAIN_NOT_ALLOWED = "DOMAIN_NOT_ALLOWED",
+  DOMAIN_VALIDATION_DENIED = "DOMAIN_VALIDATION_DENIED",
+  INVALID_PUBLIC_DOMAIN = "INVALID_PUBLIC_DOMAIN",
+  NO_AVAILABLE_CONTACTS = "NO_AVAILABLE_CONTACTS",
+  OTHER = "OTHER",
+  PCA_ACCESS_DENIED = "PCA_ACCESS_DENIED",
+  PCA_INVALID_ARGS = "PCA_INVALID_ARGS",
+  PCA_INVALID_ARN = "PCA_INVALID_ARN",
+  PCA_INVALID_DURATION = "PCA_INVALID_DURATION",
+  PCA_INVALID_STATE = "PCA_INVALID_STATE",
+  PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
+  PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
+  PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
+  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND"
+}
+
+export enum KeyAlgorithm {
+  EC_prime256v1 = "EC_prime256v1",
+  EC_secp384r1 = "EC_secp384r1",
+  EC_secp521r1 = "EC_secp521r1",
+  RSA_1024 = "RSA_1024",
+  RSA_2048 = "RSA_2048",
+  RSA_4096 = "RSA_4096"
+}
+
+export enum KeyUsageName {
+  ANY = "ANY",
+  CERTIFICATE_SIGNING = "CERTIFICATE_SIGNING",
+  CRL_SIGNING = "CRL_SIGNING",
+  CUSTOM = "CUSTOM",
+  DATA_ENCIPHERMENT = "DATA_ENCIPHERMENT",
+  DECIPHER_ONLY = "DECIPHER_ONLY",
+  DIGITAL_SIGNATURE = "DIGITAL_SIGNATURE",
+  ENCHIPER_ONLY = "ENCIPHER_ONLY",
+  KEY_AGREEMENT = "KEY_AGREEMENT",
+  KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
+  NON_REPUDATION = "NON_REPUDIATION"
+}
+
+export enum RecordType {
+  CNAME = "CNAME"
+}
+
+export enum RenewalEligibility {
+  ELIGIBLE = "ELIGIBLE",
+  INELIGIBLE = "INELIGIBLE"
+}
+
+export enum RenewalStatus {
+  FAILED = "FAILED",
+  PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
+  PENDING_VALIDATION = "PENDING_VALIDATION",
+  SUCCESS = "SUCCESS"
+}
+
+export enum RevocationReason {
+  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
+  A_A_COMPROMISE = "A_A_COMPROMISE",
+  CA_COMPROMISE = "CA_COMPROMISE",
+  CERTIFICATE_HOLD = "CERTIFICATE_HOLD",
+  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE = "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
+  REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
+  SUPERCEDED = "SUPERCEDED",
+  UNSPECIFIED = "UNSPECIFIED"
+}
+
+export enum ValidationMethod {
+  DNS = "DNS",
+  EMAIL = "EMAIL"
+}
+
 export interface AddTagsToCertificateRequest {
   __type?: "AddTagsToCertificateRequest";
   /**
@@ -295,16 +413,6 @@ export namespace CertificateOptions {
   }
 }
 
-export enum CertificateStatus {
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  ISSUED = "ISSUED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  REVOKED = "REVOKED",
-  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT"
-}
-
 /**
  *
  *          <p>This structure is returned in the response object of <a>ListCertificates</a>
@@ -339,17 +447,6 @@ export namespace CertificateSummary {
   export function isa(o: any): o is CertificateSummary {
     return _smithy.isa(o, "CertificateSummary");
   }
-}
-
-export enum CertificateTransparencyLoggingPreference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum CertificateType {
-  AMAZON_ISSUED = "AMAZON_ISSUED",
-  IMPORTED = "IMPORTED",
-  PRIVATE = "PRIVATE"
 }
 
 export interface DeleteCertificateRequest {
@@ -408,12 +505,6 @@ export namespace DescribeCertificateResponse {
   export function isa(o: any): o is DescribeCertificateResponse {
     return _smithy.isa(o, "DescribeCertificateResponse");
   }
-}
-
-export enum DomainStatus {
-  FAILED = "FAILED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -681,40 +772,6 @@ export namespace ExtendedKeyUsage {
   export function isa(o: any): o is ExtendedKeyUsage {
     return _smithy.isa(o, "ExtendedKeyUsage");
   }
-}
-
-export enum ExtendedKeyUsageName {
-  ANY = "ANY",
-  CODE_SIGNING = "CODE_SIGNING",
-  CUSTOM = "CUSTOM",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  IPSEC_END_SYSTEM = "IPSEC_END_SYSTEM",
-  IPSEC_TUNNEL = "IPSEC_TUNNEL",
-  IPSEC_USER = "IPSEC_USER",
-  NONE = "NONE",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  TIME_STAMPING = "TIME_STAMPING",
-  TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
-  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION"
-}
-
-export enum FailureReason {
-  ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
-  CAA_ERROR = "CAA_ERROR",
-  DOMAIN_NOT_ALLOWED = "DOMAIN_NOT_ALLOWED",
-  DOMAIN_VALIDATION_DENIED = "DOMAIN_VALIDATION_DENIED",
-  INVALID_PUBLIC_DOMAIN = "INVALID_PUBLIC_DOMAIN",
-  NO_AVAILABLE_CONTACTS = "NO_AVAILABLE_CONTACTS",
-  OTHER = "OTHER",
-  PCA_ACCESS_DENIED = "PCA_ACCESS_DENIED",
-  PCA_INVALID_ARGS = "PCA_INVALID_ARGS",
-  PCA_INVALID_ARN = "PCA_INVALID_ARN",
-  PCA_INVALID_DURATION = "PCA_INVALID_DURATION",
-  PCA_INVALID_STATE = "PCA_INVALID_STATE",
-  PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
-  PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
-  PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
-  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND"
 }
 
 /**
@@ -988,15 +1045,6 @@ export namespace InvalidTagException {
   }
 }
 
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  EC_secp521r1 = "EC_secp521r1",
-  RSA_1024 = "RSA_1024",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096"
-}
-
 /**
  *
  *          <p>The Key Usage X.509 v3 extension defines the purpose of the public key contained in the
@@ -1017,20 +1065,6 @@ export namespace KeyUsage {
   export function isa(o: any): o is KeyUsage {
     return _smithy.isa(o, "KeyUsage");
   }
-}
-
-export enum KeyUsageName {
-  ANY = "ANY",
-  CERTIFICATE_SIGNING = "CERTIFICATE_SIGNING",
-  CRL_SIGNING = "CRL_SIGNING",
-  CUSTOM = "CUSTOM",
-  DATA_ENCIPHERMENT = "DATA_ENCIPHERMENT",
-  DECIPHER_ONLY = "DECIPHER_ONLY",
-  DIGITAL_SIGNATURE = "DIGITAL_SIGNATURE",
-  ENCHIPER_ONLY = "ENCIPHER_ONLY",
-  KEY_AGREEMENT = "KEY_AGREEMENT",
-  KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
-  NON_REPUDATION = "NON_REPUDIATION"
 }
 
 /**
@@ -1157,10 +1191,6 @@ export namespace ListTagsForCertificateResponse {
   }
 }
 
-export enum RecordType {
-  CNAME = "CNAME"
-}
-
 export interface RemoveTagsFromCertificateRequest {
   __type?: "RemoveTagsFromCertificateRequest";
   /**
@@ -1210,18 +1240,6 @@ export namespace RenewCertificateRequest {
   export function isa(o: any): o is RenewCertificateRequest {
     return _smithy.isa(o, "RenewCertificateRequest");
   }
-}
-
-export enum RenewalEligibility {
-  ELIGIBLE = "ELIGIBLE",
-  INELIGIBLE = "INELIGIBLE"
-}
-
-export enum RenewalStatus {
-  FAILED = "FAILED",
-  PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -1567,19 +1585,6 @@ export namespace ResourceRecord {
   }
 }
 
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CA_COMPROMISE = "CA_COMPROMISE",
-  CERTIFICATE_HOLD = "CERTIFICATE_HOLD",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
-  SUPERCEDED = "SUPERCEDED",
-  UNSPECIFIED = "UNSPECIFIED"
-}
-
 /**
  *
  *          <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
@@ -1676,9 +1681,4 @@ export namespace UpdateCertificateOptionsRequest {
   export function isa(o: any): o is UpdateCertificateOptionsRequest {
     return _smithy.isa(o, "UpdateCertificateOptionsRequest");
   }
-}
-
-export enum ValidationMethod {
-  DNS = "DNS",
-  EMAIL = "EMAIL"
 }

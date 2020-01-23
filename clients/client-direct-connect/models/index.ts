@@ -1,6 +1,108 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AddressFamily {
+  IPv4 = "ipv4",
+  IPv6 = "ipv6"
+}
+
+export enum BGPPeerState {
+  Available = "available",
+  Deleted = "deleted",
+  Deleting = "deleting",
+  Pending = "pending",
+  Verifying = "verifying"
+}
+
+export enum BGPStatus {
+  Down = "down",
+  Unknown = "unknown",
+  Up = "up"
+}
+
+export type ConnectionState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "ordering"
+  | "pending"
+  | "rejected"
+  | "requested"
+  | "unknown";
+
+export type DirectConnectGatewayAssociationProposalState =
+  | "accepted"
+  | "deleted"
+  | "requested";
+
+export type DirectConnectGatewayAssociationState =
+  | "associated"
+  | "associating"
+  | "disassociated"
+  | "disassociating"
+  | "updating";
+
+export type DirectConnectGatewayAttachmentState =
+  | "attached"
+  | "attaching"
+  | "detached"
+  | "detaching";
+
+export type DirectConnectGatewayAttachmentType =
+  | "PrivateVirtualInterface"
+  | "TransitVirtualInterface";
+
+export type DirectConnectGatewayState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "pending";
+
+export enum GatewayType {
+  TransitGateway = "transitGateway",
+  VirtualPrivateGateway = "virtualPrivateGateway"
+}
+
+export enum HasLogicalRedundancy {
+  No = "no",
+  Unknown = "unknown",
+  Yes = "yes"
+}
+
+export type InterconnectState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "requested"
+  | "unknown";
+
+export type LagState =
+  | "available"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "requested"
+  | "unknown";
+
+export enum LoaContentType {
+  PDF = "application/pdf"
+}
+
+export type VirtualInterfaceState =
+  | "available"
+  | "confirming"
+  | "deleted"
+  | "deleting"
+  | "down"
+  | "pending"
+  | "rejected"
+  | "unknown"
+  | "verifying";
+
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   __type?: "AcceptDirectConnectGatewayAssociationProposalRequest";
   /**
@@ -64,11 +166,6 @@ export namespace AcceptDirectConnectGatewayAssociationProposalResult {
       "AcceptDirectConnectGatewayAssociationProposalResult"
     );
   }
-}
-
-export enum AddressFamily {
-  IPv4 = "ipv4",
-  IPv6 = "ipv6"
 }
 
 export interface AllocateConnectionOnInterconnectRequest {
@@ -504,20 +601,6 @@ export namespace BGPPeer {
   export function isa(o: any): o is BGPPeer {
     return _smithy.isa(o, "BGPPeer");
   }
-}
-
-export enum BGPPeerState {
-  Available = "available",
-  Deleted = "deleted",
-  Deleting = "deleting",
-  Pending = "pending",
-  Verifying = "verifying"
-}
-
-export enum BGPStatus {
-  Down = "down",
-  Unknown = "unknown",
-  Up = "up"
 }
 
 export interface ConfirmConnectionRequest {
@@ -998,17 +1081,6 @@ export namespace Connection {
     return _smithy.isa(o, "Connection");
   }
 }
-
-export type ConnectionState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "ordering"
-  | "pending"
-  | "rejected"
-  | "requested"
-  | "unknown";
 
 export interface Connections extends $MetadataBearer {
   __type?: "Connections";
@@ -2657,18 +2729,6 @@ export namespace DirectConnectGatewayAssociationProposal {
   }
 }
 
-export type DirectConnectGatewayAssociationProposalState =
-  | "accepted"
-  | "deleted"
-  | "requested";
-
-export type DirectConnectGatewayAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "updating";
-
 /**
  *
  *          <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
@@ -2750,22 +2810,6 @@ export namespace DirectConnectGatewayAttachment {
   }
 }
 
-export type DirectConnectGatewayAttachmentState =
-  | "attached"
-  | "attaching"
-  | "detached"
-  | "detaching";
-
-export type DirectConnectGatewayAttachmentType =
-  | "PrivateVirtualInterface"
-  | "TransitVirtualInterface";
-
-export type DirectConnectGatewayState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
-
 /**
  *
  *          <p>A server-side error occurred.</p>
@@ -2827,17 +2871,6 @@ export namespace DuplicateTagKeysException {
   export function isa(o: any): o is DuplicateTagKeysException {
     return _smithy.isa(o, "DuplicateTagKeysException");
   }
-}
-
-export enum GatewayType {
-  TransitGateway = "transitGateway",
-  VirtualPrivateGateway = "virtualPrivateGateway"
-}
-
-export enum HasLogicalRedundancy {
-  No = "no",
-  Unknown = "unknown",
-  Yes = "yes"
 }
 
 /**
@@ -2983,15 +3016,6 @@ export namespace Interconnect {
     return _smithy.isa(o, "Interconnect");
   }
 }
-
-export type InterconnectState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
 
 export interface Interconnects extends $MetadataBearer {
   __type?: "Interconnects";
@@ -3175,15 +3199,6 @@ export namespace Lag {
   }
 }
 
-export type LagState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
-
 export interface Lags extends $MetadataBearer {
   __type?: "Lags";
   /**
@@ -3226,10 +3241,6 @@ export namespace Loa {
   export function isa(o: any): o is Loa {
     return _smithy.isa(o, "Loa");
   }
-}
-
-export enum LoaContentType {
-  PDF = "application/pdf"
 }
 
 /**
@@ -4387,17 +4398,6 @@ export namespace VirtualInterface {
     return _smithy.isa(o, "VirtualInterface");
   }
 }
-
-export type VirtualInterfaceState =
-  | "available"
-  | "confirming"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "rejected"
-  | "unknown"
-  | "verifying";
 
 export interface VirtualInterfaces extends $MetadataBearer {
   __type?: "VirtualInterfaces";

@@ -1,74 +1,120 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface DescribeEndpointsRequest {
-  __type?: "DescribeEndpointsRequest";
+export type AttributeAction = "ADD" | "DELETE" | "PUT";
+
+export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
+
+export enum BackupType {
+  AWS_BACKUP = "AWS_BACKUP",
+  SYSTEM = "SYSTEM",
+  USER = "USER"
 }
 
-export namespace DescribeEndpointsRequest {
-  export function isa(o: any): o is DescribeEndpointsRequest {
-    return _smithy.isa(o, "DescribeEndpointsRequest");
-  }
+export enum BackupTypeFilter {
+  ALL = "ALL",
+  AWS_BACKUP = "AWS_BACKUP",
+  SYSTEM = "SYSTEM",
+  USER = "USER"
 }
 
-export interface DescribeEndpointsResponse extends $MetadataBearer {
-  __type?: "DescribeEndpointsResponse";
-  /**
-   *
-   *          <p>List of endpoints.</p>
-   *
-   */
-  Endpoints: Array<Endpoint> | undefined;
-}
+export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
 
-export namespace DescribeEndpointsResponse {
-  export function isa(o: any): o is DescribeEndpointsResponse {
-    return _smithy.isa(o, "DescribeEndpointsResponse");
-  }
-}
+export type ComparisonOperator =
+  | "BEGINS_WITH"
+  | "BETWEEN"
+  | "CONTAINS"
+  | "EQ"
+  | "GE"
+  | "GT"
+  | "IN"
+  | "LE"
+  | "LT"
+  | "NE"
+  | "NOT_CONTAINS"
+  | "NOT_NULL"
+  | "NULL";
 
-/**
- *
- *          <p>An endpoint information details.</p>
- *
- */
-export interface Endpoint {
-  __type?: "Endpoint";
-  /**
-   *
-   *          <p>IP address of the endpoint.</p>
-   *
-   */
-  Address: string | undefined;
+export type ConditionalOperator = "AND" | "OR";
 
-  /**
-   *
-   *          <p>Endpoint cache time to live (TTL) value.</p>
-   *
-   */
-  CachePeriodInMinutes: number | undefined;
-}
+export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
 
-export namespace Endpoint {
-  export function isa(o: any): o is Endpoint {
-    return _smithy.isa(o, "Endpoint");
-  }
-}
+export type ContributorInsightsAction = "DISABLE" | "ENABLE";
 
-export interface InvalidEndpointException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidEndpointException";
-  name: "InvalidEndpointException";
-  $fault: "client";
-  Message?: string;
-}
+export type ContributorInsightsStatus =
+  | "DISABLED"
+  | "DISABLING"
+  | "ENABLED"
+  | "ENABLING"
+  | "FAILED";
 
-export namespace InvalidEndpointException {
-  export function isa(o: any): o is InvalidEndpointException {
-    return _smithy.isa(o, "InvalidEndpointException");
-  }
-}
+export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+
+export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+
+export type KeyType = "HASH" | "RANGE";
+
+export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
+
+export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
+
+export type ReplicaStatus =
+  | "ACTIVE"
+  | "CREATING"
+  | "CREATION_FAILED"
+  | "DELETING"
+  | "UPDATING";
+
+export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
+
+export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
+
+export type ReturnValue =
+  | "ALL_NEW"
+  | "ALL_OLD"
+  | "NONE"
+  | "UPDATED_NEW"
+  | "UPDATED_OLD";
+
+export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
+
+export type SSEStatus =
+  | "DISABLED"
+  | "DISABLING"
+  | "ENABLED"
+  | "ENABLING"
+  | "UPDATING";
+
+export type SSEType = "AES256" | "KMS";
+
+export type ScalarAttributeType = "B" | "N" | "S";
+
+export type Select =
+  | "ALL_ATTRIBUTES"
+  | "ALL_PROJECTED_ATTRIBUTES"
+  | "COUNT"
+  | "SPECIFIC_ATTRIBUTES";
+
+export type StreamViewType =
+  | "KEYS_ONLY"
+  | "NEW_AND_OLD_IMAGES"
+  | "NEW_IMAGE"
+  | "OLD_IMAGE";
+
+export type TableStatus =
+  | "ACTIVE"
+  | "ARCHIVED"
+  | "ARCHIVING"
+  | "CREATING"
+  | "DELETING"
+  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+  | "UPDATING";
+
+export type TimeToLiveStatus =
+  | "DISABLED"
+  | "DISABLING"
+  | "ENABLED"
+  | "ENABLING";
 
 /**
  *
@@ -119,8 +165,6 @@ export namespace ArchivalSummary {
     return _smithy.isa(o, "ArchivalSummary");
   }
 }
-
-export type AttributeAction = "ADD" | "DELETE" | "PUT";
 
 /**
  *
@@ -841,8 +885,6 @@ export namespace BackupNotFoundException {
   }
 }
 
-export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
-
 /**
  *
  *          <p>Contains details for the backup.</p>
@@ -944,19 +986,6 @@ export namespace BackupSummary {
   export function isa(o: any): o is BackupSummary {
     return _smithy.isa(o, "BackupSummary");
   }
-}
-
-export enum BackupType {
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER"
-}
-
-export enum BackupTypeFilter {
-  ALL = "ALL",
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER"
 }
 
 /**
@@ -1343,8 +1372,6 @@ export namespace BatchWriteItemOutput {
   }
 }
 
-export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
-
 /**
  *
  *          <p>Contains the details for the read/write capacity mode.</p>
@@ -1457,21 +1484,6 @@ export namespace Capacity {
     return _smithy.isa(o, "Capacity");
   }
 }
-
-export type ComparisonOperator =
-  | "BEGINS_WITH"
-  | "BETWEEN"
-  | "CONTAINS"
-  | "EQ"
-  | "GE"
-  | "GT"
-  | "IN"
-  | "LE"
-  | "LT"
-  | "NE"
-  | "NOT_CONTAINS"
-  | "NOT_NULL"
-  | "NULL";
 
 /**
  *
@@ -1760,8 +1772,6 @@ export namespace ConditionalCheckFailedException {
   }
 }
 
-export type ConditionalOperator = "AND" | "OR";
-
 /**
  *
  *          <p>The capacity units consumed by an operation. The data returned includes the total
@@ -1859,8 +1869,6 @@ export namespace ContinuousBackupsDescription {
   }
 }
 
-export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
-
 /**
  *
  *          <p>Backups have not yet been enabled for this table.</p>
@@ -1880,15 +1888,6 @@ export namespace ContinuousBackupsUnavailableException {
     return _smithy.isa(o, "ContinuousBackupsUnavailableException");
   }
 }
-
-export type ContributorInsightsAction = "DISABLE" | "ENABLE";
-
-export type ContributorInsightsStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "FAILED";
 
 /**
  *
@@ -3061,6 +3060,32 @@ export namespace DescribeContributorInsightsOutput {
   }
 }
 
+export interface DescribeEndpointsRequest {
+  __type?: "DescribeEndpointsRequest";
+}
+
+export namespace DescribeEndpointsRequest {
+  export function isa(o: any): o is DescribeEndpointsRequest {
+    return _smithy.isa(o, "DescribeEndpointsRequest");
+  }
+}
+
+export interface DescribeEndpointsResponse extends $MetadataBearer {
+  __type?: "DescribeEndpointsResponse";
+  /**
+   *
+   *          <p>List of endpoints.</p>
+   *
+   */
+  Endpoints: Array<Endpoint> | undefined;
+}
+
+export namespace DescribeEndpointsResponse {
+  export function isa(o: any): o is DescribeEndpointsResponse {
+    return _smithy.isa(o, "DescribeEndpointsResponse");
+  }
+}
+
 export interface DescribeGlobalTableInput {
   __type?: "DescribeGlobalTableInput";
   /**
@@ -3298,6 +3323,34 @@ export interface DescribeTimeToLiveOutput extends $MetadataBearer {
 export namespace DescribeTimeToLiveOutput {
   export function isa(o: any): o is DescribeTimeToLiveOutput {
     return _smithy.isa(o, "DescribeTimeToLiveOutput");
+  }
+}
+
+/**
+ *
+ *          <p>An endpoint information details.</p>
+ *
+ */
+export interface Endpoint {
+  __type?: "Endpoint";
+  /**
+   *
+   *          <p>IP address of the endpoint.</p>
+   *
+   */
+  Address: string | undefined;
+
+  /**
+   *
+   *          <p>Endpoint cache time to live (TTL) value.</p>
+   *
+   */
+  CachePeriodInMinutes: number | undefined;
+}
+
+export namespace Endpoint {
+  export function isa(o: any): o is Endpoint {
+    return _smithy.isa(o, "Endpoint");
   }
 }
 
@@ -4318,8 +4371,6 @@ export namespace GlobalTableNotFoundException {
   }
 }
 
-export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
-
 /**
  *
  *          <p>DynamoDB rejected the request because you retried a request with a different payload but
@@ -4361,8 +4412,6 @@ export namespace IndexNotFoundException {
   }
 }
 
-export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
-
 /**
  *
  *          <p>An error occurred on the server side.</p>
@@ -4385,6 +4434,21 @@ export interface InternalServerError
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
     return _smithy.isa(o, "InternalServerError");
+  }
+}
+
+export interface InvalidEndpointException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidEndpointException";
+  name: "InvalidEndpointException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidEndpointException {
+  export function isa(o: any): o is InvalidEndpointException {
+    return _smithy.isa(o, "InvalidEndpointException");
   }
 }
 
@@ -4537,8 +4601,6 @@ export namespace KeySchemaElement {
     return _smithy.isa(o, "KeySchemaElement");
   }
 }
-
-export type KeyType = "HASH" | "RANGE";
 
 /**
  *
@@ -5252,8 +5314,6 @@ export namespace PointInTimeRecoverySpecification {
   }
 }
 
-export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
-
 /**
  *
  *          <p>Point in time recovery has not yet been enabled for this source table.</p>
@@ -5320,8 +5380,6 @@ export namespace Projection {
     return _smithy.isa(o, "Projection");
   }
 }
-
-export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
 
 /**
  *
@@ -6956,13 +7014,6 @@ export namespace ReplicaSettingsUpdate {
   }
 }
 
-export type ReplicaStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "CREATION_FAILED"
-  | "DELETING"
-  | "UPDATING";
-
 /**
  *
  *          <p>Represents one of the following:</p>
@@ -7325,19 +7376,6 @@ export namespace RestoreTableToPointInTimeOutput {
   }
 }
 
-export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
-
-export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
-
-export type ReturnValue =
-  | "ALL_NEW"
-  | "ALL_OLD"
-  | "NONE"
-  | "UPDATED_NEW"
-  | "UPDATED_OLD";
-
-export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
-
 /**
  *
  *          <p>The description of the server-side encryption status on the specified table.</p>
@@ -7449,17 +7487,6 @@ export namespace SSESpecification {
     return _smithy.isa(o, "SSESpecification");
   }
 }
-
-export type SSEStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "UPDATING";
-
-export type SSEType = "AES256" | "KMS";
-
-export type ScalarAttributeType = "B" | "N" | "S";
 
 /**
  *
@@ -7842,12 +7869,6 @@ export namespace ScanOutput {
   }
 }
 
-export type Select =
-  | "ALL_ATTRIBUTES"
-  | "ALL_PROJECTED_ATTRIBUTES"
-  | "COUNT"
-  | "SPECIFIC_ATTRIBUTES";
-
 /**
  *
  *          <p>Contains the details of the table when the backup was created. </p>
@@ -8038,12 +8059,6 @@ export namespace StreamSpecification {
     return _smithy.isa(o, "StreamSpecification");
   }
 }
-
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";
 
 /**
  *
@@ -8585,15 +8600,6 @@ export namespace TableNotFoundException {
   }
 }
 
-export type TableStatus =
-  | "ACTIVE"
-  | "ARCHIVED"
-  | "ARCHIVING"
-  | "CREATING"
-  | "DELETING"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "UPDATING";
-
 /**
  *
  *          <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
@@ -8712,12 +8718,6 @@ export namespace TimeToLiveSpecification {
     return _smithy.isa(o, "TimeToLiveSpecification");
   }
 }
-
-export type TimeToLiveStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING";
 
 /**
  *

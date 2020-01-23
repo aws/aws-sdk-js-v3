@@ -1,6 +1,20 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum OperatorType {
+  Between = "BETWEEN",
+  Equal = "EQ",
+  GreaterThanOrEqual = "GE",
+  LessThanOrEqual = "LE",
+  ReferenceEqual = "REF_EQ"
+}
+
+export enum TaskStatus {
+  FAILED = "FAILED",
+  FALSE = "FALSE",
+  FINISHED = "FINISHED"
+}
+
 /**
  *
  *         <p>Contains the parameters for ActivatePipeline.</p>
@@ -732,14 +746,6 @@ export namespace Operator {
   export function isa(o: any): o is Operator {
     return _smithy.isa(o, "Operator");
   }
-}
-
-export enum OperatorType {
-  Between = "BETWEEN",
-  Equal = "EQ",
-  GreaterThanOrEqual = "GE",
-  LessThanOrEqual = "LE",
-  ReferenceEqual = "REF_EQ"
 }
 
 /**
@@ -1612,12 +1618,6 @@ export namespace TaskObject {
   export function isa(o: any): o is TaskObject {
     return _smithy.isa(o, "TaskObject");
   }
-}
-
-export enum TaskStatus {
-  FAILED = "FAILED",
-  FALSE = "FALSE",
-  FINISHED = "FINISHED"
 }
 
 /**

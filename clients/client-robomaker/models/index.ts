@@ -7,6 +7,120 @@ export enum Architecture {
   X86_64 = "X86_64"
 }
 
+export enum DeploymentJobErrorCode {
+  BadPermissionError = "BadPermissionError",
+  DownloadConditionFailed = "DownloadConditionFailed",
+  EnvironmentSetupError = "EnvironmentSetupError",
+  EtagMismatch = "EtagMismatch",
+  ExtractingBundleFailure = "ExtractingBundleFailure",
+  FailureThresholdBreached = "FailureThresholdBreached",
+  GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
+  GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
+  InternalServerError = "InternalServerError",
+  MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
+  MissingRobotArchitecture = "MissingRobotArchitecture",
+  MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
+  PostLaunchFileFailure = "PostLaunchFileFailure",
+  PreLaunchFileFailure = "PreLaunchFileFailure",
+  ResourceNotFound = "ResourceNotFound",
+  RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
+  RobotDeploymentAborted = "RobotDeploymentAborted",
+  RobotDeploymentNoResponse = "RobotDeploymentNoResponse"
+}
+
+export enum DeploymentStatus {
+  Canceled = "Canceled",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Pending = "Pending",
+  Preparing = "Preparing",
+  Succeeded = "Succeeded"
+}
+
+export enum FailureBehavior {
+  Continue = "Continue",
+  Fail = "Fail"
+}
+
+export enum RenderingEngineType {
+  OGRE = "OGRE"
+}
+
+export enum RobotDeploymentStep {
+  DownloadingExtractingStep = "DownloadingExtracting",
+  ExecutingDownloadCondition = "ExecutingDownloadCondition",
+  FinishedStep = "Finished",
+  LaunchingStep = "Launching",
+  PostLaunchStep = "ExecutingPostLaunch",
+  PreLaunchStep = "ExecutingPreLaunch",
+  ValidatingStep = "Validating"
+}
+
+export enum RobotSoftwareSuiteType {
+  ROS = "ROS",
+  ROS2 = "ROS2"
+}
+
+export enum RobotSoftwareSuiteVersionType {
+  Dashing = "Dashing",
+  Kinetic = "Kinetic",
+  Melodic = "Melodic"
+}
+
+export enum RobotStatus {
+  Available = "Available",
+  Deploying = "Deploying",
+  Failed = "Failed",
+  InSync = "InSync",
+  NoResponse = "NoResponse",
+  PendingNewDeployment = "PendingNewDeployment",
+  Registered = "Registered"
+}
+
+export enum SimulationJobErrorCode {
+  BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
+  BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
+  BadPermissionsS3Object = "BadPermissionsS3Object",
+  BadPermissionsS3Output = "BadPermissionsS3Output",
+  BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
+  BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
+  ENILimitExceeded = "ENILimitExceeded",
+  InternalServiceError = "InternalServiceError",
+  InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
+  InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
+  InvalidInput = "InvalidInput",
+  InvalidS3Resource = "InvalidS3Resource",
+  MismatchedEtag = "MismatchedEtag",
+  ResourceNotFound = "ResourceNotFound",
+  RobotApplicationCrash = "RobotApplicationCrash",
+  RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
+  SimulationApplicationCrash = "SimulationApplicationCrash",
+  SimulationApplicationVersionMismatchedEtag = "SimulationApplicationVersionMismatchedEtag",
+  SubnetIpLimitExceeded = "SubnetIpLimitExceeded",
+  WrongRegionRobotApplication = "WrongRegionRobotApplication",
+  WrongRegionS3Bucket = "WrongRegionS3Bucket",
+  WrongRegionS3Output = "WrongRegionS3Output",
+  WrongRegionSimulationApplication = "WrongRegionSimulationApplication"
+}
+
+export enum SimulationJobStatus {
+  Canceled = "Canceled",
+  Completed = "Completed",
+  Failed = "Failed",
+  Pending = "Pending",
+  Preparing = "Preparing",
+  Restarting = "Restarting",
+  Running = "Running",
+  RunningFailed = "RunningFailed",
+  Terminated = "Terminated",
+  Terminating = "Terminating"
+}
+
+export enum SimulationSoftwareSuiteType {
+  Gazebo = "Gazebo",
+  RosbagPlay = "RosbagPlay"
+}
+
 export interface BatchDescribeSimulationJobRequest {
   __type?: "BatchDescribeSimulationJobRequest";
   /**
@@ -1485,27 +1599,6 @@ export namespace DeploymentJob {
   }
 }
 
-export enum DeploymentJobErrorCode {
-  BadPermissionError = "BadPermissionError",
-  DownloadConditionFailed = "DownloadConditionFailed",
-  EnvironmentSetupError = "EnvironmentSetupError",
-  EtagMismatch = "EtagMismatch",
-  ExtractingBundleFailure = "ExtractingBundleFailure",
-  FailureThresholdBreached = "FailureThresholdBreached",
-  GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
-  GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
-  InternalServerError = "InternalServerError",
-  MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
-  MissingRobotArchitecture = "MissingRobotArchitecture",
-  MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
-  PostLaunchFileFailure = "PostLaunchFileFailure",
-  PreLaunchFileFailure = "PreLaunchFileFailure",
-  ResourceNotFound = "ResourceNotFound",
-  RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
-  RobotDeploymentAborted = "RobotDeploymentAborted",
-  RobotDeploymentNoResponse = "RobotDeploymentNoResponse"
-}
-
 /**
  *
  *          <p>Configuration information for a deployment launch.</p>
@@ -1553,15 +1646,6 @@ export namespace DeploymentLaunchConfig {
   export function isa(o: any): o is DeploymentLaunchConfig {
     return _smithy.isa(o, "DeploymentLaunchConfig");
   }
-}
-
-export enum DeploymentStatus {
-  Canceled = "Canceled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Succeeded = "Succeeded"
 }
 
 export interface DeregisterRobotRequest {
@@ -2294,11 +2378,6 @@ export namespace DescribeSimulationJobResponse {
   export function isa(o: any): o is DescribeSimulationJobResponse {
     return _smithy.isa(o, "DescribeSimulationJobResponse");
   }
-}
-
-export enum FailureBehavior {
-  Continue = "Continue",
-  Fail = "Fail"
 }
 
 /**
@@ -3288,10 +3367,6 @@ export namespace RenderingEngine {
   }
 }
 
-export enum RenderingEngineType {
-  OGRE = "OGRE"
-}
-
 /**
  *
  *          <p>The specified resource already exists.</p>
@@ -3582,16 +3657,6 @@ export namespace RobotDeployment {
   }
 }
 
-export enum RobotDeploymentStep {
-  DownloadingExtractingStep = "DownloadingExtracting",
-  ExecutingDownloadCondition = "ExecutingDownloadCondition",
-  FinishedStep = "Finished",
-  LaunchingStep = "Launching",
-  PostLaunchStep = "ExecutingPostLaunch",
-  PreLaunchStep = "ExecutingPreLaunch",
-  ValidatingStep = "Validating"
-}
-
 /**
  *
  *          <p>Information about a robot software suite.</p>
@@ -3618,27 +3683,6 @@ export namespace RobotSoftwareSuite {
   export function isa(o: any): o is RobotSoftwareSuite {
     return _smithy.isa(o, "RobotSoftwareSuite");
   }
-}
-
-export enum RobotSoftwareSuiteType {
-  ROS = "ROS",
-  ROS2 = "ROS2"
-}
-
-export enum RobotSoftwareSuiteVersionType {
-  Dashing = "Dashing",
-  Kinetic = "Kinetic",
-  Melodic = "Melodic"
-}
-
-export enum RobotStatus {
-  Available = "Available",
-  Deploying = "Deploying",
-  Failed = "Failed",
-  InSync = "InSync",
-  NoResponse = "NoResponse",
-  PendingNewDeployment = "PendingNewDeployment",
-  Registered = "Registered"
 }
 
 /**
@@ -3982,45 +4026,6 @@ export namespace SimulationJob {
   }
 }
 
-export enum SimulationJobErrorCode {
-  BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
-  BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
-  BadPermissionsS3Object = "BadPermissionsS3Object",
-  BadPermissionsS3Output = "BadPermissionsS3Output",
-  BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
-  BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
-  ENILimitExceeded = "ENILimitExceeded",
-  InternalServiceError = "InternalServiceError",
-  InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
-  InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
-  InvalidInput = "InvalidInput",
-  InvalidS3Resource = "InvalidS3Resource",
-  MismatchedEtag = "MismatchedEtag",
-  ResourceNotFound = "ResourceNotFound",
-  RobotApplicationCrash = "RobotApplicationCrash",
-  RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
-  SimulationApplicationCrash = "SimulationApplicationCrash",
-  SimulationApplicationVersionMismatchedEtag = "SimulationApplicationVersionMismatchedEtag",
-  SubnetIpLimitExceeded = "SubnetIpLimitExceeded",
-  WrongRegionRobotApplication = "WrongRegionRobotApplication",
-  WrongRegionS3Bucket = "WrongRegionS3Bucket",
-  WrongRegionS3Output = "WrongRegionS3Output",
-  WrongRegionSimulationApplication = "WrongRegionSimulationApplication"
-}
-
-export enum SimulationJobStatus {
-  Canceled = "Canceled",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Restarting = "Restarting",
-  Running = "Running",
-  RunningFailed = "RunningFailed",
-  Terminated = "Terminated",
-  Terminating = "Terminating"
-}
-
 /**
  *
  *          <p>Summary information for a simulation job.</p>
@@ -4110,11 +4115,6 @@ export namespace SimulationSoftwareSuite {
   export function isa(o: any): o is SimulationSoftwareSuite {
     return _smithy.isa(o, "SimulationSoftwareSuite");
   }
-}
-
-export enum SimulationSoftwareSuiteType {
-  Gazebo = "Gazebo",
-  RosbagPlay = "RosbagPlay"
 }
 
 /**

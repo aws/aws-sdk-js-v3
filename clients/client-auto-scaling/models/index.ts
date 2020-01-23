@@ -1,6 +1,52 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum LifecycleState {
+  DETACHED = "Detached",
+  DETACHING = "Detaching",
+  ENTERING_STANDBY = "EnteringStandby",
+  IN_SERVICE = "InService",
+  PENDING = "Pending",
+  PENDING_PROCEED = "Pending:Proceed",
+  PENDING_WAIT = "Pending:Wait",
+  QUARANTINED = "Quarantined",
+  STANDBY = "Standby",
+  TERMINATED = "Terminated",
+  TERMINATING = "Terminating",
+  TERMINATING_PROCEED = "Terminating:Proceed",
+  TERMINATING_WAIT = "Terminating:Wait"
+}
+
+export enum MetricStatistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum"
+}
+
+export enum MetricType {
+  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn = "ASGAverageNetworkIn",
+  ASGAverageNetworkOut = "ASGAverageNetworkOut"
+}
+
+export enum ScalingActivityStatusCode {
+  Cancelled = "Cancelled",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  MidLifecycleAction = "MidLifecycleAction",
+  PendingSpotBidPlacement = "PendingSpotBidPlacement",
+  PreInService = "PreInService",
+  Successful = "Successful",
+  WaitingForELBConnectionDraining = "WaitingForELBConnectionDraining",
+  WaitingForInstanceId = "WaitingForInstanceId",
+  WaitingForInstanceWarmup = "WaitingForInstanceWarmup",
+  WaitingForSpotInstanceId = "WaitingForSpotInstanceId",
+  WaitingForSpotInstanceRequestId = "WaitingForSpotInstanceRequestId"
+}
+
 export interface ActivitiesType extends $MetadataBearer {
   __type?: "ActivitiesType";
   /**
@@ -3617,22 +3663,6 @@ export namespace LifecycleHookSpecification {
   }
 }
 
-export enum LifecycleState {
-  DETACHED = "Detached",
-  DETACHING = "Detaching",
-  ENTERING_STANDBY = "EnteringStandby",
-  IN_SERVICE = "InService",
-  PENDING = "Pending",
-  PENDING_PROCEED = "Pending:Proceed",
-  PENDING_WAIT = "Pending:Wait",
-  QUARANTINED = "Quarantined",
-  STANDBY = "Standby",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
-  TERMINATING_PROCEED = "Terminating:Proceed",
-  TERMINATING_WAIT = "Terminating:Wait"
-}
-
 /**
  *
  *         <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling
@@ -3897,21 +3927,6 @@ export namespace MetricGranularityType {
   export function isa(o: any): o is MetricGranularityType {
     return _smithy.isa(o, "MetricGranularityType");
   }
-}
-
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum"
-}
-
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut"
 }
 
 /**
@@ -4704,21 +4719,6 @@ export namespace ScalingActivityInProgressFault {
   export function isa(o: any): o is ScalingActivityInProgressFault {
     return _smithy.isa(o, "ScalingActivityInProgressFault");
   }
-}
-
-export enum ScalingActivityStatusCode {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  MidLifecycleAction = "MidLifecycleAction",
-  PendingSpotBidPlacement = "PendingSpotBidPlacement",
-  PreInService = "PreInService",
-  Successful = "Successful",
-  WaitingForELBConnectionDraining = "WaitingForELBConnectionDraining",
-  WaitingForInstanceId = "WaitingForInstanceId",
-  WaitingForInstanceWarmup = "WaitingForInstanceWarmup",
-  WaitingForSpotInstanceId = "WaitingForSpotInstanceId",
-  WaitingForSpotInstanceRequestId = "WaitingForSpotInstanceRequestId"
 }
 
 /**

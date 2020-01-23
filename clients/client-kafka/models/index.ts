@@ -1,6 +1,34 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum BrokerAZDistribution {
+  DEFAULT = "DEFAULT"
+}
+
+export enum ClientBroker {
+  PLAINTEXT = "PLAINTEXT",
+  TLS = "TLS",
+  TLS_PLAINTEXT = "TLS_PLAINTEXT"
+}
+
+export enum ClusterState {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING"
+}
+
+export enum EnhancedMonitoring {
+  DEFAULT = "DEFAULT",
+  PER_BROKER = "PER_BROKER",
+  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
+}
+
+export enum NodeType {
+  BROKER = "BROKER"
+}
+
 /**
  *
  *             <p>Returns information about an error.</p>
@@ -31,10 +59,6 @@ export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
     return _smithy.isa(o, "BadRequestException");
   }
-}
-
-export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -226,12 +250,6 @@ export namespace ClientAuthentication {
   export function isa(o: any): o is ClientAuthentication {
     return _smithy.isa(o, "ClientAuthentication");
   }
-}
-
-export enum ClientBroker {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT"
 }
 
 /**
@@ -428,14 +446,6 @@ export namespace ClusterOperationInfo {
   export function isa(o: any): o is ClusterOperationInfo {
     return _smithy.isa(o, "ClusterOperationInfo");
   }
-}
-
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING"
 }
 
 /**
@@ -1117,12 +1127,6 @@ export namespace EncryptionInfo {
   }
 }
 
-export enum EnhancedMonitoring {
-  DEFAULT = "DEFAULT",
-  PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
-}
-
 /**
  *
  *             <p>Returns information about an error state of the cluster.</p>
@@ -1641,10 +1645,6 @@ export namespace NodeInfo {
   export function isa(o: any): o is NodeInfo {
     return _smithy.isa(o, "NodeInfo");
   }
-}
-
-export enum NodeType {
-  BROKER = "BROKER"
 }
 
 /**

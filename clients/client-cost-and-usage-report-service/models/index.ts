@@ -27,6 +27,25 @@ export enum CompressionFormat {
   ZIP = "ZIP"
 }
 
+export enum ReportFormat {
+  CSV = "textORcsv",
+  Parquet = "Parquet"
+}
+
+export enum ReportVersioning {
+  CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
+  OVERWRITE_REPORT = "OVERWRITE_REPORT"
+}
+
+export enum SchemaElement {
+  RESOURCES = "RESOURCES"
+}
+
+export enum TimeUnit {
+  DAILY = "DAILY",
+  HOURLY = "HOURLY"
+}
+
 /**
  *
  *          <p>Deletes the specified report.</p>
@@ -348,11 +367,6 @@ export namespace ReportDefinition {
   }
 }
 
-export enum ReportFormat {
-  CSV = "textORcsv",
-  Parquet = "Parquet"
-}
-
 /**
  *
  *          <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
@@ -376,20 +390,6 @@ export namespace ReportLimitReachedException {
   export function isa(o: any): o is ReportLimitReachedException {
     return _smithy.isa(o, "ReportLimitReachedException");
   }
-}
-
-export enum ReportVersioning {
-  CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT = "OVERWRITE_REPORT"
-}
-
-export enum SchemaElement {
-  RESOURCES = "RESOURCES"
-}
-
-export enum TimeUnit {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY"
 }
 
 /**

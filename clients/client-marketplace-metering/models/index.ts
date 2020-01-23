@@ -1,6 +1,12 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum UsageRecordResultStatus {
+  CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
+  DUPLICATE_RECORD = "DuplicateRecord",
+  SUCCESS = "Success"
+}
+
 /**
  *
  *         <p>A BatchMeterUsageRequest contains UsageRecords, which indicate quantities of usage
@@ -667,10 +673,4 @@ export namespace UsageRecordResult {
   export function isa(o: any): o is UsageRecordResult {
     return _smithy.isa(o, "UsageRecordResult");
   }
-}
-
-export enum UsageRecordResultStatus {
-  CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
-  DUPLICATE_RECORD = "DuplicateRecord",
-  SUCCESS = "Success"
 }

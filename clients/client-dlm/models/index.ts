@@ -1,6 +1,37 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum GettablePolicyStateValues {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ERROR = "ERROR"
+}
+
+export enum IntervalUnitValues {
+  HOURS = "HOURS"
+}
+
+export enum PolicyTypeValues {
+  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT"
+}
+
+export enum ResourceTypeValues {
+  INSTANCE = "INSTANCE",
+  VOLUME = "VOLUME"
+}
+
+export enum RetentionIntervalUnitValues {
+  DAYS = "DAYS",
+  MONTHS = "MONTHS",
+  WEEKS = "WEEKS",
+  YEARS = "YEARS"
+}
+
+export enum SettablePolicyStateValues {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 export interface CreateLifecyclePolicyRequest {
   __type?: "CreateLifecyclePolicyRequest";
   /**
@@ -264,12 +295,6 @@ export namespace GetLifecyclePolicyResponse {
   }
 }
 
-export enum GettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR"
-}
-
 /**
  *
  *          <p>The service failed in an unexpected way.</p>
@@ -289,10 +314,6 @@ export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
     return _smithy.isa(o, "InternalServerException");
   }
-}
-
-export enum IntervalUnitValues {
-  HOURS = "HOURS"
 }
 
 /**
@@ -589,10 +610,6 @@ export namespace PolicyDetails {
   }
 }
 
-export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT"
-}
-
 /**
  *
  *          <p>A requested resource was not found.</p>
@@ -625,11 +642,6 @@ export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
   }
-}
-
-export enum ResourceTypeValues {
-  INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME"
 }
 
 /**
@@ -667,13 +679,6 @@ export namespace RetainRule {
   export function isa(o: any): o is RetainRule {
     return _smithy.isa(o, "RetainRule");
   }
-}
-
-export enum RetentionIntervalUnitValues {
-  DAYS = "DAYS",
-  MONTHS = "MONTHS",
-  WEEKS = "WEEKS",
-  YEARS = "YEARS"
 }
 
 /**
@@ -742,11 +747,6 @@ export namespace Schedule {
   export function isa(o: any): o is Schedule {
     return _smithy.isa(o, "Schedule");
   }
-}
-
-export enum SettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
 }
 
 /**

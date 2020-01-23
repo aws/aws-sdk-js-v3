@@ -1,6 +1,11 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ErrorCode {
+  INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
+  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException"
+}
+
 /**
  *
  *         <p>Information that shows whether a resource is compliant with the effective tag policy,
@@ -35,11 +40,6 @@ export namespace ComplianceDetails {
   export function isa(o: any): o is ComplianceDetails {
     return _smithy.isa(o, "ComplianceDetails");
   }
-}
-
-export enum ErrorCode {
-  INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
-  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException"
 }
 
 /**

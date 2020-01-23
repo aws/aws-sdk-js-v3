@@ -1,6 +1,11 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum GetEntitlementFilterName {
+  CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
+  DIMENSION = "DIMENSION"
+}
+
 /**
  *
  *          <p>An entitlement represents capacity in a product owned by the customer. For example, a
@@ -106,11 +111,6 @@ export namespace EntitlementValue {
   export function isa(o: any): o is EntitlementValue {
     return _smithy.isa(o, "EntitlementValue");
   }
-}
-
-export enum GetEntitlementFilterName {
-  CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
-  DIMENSION = "DIMENSION"
 }
 
 /**

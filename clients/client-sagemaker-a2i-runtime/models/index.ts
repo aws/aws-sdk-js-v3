@@ -6,6 +6,19 @@ export enum ContentClassifier {
   FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
 }
 
+export enum HumanLoopStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum SortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
 export interface DeleteHumanLoopRequest {
   __type?: "DeleteHumanLoopRequest";
   /**
@@ -212,14 +225,6 @@ export namespace HumanLoopOutputContent {
   }
 }
 
-export enum HumanLoopStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
 /**
  *
  *          <p>Summary information about the human loop.</p>
@@ -416,11 +421,6 @@ export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
     return _smithy.isa(o, "ServiceQuotaExceededException");
   }
-}
-
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
 }
 
 export interface StartHumanLoopRequest {

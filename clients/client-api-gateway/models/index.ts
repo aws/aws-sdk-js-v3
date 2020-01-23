@@ -1,6 +1,137 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ApiKeySourceType {
+  AUTHORIZER = "AUTHORIZER",
+  HEADER = "HEADER"
+}
+
+export enum ApiKeysFormat {
+  csv = "csv"
+}
+
+export enum AuthorizerType {
+  COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
+  REQUEST = "REQUEST",
+  TOKEN = "TOKEN"
+}
+
+export enum CacheClusterSize {
+  SIZE_0_POINT_5_GB = "0.5",
+  SIZE_118_GB = "118",
+  SIZE_13_POINT_5_GB = "13.5",
+  SIZE_1_POINT_6_GB = "1.6",
+  SIZE_237_GB = "237",
+  SIZE_28_POINT_4_GB = "28.4",
+  SIZE_58_POINT_2_GB = "58.2",
+  SIZE_6_POINT_1_GB = "6.1"
+}
+
+export enum CacheClusterStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  FLUSH_IN_PROGRESS = "FLUSH_IN_PROGRESS",
+  NOT_AVAILABLE = "NOT_AVAILABLE"
+}
+
+export enum ConnectionType {
+  INTERNET = "INTERNET",
+  VPC_LINK = "VPC_LINK"
+}
+
+export enum ContentHandlingStrategy {
+  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
+  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+}
+
+export enum DocumentationPartType {
+  API = "API",
+  AUTHORIZER = "AUTHORIZER",
+  METHOD = "METHOD",
+  MODEL = "MODEL",
+  PATH_PARAMETER = "PATH_PARAMETER",
+  QUERY_PARAMETER = "QUERY_PARAMETER",
+  REQUEST_BODY = "REQUEST_BODY",
+  REQUEST_HEADER = "REQUEST_HEADER",
+  RESOURCE = "RESOURCE",
+  RESPONSE = "RESPONSE",
+  RESPONSE_BODY = "RESPONSE_BODY",
+  RESPONSE_HEADER = "RESPONSE_HEADER"
+}
+
+export enum DomainNameStatus {
+  AVAILABLE = "AVAILABLE",
+  PENDING = "PENDING",
+  UPDATING = "UPDATING"
+}
+
+export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
+
+export enum GatewayResponseType {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
+  AUTHORIZER_CONFIGURATION_ERROR = "AUTHORIZER_CONFIGURATION_ERROR",
+  AUTHORIZER_FAILURE = "AUTHORIZER_FAILURE",
+  BAD_REQUEST_BODY = "BAD_REQUEST_BODY",
+  BAD_REQUEST_PARAMETERS = "BAD_REQUEST_PARAMETERS",
+  DEFAULT_4XX = "DEFAULT_4XX",
+  DEFAULT_5XX = "DEFAULT_5XX",
+  EXPIRED_TOKEN = "EXPIRED_TOKEN",
+  INTEGRATION_FAILURE = "INTEGRATION_FAILURE",
+  INTEGRATION_TIMEOUT = "INTEGRATION_TIMEOUT",
+  INVALID_API_KEY = "INVALID_API_KEY",
+  INVALID_SIGNATURE = "INVALID_SIGNATURE",
+  MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN",
+  QUOTA_EXCEEDED = "QUOTA_EXCEEDED",
+  REQUEST_TOO_LARGE = "REQUEST_TOO_LARGE",
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
+  THROTTLED = "THROTTLED",
+  UNAUTHORIZED = "UNAUTHORIZED",
+  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
+}
+
+export enum IntegrationType {
+  AWS = "AWS",
+  AWS_PROXY = "AWS_PROXY",
+  HTTP = "HTTP",
+  HTTP_PROXY = "HTTP_PROXY",
+  MOCK = "MOCK"
+}
+
+export enum LocationStatusType {
+  DOCUMENTED = "DOCUMENTED",
+  UNDOCUMENTED = "UNDOCUMENTED"
+}
+
+export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
+
+export enum PutMode {
+  Merge = "merge",
+  Overwrite = "overwrite"
+}
+
+export enum QuotaPeriodType {
+  DAY = "DAY",
+  MONTH = "MONTH",
+  WEEK = "WEEK"
+}
+
+export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
+
+export enum UnauthorizedCacheControlHeaderStrategy {
+  FAIL_WITH_403 = "FAIL_WITH_403",
+  SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
+  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER"
+}
+
+export enum VpcLinkStatus {
+  AVAILABLE = "AVAILABLE",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
+}
+
 /**
  *
  *         <p>Access log settings, including the access log format and access log destination ARN.</p>
@@ -230,11 +361,6 @@ export namespace ApiKeyIds {
   }
 }
 
-export enum ApiKeySourceType {
-  AUTHORIZER = "AUTHORIZER",
-  HEADER = "HEADER"
-}
-
 /**
  *
  *         <p>Represents a collection of API keys as represented by an <a>ApiKeys</a> resource.</p>
@@ -267,10 +393,6 @@ export namespace ApiKeys {
   export function isa(o: any): o is ApiKeys {
     return _smithy.isa(o, "ApiKeys");
   }
-}
-
-export enum ApiKeysFormat {
-  csv = "csv"
 }
 
 /**
@@ -396,12 +518,6 @@ export namespace Authorizer {
   }
 }
 
-export enum AuthorizerType {
-  COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
-  REQUEST = "REQUEST",
-  TOKEN = "TOKEN"
-}
-
 /**
  *
  *         <p>Represents a collection of <a>Authorizer</a> resources.</p>
@@ -429,6 +545,29 @@ export interface Authorizers extends $MetadataBearer {
 export namespace Authorizers {
   export function isa(o: any): o is Authorizers {
     return _smithy.isa(o, "Authorizers");
+  }
+}
+
+/**
+ *
+ *         <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ */
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BadRequestException";
+  name: "BadRequestException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
+}
+
+export namespace BadRequestException {
+  export function isa(o: any): o is BadRequestException {
+    return _smithy.isa(o, "BadRequestException");
   }
 }
 
@@ -494,25 +633,6 @@ export namespace BasePathMappings {
   export function isa(o: any): o is BasePathMappings {
     return _smithy.isa(o, "BasePathMappings");
   }
-}
-
-export enum CacheClusterSize {
-  SIZE_0_POINT_5_GB = "0.5",
-  SIZE_118_GB = "118",
-  SIZE_13_POINT_5_GB = "13.5",
-  SIZE_1_POINT_6_GB = "1.6",
-  SIZE_237_GB = "237",
-  SIZE_28_POINT_4_GB = "28.4",
-  SIZE_58_POINT_2_GB = "58.2",
-  SIZE_6_POINT_1_GB = "6.1"
-}
-
-export enum CacheClusterStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  FLUSH_IN_PROGRESS = "FLUSH_IN_PROGRESS",
-  NOT_AVAILABLE = "NOT_AVAILABLE"
 }
 
 /**
@@ -646,14 +766,27 @@ export namespace ClientCertificates {
   }
 }
 
-export enum ConnectionType {
-  INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK"
+/**
+ *
+ *       <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ */
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConflictException";
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
 }
 
-export enum ContentHandlingStrategy {
-  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+export namespace ConflictException {
+  export function isa(o: any): o is ConflictException {
+    return _smithy.isa(o, "ConflictException");
+  }
 }
 
 /**
@@ -2425,21 +2558,6 @@ export namespace DocumentationPartLocation {
   }
 }
 
-export enum DocumentationPartType {
-  API = "API",
-  AUTHORIZER = "AUTHORIZER",
-  METHOD = "METHOD",
-  MODEL = "MODEL",
-  PATH_PARAMETER = "PATH_PARAMETER",
-  QUERY_PARAMETER = "QUERY_PARAMETER",
-  REQUEST_BODY = "REQUEST_BODY",
-  REQUEST_HEADER = "REQUEST_HEADER",
-  RESOURCE = "RESOURCE",
-  RESPONSE = "RESPONSE",
-  RESPONSE_BODY = "RESPONSE_BODY",
-  RESPONSE_HEADER = "RESPONSE_HEADER"
-}
-
 /**
  *
  *     <p>The collection of documentation parts of an API.</p>
@@ -2662,12 +2780,6 @@ export namespace DomainName {
   }
 }
 
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING = "PENDING",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Represents a collection of <a>DomainName</a> resources.</p>
@@ -2724,8 +2836,6 @@ export namespace EndpointConfiguration {
     return _smithy.isa(o, "EndpointConfiguration");
   }
 }
-
-export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
 
 /**
  *
@@ -2920,29 +3030,6 @@ export namespace GatewayResponse {
   export function isa(o: any): o is GatewayResponse {
     return _smithy.isa(o, "GatewayResponse");
   }
-}
-
-export enum GatewayResponseType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
-  AUTHORIZER_CONFIGURATION_ERROR = "AUTHORIZER_CONFIGURATION_ERROR",
-  AUTHORIZER_FAILURE = "AUTHORIZER_FAILURE",
-  BAD_REQUEST_BODY = "BAD_REQUEST_BODY",
-  BAD_REQUEST_PARAMETERS = "BAD_REQUEST_PARAMETERS",
-  DEFAULT_4XX = "DEFAULT_4XX",
-  DEFAULT_5XX = "DEFAULT_5XX",
-  EXPIRED_TOKEN = "EXPIRED_TOKEN",
-  INTEGRATION_FAILURE = "INTEGRATION_FAILURE",
-  INTEGRATION_TIMEOUT = "INTEGRATION_TIMEOUT",
-  INVALID_API_KEY = "INVALID_API_KEY",
-  INVALID_SIGNATURE = "INVALID_SIGNATURE",
-  MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN",
-  QUOTA_EXCEEDED = "QUOTA_EXCEEDED",
-  REQUEST_TOO_LARGE = "REQUEST_TOO_LARGE",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  THROTTLED = "THROTTLED",
-  UNAUTHORIZED = "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
 }
 
 /**
@@ -5472,17 +5559,29 @@ export namespace IntegrationResponse {
   }
 }
 
-export enum IntegrationType {
-  AWS = "AWS",
-  AWS_PROXY = "AWS_PROXY",
-  HTTP = "HTTP",
-  HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK"
+/**
+ *
+ *       <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
+
+  retryAfterSeconds?: string;
 }
 
-export enum LocationStatusType {
-  DOCUMENTED = "DOCUMENTED",
-  UNDOCUMENTED = "UNDOCUMENTED"
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
 }
 
 /**
@@ -6150,6 +6249,72 @@ export namespace Models {
 }
 
 /**
+ *
+ *       <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ */
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotFoundException";
+  name: "NotFoundException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export function isa(o: any): o is NotFoundException {
+    return _smithy.isa(o, "NotFoundException");
+  }
+}
+
+/**
+ *
+ *         A single patch operation to apply to the specified resource. Please refer to
+ *         http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
+ *
+ */
+export interface PatchOperation {
+  __type?: "PatchOperation";
+  /**
+   *
+   *       <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
+   *
+   */
+  from?: string;
+
+  /**
+   *
+   *         <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
+   *
+   */
+  op?: Op | string;
+
+  /**
+   *
+   *         <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
+   *
+   */
+  path?: string;
+
+  /**
+   *
+   *         <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
+   *
+   */
+  value?: string;
+}
+
+export namespace PatchOperation {
+  export function isa(o: any): o is PatchOperation {
+    return _smithy.isa(o, "PatchOperation");
+  }
+}
+
+/**
  * <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>
  */
 export interface PutGatewayResponseRequest {
@@ -6564,11 +6729,6 @@ export namespace PutMethodResponseRequest {
   }
 }
 
-export enum PutMode {
-  Merge = "merge",
-  Overwrite = "overwrite"
-}
-
 /**
  *
  *         <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
@@ -6614,12 +6774,6 @@ export namespace PutRestApiRequest {
   export function isa(o: any): o is PutRestApiRequest {
     return _smithy.isa(o, "PutRestApiRequest");
   }
-}
-
-export enum QuotaPeriodType {
-  DAY = "DAY",
-  MONTH = "MONTH",
-  WEEK = "WEEK"
 }
 
 /**
@@ -7237,7 +7391,33 @@ export namespace SdkTypes {
   }
 }
 
-export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
+/**
+ *
+ *       <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   */
+  retryAfterSeconds?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
+  }
+}
 
 /**
  *
@@ -7787,10 +7967,55 @@ export namespace ThrottleSettings {
   }
 }
 
-export enum UnauthorizedCacheControlHeaderStrategy {
-  FAIL_WITH_403 = "FAIL_WITH_403",
-  SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
-  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER"
+/**
+ *
+ *       <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ */
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TooManyRequestsException";
+  name: "TooManyRequestsException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   */
+  retryAfterSeconds?: string;
+}
+
+export namespace TooManyRequestsException {
+  export function isa(o: any): o is TooManyRequestsException {
+    return _smithy.isa(o, "TooManyRequestsException");
+  }
+}
+
+/**
+ *
+ *       <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ */
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnauthorizedException";
+  name: "UnauthorizedException";
+  $fault: "client";
+  /**
+   *
+   */
+  message?: string;
+}
+
+export namespace UnauthorizedException {
+  export function isa(o: any): o is UnauthorizedException {
+    return _smithy.isa(o, "UnauthorizedException");
+  }
 }
 
 /**
@@ -8951,13 +9176,6 @@ export namespace VpcLink {
   }
 }
 
-export enum VpcLinkStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *         <p>The collection of VPC links under the caller's account in a region.</p>
@@ -8989,223 +9207,5 @@ export interface VpcLinks extends $MetadataBearer {
 export namespace VpcLinks {
   export function isa(o: any): o is VpcLinks {
     return _smithy.isa(o, "VpcLinks");
-  }
-}
-
-export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
-
-/**
- *
- *         A single patch operation to apply to the specified resource. Please refer to
- *         http://tools.ietf.org/html/rfc6902#section-4 for an explanation of how each operation is used.
- *
- */
-export interface PatchOperation {
-  __type?: "PatchOperation";
-  /**
-   *
-   *       <p>The <code>copy</code> update operation's source as identified by a <code>JSON-Pointer</code> value referencing the location within the targeted resource to copy the value from. For example, to promote a canary deployment, you copy the canary deployment ID to the affiliated deployment ID by calling a PATCH request on a <a>Stage</a> resource with <code>"op":"copy"</code>, <code>"from":"/canarySettings/deploymentId"</code> and <code>"path":"/deploymentId"</code>.</p>
-   *
-   */
-  from?: string;
-
-  /**
-   *
-   *         <p> An update operation to be performed with this PATCH request. The valid value can be <code>add</code>, <code>remove</code>,  <code>replace</code> or <code>copy</code>. Not all valid operations are supported for a given resource. Support of the operations depends on specific operational contexts. Attempts to apply an unsupported operation on a resource will return an error message.</p>
-   *
-   */
-  op?: Op | string;
-
-  /**
-   *
-   *         <p>The <code>op</code> operation's target, as identified by a <a href="https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08">JSON Pointer</a> value that references a location within the targeted resource. For example, if the target resource has an updateable property of <code>{"name":"value"}</code>, the path for this property is <code>/name</code>. If the <code>name</code> property value is a JSON object (e.g., <code>{"name": {"child/name": "child-value"}}</code>), the path for the <code>child/name</code> property will be <code>/name/child~1name</code>. Any slash ("/") character appearing in path names must be escaped with "~1", as shown in the example above. Each <code>op</code> operation can have only one <code>path</code> associated with it.</p>
-   *
-   */
-  path?: string;
-
-  /**
-   *
-   *         <p>The new target value of the update operation. It is applicable for the <code>add</code> or <code>replace</code> operation. When using AWS CLI to update a property of a JSON value, enclose the JSON object with a pair of single quotes in a Linux shell, e.g., '{"a": ...}'. In a Windows shell, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for Parameters</a>.</p>
-   *
-   */
-  value?: string;
-}
-
-export namespace PatchOperation {
-  export function isa(o: any): o is PatchOperation {
-    return _smithy.isa(o, "PatchOperation");
-  }
-}
-
-/**
- *
- *         <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
- *
- */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BadRequestException";
-  name: "BadRequestException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-}
-
-export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
-  }
-}
-
-/**
- *
- *       <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
- *
- */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConflictException";
-  name: "ConflictException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-}
-
-export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
-  }
-}
-
-/**
- *
- *       <p>The request exceeded the rate limit. Retry after the specified time period.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-/**
- *
- *       <p>The requested resource is not found. Make sure that the request URI is correct.</p>
- *
- */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotFoundException";
-  name: "NotFoundException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
-  }
-}
-
-/**
- *
- *       <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   */
-  retryAfterSeconds?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
-}
-
-/**
- *
- *       <p>The request has reached its throttling limit. Retry after the specified time period.</p>
- *
- */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TooManyRequestsException";
-  name: "TooManyRequestsException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   */
-  retryAfterSeconds?: string;
-}
-
-export namespace TooManyRequestsException {
-  export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
-  }
-}
-
-/**
- *
- *       <p>The request is denied because the caller has insufficient permissions.</p>
- *
- */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnauthorizedException";
-  name: "UnauthorizedException";
-  $fault: "client";
-  /**
-   *
-   */
-  message?: string;
-}
-
-export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
   }
 }

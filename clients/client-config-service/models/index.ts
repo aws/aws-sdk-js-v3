@@ -1,6 +1,272 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AggregatedSourceStatusType {
+  FAILED = "FAILED",
+  OUTDATED = "OUTDATED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum AggregatedSourceType {
+  ACCOUNT = "ACCOUNT",
+  ORGANIZATION = "ORGANIZATION"
+}
+
+export enum ChronologicalOrder {
+  Forward = "Forward",
+  Reverse = "Reverse"
+}
+
+export enum ComplianceType {
+  Compliant = "COMPLIANT",
+  Insufficient_Data = "INSUFFICIENT_DATA",
+  Non_Compliant = "NON_COMPLIANT",
+  Not_Applicable = "NOT_APPLICABLE"
+}
+
+export enum ConfigRuleComplianceSummaryGroupKey {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  AWS_REGION = "AWS_REGION"
+}
+
+export enum ConfigRuleState {
+  ACTIVE = "ACTIVE",
+  DELETING = "DELETING",
+  DELETING_RESULTS = "DELETING_RESULTS",
+  EVALUATING = "EVALUATING"
+}
+
+export enum ConfigurationItemStatus {
+  OK = "OK",
+  ResourceDeleted = "ResourceDeleted",
+  ResourceDeletedNotRecorded = "ResourceDeletedNotRecorded",
+  ResourceDiscovered = "ResourceDiscovered",
+  ResourceNotRecorded = "ResourceNotRecorded"
+}
+
+export enum ConformancePackComplianceType {
+  COMPLIANT = "COMPLIANT",
+  NON_COMPLIANT = "NON_COMPLIANT"
+}
+
+export enum ConformancePackState {
+  CREATE_COMPLETE = "CREATE_COMPLETE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+}
+
+export enum DeliveryStatus {
+  Failure = "Failure",
+  Not_Applicable = "Not_Applicable",
+  Success = "Success"
+}
+
+export enum EventSource {
+  Aws_Config = "aws.config"
+}
+
+export enum MaximumExecutionFrequency {
+  One_Hour = "One_Hour",
+  Six_Hours = "Six_Hours",
+  Three_Hours = "Three_Hours",
+  Twelve_Hours = "Twelve_Hours",
+  TwentyFour_Hours = "TwentyFour_Hours"
+}
+
+export enum MemberAccountRuleStatus {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+export enum MessageType {
+  ConfigurationItemChangeNotification = "ConfigurationItemChangeNotification",
+  ConfigurationSnapshotDeliveryCompleted = "ConfigurationSnapshotDeliveryCompleted",
+  OversizedConfigurationItemChangeNotification = "OversizedConfigurationItemChangeNotification",
+  ScheduledNotification = "ScheduledNotification"
+}
+
+export enum OrganizationConfigRuleTriggerType {
+  CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
+  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
+  SCHEDULED_NOTIFICATION = "ScheduledNotification"
+}
+
+export enum OrganizationResourceDetailedStatus {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+export enum OrganizationResourceStatus {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+export enum OrganizationRuleStatus {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+}
+
+export enum Owner {
+  Aws = "AWS",
+  Custom_Lambda = "CUSTOM_LAMBDA"
+}
+
+export enum RecorderStatus {
+  Failure = "Failure",
+  Pending = "Pending",
+  Success = "Success"
+}
+
+export enum RemediationExecutionState {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  QUEUED = "QUEUED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum RemediationExecutionStepState {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum RemediationTargetType {
+  SSM_DOCUMENT = "SSM_DOCUMENT"
+}
+
+export enum ResourceCountGroupKey {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  AWS_REGION = "AWS_REGION",
+  RESOURCE_TYPE = "RESOURCE_TYPE"
+}
+
+export enum ResourceType {
+  AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
+  Alarm = "AWS::CloudWatch::Alarm",
+  Alias = "AWS::Lambda::Alias",
+  Api = "AWS::ApiGatewayV2::Api",
+  Application = "AWS::ElasticBeanstalk::Application",
+  ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
+  AssociationCompliance = "AWS::SSM::AssociationCompliance",
+  AutoScalingGroup = "AWS::AutoScaling::AutoScalingGroup",
+  Bucket = "AWS::S3::Bucket",
+  Certificate = "AWS::ACM::Certificate",
+  CloudFormationProduct = "AWS::ServiceCatalog::CloudFormationProduct",
+  CloudFormationProvisionedProduct = "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
+  Cluster = "AWS::Redshift::Cluster",
+  ClusterParameterGroup = "AWS::Redshift::ClusterParameterGroup",
+  ClusterSecurityGroup = "AWS::Redshift::ClusterSecurityGroup",
+  ClusterSnapshot = "AWS::Redshift::ClusterSnapshot",
+  ClusterSubnetGroup = "AWS::Redshift::ClusterSubnetGroup",
+  CustomerGateway = "AWS::EC2::CustomerGateway",
+  DBCluster = "AWS::RDS::DBCluster",
+  DBClusterParameterGroup = "AWS::RDS::DBClusterParameterGroup",
+  DBClusterSnapshot = "AWS::RDS::DBClusterSnapshot",
+  DBInstance = "AWS::RDS::DBInstance",
+  DBOptionGroup = "AWS::RDS::DBOptionGroup",
+  DBParameterGroup = "AWS::RDS::DBParameterGroup",
+  DBSecurityGroup = "AWS::RDS::DBSecurityGroup",
+  DBSnapshot = "AWS::RDS::DBSnapshot",
+  DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
+  Distribution = "AWS::CloudFront::Distribution",
+  DomainName = "AWS::ApiGateway::DomainName",
+  DomainNameV2 = "AWS::ApiGatewayV2::DomainName",
+  EIP = "AWS::EC2::EIP",
+  EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
+  EncryptionConfig = "AWS::XRay::EncryptionConfig",
+  Environment = "AWS::ElasticBeanstalk::Environment",
+  EventSubscription = "AWS::RDS::EventSubscription",
+  FlowLog = "AWS::EC2::FlowLog",
+  Function = "AWS::Lambda::Function",
+  Group = "AWS::IAM::Group",
+  Host = "AWS::EC2::Host",
+  Instance = "AWS::EC2::Instance",
+  InternetGateway = "AWS::EC2::InternetGateway",
+  LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
+  LicenseConfiguration = "AWS::LicenseManager::LicenseConfiguration",
+  LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
+  LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
+  ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
+  Method = "AWS::ApiGateway::Method",
+  MobileHubProject = "AWS::MobileHub::Project",
+  NatGateway = "AWS::EC2::NatGateway",
+  NetworkAcl = "AWS::EC2::NetworkAcl",
+  NetworkInterface = "AWS::EC2::NetworkInterface",
+  PatchCompliance = "AWS::SSM::PatchCompliance",
+  Pipeline = "AWS::CodePipeline::Pipeline",
+  Policy = "AWS::IAM::Policy",
+  Portfolio = "AWS::ServiceCatalog::Portfolio",
+  Project = "AWS::CodeBuild::Project",
+  Protection = "AWS::Shield::Protection",
+  RateBasedRule = "AWS::WAF::RateBasedRule",
+  RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
+  RegionalProtection = "AWS::ShieldRegional::Protection",
+  RegionalRateBasedRule = "AWS::WAFRegional::RateBasedRule",
+  RegionalRule = "AWS::WAFRegional::Rule",
+  RegionalRuleGroup = "AWS::WAFRegional::RuleGroup",
+  RegionalWebACL = "AWS::WAFRegional::WebACL",
+  RegisteredHAInstance = "AWS::EC2::RegisteredHAInstance",
+  ResourceCompliance = "AWS::Config::ResourceCompliance",
+  RestApi = "AWS::ApiGateway::RestApi",
+  Role = "AWS::IAM::Role",
+  RouteTable = "AWS::EC2::RouteTable",
+  Rule = "AWS::WAF::Rule",
+  RuleGroup = "AWS::WAF::RuleGroup",
+  ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
+  ScheduledAction = "AWS::AutoScaling::ScheduledAction",
+  SecurityGroup = "AWS::EC2::SecurityGroup",
+  Stack = "AWS::CloudFormation::Stack",
+  Stage = "AWS::ApiGateway::Stage",
+  StageV2 = "AWS::ApiGatewayV2::Stage",
+  StreamingDistribution = "AWS::CloudFront::StreamingDistribution",
+  Subnet = "AWS::EC2::Subnet",
+  Table = "AWS::DynamoDB::Table",
+  Trail = "AWS::CloudTrail::Trail",
+  User = "AWS::IAM::User",
+  VPC = "AWS::EC2::VPC",
+  VPCEndpoint = "AWS::EC2::VPCEndpoint",
+  VPCEndpointService = "AWS::EC2::VPCEndpointService",
+  VPCPeeringConnection = "AWS::EC2::VPCPeeringConnection",
+  VPNConnection = "AWS::EC2::VPNConnection",
+  VPNGateway = "AWS::EC2::VPNGateway",
+  Volume = "AWS::EC2::Volume",
+  WebACL = "AWS::WAF::WebACL"
+}
+
+export enum ResourceValueType {
+  RESOURCE_ID = "RESOURCE_ID"
+}
+
 /**
  *
  * 		       <p>A collection of accounts and regions.</p>
@@ -320,17 +586,6 @@ export namespace AggregatedSourceStatus {
   }
 }
 
-export enum AggregatedSourceStatusType {
-  FAILED = "FAILED",
-  OUTDATED = "OUTDATED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
-export enum AggregatedSourceType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION"
-}
-
 /**
  *
  * 		       <p>An object that represents the authorizations granted to
@@ -587,11 +842,6 @@ export namespace BatchGetResourceConfigResponse {
   }
 }
 
-export enum ChronologicalOrder {
-  Forward = "Forward",
-  Reverse = "Reverse"
-}
-
 /**
  *
  * 		       <p>Indicates whether an AWS resource or AWS Config rule is
@@ -811,13 +1061,6 @@ export namespace ComplianceSummaryByResourceType {
   export function isa(o: any): o is ComplianceSummaryByResourceType {
     return _smithy.isa(o, "ComplianceSummaryByResourceType");
   }
-}
-
-export enum ComplianceType {
-  Compliant = "COMPLIANT",
-  Insufficient_Data = "INSUFFICIENT_DATA",
-  Non_Compliant = "NON_COMPLIANT",
-  Not_Applicable = "NOT_APPLICABLE"
 }
 
 /**
@@ -1123,11 +1366,6 @@ export namespace ConfigRuleComplianceSummaryFilters {
   }
 }
 
-export enum ConfigRuleComplianceSummaryGroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION"
-}
-
 /**
  *
  * 		       <p>Status information for your AWS managed Config rules. The
@@ -1243,13 +1481,6 @@ export namespace ConfigRuleEvaluationStatus {
   export function isa(o: any): o is ConfigRuleEvaluationStatus {
     return _smithy.isa(o, "ConfigRuleEvaluationStatus");
   }
-}
-
-export enum ConfigRuleState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  DELETING_RESULTS = "DELETING_RESULTS",
-  EVALUATING = "EVALUATING"
 }
 
 /**
@@ -1607,14 +1838,6 @@ export namespace ConfigurationItem {
   }
 }
 
-export enum ConfigurationItemStatus {
-  OK = "OK",
-  ResourceDeleted = "ResourceDeleted",
-  ResourceDeletedNotRecorded = "ResourceDeletedNotRecorded",
-  ResourceDiscovered = "ResourceDiscovered",
-  ResourceNotRecorded = "ResourceNotRecorded"
-}
-
 /**
  *
  * 		       <p>An object that represents the recording of configuration
@@ -1785,11 +2008,6 @@ export namespace ConformancePackComplianceSummary {
   export function isa(o: any): o is ConformancePackComplianceSummary {
     return _smithy.isa(o, "ConformancePackComplianceSummary");
   }
-}
-
-export enum ConformancePackComplianceType {
-  COMPLIANT = "COMPLIANT",
-  NON_COMPLIANT = "NON_COMPLIANT"
 }
 
 /**
@@ -2015,14 +2233,6 @@ export namespace ConformancePackRuleCompliance {
   export function isa(o: any): o is ConformancePackRuleCompliance {
     return _smithy.isa(o, "ConformancePackRuleCompliance");
   }
-}
-
-export enum ConformancePackState {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
 }
 
 /**
@@ -2628,12 +2838,6 @@ export namespace DeliveryChannelStatus {
   export function isa(o: any): o is DeliveryChannelStatus {
     return _smithy.isa(o, "DeliveryChannelStatus");
   }
-}
-
-export enum DeliveryStatus {
-  Failure = "Failure",
-  Not_Applicable = "Not_Applicable",
-  Success = "Success"
 }
 
 export interface DescribeAggregateComplianceByConfigRulesRequest {
@@ -4273,10 +4477,6 @@ export namespace EvaluationResultQualifier {
   export function isa(o: any): o is EvaluationResultQualifier {
     return _smithy.isa(o, "EvaluationResultQualifier");
   }
-}
-
-export enum EventSource {
-  Aws_Config = "aws.config"
 }
 
 /**
@@ -6341,26 +6541,6 @@ export namespace MaxNumberOfRetentionConfigurationsExceededException {
   }
 }
 
-export enum MaximumExecutionFrequency {
-  One_Hour = "One_Hour",
-  Six_Hours = "Six_Hours",
-  Three_Hours = "Three_Hours",
-  Twelve_Hours = "Twelve_Hours",
-  TwentyFour_Hours = "TwentyFour_Hours"
-}
-
-export enum MemberAccountRuleStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
 /**
  *
  * 		       <p>Organization config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.</p>
@@ -6458,13 +6638,6 @@ export namespace MemberAccountStatus {
   export function isa(o: any): o is MemberAccountStatus {
     return _smithy.isa(o, "MemberAccountStatus");
   }
-}
-
-export enum MessageType {
-  ConfigurationItemChangeNotification = "ConfigurationItemChangeNotification",
-  ConfigurationSnapshotDeliveryCompleted = "ConfigurationSnapshotDeliveryCompleted",
-  OversizedConfigurationItemChangeNotification = "OversizedConfigurationItemChangeNotification",
-  ScheduledNotification = "ScheduledNotification"
 }
 
 /**
@@ -7112,12 +7285,6 @@ export namespace OrganizationConfigRuleStatus {
   }
 }
 
-export enum OrganizationConfigRuleTriggerType {
-  CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
-  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
-  SCHEDULED_NOTIFICATION = "ScheduledNotification"
-}
-
 /**
  *
  * 		       <p>An organization conformance pack that has information about conformance packs that AWS Config creates in member accounts. </p>
@@ -7597,18 +7764,6 @@ export namespace OrganizationManagedRuleMetadata {
   }
 }
 
-export enum OrganizationResourceDetailedStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
 /**
  *
  * 		       <p>Status filter object to filter results based on specific member account ID or status type for an organization conformance pack.</p>
@@ -7680,30 +7835,6 @@ export namespace OrganizationResourceDetailedStatusFilters {
   }
 }
 
-export enum OrganizationResourceStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
-export enum OrganizationRuleStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESSFUL = "CREATE_SUCCESSFUL",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SUCCESSFUL = "DELETE_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
-}
-
 /**
  *
  * 		       <p>The configuration item size is outside the allowable range.</p>
@@ -7727,11 +7858,6 @@ export namespace OversizedConfigurationItemException {
   export function isa(o: any): o is OversizedConfigurationItemException {
     return _smithy.isa(o, "OversizedConfigurationItemException");
   }
-}
-
-export enum Owner {
-  Aws = "AWS",
-  Custom_Lambda = "CUSTOM_LAMBDA"
 }
 
 /**
@@ -8421,12 +8547,6 @@ export namespace QueryInfo {
   }
 }
 
-export enum RecorderStatus {
-  Failure = "Failure",
-  Pending = "Pending",
-  Success = "Success"
-}
-
 /**
  *
  * 		       <p>Specifies the types of AWS resource for which AWS Config
@@ -8744,13 +8864,6 @@ export namespace RemediationExceptionResourceKey {
   }
 }
 
-export enum RemediationExecutionState {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  * 		       <p>Provides details of the current status of the invoked remediation action for that resource.</p>
@@ -8850,12 +8963,6 @@ export namespace RemediationExecutionStep {
   }
 }
 
-export enum RemediationExecutionStepState {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  * 		       <p>Remediation action is in progress. You can either cancel execution in AWS Systems Manager or wait and try again later. </p>
@@ -8907,10 +9014,6 @@ export namespace RemediationParameterValue {
   export function isa(o: any): o is RemediationParameterValue {
     return _smithy.isa(o, "RemediationParameterValue");
   }
-}
-
-export enum RemediationTargetType {
-  SSM_DOCUMENT = "SSM_DOCUMENT"
 }
 
 /**
@@ -8976,12 +9079,6 @@ export namespace ResourceCountFilters {
   export function isa(o: any): o is ResourceCountFilters {
     return _smithy.isa(o, "ResourceCountFilters");
   }
-}
-
-export enum ResourceCountGroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  AWS_REGION = "AWS_REGION",
-  RESOURCE_TYPE = "RESOURCE_TYPE"
 }
 
 /**
@@ -9199,99 +9296,6 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export enum ResourceType {
-  AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
-  Alarm = "AWS::CloudWatch::Alarm",
-  Alias = "AWS::Lambda::Alias",
-  Api = "AWS::ApiGatewayV2::Api",
-  Application = "AWS::ElasticBeanstalk::Application",
-  ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
-  AssociationCompliance = "AWS::SSM::AssociationCompliance",
-  AutoScalingGroup = "AWS::AutoScaling::AutoScalingGroup",
-  Bucket = "AWS::S3::Bucket",
-  Certificate = "AWS::ACM::Certificate",
-  CloudFormationProduct = "AWS::ServiceCatalog::CloudFormationProduct",
-  CloudFormationProvisionedProduct = "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
-  Cluster = "AWS::Redshift::Cluster",
-  ClusterParameterGroup = "AWS::Redshift::ClusterParameterGroup",
-  ClusterSecurityGroup = "AWS::Redshift::ClusterSecurityGroup",
-  ClusterSnapshot = "AWS::Redshift::ClusterSnapshot",
-  ClusterSubnetGroup = "AWS::Redshift::ClusterSubnetGroup",
-  CustomerGateway = "AWS::EC2::CustomerGateway",
-  DBCluster = "AWS::RDS::DBCluster",
-  DBClusterParameterGroup = "AWS::RDS::DBClusterParameterGroup",
-  DBClusterSnapshot = "AWS::RDS::DBClusterSnapshot",
-  DBInstance = "AWS::RDS::DBInstance",
-  DBOptionGroup = "AWS::RDS::DBOptionGroup",
-  DBParameterGroup = "AWS::RDS::DBParameterGroup",
-  DBSecurityGroup = "AWS::RDS::DBSecurityGroup",
-  DBSnapshot = "AWS::RDS::DBSnapshot",
-  DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
-  Distribution = "AWS::CloudFront::Distribution",
-  DomainName = "AWS::ApiGateway::DomainName",
-  DomainNameV2 = "AWS::ApiGatewayV2::DomainName",
-  EIP = "AWS::EC2::EIP",
-  EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
-  EncryptionConfig = "AWS::XRay::EncryptionConfig",
-  Environment = "AWS::ElasticBeanstalk::Environment",
-  EventSubscription = "AWS::RDS::EventSubscription",
-  FlowLog = "AWS::EC2::FlowLog",
-  Function = "AWS::Lambda::Function",
-  Group = "AWS::IAM::Group",
-  Host = "AWS::EC2::Host",
-  Instance = "AWS::EC2::Instance",
-  InternetGateway = "AWS::EC2::InternetGateway",
-  LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
-  LicenseConfiguration = "AWS::LicenseManager::LicenseConfiguration",
-  LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
-  LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
-  ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
-  Method = "AWS::ApiGateway::Method",
-  MobileHubProject = "AWS::MobileHub::Project",
-  NatGateway = "AWS::EC2::NatGateway",
-  NetworkAcl = "AWS::EC2::NetworkAcl",
-  NetworkInterface = "AWS::EC2::NetworkInterface",
-  PatchCompliance = "AWS::SSM::PatchCompliance",
-  Pipeline = "AWS::CodePipeline::Pipeline",
-  Policy = "AWS::IAM::Policy",
-  Portfolio = "AWS::ServiceCatalog::Portfolio",
-  Project = "AWS::CodeBuild::Project",
-  Protection = "AWS::Shield::Protection",
-  RateBasedRule = "AWS::WAF::RateBasedRule",
-  RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
-  RegionalProtection = "AWS::ShieldRegional::Protection",
-  RegionalRateBasedRule = "AWS::WAFRegional::RateBasedRule",
-  RegionalRule = "AWS::WAFRegional::Rule",
-  RegionalRuleGroup = "AWS::WAFRegional::RuleGroup",
-  RegionalWebACL = "AWS::WAFRegional::WebACL",
-  RegisteredHAInstance = "AWS::EC2::RegisteredHAInstance",
-  ResourceCompliance = "AWS::Config::ResourceCompliance",
-  RestApi = "AWS::ApiGateway::RestApi",
-  Role = "AWS::IAM::Role",
-  RouteTable = "AWS::EC2::RouteTable",
-  Rule = "AWS::WAF::Rule",
-  RuleGroup = "AWS::WAF::RuleGroup",
-  ScalingPolicy = "AWS::AutoScaling::ScalingPolicy",
-  ScheduledAction = "AWS::AutoScaling::ScheduledAction",
-  SecurityGroup = "AWS::EC2::SecurityGroup",
-  Stack = "AWS::CloudFormation::Stack",
-  Stage = "AWS::ApiGateway::Stage",
-  StageV2 = "AWS::ApiGatewayV2::Stage",
-  StreamingDistribution = "AWS::CloudFront::StreamingDistribution",
-  Subnet = "AWS::EC2::Subnet",
-  Table = "AWS::DynamoDB::Table",
-  Trail = "AWS::CloudTrail::Trail",
-  User = "AWS::IAM::User",
-  VPC = "AWS::EC2::VPC",
-  VPCEndpoint = "AWS::EC2::VPCEndpoint",
-  VPCEndpointService = "AWS::EC2::VPCEndpointService",
-  VPCPeeringConnection = "AWS::EC2::VPCPeeringConnection",
-  VPNConnection = "AWS::EC2::VPNConnection",
-  VPNGateway = "AWS::EC2::VPNGateway",
-  Volume = "AWS::EC2::Volume",
-  WebACL = "AWS::WAF::WebACL"
-}
-
 /**
  *
  * 		       <p>The dynamic value of the resource.</p>
@@ -9311,10 +9315,6 @@ export namespace ResourceValue {
   export function isa(o: any): o is ResourceValue {
     return _smithy.isa(o, "ResourceValue");
   }
-}
-
-export enum ResourceValueType {
-  RESOURCE_ID = "RESOURCE_ID"
 }
 
 /**

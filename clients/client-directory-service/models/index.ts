@@ -1,6 +1,174 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum CertificateState {
+  DEREGISTERED = "Deregistered",
+  DEREGISTERING = "Deregistering",
+  DEREGISTER_FAILED = "DeregisterFailed",
+  REGISTERED = "Registered",
+  REGISTERING = "Registering",
+  REGISTER_FAILED = "RegisterFailed"
+}
+
+export enum DirectoryEdition {
+  ENTERPRISE = "Enterprise",
+  STANDARD = "Standard"
+}
+
+export enum DirectorySize {
+  LARGE = "Large",
+  SMALL = "Small"
+}
+
+export enum DirectoryStage {
+  ACTIVE = "Active",
+  CREATED = "Created",
+  CREATING = "Creating",
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IMPAIRED = "Impaired",
+  INOPERABLE = "Inoperable",
+  REQUESTED = "Requested",
+  RESTOREFAILED = "RestoreFailed",
+  RESTORING = "Restoring"
+}
+
+export enum DirectoryType {
+  AD_CONNECTOR = "ADConnector",
+  MICROSOFT_AD = "MicrosoftAD",
+  SHARED_MICROSOFT_AD = "SharedMicrosoftAD",
+  SIMPLE_AD = "SimpleAD"
+}
+
+export enum DomainControllerStatus {
+  ACTIVE = "Active",
+  CREATING = "Creating",
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IMPAIRED = "Impaired",
+  RESTORING = "Restoring"
+}
+
+export enum IpRouteStatusMsg {
+  ADDED = "Added",
+  ADDING = "Adding",
+  ADD_FAILED = "AddFailed",
+  REMOVED = "Removed",
+  REMOVE_FAILED = "RemoveFailed",
+  REMOVING = "Removing"
+}
+
+export enum LDAPSStatus {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+  ENABLE_FAILED = "EnableFailed",
+  ENABLING = "Enabling"
+}
+
+export enum LDAPSType {
+  CLIENT = "Client"
+}
+
+export enum RadiusAuthenticationProtocol {
+  CHAP = "CHAP",
+  MSCHAPV1 = "MS-CHAPv1",
+  MSCHAPV2 = "MS-CHAPv2",
+  PAP = "PAP"
+}
+
+export enum RadiusStatus {
+  COMPLETED = "Completed",
+  CREATING = "Creating",
+  FAILED = "Failed"
+}
+
+export enum ReplicationScope {
+  Domain = "Domain"
+}
+
+export enum SchemaExtensionStatus {
+  CANCELLED = "Cancelled",
+  CANCEL_IN_PROGRESS = "CancelInProgress",
+  COMPLETED = "Completed",
+  CREATING_SNAPSHOT = "CreatingSnapshot",
+  FAILED = "Failed",
+  INITIALIZING = "Initializing",
+  REPLICATING = "Replicating",
+  ROLLBACK_IN_PROGRESS = "RollbackInProgress",
+  UPDATING_SCHEMA = "UpdatingSchema"
+}
+
+export enum SelectiveAuth {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled"
+}
+
+export enum ShareMethod {
+  HANDSHAKE = "HANDSHAKE",
+  ORGANIZATIONS = "ORGANIZATIONS"
+}
+
+export enum ShareStatus {
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  PENDING_ACCEPTANCE = "PendingAcceptance",
+  REJECTED = "Rejected",
+  REJECTING = "Rejecting",
+  REJECT_FAILED = "RejectFailed",
+  SHARED = "Shared",
+  SHARE_FAILED = "ShareFailed",
+  SHARING = "Sharing"
+}
+
+export enum SnapshotStatus {
+  COMPLETED = "Completed",
+  CREATING = "Creating",
+  FAILED = "Failed"
+}
+
+export enum SnapshotType {
+  AUTO = "Auto",
+  MANUAL = "Manual"
+}
+
+export enum TargetType {
+  ACCOUNT = "ACCOUNT"
+}
+
+export enum TopicStatus {
+  DELETED = "Deleted",
+  FAILED = "Failed",
+  REGISTERED = "Registered",
+  TOPIC_NOT_FOUND = "Topic not found"
+}
+
+export enum TrustDirection {
+  ONE_WAY_INCOMING = "One-Way: Incoming",
+  ONE_WAY_OUTGOING = "One-Way: Outgoing",
+  TWO_WAY = "Two-Way"
+}
+
+export enum TrustState {
+  CREATED = "Created",
+  CREATING = "Creating",
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  UPDATED = "Updated",
+  UPDATE_FAILED = "UpdateFailed",
+  UPDATING = "Updating",
+  VERIFIED = "Verified",
+  VERIFYING = "Verifying",
+  VERIFY_FAILED = "VerifyFailed"
+}
+
+export enum TrustType {
+  EXTERNAL = "External",
+  FOREST = "Forest"
+}
+
 export interface AcceptSharedDirectoryRequest {
   __type?: "AcceptSharedDirectoryRequest";
   /**
@@ -514,15 +682,6 @@ export namespace CertificateLimitExceededException {
   export function isa(o: any): o is CertificateLimitExceededException {
     return _smithy.isa(o, "CertificateLimitExceededException");
   }
-}
-
-export enum CertificateState {
-  DEREGISTERED = "Deregistered",
-  DEREGISTERING = "Deregistering",
-  DEREGISTER_FAILED = "DeregisterFailed",
-  REGISTERED = "Registered",
-  REGISTERING = "Registering",
-  REGISTER_FAILED = "RegisterFailed"
 }
 
 /**
@@ -2441,11 +2600,6 @@ export namespace DirectoryDoesNotExistException {
   }
 }
 
-export enum DirectoryEdition {
-  ENTERPRISE = "Enterprise",
-  STANDARD = "Standard"
-}
-
 /**
  *
  *         <p>The maximum number of directories in the region has been reached. You can use the
@@ -2587,32 +2741,6 @@ export namespace DirectoryNotSharedException {
   export function isa(o: any): o is DirectoryNotSharedException {
     return _smithy.isa(o, "DirectoryNotSharedException");
   }
-}
-
-export enum DirectorySize {
-  LARGE = "Large",
-  SMALL = "Small"
-}
-
-export enum DirectoryStage {
-  ACTIVE = "Active",
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IMPAIRED = "Impaired",
-  INOPERABLE = "Inoperable",
-  REQUESTED = "Requested",
-  RESTOREFAILED = "RestoreFailed",
-  RESTORING = "Restoring"
-}
-
-export enum DirectoryType {
-  AD_CONNECTOR = "ADConnector",
-  MICROSOFT_AD = "MicrosoftAD",
-  SHARED_MICROSOFT_AD = "SharedMicrosoftAD",
-  SIMPLE_AD = "SimpleAD"
 }
 
 /**
@@ -2956,16 +3084,6 @@ export namespace DomainControllerLimitExceededException {
   export function isa(o: any): o is DomainControllerLimitExceededException {
     return _smithy.isa(o, "DomainControllerLimitExceededException");
   }
-}
-
-export enum DomainControllerStatus {
-  ACTIVE = "Active",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IMPAIRED = "Impaired",
-  RESTORING = "Restoring"
 }
 
 export interface EnableLDAPSRequest {
@@ -3634,15 +3752,6 @@ export namespace IpRouteLimitExceededException {
   }
 }
 
-export enum IpRouteStatusMsg {
-  ADDED = "Added",
-  ADDING = "Adding",
-  ADD_FAILED = "AddFailed",
-  REMOVED = "Removed",
-  REMOVE_FAILED = "RemoveFailed",
-  REMOVING = "Removing"
-}
-
 /**
  *
  *          <p>Contains general information about the LDAPS settings.</p>
@@ -3676,17 +3785,6 @@ export namespace LDAPSSettingInfo {
   export function isa(o: any): o is LDAPSSettingInfo {
     return _smithy.isa(o, "LDAPSSettingInfo");
   }
-}
-
-export enum LDAPSStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-  ENABLE_FAILED = "EnableFailed",
-  ENABLING = "Enabling"
-}
-
-export enum LDAPSType {
-  CLIENT = "Client"
 }
 
 export interface ListCertificatesRequest {
@@ -4120,13 +4218,6 @@ export namespace OwnerDirectoryDescription {
   }
 }
 
-export enum RadiusAuthenticationProtocol {
-  CHAP = "CHAP",
-  MSCHAPV1 = "MS-CHAPv1",
-  MSCHAPV2 = "MS-CHAPv2",
-  PAP = "PAP"
-}
-
 /**
  *
  *          <p>Contains information about a Remote Authentication Dial In User Service (RADIUS) server.</p>
@@ -4195,12 +4286,6 @@ export namespace RadiusSettings {
   export function isa(o: any): o is RadiusSettings {
     return _smithy.isa(o, "RadiusSettings");
   }
-}
-
-export enum RadiusStatus {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  FAILED = "Failed"
 }
 
 export interface RegisterCertificateRequest {
@@ -4383,10 +4468,6 @@ export namespace RemoveTagsFromResourceResult {
   }
 }
 
-export enum ReplicationScope {
-  Domain = "Domain"
-}
-
 export interface ResetUserPasswordRequest {
   __type?: "ResetUserPasswordRequest";
   /**
@@ -4526,23 +4607,6 @@ export namespace SchemaExtensionInfo {
   }
 }
 
-export enum SchemaExtensionStatus {
-  CANCELLED = "Cancelled",
-  CANCEL_IN_PROGRESS = "CancelInProgress",
-  COMPLETED = "Completed",
-  CREATING_SNAPSHOT = "CreatingSnapshot",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  REPLICATING = "Replicating",
-  ROLLBACK_IN_PROGRESS = "RollbackInProgress",
-  UPDATING_SCHEMA = "UpdatingSchema"
-}
-
-export enum SelectiveAuth {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled"
-}
-
 /**
  *
  *         <p>An exception has occurred in AWS Directory Service.</p>
@@ -4663,23 +4727,6 @@ export namespace ShareLimitExceededException {
   export function isa(o: any): o is ShareLimitExceededException {
     return _smithy.isa(o, "ShareLimitExceededException");
   }
-}
-
-export enum ShareMethod {
-  HANDSHAKE = "HANDSHAKE",
-  ORGANIZATIONS = "ORGANIZATIONS"
-}
-
-export enum ShareStatus {
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  PENDING_ACCEPTANCE = "PendingAcceptance",
-  REJECTED = "Rejected",
-  REJECTING = "Rejecting",
-  REJECT_FAILED = "RejectFailed",
-  SHARED = "Shared",
-  SHARE_FAILED = "ShareFailed",
-  SHARING = "Sharing"
 }
 
 /**
@@ -4917,17 +4964,6 @@ export namespace SnapshotLimits {
   }
 }
 
-export enum SnapshotStatus {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  FAILED = "Failed"
-}
-
-export enum SnapshotType {
-  AUTO = "Auto",
-  MANUAL = "Manual"
-}
-
 export interface StartSchemaExtensionRequest {
   __type?: "StartSchemaExtensionRequest";
   /**
@@ -5041,17 +5077,6 @@ export namespace TagLimitExceededException {
   }
 }
 
-export enum TargetType {
-  ACCOUNT = "ACCOUNT"
-}
-
-export enum TopicStatus {
-  DELETED = "Deleted",
-  FAILED = "Failed",
-  REGISTERED = "Registered",
-  TOPIC_NOT_FOUND = "Topic not found"
-}
-
 /**
  *
  *          <p>Describes a trust relationship between an AWS Managed Microsoft AD directory and an external domain.</p>
@@ -5141,31 +5166,6 @@ export namespace Trust {
   export function isa(o: any): o is Trust {
     return _smithy.isa(o, "Trust");
   }
-}
-
-export enum TrustDirection {
-  ONE_WAY_INCOMING = "One-Way: Incoming",
-  ONE_WAY_OUTGOING = "One-Way: Outgoing",
-  TWO_WAY = "Two-Way"
-}
-
-export enum TrustState {
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  UPDATED = "Updated",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-  VERIFIED = "Verified",
-  VERIFYING = "Verifying",
-  VERIFY_FAILED = "VerifyFailed"
-}
-
-export enum TrustType {
-  EXTERNAL = "External",
-  FOREST = "Forest"
 }
 
 export interface UnshareDirectoryRequest {

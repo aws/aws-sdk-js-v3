@@ -9,6 +9,42 @@ export enum AccountRoleStatus {
   Ready = "READY"
 }
 
+export enum CustomerPolicyScopeIdType {
+  ACCOUNT = "ACCOUNT"
+}
+
+export enum DependentServiceName {
+  AWSConfig = "AWSCONFIG",
+  AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
+  AWSVirtualPrivateCloud = "AWSVPC",
+  AWSWAF = "AWSWAF"
+}
+
+export enum PolicyComplianceStatusType {
+  Compliant = "COMPLIANT",
+  NonCompliant = "NON_COMPLIANT"
+}
+
+export enum SecurityServiceType {
+  SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
+  SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
+  SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
+  SHIELD_ADVANCED = "SHIELD_ADVANCED",
+  WAF = "WAF"
+}
+
+export enum ViolationReason {
+  ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
+  ResourceMissingSecurityGroup = "RESOURCE_MISSING_SECURITY_GROUP",
+  ResourceMissingShieldProtection = "RESOURCE_MISSING_SHIELD_PROTECTION",
+  ResourceMissingWebAcl = "RESOURCE_MISSING_WEB_ACL",
+  ResourceMissingWebaclOrShieldProtection = "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
+  ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
+  SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
+  SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
+  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP"
+}
+
 export interface AssociateAdminAccountRequest {
   __type?: "AssociateAdminAccountRequest";
   /**
@@ -62,10 +98,6 @@ export namespace ComplianceViolator {
   export function isa(o: any): o is ComplianceViolator {
     return _smithy.isa(o, "ComplianceViolator");
   }
-}
-
-export enum CustomerPolicyScopeIdType {
-  ACCOUNT = "ACCOUNT"
 }
 
 export interface DeleteNotificationChannelRequest {
@@ -129,13 +161,6 @@ export namespace DeletePolicyRequest {
   export function isa(o: any): o is DeletePolicyRequest {
     return _smithy.isa(o, "DeletePolicyRequest");
   }
-}
-
-export enum DependentServiceName {
-  AWSConfig = "AWSCONFIG",
-  AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
-  AWSVirtualPrivateCloud = "AWSVPC",
-  AWSWAF = "AWSWAF"
 }
 
 export interface DisassociateAdminAccountRequest {
@@ -1014,11 +1039,6 @@ export namespace PolicyComplianceStatus {
   }
 }
 
-export enum PolicyComplianceStatusType {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT"
-}
-
 /**
  *
  *          <p>Details of the AWS Firewall Manager policy. </p>
@@ -1274,24 +1294,4 @@ export namespace SecurityServicePolicyData {
   export function isa(o: any): o is SecurityServicePolicyData {
     return _smithy.isa(o, "SecurityServicePolicyData");
   }
-}
-
-export enum SecurityServiceType {
-  SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
-  SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
-  SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
-  SHIELD_ADVANCED = "SHIELD_ADVANCED",
-  WAF = "WAF"
-}
-
-export enum ViolationReason {
-  ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
-  ResourceMissingSecurityGroup = "RESOURCE_MISSING_SECURITY_GROUP",
-  ResourceMissingShieldProtection = "RESOURCE_MISSING_SHIELD_PROTECTION",
-  ResourceMissingWebAcl = "RESOURCE_MISSING_WEB_ACL",
-  ResourceMissingWebaclOrShieldProtection = "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
-  ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
-  SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
-  SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
-  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP"
 }

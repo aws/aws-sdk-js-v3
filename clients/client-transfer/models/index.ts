@@ -1,24 +1,28 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- *          <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  Message?: string;
+export enum EndpointType {
+  PUBLIC = "PUBLIC",
+  VPC_ENDPOINT = "VPC_ENDPOINT"
 }
 
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
+export enum HomeDirectoryType {
+  LOGICAL = "LOGICAL",
+  PATH = "PATH"
+}
+
+export enum IdentityProviderType {
+  API_GATEWAY = "API_GATEWAY",
+  SERVICE_MANAGED = "SERVICE_MANAGED"
+}
+
+export enum State {
+  OFFLINE = "OFFLINE",
+  ONLINE = "ONLINE",
+  STARTING = "STARTING",
+  START_FAILED = "START_FAILED",
+  STOPPING = "STOPPING",
+  STOP_FAILED = "STOP_FAILED"
 }
 
 export interface CreateServerRequest {
@@ -661,11 +665,6 @@ export namespace EndpointDetails {
   }
 }
 
-export enum EndpointType {
-  PUBLIC = "PUBLIC",
-  VPC_ENDPOINT = "VPC_ENDPOINT"
-}
-
 /**
  *
  *          <p>Represents an object that contains entries and a targets for
@@ -693,11 +692,6 @@ export namespace HomeDirectoryMapEntry {
   export function isa(o: any): o is HomeDirectoryMapEntry {
     return _smithy.isa(o, "HomeDirectoryMapEntry");
   }
-}
-
-export enum HomeDirectoryType {
-  LOGICAL = "LOGICAL",
-  PATH = "PATH"
 }
 
 /**
@@ -729,11 +723,6 @@ export namespace IdentityProviderDetails {
   export function isa(o: any): o is IdentityProviderDetails {
     return _smithy.isa(o, "IdentityProviderDetails");
   }
-}
-
-export enum IdentityProviderType {
-  API_GATEWAY = "API_GATEWAY",
-  SERVICE_MANAGED = "SERVICE_MANAGED"
 }
 
 export interface ImportSshPublicKeyRequest {
@@ -1249,6 +1238,26 @@ export namespace ResourceNotFoundException {
 
 /**
  *
+ *          <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
+  }
+}
+
+/**
+ *
  *          <p>Provides information about the public Secure Shell (SSH) key that is associated with a
  *       user account for a specific server (as identified by <code>ServerId</code>). The information
  *       returned includes the date the key was imported, the public key contents, and the public key
@@ -1301,15 +1310,6 @@ export namespace StartServerRequest {
   export function isa(o: any): o is StartServerRequest {
     return _smithy.isa(o, "StartServerRequest");
   }
-}
-
-export enum State {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  STARTING = "STARTING",
-  START_FAILED = "START_FAILED",
-  STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED"
 }
 
 export interface StopServerRequest {

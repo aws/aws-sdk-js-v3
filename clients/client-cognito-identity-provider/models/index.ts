@@ -1,6 +1,221 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AccountTakeoverEventActionType {
+  BLOCK = "BLOCK",
+  MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
+  MFA_REQUIRED = "MFA_REQUIRED",
+  NO_ACTION = "NO_ACTION"
+}
+
+export enum AdvancedSecurityModeType {
+  AUDIT = "AUDIT",
+  ENFORCED = "ENFORCED",
+  OFF = "OFF"
+}
+
+export enum AliasAttributeType {
+  EMAIL = "email",
+  PHONE_NUMBER = "phone_number",
+  PREFERRED_USERNAME = "preferred_username"
+}
+
+export enum AttributeDataType {
+  BOOLEAN = "Boolean",
+  DATETIME = "DateTime",
+  NUMBER = "Number",
+  STRING = "String"
+}
+
+export enum AuthFlowType {
+  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
+  ADMIN_USER_PASSWORD_AUTH = "ADMIN_USER_PASSWORD_AUTH",
+  CUSTOM_AUTH = "CUSTOM_AUTH",
+  REFRESH_TOKEN = "REFRESH_TOKEN",
+  REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
+  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
+  USER_SRP_AUTH = "USER_SRP_AUTH"
+}
+
+export enum ChallengeName {
+  Mfa = "Mfa",
+  Password = "Password"
+}
+
+export enum ChallengeNameType {
+  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
+  CUSTOM_CHALLENGE = "CUSTOM_CHALLENGE",
+  DEVICE_PASSWORD_VERIFIER = "DEVICE_PASSWORD_VERIFIER",
+  DEVICE_SRP_AUTH = "DEVICE_SRP_AUTH",
+  MFA_SETUP = "MFA_SETUP",
+  NEW_PASSWORD_REQUIRED = "NEW_PASSWORD_REQUIRED",
+  PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
+  SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
+  SMS_MFA = "SMS_MFA",
+  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA"
+}
+
+export enum ChallengeResponse {
+  Failure = "Failure",
+  Success = "Success"
+}
+
+export enum CompromisedCredentialsEventActionType {
+  BLOCK = "BLOCK",
+  NO_ACTION = "NO_ACTION"
+}
+
+export enum DefaultEmailOptionType {
+  CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
+  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK"
+}
+
+export enum DeliveryMediumType {
+  EMAIL = "EMAIL",
+  SMS = "SMS"
+}
+
+export enum DeviceRememberedStatusType {
+  NOT_REMEMBERED = "not_remembered",
+  REMEMBERED = "remembered"
+}
+
+export enum DomainStatusType {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING"
+}
+
+export enum EmailSendingAccountType {
+  COGNITO_DEFAULT = "COGNITO_DEFAULT",
+  DEVELOPER = "DEVELOPER"
+}
+
+export enum EventFilterType {
+  PASSWORD_CHANGE = "PASSWORD_CHANGE",
+  SIGN_IN = "SIGN_IN",
+  SIGN_UP = "SIGN_UP"
+}
+
+export enum EventResponseType {
+  Failure = "Failure",
+  Success = "Success"
+}
+
+export enum EventType {
+  ForgotPassword = "ForgotPassword",
+  SignIn = "SignIn",
+  SignUp = "SignUp"
+}
+
+export enum ExplicitAuthFlowsType {
+  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
+  ALLOW_ADMIN_USER_PASSWORD_AUTH = "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+  ALLOW_CUSTOM_AUTH = "ALLOW_CUSTOM_AUTH",
+  ALLOW_REFRESH_TOKEN_AUTH = "ALLOW_REFRESH_TOKEN_AUTH",
+  ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
+  ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
+  CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
+  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH"
+}
+
+export enum FeedbackValueType {
+  INVALID = "Invalid",
+  VALID = "Valid"
+}
+
+export enum IdentityProviderTypeType {
+  Facebook = "Facebook",
+  Google = "Google",
+  LoginWithAmazon = "LoginWithAmazon",
+  OIDC = "OIDC",
+  SAML = "SAML",
+  SignInWithApple = "SignInWithApple"
+}
+
+export enum MessageActionType {
+  RESEND = "RESEND",
+  SUPPRESS = "SUPPRESS"
+}
+
+export enum OAuthFlowType {
+  client_credentials = "client_credentials",
+  code = "code",
+  implicit = "implicit"
+}
+
+export enum PreventUserExistenceErrorTypes {
+  ENABLED = "ENABLED",
+  LEGACY = "LEGACY"
+}
+
+export enum RecoveryOptionNameType {
+  ADMIN_ONLY = "admin_only",
+  VERIFIED_EMAIL = "verified_email",
+  VERIFIED_PHONE_NUMBER = "verified_phone_number"
+}
+
+export enum RiskDecisionType {
+  AccountTakeover = "AccountTakeover",
+  Block = "Block",
+  NoRisk = "NoRisk"
+}
+
+export enum RiskLevelType {
+  High = "High",
+  Low = "Low",
+  Medium = "Medium"
+}
+
+export enum StatusType {
+  Disabled = "Disabled",
+  Enabled = "Enabled"
+}
+
+export enum UserImportJobStatusType {
+  Created = "Created",
+  Expired = "Expired",
+  Failed = "Failed",
+  InProgress = "InProgress",
+  Pending = "Pending",
+  Stopped = "Stopped",
+  Stopping = "Stopping",
+  Succeeded = "Succeeded"
+}
+
+export enum UserPoolMfaType {
+  OFF = "OFF",
+  ON = "ON",
+  OPTIONAL = "OPTIONAL"
+}
+
+export enum UserStatusType {
+  ARCHIVED = "ARCHIVED",
+  COMPROMISED = "COMPROMISED",
+  CONFIRMED = "CONFIRMED",
+  FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
+  RESET_REQUIRED = "RESET_REQUIRED",
+  UNCONFIRMED = "UNCONFIRMED",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum UsernameAttributeType {
+  EMAIL = "email",
+  PHONE_NUMBER = "phone_number"
+}
+
+export enum VerifiedAttributeType {
+  EMAIL = "email",
+  PHONE_NUMBER = "phone_number"
+}
+
+export enum VerifySoftwareTokenResponseType {
+  ERROR = "ERROR",
+  SUCCESS = "SUCCESS"
+}
+
 /**
  *
  *          <p>The data type for <code>AccountRecoverySetting</code>.</p>
@@ -103,13 +318,6 @@ export namespace AccountTakeoverActionsType {
   export function isa(o: any): o is AccountTakeoverActionsType {
     return _smithy.isa(o, "AccountTakeoverActionsType");
   }
-}
-
-export enum AccountTakeoverEventActionType {
-  BLOCK = "BLOCK",
-  MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
-  MFA_REQUIRED = "MFA_REQUIRED",
-  NO_ACTION = "NO_ACTION"
 }
 
 /**
@@ -2256,18 +2464,6 @@ export namespace AdminUserGlobalSignOutResponse {
   }
 }
 
-export enum AdvancedSecurityModeType {
-  AUDIT = "AUDIT",
-  ENFORCED = "ENFORCED",
-  OFF = "OFF"
-}
-
-export enum AliasAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-  PREFERRED_USERNAME = "preferred_username"
-}
-
 /**
  *
  *         <p>This exception is thrown when a user tries to confirm the account with an email or
@@ -2412,13 +2608,6 @@ export namespace AssociateSoftwareTokenResponse {
   }
 }
 
-export enum AttributeDataType {
-  BOOLEAN = "Boolean",
-  DATETIME = "DateTime",
-  NUMBER = "Number",
-  STRING = "String"
-}
-
 /**
  *
  *         <p>Specifies whether the attribute is standard or custom.</p>
@@ -2519,16 +2708,6 @@ export namespace AuthEventType {
   }
 }
 
-export enum AuthFlowType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ADMIN_USER_PASSWORD_AUTH = "ADMIN_USER_PASSWORD_AUTH",
-  CUSTOM_AUTH = "CUSTOM_AUTH",
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-  REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-  USER_SRP_AUTH = "USER_SRP_AUTH"
-}
-
 /**
  *
  *         <p>The authentication result.</p>
@@ -2583,29 +2762,6 @@ export namespace AuthenticationResultType {
   export function isa(o: any): o is AuthenticationResultType {
     return _smithy.isa(o, "AuthenticationResultType");
   }
-}
-
-export enum ChallengeName {
-  Mfa = "Mfa",
-  Password = "Password"
-}
-
-export enum ChallengeNameType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  CUSTOM_CHALLENGE = "CUSTOM_CHALLENGE",
-  DEVICE_PASSWORD_VERIFIER = "DEVICE_PASSWORD_VERIFIER",
-  DEVICE_SRP_AUTH = "DEVICE_SRP_AUTH",
-  MFA_SETUP = "MFA_SETUP",
-  NEW_PASSWORD_REQUIRED = "NEW_PASSWORD_REQUIRED",
-  PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
-  SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
-  SMS_MFA = "SMS_MFA",
-  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA"
-}
-
-export enum ChallengeResponse {
-  Failure = "Failure",
-  Success = "Success"
 }
 
 /**
@@ -2792,11 +2948,6 @@ export namespace CompromisedCredentialsActionsType {
   export function isa(o: any): o is CompromisedCredentialsActionsType {
     return _smithy.isa(o, "CompromisedCredentialsActionsType");
   }
-}
-
-export enum CompromisedCredentialsEventActionType {
-  BLOCK = "BLOCK",
-  NO_ACTION = "NO_ACTION"
 }
 
 /**
@@ -4024,11 +4175,6 @@ export namespace CustomDomainConfigType {
   }
 }
 
-export enum DefaultEmailOptionType {
-  CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
-  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK"
-}
-
 export interface DeleteGroupRequest {
   __type?: "DeleteGroupRequest";
   /**
@@ -4244,11 +4390,6 @@ export namespace DeleteUserRequest {
   export function isa(o: any): o is DeleteUserRequest {
     return _smithy.isa(o, "DeleteUserRequest");
   }
-}
-
-export enum DeliveryMediumType {
-  EMAIL = "EMAIL",
-  SMS = "SMS"
 }
 
 export interface DescribeIdentityProviderRequest {
@@ -4571,11 +4712,6 @@ export namespace DeviceConfigurationType {
   }
 }
 
-export enum DeviceRememberedStatusType {
-  NOT_REMEMBERED = "not_remembered",
-  REMEMBERED = "remembered"
-}
-
 /**
  *
  *         <p>The device verifier against which it will be authenticated.</p>
@@ -4724,14 +4860,6 @@ export namespace DomainDescriptionType {
   }
 }
 
-export enum DomainStatusType {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>This exception is thrown when the provider is already supported by the user
@@ -4860,11 +4988,6 @@ export namespace EmailConfigurationType {
   }
 }
 
-export enum EmailSendingAccountType {
-  COGNITO_DEFAULT = "COGNITO_DEFAULT",
-  DEVELOPER = "DEVELOPER"
-}
-
 /**
  *
  *         <p>This exception is thrown when there is a code mismatch and the service fails to
@@ -4970,17 +5093,6 @@ export namespace EventFeedbackType {
   }
 }
 
-export enum EventFilterType {
-  PASSWORD_CHANGE = "PASSWORD_CHANGE",
-  SIGN_IN = "SIGN_IN",
-  SIGN_UP = "SIGN_UP"
-}
-
-export enum EventResponseType {
-  Failure = "Failure",
-  Success = "Success"
-}
-
 /**
  *
  *         <p>The event risk type.</p>
@@ -5009,12 +5121,6 @@ export namespace EventRiskType {
   }
 }
 
-export enum EventType {
-  ForgotPassword = "ForgotPassword",
-  SignIn = "SignIn",
-  SignUp = "SignUp"
-}
-
 /**
  *
  *         <p>This exception is thrown if a code has expired.</p>
@@ -5038,22 +5144,6 @@ export namespace ExpiredCodeException {
   export function isa(o: any): o is ExpiredCodeException {
     return _smithy.isa(o, "ExpiredCodeException");
   }
-}
-
-export enum ExplicitAuthFlowsType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ALLOW_ADMIN_USER_PASSWORD_AUTH = "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-  ALLOW_CUSTOM_AUTH = "ALLOW_CUSTOM_AUTH",
-  ALLOW_REFRESH_TOKEN_AUTH = "ALLOW_REFRESH_TOKEN_AUTH",
-  ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
-  ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
-  CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH"
-}
-
-export enum FeedbackValueType {
-  INVALID = "Invalid",
-  VALID = "Valid"
 }
 
 /**
@@ -5923,15 +6013,6 @@ export namespace IdentityProviderType {
   export function isa(o: any): o is IdentityProviderType {
     return _smithy.isa(o, "IdentityProviderType");
   }
-}
-
-export enum IdentityProviderTypeType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple"
 }
 
 /**
@@ -7303,11 +7384,6 @@ export namespace MFAOptionType {
   }
 }
 
-export enum MessageActionType {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS"
-}
-
 /**
  *
  *         <p>The message template structure.</p>
@@ -7519,12 +7595,6 @@ export namespace NumberAttributeConstraintsType {
   }
 }
 
-export enum OAuthFlowType {
-  client_credentials = "client_credentials",
-  code = "code",
-  implicit = "implicit"
-}
-
 /**
  *
  *         <p>The password policy type.</p>
@@ -7643,11 +7713,6 @@ export namespace PreconditionNotMetException {
   }
 }
 
-export enum PreventUserExistenceErrorTypes {
-  ENABLED = "ENABLED",
-  LEGACY = "LEGACY"
-}
-
 /**
  *
  *         <p>A container for identity provider details.</p>
@@ -7725,12 +7790,6 @@ export namespace ProviderUserIdentifierType {
   export function isa(o: any): o is ProviderUserIdentifierType {
     return _smithy.isa(o, "ProviderUserIdentifierType");
   }
-}
-
-export enum RecoveryOptionNameType {
-  ADMIN_ONLY = "admin_only",
-  VERIFIED_EMAIL = "verified_email",
-  VERIFIED_PHONE_NUMBER = "verified_phone_number"
 }
 
 /**
@@ -8223,12 +8282,6 @@ export namespace RiskConfigurationType {
   }
 }
 
-export enum RiskDecisionType {
-  AccountTakeover = "AccountTakeover",
-  Block = "Block",
-  NoRisk = "NoRisk"
-}
-
 /**
  *
  *         <p>The type of the configuration to override the risk decision.</p>
@@ -8258,12 +8311,6 @@ export namespace RiskExceptionConfigurationType {
   export function isa(o: any): o is RiskExceptionConfigurationType {
     return _smithy.isa(o, "RiskExceptionConfigurationType");
   }
-}
-
-export enum RiskLevelType {
-  High = "High",
-  Low = "Low",
-  Medium = "Medium"
 }
 
 /**
@@ -9010,11 +9057,6 @@ export namespace StartUserImportJobResponse {
   export function isa(o: any): o is StartUserImportJobResponse {
     return _smithy.isa(o, "StartUserImportJobResponse");
   }
-}
-
-export enum StatusType {
-  Disabled = "Disabled",
-  Enabled = "Enabled"
 }
 
 /**
@@ -10281,17 +10323,6 @@ export namespace UserImportInProgressException {
   }
 }
 
-export enum UserImportJobStatusType {
-  Created = "Created",
-  Expired = "Expired",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded"
-}
-
 /**
  *
  *         <p>The user import job type.</p>
@@ -10920,12 +10951,6 @@ export namespace UserPoolDescriptionType {
   }
 }
 
-export enum UserPoolMfaType {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL"
-}
-
 /**
  *
  *         <p>The policy associated with a user pool.</p>
@@ -11214,16 +11239,6 @@ export namespace UserPoolType {
   }
 }
 
-export enum UserStatusType {
-  ARCHIVED = "ARCHIVED",
-  COMPROMISED = "COMPROMISED",
-  CONFIRMED = "CONFIRMED",
-  FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
-  RESET_REQUIRED = "RESET_REQUIRED",
-  UNCONFIRMED = "UNCONFIRMED",
-  UNKNOWN = "UNKNOWN"
-}
-
 /**
  *
  *         <p>The user type.</p>
@@ -11313,11 +11328,6 @@ export namespace UserType {
   }
 }
 
-export enum UsernameAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number"
-}
-
 /**
  *
  *         <p>This exception is thrown when Amazon Cognito encounters a user name that already
@@ -11401,11 +11411,6 @@ export namespace VerificationMessageTemplateType {
   }
 }
 
-export enum VerifiedAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number"
-}
-
 export interface VerifySoftwareTokenRequest {
   __type?: "VerifySoftwareTokenRequest";
   /**
@@ -11466,11 +11471,6 @@ export namespace VerifySoftwareTokenResponse {
   export function isa(o: any): o is VerifySoftwareTokenResponse {
     return _smithy.isa(o, "VerifySoftwareTokenResponse");
   }
-}
-
-export enum VerifySoftwareTokenResponseType {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS"
 }
 
 /**

@@ -1,6 +1,23 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type FeedbackKey = "INSIGHTS_FEEDBACK";
+
+export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
+
+export type LogFilter = "ERROR" | "INFO" | "WARN";
+
+export type SeverityLevel = "High" | "Low" | "Medium";
+
+export type Status = "IGNORE" | "PENDING" | "RESOLVED";
+
+export type Tier =
+  | "DEFAULT"
+  | "DOT_NET_CORE"
+  | "DOT_NET_WEB"
+  | "DOT_NET_WORKER"
+  | "SQL_SERVER";
+
 /**
  *
  *          <p>Describes a standalone resource or similarly grouped resources that the application is made
@@ -731,10 +748,6 @@ export namespace DescribeProblemResponse {
   }
 }
 
-export type FeedbackKey = "INSIGHTS_FEEDBACK";
-
-export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
-
 /**
  *
  *          <p>The server encountered an internal error and is unable to complete the request.</p>
@@ -1094,8 +1107,6 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
-export type LogFilter = "ERROR" | "INFO" | "WARN";
-
 /**
  *
  *          <p>An object that defines the log patterns that belongs to a <code>LogPatternSet</code>.</p>
@@ -1391,10 +1402,6 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export type SeverityLevel = "High" | "Low" | "Medium";
-
-export type Status = "IGNORE" | "PENDING" | "RESOLVED";
-
 /**
  *
  *          <p>An object that defines the tags associated with an application.
@@ -1505,13 +1512,6 @@ export namespace TagsAlreadyExistException {
     return _smithy.isa(o, "TagsAlreadyExistException");
   }
 }
-
-export type Tier =
-  | "DEFAULT"
-  | "DOT_NET_CORE"
-  | "DOT_NET_WEB"
-  | "DOT_NET_WORKER"
-  | "SQL_SERVER";
 
 /**
  *

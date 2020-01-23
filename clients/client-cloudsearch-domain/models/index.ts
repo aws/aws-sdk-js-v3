@@ -1,6 +1,10 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type ContentType = "application/json" | "application/xml";
+
+export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
+
 /**
  *
  *       <p>A container for facet information.</p>
@@ -49,8 +53,6 @@ export namespace BucketInfo {
     return _smithy.isa(o, "BucketInfo");
   }
 }
-
-export type ContentType = "application/json" | "application/xml";
 
 /**
  *
@@ -261,8 +263,6 @@ export namespace Hits {
     return _smithy.isa(o, "Hits");
   }
 }
-
-export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
 
 /**
  *

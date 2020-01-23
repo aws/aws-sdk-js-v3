@@ -1,167 +1,44 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- *          <p> Request validation failed, there is no usable message in the context, or the bot build
- *       failed, is still in progress, or contains unbuilt changes. </p>
- *
- */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BadRequestException";
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
+export enum ConfirmationStatus {
+  CONFIRMED = "Confirmed",
+  DENIED = "Denied",
+  NONE = "None"
 }
 
-export namespace BadRequestException {
-  export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
-  }
+export enum ContentType {
+  GENERIC = "application/vnd.amazonaws.card.generic"
 }
 
-/**
- *
- *          <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
- *
- */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConflictException";
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export enum DialogActionType {
+  CLOSE = "Close",
+  CONFIRM_INTENT = "ConfirmIntent",
+  DELEGATE = "Delegate",
+  ELICIT_INTENT = "ElicitIntent",
+  ELICIT_SLOT = "ElicitSlot"
 }
 
-export namespace ConflictException {
-  export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
-  }
+export enum DialogState {
+  CONFIRM_INTENT = "ConfirmIntent",
+  ELICIT_INTENT = "ElicitIntent",
+  ELICIT_SLOT = "ElicitSlot",
+  FAILED = "Failed",
+  FULFILLED = "Fulfilled",
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
 }
 
-/**
- *
- *          <p>Internal service error. Retry the call.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
+export enum FulfillmentState {
+  FAILED = "Failed",
+  FULFILLED = "Fulfilled",
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
 }
 
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>Exceeded a limit.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
-  retryAfterSeconds?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-/**
- *
- *          <p>The accept header in the request does not have a valid value.</p>
- *
- */
-export interface NotAcceptableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotAcceptableException";
-  name: "NotAcceptableException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotAcceptableException {
-  export function isa(o: any): o is NotAcceptableException {
-    return _smithy.isa(o, "NotAcceptableException");
-  }
-}
-
-/**
- *
- *          <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not
- *       found.</p>
- *
- */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotFoundException";
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NotFoundException {
-  export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
-  }
-}
-
-/**
- *
- *          <p>The input speech is too long.</p>
- *
- */
-export interface RequestTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "RequestTimeoutException";
-  name: "RequestTimeoutException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace RequestTimeoutException {
-  export function isa(o: any): o is RequestTimeoutException {
-    return _smithy.isa(o, "RequestTimeoutException");
-  }
-}
-
-/**
- *
- *          <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
- *
- */
-export interface UnsupportedMediaTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedMediaTypeException";
-  name: "UnsupportedMediaTypeException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UnsupportedMediaTypeException {
-  export function isa(o: any): o is UnsupportedMediaTypeException {
-    return _smithy.isa(o, "UnsupportedMediaTypeException");
-  }
+export enum MessageFormatType {
+  COMPOSITE = "Composite",
+  CUSTOM_PAYLOAD = "CustomPayload",
+  PLAIN_TEXT = "PlainText",
+  SSML = "SSML"
 }
 
 /**
@@ -185,10 +62,74 @@ export namespace BadGatewayException {
   }
 }
 
-export enum ConfirmationStatus {
-  CONFIRMED = "Confirmed",
-  DENIED = "Denied",
-  NONE = "None"
+/**
+ *
+ *          <p> Request validation failed, there is no usable message in the context, or the bot build
+ *       failed, is still in progress, or contains unbuilt changes. </p>
+ *
+ */
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BadRequestException";
+  name: "BadRequestException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BadRequestException {
+  export function isa(o: any): o is BadRequestException {
+    return _smithy.isa(o, "BadRequestException");
+  }
+}
+
+/**
+ *
+ *          <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
+ *
+ */
+export interface Button {
+  __type?: "Button";
+  /**
+   *
+   *          <p>Text that is visible to the user on the button.</p>
+   *
+   */
+  text: string | undefined;
+
+  /**
+   *
+   *          <p>The value sent to Amazon Lex when a user chooses the button. For example, consider button
+   *       text "NYC." When the user chooses the button, the value sent can be "New York City."</p>
+   *
+   */
+  value: string | undefined;
+}
+
+export namespace Button {
+  export function isa(o: any): o is Button {
+    return _smithy.isa(o, "Button");
+  }
+}
+
+/**
+ *
+ *          <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
+ *
+ */
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConflictException";
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export function isa(o: any): o is ConflictException {
+    return _smithy.isa(o, "ConflictException");
+  }
 }
 
 export interface DeleteSessionRequest {
@@ -422,27 +363,54 @@ export namespace DialogAction {
   }
 }
 
-export enum DialogActionType {
-  CLOSE = "Close",
-  CONFIRM_INTENT = "ConfirmIntent",
-  DELEGATE = "Delegate",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot"
+/**
+ *
+ *          <p>Represents an option rendered to the user when a prompt is shown. It could be an image, a
+ *       button, a link, or text. </p>
+ *
+ */
+export interface GenericAttachment {
+  __type?: "GenericAttachment";
+  /**
+   *
+   *          <p>The URL of an attachment to the response card.</p>
+   *
+   */
+  attachmentLinkUrl?: string;
+
+  /**
+   *
+   *          <p>The list of options to show to the user.</p>
+   *
+   */
+  buttons?: Array<Button>;
+
+  /**
+   *
+   *          <p>The URL of an image that is displayed to the user.</p>
+   *
+   */
+  imageUrl?: string;
+
+  /**
+   *
+   *          <p>The subtitle shown below the title.</p>
+   *
+   */
+  subTitle?: string;
+
+  /**
+   *
+   *          <p>The title of the option.</p>
+   *
+   */
+  title?: string;
 }
 
-export enum DialogState {
-  CONFIRM_INTENT = "ConfirmIntent",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
-}
-
-export enum FulfillmentState {
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
+export namespace GenericAttachment {
+  export function isa(o: any): o is GenericAttachment {
+    return _smithy.isa(o, "GenericAttachment");
+  }
 }
 
 export interface GetSessionRequest {
@@ -661,6 +629,47 @@ export namespace IntentSummary {
 
 /**
  *
+ *          <p>Internal service error. Retry the call.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>Exceeded a limit.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message?: string;
+  retryAfterSeconds?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
+}
+
+/**
+ *
  *          <p>This exception is not used.</p>
  *
  */
@@ -679,11 +688,45 @@ export namespace LoopDetectedException {
   }
 }
 
-export enum MessageFormatType {
-  COMPOSITE = "Composite",
-  CUSTOM_PAYLOAD = "CustomPayload",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML"
+/**
+ *
+ *          <p>The accept header in the request does not have a valid value.</p>
+ *
+ */
+export interface NotAcceptableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotAcceptableException";
+  name: "NotAcceptableException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotAcceptableException {
+  export function isa(o: any): o is NotAcceptableException {
+    return _smithy.isa(o, "NotAcceptableException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not
+ *       found.</p>
+ *
+ */
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotFoundException";
+  name: "NotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NotFoundException {
+  export function isa(o: any): o is NotFoundException {
+    return _smithy.isa(o, "NotFoundException");
+  }
 }
 
 export interface PostContentRequest {
@@ -1590,114 +1633,21 @@ export namespace PutSessionResponse {
 
 /**
  *
- *          <p>The sentiment expressed in an utterance.</p>
- *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
- *       this field structure contains the result of the analysis.</p>
+ *          <p>The input speech is too long.</p>
  *
  */
-export interface SentimentResponse {
-  __type?: "SentimentResponse";
-  /**
-   *
-   *          <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
-   *
-   */
-  sentimentLabel?: string;
-
-  /**
-   *
-   *          <p>The likelihood that the sentiment was correctly inferred.</p>
-   *
-   */
-  sentimentScore?: string;
+export interface RequestTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "RequestTimeoutException";
+  name: "RequestTimeoutException";
+  $fault: "client";
+  message?: string;
 }
 
-export namespace SentimentResponse {
-  export function isa(o: any): o is SentimentResponse {
-    return _smithy.isa(o, "SentimentResponse");
-  }
-}
-
-/**
- *
- *          <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
- *
- */
-export interface Button {
-  __type?: "Button";
-  /**
-   *
-   *          <p>Text that is visible to the user on the button.</p>
-   *
-   */
-  text: string | undefined;
-
-  /**
-   *
-   *          <p>The value sent to Amazon Lex when a user chooses the button. For example, consider button
-   *       text "NYC." When the user chooses the button, the value sent can be "New York City."</p>
-   *
-   */
-  value: string | undefined;
-}
-
-export namespace Button {
-  export function isa(o: any): o is Button {
-    return _smithy.isa(o, "Button");
-  }
-}
-
-export enum ContentType {
-  GENERIC = "application/vnd.amazonaws.card.generic"
-}
-
-/**
- *
- *          <p>Represents an option rendered to the user when a prompt is shown. It could be an image, a
- *       button, a link, or text. </p>
- *
- */
-export interface GenericAttachment {
-  __type?: "GenericAttachment";
-  /**
-   *
-   *          <p>The URL of an attachment to the response card.</p>
-   *
-   */
-  attachmentLinkUrl?: string;
-
-  /**
-   *
-   *          <p>The list of options to show to the user.</p>
-   *
-   */
-  buttons?: Array<Button>;
-
-  /**
-   *
-   *          <p>The URL of an image that is displayed to the user.</p>
-   *
-   */
-  imageUrl?: string;
-
-  /**
-   *
-   *          <p>The subtitle shown below the title.</p>
-   *
-   */
-  subTitle?: string;
-
-  /**
-   *
-   *          <p>The title of the option.</p>
-   *
-   */
-  title?: string;
-}
-
-export namespace GenericAttachment {
-  export function isa(o: any): o is GenericAttachment {
-    return _smithy.isa(o, "GenericAttachment");
+export namespace RequestTimeoutException {
+  export function isa(o: any): o is RequestTimeoutException {
+    return _smithy.isa(o, "RequestTimeoutException");
   }
 }
 
@@ -1736,5 +1686,55 @@ export interface ResponseCard {
 export namespace ResponseCard {
   export function isa(o: any): o is ResponseCard {
     return _smithy.isa(o, "ResponseCard");
+  }
+}
+
+/**
+ *
+ *          <p>The sentiment expressed in an utterance.</p>
+ *          <p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis,
+ *       this field structure contains the result of the analysis.</p>
+ *
+ */
+export interface SentimentResponse {
+  __type?: "SentimentResponse";
+  /**
+   *
+   *          <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+   *
+   */
+  sentimentLabel?: string;
+
+  /**
+   *
+   *          <p>The likelihood that the sentiment was correctly inferred.</p>
+   *
+   */
+  sentimentScore?: string;
+}
+
+export namespace SentimentResponse {
+  export function isa(o: any): o is SentimentResponse {
+    return _smithy.isa(o, "SentimentResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
+ *
+ */
+export interface UnsupportedMediaTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedMediaTypeException";
+  name: "UnsupportedMediaTypeException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedMediaTypeException {
+  export function isa(o: any): o is UnsupportedMediaTypeException {
+    return _smithy.isa(o, "UnsupportedMediaTypeException");
   }
 }

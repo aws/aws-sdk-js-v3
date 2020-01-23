@@ -1,6 +1,63 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum CustomerGatewayAssociationState {
+  available = "AVAILABLE",
+  deleted = "DELETED",
+  deleting = "DELETING",
+  pending = "PENDING"
+}
+
+export enum DeviceState {
+  available = "AVAILABLE",
+  deleting = "DELETING",
+  pending = "PENDING",
+  updating = "UPDATING"
+}
+
+export enum GlobalNetworkState {
+  available = "AVAILABLE",
+  deleting = "DELETING",
+  pending = "PENDING",
+  updating = "UPDATING"
+}
+
+export enum LinkAssociationState {
+  available = "AVAILABLE",
+  deleted = "DELETED",
+  deleting = "DELETING",
+  pending = "PENDING"
+}
+
+export enum LinkState {
+  available = "AVAILABLE",
+  deleting = "DELETING",
+  pending = "PENDING",
+  updating = "UPDATING"
+}
+
+export enum SiteState {
+  available = "AVAILABLE",
+  deleting = "DELETING",
+  pending = "PENDING",
+  updating = "UPDATING"
+}
+
+export enum TransitGatewayRegistrationState {
+  available = "AVAILABLE",
+  deleted = "DELETED",
+  deleting = "DELETING",
+  failed = "FAILED",
+  pending = "PENDING"
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "CannotParse",
+  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
+  OTHER = "Other",
+  UNKNOWN_OPERATION = "UnknownOperation"
+}
+
 /**
  *
  *         <p>You do not have sufficient access to perform this action.</p>
@@ -511,13 +568,6 @@ export namespace CustomerGatewayAssociation {
   }
 }
 
-export enum CustomerGatewayAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING"
-}
-
 export interface DeleteDeviceRequest {
   __type?: "DeleteDeviceRequest";
   /**
@@ -862,13 +912,6 @@ export namespace Device {
   export function isa(o: any): o is Device {
     return _smithy.isa(o, "Device");
   }
-}
-
-export enum DeviceState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING"
 }
 
 export interface DisassociateCustomerGatewayRequest {
@@ -1412,13 +1455,6 @@ export namespace GlobalNetwork {
   }
 }
 
-export enum GlobalNetworkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING"
-}
-
 /**
  *
  *         <p>The request has failed due to an internal error.</p>
@@ -1576,20 +1612,6 @@ export namespace LinkAssociation {
   export function isa(o: any): o is LinkAssociation {
     return _smithy.isa(o, "LinkAssociation");
   }
-}
-
-export enum LinkAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING"
-}
-
-export enum LinkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING"
 }
 
 export interface ListTagsForResourceRequest {
@@ -1855,13 +1877,6 @@ export namespace Site {
   }
 }
 
-export enum SiteState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING"
-}
-
 /**
  *
  *         <p>Describes a tag.</p>
@@ -1984,14 +1999,6 @@ export namespace TransitGatewayRegistration {
   export function isa(o: any): o is TransitGatewayRegistration {
     return _smithy.isa(o, "TransitGatewayRegistration");
   }
-}
-
-export enum TransitGatewayRegistrationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  failed = "FAILED",
-  pending = "PENDING"
 }
 
 /**
@@ -2384,11 +2391,4 @@ export namespace ValidationExceptionField {
   export function isa(o: any): o is ValidationExceptionField {
     return _smithy.isa(o, "ValidationExceptionField");
   }
-}
-
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CannotParse",
-  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
-  OTHER = "Other",
-  UNKNOWN_OPERATION = "UnknownOperation"
 }

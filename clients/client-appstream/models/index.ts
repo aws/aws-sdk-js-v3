@@ -1,6 +1,178 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AccessEndpointType {
+  STREAMING = "STREAMING"
+}
+
+export enum Action {
+  CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+  CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  FILE_DOWNLOAD = "FILE_DOWNLOAD",
+  FILE_UPLOAD = "FILE_UPLOAD",
+  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE"
+}
+
+export enum AuthenticationType {
+  API = "API",
+  SAML = "SAML",
+  USERPOOL = "USERPOOL"
+}
+
+export enum FleetAttribute {
+  DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
+  IAM_ROLE_ARN = "IAM_ROLE_ARN",
+  VPC_CONFIGURATION = "VPC_CONFIGURATION",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+}
+
+export enum FleetErrorCode {
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND = "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER = "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE = "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA = "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED = "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN = "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR = "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED = "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND = "IMAGE_NOT_FOUND",
+  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION = "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING = "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED = "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
+}
+
+export enum FleetState {
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING"
+}
+
+export enum FleetType {
+  ALWAYS_ON = "ALWAYS_ON",
+  ON_DEMAND = "ON_DEMAND"
+}
+
+export enum ImageBuilderState {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  RUNNING = "RUNNING",
+  SNAPSHOTTING = "SNAPSHOTTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  UPDATING_AGENT = "UPDATING_AGENT"
+}
+
+export enum ImageBuilderStateChangeReasonCode {
+  IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
+}
+
+export enum ImageState {
+  AVAILABLE = "AVAILABLE",
+  COPYING = "COPYING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
+}
+
+export enum ImageStateChangeReasonCode {
+  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
+}
+
+export enum MessageAction {
+  RESEND = "RESEND",
+  SUPPRESS = "SUPPRESS"
+}
+
+export enum Permission {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export type PlatformType =
+  | "WINDOWS"
+  | "WINDOWS_SERVER_2016"
+  | "WINDOWS_SERVER_2019";
+
+export enum SessionConnectionState {
+  CONNECTED = "CONNECTED",
+  NOT_CONNECTED = "NOT_CONNECTED"
+}
+
+export enum SessionState {
+  ACTIVE = "ACTIVE",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING"
+}
+
+export enum StackAttribute {
+  ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
+  EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
+  FEEDBACK_URL = "FEEDBACK_URL",
+  IAM_ROLE_ARN = "IAM_ROLE_ARN",
+  REDIRECT_URL = "REDIRECT_URL",
+  STORAGE_CONNECTORS = "STORAGE_CONNECTORS",
+  STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+  STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
+  STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
+  THEME_NAME = "THEME_NAME",
+  USER_SETTINGS = "USER_SETTINGS"
+}
+
+export enum StackErrorCode {
+  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
+  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR"
+}
+
+export enum StorageConnectorType {
+  GOOGLE_DRIVE = "GOOGLE_DRIVE",
+  HOMEFOLDERS = "HOMEFOLDERS",
+  ONE_DRIVE = "ONE_DRIVE"
+}
+
+export enum UsageReportExecutionErrorCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND"
+}
+
+export enum UsageReportSchedule {
+  DAILY = "DAILY"
+}
+
+export enum UserStackAssociationErrorCode {
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  STACK_NOT_FOUND = "STACK_NOT_FOUND",
+  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND"
+}
+
+export enum VisibilityType {
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC",
+  SHARED = "SHARED"
+}
+
 /**
  *
  *         <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
@@ -27,18 +199,6 @@ export namespace AccessEndpoint {
   export function isa(o: any): o is AccessEndpoint {
     return _smithy.isa(o, "AccessEndpoint");
   }
-}
-
-export enum AccessEndpointType {
-  STREAMING = "STREAMING"
-}
-
-export enum Action {
-  CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-  CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-  FILE_DOWNLOAD = "FILE_DOWNLOAD",
-  FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE"
 }
 
 /**
@@ -199,12 +359,6 @@ export namespace AssociateFleetResult {
   export function isa(o: any): o is AssociateFleetResult {
     return _smithy.isa(o, "AssociateFleetResult");
   }
-}
-
-export enum AuthenticationType {
-  API = "API",
-  SAML = "SAML",
-  USERPOOL = "USERPOOL"
 }
 
 export interface BatchAssociateUserStackRequest {
@@ -2470,13 +2624,6 @@ export namespace Fleet {
   }
 }
 
-export enum FleetAttribute {
-  DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
-}
-
 /**
  *
  *         <p>Describes a fleet error.</p>
@@ -2503,49 +2650,6 @@ export namespace FleetError {
   export function isa(o: any): o is FleetError {
     return _smithy.isa(o, "FleetError");
   }
-}
-
-export enum FleetErrorCode {
-  DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
-  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
-  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND = "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
-  DOMAIN_JOIN_ERROR_INVALID_PARAMETER = "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
-  DOMAIN_JOIN_ERROR_LOGON_FAILURE = "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
-  DOMAIN_JOIN_ERROR_MORE_DATA = "DOMAIN_JOIN_ERROR_MORE_DATA",
-  DOMAIN_JOIN_ERROR_NOT_SUPPORTED = "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
-  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN = "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
-  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR = "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
-  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
-  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
-  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
-  IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
-  IGW_NOT_ATTACHED = "IGW_NOT_ATTACHED",
-  IMAGE_NOT_FOUND = "IMAGE_NOT_FOUND",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_SUBNET_CONFIGURATION = "INVALID_SUBNET_CONFIGURATION",
-  MACHINE_ROLE_IS_MISSING = "MACHINE_ROLE_IS_MISSING",
-  NETWORK_INTERFACE_LIMIT_EXCEEDED = "NETWORK_INTERFACE_LIMIT_EXCEEDED",
-  SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
-  STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
-  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
-}
-
-export enum FleetState {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING"
-}
-
-export enum FleetType {
-  ALWAYS_ON = "ALWAYS_ON",
-  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -2880,18 +2984,6 @@ export namespace ImageBuilder {
   }
 }
 
-export enum ImageBuilderState {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  RUNNING = "RUNNING",
-  SNAPSHOTTING = "SNAPSHOTTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING_AGENT = "UPDATING_AGENT"
-}
-
 /**
  *
  *         <p>Describes the reason why the last image builder state change occurred.</p>
@@ -2918,11 +3010,6 @@ export namespace ImageBuilderStateChangeReason {
   export function isa(o: any): o is ImageBuilderStateChangeReason {
     return _smithy.isa(o, "ImageBuilderStateChangeReason");
   }
-}
-
-export enum ImageBuilderStateChangeReasonCode {
-  IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -2953,14 +3040,6 @@ export namespace ImagePermissions {
   }
 }
 
-export enum ImageState {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *         <p>Describes the reason why the last image state change occurred.</p>
@@ -2987,12 +3066,6 @@ export namespace ImageStateChangeReason {
   export function isa(o: any): o is ImageStateChangeReason {
     return _smithy.isa(o, "ImageStateChangeReason");
   }
-}
-
-export enum ImageStateChangeReasonCode {
-  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -3272,11 +3345,6 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
-export enum MessageAction {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS"
-}
-
 /**
  *
  *         <p>Describes the network details of the fleet or image builder instance.</p>
@@ -3329,16 +3397,6 @@ export namespace OperationNotPermittedException {
     return _smithy.isa(o, "OperationNotPermittedException");
   }
 }
-
-export enum Permission {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export type PlatformType =
-  | "WINDOWS"
-  | "WINDOWS_SERVER_2016"
-  | "WINDOWS_SERVER_2019";
 
 /**
  *
@@ -3590,17 +3648,6 @@ export namespace Session {
   }
 }
 
-export enum SessionConnectionState {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED"
-}
-
-export enum SessionState {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *         <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
@@ -3734,20 +3781,6 @@ export namespace Stack {
   }
 }
 
-export enum StackAttribute {
-  ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
-  EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
-  FEEDBACK_URL = "FEEDBACK_URL",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  REDIRECT_URL = "REDIRECT_URL",
-  STORAGE_CONNECTORS = "STORAGE_CONNECTORS",
-  STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
-  STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
-  STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
-  THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS"
-}
-
 /**
  *
  *         <p>Describes a stack error.</p>
@@ -3774,11 +3807,6 @@ export namespace StackError {
   export function isa(o: any): o is StackError {
     return _smithy.isa(o, "StackError");
   }
-}
-
-export enum StackErrorCode {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR"
 }
 
 export interface StartFleetRequest {
@@ -3937,12 +3965,6 @@ export namespace StorageConnector {
   export function isa(o: any): o is StorageConnector {
     return _smithy.isa(o, "StorageConnector");
   }
-}
-
-export enum StorageConnectorType {
-  GOOGLE_DRIVE = "GOOGLE_DRIVE",
-  HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE"
 }
 
 export interface TagResourceRequest {
@@ -4428,16 +4450,6 @@ export namespace UpdateStackResult {
   }
 }
 
-export enum UsageReportExecutionErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND"
-}
-
-export enum UsageReportSchedule {
-  DAILY = "DAILY"
-}
-
 /**
  *
  *         <p>Describes information about the usage report subscription.</p>
@@ -4685,18 +4697,6 @@ export namespace UserStackAssociationError {
   export function isa(o: any): o is UserStackAssociationError {
     return _smithy.isa(o, "UserStackAssociationError");
   }
-}
-
-export enum UserStackAssociationErrorCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND"
-}
-
-export enum VisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-  SHARED = "SHARED"
 }
 
 /**

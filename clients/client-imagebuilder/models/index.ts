@@ -1,6 +1,58 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ComponentFormat {
+  SHELL = "SHELL"
+}
+
+export enum ComponentType {
+  BUILD = "BUILD",
+  TEST = "TEST"
+}
+
+export enum EbsVolumeType {
+  GP2 = "gp2",
+  IO1 = "io1",
+  SC1 = "sc1",
+  ST1 = "st1",
+  STANDARD = "standard"
+}
+
+export enum ImageStatus {
+  AVAILABLE = "AVAILABLE",
+  BUILDING = "BUILDING",
+  CANCELLED = "CANCELLED",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DEPRECATED = "DEPRECATED",
+  DISTRIBUTING = "DISTRIBUTING",
+  FAILED = "FAILED",
+  INTEGRATING = "INTEGRATING",
+  PENDING = "PENDING",
+  TESTING = "TESTING"
+}
+
+export enum Ownership {
+  AMAZON = "Amazon",
+  SELF = "Self",
+  SHARED = "Shared"
+}
+
+export enum PipelineExecutionStartCondition {
+  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY"
+}
+
+export enum PipelineStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum Platform {
+  LINUX = "Linux",
+  WINDOWS = "Windows"
+}
+
 /**
  *
  *          <p>
@@ -357,10 +409,6 @@ export namespace ComponentConfiguration {
   }
 }
 
-export enum ComponentFormat {
-  SHELL = "SHELL"
-}
-
 /**
  *
  *          <p>A high level summary of a component.</p>
@@ -443,11 +491,6 @@ export namespace ComponentSummary {
   export function isa(o: any): o is ComponentSummary {
     return _smithy.isa(o, "ComponentSummary");
   }
-}
-
-export enum ComponentType {
-  BUILD = "BUILD",
-  TEST = "TEST"
 }
 
 /**
@@ -1818,14 +1861,6 @@ export namespace EbsInstanceBlockDeviceSpecification {
   }
 }
 
-export enum EbsVolumeType {
-  GP2 = "gp2",
-  IO1 = "io1",
-  SC1 = "sc1",
-  ST1 = "st1",
-  STANDARD = "standard"
-}
-
 /**
  *
  *          <p>
@@ -2772,20 +2807,6 @@ export namespace ImageState {
   export function isa(o: any): o is ImageState {
     return _smithy.isa(o, "ImageState");
   }
-}
-
-export enum ImageStatus {
-  AVAILABLE = "AVAILABLE",
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  DISTRIBUTING = "DISTRIBUTING",
-  FAILED = "FAILED",
-  INTEGRATING = "INTEGRATING",
-  PENDING = "PENDING",
-  TESTING = "TESTING"
 }
 
 /**
@@ -4298,27 +4319,6 @@ export namespace OutputResources {
   export function isa(o: any): o is OutputResources {
     return _smithy.isa(o, "OutputResources");
   }
-}
-
-export enum Ownership {
-  AMAZON = "Amazon",
-  SELF = "Self",
-  SHARED = "Shared"
-}
-
-export enum PipelineExecutionStartCondition {
-  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY"
-}
-
-export enum PipelineStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum Platform {
-  LINUX = "Linux",
-  WINDOWS = "Windows"
 }
 
 export interface PutComponentPolicyRequest {

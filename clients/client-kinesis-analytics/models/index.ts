@@ -1,6 +1,26 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ApplicationStatus {
+  DELETING = "DELETING",
+  READY = "READY",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  STOPPING = "STOPPING",
+  UPDATING = "UPDATING"
+}
+
+export enum InputStartingPosition {
+  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
+  NOW = "NOW",
+  TRIM_HORIZON = "TRIM_HORIZON"
+}
+
+export enum RecordFormatType {
+  CSV = "CSV",
+  JSON = "JSON"
+}
+
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   __type?: "AddApplicationCloudWatchLoggingOptionRequest";
   /**
@@ -382,15 +402,6 @@ export namespace ApplicationDetail {
   export function isa(o: any): o is ApplicationDetail {
     return _smithy.isa(o, "ApplicationDetail");
   }
-}
-
-export enum ApplicationStatus {
-  DELETING = "DELETING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING"
 }
 
 /**
@@ -1666,12 +1677,6 @@ export namespace InputSchemaUpdate {
   }
 }
 
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON"
-}
-
 /**
  *
  *         <p>Describes the point at which the application reads from
@@ -2745,11 +2750,6 @@ export namespace RecordFormat {
   export function isa(o: any): o is RecordFormat {
     return _smithy.isa(o, "RecordFormat");
   }
-}
-
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON"
 }
 
 /**

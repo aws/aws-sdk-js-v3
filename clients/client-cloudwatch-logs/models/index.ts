@@ -1,6 +1,33 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Distribution {
+  ByLogStream = "ByLogStream",
+  Random = "Random"
+}
+
+export enum ExportTaskStatusCode {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  PENDING_CANCEL = "PENDING_CANCEL",
+  RUNNING = "RUNNING"
+}
+
+export enum OrderBy {
+  LastEventTime = "LastEventTime",
+  LogStreamName = "LogStreamName"
+}
+
+export enum QueryStatus {
+  Cancelled = "Cancelled",
+  Complete = "Complete",
+  Failed = "Failed",
+  Running = "Running",
+  Scheduled = "Scheduled"
+}
+
 export interface AssociateKmsKeyRequest {
   __type?: "AssociateKmsKeyRequest";
   /**
@@ -899,11 +926,6 @@ export namespace DisassociateKmsKeyRequest {
   }
 }
 
-export enum Distribution {
-  ByLogStream = "ByLogStream",
-  Random = "Random"
-}
-
 /**
  *
  *          <p>Represents an export task.</p>
@@ -1039,15 +1061,6 @@ export namespace ExportTaskStatus {
   export function isa(o: any): o is ExportTaskStatus {
     return _smithy.isa(o, "ExportTaskStatus");
   }
-}
-
-export enum ExportTaskStatusCode {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_CANCEL = "PENDING_CANCEL",
-  RUNNING = "RUNNING"
 }
 
 export interface FilterLogEventsRequest {
@@ -1953,11 +1966,6 @@ export namespace OperationAbortedException {
   }
 }
 
-export enum OrderBy {
-  LastEventTime = "LastEventTime",
-  LogStreamName = "LogStreamName"
-}
-
 /**
  *
  *          <p>Represents a log event.</p>
@@ -2475,14 +2483,6 @@ export namespace QueryStatistics {
   export function isa(o: any): o is QueryStatistics {
     return _smithy.isa(o, "QueryStatistics");
   }
-}
-
-export enum QueryStatus {
-  Cancelled = "Cancelled",
-  Complete = "Complete",
-  Failed = "Failed",
-  Running = "Running",
-  Scheduled = "Scheduled"
 }
 
 /**

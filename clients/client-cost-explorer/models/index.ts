@@ -6,6 +6,103 @@ export enum AccountScope {
   PAYER = "PAYER"
 }
 
+export enum Context {
+  COST_AND_USAGE = "COST_AND_USAGE",
+  RESERVATIONS = "RESERVATIONS",
+  SAVINGS_PLANS = "SAVINGS_PLANS"
+}
+
+export enum CostCategoryRuleVersion {
+  CostCategoryExpressionV1 = "CostCategoryExpression.v1"
+}
+
+export enum Dimension {
+  AZ = "AZ",
+  BILLING_ENTITY = "BILLING_ENTITY",
+  CACHE_ENGINE = "CACHE_ENGINE",
+  DATABASE_ENGINE = "DATABASE_ENGINE",
+  DEPLOYMENT_OPTION = "DEPLOYMENT_OPTION",
+  INSTANCE_TYPE = "INSTANCE_TYPE",
+  INSTANCE_TYPE_FAMILY = "INSTANCE_TYPE_FAMILY",
+  LEGAL_ENTITY_NAME = "LEGAL_ENTITY_NAME",
+  LINKED_ACCOUNT = "LINKED_ACCOUNT",
+  OPERATING_SYSTEM = "OPERATING_SYSTEM",
+  OPERATION = "OPERATION",
+  PAYMENT_OPTION = "PAYMENT_OPTION",
+  PLATFORM = "PLATFORM",
+  PURCHASE_TYPE = "PURCHASE_TYPE",
+  RECORD_TYPE = "RECORD_TYPE",
+  REGION = "REGION",
+  RESERVATION_ID = "RESERVATION_ID",
+  RESOURCE_ID = "RESOURCE_ID",
+  RIGHTSIZING_TYPE = "RIGHTSIZING_TYPE",
+  SAVINGS_PLANS_TYPE = "SAVINGS_PLANS_TYPE",
+  SAVINGS_PLAN_ARN = "SAVINGS_PLAN_ARN",
+  SCOPE = "SCOPE",
+  SERVICE = "SERVICE",
+  SUBSCRIPTION_ID = "SUBSCRIPTION_ID",
+  TENANCY = "TENANCY",
+  USAGE_TYPE = "USAGE_TYPE",
+  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP"
+}
+
+export enum Granularity {
+  DAILY = "DAILY",
+  HOURLY = "HOURLY",
+  MONTHLY = "MONTHLY"
+}
+
+export enum GroupDefinitionType {
+  COST_CATEGORY = "COST_CATEGORY",
+  DIMENSION = "DIMENSION",
+  TAG = "TAG"
+}
+
+export enum LookbackPeriodInDays {
+  SEVEN_DAYS = "SEVEN_DAYS",
+  SIXTY_DAYS = "SIXTY_DAYS",
+  THIRTY_DAYS = "THIRTY_DAYS"
+}
+
+export enum Metric {
+  AMORTIZED_COST = "AMORTIZED_COST",
+  BLENDED_COST = "BLENDED_COST",
+  NET_AMORTIZED_COST = "NET_AMORTIZED_COST",
+  NET_UNBLENDED_COST = "NET_UNBLENDED_COST",
+  NORMALIZED_USAGE_AMOUNT = "NORMALIZED_USAGE_AMOUNT",
+  UNBLENDED_COST = "UNBLENDED_COST",
+  USAGE_QUANTITY = "USAGE_QUANTITY"
+}
+
+export enum OfferingClass {
+  CONVERTIBLE = "CONVERTIBLE",
+  STANDARD = "STANDARD"
+}
+
+export enum PaymentOption {
+  ALL_UPFRONT = "ALL_UPFRONT",
+  HEAVY_UTILIZATION = "HEAVY_UTILIZATION",
+  LIGHT_UTILIZATION = "LIGHT_UTILIZATION",
+  MEDIUM_UTILIZATION = "MEDIUM_UTILIZATION",
+  NO_UPFRONT = "NO_UPFRONT",
+  PARTIAL_UPFRONT = "PARTIAL_UPFRONT"
+}
+
+export enum RightsizingType {
+  MODIFY = "MODIFY",
+  TERMINATE = "TERMINATE"
+}
+
+export enum SupportedSavingsPlansType {
+  COMPUTE_SP = "COMPUTE_SP",
+  EC2_INSTANCE_SP = "EC2_INSTANCE_SP"
+}
+
+export enum TermInYears {
+  ONE_YEAR = "ONE_YEAR",
+  THREE_YEARS = "THREE_YEARS"
+}
+
 /**
  *
  *         <p>The requested report expired. Update the date interval and try again.</p>
@@ -24,12 +121,6 @@ export namespace BillExpirationException {
   export function isa(o: any): o is BillExpirationException {
     return _smithy.isa(o, "BillExpirationException");
   }
-}
-
-export enum Context {
-  COST_AND_USAGE = "COST_AND_USAGE",
-  RESERVATIONS = "RESERVATIONS",
-  SAVINGS_PLANS = "SAVINGS_PLANS"
 }
 
 /**
@@ -189,10 +280,6 @@ export namespace CostCategoryRule {
   export function isa(o: any): o is CostCategoryRule {
     return _smithy.isa(o, "CostCategoryRule");
   }
-}
-
-export enum CostCategoryRuleVersion {
-  CostCategoryExpressionV1 = "CostCategoryExpression.v1"
 }
 
 /**
@@ -711,36 +798,6 @@ export namespace DescribeCostCategoryDefinitionResponse {
   export function isa(o: any): o is DescribeCostCategoryDefinitionResponse {
     return _smithy.isa(o, "DescribeCostCategoryDefinitionResponse");
   }
-}
-
-export enum Dimension {
-  AZ = "AZ",
-  BILLING_ENTITY = "BILLING_ENTITY",
-  CACHE_ENGINE = "CACHE_ENGINE",
-  DATABASE_ENGINE = "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION = "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE = "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY = "INSTANCE_TYPE_FAMILY",
-  LEGAL_ENTITY_NAME = "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT = "LINKED_ACCOUNT",
-  OPERATING_SYSTEM = "OPERATING_SYSTEM",
-  OPERATION = "OPERATION",
-  PAYMENT_OPTION = "PAYMENT_OPTION",
-  PLATFORM = "PLATFORM",
-  PURCHASE_TYPE = "PURCHASE_TYPE",
-  RECORD_TYPE = "RECORD_TYPE",
-  REGION = "REGION",
-  RESERVATION_ID = "RESERVATION_ID",
-  RESOURCE_ID = "RESOURCE_ID",
-  RIGHTSIZING_TYPE = "RIGHTSIZING_TYPE",
-  SAVINGS_PLANS_TYPE = "SAVINGS_PLANS_TYPE",
-  SAVINGS_PLAN_ARN = "SAVINGS_PLAN_ARN",
-  SCOPE = "SCOPE",
-  SERVICE = "SERVICE",
-  SUBSCRIPTION_ID = "SUBSCRIPTION_ID",
-  TENANCY = "TENANCY",
-  USAGE_TYPE = "USAGE_TYPE",
-  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP"
 }
 
 /**
@@ -2965,12 +3022,6 @@ export namespace GetUsageForecastResponse {
   }
 }
 
-export enum Granularity {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY"
-}
-
 /**
  *
  *         <p>One level of grouped data in the results.</p>
@@ -3026,12 +3077,6 @@ export namespace GroupDefinition {
   export function isa(o: any): o is GroupDefinition {
     return _smithy.isa(o, "GroupDefinition");
   }
-}
-
-export enum GroupDefinitionType {
-  COST_CATEGORY = "COST_CATEGORY",
-  DIMENSION = "DIMENSION",
-  TAG = "TAG"
 }
 
 /**
@@ -3178,22 +3223,6 @@ export namespace ListCostCategoryDefinitionsResponse {
   }
 }
 
-export enum LookbackPeriodInDays {
-  SEVEN_DAYS = "SEVEN_DAYS",
-  SIXTY_DAYS = "SIXTY_DAYS",
-  THIRTY_DAYS = "THIRTY_DAYS"
-}
-
-export enum Metric {
-  AMORTIZED_COST = "AMORTIZED_COST",
-  BLENDED_COST = "BLENDED_COST",
-  NET_AMORTIZED_COST = "NET_AMORTIZED_COST",
-  NET_UNBLENDED_COST = "NET_UNBLENDED_COST",
-  NORMALIZED_USAGE_AMOUNT = "NORMALIZED_USAGE_AMOUNT",
-  UNBLENDED_COST = "UNBLENDED_COST",
-  USAGE_QUANTITY = "USAGE_QUANTITY"
-}
-
 /**
  *
  *         <p>The aggregated value for a metric.</p>
@@ -3241,20 +3270,6 @@ export namespace ModifyRecommendationDetail {
   export function isa(o: any): o is ModifyRecommendationDetail {
     return _smithy.isa(o, "ModifyRecommendationDetail");
   }
-}
-
-export enum OfferingClass {
-  CONVERTIBLE = "CONVERTIBLE",
-  STANDARD = "STANDARD"
-}
-
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  HEAVY_UTILIZATION = "HEAVY_UTILIZATION",
-  LIGHT_UTILIZATION = "LIGHT_UTILIZATION",
-  MEDIUM_UTILIZATION = "MEDIUM_UTILIZATION",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT"
 }
 
 /**
@@ -4134,11 +4149,6 @@ export namespace RightsizingRecommendationSummary {
   }
 }
 
-export enum RightsizingType {
-  MODIFY = "MODIFY",
-  TERMINATE = "TERMINATE"
-}
-
 /**
  *
  * 	        <p>The amortized amount of Savings Plans purchased in a specific account during a specific time interval.</p>
@@ -4840,11 +4850,6 @@ export namespace ServiceSpecification {
   }
 }
 
-export enum SupportedSavingsPlansType {
-  COMPUTE_SP = "COMPUTE_SP",
-  EC2_INSTANCE_SP = "EC2_INSTANCE_SP"
-}
-
 /**
  *
  *         <p>The values that are available for a tag.</p>
@@ -4927,11 +4932,6 @@ export namespace TargetInstance {
   export function isa(o: any): o is TargetInstance {
     return _smithy.isa(o, "TargetInstance");
   }
-}
-
-export enum TermInYears {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS"
 }
 
 /**

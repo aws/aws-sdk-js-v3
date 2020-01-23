@@ -45,6 +45,72 @@ export enum AppStatus {
   Updating = "UPDATING"
 }
 
+export enum ConnectorCapability {
+  hyperVManager = "HYPERV-MANAGER",
+  scvmm = "SCVMM",
+  snapshotBatching = "SNAPSHOT_BATCHING",
+  vSphere = "VSPHERE"
+}
+
+export enum ConnectorStatus {
+  Healthy = "HEALTHY",
+  Unhealthy = "UNHEALTHY"
+}
+
+export enum LicenseType {
+  AWS = "AWS",
+  BYOL = "BYOL"
+}
+
+export enum OutputFormat {
+  JSON = "JSON",
+  YAML = "YAML"
+}
+
+export enum ReplicationJobState {
+  Active = "ACTIVE",
+  Completed = "COMPLETED",
+  Deleted = "DELETED",
+  Deleting = "DELETING",
+  Failed = "FAILED",
+  Failing = "FAILING",
+  PausedOnFailure = "PAUSED_ON_FAILURE",
+  Pending = "PENDING"
+}
+
+export enum ReplicationRunState {
+  Active = "ACTIVE",
+  Completed = "COMPLETED",
+  Deleted = "DELETED",
+  Deleting = "DELETING",
+  Failed = "FAILED",
+  Missed = "MISSED",
+  Pending = "PENDING"
+}
+
+export enum ReplicationRunType {
+  Automatic = "AUTOMATIC",
+  OnDemand = "ON_DEMAND"
+}
+
+export enum ServerCatalogStatus {
+  Available = "AVAILABLE",
+  Deleted = "DELETED",
+  Expired = "EXPIRED",
+  Importing = "IMPORTING",
+  NotImported = "NOT_IMPORTED"
+}
+
+export enum ServerType {
+  VirtualMachine = "VIRTUAL_MACHINE"
+}
+
+export enum VmManagerType {
+  hyperVManager = "HYPERV-MANAGER",
+  scvmm = "SCVMM",
+  vSphere = "VSPHERE"
+}
+
 /**
  *
  *         <p>Information about the application.</p>
@@ -253,18 +319,6 @@ export namespace Connector {
   export function isa(o: any): o is Connector {
     return _smithy.isa(o, "Connector");
   }
-}
-
-export enum ConnectorCapability {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  snapshotBatching = "SNAPSHOT_BATCHING",
-  vSphere = "VSPHERE"
-}
-
-export enum ConnectorStatus {
-  Healthy = "HEALTHY",
-  Unhealthy = "UNHEALTHY"
 }
 
 export interface CreateAppRequest {
@@ -1196,11 +1250,6 @@ export namespace LaunchDetails {
   }
 }
 
-export enum LicenseType {
-  AWS = "AWS",
-  BYOL = "BYOL"
-}
-
 export interface ListAppsRequest {
   __type?: "ListAppsRequest";
   /**
@@ -1316,11 +1365,6 @@ export namespace OperationNotPermittedException {
   export function isa(o: any): o is OperationNotPermittedException {
     return _smithy.isa(o, "OperationNotPermittedException");
   }
-}
-
-export enum OutputFormat {
-  JSON = "JSON",
-  YAML = "YAML"
 }
 
 export interface PutAppLaunchConfigurationRequest {
@@ -1600,17 +1644,6 @@ export namespace ReplicationJobNotFoundException {
   }
 }
 
-export enum ReplicationJobState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Failing = "FAILING",
-  PausedOnFailure = "PAUSED_ON_FAILURE",
-  Pending = "PENDING"
-}
-
 /**
  *
  *         <p>Represents a replication run.</p>
@@ -1770,21 +1803,6 @@ export namespace ReplicationRunStageDetails {
   }
 }
 
-export enum ReplicationRunState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Missed = "MISSED",
-  Pending = "PENDING"
-}
-
-export enum ReplicationRunType {
-  Automatic = "AUTOMATIC",
-  OnDemand = "ON_DEMAND"
-}
-
 /**
  *
  *         <p>Location of the Amazon S3 object in the customer's account.</p>
@@ -1880,14 +1898,6 @@ export namespace ServerCannotBeReplicatedException {
   export function isa(o: any): o is ServerCannotBeReplicatedException {
     return _smithy.isa(o, "ServerCannotBeReplicatedException");
   }
-}
-
-export enum ServerCatalogStatus {
-  Available = "AVAILABLE",
-  Deleted = "DELETED",
-  Expired = "EXPIRED",
-  Importing = "IMPORTING",
-  NotImported = "NOT_IMPORTED"
 }
 
 /**
@@ -2174,10 +2184,6 @@ export namespace ServerReplicationParameters {
   export function isa(o: any): o is ServerReplicationParameters {
     return _smithy.isa(o, "ServerReplicationParameters");
   }
-}
-
-export enum ServerType {
-  VirtualMachine = "VIRTUAL_MACHINE"
 }
 
 export interface StartAppReplicationRequest {
@@ -2569,12 +2575,6 @@ export namespace UserData {
   export function isa(o: any): o is UserData {
     return _smithy.isa(o, "UserData");
   }
-}
-
-export enum VmManagerType {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  vSphere = "VSPHERE"
 }
 
 /**

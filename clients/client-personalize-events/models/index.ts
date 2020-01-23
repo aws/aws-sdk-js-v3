@@ -68,6 +68,26 @@ export namespace Event {
   }
 }
 
+/**
+ *
+ *          <p>Provide a valid value for the field or parameter.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  name: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
 export interface PutEventsRequest {
   __type?: "PutEventsRequest";
   /**
@@ -104,25 +124,5 @@ export interface PutEventsRequest {
 export namespace PutEventsRequest {
   export function isa(o: any): o is PutEventsRequest {
     return _smithy.isa(o, "PutEventsRequest");
-  }
-}
-
-/**
- *
- *          <p>Provide a valid value for the field or parameter.</p>
- *
- */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidInputException";
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidInputException {
-  export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
   }
 }

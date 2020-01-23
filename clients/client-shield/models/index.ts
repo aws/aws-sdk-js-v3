@@ -1,6 +1,44 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AttackLayer {
+  APPLICATION = "APPLICATION",
+  NETWORK = "NETWORK"
+}
+
+export enum AttackPropertyIdentifier {
+  DESTINATION_URL = "DESTINATION_URL",
+  REFERRER = "REFERRER",
+  SOURCE_ASN = "SOURCE_ASN",
+  SOURCE_COUNTRY = "SOURCE_COUNTRY",
+  SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
+  SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
+  WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
+  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE"
+}
+
+export enum AutoRenew {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum SubResourceType {
+  IP = "IP",
+  URL = "URL"
+}
+
+export enum SubscriptionState {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
+}
+
+export enum Unit {
+  BITS = "BITS",
+  BYTES = "BYTES",
+  PACKETS = "PACKETS",
+  REQUESTS = "REQUESTS"
+}
+
 /**
  *
  *          <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
@@ -165,11 +203,6 @@ export namespace AttackDetail {
   }
 }
 
-export enum AttackLayer {
-  APPLICATION = "APPLICATION",
-  NETWORK = "NETWORK"
-}
-
 /**
  *
  *          <p>Details of the described attack.</p>
@@ -221,17 +254,6 @@ export namespace AttackProperty {
   export function isa(o: any): o is AttackProperty {
     return _smithy.isa(o, "AttackProperty");
   }
-}
-
-export enum AttackPropertyIdentifier {
-  DESTINATION_URL = "DESTINATION_URL",
-  REFERRER = "REFERRER",
-  SOURCE_ASN = "SOURCE_ASN",
-  SOURCE_COUNTRY = "SOURCE_COUNTRY",
-  SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
-  SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
-  WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE"
 }
 
 /**
@@ -358,11 +380,6 @@ export namespace AttackVectorDescription {
   export function isa(o: any): o is AttackVectorDescription {
     return _smithy.isa(o, "AttackVectorDescription");
   }
-}
-
-export enum AutoRenew {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
 }
 
 /**
@@ -1263,11 +1280,6 @@ export namespace SubResourceSummary {
   }
 }
 
-export enum SubResourceType {
-  IP = "IP",
-  URL = "URL"
-}
-
 /**
  *
  *          <p>Information about the AWS Shield Advanced subscription for an account.</p>
@@ -1316,11 +1328,6 @@ export namespace Subscription {
   export function isa(o: any): o is Subscription {
     return _smithy.isa(o, "Subscription");
   }
-}
-
-export enum SubscriptionState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
 }
 
 /**
@@ -1433,13 +1440,6 @@ export namespace TimeRange {
   export function isa(o: any): o is TimeRange {
     return _smithy.isa(o, "TimeRange");
   }
-}
-
-export enum Unit {
-  BITS = "BITS",
-  BYTES = "BYTES",
-  PACKETS = "PACKETS",
-  REQUESTS = "REQUESTS"
 }
 
 export interface UpdateEmergencyContactSettingsRequest {

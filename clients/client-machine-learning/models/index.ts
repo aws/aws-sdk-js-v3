@@ -1,6 +1,92 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Algorithm {
+  SGD = "sgd"
+}
+
+export enum BatchPredictionFilterVariable {
+  CREATED_AT = "CreatedAt",
+  DATASOURCE_ID = "DataSourceId",
+  DATA_URI = "DataURI",
+  IAM_USER = "IAMUser",
+  LAST_UPDATED_AT = "LastUpdatedAt",
+  ML_MODEL_ID = "MLModelId",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum DataSourceFilterVariable {
+  CREATED_AT = "CreatedAt",
+  DATA_URI = "DataLocationS3",
+  IAM_USER = "IAMUser",
+  LAST_UPDATED_AT = "LastUpdatedAt",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum DetailsAttributes {
+  ALGORITHM = "Algorithm",
+  PREDICTIVE_MODEL_TYPE = "PredictiveModelType"
+}
+
+export enum EntityStatus {
+  COMPLETED = "COMPLETED",
+  DELETED = "DELETED",
+  FAILED = "FAILED",
+  INPROGRESS = "INPROGRESS",
+  PENDING = "PENDING"
+}
+
+export enum EvaluationFilterVariable {
+  CREATED_AT = "CreatedAt",
+  DATASOURCE_ID = "DataSourceId",
+  DATA_URI = "DataURI",
+  IAM_USER = "IAMUser",
+  LAST_UPDATED_AT = "LastUpdatedAt",
+  ML_MODEL_ID = "MLModelId",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum MLModelFilterVariable {
+  ALGORITHM = "Algorithm",
+  CREATED_AT = "CreatedAt",
+  IAM_USER = "IAMUser",
+  LAST_UPDATED_AT = "LastUpdatedAt",
+  ML_MODEL_TYPE = "MLModelType",
+  NAME = "Name",
+  REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
+  STATUS = "Status",
+  TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
+  TRAINING_DATA_URI = "TrainingDataURI"
+}
+
+export enum MLModelType {
+  BINARY = "BINARY",
+  MULTICLASS = "MULTICLASS",
+  REGRESSION = "REGRESSION"
+}
+
+export enum RealtimeEndpointStatus {
+  FAILED = "FAILED",
+  NONE = "NONE",
+  READY = "READY",
+  UPDATING = "UPDATING"
+}
+
+export enum SortOrder {
+  ASC = "asc",
+  DSC = "dsc"
+}
+
+export enum TaggableResourceType {
+  BATCH_PREDICTION = "BatchPrediction",
+  DATASOURCE = "DataSource",
+  EVALUATION = "Evaluation",
+  ML_MODEL = "MLModel"
+}
+
 export interface AddTagsInput {
   __type?: "AddTagsInput";
   /**
@@ -57,10 +143,6 @@ export namespace AddTagsOutput {
   export function isa(o: any): o is AddTagsOutput {
     return _smithy.isa(o, "AddTagsOutput");
   }
-}
-
-export enum Algorithm {
-  SGD = "sgd"
 }
 
 /**
@@ -213,17 +295,6 @@ export namespace BatchPrediction {
   export function isa(o: any): o is BatchPrediction {
     return _smithy.isa(o, "BatchPrediction");
   }
-}
-
-export enum BatchPredictionFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status"
 }
 
 export interface CreateBatchPredictionInput {
@@ -1042,15 +1113,6 @@ export namespace DataSource {
   export function isa(o: any): o is DataSource {
     return _smithy.isa(o, "DataSource");
   }
-}
-
-export enum DataSourceFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATA_URI = "DataLocationS3",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  NAME = "Name",
-  STATUS = "Status"
 }
 
 export interface DeleteBatchPredictionInput {
@@ -2086,19 +2148,6 @@ export namespace DescribeTagsOutput {
   }
 }
 
-export enum DetailsAttributes {
-  ALGORITHM = "Algorithm",
-  PREDICTIVE_MODEL_TYPE = "PredictiveModelType"
-}
-
-export enum EntityStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *          <p> Represents the output of <code>GetEvaluation</code> operation. </p>
@@ -2249,17 +2298,6 @@ export namespace Evaluation {
   export function isa(o: any): o is Evaluation {
     return _smithy.isa(o, "Evaluation");
   }
-}
-
-export enum EvaluationFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status"
 }
 
 export interface GetBatchPredictionInput {
@@ -3435,25 +3473,6 @@ export namespace MLModel {
   }
 }
 
-export enum MLModelFilterVariable {
-  ALGORITHM = "Algorithm",
-  CREATED_AT = "CreatedAt",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_TYPE = "MLModelType",
-  NAME = "Name",
-  REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
-  STATUS = "Status",
-  TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
-  TRAINING_DATA_URI = "TrainingDataURI"
-}
-
-export enum MLModelType {
-  BINARY = "BINARY",
-  MULTICLASS = "MULTICLASS",
-  REGRESSION = "REGRESSION"
-}
-
 /**
  *
  *         <p>Measurements of how well the <code>MLModel</code> performed on known observations. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
@@ -4024,13 +4043,6 @@ export namespace RealtimeEndpointInfo {
   }
 }
 
-export enum RealtimeEndpointStatus {
-  FAILED = "FAILED",
-  NONE = "NONE",
-  READY = "READY",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>Describes the data specification of an Amazon Redshift <code>DataSource</code>.</p>
@@ -4458,11 +4470,6 @@ export namespace S3DataSpec {
   }
 }
 
-export enum SortOrder {
-  ASC = "asc",
-  DSC = "dsc"
-}
-
 /**
  *
  *          <p>A custom key-value pair associated with an ML object, such as an ML model.</p>
@@ -4509,13 +4516,6 @@ export namespace TagLimitExceededException {
   export function isa(o: any): o is TagLimitExceededException {
     return _smithy.isa(o, "TagLimitExceededException");
   }
-}
-
-export enum TaggableResourceType {
-  BATCH_PREDICTION = "BatchPrediction",
-  DATASOURCE = "DataSource",
-  EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel"
 }
 
 export interface UpdateBatchPredictionInput {

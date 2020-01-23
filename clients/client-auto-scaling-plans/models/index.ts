@@ -1,6 +1,100 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ForecastDataType {
+  CapacityForecast = "CapacityForecast",
+  LoadForecast = "LoadForecast",
+  ScheduledActionMaxCapacity = "ScheduledActionMaxCapacity",
+  ScheduledActionMinCapacity = "ScheduledActionMinCapacity"
+}
+
+export enum LoadMetricType {
+  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
+  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
+  ASGTotalNetworkIn = "ASGTotalNetworkIn",
+  ASGTotalNetworkOut = "ASGTotalNetworkOut"
+}
+
+export enum MetricStatistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum"
+}
+
+export enum PolicyType {
+  TargetTrackingScaling = "TargetTrackingScaling"
+}
+
+export enum PredictiveScalingMaxCapacityBehavior {
+  SetForecastCapacityToMaxCapacity = "SetForecastCapacityToMaxCapacity",
+  SetMaxCapacityAboveForecastCapacity = "SetMaxCapacityAboveForecastCapacity",
+  SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity"
+}
+
+export enum PredictiveScalingMode {
+  ForecastAndScale = "ForecastAndScale",
+  ForecastOnly = "ForecastOnly"
+}
+
+export enum ScalableDimension {
+  AutoScalingGroupDesiredCapacity = "autoscaling:autoScalingGroup:DesiredCapacity",
+  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount = "ecs:service:DesiredCount",
+  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount"
+}
+
+export enum ScalingMetricType {
+  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn = "ASGAverageNetworkIn",
+  ASGAverageNetworkOut = "ASGAverageNetworkOut",
+  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
+  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections"
+}
+
+export enum ScalingPlanStatusCode {
+  Active = "Active",
+  ActiveWithProblems = "ActiveWithProblems",
+  CreationFailed = "CreationFailed",
+  CreationInProgress = "CreationInProgress",
+  DeletionFailed = "DeletionFailed",
+  DeletionInProgress = "DeletionInProgress",
+  UpdateFailed = "UpdateFailed",
+  UpdateInProgress = "UpdateInProgress"
+}
+
+export enum ScalingPolicyUpdateBehavior {
+  KeepExternalPolicies = "KeepExternalPolicies",
+  ReplaceExternalPolicies = "ReplaceExternalPolicies"
+}
+
+export enum ScalingStatusCode {
+  Active = "Active",
+  Inactive = "Inactive",
+  PartiallyActive = "PartiallyActive"
+}
+
+export enum ServiceNamespace {
+  AUTOSCALING = "autoscaling",
+  DYNAMODB = "dynamodb",
+  EC2 = "ec2",
+  ECS = "ecs",
+  RDS = "rds"
+}
+
 /**
  *
  *          <p>Represents an application source.</p>
@@ -430,13 +524,6 @@ export namespace DescribeScalingPlansResponse {
   }
 }
 
-export enum ForecastDataType {
-  CapacityForecast = "CapacityForecast",
-  LoadForecast = "LoadForecast",
-  ScheduledActionMaxCapacity = "ScheduledActionMaxCapacity",
-  ScheduledActionMinCapacity = "ScheduledActionMinCapacity"
-}
-
 export interface GetScalingPlanResourceForecastDataRequest {
   __type?: "GetScalingPlanResourceForecastDataRequest";
   /**
@@ -634,13 +721,6 @@ export namespace LimitExceededException {
   }
 }
 
-export enum LoadMetricType {
-  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
-  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
-  ASGTotalNetworkIn = "ASGTotalNetworkIn",
-  ASGTotalNetworkOut = "ASGTotalNetworkOut"
-}
-
 /**
  *
  *          <p>Represents a dimension for a customized metric.</p>
@@ -669,14 +749,6 @@ export namespace MetricDimension {
   }
 }
 
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum"
-}
-
 /**
  *
  *          <p>The specified object could not be found.</p>
@@ -695,10 +767,6 @@ export namespace ObjectNotFoundException {
   export function isa(o: any): o is ObjectNotFoundException {
     return _smithy.isa(o, "ObjectNotFoundException");
   }
-}
-
-export enum PolicyType {
-  TargetTrackingScaling = "TargetTrackingScaling"
 }
 
 /**
@@ -788,28 +856,6 @@ export namespace PredefinedScalingMetricSpecification {
   export function isa(o: any): o is PredefinedScalingMetricSpecification {
     return _smithy.isa(o, "PredefinedScalingMetricSpecification");
   }
-}
-
-export enum PredictiveScalingMaxCapacityBehavior {
-  SetForecastCapacityToMaxCapacity = "SetForecastCapacityToMaxCapacity",
-  SetMaxCapacityAboveForecastCapacity = "SetMaxCapacityAboveForecastCapacity",
-  SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity"
-}
-
-export enum PredictiveScalingMode {
-  ForecastAndScale = "ForecastAndScale",
-  ForecastOnly = "ForecastOnly"
-}
-
-export enum ScalableDimension {
-  AutoScalingGroupDesiredCapacity = "autoscaling:autoScalingGroup:DesiredCapacity",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount"
 }
 
 /**
@@ -1067,22 +1113,6 @@ export namespace ScalingInstruction {
   }
 }
 
-export enum ScalingMetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections"
-}
-
 /**
  *
  *          <p>Represents a scaling plan.</p>
@@ -1337,17 +1367,6 @@ export namespace ScalingPlanResource {
   }
 }
 
-export enum ScalingPlanStatusCode {
-  Active = "Active",
-  ActiveWithProblems = "ActiveWithProblems",
-  CreationFailed = "CreationFailed",
-  CreationInProgress = "CreationInProgress",
-  DeletionFailed = "DeletionFailed",
-  DeletionInProgress = "DeletionInProgress",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress"
-}
-
 /**
  *
  *          <p>Represents a scaling policy.</p>
@@ -1382,25 +1401,6 @@ export namespace ScalingPolicy {
   export function isa(o: any): o is ScalingPolicy {
     return _smithy.isa(o, "ScalingPolicy");
   }
-}
-
-export enum ScalingPolicyUpdateBehavior {
-  KeepExternalPolicies = "KeepExternalPolicies",
-  ReplaceExternalPolicies = "ReplaceExternalPolicies"
-}
-
-export enum ScalingStatusCode {
-  Active = "Active",
-  Inactive = "Inactive",
-  PartiallyActive = "PartiallyActive"
-}
-
-export enum ServiceNamespace {
-  AUTOSCALING = "autoscaling",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  RDS = "rds"
 }
 
 /**

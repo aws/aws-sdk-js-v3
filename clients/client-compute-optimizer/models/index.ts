@@ -1,6 +1,40 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum FilterName {
+  FINDING = "Finding",
+  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType"
+}
+
+export enum Finding {
+  NOT_OPTIMIZED = "NotOptimized",
+  OPTIMIZED = "Optimized",
+  OVER_PROVISIONED = "Overprovisioned",
+  UNDER_PROVISIONED = "Underprovisioned"
+}
+
+export enum MetricName {
+  CPU = "Cpu",
+  MEMORY = "Memory"
+}
+
+export enum MetricStatistic {
+  AVERAGE = "Average",
+  MAXIMUM = "Maximum"
+}
+
+export enum RecommendationSourceType {
+  AUTO_SCALING_GROUP = "AutoScalingGroup",
+  EC2_INSTANCE = "Ec2Instance"
+}
+
+export enum Status {
+  ACTIVE = "Active",
+  FAILED = "Failed",
+  INACTIVE = "Inactive",
+  PENDING = "Pending"
+}
+
 /**
  *
  *         <p>You do not have sufficient access to perform this action.</p>
@@ -255,18 +289,6 @@ export namespace Filter {
   export function isa(o: any): o is Filter {
     return _smithy.isa(o, "Filter");
   }
-}
-
-export enum FilterName {
-  FINDING = "Finding",
-  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType"
-}
-
-export enum Finding {
-  NOT_OPTIMIZED = "NotOptimized",
-  OPTIMIZED = "Optimized",
-  OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned"
 }
 
 export interface GetAutoScalingGroupRecommendationsRequest {
@@ -854,16 +876,6 @@ export namespace InvalidParameterValueException {
   }
 }
 
-export enum MetricName {
-  CPU = "Cpu",
-  MEMORY = "Memory"
-}
-
-export enum MetricStatistic {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum"
-}
-
 /**
  *
  *         <p>The request must contain either a valid (registered) AWS access key ID or X.509
@@ -972,11 +984,6 @@ export namespace RecommendationSource {
   export function isa(o: any): o is RecommendationSource {
     return _smithy.isa(o, "RecommendationSource");
   }
-}
-
-export enum RecommendationSourceType {
-  AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EC2_INSTANCE = "Ec2Instance"
 }
 
 /**
@@ -1091,13 +1098,6 @@ export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
     return _smithy.isa(o, "ServiceUnavailableException");
   }
-}
-
-export enum Status {
-  ACTIVE = "Active",
-  FAILED = "Failed",
-  INACTIVE = "Inactive",
-  PENDING = "Pending"
 }
 
 /**

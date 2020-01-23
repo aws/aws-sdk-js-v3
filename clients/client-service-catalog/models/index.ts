@@ -1,465 +1,194 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface AssociateTagOptionWithResourceInput {
-  __type?: "AssociateTagOptionWithResourceInput";
-  /**
-   *
-   *          <p>The resource identifier.</p>
-   *
-   */
-  ResourceId: string | undefined;
-
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  TagOptionId: string | undefined;
+export enum AccessLevelFilterKey {
+  ACCOUNT = "Account",
+  ROLE = "Role",
+  USER = "User"
 }
 
-export namespace AssociateTagOptionWithResourceInput {
-  export function isa(o: any): o is AssociateTagOptionWithResourceInput {
-    return _smithy.isa(o, "AssociateTagOptionWithResourceInput");
-  }
+export enum AccessStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  UNDER_CHANGE = "UNDER_CHANGE"
 }
 
-export interface AssociateTagOptionWithResourceOutput extends $MetadataBearer {
-  __type?: "AssociateTagOptionWithResourceOutput";
+export enum ChangeAction {
+  ADD = "ADD",
+  MODIFY = "MODIFY",
+  REMOVE = "REMOVE"
 }
 
-export namespace AssociateTagOptionWithResourceOutput {
-  export function isa(o: any): o is AssociateTagOptionWithResourceOutput {
-    return _smithy.isa(o, "AssociateTagOptionWithResourceOutput");
-  }
+export enum CopyOption {
+  CopyTags = "CopyTags"
 }
 
-export interface CreateTagOptionInput {
-  __type?: "CreateTagOptionInput";
-  /**
-   *
-   *          <p>The TagOption key.</p>
-   *
-   */
-  Key: string | undefined;
-
-  /**
-   *
-   *          <p>The TagOption value.</p>
-   *
-   */
-  Value: string | undefined;
+export enum CopyProductStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
 }
 
-export namespace CreateTagOptionInput {
-  export function isa(o: any): o is CreateTagOptionInput {
-    return _smithy.isa(o, "CreateTagOptionInput");
-  }
+export enum EvaluationType {
+  DYNAMIC = "DYNAMIC",
+  STATIC = "STATIC"
 }
 
-export interface CreateTagOptionOutput extends $MetadataBearer {
-  __type?: "CreateTagOptionOutput";
-  /**
-   *
-   *          <p>Information about the TagOption.</p>
-   *
-   */
-  TagOptionDetail?: TagOptionDetail;
+export enum OrganizationNodeType {
+  ACCOUNT = "ACCOUNT",
+  ORGANIZATION = "ORGANIZATION",
+  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
 }
 
-export namespace CreateTagOptionOutput {
-  export function isa(o: any): o is CreateTagOptionOutput {
-    return _smithy.isa(o, "CreateTagOptionOutput");
-  }
+export enum PortfolioShareType {
+  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
+  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
+  IMPORTED = "IMPORTED"
 }
 
-export interface DeleteTagOptionInput {
-  __type?: "DeleteTagOptionInput";
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  Id: string | undefined;
+export enum PrincipalType {
+  IAM = "IAM"
 }
 
-export namespace DeleteTagOptionInput {
-  export function isa(o: any): o is DeleteTagOptionInput {
-    return _smithy.isa(o, "DeleteTagOptionInput");
-  }
+export enum ProductSource {
+  ACCOUNT = "ACCOUNT"
 }
 
-export interface DeleteTagOptionOutput extends $MetadataBearer {
-  __type?: "DeleteTagOptionOutput";
+export enum ProductType {
+  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE = "MARKETPLACE"
 }
 
-export namespace DeleteTagOptionOutput {
-  export function isa(o: any): o is DeleteTagOptionOutput {
-    return _smithy.isa(o, "DeleteTagOptionOutput");
-  }
+export enum ProductViewFilterBy {
+  FullTextSearch = "FullTextSearch",
+  Owner = "Owner",
+  ProductType = "ProductType",
+  SourceProductId = "SourceProductId"
 }
 
-export interface DescribeTagOptionInput {
-  __type?: "DescribeTagOptionInput";
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  Id: string | undefined;
+export enum ProductViewSortBy {
+  CreationDate = "CreationDate",
+  Title = "Title",
+  VersionCount = "VersionCount"
 }
 
-export namespace DescribeTagOptionInput {
-  export function isa(o: any): o is DescribeTagOptionInput {
-    return _smithy.isa(o, "DescribeTagOptionInput");
-  }
+export enum PropertyKey {
+  Owner = "OWNER"
 }
 
-export interface DescribeTagOptionOutput extends $MetadataBearer {
-  __type?: "DescribeTagOptionOutput";
-  /**
-   *
-   *          <p>Information about the TagOption.</p>
-   *
-   */
-  TagOptionDetail?: TagOptionDetail;
+export enum ProvisionedProductPlanStatus {
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_SUCCESS = "CREATE_SUCCESS",
+  EXECUTE_FAILED = "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
+  EXECUTE_SUCCESS = "EXECUTE_SUCCESS"
 }
 
-export namespace DescribeTagOptionOutput {
-  export function isa(o: any): o is DescribeTagOptionOutput {
-    return _smithy.isa(o, "DescribeTagOptionOutput");
-  }
+export enum ProvisionedProductPlanType {
+  CLOUDFORMATION = "CLOUDFORMATION"
 }
 
-export interface DisassociateTagOptionFromResourceInput {
-  __type?: "DisassociateTagOptionFromResourceInput";
-  /**
-   *
-   *          <p>The resource identifier.</p>
-   *
-   */
-  ResourceId: string | undefined;
-
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  TagOptionId: string | undefined;
+export enum ProvisionedProductStatus {
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
+  TAINTED = "TAINTED",
+  UNDER_CHANGE = "UNDER_CHANGE"
 }
 
-export namespace DisassociateTagOptionFromResourceInput {
-  export function isa(o: any): o is DisassociateTagOptionFromResourceInput {
-    return _smithy.isa(o, "DisassociateTagOptionFromResourceInput");
-  }
+export enum ProvisionedProductViewFilterBy {
+  SearchQuery = "SearchQuery"
 }
 
-export interface DisassociateTagOptionFromResourceOutput
-  extends $MetadataBearer {
-  __type?: "DisassociateTagOptionFromResourceOutput";
+export enum ProvisioningArtifactGuidance {
+  DEFAULT = "DEFAULT",
+  DEPRECATED = "DEPRECATED"
 }
 
-export namespace DisassociateTagOptionFromResourceOutput {
-  export function isa(o: any): o is DisassociateTagOptionFromResourceOutput {
-    return _smithy.isa(o, "DisassociateTagOptionFromResourceOutput");
-  }
+export enum ProvisioningArtifactPropertyName {
+  Id = "Id"
 }
 
-export interface ListResourcesForTagOptionInput {
-  __type?: "ListResourcesForTagOptionInput";
-  /**
-   *
-   *          <p>The maximum number of items to return with this call.</p>
-   *
-   */
-  PageSize?: number;
-
-  /**
-   *
-   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   *
-   */
-  PageToken?: string;
-
-  /**
-   *
-   *          <p>The resource type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Portfolio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Product</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  ResourceType?: string;
-
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  TagOptionId: string | undefined;
+export enum ProvisioningArtifactType {
+  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE_AMI = "MARKETPLACE_AMI",
+  MARKETPLACE_CAR = "MARKETPLACE_CAR"
 }
 
-export namespace ListResourcesForTagOptionInput {
-  export function isa(o: any): o is ListResourcesForTagOptionInput {
-    return _smithy.isa(o, "ListResourcesForTagOptionInput");
-  }
+export enum RecordStatus {
+  CREATED = "CREATED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
+  SUCCEEDED = "SUCCEEDED"
 }
 
-export interface ListResourcesForTagOptionOutput extends $MetadataBearer {
-  __type?: "ListResourcesForTagOptionOutput";
-  /**
-   *
-   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   *
-   */
-  PageToken?: string;
-
-  /**
-   *
-   *          <p>Information about the resources.</p>
-   *
-   */
-  ResourceDetails?: Array<ResourceDetail>;
+export enum Replacement {
+  CONDITIONAL = "CONDITIONAL",
+  FALSE = "FALSE",
+  TRUE = "TRUE"
 }
 
-export namespace ListResourcesForTagOptionOutput {
-  export function isa(o: any): o is ListResourcesForTagOptionOutput {
-    return _smithy.isa(o, "ListResourcesForTagOptionOutput");
-  }
+export enum RequiresRecreation {
+  ALWAYS = "ALWAYS",
+  CONDITIONALLY = "CONDITIONALLY",
+  NEVER = "NEVER"
 }
 
-/**
- *
- *          <p>Filters to use when listing TagOptions.</p>
- *
- */
-export interface ListTagOptionsFilters {
-  __type?: "ListTagOptionsFilters";
-  /**
-   *
-   *          <p>The active state.</p>
-   *
-   */
-  Active?: boolean;
-
-  /**
-   *
-   *          <p>The TagOption key.</p>
-   *
-   */
-  Key?: string;
-
-  /**
-   *
-   *          <p>The TagOption value.</p>
-   *
-   */
-  Value?: string;
+export enum ResourceAttribute {
+  CREATIONPOLICY = "CREATIONPOLICY",
+  DELETIONPOLICY = "DELETIONPOLICY",
+  METADATA = "METADATA",
+  PROPERTIES = "PROPERTIES",
+  TAGS = "TAGS",
+  UPDATEPOLICY = "UPDATEPOLICY"
 }
 
-export namespace ListTagOptionsFilters {
-  export function isa(o: any): o is ListTagOptionsFilters {
-    return _smithy.isa(o, "ListTagOptionsFilters");
-  }
+export enum ServiceActionAssociationErrorCode {
+  DuplicateResourceException = "DUPLICATE_RESOURCE",
+  InternalFailure = "INTERNAL_FAILURE",
+  LimitExceededException = "LIMIT_EXCEEDED",
+  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
+  ThrottlingException = "THROTTLING"
 }
 
-export interface ListTagOptionsInput {
-  __type?: "ListTagOptionsInput";
-  /**
-   *
-   *          <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
-   *
-   */
-  Filters?: ListTagOptionsFilters;
-
-  /**
-   *
-   *          <p>The maximum number of items to return with this call.</p>
-   *
-   */
-  PageSize?: number;
-
-  /**
-   *
-   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   *
-   */
-  PageToken?: string;
+export enum ServiceActionDefinitionKey {
+  AssumeRole = "AssumeRole",
+  Name = "Name",
+  Parameters = "Parameters",
+  Version = "Version"
 }
 
-export namespace ListTagOptionsInput {
-  export function isa(o: any): o is ListTagOptionsInput {
-    return _smithy.isa(o, "ListTagOptionsInput");
-  }
+export enum ServiceActionDefinitionType {
+  SsmAutomation = "SSM_AUTOMATION"
 }
 
-export interface ListTagOptionsOutput extends $MetadataBearer {
-  __type?: "ListTagOptionsOutput";
-  /**
-   *
-   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
-   *
-   */
-  PageToken?: string;
-
-  /**
-   *
-   *          <p>Information about the TagOptions.</p>
-   *
-   */
-  TagOptionDetails?: Array<TagOptionDetail>;
+export enum ShareStatus {
+  COMPLETED = "COMPLETED",
+  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
+  ERROR = "ERROR",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED"
 }
 
-export namespace ListTagOptionsOutput {
-  export function isa(o: any): o is ListTagOptionsOutput {
-    return _smithy.isa(o, "ListTagOptionsOutput");
-  }
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
 }
 
-/**
- *
- *          <p>Information about a resource.</p>
- *
- */
-export interface ResourceDetail {
-  __type?: "ResourceDetail";
-  /**
-   *
-   *          <p>The ARN of the resource.</p>
-   *
-   */
-  ARN?: string;
-
-  /**
-   *
-   *          <p>The creation time of the resource.</p>
-   *
-   */
-  CreatedTime?: Date;
-
-  /**
-   *
-   *          <p>The description of the resource.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>The identifier of the resource.</p>
-   *
-   */
-  Id?: string;
-
-  /**
-   *
-   *          <p>The name of the resource.</p>
-   *
-   */
-  Name?: string;
+export enum StackInstanceStatus {
+  CURRENT = "CURRENT",
+  INOPERABLE = "INOPERABLE",
+  OUTDATED = "OUTDATED"
 }
 
-export namespace ResourceDetail {
-  export function isa(o: any): o is ResourceDetail {
-    return _smithy.isa(o, "ResourceDetail");
-  }
-}
+export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
 
-/**
- *
- *          <p>Information about a TagOption.</p>
- *
- */
-export interface TagOptionDetail {
-  __type?: "TagOptionDetail";
-  /**
-   *
-   *          <p>The TagOption active state.</p>
-   *
-   */
-  Active?: boolean;
-
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  Id?: string;
-
-  /**
-   *
-   *          <p>The TagOption key.</p>
-   *
-   */
-  Key?: string;
-
-  /**
-   *
-   *          <p>The TagOption value.</p>
-   *
-   */
-  Value?: string;
-}
-
-export namespace TagOptionDetail {
-  export function isa(o: any): o is TagOptionDetail {
-    return _smithy.isa(o, "TagOptionDetail");
-  }
-}
-
-export interface UpdateTagOptionInput {
-  __type?: "UpdateTagOptionInput";
-  /**
-   *
-   *          <p>The updated active state.</p>
-   *
-   */
-  Active?: boolean;
-
-  /**
-   *
-   *          <p>The TagOption identifier.</p>
-   *
-   */
-  Id: string | undefined;
-
-  /**
-   *
-   *          <p>The updated value.</p>
-   *
-   */
-  Value?: string;
-}
-
-export namespace UpdateTagOptionInput {
-  export function isa(o: any): o is UpdateTagOptionInput {
-    return _smithy.isa(o, "UpdateTagOptionInput");
-  }
-}
-
-export interface UpdateTagOptionOutput extends $MetadataBearer {
-  __type?: "UpdateTagOptionOutput";
-  /**
-   *
-   *          <p>Information about the TagOption.</p>
-   *
-   */
-  TagOptionDetail?: TagOptionDetail;
-}
-
-export namespace UpdateTagOptionOutput {
-  export function isa(o: any): o is UpdateTagOptionOutput {
-    return _smithy.isa(o, "UpdateTagOptionOutput");
-  }
+export enum Status {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  FAILED = "FAILED"
 }
 
 export interface AcceptPortfolioShareInput {
@@ -572,18 +301,6 @@ export namespace AccessLevelFilter {
   export function isa(o: any): o is AccessLevelFilter {
     return _smithy.isa(o, "AccessLevelFilter");
   }
-}
-
-export enum AccessLevelFilterKey {
-  ACCOUNT = "Account",
-  ROLE = "Role",
-  USER = "User"
-}
-
-export enum AccessStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE"
 }
 
 export interface AssociateBudgetWithResourceInput {
@@ -813,6 +530,39 @@ export namespace AssociateServiceActionWithProvisioningArtifactOutput {
   }
 }
 
+export interface AssociateTagOptionWithResourceInput {
+  __type?: "AssociateTagOptionWithResourceInput";
+  /**
+   *
+   *          <p>The resource identifier.</p>
+   *
+   */
+  ResourceId: string | undefined;
+
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace AssociateTagOptionWithResourceInput {
+  export function isa(o: any): o is AssociateTagOptionWithResourceInput {
+    return _smithy.isa(o, "AssociateTagOptionWithResourceInput");
+  }
+}
+
+export interface AssociateTagOptionWithResourceOutput extends $MetadataBearer {
+  __type?: "AssociateTagOptionWithResourceOutput";
+}
+
+export namespace AssociateTagOptionWithResourceOutput {
+  export function isa(o: any): o is AssociateTagOptionWithResourceOutput {
+    return _smithy.isa(o, "AssociateTagOptionWithResourceOutput");
+  }
+}
+
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   __type?: "BatchAssociateServiceActionWithProvisioningArtifactInput";
   /**
@@ -962,12 +712,6 @@ export namespace BudgetDetail {
   }
 }
 
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE"
-}
-
 /**
  *
  *          <p>Information about a CloudWatch dashboard.</p>
@@ -1099,10 +843,6 @@ export namespace ConstraintSummary {
   }
 }
 
-export enum CopyOption {
-  CopyTags = "CopyTags"
-}
-
 export interface CopyProductInput {
   __type?: "CopyProductInput";
   /**
@@ -1192,12 +932,6 @@ export namespace CopyProductOutput {
   export function isa(o: any): o is CopyProductOutput {
     return _smithy.isa(o, "CopyProductOutput");
   }
-}
-
-export enum CopyProductStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
 }
 
 export interface CreateConstraintInput {
@@ -2001,6 +1735,45 @@ export namespace CreateServiceActionOutput {
   }
 }
 
+export interface CreateTagOptionInput {
+  __type?: "CreateTagOptionInput";
+  /**
+   *
+   *          <p>The TagOption key.</p>
+   *
+   */
+  Key: string | undefined;
+
+  /**
+   *
+   *          <p>The TagOption value.</p>
+   *
+   */
+  Value: string | undefined;
+}
+
+export namespace CreateTagOptionInput {
+  export function isa(o: any): o is CreateTagOptionInput {
+    return _smithy.isa(o, "CreateTagOptionInput");
+  }
+}
+
+export interface CreateTagOptionOutput extends $MetadataBearer {
+  __type?: "CreateTagOptionOutput";
+  /**
+   *
+   *          <p>Information about the TagOption.</p>
+   *
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace CreateTagOptionOutput {
+  export function isa(o: any): o is CreateTagOptionOutput {
+    return _smithy.isa(o, "CreateTagOptionOutput");
+  }
+}
+
 export interface DeleteConstraintInput {
   __type?: "DeleteConstraintInput";
   /**
@@ -2362,6 +2135,32 @@ export interface DeleteServiceActionOutput extends $MetadataBearer {
 export namespace DeleteServiceActionOutput {
   export function isa(o: any): o is DeleteServiceActionOutput {
     return _smithy.isa(o, "DeleteServiceActionOutput");
+  }
+}
+
+export interface DeleteTagOptionInput {
+  __type?: "DeleteTagOptionInput";
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteTagOptionInput {
+  export function isa(o: any): o is DeleteTagOptionInput {
+    return _smithy.isa(o, "DeleteTagOptionInput");
+  }
+}
+
+export interface DeleteTagOptionOutput extends $MetadataBearer {
+  __type?: "DeleteTagOptionOutput";
+}
+
+export namespace DeleteTagOptionOutput {
+  export function isa(o: any): o is DeleteTagOptionOutput {
+    return _smithy.isa(o, "DeleteTagOptionOutput");
   }
 }
 
@@ -3326,6 +3125,38 @@ export namespace DescribeServiceActionOutput {
   }
 }
 
+export interface DescribeTagOptionInput {
+  __type?: "DescribeTagOptionInput";
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  Id: string | undefined;
+}
+
+export namespace DescribeTagOptionInput {
+  export function isa(o: any): o is DescribeTagOptionInput {
+    return _smithy.isa(o, "DescribeTagOptionInput");
+  }
+}
+
+export interface DescribeTagOptionOutput extends $MetadataBearer {
+  __type?: "DescribeTagOptionOutput";
+  /**
+   *
+   *          <p>Information about the TagOption.</p>
+   *
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace DescribeTagOptionOutput {
+  export function isa(o: any): o is DescribeTagOptionOutput {
+    return _smithy.isa(o, "DescribeTagOptionOutput");
+  }
+}
+
 export interface DisableAWSOrganizationsAccessInput {
   __type?: "DisableAWSOrganizationsAccessInput";
 }
@@ -3561,6 +3392,40 @@ export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
   }
 }
 
+export interface DisassociateTagOptionFromResourceInput {
+  __type?: "DisassociateTagOptionFromResourceInput";
+  /**
+   *
+   *          <p>The resource identifier.</p>
+   *
+   */
+  ResourceId: string | undefined;
+
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace DisassociateTagOptionFromResourceInput {
+  export function isa(o: any): o is DisassociateTagOptionFromResourceInput {
+    return _smithy.isa(o, "DisassociateTagOptionFromResourceInput");
+  }
+}
+
+export interface DisassociateTagOptionFromResourceOutput
+  extends $MetadataBearer {
+  __type?: "DisassociateTagOptionFromResourceOutput";
+}
+
+export namespace DisassociateTagOptionFromResourceOutput {
+  export function isa(o: any): o is DisassociateTagOptionFromResourceOutput {
+    return _smithy.isa(o, "DisassociateTagOptionFromResourceOutput");
+  }
+}
+
 /**
  *
  *          <p>The specified resource is a duplicate.</p>
@@ -3599,11 +3464,6 @@ export namespace EnableAWSOrganizationsAccessOutput {
   export function isa(o: any): o is EnableAWSOrganizationsAccessOutput {
     return _smithy.isa(o, "EnableAWSOrganizationsAccessOutput");
   }
-}
-
-export enum EvaluationType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC"
 }
 
 export interface ExecuteProvisionedProductPlanInput {
@@ -4958,6 +4818,78 @@ export namespace ListRecordHistorySearchFilter {
   }
 }
 
+export interface ListResourcesForTagOptionInput {
+  __type?: "ListResourcesForTagOptionInput";
+  /**
+   *
+   *          <p>The maximum number of items to return with this call.</p>
+   *
+   */
+  PageSize?: number;
+
+  /**
+   *
+   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   *
+   */
+  PageToken?: string;
+
+  /**
+   *
+   *          <p>The resource type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Portfolio</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Product</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  ResourceType?: string;
+
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  TagOptionId: string | undefined;
+}
+
+export namespace ListResourcesForTagOptionInput {
+  export function isa(o: any): o is ListResourcesForTagOptionInput {
+    return _smithy.isa(o, "ListResourcesForTagOptionInput");
+  }
+}
+
+export interface ListResourcesForTagOptionOutput extends $MetadataBearer {
+  __type?: "ListResourcesForTagOptionOutput";
+  /**
+   *
+   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   *
+   */
+  PageToken?: string;
+
+  /**
+   *
+   *          <p>Information about the resources.</p>
+   *
+   */
+  ResourceDetails?: Array<ResourceDetail>;
+}
+
+export namespace ListResourcesForTagOptionOutput {
+  export function isa(o: any): o is ListResourcesForTagOptionOutput {
+    return _smithy.isa(o, "ListResourcesForTagOptionOutput");
+  }
+}
+
 export interface ListServiceActionsForProvisioningArtifactInput {
   __type?: "ListServiceActionsForProvisioningArtifactInput";
   /**
@@ -5192,6 +5124,94 @@ export namespace ListStackInstancesForProvisionedProductOutput {
 
 /**
  *
+ *          <p>Filters to use when listing TagOptions.</p>
+ *
+ */
+export interface ListTagOptionsFilters {
+  __type?: "ListTagOptionsFilters";
+  /**
+   *
+   *          <p>The active state.</p>
+   *
+   */
+  Active?: boolean;
+
+  /**
+   *
+   *          <p>The TagOption key.</p>
+   *
+   */
+  Key?: string;
+
+  /**
+   *
+   *          <p>The TagOption value.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace ListTagOptionsFilters {
+  export function isa(o: any): o is ListTagOptionsFilters {
+    return _smithy.isa(o, "ListTagOptionsFilters");
+  }
+}
+
+export interface ListTagOptionsInput {
+  __type?: "ListTagOptionsInput";
+  /**
+   *
+   *          <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
+   *
+   */
+  Filters?: ListTagOptionsFilters;
+
+  /**
+   *
+   *          <p>The maximum number of items to return with this call.</p>
+   *
+   */
+  PageSize?: number;
+
+  /**
+   *
+   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   *
+   */
+  PageToken?: string;
+}
+
+export namespace ListTagOptionsInput {
+  export function isa(o: any): o is ListTagOptionsInput {
+    return _smithy.isa(o, "ListTagOptionsInput");
+  }
+}
+
+export interface ListTagOptionsOutput extends $MetadataBearer {
+  __type?: "ListTagOptionsOutput";
+  /**
+   *
+   *          <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   *
+   */
+  PageToken?: string;
+
+  /**
+   *
+   *          <p>Information about the TagOptions.</p>
+   *
+   */
+  TagOptionDetails?: Array<TagOptionDetail>;
+}
+
+export namespace ListTagOptionsOutput {
+  export function isa(o: any): o is ListTagOptionsOutput {
+    return _smithy.isa(o, "ListTagOptionsOutput");
+  }
+}
+
+/**
+ *
  *          <p>The operation is not supported.</p>
  *
  */
@@ -5236,12 +5256,6 @@ export namespace OrganizationNode {
   export function isa(o: any): o is OrganizationNode {
     return _smithy.isa(o, "OrganizationNode");
   }
-}
-
-export enum OrganizationNodeType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
 }
 
 /**
@@ -5321,12 +5335,6 @@ export namespace PortfolioDetail {
   }
 }
 
-export enum PortfolioShareType {
-  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED"
-}
-
 /**
  *
  *          <p>Information about a principal.</p>
@@ -5353,19 +5361,6 @@ export namespace Principal {
   export function isa(o: any): o is Principal {
     return _smithy.isa(o, "Principal");
   }
-}
-
-export enum PrincipalType {
-  IAM = "IAM"
-}
-
-export enum ProductSource {
-  ACCOUNT = "ACCOUNT"
-}
-
-export enum ProductType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE"
 }
 
 /**
@@ -5451,19 +5446,6 @@ export namespace ProductViewDetail {
   export function isa(o: any): o is ProductViewDetail {
     return _smithy.isa(o, "ProductViewDetail");
   }
-}
-
-export enum ProductViewFilterBy {
-  FullTextSearch = "FullTextSearch",
-  Owner = "Owner",
-  ProductType = "ProductType",
-  SourceProductId = "SourceProductId"
-}
-
-export enum ProductViewSortBy {
-  CreationDate = "CreationDate",
-  Title = "Title",
-  VersionCount = "VersionCount"
 }
 
 /**
@@ -5563,10 +5545,6 @@ export namespace ProductViewSummary {
   export function isa(o: any): o is ProductViewSummary {
     return _smithy.isa(o, "ProductViewSummary");
   }
-}
-
-export enum PropertyKey {
-  Owner = "OWNER"
 }
 
 export interface ProvisionProductInput {
@@ -6074,15 +6052,6 @@ export namespace ProvisionedProductPlanDetails {
   }
 }
 
-export enum ProvisionedProductPlanStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS = "CREATE_SUCCESS",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS"
-}
-
 /**
  *
  *          <p>Summary information about a plan.</p>
@@ -6137,22 +6106,6 @@ export namespace ProvisionedProductPlanSummary {
   export function isa(o: any): o is ProvisionedProductPlanSummary {
     return _smithy.isa(o, "ProvisionedProductPlanSummary");
   }
-}
-
-export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION"
-}
-
-export enum ProvisionedProductStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
-  TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE"
-}
-
-export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery"
 }
 
 /**
@@ -6279,11 +6232,6 @@ export namespace ProvisioningArtifactDetail {
   export function isa(o: any): o is ProvisioningArtifactDetail {
     return _smithy.isa(o, "ProvisioningArtifactDetail");
   }
-}
-
-export enum ProvisioningArtifactGuidance {
-  DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED"
 }
 
 /**
@@ -6440,10 +6388,6 @@ export namespace ProvisioningArtifactProperties {
   }
 }
 
-export enum ProvisioningArtifactPropertyName {
-  Id = "Id"
-}
-
 /**
  *
  *          <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
@@ -6491,12 +6435,6 @@ export namespace ProvisioningArtifactSummary {
   export function isa(o: any): o is ProvisioningArtifactSummary {
     return _smithy.isa(o, "ProvisioningArtifactSummary");
   }
-}
-
-export enum ProvisioningArtifactType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR"
 }
 
 /**
@@ -6840,14 +6778,6 @@ export namespace RecordOutput {
   }
 }
 
-export enum RecordStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  *          <p>Information about a tag, which is a key-value pair.</p>
@@ -6947,27 +6877,6 @@ export namespace RejectPortfolioShareOutput {
   }
 }
 
-export enum Replacement {
-  CONDITIONAL = "CONDITIONAL",
-  FALSE = "FALSE",
-  TRUE = "TRUE"
-}
-
-export enum RequiresRecreation {
-  ALWAYS = "ALWAYS",
-  CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER"
-}
-
-export enum ResourceAttribute {
-  CREATIONPOLICY = "CREATIONPOLICY",
-  DELETIONPOLICY = "DELETIONPOLICY",
-  METADATA = "METADATA",
-  PROPERTIES = "PROPERTIES",
-  TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY"
-}
-
 /**
  *
  *          <p>Information about a resource change that will occur when a plan is executed.</p>
@@ -7065,6 +6974,55 @@ export interface ResourceChangeDetail {
 export namespace ResourceChangeDetail {
   export function isa(o: any): o is ResourceChangeDetail {
     return _smithy.isa(o, "ResourceChangeDetail");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a resource.</p>
+ *
+ */
+export interface ResourceDetail {
+  __type?: "ResourceDetail";
+  /**
+   *
+   *          <p>The ARN of the resource.</p>
+   *
+   */
+  ARN?: string;
+
+  /**
+   *
+   *          <p>The creation time of the resource.</p>
+   *
+   */
+  CreatedTime?: Date;
+
+  /**
+   *
+   *          <p>The description of the resource.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>The identifier of the resource.</p>
+   *
+   */
+  Id?: string;
+
+  /**
+   *
+   *          <p>The name of the resource.</p>
+   *
+   */
+  Name?: string;
+}
+
+export namespace ResourceDetail {
+  export function isa(o: any): o is ResourceDetail {
+    return _smithy.isa(o, "ResourceDetail");
   }
 }
 
@@ -7565,25 +7523,6 @@ export namespace ServiceActionAssociation {
   }
 }
 
-export enum ServiceActionAssociationErrorCode {
-  DuplicateResourceException = "DUPLICATE_RESOURCE",
-  InternalFailure = "INTERNAL_FAILURE",
-  LimitExceededException = "LIMIT_EXCEEDED",
-  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING"
-}
-
-export enum ServiceActionDefinitionKey {
-  AssumeRole = "AssumeRole",
-  Name = "Name",
-  Parameters = "Parameters",
-  Version = "Version"
-}
-
-export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION"
-}
-
 /**
  *
  *          <p>An object containing detailed information about the self-service action.</p>
@@ -7717,19 +7656,6 @@ export namespace ShareError {
   }
 }
 
-export enum ShareStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
-}
-
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
-}
-
 /**
  *
  *          <p>An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
@@ -7781,20 +7707,6 @@ export namespace StackInstance {
   }
 }
 
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED"
-}
-
-export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
-
-export enum Status {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED"
-}
-
 /**
  *
  *          <p>Information about a tag. A tag is a key-value pair. Tags are propagated
@@ -7821,6 +7733,48 @@ export interface Tag {
 export namespace Tag {
   export function isa(o: any): o is Tag {
     return _smithy.isa(o, "Tag");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a TagOption.</p>
+ *
+ */
+export interface TagOptionDetail {
+  __type?: "TagOptionDetail";
+  /**
+   *
+   *          <p>The TagOption active state.</p>
+   *
+   */
+  Active?: boolean;
+
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  Id?: string;
+
+  /**
+   *
+   *          <p>The TagOption key.</p>
+   *
+   */
+  Key?: string;
+
+  /**
+   *
+   *          <p>The TagOption value.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace TagOptionDetail {
+  export function isa(o: any): o is TagOptionDetail {
+    return _smithy.isa(o, "TagOptionDetail");
   }
 }
 
@@ -8814,6 +8768,52 @@ export interface UpdateServiceActionOutput extends $MetadataBearer {
 export namespace UpdateServiceActionOutput {
   export function isa(o: any): o is UpdateServiceActionOutput {
     return _smithy.isa(o, "UpdateServiceActionOutput");
+  }
+}
+
+export interface UpdateTagOptionInput {
+  __type?: "UpdateTagOptionInput";
+  /**
+   *
+   *          <p>The updated active state.</p>
+   *
+   */
+  Active?: boolean;
+
+  /**
+   *
+   *          <p>The TagOption identifier.</p>
+   *
+   */
+  Id: string | undefined;
+
+  /**
+   *
+   *          <p>The updated value.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace UpdateTagOptionInput {
+  export function isa(o: any): o is UpdateTagOptionInput {
+    return _smithy.isa(o, "UpdateTagOptionInput");
+  }
+}
+
+export interface UpdateTagOptionOutput extends $MetadataBearer {
+  __type?: "UpdateTagOptionOutput";
+  /**
+   *
+   *          <p>Information about the TagOption.</p>
+   *
+   */
+  TagOptionDetail?: TagOptionDetail;
+}
+
+export namespace UpdateTagOptionOutput {
+  export function isa(o: any): o is UpdateTagOptionOutput {
+    return _smithy.isa(o, "UpdateTagOptionOutput");
   }
 }
 

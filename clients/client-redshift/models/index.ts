@@ -1,2176 +1,77 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- *         <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
- *
- */
-export interface AccessToSnapshotDeniedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AccessToSnapshotDeniedFault";
-  name: "AccessToSnapshotDeniedFault";
-  $fault: "client";
-  message?: string;
+export enum ActionType {
+  RECOMMEND_NODE_CONFIG = "recommend-node-config",
+  RESTORE_CLUSTER = "restore-cluster"
 }
 
-export namespace AccessToSnapshotDeniedFault {
-  export function isa(o: any): o is AccessToSnapshotDeniedFault {
-    return _smithy.isa(o, "AccessToSnapshotDeniedFault");
-  }
+export enum Mode {
+  HIGH_PERFORMANCE = "high-performance",
+  STANDARD = "standard"
 }
 
-/**
- *
- *         <p>The specified CIDR block or EC2 security group is already authorized for the
- *             specified cluster security group.</p>
- *
- */
-export interface AuthorizationAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationAlreadyExistsFault";
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export enum NodeConfigurationOptionsFilterName {
+  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
+  MODE = "Mode",
+  NODE_TYPE = "NodeType",
+  NUM_NODES = "NumberOfNodes"
 }
 
-export namespace AuthorizationAlreadyExistsFault {
-  export function isa(o: any): o is AuthorizationAlreadyExistsFault {
-    return _smithy.isa(o, "AuthorizationAlreadyExistsFault");
-  }
+export enum OperatorType {
+  BETWEEN = "between",
+  EQ = "eq",
+  GE = "ge",
+  GT = "gt",
+  IN = "in",
+  LE = "le",
+  LT = "lt"
 }
 
-/**
- *
- *         <p>The specified CIDR IP range or EC2 security group is not authorized for the
- *             specified cluster security group.</p>
- *
- */
-export interface AuthorizationNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationNotFoundFault";
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  export function isa(o: any): o is AuthorizationNotFoundFault {
-    return _smithy.isa(o, "AuthorizationNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The authorization quota for the cluster security group has been reached.</p>
- *
- */
-export interface AuthorizationQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationQuotaExceededFault";
-  name: "AuthorizationQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationQuotaExceededFault {
-  export function isa(o: any): o is AuthorizationQuotaExceededFault {
-    return _smithy.isa(o, "AuthorizationQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The maximum number for a batch delete of snapshots has been reached. The limit is
- *             100. </p>
- *
- */
-export interface BatchDeleteRequestSizeExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BatchDeleteRequestSizeExceededFault";
-  name: "BatchDeleteRequestSizeExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace BatchDeleteRequestSizeExceededFault {
-  export function isa(o: any): o is BatchDeleteRequestSizeExceededFault {
-    return _smithy.isa(o, "BatchDeleteRequestSizeExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
- *         </p>
- *
- */
-export interface BatchModifyClusterSnapshotsLimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BatchModifyClusterSnapshotsLimitExceededFault";
-  name: "BatchModifyClusterSnapshotsLimitExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace BatchModifyClusterSnapshotsLimitExceededFault {
-  export function isa(
-    o: any
-  ): o is BatchModifyClusterSnapshotsLimitExceededFault {
-    return _smithy.isa(o, "BatchModifyClusterSnapshotsLimitExceededFault");
-  }
-}
-
-/**
- *
- *         <p>Could not find the specified S3 bucket.</p>
- *
- */
-export interface BucketNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "BucketNotFoundFault";
-  name: "BucketNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace BucketNotFoundFault {
-  export function isa(o: any): o is BucketNotFoundFault {
-    return _smithy.isa(o, "BucketNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The account already has a cluster with the given identifier.</p>
- *
- */
-export interface ClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterAlreadyExistsFault";
-  name: "ClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterAlreadyExistsFault {
-  export function isa(o: any): o is ClusterAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
- *
- */
-export interface ClusterNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterNotFoundFault";
-  name: "ClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterNotFoundFault {
-  export function isa(o: any): o is ClusterNotFoundFault {
-    return _smithy.isa(o, "ClusterNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>Cluster is already on the latest database revision.</p>
- *
- */
-export interface ClusterOnLatestRevisionFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterOnLatestRevisionFault";
-  name: "ClusterOnLatestRevisionFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterOnLatestRevisionFault {
-  export function isa(o: any): o is ClusterOnLatestRevisionFault {
-    return _smithy.isa(o, "ClusterOnLatestRevisionFault");
-  }
-}
-
-/**
- *
- *         <p>A cluster parameter group with the same name already exists.</p>
- *
- */
-export interface ClusterParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterParameterGroupAlreadyExistsFault";
-  name: "ClusterParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterParameterGroupAlreadyExistsFault {
-  export function isa(o: any): o is ClusterParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterParameterGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The parameter group name does not refer to an existing parameter group.</p>
- *
- */
-export interface ClusterParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterParameterGroupNotFoundFault";
-  name: "ClusterParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterParameterGroupNotFoundFault {
-  export function isa(o: any): o is ClusterParameterGroupNotFoundFault {
-    return _smithy.isa(o, "ClusterParameterGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request would result in the user exceeding the allowed number of cluster
- *             parameter groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ClusterParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterParameterGroupQuotaExceededFault";
-  name: "ClusterParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterParameterGroupQuotaExceededFault {
-  export function isa(o: any): o is ClusterParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "ClusterParameterGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request would exceed the allowed number of cluster instances for this account.
- *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ClusterQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterQuotaExceededFault";
-  name: "ClusterQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterQuotaExceededFault {
-  export function isa(o: any): o is ClusterQuotaExceededFault {
-    return _smithy.isa(o, "ClusterQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>A cluster security group with the same name already exists.</p>
- *
- */
-export interface ClusterSecurityGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSecurityGroupAlreadyExistsFault";
-  name: "ClusterSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSecurityGroupAlreadyExistsFault {
-  export function isa(o: any): o is ClusterSecurityGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterSecurityGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
- *
- */
-export interface ClusterSecurityGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSecurityGroupNotFoundFault";
-  name: "ClusterSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSecurityGroupNotFoundFault {
-  export function isa(o: any): o is ClusterSecurityGroupNotFoundFault {
-    return _smithy.isa(o, "ClusterSecurityGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request would result in the user exceeding the allowed number of cluster
- *             security groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ClusterSecurityGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSecurityGroupQuotaExceededFault";
-  name: "ClusterSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSecurityGroupQuotaExceededFault {
-  export function isa(o: any): o is ClusterSecurityGroupQuotaExceededFault {
-    return _smithy.isa(o, "ClusterSecurityGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
- *
- */
-export interface ClusterSnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSnapshotAlreadyExistsFault";
-  name: "ClusterSnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSnapshotAlreadyExistsFault {
-  export function isa(o: any): o is ClusterSnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterSnapshotAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
- *
- */
-export interface ClusterSnapshotNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSnapshotNotFoundFault";
-  name: "ClusterSnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSnapshotNotFoundFault {
-  export function isa(o: any): o is ClusterSnapshotNotFoundFault {
-    return _smithy.isa(o, "ClusterSnapshotNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
- *
- */
-export interface ClusterSnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSnapshotQuotaExceededFault";
-  name: "ClusterSnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSnapshotQuotaExceededFault {
-  export function isa(o: any): o is ClusterSnapshotQuotaExceededFault {
-    return _smithy.isa(o, "ClusterSnapshotQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
- *             cluster subnet group. </p>
- *
- */
-export interface ClusterSubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSubnetGroupAlreadyExistsFault";
-  name: "ClusterSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSubnetGroupAlreadyExistsFault {
-  export function isa(o: any): o is ClusterSubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterSubnetGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
- *
- */
-export interface ClusterSubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSubnetGroupNotFoundFault";
-  name: "ClusterSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSubnetGroupNotFoundFault {
-  export function isa(o: any): o is ClusterSubnetGroupNotFoundFault {
-    return _smithy.isa(o, "ClusterSubnetGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request would result in user exceeding the allowed number of cluster subnet
- *             groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ClusterSubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSubnetGroupQuotaExceededFault";
-  name: "ClusterSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSubnetGroupQuotaExceededFault {
-  export function isa(o: any): o is ClusterSubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "ClusterSubnetGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request would result in user exceeding the allowed number of subnets in a
- *             cluster subnet groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ClusterSubnetQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterSubnetQuotaExceededFault";
-  name: "ClusterSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterSubnetQuotaExceededFault {
-  export function isa(o: any): o is ClusterSubnetQuotaExceededFault {
-    return _smithy.isa(o, "ClusterSubnetQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
- *
- */
-export interface CopyToRegionDisabledFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CopyToRegionDisabledFault";
-  name: "CopyToRegionDisabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CopyToRegionDisabledFault {
-  export function isa(o: any): o is CopyToRegionDisabledFault {
-    return _smithy.isa(o, "CopyToRegionDisabledFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
- *
- */
-export interface DependentServiceRequestThrottlingFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DependentServiceRequestThrottlingFault";
-  name: "DependentServiceRequestThrottlingFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace DependentServiceRequestThrottlingFault {
-  export function isa(o: any): o is DependentServiceRequestThrottlingFault {
-    return _smithy.isa(o, "DependentServiceRequestThrottlingFault");
-  }
-}
-
-/**
- *
- *         <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
- *
- */
-export interface DependentServiceUnavailableFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DependentServiceUnavailableFault";
-  name: "DependentServiceUnavailableFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace DependentServiceUnavailableFault {
-  export function isa(o: any): o is DependentServiceUnavailableFault {
-    return _smithy.isa(o, "DependentServiceUnavailableFault");
-  }
-}
-
-/**
- *
- *         <p>The request would exceed the allowed number of event subscriptions for this
- *             account.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface EventSubscriptionQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "EventSubscriptionQuotaExceededFault";
-  name: "EventSubscriptionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace EventSubscriptionQuotaExceededFault {
-  export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
-    return _smithy.isa(o, "EventSubscriptionQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>There is already an existing Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
- *
- */
-export interface HsmClientCertificateAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmClientCertificateAlreadyExistsFault";
-  name: "HsmClientCertificateAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmClientCertificateAlreadyExistsFault {
-  export function isa(o: any): o is HsmClientCertificateAlreadyExistsFault {
-    return _smithy.isa(o, "HsmClientCertificateAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
- *
- */
-export interface HsmClientCertificateNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmClientCertificateNotFoundFault";
-  name: "HsmClientCertificateNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmClientCertificateNotFoundFault {
-  export function isa(o: any): o is HsmClientCertificateNotFoundFault {
-    return _smithy.isa(o, "HsmClientCertificateNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The quota for HSM client certificates has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface HsmClientCertificateQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmClientCertificateQuotaExceededFault";
-  name: "HsmClientCertificateQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmClientCertificateQuotaExceededFault {
-  export function isa(o: any): o is HsmClientCertificateQuotaExceededFault {
-    return _smithy.isa(o, "HsmClientCertificateQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>There is already an existing Amazon Redshift HSM configuration with the specified
- *             identifier.</p>
- *
- */
-export interface HsmConfigurationAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmConfigurationAlreadyExistsFault";
-  name: "HsmConfigurationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmConfigurationAlreadyExistsFault {
-  export function isa(o: any): o is HsmConfigurationAlreadyExistsFault {
-    return _smithy.isa(o, "HsmConfigurationAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
- *
- */
-export interface HsmConfigurationNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmConfigurationNotFoundFault";
-  name: "HsmConfigurationNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmConfigurationNotFoundFault {
-  export function isa(o: any): o is HsmConfigurationNotFoundFault {
-    return _smithy.isa(o, "HsmConfigurationNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The quota for HSM configurations has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface HsmConfigurationQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "HsmConfigurationQuotaExceededFault";
-  name: "HsmConfigurationQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace HsmConfigurationQuotaExceededFault {
-  export function isa(o: any): o is HsmConfigurationQuotaExceededFault {
-    return _smithy.isa(o, "HsmConfigurationQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>You have exceeded the allowed number of table restore requests. Wait for your
- *             current table restore requests to complete before making a new request.</p>
- *
- */
-export interface InProgressTableRestoreQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InProgressTableRestoreQuotaExceededFault";
-  name: "InProgressTableRestoreQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InProgressTableRestoreQuotaExceededFault {
-  export function isa(o: any): o is InProgressTableRestoreQuotaExceededFault {
-    return _smithy.isa(o, "InProgressTableRestoreQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The specified options are incompatible.</p>
- *
- */
-export interface IncompatibleOrderableOptions
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IncompatibleOrderableOptions";
-  name: "IncompatibleOrderableOptions";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace IncompatibleOrderableOptions {
-  export function isa(o: any): o is IncompatibleOrderableOptions {
-    return _smithy.isa(o, "IncompatibleOrderableOptions");
-  }
-}
-
-/**
- *
- *         <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
- *
- */
-export interface InsufficientClusterCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientClusterCapacityFault";
-  name: "InsufficientClusterCapacityFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InsufficientClusterCapacityFault {
-  export function isa(o: any): o is InsufficientClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientClusterCapacityFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster does not have read bucket or put object permissions on the S3 bucket
- *             specified when enabling logging.</p>
- *
- */
-export interface InsufficientS3BucketPolicyFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientS3BucketPolicyFault";
-  name: "InsufficientS3BucketPolicyFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InsufficientS3BucketPolicyFault {
-  export function isa(o: any): o is InsufficientS3BucketPolicyFault {
-    return _smithy.isa(o, "InsufficientS3BucketPolicyFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster parameter group action can not be completed because another task is in
- *             progress that involves the parameter group. Wait a few moments and try the operation
- *             again.</p>
- *
- */
-export interface InvalidClusterParameterGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterParameterGroupStateFault";
-  name: "InvalidClusterParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterParameterGroupStateFault {
-  export function isa(o: any): o is InvalidClusterParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidClusterParameterGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The state of the cluster security group is not <code>available</code>. </p>
- *
- */
-export interface InvalidClusterSecurityGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterSecurityGroupStateFault";
-  name: "InvalidClusterSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterSecurityGroupStateFault {
-  export function isa(o: any): o is InvalidClusterSecurityGroupStateFault {
-    return _smithy.isa(o, "InvalidClusterSecurityGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster snapshot schedule state is not valid.</p>
- *
- */
-export interface InvalidClusterSnapshotScheduleStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterSnapshotScheduleStateFault";
-  name: "InvalidClusterSnapshotScheduleStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterSnapshotScheduleStateFault {
-  export function isa(o: any): o is InvalidClusterSnapshotScheduleStateFault {
-    return _smithy.isa(o, "InvalidClusterSnapshotScheduleStateFault");
-  }
-}
-
-/**
- *
- *         <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
- *
- */
-export interface InvalidClusterSnapshotStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterSnapshotStateFault";
-  name: "InvalidClusterSnapshotStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterSnapshotStateFault {
-  export function isa(o: any): o is InvalidClusterSnapshotStateFault {
-    return _smithy.isa(o, "InvalidClusterSnapshotStateFault");
-  }
-}
-
-/**
- *
- *         <p>The specified cluster is not in the <code>available</code> state. </p>
- *
- */
-export interface InvalidClusterStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterStateFault";
-  name: "InvalidClusterStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterStateFault {
-  export function isa(o: any): o is InvalidClusterStateFault {
-    return _smithy.isa(o, "InvalidClusterStateFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster subnet group cannot be deleted because it is in use.</p>
- *
- */
-export interface InvalidClusterSubnetGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterSubnetGroupStateFault";
-  name: "InvalidClusterSubnetGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterSubnetGroupStateFault {
-  export function isa(o: any): o is InvalidClusterSubnetGroupStateFault {
-    return _smithy.isa(o, "InvalidClusterSubnetGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The state of the subnet is invalid.</p>
- *
- */
-export interface InvalidClusterSubnetStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterSubnetStateFault";
-  name: "InvalidClusterSubnetStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterSubnetStateFault {
-  export function isa(o: any): o is InvalidClusterSubnetStateFault {
-    return _smithy.isa(o, "InvalidClusterSubnetStateFault");
-  }
-}
-
-/**
- *
- *         <p>The provided cluster track name is not valid.</p>
- *
- */
-export interface InvalidClusterTrackFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidClusterTrackFault";
-  name: "InvalidClusterTrackFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidClusterTrackFault {
-  export function isa(o: any): o is InvalidClusterTrackFault {
-    return _smithy.isa(o, "InvalidClusterTrackFault");
-  }
-}
-
-/**
- *
- *         <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
- *
- */
-export interface InvalidElasticIpFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidElasticIpFault";
-  name: "InvalidElasticIpFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidElasticIpFault {
-  export function isa(o: any): o is InvalidElasticIpFault {
-    return _smithy.isa(o, "InvalidElasticIpFault");
-  }
-}
-
-/**
- *
- *         <p>The specified HSM client certificate is not in the <code>available</code> state, or
- *             it is still in use by one or more Amazon Redshift clusters.</p>
- *
- */
-export interface InvalidHsmClientCertificateStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidHsmClientCertificateStateFault";
-  name: "InvalidHsmClientCertificateStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidHsmClientCertificateStateFault {
-  export function isa(o: any): o is InvalidHsmClientCertificateStateFault {
-    return _smithy.isa(o, "InvalidHsmClientCertificateStateFault");
-  }
-}
-
-/**
- *
- *         <p>The specified HSM configuration is not in the <code>available</code> state, or it
- *             is still in use by one or more Amazon Redshift clusters.</p>
- *
- */
-export interface InvalidHsmConfigurationStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidHsmConfigurationStateFault";
-  name: "InvalidHsmConfigurationStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidHsmConfigurationStateFault {
-  export function isa(o: any): o is InvalidHsmConfigurationStateFault {
-    return _smithy.isa(o, "InvalidHsmConfigurationStateFault");
-  }
-}
-
-/**
- *
- *         <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
- *
- */
-export interface InvalidReservedNodeStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidReservedNodeStateFault";
-  name: "InvalidReservedNodeStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidReservedNodeStateFault {
-  export function isa(o: any): o is InvalidReservedNodeStateFault {
-    return _smithy.isa(o, "InvalidReservedNodeStateFault");
-  }
-}
-
-/**
- *
- *         <p>The restore is invalid.</p>
- *
- */
-export interface InvalidRestoreFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRestoreFault";
-  name: "InvalidRestoreFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  export function isa(o: any): o is InvalidRestoreFault {
-    return _smithy.isa(o, "InvalidRestoreFault");
-  }
-}
-
-/**
- *
- *         <p>The retention period specified is either in the past or is not a valid value.</p>
- *
- *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
- *
- *
- */
-export interface InvalidRetentionPeriodFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRetentionPeriodFault";
-  name: "InvalidRetentionPeriodFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidRetentionPeriodFault {
-  export function isa(o: any): o is InvalidRetentionPeriodFault {
-    return _smithy.isa(o, "InvalidRetentionPeriodFault");
-  }
-}
-
-/**
- *
- *
- *         <p>The S3 bucket name is invalid. For more information about naming rules, go to
- *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
- *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
- *             Developer Guide.</p>
- *
- *
- */
-export interface InvalidS3BucketNameFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidS3BucketNameFault";
-  name: "InvalidS3BucketNameFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidS3BucketNameFault {
-  export function isa(o: any): o is InvalidS3BucketNameFault {
-    return _smithy.isa(o, "InvalidS3BucketNameFault");
-  }
-}
-
-/**
- *
- *         <p>The string specified for the logging S3 key prefix does not comply with the
- *             documented constraints.</p>
- *
- */
-export interface InvalidS3KeyPrefixFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidS3KeyPrefixFault";
-  name: "InvalidS3KeyPrefixFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidS3KeyPrefixFault {
-  export function isa(o: any): o is InvalidS3KeyPrefixFault {
-    return _smithy.isa(o, "InvalidS3KeyPrefixFault");
-  }
-}
-
-/**
- *
- *         <p>The schedule you submitted isn't valid.</p>
- *
- */
-export interface InvalidScheduleFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidScheduleFault";
-  name: "InvalidScheduleFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidScheduleFault {
-  export function isa(o: any): o is InvalidScheduleFault {
-    return _smithy.isa(o, "InvalidScheduleFault");
-  }
-}
-
-/**
- *
- *         <p>The scheduled action is not valid. </p>
- *
- */
-export interface InvalidScheduledActionFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidScheduledActionFault";
-  name: "InvalidScheduledActionFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidScheduledActionFault {
-  export function isa(o: any): o is InvalidScheduledActionFault {
-    return _smithy.isa(o, "InvalidScheduledActionFault");
-  }
-}
-
-/**
- *
- *         <p>The snapshot copy grant can't be deleted because it is used by one or more
- *             clusters.</p>
- *
- */
-export interface InvalidSnapshotCopyGrantStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSnapshotCopyGrantStateFault";
-  name: "InvalidSnapshotCopyGrantStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSnapshotCopyGrantStateFault {
-  export function isa(o: any): o is InvalidSnapshotCopyGrantStateFault {
-    return _smithy.isa(o, "InvalidSnapshotCopyGrantStateFault");
-  }
-}
-
-/**
- *
- *         <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
- *
- */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubnet";
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
-  }
-}
-
-/**
- *
- *         <p>The subscription request is invalid because it is a duplicate request. This
- *             subscription request is already in progress.</p>
- *
- */
-export interface InvalidSubscriptionStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubscriptionStateFault";
-  name: "InvalidSubscriptionStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSubscriptionStateFault {
-  export function isa(o: any): o is InvalidSubscriptionStateFault {
-    return _smithy.isa(o, "InvalidSubscriptionStateFault");
-  }
-}
-
-/**
- *
- *         <p>The value specified for the <code>sourceDatabaseName</code>,
- *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
- *             combination of these, doesn't exist in the snapshot.</p>
- *
- */
-export interface InvalidTableRestoreArgumentFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidTableRestoreArgumentFault";
-  name: "InvalidTableRestoreArgumentFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidTableRestoreArgumentFault {
-  export function isa(o: any): o is InvalidTableRestoreArgumentFault {
-    return _smithy.isa(o, "InvalidTableRestoreArgumentFault");
-  }
-}
-
-/**
- *
- *         <p>The tag is invalid.</p>
- *
- */
-export interface InvalidTagFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidTagFault";
-  name: "InvalidTagFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidTagFault {
-  export function isa(o: any): o is InvalidTagFault {
-    return _smithy.isa(o, "InvalidTagFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster subnet group does not cover all Availability Zones.</p>
- *
- */
-export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidVPCNetworkStateFault";
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
-  }
-}
-
-/**
- *
- *         <p>The encryption key has exceeded its grant limit in AWS KMS.</p>
- *
- */
-export interface LimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededFault";
-  name: "LimitExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace LimitExceededFault {
-  export function isa(o: any): o is LimitExceededFault {
-    return _smithy.isa(o, "LimitExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The operation would exceed the number of nodes allowed for a cluster.</p>
- *
- */
-export interface NumberOfNodesPerClusterLimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NumberOfNodesPerClusterLimitExceededFault";
-  name: "NumberOfNodesPerClusterLimitExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NumberOfNodesPerClusterLimitExceededFault {
-  export function isa(o: any): o is NumberOfNodesPerClusterLimitExceededFault {
-    return _smithy.isa(o, "NumberOfNodesPerClusterLimitExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The operation would exceed the number of nodes allotted to the account.
- *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface NumberOfNodesQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NumberOfNodesQuotaExceededFault";
-  name: "NumberOfNodesQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NumberOfNodesQuotaExceededFault {
-  export function isa(o: any): o is NumberOfNodesQuotaExceededFault {
-    return _smithy.isa(o, "NumberOfNodesQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>User already has a reservation with the given identifier.</p>
- *
- */
-export interface ReservedNodeAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedNodeAlreadyExistsFault";
-  name: "ReservedNodeAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedNodeAlreadyExistsFault {
-  export function isa(o: any): o is ReservedNodeAlreadyExistsFault {
-    return _smithy.isa(o, "ReservedNodeAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>Indicates that the reserved node has already been exchanged.</p>
- *
- */
-export interface ReservedNodeAlreadyMigratedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedNodeAlreadyMigratedFault";
-  name: "ReservedNodeAlreadyMigratedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedNodeAlreadyMigratedFault {
-  export function isa(o: any): o is ReservedNodeAlreadyMigratedFault {
-    return _smithy.isa(o, "ReservedNodeAlreadyMigratedFault");
-  }
-}
-
-/**
- *
- *         <p>The specified reserved compute node not found.</p>
- *
- */
-export interface ReservedNodeNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedNodeNotFoundFault";
-  name: "ReservedNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedNodeNotFoundFault {
-  export function isa(o: any): o is ReservedNodeNotFoundFault {
-    return _smithy.isa(o, "ReservedNodeNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>Specified offering does not exist.</p>
- *
- */
-export interface ReservedNodeOfferingNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedNodeOfferingNotFoundFault";
-  name: "ReservedNodeOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedNodeOfferingNotFoundFault {
-  export function isa(o: any): o is ReservedNodeOfferingNotFoundFault {
-    return _smithy.isa(o, "ReservedNodeOfferingNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>Request would exceed the user's compute node quota.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
- *
- */
-export interface ReservedNodeQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedNodeQuotaExceededFault";
-  name: "ReservedNodeQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedNodeQuotaExceededFault {
-  export function isa(o: any): o is ReservedNodeQuotaExceededFault {
-    return _smithy.isa(o, "ReservedNodeQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>A resize operation for the specified cluster is not found.</p>
- *
- */
-export interface ResizeNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResizeNotFoundFault";
-  name: "ResizeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResizeNotFoundFault {
-  export function isa(o: any): o is ResizeNotFoundFault {
-    return _smithy.isa(o, "ResizeNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The resource could not be found.</p>
- *
- */
-export interface ResourceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundFault";
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  export function isa(o: any): o is ResourceNotFoundFault {
-    return _smithy.isa(o, "ResourceNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
- *             topic.</p>
- *
- */
-export interface SNSInvalidTopicFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSInvalidTopicFault";
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  export function isa(o: any): o is SNSInvalidTopicFault {
-    return _smithy.isa(o, "SNSInvalidTopicFault");
-  }
-}
-
-/**
- *
- *         <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
- *
- */
-export interface SNSNoAuthorizationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSNoAuthorizationFault";
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  export function isa(o: any): o is SNSNoAuthorizationFault {
-    return _smithy.isa(o, "SNSNoAuthorizationFault");
-  }
-}
-
-/**
- *
- *         <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
- *             exist.</p>
- *
- */
-export interface SNSTopicArnNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SNSTopicArnNotFoundFault";
-  name: "SNSTopicArnNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SNSTopicArnNotFoundFault {
-  export function isa(o: any): o is SNSTopicArnNotFoundFault {
-    return _smithy.isa(o, "SNSTopicArnNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The definition you submitted is not supported.</p>
- *
- */
-export interface ScheduleDefinitionTypeUnsupportedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ScheduleDefinitionTypeUnsupportedFault";
-  name: "ScheduleDefinitionTypeUnsupportedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ScheduleDefinitionTypeUnsupportedFault {
-  export function isa(o: any): o is ScheduleDefinitionTypeUnsupportedFault {
-    return _smithy.isa(o, "ScheduleDefinitionTypeUnsupportedFault");
-  }
-}
-
-/**
- *
- *         <p>The scheduled action already exists. </p>
- *
- */
-export interface ScheduledActionAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ScheduledActionAlreadyExistsFault";
-  name: "ScheduledActionAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ScheduledActionAlreadyExistsFault {
-  export function isa(o: any): o is ScheduledActionAlreadyExistsFault {
-    return _smithy.isa(o, "ScheduledActionAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The scheduled action cannot be found. </p>
- *
- */
-export interface ScheduledActionNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ScheduledActionNotFoundFault";
-  name: "ScheduledActionNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ScheduledActionNotFoundFault {
-  export function isa(o: any): o is ScheduledActionNotFoundFault {
-    return _smithy.isa(o, "ScheduledActionNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The quota for scheduled actions exceeded. </p>
- *
- */
-export interface ScheduledActionQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ScheduledActionQuotaExceededFault";
-  name: "ScheduledActionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ScheduledActionQuotaExceededFault {
-  export function isa(o: any): o is ScheduledActionQuotaExceededFault {
-    return _smithy.isa(o, "ScheduledActionQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The action type specified for a scheduled action is not supported. </p>
- *
- */
-export interface ScheduledActionTypeUnsupportedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ScheduledActionTypeUnsupportedFault";
-  name: "ScheduledActionTypeUnsupportedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ScheduledActionTypeUnsupportedFault {
-  export function isa(o: any): o is ScheduledActionTypeUnsupportedFault {
-    return _smithy.isa(o, "ScheduledActionTypeUnsupportedFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster already has cross-region snapshot copy disabled.</p>
- *
- */
-export interface SnapshotCopyAlreadyDisabledFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyAlreadyDisabledFault";
-  name: "SnapshotCopyAlreadyDisabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyAlreadyDisabledFault {
-  export function isa(o: any): o is SnapshotCopyAlreadyDisabledFault {
-    return _smithy.isa(o, "SnapshotCopyAlreadyDisabledFault");
-  }
-}
-
-/**
- *
- *         <p>The cluster already has cross-region snapshot copy enabled.</p>
- *
- */
-export interface SnapshotCopyAlreadyEnabledFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyAlreadyEnabledFault";
-  name: "SnapshotCopyAlreadyEnabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyAlreadyEnabledFault {
-  export function isa(o: any): o is SnapshotCopyAlreadyEnabledFault {
-    return _smithy.isa(o, "SnapshotCopyAlreadyEnabledFault");
-  }
-}
-
-/**
- *
- *         <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
- *
- */
-export interface SnapshotCopyDisabledFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyDisabledFault";
-  name: "SnapshotCopyDisabledFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyDisabledFault {
-  export function isa(o: any): o is SnapshotCopyDisabledFault {
-    return _smithy.isa(o, "SnapshotCopyDisabledFault");
-  }
-}
-
-/**
- *
- *         <p>The snapshot copy grant can't be created because a grant with the same name already
- *             exists.</p>
- *
- */
-export interface SnapshotCopyGrantAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyGrantAlreadyExistsFault";
-  name: "SnapshotCopyGrantAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyGrantAlreadyExistsFault {
-  export function isa(o: any): o is SnapshotCopyGrantAlreadyExistsFault {
-    return _smithy.isa(o, "SnapshotCopyGrantAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
- *
- */
-export interface SnapshotCopyGrantNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyGrantNotFoundFault";
-  name: "SnapshotCopyGrantNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyGrantNotFoundFault {
-  export function isa(o: any): o is SnapshotCopyGrantNotFoundFault {
-    return _smithy.isa(o, "SnapshotCopyGrantNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The AWS account has exceeded the maximum number of snapshot copy grants in this
- *             region.</p>
- *
- */
-export interface SnapshotCopyGrantQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotCopyGrantQuotaExceededFault";
-  name: "SnapshotCopyGrantQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotCopyGrantQuotaExceededFault {
-  export function isa(o: any): o is SnapshotCopyGrantQuotaExceededFault {
-    return _smithy.isa(o, "SnapshotCopyGrantQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The specified snapshot schedule already exists. </p>
- *
- */
-export interface SnapshotScheduleAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotScheduleAlreadyExistsFault";
-  name: "SnapshotScheduleAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotScheduleAlreadyExistsFault {
-  export function isa(o: any): o is SnapshotScheduleAlreadyExistsFault {
-    return _smithy.isa(o, "SnapshotScheduleAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>We could not find the specified snapshot schedule. </p>
- *
- */
-export interface SnapshotScheduleNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotScheduleNotFoundFault";
-  name: "SnapshotScheduleNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotScheduleNotFoundFault {
-  export function isa(o: any): o is SnapshotScheduleNotFoundFault {
-    return _smithy.isa(o, "SnapshotScheduleNotFoundFault");
-  }
-}
+export type ParameterApplyType = "dynamic" | "static";
 
-/**
- *
- *         <p>You have exceeded the quota of snapshot schedules. </p>
- *
- */
-export interface SnapshotScheduleQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotScheduleQuotaExceededFault";
-  name: "SnapshotScheduleQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotScheduleQuotaExceededFault {
-  export function isa(o: any): o is SnapshotScheduleQuotaExceededFault {
-    return _smithy.isa(o, "SnapshotScheduleQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The specified snapshot schedule is already being updated.</p>
- *
- */
-export interface SnapshotScheduleUpdateInProgressFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotScheduleUpdateInProgressFault";
-  name: "SnapshotScheduleUpdateInProgressFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotScheduleUpdateInProgressFault {
-  export function isa(o: any): o is SnapshotScheduleUpdateInProgressFault {
-    return _smithy.isa(o, "SnapshotScheduleUpdateInProgressFault");
-  }
-}
-
-/**
- *
- *         <p>The specified Amazon Redshift event source could not be found.</p>
- *
- */
-export interface SourceNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SourceNotFoundFault";
-  name: "SourceNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SourceNotFoundFault {
-  export function isa(o: any): o is SourceNotFoundFault {
-    return _smithy.isa(o, "SourceNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>A specified subnet is already in use by another cluster.</p>
- *
- */
-export interface SubnetAlreadyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubnetAlreadyInUse";
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  export function isa(o: any): o is SubnetAlreadyInUse {
-    return _smithy.isa(o, "SubnetAlreadyInUse");
-  }
-}
-
-/**
- *
- *         <p>There is already an existing event notification subscription with the specified
- *             name.</p>
- *
- */
-export interface SubscriptionAlreadyExistFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionAlreadyExistFault";
-  name: "SubscriptionAlreadyExistFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubscriptionAlreadyExistFault {
-  export function isa(o: any): o is SubscriptionAlreadyExistFault {
-    return _smithy.isa(o, "SubscriptionAlreadyExistFault");
-  }
-}
-
-/**
- *
- *         <p>The value specified for the event category was not one of the allowed values, or it
- *             specified a category that does not apply to the specified source type. The allowed
- *             values are Configuration, Management, Monitoring, and Security.</p>
- *
- */
-export interface SubscriptionCategoryNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionCategoryNotFoundFault";
-  name: "SubscriptionCategoryNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubscriptionCategoryNotFoundFault {
-  export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
-    return _smithy.isa(o, "SubscriptionCategoryNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>An Amazon Redshift event with the specified event ID does not exist.</p>
- *
- */
-export interface SubscriptionEventIdNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionEventIdNotFoundFault";
-  name: "SubscriptionEventIdNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
+export type ReservedNodeOfferingType = "Regular" | "Upgradable";
 
-export namespace SubscriptionEventIdNotFoundFault {
-  export function isa(o: any): o is SubscriptionEventIdNotFoundFault {
-    return _smithy.isa(o, "SubscriptionEventIdNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>An Amazon Redshift event notification subscription with the specified name does not
- *             exist.</p>
- *
- */
-export interface SubscriptionNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionNotFoundFault";
-  name: "SubscriptionNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  export function isa(o: any): o is SubscriptionNotFoundFault {
-    return _smithy.isa(o, "SubscriptionNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The value specified for the event severity was not one of the allowed values, or it
- *             specified a severity that does not apply to the specified source type. The allowed
- *             values are ERROR and INFO.</p>
- *
- */
-export interface SubscriptionSeverityNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SubscriptionSeverityNotFoundFault";
-  name: "SubscriptionSeverityNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubscriptionSeverityNotFoundFault {
-  export function isa(o: any): o is SubscriptionSeverityNotFoundFault {
-    return _smithy.isa(o, "SubscriptionSeverityNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The number of tables in the cluster exceeds the limit for the requested new cluster
- *             node type. </p>
- *
- */
-export interface TableLimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TableLimitExceededFault";
-  name: "TableLimitExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TableLimitExceededFault {
-  export function isa(o: any): o is TableLimitExceededFault {
-    return _smithy.isa(o, "TableLimitExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
- *
- */
-export interface TableRestoreNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TableRestoreNotFoundFault";
-  name: "TableRestoreNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TableRestoreNotFoundFault {
-  export function isa(o: any): o is TableRestoreNotFoundFault {
-    return _smithy.isa(o, "TableRestoreNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You have exceeded the number of tags allowed.</p>
- *
- */
-export interface TagLimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TagLimitExceededFault";
-  name: "TagLimitExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagLimitExceededFault {
-  export function isa(o: any): o is TagLimitExceededFault {
-    return _smithy.isa(o, "TagLimitExceededFault");
-  }
-}
+export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
 
-/**
- *
- *         <p>Your account is not authorized to perform the requested operation.</p>
- *
- */
-export interface UnauthorizedOperation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnauthorizedOperation";
-  name: "UnauthorizedOperation";
-  $fault: "client";
-  message?: string;
+export enum ScheduledActionFilterName {
+  CLUSTER_IDENTIFIER = "cluster-identifier",
+  IAM_ROLE = "iam-role"
 }
 
-export namespace UnauthorizedOperation {
-  export function isa(o: any): o is UnauthorizedOperation {
-    return _smithy.isa(o, "UnauthorizedOperation");
-  }
+export enum ScheduledActionState {
+  ACTIVE = "ACTIVE",
+  DISABLED = "DISABLED"
 }
 
-/**
- *
- *         <p>The specified region is incorrect or does not exist.</p>
- *
- */
-export interface UnknownSnapshotCopyRegionFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnknownSnapshotCopyRegionFault";
-  name: "UnknownSnapshotCopyRegionFault";
-  $fault: "client";
-  message?: string;
+export enum ScheduledActionTypeValues {
+  RESIZE_CLUSTER = "ResizeCluster"
 }
 
-export namespace UnknownSnapshotCopyRegionFault {
-  export function isa(o: any): o is UnknownSnapshotCopyRegionFault {
-    return _smithy.isa(o, "UnknownSnapshotCopyRegionFault");
-  }
+export enum SnapshotAttributeToSortBy {
+  CREATE_TIME = "CREATE_TIME",
+  SOURCE_TYPE = "SOURCE_TYPE",
+  TOTAL_SIZE = "TOTAL_SIZE"
 }
 
-/**
- *
- *         <p>The requested operation isn't supported.</p>
- *
- */
-export interface UnsupportedOperationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedOperationFault";
-  name: "UnsupportedOperationFault";
-  $fault: "client";
-  message?: string;
+export enum SortByOrder {
+  ASCENDING = "ASC",
+  DESCENDING = "DESC"
 }
 
-export namespace UnsupportedOperationFault {
-  export function isa(o: any): o is UnsupportedOperationFault {
-    return _smithy.isa(o, "UnsupportedOperationFault");
-  }
-}
-
-/**
- *
- *         <p>A request option was specified that is not supported.</p>
- *
- */
-export interface UnsupportedOptionFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedOptionFault";
-  name: "UnsupportedOptionFault";
-  $fault: "client";
-  message?: string;
-}
+export type SourceType =
+  | "cluster"
+  | "cluster-parameter-group"
+  | "cluster-security-group"
+  | "cluster-snapshot"
+  | "scheduled-action";
 
-export namespace UnsupportedOptionFault {
-  export function isa(o: any): o is UnsupportedOptionFault {
-    return _smithy.isa(o, "UnsupportedOptionFault");
-  }
-}
+export type TableRestoreStatusType =
+  | "CANCELED"
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "PENDING"
+  | "SUCCEEDED";
 
 export interface AcceptReservedNodeExchangeInputMessage {
   __type?: "AcceptReservedNodeExchangeInputMessage";
@@ -2212,6 +113,27 @@ export interface AcceptReservedNodeExchangeOutputMessage
 export namespace AcceptReservedNodeExchangeOutputMessage {
   export function isa(o: any): o is AcceptReservedNodeExchangeOutputMessage {
     return _smithy.isa(o, "AcceptReservedNodeExchangeOutputMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The owner of the specified snapshot has not authorized your account to access the
+ *             snapshot.</p>
+ *
+ */
+export interface AccessToSnapshotDeniedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AccessToSnapshotDeniedFault";
+  name: "AccessToSnapshotDeniedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AccessToSnapshotDeniedFault {
+  export function isa(o: any): o is AccessToSnapshotDeniedFault {
+    return _smithy.isa(o, "AccessToSnapshotDeniedFault");
   }
 }
 
@@ -2289,11 +211,6 @@ export namespace AccountWithRestoreAccess {
   }
 }
 
-export enum ActionType {
-  RECOMMEND_NODE_CONFIG = "recommend-node-config",
-  RESTORE_CLUSTER = "restore-cluster"
-}
-
 /**
  *
  *         <p>Describes an attribute value.</p>
@@ -2312,6 +229,68 @@ export interface AttributeValueTarget {
 export namespace AttributeValueTarget {
   export function isa(o: any): o is AttributeValueTarget {
     return _smithy.isa(o, "AttributeValueTarget");
+  }
+}
+
+/**
+ *
+ *         <p>The specified CIDR block or EC2 security group is already authorized for the
+ *             specified cluster security group.</p>
+ *
+ */
+export interface AuthorizationAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationAlreadyExistsFault";
+  name: "AuthorizationAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationAlreadyExistsFault {
+  export function isa(o: any): o is AuthorizationAlreadyExistsFault {
+    return _smithy.isa(o, "AuthorizationAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified CIDR IP range or EC2 security group is not authorized for the
+ *             specified cluster security group.</p>
+ *
+ */
+export interface AuthorizationNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationNotFoundFault";
+  name: "AuthorizationNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationNotFoundFault {
+  export function isa(o: any): o is AuthorizationNotFoundFault {
+    return _smithy.isa(o, "AuthorizationNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The authorization quota for the cluster security group has been reached.</p>
+ *
+ */
+export interface AuthorizationQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationQuotaExceededFault";
+  name: "AuthorizationQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationQuotaExceededFault {
+  export function isa(o: any): o is AuthorizationQuotaExceededFault {
+    return _smithy.isa(o, "AuthorizationQuotaExceededFault");
   }
 }
 
@@ -2471,6 +450,50 @@ export namespace BatchDeleteClusterSnapshotsResult {
   }
 }
 
+/**
+ *
+ *         <p>The maximum number for a batch delete of snapshots has been reached. The limit is
+ *             100. </p>
+ *
+ */
+export interface BatchDeleteRequestSizeExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BatchDeleteRequestSizeExceededFault";
+  name: "BatchDeleteRequestSizeExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BatchDeleteRequestSizeExceededFault {
+  export function isa(o: any): o is BatchDeleteRequestSizeExceededFault {
+    return _smithy.isa(o, "BatchDeleteRequestSizeExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
+ *         </p>
+ *
+ */
+export interface BatchModifyClusterSnapshotsLimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BatchModifyClusterSnapshotsLimitExceededFault";
+  name: "BatchModifyClusterSnapshotsLimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BatchModifyClusterSnapshotsLimitExceededFault {
+  export function isa(
+    o: any
+  ): o is BatchModifyClusterSnapshotsLimitExceededFault {
+    return _smithy.isa(o, "BatchModifyClusterSnapshotsLimitExceededFault");
+  }
+}
+
 export interface BatchModifyClusterSnapshotsMessage {
   __type?: "BatchModifyClusterSnapshotsMessage";
   /**
@@ -2528,6 +551,26 @@ export interface BatchModifyClusterSnapshotsOutputMessage
 export namespace BatchModifyClusterSnapshotsOutputMessage {
   export function isa(o: any): o is BatchModifyClusterSnapshotsOutputMessage {
     return _smithy.isa(o, "BatchModifyClusterSnapshotsOutputMessage");
+  }
+}
+
+/**
+ *
+ *         <p>Could not find the specified S3 bucket.</p>
+ *
+ */
+export interface BucketNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "BucketNotFoundFault";
+  name: "BucketNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace BucketNotFoundFault {
+  export function isa(o: any): o is BucketNotFoundFault {
+    return _smithy.isa(o, "BucketNotFoundFault");
   }
 }
 
@@ -3057,6 +1100,26 @@ export namespace Cluster {
 
 /**
  *
+ *         <p>The account already has a cluster with the given identifier.</p>
+ *
+ */
+export interface ClusterAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterAlreadyExistsFault";
+  name: "ClusterAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterAlreadyExistsFault {
+  export function isa(o: any): o is ClusterAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p></p>
  *
  */
@@ -3280,6 +1343,47 @@ export namespace ClusterNode {
 
 /**
  *
+ *         <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ */
+export interface ClusterNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterNotFoundFault";
+  name: "ClusterNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterNotFoundFault {
+  export function isa(o: any): o is ClusterNotFoundFault {
+    return _smithy.isa(o, "ClusterNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>Cluster is already on the latest database revision.</p>
+ *
+ */
+export interface ClusterOnLatestRevisionFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterOnLatestRevisionFault";
+  name: "ClusterOnLatestRevisionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterOnLatestRevisionFault {
+  export function isa(o: any): o is ClusterOnLatestRevisionFault {
+    return _smithy.isa(o, "ClusterOnLatestRevisionFault");
+  }
+}
+
+/**
+ *
  *         <p>Describes a parameter group.</p>
  *
  */
@@ -3318,6 +1422,26 @@ export interface ClusterParameterGroup extends $MetadataBearer {
 export namespace ClusterParameterGroup {
   export function isa(o: any): o is ClusterParameterGroup {
     return _smithy.isa(o, "ClusterParameterGroup");
+  }
+}
+
+/**
+ *
+ *         <p>A cluster parameter group with the same name already exists.</p>
+ *
+ */
+export interface ClusterParameterGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterParameterGroupAlreadyExistsFault";
+  name: "ClusterParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterParameterGroupAlreadyExistsFault {
+  export function isa(o: any): o is ClusterParameterGroupAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterParameterGroupAlreadyExistsFault");
   }
 }
 
@@ -3382,6 +1506,50 @@ export interface ClusterParameterGroupNameMessage extends $MetadataBearer {
 export namespace ClusterParameterGroupNameMessage {
   export function isa(o: any): o is ClusterParameterGroupNameMessage {
     return _smithy.isa(o, "ClusterParameterGroupNameMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ */
+export interface ClusterParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterParameterGroupNotFoundFault";
+  name: "ClusterParameterGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterParameterGroupNotFoundFault {
+  export function isa(o: any): o is ClusterParameterGroupNotFoundFault {
+    return _smithy.isa(o, "ClusterParameterGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request would result in the user exceeding the allowed number of cluster
+ *             parameter groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ClusterParameterGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterParameterGroupQuotaExceededFault";
+  name: "ClusterParameterGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterParameterGroupQuotaExceededFault {
+  export function isa(o: any): o is ClusterParameterGroupQuotaExceededFault {
+    return _smithy.isa(o, "ClusterParameterGroupQuotaExceededFault");
   }
 }
 
@@ -3537,6 +1705,30 @@ export namespace ClusterParameterStatus {
 
 /**
  *
+ *         <p>The request would exceed the allowed number of cluster instances for this account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ClusterQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterQuotaExceededFault";
+  name: "ClusterQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterQuotaExceededFault {
+  export function isa(o: any): o is ClusterQuotaExceededFault {
+    return _smithy.isa(o, "ClusterQuotaExceededFault");
+  }
+}
+
+/**
+ *
  *         <p>Describes a security group.</p>
  *
  */
@@ -3584,6 +1776,26 @@ export interface ClusterSecurityGroup extends $MetadataBearer {
 export namespace ClusterSecurityGroup {
   export function isa(o: any): o is ClusterSecurityGroup {
     return _smithy.isa(o, "ClusterSecurityGroup");
+  }
+}
+
+/**
+ *
+ *         <p>A cluster security group with the same name already exists.</p>
+ *
+ */
+export interface ClusterSecurityGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSecurityGroupAlreadyExistsFault";
+  name: "ClusterSecurityGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSecurityGroupAlreadyExistsFault {
+  export function isa(o: any): o is ClusterSecurityGroupAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterSecurityGroupAlreadyExistsFault");
   }
 }
 
@@ -3649,6 +1861,72 @@ export namespace ClusterSecurityGroupMessage {
 
 /**
  *
+ *         <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ */
+export interface ClusterSecurityGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSecurityGroupNotFoundFault";
+  name: "ClusterSecurityGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSecurityGroupNotFoundFault {
+  export function isa(o: any): o is ClusterSecurityGroupNotFoundFault {
+    return _smithy.isa(o, "ClusterSecurityGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request would result in the user exceeding the allowed number of cluster
+ *             security groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ClusterSecurityGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSecurityGroupQuotaExceededFault";
+  name: "ClusterSecurityGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSecurityGroupQuotaExceededFault {
+  export function isa(o: any): o is ClusterSecurityGroupQuotaExceededFault {
+    return _smithy.isa(o, "ClusterSecurityGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The value specified as a snapshot identifier is already used by an existing
+ *             snapshot.</p>
+ *
+ */
+export interface ClusterSnapshotAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSnapshotAlreadyExistsFault";
+  name: "ClusterSnapshotAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSnapshotAlreadyExistsFault {
+  export function isa(o: any): o is ClusterSnapshotAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterSnapshotAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Returns the destination region and retention period that are configured for
  *             cross-region snapshot copy.</p>
  *
@@ -3694,6 +1972,47 @@ export interface ClusterSnapshotCopyStatus {
 export namespace ClusterSnapshotCopyStatus {
   export function isa(o: any): o is ClusterSnapshotCopyStatus {
     return _smithy.isa(o, "ClusterSnapshotCopyStatus");
+  }
+}
+
+/**
+ *
+ *         <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ */
+export interface ClusterSnapshotNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSnapshotNotFoundFault";
+  name: "ClusterSnapshotNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSnapshotNotFoundFault {
+  export function isa(o: any): o is ClusterSnapshotNotFoundFault {
+    return _smithy.isa(o, "ClusterSnapshotNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request would result in the user exceeding the allowed number of cluster
+ *             snapshots.</p>
+ *
+ */
+export interface ClusterSnapshotQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSnapshotQuotaExceededFault";
+  name: "ClusterSnapshotQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSnapshotQuotaExceededFault {
+  export function isa(o: any): o is ClusterSnapshotQuotaExceededFault {
+    return _smithy.isa(o, "ClusterSnapshotQuotaExceededFault");
   }
 }
 
@@ -3756,6 +2075,27 @@ export namespace ClusterSubnetGroup {
 
 /**
  *
+ *         <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
+ *             cluster subnet group. </p>
+ *
+ */
+export interface ClusterSubnetGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSubnetGroupAlreadyExistsFault";
+  name: "ClusterSubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSubnetGroupAlreadyExistsFault {
+  export function isa(o: any): o is ClusterSubnetGroupAlreadyExistsFault {
+    return _smithy.isa(o, "ClusterSubnetGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Contains the output from the <a>DescribeClusterSubnetGroups</a> action.
  *         </p>
  *
@@ -3784,6 +2124,75 @@ export interface ClusterSubnetGroupMessage extends $MetadataBearer {
 export namespace ClusterSubnetGroupMessage {
   export function isa(o: any): o is ClusterSubnetGroupMessage {
     return _smithy.isa(o, "ClusterSubnetGroupMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ */
+export interface ClusterSubnetGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSubnetGroupNotFoundFault";
+  name: "ClusterSubnetGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSubnetGroupNotFoundFault {
+  export function isa(o: any): o is ClusterSubnetGroupNotFoundFault {
+    return _smithy.isa(o, "ClusterSubnetGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request would result in user exceeding the allowed number of cluster subnet
+ *             groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ClusterSubnetGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSubnetGroupQuotaExceededFault";
+  name: "ClusterSubnetGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSubnetGroupQuotaExceededFault {
+  export function isa(o: any): o is ClusterSubnetGroupQuotaExceededFault {
+    return _smithy.isa(o, "ClusterSubnetGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request would result in user exceeding the allowed number of subnets in a
+ *             cluster subnet groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ClusterSubnetQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterSubnetQuotaExceededFault";
+  name: "ClusterSubnetQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterSubnetQuotaExceededFault {
+  export function isa(o: any): o is ClusterSubnetQuotaExceededFault {
+    return _smithy.isa(o, "ClusterSubnetQuotaExceededFault");
   }
 }
 
@@ -3966,6 +2375,27 @@ export interface CopyClusterSnapshotMessage {
 export namespace CopyClusterSnapshotMessage {
   export function isa(o: any): o is CopyClusterSnapshotMessage {
     return _smithy.isa(o, "CopyClusterSnapshotMessage");
+  }
+}
+
+/**
+ *
+ *         <p>Cross-region snapshot copy was temporarily disabled. Try your request
+ *             again.</p>
+ *
+ */
+export interface CopyToRegionDisabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CopyToRegionDisabledFault";
+  name: "CopyToRegionDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CopyToRegionDisabledFault {
+  export function isa(o: any): o is CopyToRegionDisabledFault {
+    return _smithy.isa(o, "CopyToRegionDisabledFault");
   }
 }
 
@@ -5547,6 +3977,48 @@ export interface DeleteTagsMessage {
 export namespace DeleteTagsMessage {
   export function isa(o: any): o is DeleteTagsMessage {
     return _smithy.isa(o, "DeleteTagsMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ */
+export interface DependentServiceRequestThrottlingFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DependentServiceRequestThrottlingFault";
+  name: "DependentServiceRequestThrottlingFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DependentServiceRequestThrottlingFault {
+  export function isa(o: any): o is DependentServiceRequestThrottlingFault {
+    return _smithy.isa(o, "DependentServiceRequestThrottlingFault");
+  }
+}
+
+/**
+ *
+ *         <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ */
+export interface DependentServiceUnavailableFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DependentServiceUnavailableFault";
+  name: "DependentServiceUnavailableFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DependentServiceUnavailableFault {
+  export function isa(o: any): o is DependentServiceUnavailableFault {
+    return _smithy.isa(o, "DependentServiceUnavailableFault");
   }
 }
 
@@ -7862,6 +6334,30 @@ export namespace EventSubscription {
 
 /**
  *
+ *         <p>The request would exceed the allowed number of event subscriptions for this
+ *             account.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface EventSubscriptionQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "EventSubscriptionQuotaExceededFault";
+  name: "EventSubscriptionQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace EventSubscriptionQuotaExceededFault {
+  export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
+    return _smithy.isa(o, "EventSubscriptionQuotaExceededFault");
+  }
+}
+
+/**
+ *
  *         <p></p>
  *
  */
@@ -8170,6 +6666,27 @@ export namespace HsmClientCertificate {
 
 /**
  *
+ *         <p>There is already an existing Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ */
+export interface HsmClientCertificateAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmClientCertificateAlreadyExistsFault";
+  name: "HsmClientCertificateAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmClientCertificateAlreadyExistsFault {
+  export function isa(o: any): o is HsmClientCertificateAlreadyExistsFault {
+    return _smithy.isa(o, "HsmClientCertificateAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p></p>
  *
  */
@@ -8198,6 +6715,50 @@ export interface HsmClientCertificateMessage extends $MetadataBearer {
 export namespace HsmClientCertificateMessage {
   export function isa(o: any): o is HsmClientCertificateMessage {
     return _smithy.isa(o, "HsmClientCertificateMessage");
+  }
+}
+
+/**
+ *
+ *         <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ */
+export interface HsmClientCertificateNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmClientCertificateNotFoundFault";
+  name: "HsmClientCertificateNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmClientCertificateNotFoundFault {
+  export function isa(o: any): o is HsmClientCertificateNotFoundFault {
+    return _smithy.isa(o, "HsmClientCertificateNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The quota for HSM client certificates has been reached.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface HsmClientCertificateQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmClientCertificateQuotaExceededFault";
+  name: "HsmClientCertificateQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmClientCertificateQuotaExceededFault {
+  export function isa(o: any): o is HsmClientCertificateQuotaExceededFault {
+    return _smithy.isa(o, "HsmClientCertificateQuotaExceededFault");
   }
 }
 
@@ -8255,6 +6816,27 @@ export namespace HsmConfiguration {
 
 /**
  *
+ *         <p>There is already an existing Amazon Redshift HSM configuration with the specified
+ *             identifier.</p>
+ *
+ */
+export interface HsmConfigurationAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmConfigurationAlreadyExistsFault";
+  name: "HsmConfigurationAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmConfigurationAlreadyExistsFault {
+  export function isa(o: any): o is HsmConfigurationAlreadyExistsFault {
+    return _smithy.isa(o, "HsmConfigurationAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p></p>
  *
  */
@@ -8282,6 +6864,49 @@ export interface HsmConfigurationMessage extends $MetadataBearer {
 export namespace HsmConfigurationMessage {
   export function isa(o: any): o is HsmConfigurationMessage {
     return _smithy.isa(o, "HsmConfigurationMessage");
+  }
+}
+
+/**
+ *
+ *         <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ */
+export interface HsmConfigurationNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmConfigurationNotFoundFault";
+  name: "HsmConfigurationNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmConfigurationNotFoundFault {
+  export function isa(o: any): o is HsmConfigurationNotFoundFault {
+    return _smithy.isa(o, "HsmConfigurationNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The quota for HSM configurations has been reached.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface HsmConfigurationQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "HsmConfigurationQuotaExceededFault";
+  name: "HsmConfigurationQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HsmConfigurationQuotaExceededFault {
+  export function isa(o: any): o is HsmConfigurationQuotaExceededFault {
+    return _smithy.isa(o, "HsmConfigurationQuotaExceededFault");
   }
 }
 
@@ -8356,6 +6981,608 @@ export interface IPRange {
 export namespace IPRange {
   export function isa(o: any): o is IPRange {
     return _smithy.isa(o, "IPRange");
+  }
+}
+
+/**
+ *
+ *         <p>You have exceeded the allowed number of table restore requests. Wait for your
+ *             current table restore requests to complete before making a new request.</p>
+ *
+ */
+export interface InProgressTableRestoreQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InProgressTableRestoreQuotaExceededFault";
+  name: "InProgressTableRestoreQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InProgressTableRestoreQuotaExceededFault {
+  export function isa(o: any): o is InProgressTableRestoreQuotaExceededFault {
+    return _smithy.isa(o, "InProgressTableRestoreQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified options are incompatible.</p>
+ *
+ */
+export interface IncompatibleOrderableOptions
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IncompatibleOrderableOptions";
+  name: "IncompatibleOrderableOptions";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace IncompatibleOrderableOptions {
+  export function isa(o: any): o is IncompatibleOrderableOptions {
+    return _smithy.isa(o, "IncompatibleOrderableOptions");
+  }
+}
+
+/**
+ *
+ *         <p>The number of nodes specified exceeds the allotted capacity of the
+ *             cluster.</p>
+ *
+ */
+export interface InsufficientClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientClusterCapacityFault";
+  name: "InsufficientClusterCapacityFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientClusterCapacityFault {
+  export function isa(o: any): o is InsufficientClusterCapacityFault {
+    return _smithy.isa(o, "InsufficientClusterCapacityFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster does not have read bucket or put object permissions on the S3 bucket
+ *             specified when enabling logging.</p>
+ *
+ */
+export interface InsufficientS3BucketPolicyFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientS3BucketPolicyFault";
+  name: "InsufficientS3BucketPolicyFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientS3BucketPolicyFault {
+  export function isa(o: any): o is InsufficientS3BucketPolicyFault {
+    return _smithy.isa(o, "InsufficientS3BucketPolicyFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster parameter group action can not be completed because another task is in
+ *             progress that involves the parameter group. Wait a few moments and try the operation
+ *             again.</p>
+ *
+ */
+export interface InvalidClusterParameterGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterParameterGroupStateFault";
+  name: "InvalidClusterParameterGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterParameterGroupStateFault {
+  export function isa(o: any): o is InvalidClusterParameterGroupStateFault {
+    return _smithy.isa(o, "InvalidClusterParameterGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ */
+export interface InvalidClusterSecurityGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterSecurityGroupStateFault";
+  name: "InvalidClusterSecurityGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterSecurityGroupStateFault {
+  export function isa(o: any): o is InvalidClusterSecurityGroupStateFault {
+    return _smithy.isa(o, "InvalidClusterSecurityGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ */
+export interface InvalidClusterSnapshotScheduleStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterSnapshotScheduleStateFault";
+  name: "InvalidClusterSnapshotScheduleStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterSnapshotScheduleStateFault {
+  export function isa(o: any): o is InvalidClusterSnapshotScheduleStateFault {
+    return _smithy.isa(o, "InvalidClusterSnapshotScheduleStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ */
+export interface InvalidClusterSnapshotStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterSnapshotStateFault";
+  name: "InvalidClusterSnapshotStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterSnapshotStateFault {
+  export function isa(o: any): o is InvalidClusterSnapshotStateFault {
+    return _smithy.isa(o, "InvalidClusterSnapshotStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ */
+export interface InvalidClusterStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterStateFault";
+  name: "InvalidClusterStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterStateFault {
+  export function isa(o: any): o is InvalidClusterStateFault {
+    return _smithy.isa(o, "InvalidClusterStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ */
+export interface InvalidClusterSubnetGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterSubnetGroupStateFault";
+  name: "InvalidClusterSubnetGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterSubnetGroupStateFault {
+  export function isa(o: any): o is InvalidClusterSubnetGroupStateFault {
+    return _smithy.isa(o, "InvalidClusterSubnetGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The state of the subnet is invalid.</p>
+ *
+ */
+export interface InvalidClusterSubnetStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterSubnetStateFault";
+  name: "InvalidClusterSubnetStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterSubnetStateFault {
+  export function isa(o: any): o is InvalidClusterSubnetStateFault {
+    return _smithy.isa(o, "InvalidClusterSubnetStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The provided cluster track name is not valid.</p>
+ *
+ */
+export interface InvalidClusterTrackFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidClusterTrackFault";
+  name: "InvalidClusterTrackFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidClusterTrackFault {
+  export function isa(o: any): o is InvalidClusterTrackFault {
+    return _smithy.isa(o, "InvalidClusterTrackFault");
+  }
+}
+
+/**
+ *
+ *         <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ */
+export interface InvalidElasticIpFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidElasticIpFault";
+  name: "InvalidElasticIpFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidElasticIpFault {
+  export function isa(o: any): o is InvalidElasticIpFault {
+    return _smithy.isa(o, "InvalidElasticIpFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified HSM client certificate is not in the <code>available</code> state, or
+ *             it is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ */
+export interface InvalidHsmClientCertificateStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidHsmClientCertificateStateFault";
+  name: "InvalidHsmClientCertificateStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidHsmClientCertificateStateFault {
+  export function isa(o: any): o is InvalidHsmClientCertificateStateFault {
+    return _smithy.isa(o, "InvalidHsmClientCertificateStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified HSM configuration is not in the <code>available</code> state, or it
+ *             is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ */
+export interface InvalidHsmConfigurationStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidHsmConfigurationStateFault";
+  name: "InvalidHsmConfigurationStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidHsmConfigurationStateFault {
+  export function isa(o: any): o is InvalidHsmConfigurationStateFault {
+    return _smithy.isa(o, "InvalidHsmConfigurationStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ */
+export interface InvalidReservedNodeStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidReservedNodeStateFault";
+  name: "InvalidReservedNodeStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidReservedNodeStateFault {
+  export function isa(o: any): o is InvalidReservedNodeStateFault {
+    return _smithy.isa(o, "InvalidReservedNodeStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The restore is invalid.</p>
+ *
+ */
+export interface InvalidRestoreFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRestoreFault";
+  name: "InvalidRestoreFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRestoreFault {
+  export function isa(o: any): o is InvalidRestoreFault {
+    return _smithy.isa(o, "InvalidRestoreFault");
+  }
+}
+
+/**
+ *
+ *         <p>The retention period specified is either in the past or is not a valid value.</p>
+ *
+ *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ *
+ */
+export interface InvalidRetentionPeriodFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRetentionPeriodFault";
+  name: "InvalidRetentionPeriodFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRetentionPeriodFault {
+  export function isa(o: any): o is InvalidRetentionPeriodFault {
+    return _smithy.isa(o, "InvalidRetentionPeriodFault");
+  }
+}
+
+/**
+ *
+ *
+ *         <p>The S3 bucket name is invalid. For more information about naming rules, go to
+ *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
+ *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
+ *             Developer Guide.</p>
+ *
+ *
+ */
+export interface InvalidS3BucketNameFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidS3BucketNameFault";
+  name: "InvalidS3BucketNameFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidS3BucketNameFault {
+  export function isa(o: any): o is InvalidS3BucketNameFault {
+    return _smithy.isa(o, "InvalidS3BucketNameFault");
+  }
+}
+
+/**
+ *
+ *         <p>The string specified for the logging S3 key prefix does not comply with the
+ *             documented constraints.</p>
+ *
+ */
+export interface InvalidS3KeyPrefixFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidS3KeyPrefixFault";
+  name: "InvalidS3KeyPrefixFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidS3KeyPrefixFault {
+  export function isa(o: any): o is InvalidS3KeyPrefixFault {
+    return _smithy.isa(o, "InvalidS3KeyPrefixFault");
+  }
+}
+
+/**
+ *
+ *         <p>The schedule you submitted isn't valid.</p>
+ *
+ */
+export interface InvalidScheduleFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidScheduleFault";
+  name: "InvalidScheduleFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidScheduleFault {
+  export function isa(o: any): o is InvalidScheduleFault {
+    return _smithy.isa(o, "InvalidScheduleFault");
+  }
+}
+
+/**
+ *
+ *         <p>The scheduled action is not valid. </p>
+ *
+ */
+export interface InvalidScheduledActionFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidScheduledActionFault";
+  name: "InvalidScheduledActionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidScheduledActionFault {
+  export function isa(o: any): o is InvalidScheduledActionFault {
+    return _smithy.isa(o, "InvalidScheduledActionFault");
+  }
+}
+
+/**
+ *
+ *         <p>The snapshot copy grant can't be deleted because it is used by one or more
+ *             clusters.</p>
+ *
+ */
+export interface InvalidSnapshotCopyGrantStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSnapshotCopyGrantStateFault";
+  name: "InvalidSnapshotCopyGrantStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSnapshotCopyGrantStateFault {
+  export function isa(o: any): o is InvalidSnapshotCopyGrantStateFault {
+    return _smithy.isa(o, "InvalidSnapshotCopyGrantStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested subnet is not valid, or not all of the subnets are in the same
+ *             VPC.</p>
+ *
+ */
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubnet";
+  name: "InvalidSubnet";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export function isa(o: any): o is InvalidSubnet {
+    return _smithy.isa(o, "InvalidSubnet");
+  }
+}
+
+/**
+ *
+ *         <p>The subscription request is invalid because it is a duplicate request. This
+ *             subscription request is already in progress.</p>
+ *
+ */
+export interface InvalidSubscriptionStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubscriptionStateFault";
+  name: "InvalidSubscriptionStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSubscriptionStateFault {
+  export function isa(o: any): o is InvalidSubscriptionStateFault {
+    return _smithy.isa(o, "InvalidSubscriptionStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The value specified for the <code>sourceDatabaseName</code>,
+ *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
+ *             combination of these, doesn't exist in the snapshot.</p>
+ *
+ */
+export interface InvalidTableRestoreArgumentFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidTableRestoreArgumentFault";
+  name: "InvalidTableRestoreArgumentFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidTableRestoreArgumentFault {
+  export function isa(o: any): o is InvalidTableRestoreArgumentFault {
+    return _smithy.isa(o, "InvalidTableRestoreArgumentFault");
+  }
+}
+
+/**
+ *
+ *         <p>The tag is invalid.</p>
+ *
+ */
+export interface InvalidTagFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidTagFault";
+  name: "InvalidTagFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidTagFault {
+  export function isa(o: any): o is InvalidTagFault {
+    return _smithy.isa(o, "InvalidTagFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ */
+export interface InvalidVPCNetworkStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidVPCNetworkStateFault";
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export function isa(o: any): o is InvalidVPCNetworkStateFault {
+    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The encryption key has exceeded its grant limit in AWS KMS.</p>
+ *
+ */
+export interface LimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededFault";
+  name: "LimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace LimitExceededFault {
+  export function isa(o: any): o is LimitExceededFault {
+    return _smithy.isa(o, "LimitExceededFault");
   }
 }
 
@@ -8455,11 +7682,6 @@ export namespace MaintenanceTrack {
   export function isa(o: any): o is MaintenanceTrack {
     return _smithy.isa(o, "MaintenanceTrack");
   }
-}
-
-export enum Mode {
-  HIGH_PERFORMANCE = "high-performance",
-  STANDARD = "standard"
 }
 
 export interface ModifyClusterDbRevisionMessage {
@@ -9361,13 +8583,6 @@ export namespace NodeConfigurationOptionsFilter {
   }
 }
 
-export enum NodeConfigurationOptionsFilterName {
-  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
-  MODE = "Mode",
-  NODE_TYPE = "NodeType",
-  NUM_NODES = "NumberOfNodes"
-}
-
 export interface NodeConfigurationOptionsMessage extends $MetadataBearer {
   __type?: "NodeConfigurationOptionsMessage";
   /**
@@ -9395,14 +8610,48 @@ export namespace NodeConfigurationOptionsMessage {
   }
 }
 
-export enum OperatorType {
-  BETWEEN = "between",
-  EQ = "eq",
-  GE = "ge",
-  GT = "gt",
-  IN = "in",
-  LE = "le",
-  LT = "lt"
+/**
+ *
+ *         <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ */
+export interface NumberOfNodesPerClusterLimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NumberOfNodesPerClusterLimitExceededFault";
+  name: "NumberOfNodesPerClusterLimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NumberOfNodesPerClusterLimitExceededFault {
+  export function isa(o: any): o is NumberOfNodesPerClusterLimitExceededFault {
+    return _smithy.isa(o, "NumberOfNodesPerClusterLimitExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The operation would exceed the number of nodes allotted to the account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface NumberOfNodesQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NumberOfNodesQuotaExceededFault";
+  name: "NumberOfNodesQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NumberOfNodesQuotaExceededFault {
+  export function isa(o: any): o is NumberOfNodesQuotaExceededFault {
+    return _smithy.isa(o, "NumberOfNodesQuotaExceededFault");
+  }
 }
 
 /**
@@ -9563,8 +8812,6 @@ export namespace Parameter {
     return _smithy.isa(o, "Parameter");
   }
 }
-
-export type ParameterApplyType = "dynamic" | "static";
 
 /**
  *
@@ -9880,6 +9127,66 @@ export namespace ReservedNode {
 
 /**
  *
+ *         <p>User already has a reservation with the given identifier.</p>
+ *
+ */
+export interface ReservedNodeAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedNodeAlreadyExistsFault";
+  name: "ReservedNodeAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeAlreadyExistsFault {
+  export function isa(o: any): o is ReservedNodeAlreadyExistsFault {
+    return _smithy.isa(o, "ReservedNodeAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ */
+export interface ReservedNodeAlreadyMigratedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedNodeAlreadyMigratedFault";
+  name: "ReservedNodeAlreadyMigratedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeAlreadyMigratedFault {
+  export function isa(o: any): o is ReservedNodeAlreadyMigratedFault {
+    return _smithy.isa(o, "ReservedNodeAlreadyMigratedFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified reserved compute node not found.</p>
+ *
+ */
+export interface ReservedNodeNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedNodeNotFoundFault";
+  name: "ReservedNodeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeNotFoundFault {
+  export function isa(o: any): o is ReservedNodeNotFoundFault {
+    return _smithy.isa(o, "ReservedNodeNotFoundFault");
+  }
+}
+
+/**
+ *
  *         <p>Describes a reserved node offering.</p>
  *
  */
@@ -9960,7 +9267,25 @@ export namespace ReservedNodeOffering {
   }
 }
 
-export type ReservedNodeOfferingType = "Regular" | "Upgradable";
+/**
+ *
+ *         <p>Specified offering does not exist.</p>
+ *
+ */
+export interface ReservedNodeOfferingNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedNodeOfferingNotFoundFault";
+  name: "ReservedNodeOfferingNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeOfferingNotFoundFault {
+  export function isa(o: any): o is ReservedNodeOfferingNotFoundFault {
+    return _smithy.isa(o, "ReservedNodeOfferingNotFoundFault");
+  }
+}
 
 /**
  *
@@ -9991,6 +9316,29 @@ export interface ReservedNodeOfferingsMessage extends $MetadataBearer {
 export namespace ReservedNodeOfferingsMessage {
   export function isa(o: any): o is ReservedNodeOfferingsMessage {
     return _smithy.isa(o, "ReservedNodeOfferingsMessage");
+  }
+}
+
+/**
+ *
+ *         <p>Request would exceed the user's compute node quota.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ */
+export interface ReservedNodeQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedNodeQuotaExceededFault";
+  name: "ReservedNodeQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedNodeQuotaExceededFault {
+  export function isa(o: any): o is ReservedNodeQuotaExceededFault {
+    return _smithy.isa(o, "ReservedNodeQuotaExceededFault");
   }
 }
 
@@ -10139,6 +9487,26 @@ export interface ResizeInfo {
 export namespace ResizeInfo {
   export function isa(o: any): o is ResizeInfo {
     return _smithy.isa(o, "ResizeInfo");
+  }
+}
+
+/**
+ *
+ *         <p>A resize operation for the specified cluster is not found.</p>
+ *
+ */
+export interface ResizeNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResizeNotFoundFault";
+  name: "ResizeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResizeNotFoundFault {
+  export function isa(o: any): o is ResizeNotFoundFault {
+    return _smithy.isa(o, "ResizeNotFoundFault");
   }
 }
 
@@ -10293,6 +9661,26 @@ export interface ResizeProgressMessage extends $MetadataBearer {
 export namespace ResizeProgressMessage {
   export function isa(o: any): o is ResizeProgressMessage {
     return _smithy.isa(o, "ResizeProgressMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The resource could not be found.</p>
+ *
+ */
+export interface ResourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundFault";
+  name: "ResourceNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundFault {
+  export function isa(o: any): o is ResourceNotFoundFault {
+    return _smithy.isa(o, "ResourceNotFoundFault");
   }
 }
 
@@ -10886,7 +10274,87 @@ export namespace RotateEncryptionKeyMessage {
   }
 }
 
-export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
+/**
+ *
+ *         <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
+ *             topic.</p>
+ *
+ */
+export interface SNSInvalidTopicFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSInvalidTopicFault";
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export function isa(o: any): o is SNSInvalidTopicFault {
+    return _smithy.isa(o, "SNSInvalidTopicFault");
+  }
+}
+
+/**
+ *
+ *         <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+ *
+ */
+export interface SNSNoAuthorizationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSNoAuthorizationFault";
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export function isa(o: any): o is SNSNoAuthorizationFault {
+    return _smithy.isa(o, "SNSNoAuthorizationFault");
+  }
+}
+
+/**
+ *
+ *         <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
+ *             exist.</p>
+ *
+ */
+export interface SNSTopicArnNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SNSTopicArnNotFoundFault";
+  name: "SNSTopicArnNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSTopicArnNotFoundFault {
+  export function isa(o: any): o is SNSTopicArnNotFoundFault {
+    return _smithy.isa(o, "SNSTopicArnNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The definition you submitted is not supported.</p>
+ *
+ */
+export interface ScheduleDefinitionTypeUnsupportedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ScheduleDefinitionTypeUnsupportedFault";
+  name: "ScheduleDefinitionTypeUnsupportedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ScheduleDefinitionTypeUnsupportedFault {
+  export function isa(o: any): o is ScheduleDefinitionTypeUnsupportedFault {
+    return _smithy.isa(o, "ScheduleDefinitionTypeUnsupportedFault");
+  }
+}
 
 /**
  *
@@ -10982,6 +10450,26 @@ export namespace ScheduledAction {
 
 /**
  *
+ *         <p>The scheduled action already exists. </p>
+ *
+ */
+export interface ScheduledActionAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ScheduledActionAlreadyExistsFault";
+  name: "ScheduledActionAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ScheduledActionAlreadyExistsFault {
+  export function isa(o: any): o is ScheduledActionAlreadyExistsFault {
+    return _smithy.isa(o, "ScheduledActionAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>A set of elements to filter the returned scheduled actions. </p>
  *
  */
@@ -11008,14 +10496,44 @@ export namespace ScheduledActionFilter {
   }
 }
 
-export enum ScheduledActionFilterName {
-  CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role"
+/**
+ *
+ *         <p>The scheduled action cannot be found. </p>
+ *
+ */
+export interface ScheduledActionNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ScheduledActionNotFoundFault";
+  name: "ScheduledActionNotFoundFault";
+  $fault: "client";
+  message?: string;
 }
 
-export enum ScheduledActionState {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED"
+export namespace ScheduledActionNotFoundFault {
+  export function isa(o: any): o is ScheduledActionNotFoundFault {
+    return _smithy.isa(o, "ScheduledActionNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The quota for scheduled actions exceeded. </p>
+ *
+ */
+export interface ScheduledActionQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ScheduledActionQuotaExceededFault";
+  name: "ScheduledActionQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ScheduledActionQuotaExceededFault {
+  export function isa(o: any): o is ScheduledActionQuotaExceededFault {
+    return _smithy.isa(o, "ScheduledActionQuotaExceededFault");
+  }
 }
 
 /**
@@ -11039,8 +10557,24 @@ export namespace ScheduledActionType {
   }
 }
 
-export enum ScheduledActionTypeValues {
-  RESIZE_CLUSTER = "ResizeCluster"
+/**
+ *
+ *         <p>The action type specified for a scheduled action is not supported. </p>
+ *
+ */
+export interface ScheduledActionTypeUnsupportedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ScheduledActionTypeUnsupportedFault";
+  name: "ScheduledActionTypeUnsupportedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ScheduledActionTypeUnsupportedFault {
+  export function isa(o: any): o is ScheduledActionTypeUnsupportedFault {
+    return _smithy.isa(o, "ScheduledActionTypeUnsupportedFault");
+  }
 }
 
 export interface ScheduledActionsMessage extends $MetadataBearer {
@@ -11357,10 +10891,65 @@ export namespace Snapshot {
   }
 }
 
-export enum SnapshotAttributeToSortBy {
-  CREATE_TIME = "CREATE_TIME",
-  SOURCE_TYPE = "SOURCE_TYPE",
-  TOTAL_SIZE = "TOTAL_SIZE"
+/**
+ *
+ *         <p>The cluster already has cross-region snapshot copy disabled.</p>
+ *
+ */
+export interface SnapshotCopyAlreadyDisabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyAlreadyDisabledFault";
+  name: "SnapshotCopyAlreadyDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyAlreadyDisabledFault {
+  export function isa(o: any): o is SnapshotCopyAlreadyDisabledFault {
+    return _smithy.isa(o, "SnapshotCopyAlreadyDisabledFault");
+  }
+}
+
+/**
+ *
+ *         <p>The cluster already has cross-region snapshot copy enabled.</p>
+ *
+ */
+export interface SnapshotCopyAlreadyEnabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyAlreadyEnabledFault";
+  name: "SnapshotCopyAlreadyEnabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyAlreadyEnabledFault {
+  export function isa(o: any): o is SnapshotCopyAlreadyEnabledFault {
+    return _smithy.isa(o, "SnapshotCopyAlreadyEnabledFault");
+  }
+}
+
+/**
+ *
+ *         <p>Cross-region snapshot copy was temporarily disabled. Try your request
+ *             again.</p>
+ *
+ */
+export interface SnapshotCopyDisabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyDisabledFault";
+  name: "SnapshotCopyDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyDisabledFault {
+  export function isa(o: any): o is SnapshotCopyDisabledFault {
+    return _smithy.isa(o, "SnapshotCopyDisabledFault");
+  }
 }
 
 /**
@@ -11408,6 +10997,27 @@ export namespace SnapshotCopyGrant {
 
 /**
  *
+ *         <p>The snapshot copy grant can't be created because a grant with the same name already
+ *             exists.</p>
+ *
+ */
+export interface SnapshotCopyGrantAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyGrantAlreadyExistsFault";
+  name: "SnapshotCopyGrantAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyGrantAlreadyExistsFault {
+  export function isa(o: any): o is SnapshotCopyGrantAlreadyExistsFault {
+    return _smithy.isa(o, "SnapshotCopyGrantAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p></p>
  *
  */
@@ -11437,6 +11047,48 @@ export interface SnapshotCopyGrantMessage extends $MetadataBearer {
 export namespace SnapshotCopyGrantMessage {
   export function isa(o: any): o is SnapshotCopyGrantMessage {
     return _smithy.isa(o, "SnapshotCopyGrantMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
+ */
+export interface SnapshotCopyGrantNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyGrantNotFoundFault";
+  name: "SnapshotCopyGrantNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyGrantNotFoundFault {
+  export function isa(o: any): o is SnapshotCopyGrantNotFoundFault {
+    return _smithy.isa(o, "SnapshotCopyGrantNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The AWS account has exceeded the maximum number of snapshot copy grants in this
+ *             region.</p>
+ *
+ */
+export interface SnapshotCopyGrantQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotCopyGrantQuotaExceededFault";
+  name: "SnapshotCopyGrantQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyGrantQuotaExceededFault {
+  export function isa(o: any): o is SnapshotCopyGrantQuotaExceededFault {
+    return _smithy.isa(o, "SnapshotCopyGrantQuotaExceededFault");
   }
 }
 
@@ -11581,6 +11233,86 @@ export namespace SnapshotSchedule {
 
 /**
  *
+ *         <p>The specified snapshot schedule already exists. </p>
+ *
+ */
+export interface SnapshotScheduleAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotScheduleAlreadyExistsFault";
+  name: "SnapshotScheduleAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotScheduleAlreadyExistsFault {
+  export function isa(o: any): o is SnapshotScheduleAlreadyExistsFault {
+    return _smithy.isa(o, "SnapshotScheduleAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>We could not find the specified snapshot schedule. </p>
+ *
+ */
+export interface SnapshotScheduleNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotScheduleNotFoundFault";
+  name: "SnapshotScheduleNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotScheduleNotFoundFault {
+  export function isa(o: any): o is SnapshotScheduleNotFoundFault {
+    return _smithy.isa(o, "SnapshotScheduleNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>You have exceeded the quota of snapshot schedules. </p>
+ *
+ */
+export interface SnapshotScheduleQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotScheduleQuotaExceededFault";
+  name: "SnapshotScheduleQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotScheduleQuotaExceededFault {
+  export function isa(o: any): o is SnapshotScheduleQuotaExceededFault {
+    return _smithy.isa(o, "SnapshotScheduleQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified snapshot schedule is already being updated.</p>
+ *
+ */
+export interface SnapshotScheduleUpdateInProgressFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotScheduleUpdateInProgressFault";
+  name: "SnapshotScheduleUpdateInProgressFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotScheduleUpdateInProgressFault {
+  export function isa(o: any): o is SnapshotScheduleUpdateInProgressFault {
+    return _smithy.isa(o, "SnapshotScheduleUpdateInProgressFault");
+  }
+}
+
+/**
+ *
  *         <p>Describes a sorting entity</p>
  *
  */
@@ -11608,17 +11340,25 @@ export namespace SnapshotSortingEntity {
   }
 }
 
-export enum SortByOrder {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC"
+/**
+ *
+ *         <p>The specified Amazon Redshift event source could not be found.</p>
+ *
+ */
+export interface SourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SourceNotFoundFault";
+  name: "SourceNotFoundFault";
+  $fault: "client";
+  message?: string;
 }
 
-export type SourceType =
-  | "cluster"
-  | "cluster-parameter-group"
-  | "cluster-security-group"
-  | "cluster-snapshot"
-  | "scheduled-action";
+export namespace SourceNotFoundFault {
+  export function isa(o: any): o is SourceNotFoundFault {
+    return _smithy.isa(o, "SourceNotFoundFault");
+  }
+}
 
 /**
  *
@@ -11652,6 +11392,132 @@ export interface Subnet {
 export namespace Subnet {
   export function isa(o: any): o is Subnet {
     return _smithy.isa(o, "Subnet");
+  }
+}
+
+/**
+ *
+ *         <p>A specified subnet is already in use by another cluster.</p>
+ *
+ */
+export interface SubnetAlreadyInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubnetAlreadyInUse";
+  name: "SubnetAlreadyInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetAlreadyInUse {
+  export function isa(o: any): o is SubnetAlreadyInUse {
+    return _smithy.isa(o, "SubnetAlreadyInUse");
+  }
+}
+
+/**
+ *
+ *         <p>There is already an existing event notification subscription with the specified
+ *             name.</p>
+ *
+ */
+export interface SubscriptionAlreadyExistFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionAlreadyExistFault";
+  name: "SubscriptionAlreadyExistFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionAlreadyExistFault {
+  export function isa(o: any): o is SubscriptionAlreadyExistFault {
+    return _smithy.isa(o, "SubscriptionAlreadyExistFault");
+  }
+}
+
+/**
+ *
+ *         <p>The value specified for the event category was not one of the allowed values, or it
+ *             specified a category that does not apply to the specified source type. The allowed
+ *             values are Configuration, Management, Monitoring, and Security.</p>
+ *
+ */
+export interface SubscriptionCategoryNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionCategoryNotFoundFault";
+  name: "SubscriptionCategoryNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionCategoryNotFoundFault {
+  export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
+    return _smithy.isa(o, "SubscriptionCategoryNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+ *
+ */
+export interface SubscriptionEventIdNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionEventIdNotFoundFault";
+  name: "SubscriptionEventIdNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionEventIdNotFoundFault {
+  export function isa(o: any): o is SubscriptionEventIdNotFoundFault {
+    return _smithy.isa(o, "SubscriptionEventIdNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>An Amazon Redshift event notification subscription with the specified name does not
+ *             exist.</p>
+ *
+ */
+export interface SubscriptionNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionNotFoundFault";
+  name: "SubscriptionNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionNotFoundFault {
+  export function isa(o: any): o is SubscriptionNotFoundFault {
+    return _smithy.isa(o, "SubscriptionNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The value specified for the event severity was not one of the allowed values, or it
+ *             specified a severity that does not apply to the specified source type. The allowed
+ *             values are ERROR and INFO.</p>
+ *
+ */
+export interface SubscriptionSeverityNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SubscriptionSeverityNotFoundFault";
+  name: "SubscriptionSeverityNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionSeverityNotFoundFault {
+  export function isa(o: any): o is SubscriptionSeverityNotFoundFault {
+    return _smithy.isa(o, "SubscriptionSeverityNotFoundFault");
   }
 }
 
@@ -11694,6 +11560,47 @@ export interface SupportedPlatform {
 export namespace SupportedPlatform {
   export function isa(o: any): o is SupportedPlatform {
     return _smithy.isa(o, "SupportedPlatform");
+  }
+}
+
+/**
+ *
+ *         <p>The number of tables in the cluster exceeds the limit for the requested new cluster
+ *             node type. </p>
+ *
+ */
+export interface TableLimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TableLimitExceededFault";
+  name: "TableLimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TableLimitExceededFault {
+  export function isa(o: any): o is TableLimitExceededFault {
+    return _smithy.isa(o, "TableLimitExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+ *
+ */
+export interface TableRestoreNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TableRestoreNotFoundFault";
+  name: "TableRestoreNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TableRestoreNotFoundFault {
+  export function isa(o: any): o is TableRestoreNotFoundFault {
+    return _smithy.isa(o, "TableRestoreNotFoundFault");
   }
 }
 
@@ -11845,13 +11752,6 @@ export namespace TableRestoreStatusMessage {
   }
 }
 
-export type TableRestoreStatusType =
-  | "CANCELED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "PENDING"
-  | "SUCCEEDED";
-
 /**
  *
  *         <p>A tag consisting of a name/value pair for a resource.</p>
@@ -11877,6 +11777,26 @@ export interface Tag {
 export namespace Tag {
   export function isa(o: any): o is Tag {
     return _smithy.isa(o, "Tag");
+  }
+}
+
+/**
+ *
+ *         <p>You have exceeded the number of tags allowed.</p>
+ *
+ */
+export interface TagLimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TagLimitExceededFault";
+  name: "TagLimitExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagLimitExceededFault {
+  export function isa(o: any): o is TagLimitExceededFault {
+    return _smithy.isa(o, "TagLimitExceededFault");
   }
 }
 
@@ -12005,6 +11925,86 @@ export interface TrackListMessage extends $MetadataBearer {
 export namespace TrackListMessage {
   export function isa(o: any): o is TrackListMessage {
     return _smithy.isa(o, "TrackListMessage");
+  }
+}
+
+/**
+ *
+ *         <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ */
+export interface UnauthorizedOperation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnauthorizedOperation";
+  name: "UnauthorizedOperation";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnauthorizedOperation {
+  export function isa(o: any): o is UnauthorizedOperation {
+    return _smithy.isa(o, "UnauthorizedOperation");
+  }
+}
+
+/**
+ *
+ *         <p>The specified region is incorrect or does not exist.</p>
+ *
+ */
+export interface UnknownSnapshotCopyRegionFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnknownSnapshotCopyRegionFault";
+  name: "UnknownSnapshotCopyRegionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnknownSnapshotCopyRegionFault {
+  export function isa(o: any): o is UnknownSnapshotCopyRegionFault {
+    return _smithy.isa(o, "UnknownSnapshotCopyRegionFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested operation isn't supported.</p>
+ *
+ */
+export interface UnsupportedOperationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedOperationFault";
+  name: "UnsupportedOperationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedOperationFault {
+  export function isa(o: any): o is UnsupportedOperationFault {
+    return _smithy.isa(o, "UnsupportedOperationFault");
+  }
+}
+
+/**
+ *
+ *         <p>A request option was specified that is not supported.</p>
+ *
+ */
+export interface UnsupportedOptionFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedOptionFault";
+  name: "UnsupportedOptionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedOptionFault {
+  export function isa(o: any): o is UnsupportedOptionFault {
+    return _smithy.isa(o, "UnsupportedOptionFault");
   }
 }
 

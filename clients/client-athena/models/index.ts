@@ -1,6 +1,41 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ColumnNullable {
+  NOT_NULL = "NOT_NULL",
+  NULLABLE = "NULLABLE",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum EncryptionOption {
+  CSE_KMS = "CSE_KMS",
+  SSE_KMS = "SSE_KMS",
+  SSE_S3 = "SSE_S3"
+}
+
+export enum QueryExecutionState {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum StatementType {
+  DDL = "DDL",
+  DML = "DML",
+  UTILITY = "UTILITY"
+}
+
+export enum ThrottleReason {
+  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED"
+}
+
+export enum WorkGroupState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
 export interface BatchGetNamedQueryInput {
   __type?: "BatchGetNamedQueryInput";
   /**
@@ -161,12 +196,6 @@ export namespace ColumnInfo {
   export function isa(o: any): o is ColumnInfo {
     return _smithy.isa(o, "ColumnInfo");
   }
-}
-
-export enum ColumnNullable {
-  NOT_NULL = "NOT_NULL",
-  NULLABLE = "NULLABLE",
-  UNKNOWN = "UNKNOWN"
 }
 
 export interface CreateNamedQueryInput {
@@ -406,12 +435,6 @@ export namespace EncryptionConfiguration {
   export function isa(o: any): o is EncryptionConfiguration {
     return _smithy.isa(o, "EncryptionConfiguration");
   }
-}
-
-export enum EncryptionOption {
-  CSE_KMS = "CSE_KMS",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3"
 }
 
 export interface GetNamedQueryInput {
@@ -979,14 +1002,6 @@ export namespace QueryExecutionContext {
   }
 }
 
-export enum QueryExecutionState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  *          <p>The amount of data scanned during the query execution and the amount of time that it
@@ -1348,12 +1363,6 @@ export namespace StartQueryExecutionOutput {
   }
 }
 
-export enum StatementType {
-  DDL = "DDL",
-  DML = "DML",
-  UTILITY = "UTILITY"
-}
-
 export interface StopQueryExecutionInput {
   __type?: "StopQueryExecutionInput";
   /**
@@ -1446,10 +1455,6 @@ export namespace TagResourceOutput {
   export function isa(o: any): o is TagResourceOutput {
     return _smithy.isa(o, "TagResourceOutput");
   }
-}
-
-export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED"
 }
 
 /**
@@ -1809,11 +1814,6 @@ export namespace WorkGroupConfigurationUpdates {
   export function isa(o: any): o is WorkGroupConfigurationUpdates {
     return _smithy.isa(o, "WorkGroupConfigurationUpdates");
   }
-}
-
-export enum WorkGroupState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
 }
 
 /**

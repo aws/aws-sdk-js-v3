@@ -2,107 +2,6 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Contains an array.</p>
- */
-export type ArrayValue =
-  | ArrayValue.ArrayValuesMember
-  | ArrayValue.BooleanValuesMember
-  | ArrayValue.DoubleValuesMember
-  | ArrayValue.LongValuesMember
-  | ArrayValue.StringValuesMember
-  | ArrayValue.$UnknownMember;
-
-export namespace ArrayValue {
-  interface $Base {
-    __type?: "ArrayValue";
-  }
-  /**
-   * <p>An array of arrays.</p>
-   */
-  export interface ArrayValuesMember extends $Base {
-    arrayValues: Array<ArrayValue>;
-    booleanValues?: never;
-    doubleValues?: never;
-    longValues?: never;
-    stringValues?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>An array of Boolean values.</p>
-   */
-  export interface BooleanValuesMember extends $Base {
-    arrayValues?: never;
-    booleanValues: Array<boolean>;
-    doubleValues?: never;
-    longValues?: never;
-    stringValues?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>An array of integers.</p>
-   */
-  export interface DoubleValuesMember extends $Base {
-    arrayValues?: never;
-    booleanValues?: never;
-    doubleValues: Array<number>;
-    longValues?: never;
-    stringValues?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>An array of floating point numbers.</p>
-   */
-  export interface LongValuesMember extends $Base {
-    arrayValues?: never;
-    booleanValues?: never;
-    doubleValues?: never;
-    longValues: Array<number>;
-    stringValues?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>An array of strings.</p>
-   */
-  export interface StringValuesMember extends $Base {
-    arrayValues?: never;
-    booleanValues?: never;
-    doubleValues?: never;
-    longValues?: never;
-    stringValues: Array<string>;
-    $unknown?: never;
-  }
-  export interface $UnknownMember extends $Base {
-    arrayValues?: never;
-    booleanValues?: never;
-    doubleValues?: never;
-    longValues?: never;
-    stringValues?: never;
-    $unknown: [string, any];
-  }
-  export interface Visitor<T> {
-    arrayValues: (value: Array<ArrayValue>) => T;
-    booleanValues: (value: Array<boolean>) => T;
-    doubleValues: (value: Array<number>) => T;
-    longValues: (value: Array<number>) => T;
-    stringValues: (value: Array<string>) => T;
-    _: (name: string, value: any) => T;
-  }
-  export function visit<T>(value: ArrayValue, visitor: Visitor<T>): T {
-    if (value.arrayValues !== undefined)
-      return visitor.arrayValues(value.arrayValues);
-    if (value.booleanValues !== undefined)
-      return visitor.booleanValues(value.booleanValues);
-    if (value.doubleValues !== undefined)
-      return visitor.doubleValues(value.doubleValues);
-    if (value.longValues !== undefined)
-      return visitor.longValues(value.longValues);
-    if (value.stringValues !== undefined)
-      return visitor.stringValues(value.stringValues);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
-}
-
-/**
  * <p>There is an error in the call or in a SQL statement.</p>
  */
 export interface BadRequestException
@@ -531,152 +430,6 @@ export namespace ExecuteStatementResponse {
 }
 
 /**
- * <p>Contains a value.</p>
- */
-export type Field =
-  | Field.ArrayValueMember
-  | Field.BlobValueMember
-  | Field.BooleanValueMember
-  | Field.DoubleValueMember
-  | Field.IsNullMember
-  | Field.LongValueMember
-  | Field.StringValueMember
-  | Field.$UnknownMember;
-
-export namespace Field {
-  interface $Base {
-    __type?: "Field";
-  }
-  /**
-   * <p>An array of values.</p>
-   */
-  export interface ArrayValueMember extends $Base {
-    arrayValue: ArrayValue;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull?: never;
-    longValue?: never;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A value of BLOB data type.</p>
-   */
-  export interface BlobValueMember extends $Base {
-    arrayValue?: never;
-    blobValue: Uint8Array;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull?: never;
-    longValue?: never;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A value of Boolean data type.</p>
-   */
-  export interface BooleanValueMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue: boolean;
-    doubleValue?: never;
-    isNull?: never;
-    longValue?: never;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A value of double data type.</p>
-   */
-  export interface DoubleValueMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue: number;
-    isNull?: never;
-    longValue?: never;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A NULL value.</p>
-   */
-  export interface IsNullMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull: boolean;
-    longValue?: never;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A value of long data type.</p>
-   */
-  export interface LongValueMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull?: never;
-    longValue: number;
-    stringValue?: never;
-    $unknown?: never;
-  }
-  /**
-   * <p>A value of string data type.</p>
-   */
-  export interface StringValueMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull?: never;
-    longValue?: never;
-    stringValue: string;
-    $unknown?: never;
-  }
-  export interface $UnknownMember extends $Base {
-    arrayValue?: never;
-    blobValue?: never;
-    booleanValue?: never;
-    doubleValue?: never;
-    isNull?: never;
-    longValue?: never;
-    stringValue?: never;
-    $unknown: [string, any];
-  }
-  export interface Visitor<T> {
-    arrayValue: (value: ArrayValue) => T;
-    blobValue: (value: Uint8Array) => T;
-    booleanValue: (value: boolean) => T;
-    doubleValue: (value: number) => T;
-    isNull: (value: boolean) => T;
-    longValue: (value: number) => T;
-    stringValue: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-  export function visit<T>(value: Field, visitor: Visitor<T>): T {
-    if (value.arrayValue !== undefined)
-      return visitor.arrayValue(value.arrayValue);
-    if (value.blobValue !== undefined)
-      return visitor.blobValue(value.blobValue);
-    if (value.booleanValue !== undefined)
-      return visitor.booleanValue(value.booleanValue);
-    if (value.doubleValue !== undefined)
-      return visitor.doubleValue(value.doubleValue);
-    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
-    if (value.longValue !== undefined)
-      return visitor.longValue(value.longValue);
-    if (value.stringValue !== undefined)
-      return visitor.stringValue(value.stringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
-}
-
-/**
  * <p>There are insufficient privileges to make the call.</p>
  */
 export interface ForbiddenException
@@ -961,6 +714,253 @@ export interface UpdateResult {
 export namespace UpdateResult {
   export function isa(o: any): o is UpdateResult {
     return _smithy.isa(o, "UpdateResult");
+  }
+}
+
+/**
+ * <p>Contains an array.</p>
+ */
+export type ArrayValue =
+  | ArrayValue.ArrayValuesMember
+  | ArrayValue.BooleanValuesMember
+  | ArrayValue.DoubleValuesMember
+  | ArrayValue.LongValuesMember
+  | ArrayValue.StringValuesMember
+  | ArrayValue.$UnknownMember;
+
+export namespace ArrayValue {
+  interface $Base {
+    __type?: "ArrayValue";
+  }
+  /**
+   * <p>An array of arrays.</p>
+   */
+  export interface ArrayValuesMember extends $Base {
+    arrayValues: Array<ArrayValue>;
+    booleanValues?: never;
+    doubleValues?: never;
+    longValues?: never;
+    stringValues?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>An array of Boolean values.</p>
+   */
+  export interface BooleanValuesMember extends $Base {
+    arrayValues?: never;
+    booleanValues: Array<boolean>;
+    doubleValues?: never;
+    longValues?: never;
+    stringValues?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>An array of integers.</p>
+   */
+  export interface DoubleValuesMember extends $Base {
+    arrayValues?: never;
+    booleanValues?: never;
+    doubleValues: Array<number>;
+    longValues?: never;
+    stringValues?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>An array of floating point numbers.</p>
+   */
+  export interface LongValuesMember extends $Base {
+    arrayValues?: never;
+    booleanValues?: never;
+    doubleValues?: never;
+    longValues: Array<number>;
+    stringValues?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>An array of strings.</p>
+   */
+  export interface StringValuesMember extends $Base {
+    arrayValues?: never;
+    booleanValues?: never;
+    doubleValues?: never;
+    longValues?: never;
+    stringValues: Array<string>;
+    $unknown?: never;
+  }
+  export interface $UnknownMember extends $Base {
+    arrayValues?: never;
+    booleanValues?: never;
+    doubleValues?: never;
+    longValues?: never;
+    stringValues?: never;
+    $unknown: [string, any];
+  }
+  export interface Visitor<T> {
+    arrayValues: (value: Array<ArrayValue>) => T;
+    booleanValues: (value: Array<boolean>) => T;
+    doubleValues: (value: Array<number>) => T;
+    longValues: (value: Array<number>) => T;
+    stringValues: (value: Array<string>) => T;
+    _: (name: string, value: any) => T;
+  }
+  export function visit<T>(value: ArrayValue, visitor: Visitor<T>): T {
+    if (value.arrayValues !== undefined)
+      return visitor.arrayValues(value.arrayValues);
+    if (value.booleanValues !== undefined)
+      return visitor.booleanValues(value.booleanValues);
+    if (value.doubleValues !== undefined)
+      return visitor.doubleValues(value.doubleValues);
+    if (value.longValues !== undefined)
+      return visitor.longValues(value.longValues);
+    if (value.stringValues !== undefined)
+      return visitor.stringValues(value.stringValues);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  }
+}
+
+/**
+ * <p>Contains a value.</p>
+ */
+export type Field =
+  | Field.ArrayValueMember
+  | Field.BlobValueMember
+  | Field.BooleanValueMember
+  | Field.DoubleValueMember
+  | Field.IsNullMember
+  | Field.LongValueMember
+  | Field.StringValueMember
+  | Field.$UnknownMember;
+
+export namespace Field {
+  interface $Base {
+    __type?: "Field";
+  }
+  /**
+   * <p>An array of values.</p>
+   */
+  export interface ArrayValueMember extends $Base {
+    arrayValue: ArrayValue;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull?: never;
+    longValue?: never;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A value of BLOB data type.</p>
+   */
+  export interface BlobValueMember extends $Base {
+    arrayValue?: never;
+    blobValue: Uint8Array;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull?: never;
+    longValue?: never;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A value of Boolean data type.</p>
+   */
+  export interface BooleanValueMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue: boolean;
+    doubleValue?: never;
+    isNull?: never;
+    longValue?: never;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A value of double data type.</p>
+   */
+  export interface DoubleValueMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue: number;
+    isNull?: never;
+    longValue?: never;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A NULL value.</p>
+   */
+  export interface IsNullMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull: boolean;
+    longValue?: never;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A value of long data type.</p>
+   */
+  export interface LongValueMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull?: never;
+    longValue: number;
+    stringValue?: never;
+    $unknown?: never;
+  }
+  /**
+   * <p>A value of string data type.</p>
+   */
+  export interface StringValueMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull?: never;
+    longValue?: never;
+    stringValue: string;
+    $unknown?: never;
+  }
+  export interface $UnknownMember extends $Base {
+    arrayValue?: never;
+    blobValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    isNull?: never;
+    longValue?: never;
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+  export interface Visitor<T> {
+    arrayValue: (value: ArrayValue) => T;
+    blobValue: (value: Uint8Array) => T;
+    booleanValue: (value: boolean) => T;
+    doubleValue: (value: number) => T;
+    isNull: (value: boolean) => T;
+    longValue: (value: number) => T;
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+  export function visit<T>(value: Field, visitor: Visitor<T>): T {
+    if (value.arrayValue !== undefined)
+      return visitor.arrayValue(value.arrayValue);
+    if (value.blobValue !== undefined)
+      return visitor.blobValue(value.blobValue);
+    if (value.booleanValue !== undefined)
+      return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined)
+      return visitor.doubleValue(value.doubleValue);
+    if (value.isNull !== undefined) return visitor.isNull(value.isNull);
+    if (value.longValue !== undefined)
+      return visitor.longValue(value.longValue);
+    if (value.stringValue !== undefined)
+      return visitor.stringValue(value.stringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
 

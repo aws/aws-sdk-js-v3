@@ -1,6 +1,19 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum BulkPublishStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export type Operation = "remove" | "replace";
+
+export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
+
+export type StreamingStatus = "DISABLED" | "ENABLED";
+
 /**
  *
  *          <p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>
@@ -66,13 +79,6 @@ export namespace BulkPublishResponse {
   export function isa(o: any): o is BulkPublishResponse {
     return _smithy.isa(o, "BulkPublishResponse");
   }
-}
-
-export enum BulkPublishStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -1221,10 +1227,6 @@ export namespace NotAuthorizedException {
   }
 }
 
-export type Operation = "remove" | "replace";
-
-export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
-
 /**
  *
  *          <p>Configuration options to be applied to the identity pool.</p>
@@ -1568,8 +1570,6 @@ export namespace SetIdentityPoolConfigurationResponse {
     return _smithy.isa(o, "SetIdentityPoolConfigurationResponse");
   }
 }
-
-export type StreamingStatus = "DISABLED" | "ENABLED";
 
 /**
  *

@@ -1,6 +1,40 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Algorithm {
+  aes128 = "aes128",
+  aes192 = "aes192",
+  aes256 = "aes256"
+}
+
+export enum KeyType {
+  speke = "speke",
+  static_key = "static-key"
+}
+
+export enum Protocol {
+  rist = "rist",
+  rtp = "rtp",
+  rtp_fec = "rtp-fec",
+  zixi_pull = "zixi-pull",
+  zixi_push = "zixi-push"
+}
+
+export enum SourceType {
+  ENTITLED = "ENTITLED",
+  OWNED = "OWNED"
+}
+
+export enum Status {
+  ACTIVE = "ACTIVE",
+  DELETING = "DELETING",
+  ERROR = "ERROR",
+  STANDBY = "STANDBY",
+  STARTING = "STARTING",
+  STOPPING = "STOPPING",
+  UPDATING = "UPDATING"
+}
+
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
@@ -128,12 +162,6 @@ export namespace AddOutputRequest {
   export function isa(o: any): o is AddOutputRequest {
     return _smithy.isa(o, "AddOutputRequest");
   }
-}
-
-export enum Algorithm {
-  aes128 = "aes128",
-  aes192 = "aes192",
-  aes256 = "aes256"
 }
 
 /**
@@ -592,11 +620,6 @@ export namespace InternalServerErrorException {
   }
 }
 
-export enum KeyType {
-  speke = "speke",
-  static_key = "static-key"
-}
-
 export interface ListEntitlementsRequest {
   __type?: "ListEntitlementsRequest";
   /**
@@ -870,14 +893,6 @@ export namespace Output {
   }
 }
 
-export enum Protocol {
-  rist = "rist",
-  rtp = "rtp",
-  rtp_fec = "rtp-fec",
-  zixi_pull = "zixi-pull",
-  zixi_push = "zixi-push"
-}
-
 export interface RemoveFlowOutputRequest {
   __type?: "RemoveFlowOutputRequest";
   /**
@@ -1099,11 +1114,6 @@ export namespace Source {
   }
 }
 
-export enum SourceType {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED"
-}
-
 export interface StartFlowRequest {
   __type?: "StartFlowRequest";
   /**
@@ -1135,16 +1145,6 @@ export namespace StartFlowResponse {
   export function isa(o: any): o is StartFlowResponse {
     return _smithy.isa(o, "StartFlowResponse");
   }
-}
-
-export enum Status {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  STANDBY = "STANDBY",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING"
 }
 
 export interface StopFlowRequest {

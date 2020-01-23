@@ -1,6 +1,71 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AuthorizationType {
+  AWS_IAM = "AWS_IAM",
+  CUSTOM = "CUSTOM",
+  NONE = "NONE"
+}
+
+export enum AuthorizerType {
+  REQUEST = "REQUEST"
+}
+
+export enum ConnectionType {
+  INTERNET = "INTERNET",
+  VPC_LINK = "VPC_LINK"
+}
+
+export enum ContentHandlingStrategy {
+  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
+  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+}
+
+export enum DeploymentStatus {
+  DEPLOYED = "DEPLOYED",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
+}
+
+export enum DomainNameStatus {
+  AVAILABLE = "AVAILABLE",
+  UPDATING = "UPDATING"
+}
+
+export enum EndpointType {
+  EDGE = "EDGE",
+  REGIONAL = "REGIONAL"
+}
+
+export enum IntegrationType {
+  AWS = "AWS",
+  AWS_PROXY = "AWS_PROXY",
+  HTTP = "HTTP",
+  HTTP_PROXY = "HTTP_PROXY",
+  MOCK = "MOCK"
+}
+
+export enum LoggingLevel {
+  ERROR = "ERROR",
+  INFO = "INFO",
+  false = "false"
+}
+
+export enum PassthroughBehavior {
+  NEVER = "NEVER",
+  WHEN_NO_MATCH = "WHEN_NO_MATCH",
+  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES"
+}
+
+export enum ProtocolType {
+  WEBSOCKET = "WEBSOCKET"
+}
+
+export enum SecurityPolicy {
+  TLS_1_0 = "TLS_1_0",
+  TLS_1_2 = "TLS_1_2"
+}
+
 /**
  * <p>Settings for logging access in a stage.</p>
  */
@@ -126,12 +191,6 @@ export namespace ApiMapping {
   }
 }
 
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-  CUSTOM = "CUSTOM",
-  NONE = "NONE"
-}
-
 /**
  * <p>Represents an authorizer.</p>
  */
@@ -222,10 +281,6 @@ export namespace Authorizer {
   }
 }
 
-export enum AuthorizerType {
-  REQUEST = "REQUEST"
-}
-
 /**
  * <p>The request is not valid, for example, the input is incomplete or incorrect. See
  *  the accompanying error message for details.</p>
@@ -269,16 +324,6 @@ export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
     return _smithy.isa(o, "ConflictException");
   }
-}
-
-export enum ConnectionType {
-  INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK"
-}
-
-export enum ContentHandlingStrategy {
-  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
 }
 
 export interface CreateApiMappingRequest {
@@ -1794,12 +1839,6 @@ export namespace Deployment {
   }
 }
 
-export enum DeploymentStatus {
-  DEPLOYED = "DEPLOYED",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
 /**
  * <p>Represents a domain name.</p>
  */
@@ -1885,16 +1924,6 @@ export namespace DomainNameConfiguration {
   export function isa(o: any): o is DomainNameConfiguration {
     return _smithy.isa(o, "DomainNameConfiguration");
   }
-}
-
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING"
-}
-
-export enum EndpointType {
-  EDGE = "EDGE",
-  REGIONAL = "REGIONAL"
 }
 
 export interface GetApiMappingRequest {
@@ -3490,20 +3519,6 @@ export namespace IntegrationResponse {
   }
 }
 
-export enum IntegrationType {
-  AWS = "AWS",
-  AWS_PROXY = "AWS_PROXY",
-  HTTP = "HTTP",
-  HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK"
-}
-
-export enum LoggingLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  false = "false"
-}
-
 /**
  * <p>Represents a data model for an API. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Create Models and Mapping Templates for Request and Response
  *  Mappings</a>.</p>
@@ -3586,16 +3601,6 @@ export namespace ParameterConstraints {
   export function isa(o: any): o is ParameterConstraints {
     return _smithy.isa(o, "ParameterConstraints");
   }
-}
-
-export enum PassthroughBehavior {
-  NEVER = "NEVER",
-  WHEN_NO_MATCH = "WHEN_NO_MATCH",
-  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES"
-}
-
-export enum ProtocolType {
-  WEBSOCKET = "WEBSOCKET"
 }
 
 /**
@@ -3758,11 +3763,6 @@ export namespace RouteSettings {
   export function isa(o: any): o is RouteSettings {
     return _smithy.isa(o, "RouteSettings");
   }
-}
-
-export enum SecurityPolicy {
-  TLS_1_0 = "TLS_1_0",
-  TLS_1_2 = "TLS_1_2"
 }
 
 /**

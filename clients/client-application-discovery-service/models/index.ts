@@ -1,6 +1,78 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AgentStatus {
+  BLACKLISTED = "BLACKLISTED",
+  HEALTHY = "HEALTHY",
+  RUNNING = "RUNNING",
+  SHUTDOWN = "SHUTDOWN",
+  UNHEALTHY = "UNHEALTHY",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum BatchDeleteImportDataErrorCode {
+  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
+  NOT_FOUND = "NOT_FOUND",
+  OVER_LIMIT = "OVER_LIMIT"
+}
+
+export enum ConfigurationItemType {
+  APPLICATION = "APPLICATION",
+  CONNECTIONS = "CONNECTION",
+  PROCESS = "PROCESS",
+  SERVER = "SERVER"
+}
+
+export enum ContinuousExportStatus {
+  ACTIVE = "ACTIVE",
+  ERROR = "ERROR",
+  INACTIVE = "INACTIVE",
+  START_FAILED = "START_FAILED",
+  START_IN_PROGRESS = "START_IN_PROGRESS",
+  STOP_FAILED = "STOP_FAILED",
+  STOP_IN_PROGRESS = "STOP_IN_PROGRESS"
+}
+
+export enum DataSource {
+  AGENT = "AGENT"
+}
+
+export enum ExportDataFormat {
+  CSV = "CSV",
+  GRAPHML = "GRAPHML"
+}
+
+export enum ExportStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum ImportStatus {
+  DELETE_COMPLETE = "DELETE_COMPLETE",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_FAILED_LIMIT_EXCEEDED = "DELETE_FAILED_LIMIT_EXCEEDED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE = "IMPORT_COMPLETE",
+  IMPORT_COMPLETE_WITH_ERRORS = "IMPORT_COMPLETE_WITH_ERRORS",
+  IMPORT_FAILED = "IMPORT_FAILED",
+  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
+  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
+  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
+}
+
+export enum ImportTaskFilterName {
+  IMPORT_TASK_ID = "IMPORT_TASK_ID",
+  NAME = "NAME",
+  STATUS = "STATUS"
+}
+
+export enum OrderString {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
 /**
  *
  *          <p>Information about agents or connectors that were instructed to start collecting data.
@@ -157,15 +229,6 @@ export namespace AgentNetworkInfo {
   }
 }
 
-export enum AgentStatus {
-  BLACKLISTED = "BLACKLISTED",
-  HEALTHY = "HEALTHY",
-  RUNNING = "RUNNING",
-  SHUTDOWN = "SHUTDOWN",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
-}
-
 export interface AssociateConfigurationItemsToApplicationRequest {
   __type?: "AssociateConfigurationItemsToApplicationRequest";
   /**
@@ -261,12 +324,6 @@ export namespace BatchDeleteImportDataError {
   }
 }
 
-export enum BatchDeleteImportDataErrorCode {
-  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
-  NOT_FOUND = "NOT_FOUND",
-  OVER_LIMIT = "OVER_LIMIT"
-}
-
 export interface BatchDeleteImportDataRequest {
   __type?: "BatchDeleteImportDataRequest";
   /**
@@ -298,13 +355,6 @@ export namespace BatchDeleteImportDataResponse {
   export function isa(o: any): o is BatchDeleteImportDataResponse {
     return _smithy.isa(o, "BatchDeleteImportDataResponse");
   }
-}
-
-export enum ConfigurationItemType {
-  APPLICATION = "APPLICATION",
-  CONNECTIONS = "CONNECTION",
-  PROCESS = "PROCESS",
-  SERVER = "SERVER"
 }
 
 /**
@@ -529,16 +579,6 @@ export namespace ContinuousExportDescription {
   }
 }
 
-export enum ContinuousExportStatus {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS"
-}
-
 export interface CreateApplicationRequest {
   __type?: "CreateApplicationRequest";
   /**
@@ -740,10 +780,6 @@ export namespace CustomerConnectorInfo {
   export function isa(o: any): o is CustomerConnectorInfo {
     return _smithy.isa(o, "CustomerConnectorInfo");
   }
-}
-
-export enum DataSource {
-  AGENT = "AGENT"
 }
 
 export interface DeleteApplicationsRequest {
@@ -1279,11 +1315,6 @@ export namespace ExportConfigurationsResponse {
   }
 }
 
-export enum ExportDataFormat {
-  CSV = "CSV",
-  GRAPHML = "GRAPHML"
-}
-
 /**
  *
  *          <p>Used to select which agent's data is to be exported. A single agent ID may be selected
@@ -1401,12 +1432,6 @@ export namespace ExportInfo {
   export function isa(o: any): o is ExportInfo {
     return _smithy.isa(o, "ExportInfo");
   }
-}
-
-export enum ExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -1531,20 +1556,6 @@ export namespace HomeRegionNotSetException {
   export function isa(o: any): o is HomeRegionNotSetException {
     return _smithy.isa(o, "HomeRegionNotSetException");
   }
-}
-
-export enum ImportStatus {
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_FAILED_LIMIT_EXCEEDED = "DELETE_FAILED_LIMIT_EXCEEDED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_COMPLETE_WITH_ERRORS = "IMPORT_COMPLETE_WITH_ERRORS",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
-  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -1712,12 +1723,6 @@ export namespace ImportTaskFilter {
   export function isa(o: any): o is ImportTaskFilter {
     return _smithy.isa(o, "ImportTaskFilter");
   }
-}
-
-export enum ImportTaskFilterName {
-  IMPORT_TASK_ID = "IMPORT_TASK_ID",
-  NAME = "NAME",
-  STATUS = "STATUS"
 }
 
 /**
@@ -2487,9 +2492,4 @@ export namespace UpdateApplicationResponse {
   export function isa(o: any): o is UpdateApplicationResponse {
     return _smithy.isa(o, "UpdateApplicationResponse");
   }
-}
-
-export enum OrderString {
-  ASC = "ASC",
-  DESC = "DESC"
 }

@@ -1,6 +1,503 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AssociationComplianceSeverity {
+  Critical = "CRITICAL",
+  High = "HIGH",
+  Low = "LOW",
+  Medium = "MEDIUM",
+  Unspecified = "UNSPECIFIED"
+}
+
+export enum AssociationExecutionFilterKey {
+  CreatedTime = "CreatedTime",
+  ExecutionId = "ExecutionId",
+  Status = "Status"
+}
+
+export enum AssociationExecutionTargetsFilterKey {
+  ResourceId = "ResourceId",
+  ResourceType = "ResourceType",
+  Status = "Status"
+}
+
+export enum AssociationFilterKey {
+  AssociationId = "AssociationId",
+  AssociationName = "AssociationName",
+  InstanceId = "InstanceId",
+  LastExecutedAfter = "LastExecutedAfter",
+  LastExecutedBefore = "LastExecutedBefore",
+  Name = "Name",
+  Status = "AssociationStatusName"
+}
+
+export enum AssociationFilterOperatorType {
+  Equal = "EQUAL",
+  GreaterThan = "GREATER_THAN",
+  LessThan = "LESS_THAN"
+}
+
+export enum AssociationStatusName {
+  Failed = "Failed",
+  Pending = "Pending",
+  Success = "Success"
+}
+
+export enum AttachmentHashType {
+  SHA256 = "Sha256"
+}
+
+export enum AttachmentsSourceKey {
+  S3FileUrl = "S3FileUrl",
+  SourceUrl = "SourceUrl"
+}
+
+export enum AutomationExecutionFilterKey {
+  AUTOMATION_TYPE = "AutomationType",
+  CURRENT_ACTION = "CurrentAction",
+  DOCUMENT_NAME_PREFIX = "DocumentNamePrefix",
+  EXECUTION_ID = "ExecutionId",
+  EXECUTION_STATUS = "ExecutionStatus",
+  PARENT_EXECUTION_ID = "ParentExecutionId",
+  START_TIME_AFTER = "StartTimeAfter",
+  START_TIME_BEFORE = "StartTimeBefore"
+}
+
+export enum AutomationExecutionStatus {
+  CANCELLED = "Cancelled",
+  CANCELLING = "Cancelling",
+  FAILED = "Failed",
+  INPROGRESS = "InProgress",
+  PENDING = "Pending",
+  SUCCESS = "Success",
+  TIMEDOUT = "TimedOut",
+  WAITING = "Waiting"
+}
+
+export enum AutomationType {
+  CrossAccount = "CrossAccount",
+  Local = "Local"
+}
+
+export enum CommandFilterKey {
+  DOCUMENT_NAME = "DocumentName",
+  EXECUTION_STAGE = "ExecutionStage",
+  INVOKED_AFTER = "InvokedAfter",
+  INVOKED_BEFORE = "InvokedBefore",
+  STATUS = "Status"
+}
+
+export enum CommandInvocationStatus {
+  CANCELLED = "Cancelled",
+  CANCELLING = "Cancelling",
+  DELAYED = "Delayed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  SUCCESS = "Success",
+  TIMED_OUT = "TimedOut"
+}
+
+export enum CommandPluginStatus {
+  CANCELLED = "Cancelled",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  SUCCESS = "Success",
+  TIMED_OUT = "TimedOut"
+}
+
+export enum CommandStatus {
+  CANCELLED = "Cancelled",
+  CANCELLING = "Cancelling",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  SUCCESS = "Success",
+  TIMED_OUT = "TimedOut"
+}
+
+export enum ComplianceQueryOperatorType {
+  BeginWith = "BEGIN_WITH",
+  Equal = "EQUAL",
+  GreaterThan = "GREATER_THAN",
+  LessThan = "LESS_THAN",
+  NotEqual = "NOT_EQUAL"
+}
+
+export enum ComplianceSeverity {
+  Critical = "CRITICAL",
+  High = "HIGH",
+  Informational = "INFORMATIONAL",
+  Low = "LOW",
+  Medium = "MEDIUM",
+  Unspecified = "UNSPECIFIED"
+}
+
+export enum ComplianceStatus {
+  Compliant = "COMPLIANT",
+  NonCompliant = "NON_COMPLIANT"
+}
+
+export enum ConnectionStatus {
+  CONNECTED = "Connected",
+  NOT_CONNECTED = "NotConnected"
+}
+
+export enum DescribeActivationsFilterKeys {
+  ACTIVATION_IDS = "ActivationIds",
+  DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
+  IAM_ROLE = "IamRole"
+}
+
+export enum DocumentFilterKey {
+  DocumentType = "DocumentType",
+  Name = "Name",
+  Owner = "Owner",
+  PlatformTypes = "PlatformTypes"
+}
+
+export enum DocumentFormat {
+  JSON = "JSON",
+  YAML = "YAML"
+}
+
+export enum DocumentHashType {
+  SHA1 = "Sha1",
+  SHA256 = "Sha256"
+}
+
+export type DocumentParameterType = "String" | "StringList";
+
+export enum DocumentPermissionType {
+  SHARE = "Share"
+}
+
+export enum DocumentStatus {
+  Active = "Active",
+  Creating = "Creating",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  Updating = "Updating"
+}
+
+export enum DocumentType {
+  ApplicationConfiguration = "ApplicationConfiguration",
+  ApplicationConfigurationSchema = "ApplicationConfigurationSchema",
+  Automation = "Automation",
+  Command = "Command",
+  DeploymentStrategy = "DeploymentStrategy",
+  Package = "Package",
+  Policy = "Policy",
+  Session = "Session"
+}
+
+export enum ExecutionMode {
+  Auto = "Auto",
+  Interactive = "Interactive"
+}
+
+export type Fault = "Client" | "Server" | "Unknown";
+
+export enum InstanceInformationFilterKey {
+  ACTIVATION_IDS = "ActivationIds",
+  AGENT_VERSION = "AgentVersion",
+  ASSOCIATION_STATUS = "AssociationStatus",
+  IAM_ROLE = "IamRole",
+  INSTANCE_IDS = "InstanceIds",
+  PING_STATUS = "PingStatus",
+  PLATFORM_TYPES = "PlatformTypes",
+  RESOURCE_TYPE = "ResourceType"
+}
+
+export enum InstancePatchStateOperatorType {
+  EQUAL = "Equal",
+  GREATER_THAN = "GreaterThan",
+  LESS_THAN = "LessThan",
+  NOT_EQUAL = "NotEqual"
+}
+
+export enum InventoryAttributeDataType {
+  NUMBER = "number",
+  STRING = "string"
+}
+
+export enum InventoryDeletionStatus {
+  COMPLETE = "Complete",
+  IN_PROGRESS = "InProgress"
+}
+
+export enum InventoryQueryOperatorType {
+  BEGIN_WITH = "BeginWith",
+  EQUAL = "Equal",
+  EXISTS = "Exists",
+  GREATER_THAN = "GreaterThan",
+  LESS_THAN = "LessThan",
+  NOT_EQUAL = "NotEqual"
+}
+
+export enum InventorySchemaDeleteOption {
+  DELETE_SCHEMA = "DeleteSchema",
+  DISABLE_SCHEMA = "DisableSchema"
+}
+
+export enum LastResourceDataSyncStatus {
+  FAILED = "Failed",
+  INPROGRESS = "InProgress",
+  SUCCESSFUL = "Successful"
+}
+
+export enum MaintenanceWindowExecutionStatus {
+  Cancelled = "CANCELLED",
+  Cancelling = "CANCELLING",
+  Failed = "FAILED",
+  InProgress = "IN_PROGRESS",
+  Pending = "PENDING",
+  SkippedOverlapping = "SKIPPED_OVERLAPPING",
+  Success = "SUCCESS",
+  TimedOut = "TIMED_OUT"
+}
+
+export enum MaintenanceWindowResourceType {
+  Instance = "INSTANCE",
+  ResourceGroup = "RESOURCE_GROUP"
+}
+
+export enum MaintenanceWindowTaskType {
+  Automation = "AUTOMATION",
+  Lambda = "LAMBDA",
+  RunCommand = "RUN_COMMAND",
+  StepFunctions = "STEP_FUNCTIONS"
+}
+
+export enum NotificationEvent {
+  ALL = "All",
+  CANCELLED = "Cancelled",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  SUCCESS = "Success",
+  TIMED_OUT = "TimedOut"
+}
+
+export enum NotificationType {
+  Command = "Command",
+  Invocation = "Invocation"
+}
+
+export enum OperatingSystem {
+  AmazonLinux = "AMAZON_LINUX",
+  AmazonLinux2 = "AMAZON_LINUX_2",
+  CentOS = "CENTOS",
+  RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
+  Suse = "SUSE",
+  Ubuntu = "UBUNTU",
+  Windows = "WINDOWS"
+}
+
+export enum OpsFilterOperatorType {
+  BEGIN_WITH = "BeginWith",
+  EQUAL = "Equal",
+  EXISTS = "Exists",
+  GREATER_THAN = "GreaterThan",
+  LESS_THAN = "LessThan",
+  NOT_EQUAL = "NotEqual"
+}
+
+export enum OpsItemDataType {
+  SEARCHABLE_STRING = "SearchableString",
+  STRING = "String"
+}
+
+export enum OpsItemFilterKey {
+  AUTOMATION_ID = "AutomationId",
+  CATEGORY = "Category",
+  CREATED_BY = "CreatedBy",
+  CREATED_TIME = "CreatedTime",
+  LAST_MODIFIED_TIME = "LastModifiedTime",
+  OPERATIONAL_DATA = "OperationalData",
+  OPERATIONAL_DATA_KEY = "OperationalDataKey",
+  OPERATIONAL_DATA_VALUE = "OperationalDataValue",
+  OPSITEM_ID = "OpsItemId",
+  PRIORITY = "Priority",
+  RESOURCE_ID = "ResourceId",
+  SEVERITY = "Severity",
+  SOURCE = "Source",
+  STATUS = "Status",
+  TITLE = "Title"
+}
+
+export enum OpsItemFilterOperator {
+  CONTAINS = "Contains",
+  EQUAL = "Equal",
+  GREATER_THAN = "GreaterThan",
+  LESS_THAN = "LessThan"
+}
+
+export enum OpsItemStatus {
+  IN_PROGRESS = "InProgress",
+  OPEN = "Open",
+  RESOLVED = "Resolved"
+}
+
+export enum ParameterTier {
+  ADVANCED = "Advanced",
+  INTELLIGENT_TIERING = "Intelligent-Tiering",
+  STANDARD = "Standard"
+}
+
+export enum ParameterType {
+  SECURE_STRING = "SecureString",
+  STRING = "String",
+  STRING_LIST = "StringList"
+}
+
+export enum ParametersFilterKey {
+  KEY_ID = "KeyId",
+  NAME = "Name",
+  TYPE = "Type"
+}
+
+export enum PatchAction {
+  AllowAsDependency = "ALLOW_AS_DEPENDENCY",
+  Block = "BLOCK"
+}
+
+export enum PatchComplianceDataState {
+  Failed = "FAILED",
+  Installed = "INSTALLED",
+  InstalledOther = "INSTALLED_OTHER",
+  InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
+  InstalledRejected = "INSTALLED_REJECTED",
+  Missing = "MISSING",
+  NotApplicable = "NOT_APPLICABLE"
+}
+
+export enum PatchComplianceLevel {
+  Critical = "CRITICAL",
+  High = "HIGH",
+  Informational = "INFORMATIONAL",
+  Low = "LOW",
+  Medium = "MEDIUM",
+  Unspecified = "UNSPECIFIED"
+}
+
+export enum PatchDeploymentStatus {
+  Approved = "APPROVED",
+  ExplicitApproved = "EXPLICIT_APPROVED",
+  ExplicitRejected = "EXPLICIT_REJECTED",
+  PendingApproval = "PENDING_APPROVAL"
+}
+
+export enum PatchFilterKey {
+  Classification = "CLASSIFICATION",
+  MsrcSeverity = "MSRC_SEVERITY",
+  PatchId = "PATCH_ID",
+  PatchSet = "PATCH_SET",
+  Priority = "PRIORITY",
+  Product = "PRODUCT",
+  ProductFamily = "PRODUCT_FAMILY",
+  Section = "SECTION",
+  Severity = "SEVERITY"
+}
+
+export enum PatchOperationType {
+  INSTALL = "Install",
+  SCAN = "Scan"
+}
+
+export enum PatchProperty {
+  PatchClassification = "CLASSIFICATION",
+  PatchMsrcSeverity = "MSRC_SEVERITY",
+  PatchPriority = "PRIORITY",
+  PatchProductFamily = "PRODUCT_FAMILY",
+  PatchSeverity = "SEVERITY",
+  Product = "PRODUCT"
+}
+
+export enum PatchSet {
+  Application = "APPLICATION",
+  Os = "OS"
+}
+
+export enum PingStatus {
+  CONNECTION_LOST = "ConnectionLost",
+  INACTIVE = "Inactive",
+  ONLINE = "Online"
+}
+
+export enum PlatformType {
+  LINUX = "Linux",
+  WINDOWS = "Windows"
+}
+
+export enum RebootOption {
+  NO_REBOOT = "NoReboot",
+  REBOOT_IF_NEEDED = "RebootIfNeeded"
+}
+
+export enum ResourceDataSyncS3Format {
+  JSON_SERDE = "JsonSerDe"
+}
+
+export enum ResourceType {
+  DOCUMENT = "Document",
+  EC2_INSTANCE = "EC2Instance",
+  MANAGED_INSTANCE = "ManagedInstance"
+}
+
+export enum ResourceTypeForTagging {
+  DOCUMENT = "Document",
+  MAINTENANCE_WINDOW = "MaintenanceWindow",
+  MANAGED_INSTANCE = "ManagedInstance",
+  OPS_ITEM = "OpsItem",
+  PARAMETER = "Parameter",
+  PATCH_BASELINE = "PatchBaseline"
+}
+
+export enum SessionFilterKey {
+  INVOKED_AFTER = "InvokedAfter",
+  INVOKED_BEFORE = "InvokedBefore",
+  OWNER = "Owner",
+  STATUS = "Status",
+  TARGET_ID = "Target"
+}
+
+export enum SessionState {
+  ACTIVE = "Active",
+  HISTORY = "History"
+}
+
+export enum SessionStatus {
+  CONNECTED = "Connected",
+  CONNECTING = "Connecting",
+  DISCONNECTED = "Disconnected",
+  FAILED = "Failed",
+  TERMINATED = "Terminated",
+  TERMINATING = "Terminating"
+}
+
+export enum SignalType {
+  APPROVE = "Approve",
+  REJECT = "Reject",
+  RESUME = "Resume",
+  START_STEP = "StartStep",
+  STOP_STEP = "StopStep"
+}
+
+export enum StepExecutionFilterKey {
+  ACTION = "Action",
+  START_TIME_AFTER = "StartTimeAfter",
+  START_TIME_BEFORE = "StartTimeBefore",
+  STEP_EXECUTION_ID = "StepExecutionId",
+  STEP_EXECUTION_STATUS = "StepExecutionStatus",
+  STEP_NAME = "StepName"
+}
+
+export enum StopType {
+  CANCEL = "Cancel",
+  COMPLETE = "Complete"
+}
+
 /**
  *
  *          <p>Information includes the AWS account ID where the current document is shared and the version shared with that account.</p>
@@ -325,14 +822,6 @@ export namespace AssociationAlreadyExists {
   }
 }
 
-export enum AssociationComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED"
-}
-
 /**
  *
  *          <p>Describes the parameters for a document.</p>
@@ -649,12 +1138,6 @@ export namespace AssociationExecutionFilter {
   }
 }
 
-export enum AssociationExecutionFilterKey {
-  CreatedTime = "CreatedTime",
-  ExecutionId = "ExecutionId",
-  Status = "Status"
-}
-
 /**
  *
  *          <p>Includes information about the specified association execution.</p>
@@ -760,12 +1243,6 @@ export namespace AssociationExecutionTargetsFilter {
   }
 }
 
-export enum AssociationExecutionTargetsFilterKey {
-  ResourceId = "ResourceId",
-  ResourceType = "ResourceType",
-  Status = "Status"
-}
-
 /**
  *
  *          <p>Describes a filter.</p>
@@ -792,22 +1269,6 @@ export namespace AssociationFilter {
   export function isa(o: any): o is AssociationFilter {
     return _smithy.isa(o, "AssociationFilter");
   }
-}
-
-export enum AssociationFilterKey {
-  AssociationId = "AssociationId",
-  AssociationName = "AssociationName",
-  InstanceId = "InstanceId",
-  LastExecutedAfter = "LastExecutedAfter",
-  LastExecutedBefore = "LastExecutedBefore",
-  Name = "Name",
-  Status = "AssociationStatusName"
-}
-
-export enum AssociationFilterOperatorType {
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN"
 }
 
 /**
@@ -906,12 +1367,6 @@ export namespace AssociationStatus {
   export function isa(o: any): o is AssociationStatus {
     return _smithy.isa(o, "AssociationStatus");
   }
-}
-
-export enum AssociationStatusName {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success"
 }
 
 /**
@@ -1108,10 +1563,6 @@ export namespace AttachmentContent {
   }
 }
 
-export enum AttachmentHashType {
-  SHA256 = "Sha256"
-}
-
 /**
  *
  *          <p>An attribute of an attachment, such as the attachment name.</p>
@@ -1170,11 +1621,6 @@ export namespace AttachmentsSource {
   export function isa(o: any): o is AttachmentsSource {
     return _smithy.isa(o, "AttachmentsSource");
   }
-}
-
-export enum AttachmentsSourceKey {
-  S3FileUrl = "S3FileUrl",
-  SourceUrl = "SourceUrl"
 }
 
 /**
@@ -1445,17 +1891,6 @@ export namespace AutomationExecutionFilter {
   }
 }
 
-export enum AutomationExecutionFilterKey {
-  AUTOMATION_TYPE = "AutomationType",
-  CURRENT_ACTION = "CurrentAction",
-  DOCUMENT_NAME_PREFIX = "DocumentNamePrefix",
-  EXECUTION_ID = "ExecutionId",
-  EXECUTION_STATUS = "ExecutionStatus",
-  PARENT_EXECUTION_ID = "ParentExecutionId",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore"
-}
-
 /**
  *
  *          <p>The number of simultaneously running Automation executions exceeded the allowable
@@ -1672,17 +2107,6 @@ export namespace AutomationExecutionNotFoundException {
   }
 }
 
-export enum AutomationExecutionStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMEDOUT = "TimedOut",
-  WAITING = "Waiting"
-}
-
 /**
  *
  *          <p>The specified step name and execution ID don't exist. Verify the information and try
@@ -1702,11 +2126,6 @@ export namespace AutomationStepNotFoundException {
   export function isa(o: any): o is AutomationStepNotFoundException {
     return _smithy.isa(o, "AutomationStepNotFoundException");
   }
-}
-
-export enum AutomationType {
-  CrossAccount = "CrossAccount",
-  Local = "Local"
 }
 
 /**
@@ -2160,14 +2579,6 @@ export namespace CommandFilter {
   }
 }
 
-export enum CommandFilterKey {
-  DOCUMENT_NAME = "DocumentName",
-  EXECUTION_STAGE = "ExecutionStage",
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  STATUS = "Status"
-}
-
 /**
  *
  *          <p>An invocation is copy of a command sent to a specific instance. A command can apply to one
@@ -2348,17 +2759,6 @@ export namespace CommandInvocation {
   }
 }
 
-export enum CommandInvocationStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  DELAYED = "Delayed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut"
-}
-
 /**
  *
  *          <p>Describes plugin details.</p>
@@ -2523,25 +2923,6 @@ export namespace CommandPlugin {
   export function isa(o: any): o is CommandPlugin {
     return _smithy.isa(o, "CommandPlugin");
   }
-}
-
-export enum CommandPluginStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut"
-}
-
-export enum CommandStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut"
 }
 
 /**
@@ -2722,28 +3103,6 @@ export namespace ComplianceItemEntry {
   }
 }
 
-export enum ComplianceQueryOperatorType {
-  BeginWith = "BEGIN_WITH",
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-  NotEqual = "NOT_EQUAL"
-}
-
-export enum ComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED"
-}
-
-export enum ComplianceStatus {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT"
-}
-
 /**
  *
  *          <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -2864,11 +3223,6 @@ export namespace CompliantSummary {
   export function isa(o: any): o is CompliantSummary {
     return _smithy.isa(o, "CompliantSummary");
   }
-}
-
-export enum ConnectionStatus {
-  CONNECTED = "Connected",
-  NOT_CONNECTED = "NotConnected"
 }
 
 export interface CreateActivationRequest {
@@ -4536,12 +4890,6 @@ export namespace DescribeActivationsFilter {
   export function isa(o: any): o is DescribeActivationsFilter {
     return _smithy.isa(o, "DescribeActivationsFilter");
   }
-}
-
-export enum DescribeActivationsFilterKeys {
-  ACTIVATION_IDS = "ActivationIds",
-  DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
-  IAM_ROLE = "IamRole"
 }
 
 export interface DescribeActivationsRequest {
@@ -6912,23 +7260,6 @@ export namespace DocumentFilter {
   }
 }
 
-export enum DocumentFilterKey {
-  DocumentType = "DocumentType",
-  Name = "Name",
-  Owner = "Owner",
-  PlatformTypes = "PlatformTypes"
-}
-
-export enum DocumentFormat {
-  JSON = "JSON",
-  YAML = "YAML"
-}
-
-export enum DocumentHashType {
-  SHA1 = "Sha1",
-  SHA256 = "Sha256"
-}
-
 /**
  *
  *          <p>Describes the name of a Systems Manager document.</p>
@@ -7141,8 +7472,6 @@ export namespace DocumentParameter {
   }
 }
 
-export type DocumentParameterType = "String" | "StringList";
-
 /**
  *
  *          <p>The document cannot be shared with more AWS user accounts. You can share a document with a
@@ -7163,10 +7492,6 @@ export namespace DocumentPermissionLimit {
   export function isa(o: any): o is DocumentPermissionLimit {
     return _smithy.isa(o, "DocumentPermissionLimit");
   }
-}
-
-export enum DocumentPermissionType {
-  SHARE = "Share"
 }
 
 /**
@@ -7195,25 +7520,6 @@ export namespace DocumentRequires {
   export function isa(o: any): o is DocumentRequires {
     return _smithy.isa(o, "DocumentRequires");
   }
-}
-
-export enum DocumentStatus {
-  Active = "Active",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Updating = "Updating"
-}
-
-export enum DocumentType {
-  ApplicationConfiguration = "ApplicationConfiguration",
-  ApplicationConfigurationSchema = "ApplicationConfigurationSchema",
-  Automation = "Automation",
-  Command = "Command",
-  DeploymentStrategy = "DeploymentStrategy",
-  Package = "Package",
-  Policy = "Policy",
-  Session = "Session"
 }
 
 /**
@@ -7428,11 +7734,6 @@ export namespace EffectivePatch {
   }
 }
 
-export enum ExecutionMode {
-  Auto = "Auto",
-  Interactive = "Interactive"
-}
-
 /**
  *
  *          <p>Describes a failed association.</p>
@@ -7504,8 +7805,6 @@ export namespace FailureDetails {
     return _smithy.isa(o, "FailureDetails");
   }
 }
-
-export type Fault = "Client" | "Server" | "Unknown";
 
 /**
  *
@@ -9900,17 +10199,6 @@ export namespace InstanceInformationFilter {
   }
 }
 
-export enum InstanceInformationFilterKey {
-  ACTIVATION_IDS = "ActivationIds",
-  AGENT_VERSION = "AgentVersion",
-  ASSOCIATION_STATUS = "AssociationStatus",
-  IAM_ROLE = "IamRole",
-  INSTANCE_IDS = "InstanceIds",
-  PING_STATUS = "PingStatus",
-  PLATFORM_TYPES = "PlatformTypes",
-  RESOURCE_TYPE = "ResourceType"
-}
-
 /**
  *
  *          <p>The filters to describe or get information about your managed instances.</p>
@@ -10171,13 +10459,6 @@ export namespace InstancePatchStateFilter {
   export function isa(o: any): o is InstancePatchStateFilter {
     return _smithy.isa(o, "InstancePatchStateFilter");
   }
-}
-
-export enum InstancePatchStateOperatorType {
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual"
 }
 
 /**
@@ -11196,16 +11477,6 @@ export namespace InventoryAggregator {
   }
 }
 
-export enum InventoryAttributeDataType {
-  NUMBER = "number",
-  STRING = "string"
-}
-
-export enum InventoryDeletionStatus {
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress"
-}
-
 /**
  *
  *          <p>Status information returned by the <code>DeleteInventory</code> action.</p>
@@ -11548,15 +11819,6 @@ export namespace InventoryItemSchema {
   }
 }
 
-export enum InventoryQueryOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual"
-}
-
 /**
  *
  *          <p>Inventory query results.</p>
@@ -11637,11 +11899,6 @@ export namespace InventoryResultItem {
   export function isa(o: any): o is InventoryResultItem {
     return _smithy.isa(o, "InventoryResultItem");
   }
-}
-
-export enum InventorySchemaDeleteOption {
-  DELETE_SCHEMA = "DeleteSchema",
-  DISABLE_SCHEMA = "DisableSchema"
 }
 
 /**
@@ -11760,12 +12017,6 @@ export namespace LabelParameterVersionResult {
   export function isa(o: any): o is LabelParameterVersionResult {
     return _smithy.isa(o, "LabelParameterVersionResult");
   }
-}
-
-export enum LastResourceDataSyncStatus {
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  SUCCESSFUL = "Successful"
 }
 
 export interface ListAssociationVersionsRequest {
@@ -12680,17 +12931,6 @@ export namespace MaintenanceWindowExecution {
   }
 }
 
-export enum MaintenanceWindowExecutionStatus {
-  Cancelled = "CANCELLED",
-  Cancelling = "CANCELLING",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  SkippedOverlapping = "SKIPPED_OVERLAPPING",
-  Success = "SUCCESS",
-  TimedOut = "TIMED_OUT"
-}
-
 /**
  *
  *          <p>Information about a task execution performed as part of a maintenance window
@@ -13085,11 +13325,6 @@ export namespace MaintenanceWindowLambdaParameters {
   export function isa(o: any): o is MaintenanceWindowLambdaParameters {
     return _smithy.isa(o, "MaintenanceWindowLambdaParameters");
   }
-}
-
-export enum MaintenanceWindowResourceType {
-  Instance = "INSTANCE",
-  ResourceGroup = "RESOURCE_GROUP"
 }
 
 /**
@@ -13534,13 +13769,6 @@ export namespace MaintenanceWindowTaskParameterValueExpression {
   }
 }
 
-export enum MaintenanceWindowTaskType {
-  Automation = "AUTOMATION",
-  Lambda = "LAMBDA",
-  RunCommand = "RUN_COMMAND",
-  StepFunctions = "STEP_FUNCTIONS"
-}
-
 /**
  *
  *          <p>The size limit of a document is 64 KB.</p>
@@ -13694,30 +13922,6 @@ export namespace NotificationConfig {
   }
 }
 
-export enum NotificationEvent {
-  ALL = "All",
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut"
-}
-
-export enum NotificationType {
-  Command = "Command",
-  Invocation = "Invocation"
-}
-
-export enum OperatingSystem {
-  AmazonLinux = "AMAZON_LINUX",
-  AmazonLinux2 = "AMAZON_LINUX_2",
-  CentOS = "CENTOS",
-  RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
-  Suse = "SUSE",
-  Ubuntu = "UBUNTU",
-  Windows = "WINDOWS"
-}
-
 /**
  *
  *          <p>One or more aggregators for viewing counts of OpsItems using different dimensions such as
@@ -13865,15 +14069,6 @@ export namespace OpsFilter {
   export function isa(o: any): o is OpsFilter {
     return _smithy.isa(o, "OpsFilter");
   }
-}
-
-export enum OpsFilterOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual"
 }
 
 /**
@@ -14051,11 +14246,6 @@ export namespace OpsItemAlreadyExistsException {
   }
 }
 
-export enum OpsItemDataType {
-  SEARCHABLE_STRING = "SearchableString",
-  STRING = "String"
-}
-
 /**
  *
  *          <p>An object that defines the value of the key and its type in the OperationalData map.</p>
@@ -14118,31 +14308,6 @@ export namespace OpsItemFilter {
   export function isa(o: any): o is OpsItemFilter {
     return _smithy.isa(o, "OpsItemFilter");
   }
-}
-
-export enum OpsItemFilterKey {
-  AUTOMATION_ID = "AutomationId",
-  CATEGORY = "Category",
-  CREATED_BY = "CreatedBy",
-  CREATED_TIME = "CreatedTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  OPERATIONAL_DATA = "OperationalData",
-  OPERATIONAL_DATA_KEY = "OperationalDataKey",
-  OPERATIONAL_DATA_VALUE = "OperationalDataValue",
-  OPSITEM_ID = "OpsItemId",
-  PRIORITY = "Priority",
-  RESOURCE_ID = "ResourceId",
-  SEVERITY = "Severity",
-  SOURCE = "Source",
-  STATUS = "Status",
-  TITLE = "Title"
-}
-
-export enum OpsItemFilterOperator {
-  CONTAINS = "Contains",
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan"
 }
 
 /**
@@ -14232,12 +14397,6 @@ export namespace OpsItemNotification {
   export function isa(o: any): o is OpsItemNotification {
     return _smithy.isa(o, "OpsItemNotification");
   }
-}
-
-export enum OpsItemStatus {
-  IN_PROGRESS = "InProgress",
-  OPEN = "Open",
-  RESOLVED = "Resolved"
 }
 
 /**
@@ -14859,18 +15018,6 @@ export namespace ParameterStringFilter {
   }
 }
 
-export enum ParameterTier {
-  ADVANCED = "Advanced",
-  INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard"
-}
-
-export enum ParameterType {
-  SECURE_STRING = "SecureString",
-  STRING = "String",
-  STRING_LIST = "StringList"
-}
-
 /**
  *
  *          <p>A parameter version can have a maximum of ten labels.</p>
@@ -14938,12 +15085,6 @@ export namespace ParametersFilter {
   export function isa(o: any): o is ParametersFilter {
     return _smithy.isa(o, "ParametersFilter");
   }
-}
-
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type"
 }
 
 /**
@@ -15050,11 +15191,6 @@ export namespace Patch {
   export function isa(o: any): o is Patch {
     return _smithy.isa(o, "Patch");
   }
-}
-
-export enum PatchAction {
-  AllowAsDependency = "ALLOW_AS_DEPENDENCY",
-  Block = "BLOCK"
 }
 
 /**
@@ -15171,32 +15307,6 @@ export namespace PatchComplianceData {
   }
 }
 
-export enum PatchComplianceDataState {
-  Failed = "FAILED",
-  Installed = "INSTALLED",
-  InstalledOther = "INSTALLED_OTHER",
-  InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
-  InstalledRejected = "INSTALLED_REJECTED",
-  Missing = "MISSING",
-  NotApplicable = "NOT_APPLICABLE"
-}
-
-export enum PatchComplianceLevel {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED"
-}
-
-export enum PatchDeploymentStatus {
-  Approved = "APPROVED",
-  ExplicitApproved = "EXPLICIT_APPROVED",
-  ExplicitRejected = "EXPLICIT_REJECTED",
-  PendingApproval = "PENDING_APPROVAL"
-}
-
 /**
  *
  *
@@ -15266,18 +15376,6 @@ export namespace PatchFilterGroup {
   }
 }
 
-export enum PatchFilterKey {
-  Classification = "CLASSIFICATION",
-  MsrcSeverity = "MSRC_SEVERITY",
-  PatchId = "PATCH_ID",
-  PatchSet = "PATCH_SET",
-  Priority = "PRIORITY",
-  Product = "PRODUCT",
-  ProductFamily = "PRODUCT_FAMILY",
-  Section = "SECTION",
-  Severity = "SEVERITY"
-}
-
 /**
  *
  *          <p>The mapping between a patch group and the patch baseline the patch group is registered
@@ -15307,11 +15405,6 @@ export namespace PatchGroupPatchBaselineMapping {
   }
 }
 
-export enum PatchOperationType {
-  INSTALL = "Install",
-  SCAN = "Scan"
-}
-
 /**
  *
  *          <p>Defines a filter used in Patch Manager APIs.</p>
@@ -15338,15 +15431,6 @@ export namespace PatchOrchestratorFilter {
   export function isa(o: any): o is PatchOrchestratorFilter {
     return _smithy.isa(o, "PatchOrchestratorFilter");
   }
-}
-
-export enum PatchProperty {
-  PatchClassification = "CLASSIFICATION",
-  PatchMsrcSeverity = "MSRC_SEVERITY",
-  PatchPriority = "PRIORITY",
-  PatchProductFamily = "PRODUCT_FAMILY",
-  PatchSeverity = "SEVERITY",
-  Product = "PRODUCT"
 }
 
 /**
@@ -15422,11 +15506,6 @@ export namespace PatchRuleGroup {
   export function isa(o: any): o is PatchRuleGroup {
     return _smithy.isa(o, "PatchRuleGroup");
   }
-}
-
-export enum PatchSet {
-  Application = "APPLICATION",
-  Os = "OS"
 }
 
 /**
@@ -15518,17 +15597,6 @@ export namespace PatchStatus {
   export function isa(o: any): o is PatchStatus {
     return _smithy.isa(o, "PatchStatus");
   }
-}
-
-export enum PingStatus {
-  CONNECTION_LOST = "ConnectionLost",
-  INACTIVE = "Inactive",
-  ONLINE = "Online"
-}
-
-export enum PlatformType {
-  LINUX = "Linux",
-  WINDOWS = "Windows"
 }
 
 /**
@@ -15988,11 +16056,6 @@ export namespace PutParameterResult {
   export function isa(o: any): o is PutParameterResult {
     return _smithy.isa(o, "PutParameterResult");
   }
-}
-
-export enum RebootOption {
-  NO_REBOOT = "NoReboot",
-  REBOOT_IF_NEEDED = "RebootIfNeeded"
 }
 
 export interface RegisterDefaultPatchBaselineRequest {
@@ -16893,10 +16956,6 @@ export namespace ResourceDataSyncS3Destination {
   }
 }
 
-export enum ResourceDataSyncS3Format {
-  JSON_SERDE = "JsonSerDe"
-}
-
 /**
  *
  *          <p>Information about the source of the data included in the resource data sync.</p>
@@ -17063,21 +17122,6 @@ export namespace ResourceLimitExceededException {
   export function isa(o: any): o is ResourceLimitExceededException {
     return _smithy.isa(o, "ResourceLimitExceededException");
   }
-}
-
-export enum ResourceType {
-  DOCUMENT = "Document",
-  EC2_INSTANCE = "EC2Instance",
-  MANAGED_INSTANCE = "ManagedInstance"
-}
-
-export enum ResourceTypeForTagging {
-  DOCUMENT = "Document",
-  MAINTENANCE_WINDOW = "MaintenanceWindow",
-  MANAGED_INSTANCE = "ManagedInstance",
-  OPS_ITEM = "OpsItem",
-  PARAMETER = "Parameter",
-  PATCH_BASELINE = "PatchBaseline"
 }
 
 /**
@@ -17739,14 +17783,6 @@ export namespace SessionFilter {
   }
 }
 
-export enum SessionFilterKey {
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  OWNER = "Owner",
-  STATUS = "Status",
-  TARGET_ID = "Target"
-}
-
 /**
  *
  *          <p>Reserved for future use.</p>
@@ -17773,20 +17809,6 @@ export namespace SessionManagerOutputUrl {
   export function isa(o: any): o is SessionManagerOutputUrl {
     return _smithy.isa(o, "SessionManagerOutputUrl");
   }
-}
-
-export enum SessionState {
-  ACTIVE = "Active",
-  HISTORY = "History"
-}
-
-export enum SessionStatus {
-  CONNECTED = "Connected",
-  CONNECTING = "Connecting",
-  DISCONNECTED = "Disconnected",
-  FAILED = "Failed",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating"
 }
 
 /**
@@ -17852,14 +17874,6 @@ export namespace SeveritySummary {
   export function isa(o: any): o is SeveritySummary {
     return _smithy.isa(o, "SeveritySummary");
   }
-}
-
-export enum SignalType {
-  APPROVE = "Approve",
-  REJECT = "Reject",
-  RESUME = "Resume",
-  START_STEP = "StartStep",
-  STOP_STEP = "StopStep"
 }
 
 export interface StartAssociationsOnceRequest {
@@ -18308,15 +18322,6 @@ export namespace StepExecutionFilter {
   }
 }
 
-export enum StepExecutionFilterKey {
-  ACTION = "Action",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  STEP_EXECUTION_ID = "StepExecutionId",
-  STEP_EXECUTION_STATUS = "StepExecutionStatus",
-  STEP_NAME = "StepName"
-}
-
 export interface StopAutomationExecutionRequest {
   __type?: "StopAutomationExecutionRequest";
   /**
@@ -18349,11 +18354,6 @@ export namespace StopAutomationExecutionResult {
   export function isa(o: any): o is StopAutomationExecutionResult {
     return _smithy.isa(o, "StopAutomationExecutionResult");
   }
-}
-
-export enum StopType {
-  CANCEL = "Cancel",
-  COMPLETE = "Complete"
 }
 
 /**

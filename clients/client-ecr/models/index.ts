@@ -1,6 +1,61 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum FindingSeverity {
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+  INFORMATIONAL = "INFORMATIONAL",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  UNDEFINED = "UNDEFINED"
+}
+
+export enum ImageActionType {
+  EXPIRE = "EXPIRE"
+}
+
+export enum ImageFailureCode {
+  ImageNotFound = "ImageNotFound",
+  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
+  InvalidImageDigest = "InvalidImageDigest",
+  InvalidImageTag = "InvalidImageTag",
+  MissingDigestAndTag = "MissingDigestAndTag"
+}
+
+export enum ImageTagMutability {
+  IMMUTABLE = "IMMUTABLE",
+  MUTABLE = "MUTABLE"
+}
+
+export enum LayerAvailability {
+  AVAILABLE = "AVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE"
+}
+
+export enum LayerFailureCode {
+  InvalidLayerDigest = "InvalidLayerDigest",
+  MissingLayerDigest = "MissingLayerDigest"
+}
+
+export enum LifecyclePolicyPreviewStatus {
+  COMPLETE = "COMPLETE",
+  EXPIRED = "EXPIRED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+export enum ScanStatus {
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+export enum TagStatus {
+  ANY = "ANY",
+  TAGGED = "TAGGED",
+  UNTAGGED = "UNTAGGED"
+}
+
 /**
  *
  *         <p>This data type is used in the <a>ImageScanFinding</a> data type.</p>
@@ -897,15 +952,6 @@ export namespace EmptyUploadException {
   }
 }
 
-export enum FindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNDEFINED = "UNDEFINED"
-}
-
 export interface GetAuthorizationTokenRequest {
   __type?: "GetAuthorizationTokenRequest";
   /**
@@ -1281,10 +1327,6 @@ export namespace Image {
   }
 }
 
-export enum ImageActionType {
-  EXPIRE = "EXPIRE"
-}
-
 /**
  *
  *         <p>The specified image has already been pushed, and there were no changes to the manifest
@@ -1422,14 +1464,6 @@ export namespace ImageFailure {
   export function isa(o: any): o is ImageFailure {
     return _smithy.isa(o, "ImageFailure");
   }
-}
-
-export enum ImageFailureCode {
-  ImageNotFound = "ImageNotFound",
-  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest = "InvalidImageDigest",
-  InvalidImageTag = "InvalidImageTag",
-  MissingDigestAndTag = "MissingDigestAndTag"
 }
 
 /**
@@ -1679,11 +1713,6 @@ export namespace ImageTagAlreadyExistsException {
   }
 }
 
-export enum ImageTagMutability {
-  IMMUTABLE = "IMMUTABLE",
-  MUTABLE = "MUTABLE"
-}
-
 export interface InitiateLayerUploadRequest {
   __type?: "InitiateLayerUploadRequest";
   /**
@@ -1929,11 +1958,6 @@ export namespace LayerAlreadyExistsException {
   }
 }
 
-export enum LayerAvailability {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE"
-}
-
 /**
  *
  *         <p>An object representing an Amazon ECR image layer failure.</p>
@@ -1967,11 +1991,6 @@ export namespace LayerFailure {
   export function isa(o: any): o is LayerFailure {
     return _smithy.isa(o, "LayerFailure");
   }
-}
-
-export enum LayerFailureCode {
-  InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest"
 }
 
 /**
@@ -2182,13 +2201,6 @@ export namespace LifecyclePolicyPreviewResult {
   export function isa(o: any): o is LifecyclePolicyPreviewResult {
     return _smithy.isa(o, "LifecyclePolicyPreviewResult");
   }
-}
-
-export enum LifecyclePolicyPreviewStatus {
-  COMPLETE = "COMPLETE",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -2840,12 +2852,6 @@ export namespace ScanNotFoundException {
   }
 }
 
-export enum ScanStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
 /**
  *
  *         <p>These errors are usually caused by a server-side issue.</p>
@@ -3148,12 +3154,6 @@ export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
     return _smithy.isa(o, "TagResourceResponse");
   }
-}
-
-export enum TagStatus {
-  ANY = "ANY",
-  TAGGED = "TAGGED",
-  UNTAGGED = "UNTAGGED"
 }
 
 /**

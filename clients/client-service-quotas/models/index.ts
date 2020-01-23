@@ -1,6 +1,36 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ErrorCode {
+  DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
+  DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
+  DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
+  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
+}
+
+export enum PeriodUnit {
+  DAY = "DAY",
+  HOUR = "HOUR",
+  MICROSECOND = "MICROSECOND",
+  MILLISECOND = "MILLISECOND",
+  MINUTE = "MINUTE",
+  SECOND = "SECOND",
+  WEEK = "WEEK"
+}
+
+export enum RequestStatus {
+  APPROVED = "APPROVED",
+  CASE_CLOSED = "CASE_CLOSED",
+  CASE_OPENED = "CASE_OPENED",
+  DENIED = "DENIED",
+  PENDING = "PENDING"
+}
+
+export enum ServiceQuotaTemplateAssociationStatus {
+  ASSOCIATED = "ASSOCIATED",
+  DISASSOCIATED = "DISASSOCIATED"
+}
+
 /**
  *
  *          <p>The action you attempted is not allowed unless Service Access with Service Quotas is
@@ -152,13 +182,6 @@ export namespace DisassociateServiceQuotaTemplateResponse {
   export function isa(o: any): o is DisassociateServiceQuotaTemplateResponse {
     return _smithy.isa(o, "DisassociateServiceQuotaTemplateResponse");
   }
-}
-
-export enum ErrorCode {
-  DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
-  DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
-  DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
 }
 
 /**
@@ -1024,16 +1047,6 @@ export namespace OrganizationNotInAllFeaturesModeException {
   }
 }
 
-export enum PeriodUnit {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MICROSECOND = "MICROSECOND",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  SECOND = "SECOND",
-  WEEK = "WEEK"
-}
-
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateRequest";
   /**
@@ -1185,14 +1198,6 @@ export namespace RequestServiceQuotaIncreaseResponse {
   export function isa(o: any): o is RequestServiceQuotaIncreaseResponse {
     return _smithy.isa(o, "RequestServiceQuotaIncreaseResponse");
   }
-}
-
-export enum RequestStatus {
-  APPROVED = "APPROVED",
-  CASE_CLOSED = "CASE_CLOSED",
-  CASE_OPENED = "CASE_OPENED",
-  DENIED = "DENIED",
-  PENDING = "PENDING"
 }
 
 /**
@@ -1544,11 +1549,6 @@ export namespace ServiceQuotaIncreaseRequestInTemplate {
   export function isa(o: any): o is ServiceQuotaIncreaseRequestInTemplate {
     return _smithy.isa(o, "ServiceQuotaIncreaseRequestInTemplate");
   }
-}
-
-export enum ServiceQuotaTemplateAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED"
 }
 
 /**

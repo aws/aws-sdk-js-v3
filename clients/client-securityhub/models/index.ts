@@ -1,6 +1,122 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AwsIamAccessKeyStatus {
+  ACTIVE = "Active",
+  INACTIVE = "Inactive"
+}
+
+export enum ComplianceStatus {
+  FAILED = "FAILED",
+  NOT_AVAILABLE = "NOT_AVAILABLE",
+  PASSED = "PASSED",
+  WARNING = "WARNING"
+}
+
+export enum DateRangeUnit {
+  DAYS = "DAYS"
+}
+
+export enum MalwareState {
+  OBSERVED = "OBSERVED",
+  REMOVAL_FAILED = "REMOVAL_FAILED",
+  REMOVED = "REMOVED"
+}
+
+export enum MalwareType {
+  ADWARE = "ADWARE",
+  BLENDED_THREAT = "BLENDED_THREAT",
+  BOTNET_AGENT = "BOTNET_AGENT",
+  COIN_MINER = "COIN_MINER",
+  EXPLOIT_KIT = "EXPLOIT_KIT",
+  KEYLOGGER = "KEYLOGGER",
+  MACRO = "MACRO",
+  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
+  RANSOMWARE = "RANSOMWARE",
+  REMOTE_ACCESS = "REMOTE_ACCESS",
+  ROOTKIT = "ROOTKIT",
+  SPYWARE = "SPYWARE",
+  TROJAN = "TROJAN",
+  VIRUS = "VIRUS",
+  WORM = "WORM"
+}
+
+export enum MapFilterComparison {
+  EQUALS = "EQUALS"
+}
+
+export enum NetworkDirection {
+  IN = "IN",
+  OUT = "OUT"
+}
+
+export enum Partition {
+  AWS = "aws",
+  AWS_CN = "aws-cn",
+  AWS_US_GOV = "aws-us-gov"
+}
+
+export enum RecordState {
+  ACTIVE = "ACTIVE",
+  ARCHIVED = "ARCHIVED"
+}
+
+export enum SortOrder {
+  ASCENDING = "asc",
+  DESCENDING = "desc"
+}
+
+export enum StandardsStatus {
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  INCOMPLETE = "INCOMPLETE",
+  PENDING = "PENDING",
+  READY = "READY"
+}
+
+export enum StringFilterComparison {
+  EQUALS = "EQUALS",
+  PREFIX = "PREFIX"
+}
+
+export enum ThreatIntelIndicatorCategory {
+  BACKDOOR = "BACKDOOR",
+  CARD_STEALER = "CARD_STEALER",
+  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
+  DROP_SITE = "DROP_SITE",
+  EXPLOIT_SITE = "EXPLOIT_SITE",
+  KEYLOGGER = "KEYLOGGER"
+}
+
+export enum ThreatIntelIndicatorType {
+  DOMAIN = "DOMAIN",
+  EMAIL_ADDRESS = "EMAIL_ADDRESS",
+  HASH_MD5 = "HASH_MD5",
+  HASH_SHA1 = "HASH_SHA1",
+  HASH_SHA256 = "HASH_SHA256",
+  HASH_SHA512 = "HASH_SHA512",
+  IPV4_ADDRESS = "IPV4_ADDRESS",
+  IPV6_ADDRESS = "IPV6_ADDRESS",
+  MUTEX = "MUTEX",
+  PROCESS = "PROCESS",
+  URL = "URL"
+}
+
+export enum VerificationState {
+  BENIGN_POSITIVE = "BENIGN_POSITIVE",
+  FALSE_POSITIVE = "FALSE_POSITIVE",
+  TRUE_POSITIVE = "TRUE_POSITIVE",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum WorkflowState {
+  ASSIGNED = "ASSIGNED",
+  DEFERRED = "DEFERRED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NEW = "NEW",
+  RESOLVED = "RESOLVED"
+}
+
 export interface AcceptInvitationRequest {
   __type?: "AcceptInvitationRequest";
   /**
@@ -228,11 +344,6 @@ export namespace AwsIamAccessKeyDetails {
   export function isa(o: any): o is AwsIamAccessKeyDetails {
     return _smithy.isa(o, "AwsIamAccessKeyDetails");
   }
-}
-
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive"
 }
 
 /**
@@ -1283,13 +1394,6 @@ export namespace Compliance {
   }
 }
 
-export enum ComplianceStatus {
-  FAILED = "FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PASSED = "PASSED",
-  WARNING = "WARNING"
-}
-
 /**
  *
  *          <p>Container details related to a finding.</p>
@@ -1520,10 +1624,6 @@ export namespace DateRange {
   export function isa(o: any): o is DateRange {
     return _smithy.isa(o, "DateRange");
   }
-}
-
-export enum DateRangeUnit {
-  DAYS = "DAYS"
 }
 
 export interface DeclineInvitationsRequest {
@@ -2869,30 +2969,6 @@ export namespace Malware {
   }
 }
 
-export enum MalwareState {
-  OBSERVED = "OBSERVED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED"
-}
-
-export enum MalwareType {
-  ADWARE = "ADWARE",
-  BLENDED_THREAT = "BLENDED_THREAT",
-  BOTNET_AGENT = "BOTNET_AGENT",
-  COIN_MINER = "COIN_MINER",
-  EXPLOIT_KIT = "EXPLOIT_KIT",
-  KEYLOGGER = "KEYLOGGER",
-  MACRO = "MACRO",
-  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
-  RANSOMWARE = "RANSOMWARE",
-  REMOTE_ACCESS = "REMOTE_ACCESS",
-  ROOTKIT = "ROOTKIT",
-  SPYWARE = "SPYWARE",
-  TROJAN = "TROJAN",
-  VIRUS = "VIRUS",
-  WORM = "WORM"
-}
-
 /**
  *
  *          <p>The map filter for querying findings.</p>
@@ -2927,10 +3003,6 @@ export namespace MapFilter {
   export function isa(o: any): o is MapFilter {
     return _smithy.isa(o, "MapFilter");
   }
-}
-
-export enum MapFilterComparison {
-  EQUALS = "EQUALS"
 }
 
 /**
@@ -3083,11 +3155,6 @@ export namespace Network {
   }
 }
 
-export enum NetworkDirection {
-  IN = "IN",
-  OUT = "OUT"
-}
-
 /**
  *
  *          <p>A user-defined note added to a finding.</p>
@@ -3187,12 +3254,6 @@ export namespace NumberFilter {
   export function isa(o: any): o is NumberFilter {
     return _smithy.isa(o, "NumberFilter");
   }
-}
-
-export enum Partition {
-  AWS = "aws",
-  AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov"
 }
 
 /**
@@ -3347,11 +3408,6 @@ export namespace Recommendation {
   export function isa(o: any): o is Recommendation {
     return _smithy.isa(o, "Recommendation");
   }
-}
-
-export enum RecordState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED"
 }
 
 /**
@@ -3637,19 +3693,6 @@ export namespace SortCriterion {
   }
 }
 
-export enum SortOrder {
-  ASCENDING = "asc",
-  DESCENDING = "desc"
-}
-
-export enum StandardsStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  PENDING = "PENDING",
-  READY = "READY"
-}
-
 /**
  *
  *          <p>A resource that represents your subscription to a supported standard.</p>
@@ -3757,11 +3800,6 @@ export namespace StringFilter {
   }
 }
 
-export enum StringFilterComparison {
-  EQUALS = "EQUALS",
-  PREFIX = "PREFIX"
-}
-
 export interface TagResourceRequest {
   __type?: "TagResourceRequest";
   /**
@@ -3851,29 +3889,6 @@ export namespace ThreatIntelIndicator {
   export function isa(o: any): o is ThreatIntelIndicator {
     return _smithy.isa(o, "ThreatIntelIndicator");
   }
-}
-
-export enum ThreatIntelIndicatorCategory {
-  BACKDOOR = "BACKDOOR",
-  CARD_STEALER = "CARD_STEALER",
-  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
-  DROP_SITE = "DROP_SITE",
-  EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER"
-}
-
-export enum ThreatIntelIndicatorType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  HASH_MD5 = "HASH_MD5",
-  HASH_SHA1 = "HASH_SHA1",
-  HASH_SHA256 = "HASH_SHA256",
-  HASH_SHA512 = "HASH_SHA512",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MUTEX = "MUTEX",
-  PROCESS = "PROCESS",
-  URL = "URL"
 }
 
 export interface UntagResourceRequest {
@@ -4034,19 +4049,4 @@ export namespace UpdateInsightResponse {
   export function isa(o: any): o is UpdateInsightResponse {
     return _smithy.isa(o, "UpdateInsightResponse");
   }
-}
-
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN"
-}
-
-export enum WorkflowState {
-  ASSIGNED = "ASSIGNED",
-  DEFERRED = "DEFERRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NEW = "NEW",
-  RESOLVED = "RESOLVED"
 }

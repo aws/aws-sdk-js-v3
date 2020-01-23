@@ -10,6 +10,22 @@ export enum APIName {
   PUT_MEDIA = "PUT_MEDIA"
 }
 
+export enum ComparisonOperator {
+  BEGINS_WITH = "BEGINS_WITH"
+}
+
+export enum Status {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING"
+}
+
+export enum UpdateDataRetentionOperation {
+  DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
+  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION"
+}
+
 /**
  *
  *          <p>The number of streams created for the account is too high.</p>
@@ -49,10 +65,6 @@ export namespace ClientLimitExceededException {
   export function isa(o: any): o is ClientLimitExceededException {
     return _smithy.isa(o, "ClientLimitExceededException");
   }
-}
-
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH"
 }
 
 export interface CreateStreamInput {
@@ -529,13 +541,6 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *          <p>An object describing a Kinesis video stream.</p>
@@ -794,11 +799,6 @@ export namespace UpdateDataRetentionInput {
   export function isa(o: any): o is UpdateDataRetentionInput {
     return _smithy.isa(o, "UpdateDataRetentionInput");
   }
-}
-
-export enum UpdateDataRetentionOperation {
-  DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
-  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION"
 }
 
 export interface UpdateDataRetentionOutput extends $MetadataBearer {

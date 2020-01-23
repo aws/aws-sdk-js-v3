@@ -8,6 +8,224 @@ export enum ActionOnFailure {
   TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW"
 }
 
+export enum AdjustmentType {
+  CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
+  EXACT_CAPACITY = "EXACT_CAPACITY",
+  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY"
+}
+
+export enum AutoScalingPolicyState {
+  ATTACHED = "ATTACHED",
+  ATTACHING = "ATTACHING",
+  DETACHED = "DETACHED",
+  DETACHING = "DETACHING",
+  FAILED = "FAILED",
+  PENDING = "PENDING"
+}
+
+export enum AutoScalingPolicyStateChangeReasonCode {
+  CLEANUP_FAILURE = "CLEANUP_FAILURE",
+  PROVISION_FAILURE = "PROVISION_FAILURE",
+  USER_REQUEST = "USER_REQUEST"
+}
+
+export enum CancelStepsRequestStatus {
+  FAILED = "FAILED",
+  SUBMITTED = "SUBMITTED"
+}
+
+export enum ClusterState {
+  BOOTSTRAPPING = "BOOTSTRAPPING",
+  RUNNING = "RUNNING",
+  STARTING = "STARTING",
+  TERMINATED = "TERMINATED",
+  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
+  TERMINATING = "TERMINATING",
+  WAITING = "WAITING"
+}
+
+export enum ClusterStateChangeReasonCode {
+  ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED",
+  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
+  INSTANCE_FAILURE = "INSTANCE_FAILURE",
+  INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  STEP_FAILURE = "STEP_FAILURE",
+  USER_REQUEST = "USER_REQUEST",
+  VALIDATION_ERROR = "VALIDATION_ERROR"
+}
+
+export enum ComparisonOperator {
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+}
+
+export enum InstanceCollectionType {
+  INSTANCE_FLEET = "INSTANCE_FLEET",
+  INSTANCE_GROUP = "INSTANCE_GROUP"
+}
+
+export enum InstanceFleetState {
+  BOOTSTRAPPING = "BOOTSTRAPPING",
+  PROVISIONING = "PROVISIONING",
+  RESIZING = "RESIZING",
+  RUNNING = "RUNNING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING"
+}
+
+export enum InstanceFleetStateChangeReasonCode {
+  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE = "INSTANCE_FAILURE",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  VALIDATION_ERROR = "VALIDATION_ERROR"
+}
+
+export enum InstanceFleetType {
+  CORE = "CORE",
+  MASTER = "MASTER",
+  TASK = "TASK"
+}
+
+export enum InstanceGroupState {
+  ARRESTED = "ARRESTED",
+  BOOTSTRAPPING = "BOOTSTRAPPING",
+  ENDED = "ENDED",
+  PROVISIONING = "PROVISIONING",
+  RECONFIGURING = "RECONFIGURING",
+  RESIZING = "RESIZING",
+  RUNNING = "RUNNING",
+  SHUTTING_DOWN = "SHUTTING_DOWN",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING"
+}
+
+export enum InstanceGroupStateChangeReasonCode {
+  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE = "INSTANCE_FAILURE",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  VALIDATION_ERROR = "VALIDATION_ERROR"
+}
+
+export enum InstanceGroupType {
+  CORE = "CORE",
+  MASTER = "MASTER",
+  TASK = "TASK"
+}
+
+export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
+
+export enum InstanceState {
+  AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
+  BOOTSTRAPPING = "BOOTSTRAPPING",
+  PROVISIONING = "PROVISIONING",
+  RUNNING = "RUNNING",
+  TERMINATED = "TERMINATED"
+}
+
+export enum InstanceStateChangeReasonCode {
+  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
+  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE = "INSTANCE_FAILURE",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+  VALIDATION_ERROR = "VALIDATION_ERROR"
+}
+
+export enum JobFlowExecutionState {
+  BOOTSTRAPPING = "BOOTSTRAPPING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SHUTTING_DOWN = "SHUTTING_DOWN",
+  STARTING = "STARTING",
+  TERMINATED = "TERMINATED",
+  WAITING = "WAITING"
+}
+
+export enum MarketType {
+  ON_DEMAND = "ON_DEMAND",
+  SPOT = "SPOT"
+}
+
+export enum RepoUpgradeOnBoot {
+  NONE = "NONE",
+  SECURITY = "SECURITY"
+}
+
+export enum ScaleDownBehavior {
+  TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
+  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION"
+}
+
+export type SpotProvisioningTimeoutAction =
+  | "SWITCH_TO_ON_DEMAND"
+  | "TERMINATE_CLUSTER";
+
+export enum Statistic {
+  AVERAGE = "AVERAGE",
+  MAXIMUM = "MAXIMUM",
+  MINIMUM = "MINIMUM",
+  SAMPLE_COUNT = "SAMPLE_COUNT",
+  SUM = "SUM"
+}
+
+export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
+
+export type StepExecutionState =
+  | "CANCELLED"
+  | "COMPLETED"
+  | "CONTINUE"
+  | "FAILED"
+  | "INTERRUPTED"
+  | "PENDING"
+  | "RUNNING";
+
+export enum StepState {
+  CANCELLED = "CANCELLED",
+  CANCEL_PENDING = "CANCEL_PENDING",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  INTERRUPTED = "INTERRUPTED",
+  PENDING = "PENDING",
+  RUNNING = "RUNNING"
+}
+
+export type StepStateChangeReasonCode = "NONE";
+
+export enum Unit {
+  BITS = "BITS",
+  BITS_PER_SECOND = "BITS_PER_SECOND",
+  BYTES = "BYTES",
+  BYTES_PER_SECOND = "BYTES_PER_SECOND",
+  COUNT = "COUNT",
+  COUNT_PER_SECOND = "COUNT_PER_SECOND",
+  GIGA_BITS = "GIGA_BITS",
+  GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND",
+  GIGA_BYTES = "GIGA_BYTES",
+  GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND",
+  KILO_BITS = "KILO_BITS",
+  KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND",
+  KILO_BYTES = "KILO_BYTES",
+  KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND",
+  MEGA_BITS = "MEGA_BITS",
+  MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND",
+  MEGA_BYTES = "MEGA_BYTES",
+  MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND",
+  MICRO_SECONDS = "MICRO_SECONDS",
+  MILLI_SECONDS = "MILLI_SECONDS",
+  NONE = "NONE",
+  PERCENT = "PERCENT",
+  SECONDS = "SECONDS",
+  TERA_BITS = "TERA_BITS",
+  TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
+  TERA_BYTES = "TERA_BYTES",
+  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND"
+}
+
 export interface AddInstanceFleetInput {
   __type?: "AddInstanceFleetInput";
   /**
@@ -217,12 +435,6 @@ export namespace AddTagsOutput {
   }
 }
 
-export enum AdjustmentType {
-  CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
-  EXACT_CAPACITY = "EXACT_CAPACITY",
-  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY"
-}
-
 /**
  *
  *          <p>With Amazon EMR release version 4.0 and later, the only accepted parameter is the application name. To pass arguments to applications, you use configuration classifications specified using configuration JSON objects. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.</p>
@@ -329,15 +541,6 @@ export namespace AutoScalingPolicyDescription {
   }
 }
 
-export enum AutoScalingPolicyState {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-  FAILED = "FAILED",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *          <p>The reason for an <a>AutoScalingPolicyStatus</a> change.</p>
@@ -364,12 +567,6 @@ export namespace AutoScalingPolicyStateChangeReason {
   export function isa(o: any): o is AutoScalingPolicyStateChangeReason {
     return _smithy.isa(o, "AutoScalingPolicyStateChangeReason");
   }
-}
-
-export enum AutoScalingPolicyStateChangeReasonCode {
-  CLEANUP_FAILURE = "CLEANUP_FAILURE",
-  PROVISION_FAILURE = "PROVISION_FAILURE",
-  USER_REQUEST = "USER_REQUEST"
 }
 
 /**
@@ -618,11 +815,6 @@ export namespace CancelStepsOutput {
   export function isa(o: any): o is CancelStepsOutput {
     return _smithy.isa(o, "CancelStepsOutput");
   }
-}
-
-export enum CancelStepsRequestStatus {
-  FAILED = "FAILED",
-  SUBMITTED = "SUBMITTED"
 }
 
 /**
@@ -919,16 +1111,6 @@ export namespace Cluster {
   }
 }
 
-export enum ClusterState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-  WAITING = "WAITING"
-}
-
 /**
  *
  *          <p>The reason that the cluster changed to its current state.</p>
@@ -955,17 +1137,6 @@ export namespace ClusterStateChangeReason {
   export function isa(o: any): o is ClusterStateChangeReason {
     return _smithy.isa(o, "ClusterStateChangeReason");
   }
-}
-
-export enum ClusterStateChangeReasonCode {
-  ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED",
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STEP_FAILURE = "STEP_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
 }
 
 /**
@@ -1129,13 +1300,6 @@ export namespace Command {
   export function isa(o: any): o is Command {
     return _smithy.isa(o, "Command");
   }
-}
-
-export enum ComparisonOperator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
 }
 
 /**
@@ -1906,11 +2070,6 @@ export namespace Instance {
   }
 }
 
-export enum InstanceCollectionType {
-  INSTANCE_FLEET = "INSTANCE_FLEET",
-  INSTANCE_GROUP = "INSTANCE_GROUP"
-}
-
 /**
  *
  *          <p>Describes an instance fleet, which is a group of EC2 instances that host a particular node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can consist of a mix of instance types and On-Demand and Spot instances, which are provisioned to meet a defined target capacity.
@@ -2136,16 +2295,6 @@ export namespace InstanceFleetProvisioningSpecifications {
   }
 }
 
-export enum InstanceFleetState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
-}
-
 /**
  *
  *          <p>Provides status change reason details for the instance fleet.</p>
@@ -2175,13 +2324,6 @@ export namespace InstanceFleetStateChangeReason {
   export function isa(o: any): o is InstanceFleetStateChangeReason {
     return _smithy.isa(o, "InstanceFleetStateChangeReason");
   }
-}
-
-export enum InstanceFleetStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
 }
 
 /**
@@ -2288,12 +2430,6 @@ export namespace InstanceFleetTimeline {
   export function isa(o: any): o is InstanceFleetTimeline {
     return _smithy.isa(o, "InstanceFleetTimeline");
   }
-}
-
-export enum InstanceFleetType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK"
 }
 
 /**
@@ -2675,20 +2811,6 @@ export namespace InstanceGroupModifyConfig {
   }
 }
 
-export enum InstanceGroupState {
-  ARRESTED = "ARRESTED",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  ENDED = "ENDED",
-  PROVISIONING = "PROVISIONING",
-  RECONFIGURING = "RECONFIGURING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
-}
-
 /**
  *
  *          <p>The status change reason details for the instance group.</p>
@@ -2715,13 +2837,6 @@ export namespace InstanceGroupStateChangeReason {
   export function isa(o: any): o is InstanceGroupStateChangeReason {
     return _smithy.isa(o, "InstanceGroupStateChangeReason");
   }
-}
-
-export enum InstanceGroupStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
 }
 
 /**
@@ -2794,12 +2909,6 @@ export namespace InstanceGroupTimeline {
   }
 }
 
-export enum InstanceGroupType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK"
-}
-
 /**
  *
  *          <p>Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.</p>
@@ -2835,16 +2944,6 @@ export namespace InstanceResizePolicy {
   }
 }
 
-export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
-
-export enum InstanceState {
-  AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED"
-}
-
 /**
  *
  *          <p>The details of the status change reason for the instance.</p>
@@ -2871,14 +2970,6 @@ export namespace InstanceStateChangeReason {
   export function isa(o: any): o is InstanceStateChangeReason {
     return _smithy.isa(o, "InstanceStateChangeReason");
   }
-}
-
-export enum InstanceStateChangeReasonCode {
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
 }
 
 /**
@@ -3271,17 +3362,6 @@ export namespace JobFlowDetail {
   export function isa(o: any): o is JobFlowDetail {
     return _smithy.isa(o, "JobFlowDetail");
   }
-}
-
-export enum JobFlowExecutionState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  WAITING = "WAITING"
 }
 
 /**
@@ -4090,11 +4170,6 @@ export namespace ListStepsOutput {
   }
 }
 
-export enum MarketType {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT"
-}
-
 /**
  *
  *          <p>A CloudWatch dimension, which is specified using a <code>Key</code> (known as a <code>Name</code> in CloudWatch), <code>Value</code> pair. By default, Amazon EMR uses one dimension whose <code>Key</code> is <code>JobFlowID</code> and <code>Value</code> is a variable representing the cluster ID, which is <code>${emr.clusterId}</code>. This enables the rule to bootstrap when the cluster ID becomes available.</p>
@@ -4442,11 +4517,6 @@ export namespace RemoveTagsOutput {
   }
 }
 
-export enum RepoUpgradeOnBoot {
-  NONE = "NONE",
-  SECURITY = "SECURITY"
-}
-
 /**
  *
  *          <p> Input to the <a>RunJobFlow</a> operation. </p>
@@ -4697,11 +4767,6 @@ export namespace RunJobFlowOutput {
   export function isa(o: any): o is RunJobFlowOutput {
     return _smithy.isa(o, "RunJobFlowOutput");
   }
-}
-
-export enum ScaleDownBehavior {
-  TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
-  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION"
 }
 
 /**
@@ -5040,18 +5105,6 @@ export namespace SpotProvisioningSpecification {
   }
 }
 
-export type SpotProvisioningTimeoutAction =
-  | "SWITCH_TO_ON_DEMAND"
-  | "TERMINATE_CLUSTER";
-
-export enum Statistic {
-  AVERAGE = "AVERAGE",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  SAMPLE_COUNT = "SAMPLE_COUNT",
-  SUM = "SUM"
-}
-
 /**
  *
  *          <p>This represents a step in a cluster.</p>
@@ -5100,8 +5153,6 @@ export namespace Step {
     return _smithy.isa(o, "Step");
   }
 }
-
-export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
 
 /**
  *
@@ -5166,15 +5217,6 @@ export namespace StepDetail {
   }
 }
 
-export type StepExecutionState =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "CONTINUE"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "PENDING"
-  | "RUNNING";
-
 /**
  *
  *          <p>The execution state of a step.</p>
@@ -5224,16 +5266,6 @@ export namespace StepExecutionStatusDetail {
   }
 }
 
-export enum StepState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING"
-}
-
 /**
  *
  *          <p>The details of the step state change reason.</p>
@@ -5261,8 +5293,6 @@ export namespace StepStateChangeReason {
     return _smithy.isa(o, "StepStateChangeReason");
   }
 }
-
-export type StepStateChangeReasonCode = "NONE";
 
 /**
  *
@@ -5472,36 +5502,6 @@ export namespace TerminateJobFlowsInput {
   export function isa(o: any): o is TerminateJobFlowsInput {
     return _smithy.isa(o, "TerminateJobFlowsInput");
   }
-}
-
-export enum Unit {
-  BITS = "BITS",
-  BITS_PER_SECOND = "BITS_PER_SECOND",
-  BYTES = "BYTES",
-  BYTES_PER_SECOND = "BYTES_PER_SECOND",
-  COUNT = "COUNT",
-  COUNT_PER_SECOND = "COUNT_PER_SECOND",
-  GIGA_BITS = "GIGA_BITS",
-  GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND",
-  GIGA_BYTES = "GIGA_BYTES",
-  GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND",
-  KILO_BITS = "KILO_BITS",
-  KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND",
-  KILO_BYTES = "KILO_BYTES",
-  KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND",
-  MEGA_BITS = "MEGA_BITS",
-  MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND",
-  MEGA_BYTES = "MEGA_BYTES",
-  MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND",
-  MICRO_SECONDS = "MICRO_SECONDS",
-  MILLI_SECONDS = "MILLI_SECONDS",
-  NONE = "NONE",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-  TERA_BITS = "TERA_BITS",
-  TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
-  TERA_BYTES = "TERA_BYTES",
-  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND"
 }
 
 /**

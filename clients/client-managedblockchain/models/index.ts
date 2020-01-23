@@ -1,6 +1,66 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Edition {
+  STANDARD = "STANDARD",
+  STARTER = "STARTER"
+}
+
+export enum Framework {
+  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC"
+}
+
+export enum InvitationStatus {
+  ACCEPTED = "ACCEPTED",
+  ACCEPTING = "ACCEPTING",
+  EXPIRED = "EXPIRED",
+  PENDING = "PENDING",
+  REJECTED = "REJECTED"
+}
+
+export enum MemberStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING"
+}
+
+export enum NetworkStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING"
+}
+
+export enum NodeStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETED = "DELETED",
+  DELETING = "DELETING",
+  FAILED = "FAILED"
+}
+
+export enum ProposalStatus {
+  ACTION_FAILED = "ACTION_FAILED",
+  APPROVED = "APPROVED",
+  EXPIRED = "EXPIRED",
+  IN_PROGRESS = "IN_PROGRESS",
+  REJECTED = "REJECTED"
+}
+
+export enum ThresholdComparator {
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO"
+}
+
+export enum VoteValue {
+  NO = "NO",
+  YES = "YES"
+}
+
 /**
  *
  *          <p>You do not have sufficient access to perform this action.</p>
@@ -387,15 +447,6 @@ export namespace DeleteNodeOutput {
   }
 }
 
-export enum Edition {
-  STANDARD = "STANDARD",
-  STARTER = "STARTER"
-}
-
-export enum Framework {
-  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC"
-}
-
 export interface GetMemberInput {
   __type?: "GetMemberInput";
   /**
@@ -680,14 +731,6 @@ export namespace Invitation {
   export function isa(o: any): o is Invitation {
     return _smithy.isa(o, "Invitation");
   }
-}
-
-export enum InvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  ACCEPTING = "ACCEPTING",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED"
 }
 
 /**
@@ -1318,14 +1361,6 @@ export namespace MemberFrameworkConfiguration {
   }
 }
 
-export enum MemberStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING"
-}
-
 /**
  *
  *          <p>A summary of configuration properties for a member.</p>
@@ -1585,14 +1620,6 @@ export namespace NetworkFrameworkConfiguration {
   }
 }
 
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING"
-}
-
 /**
  *
  *          <p>A summary of network configuration properties.</p>
@@ -1801,15 +1828,6 @@ export namespace NodeFrameworkAttributes {
   export function isa(o: any): o is NodeFrameworkAttributes {
     return _smithy.isa(o, "NodeFrameworkAttributes");
   }
-}
-
-export enum NodeStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED"
 }
 
 /**
@@ -2023,14 +2041,6 @@ export namespace ProposalActions {
   export function isa(o: any): o is ProposalActions {
     return _smithy.isa(o, "ProposalActions");
   }
-}
-
-export enum ProposalStatus {
-  ACTION_FAILED = "ACTION_FAILED",
-  APPROVED = "APPROVED",
-  EXPIRED = "EXPIRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED"
 }
 
 /**
@@ -2257,11 +2267,6 @@ export namespace ResourceNotReadyException {
   }
 }
 
-export enum ThresholdComparator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO"
-}
-
 /**
  *
  *          <p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>
@@ -2376,11 +2381,6 @@ export namespace VoteSummary {
   export function isa(o: any): o is VoteSummary {
     return _smithy.isa(o, "VoteSummary");
   }
-}
-
-export enum VoteValue {
-  NO = "NO",
-  YES = "YES"
 }
 
 /**

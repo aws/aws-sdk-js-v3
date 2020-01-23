@@ -21,124 +21,6 @@ export namespace AccessDeniedException {
   }
 }
 
-export interface IncompatibleVersionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IncompatibleVersionException";
-  name: "IncompatibleVersionException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace IncompatibleVersionException {
-  export function isa(o: any): o is IncompatibleVersionException {
-    return _smithy.isa(o, "IncompatibleVersionException");
-  }
-}
-
-/**
- *
- *         <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
- *
- */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServiceException";
-  name: "InternalServiceException";
-  $fault: "server";
-  message: string | undefined;
-}
-
-export namespace InternalServiceException {
-  export function isa(o: any): o is InternalServiceException {
-    return _smithy.isa(o, "InternalServiceException");
-  }
-}
-
-/**
- *
- *         <p>Too many operations for a given AWS account. For example, the number of pipelines
- *             exceeds the maximum allowed.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-/**
- *
- *         <p>The resource you are attempting to change is in use. For example, you are attempting
- *             to delete a pipeline that is currently in use.</p>
- *
- */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceInUseException";
-  name: "ResourceInUseException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceInUseException {
-  export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
-  }
-}
-
-/**
- *
- *         <p>The requested resource does not exist or is not available. For example, the pipeline
- *             to which you're trying to add a job doesn't exist or is still being created.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- *         <p>One or more required parameter values were not provided in the request.</p>
- *
- */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ValidationException";
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ValidationException {
-  export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
-  }
-}
-
 /**
  *
  *         <p>The file to be used as album art. There can be multiple artworks associated with an
@@ -2082,6 +1964,21 @@ export namespace HlsContentProtection {
   }
 }
 
+export interface IncompatibleVersionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IncompatibleVersionException";
+  name: "IncompatibleVersionException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace IncompatibleVersionException {
+  export function isa(o: any): o is IncompatibleVersionException {
+    return _smithy.isa(o, "IncompatibleVersionException");
+  }
+}
+
 /**
  *
  *         <p>The captions to be created, if any.</p>
@@ -2132,6 +2029,26 @@ export interface InputCaptions {
 export namespace InputCaptions {
   export function isa(o: any): o is InputCaptions {
     return _smithy.isa(o, "InputCaptions");
+  }
+}
+
+/**
+ *
+ *         <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ */
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServiceException";
+  name: "InternalServiceException";
+  $fault: "server";
+  message: string | undefined;
+}
+
+export namespace InternalServiceException {
+  export function isa(o: any): o is InternalServiceException {
+    return _smithy.isa(o, "InternalServiceException");
   }
 }
 
@@ -2858,6 +2775,27 @@ export interface JobWatermark {
 export namespace JobWatermark {
   export function isa(o: any): o is JobWatermark {
     return _smithy.isa(o, "JobWatermark");
+  }
+}
+
+/**
+ *
+ *         <p>Too many operations for a given AWS account. For example, the number of pipelines
+ *             exceeds the maximum allowed.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
   }
 }
 
@@ -4293,6 +4231,48 @@ export namespace ReadPresetResponse {
 
 /**
  *
+ *         <p>The resource you are attempting to change is in use. For example, you are attempting
+ *             to delete a pipeline that is currently in use.</p>
+ *
+ */
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceInUseException";
+  name: "ResourceInUseException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceInUseException {
+  export function isa(o: any): o is ResourceInUseException {
+    return _smithy.isa(o, "ResourceInUseException");
+  }
+}
+
+/**
+ *
+ *         <p>The requested resource does not exist or is not available. For example, the pipeline
+ *             to which you're trying to add a job doesn't exist or is still being created.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
  *         <p> The <code>TestRoleRequest</code> structure. </p>
  *
  */
@@ -5048,6 +5028,26 @@ export interface UpdatePipelineStatusResponse extends $MetadataBearer {
 export namespace UpdatePipelineStatusResponse {
   export function isa(o: any): o is UpdatePipelineStatusResponse {
     return _smithy.isa(o, "UpdatePipelineStatusResponse");
+  }
+}
+
+/**
+ *
+ *         <p>One or more required parameter values were not provided in the request.</p>
+ *
+ */
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ValidationException";
+  name: "ValidationException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ValidationException {
+  export function isa(o: any): o is ValidationException {
+    return _smithy.isa(o, "ValidationException");
   }
 }
 

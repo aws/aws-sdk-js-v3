@@ -1,6 +1,48 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum BlockType {
+  CELL = "CELL",
+  KEY_VALUE_SET = "KEY_VALUE_SET",
+  LINE = "LINE",
+  PAGE = "PAGE",
+  SELECTION_ELEMENT = "SELECTION_ELEMENT",
+  TABLE = "TABLE",
+  WORD = "WORD"
+}
+
+export enum ContentClassifier {
+  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
+}
+
+export enum EntityType {
+  KEY = "KEY",
+  VALUE = "VALUE"
+}
+
+export enum FeatureType {
+  FORMS = "FORMS",
+  TABLES = "TABLES"
+}
+
+export enum JobStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
+  SUCCEEDED = "SUCCEEDED"
+}
+
+export enum RelationshipType {
+  CHILD = "CHILD",
+  VALUE = "VALUE"
+}
+
+export enum SelectionStatus {
+  NOT_SELECTED = "NOT_SELECTED",
+  SELECTED = "SELECTED"
+}
+
 /**
  *
  *          <p>You aren't authorized to perform the action.</p>
@@ -336,16 +378,6 @@ export namespace Block {
   }
 }
 
-export enum BlockType {
-  CELL = "CELL",
-  KEY_VALUE_SET = "KEY_VALUE_SET",
-  LINE = "LINE",
-  PAGE = "PAGE",
-  SELECTION_ELEMENT = "SELECTION_ELEMENT",
-  TABLE = "TABLE",
-  WORD = "WORD"
-}
-
 /**
  *
  *          <p>The bounding box around the detected page, text, key-value pair, table, table cell, or selection element on a
@@ -401,11 +433,6 @@ export namespace BoundingBox {
   export function isa(o: any): o is BoundingBox {
     return _smithy.isa(o, "BoundingBox");
   }
-}
-
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
 }
 
 export interface DetectDocumentTextRequest {
@@ -575,16 +602,6 @@ export namespace DocumentTooLargeException {
   export function isa(o: any): o is DocumentTooLargeException {
     return _smithy.isa(o, "DocumentTooLargeException");
   }
-}
-
-export enum EntityType {
-  KEY = "KEY",
-  VALUE = "VALUE"
-}
-
-export enum FeatureType {
-  FORMS = "FORMS",
-  TABLES = "TABLES"
 }
 
 /**
@@ -1036,13 +1053,6 @@ export namespace InvalidS3ObjectException {
   }
 }
 
-export enum JobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  SUCCEEDED = "SUCCEEDED"
-}
-
 /**
  *
  *          <p>An Amazon Textract service limit was exceeded. For example, if you start too many
@@ -1193,11 +1203,6 @@ export namespace Relationship {
   }
 }
 
-export enum RelationshipType {
-  CHILD = "CHILD",
-  VALUE = "VALUE"
-}
-
 /**
  *
  *          <p>The S3 bucket name and file name that identifies the document.</p>
@@ -1239,11 +1244,6 @@ export namespace S3Object {
   export function isa(o: any): o is S3Object {
     return _smithy.isa(o, "S3Object");
   }
-}
-
-export enum SelectionStatus {
-  NOT_SELECTED = "NOT_SELECTED",
-  SELECTED = "SELECTED"
 }
 
 export interface StartDocumentAnalysisRequest {

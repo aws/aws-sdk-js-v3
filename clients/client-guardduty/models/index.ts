@@ -1,6 +1,85 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum DestinationType {
+  S3 = "S3"
+}
+
+export enum DetectorStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
+}
+
+export enum Feedback {
+  NOT_USEFUL = "NOT_USEFUL",
+  USEFUL = "USEFUL"
+}
+
+export enum FilterAction {
+  ARCHIVE = "ARCHIVE",
+  NOOP = "NOOP"
+}
+
+export enum FindingPublishingFrequency {
+  FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
+  ONE_HOUR = "ONE_HOUR",
+  SIX_HOURS = "SIX_HOURS"
+}
+
+export enum FindingStatisticType {
+  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY"
+}
+
+export enum IpSetFormat {
+  ALIEN_VAULT = "ALIEN_VAULT",
+  FIRE_EYE = "FIRE_EYE",
+  OTX_CSV = "OTX_CSV",
+  PROOF_POINT = "PROOF_POINT",
+  STIX = "STIX",
+  TXT = "TXT"
+}
+
+export enum IpSetStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  DEACTIVATING = "DEACTIVATING",
+  DELETED = "DELETED",
+  DELETE_PENDING = "DELETE_PENDING",
+  ERROR = "ERROR",
+  INACTIVE = "INACTIVE"
+}
+
+export enum OrderBy {
+  ASC = "ASC",
+  DESC = "DESC"
+}
+
+export enum PublishingStatus {
+  PENDING_VERIFICATION = "PENDING_VERIFICATION",
+  PUBLISHING = "PUBLISHING",
+  STOPPED = "STOPPED",
+  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
+}
+
+export enum ThreatIntelSetFormat {
+  ALIEN_VAULT = "ALIEN_VAULT",
+  FIRE_EYE = "FIRE_EYE",
+  OTX_CSV = "OTX_CSV",
+  PROOF_POINT = "PROOF_POINT",
+  STIX = "STIX",
+  TXT = "TXT"
+}
+
+export enum ThreatIntelSetStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  DEACTIVATING = "DEACTIVATING",
+  DELETED = "DELETED",
+  DELETE_PENDING = "DELETE_PENDING",
+  ERROR = "ERROR",
+  INACTIVE = "INACTIVE"
+}
+
 export interface AcceptInvitationRequest {
   __type?: "AcceptInvitationRequest";
   /**
@@ -1257,15 +1336,6 @@ export namespace DestinationProperties {
   }
 }
 
-export enum DestinationType {
-  S3 = "S3"
-}
-
-export enum DetectorStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
 export interface DisassociateFromMasterAccountRequest {
   __type?: "DisassociateFromMasterAccountRequest";
   /**
@@ -1395,16 +1465,6 @@ export namespace Evidence {
   export function isa(o: any): o is Evidence {
     return _smithy.isa(o, "Evidence");
   }
-}
-
-export enum Feedback {
-  NOT_USEFUL = "NOT_USEFUL",
-  USEFUL = "USEFUL"
-}
-
-export enum FilterAction {
-  ARCHIVE = "ARCHIVE",
-  NOOP = "NOOP"
 }
 
 /**
@@ -1548,16 +1608,6 @@ export namespace FindingCriteria {
   export function isa(o: any): o is FindingCriteria {
     return _smithy.isa(o, "FindingCriteria");
   }
-}
-
-export enum FindingPublishingFrequency {
-  FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
-  ONE_HOUR = "ONE_HOUR",
-  SIX_HOURS = "SIX_HOURS"
-}
-
-export enum FindingStatisticType {
-  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY"
 }
 
 /**
@@ -2345,25 +2395,6 @@ export namespace InviteMembersResponse {
   export function isa(o: any): o is InviteMembersResponse {
     return _smithy.isa(o, "InviteMembersResponse");
   }
-}
-
-export enum IpSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT"
-}
-
-export enum IpSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE"
 }
 
 export interface ListDetectorsRequest {
@@ -3295,11 +3326,6 @@ export namespace NetworkInterface {
   }
 }
 
-export enum OrderBy {
-  ASC = "ASC",
-  DESC = "DESC"
-}
-
 /**
  *
  *          <p>Continas information about the ISP organization of the remote IP address.</p>
@@ -3452,13 +3478,6 @@ export namespace ProductCode {
   export function isa(o: any): o is ProductCode {
     return _smithy.isa(o, "ProductCode");
   }
-}
-
-export enum PublishingStatus {
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  PUBLISHING = "PUBLISHING",
-  STOPPED = "STOPPED",
-  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
 }
 
 /**
@@ -3860,25 +3879,6 @@ export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
     return _smithy.isa(o, "TagResourceResponse");
   }
-}
-
-export enum ThreatIntelSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT"
-}
-
-export enum ThreatIntelSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE"
 }
 
 /**

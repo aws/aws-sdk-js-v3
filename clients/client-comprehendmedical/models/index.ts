@@ -1,6 +1,66 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AttributeName {
+  DIAGNOSIS = "DIAGNOSIS",
+  NEGATION = "NEGATION",
+  SIGN = "SIGN",
+  SYMPTOM = "SYMPTOM"
+}
+
+export enum EntitySubType {
+  ACUITY = "ACUITY",
+  ADDRESS = "ADDRESS",
+  AGE = "AGE",
+  BRAND_NAME = "BRAND_NAME",
+  CONTACT_POINT = "CONTACT_POINT",
+  DATE = "DATE",
+  DIRECTION = "DIRECTION",
+  DOSAGE = "DOSAGE",
+  DURATION = "DURATION",
+  EMAIL = "EMAIL",
+  FORM = "FORM",
+  FREQUENCY = "FREQUENCY",
+  GENERIC_NAME = "GENERIC_NAME",
+  IDENTIFIER = "IDENTIFIER",
+  NAME = "NAME",
+  PROCEDURE_NAME = "PROCEDURE_NAME",
+  PROFESSION = "PROFESSION",
+  QUALITY = "QUALITY",
+  QUANTITY = "QUANTITY",
+  RATE = "RATE",
+  ROUTE_OR_MODE = "ROUTE_OR_MODE",
+  STRENGTH = "STRENGTH",
+  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+  TEST_NAME = "TEST_NAME",
+  TEST_UNITS = "TEST_UNITS",
+  TEST_VALUE = "TEST_VALUE",
+  TREATMENT_NAME = "TREATMENT_NAME",
+  URL = "URL"
+}
+
+export enum EntityType {
+  ANATOMY = "ANATOMY",
+  MEDICAL_CONDITION = "MEDICAL_CONDITION",
+  MEDICATION = "MEDICATION",
+  PROTECTED_HEALTH_INFORMATION = "PROTECTED_HEALTH_INFORMATION",
+  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE"
+}
+
+export enum JobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
+  STOPPED = "STOPPED",
+  STOP_REQUESTED = "STOP_REQUESTED",
+  SUBMITTED = "SUBMITTED"
+}
+
+export enum LanguageCode {
+  EN = "en"
+}
+
 /**
  *
  *          <p> An extracted segment of the text that is an attribute of an entity, or otherwise related to
@@ -77,13 +137,6 @@ export namespace Attribute {
   export function isa(o: any): o is Attribute {
     return _smithy.isa(o, "Attribute");
   }
-}
-
-export enum AttributeName {
-  DIAGNOSIS = "DIAGNOSIS",
-  NEGATION = "NEGATION",
-  SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM"
 }
 
 /**
@@ -568,45 +621,6 @@ export namespace Entity {
   }
 }
 
-export enum EntitySubType {
-  ACUITY = "ACUITY",
-  ADDRESS = "ADDRESS",
-  AGE = "AGE",
-  BRAND_NAME = "BRAND_NAME",
-  CONTACT_POINT = "CONTACT_POINT",
-  DATE = "DATE",
-  DIRECTION = "DIRECTION",
-  DOSAGE = "DOSAGE",
-  DURATION = "DURATION",
-  EMAIL = "EMAIL",
-  FORM = "FORM",
-  FREQUENCY = "FREQUENCY",
-  GENERIC_NAME = "GENERIC_NAME",
-  IDENTIFIER = "IDENTIFIER",
-  NAME = "NAME",
-  PROCEDURE_NAME = "PROCEDURE_NAME",
-  PROFESSION = "PROFESSION",
-  QUALITY = "QUALITY",
-  QUANTITY = "QUANTITY",
-  RATE = "RATE",
-  ROUTE_OR_MODE = "ROUTE_OR_MODE",
-  STRENGTH = "STRENGTH",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TEST_NAME = "TEST_NAME",
-  TEST_UNITS = "TEST_UNITS",
-  TEST_VALUE = "TEST_VALUE",
-  TREATMENT_NAME = "TREATMENT_NAME",
-  URL = "URL"
-}
-
-export enum EntityType {
-  ANATOMY = "ANATOMY",
-  MEDICAL_CONDITION = "MEDICAL_CONDITION",
-  MEDICATION = "MEDICATION",
-  PROTECTED_HEALTH_INFORMATION = "PROTECTED_HEALTH_INFORMATION",
-  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE"
-}
-
 /**
  *
  *          <p>The input properties for an entities detection job</p>
@@ -698,20 +712,6 @@ export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
     return _smithy.isa(o, "InvalidRequestException");
   }
-}
-
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
-}
-
-export enum LanguageCode {
-  EN = "en"
 }
 
 export interface ListEntitiesDetectionV2JobsRequest {

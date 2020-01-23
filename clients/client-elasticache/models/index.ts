@@ -1,54 +1,80 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- *         <p>Two or more incompatible parameters were specified.</p>
- *
- */
-export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterCombinationException";
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   *
-   *         <p>Two or more parameters that must not be used together were used together.</p>
-   *
-   */
-  message?: string;
+export enum AZMode {
+  CROSS_AZ = "cross-az",
+  SINGLE_AZ = "single-az"
 }
 
-export namespace InvalidParameterCombinationException {
-  export function isa(o: any): o is InvalidParameterCombinationException {
-    return _smithy.isa(o, "InvalidParameterCombinationException");
-  }
+export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
+
+export type AuthTokenUpdateStrategyType = "ROTATE" | "SET";
+
+export enum AutomaticFailoverStatus {
+  DISABLED = "disabled",
+  DISABLING = "disabling",
+  ENABLED = "enabled",
+  ENABLING = "enabling"
 }
 
-/**
- *
- *         <p>The value for a parameter is invalid.</p>
- *
- */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterValueException";
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  /**
-   *
-   *         <p>A parameter value is invalid.</p>
-   *
-   */
-  message?: string;
+export type ChangeType = "immediate" | "requires-reboot";
+
+export enum NodeUpdateInitiatedBy {
+  CUSTOMER = "customer",
+  SYSTEM = "system"
 }
 
-export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
-  }
+export enum NodeUpdateStatus {
+  COMPLETE = "complete",
+  IN_PROGRESS = "in-progress",
+  NOT_APPLIED = "not-applied",
+  STOPPED = "stopped",
+  STOPPING = "stopping",
+  WAITING_TO_START = "waiting-to-start"
+}
+
+export enum PendingAutomaticFailoverStatus {
+  DISABLED = "disabled",
+  ENABLED = "enabled"
+}
+
+export enum ServiceUpdateSeverity {
+  CRITICAL = "critical",
+  IMPORTANT = "important",
+  LOW = "low",
+  MEDIUM = "medium"
+}
+
+export enum ServiceUpdateStatus {
+  AVAILABLE = "available",
+  CANCELLED = "cancelled",
+  EXPIRED = "expired"
+}
+
+export enum ServiceUpdateType {
+  SECURITY_UPDATE = "security-update"
+}
+
+export enum SlaMet {
+  NA = "n/a",
+  NO = "no",
+  YES = "yes"
+}
+
+export type SourceType =
+  | "cache-cluster"
+  | "cache-parameter-group"
+  | "cache-security-group"
+  | "cache-subnet-group"
+  | "replication-group";
+
+export enum UpdateActionStatus {
+  COMPLETE = "complete",
+  IN_PROGRESS = "in-progress",
+  NOT_APPLIED = "not-applied",
+  STOPPED = "stopped",
+  STOPPING = "stopping",
+  WAITING_TO_START = "waiting-to-start"
 }
 
 /**
@@ -69,1004 +95,6 @@ export namespace APICallRateForCustomerExceededFault {
   export function isa(o: any): o is APICallRateForCustomerExceededFault {
     return _smithy.isa(o, "APICallRateForCustomerExceededFault");
   }
-}
-
-/**
- *
- *         <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
- *
- */
-export interface AuthorizationAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationAlreadyExistsFault";
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationAlreadyExistsFault {
-  export function isa(o: any): o is AuthorizationAlreadyExistsFault {
-    return _smithy.isa(o, "AuthorizationAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
- *
- */
-export interface AuthorizationNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "AuthorizationNotFoundFault";
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  export function isa(o: any): o is AuthorizationNotFoundFault {
-    return _smithy.isa(o, "AuthorizationNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You already have a cluster with the given identifier.</p>
- *
- */
-export interface CacheClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheClusterAlreadyExistsFault";
-  name: "CacheClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheClusterAlreadyExistsFault {
-  export function isa(o: any): o is CacheClusterAlreadyExistsFault {
-    return _smithy.isa(o, "CacheClusterAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cluster ID does not refer to an existing cluster.</p>
- *
- */
-export interface CacheClusterNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheClusterNotFoundFault";
-  name: "CacheClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheClusterNotFoundFault {
-  export function isa(o: any): o is CacheClusterNotFoundFault {
-    return _smithy.isa(o, "CacheClusterNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>A cache parameter group with the requested name already exists.</p>
- *
- */
-export interface CacheParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheParameterGroupAlreadyExistsFault";
-  name: "CacheParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupAlreadyExistsFault {
-  export function isa(o: any): o is CacheParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "CacheParameterGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
- *
- */
-export interface CacheParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheParameterGroupNotFoundFault";
-  name: "CacheParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupNotFoundFault {
-  export function isa(o: any): o is CacheParameterGroupNotFoundFault {
-    return _smithy.isa(o, "CacheParameterGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
- *
- */
-export interface CacheParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheParameterGroupQuotaExceededFault";
-  name: "CacheParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupQuotaExceededFault {
-  export function isa(o: any): o is CacheParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "CacheParameterGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>A cache security group with the specified name already exists.</p>
- *
- */
-export interface CacheSecurityGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSecurityGroupAlreadyExistsFault";
-  name: "CacheSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupAlreadyExistsFault {
-  export function isa(o: any): o is CacheSecurityGroupAlreadyExistsFault {
-    return _smithy.isa(o, "CacheSecurityGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache security group name does not refer to an existing cache security group.</p>
- *
- */
-export interface CacheSecurityGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSecurityGroupNotFoundFault";
-  name: "CacheSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupNotFoundFault {
-  export function isa(o: any): o is CacheSecurityGroupNotFoundFault {
-    return _smithy.isa(o, "CacheSecurityGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
- *
- */
-export interface CacheSecurityGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSecurityGroupQuotaExceededFault";
-  name: "CacheSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupQuotaExceededFault {
-  export function isa(o: any): o is CacheSecurityGroupQuotaExceededFault {
-    return _smithy.isa(o, "CacheSecurityGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
- *
- */
-export interface CacheSubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSubnetGroupAlreadyExistsFault";
-  name: "CacheSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupAlreadyExistsFault {
-  export function isa(o: any): o is CacheSubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "CacheSubnetGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache subnet group is currently in use.</p>
- *
- */
-export interface CacheSubnetGroupInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSubnetGroupInUse";
-  name: "CacheSubnetGroupInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupInUse {
-  export function isa(o: any): o is CacheSubnetGroupInUse {
-    return _smithy.isa(o, "CacheSubnetGroupInUse");
-  }
-}
-
-/**
- *
- *         <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
- *
- */
-export interface CacheSubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSubnetGroupNotFoundFault";
-  name: "CacheSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupNotFoundFault {
-  export function isa(o: any): o is CacheSubnetGroupNotFoundFault {
-    return _smithy.isa(o, "CacheSubnetGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
- *
- */
-export interface CacheSubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSubnetGroupQuotaExceededFault";
-  name: "CacheSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupQuotaExceededFault {
-  export function isa(o: any): o is CacheSubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "CacheSubnetGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
- *
- */
-export interface CacheSubnetQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CacheSubnetQuotaExceededFault";
-  name: "CacheSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetQuotaExceededFault {
-  export function isa(o: any): o is CacheSubnetQuotaExceededFault {
-    return _smithy.isa(o, "CacheSubnetQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
- *
- */
-export interface ClusterQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ClusterQuotaForCustomerExceededFault";
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ClusterQuotaForCustomerExceededFault {
-  export function isa(o: any): o is ClusterQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "ClusterQuotaForCustomerExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache node type is not available in the specified Availability Zone.
- *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
- *
- */
-export interface InsufficientCacheClusterCapacityFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InsufficientCacheClusterCapacityFault";
-  name: "InsufficientCacheClusterCapacityFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InsufficientCacheClusterCapacityFault {
-  export function isa(o: any): o is InsufficientCacheClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientCacheClusterCapacityFault");
-  }
-}
-
-/**
- *
- *         <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
- *
- */
-export interface InvalidARNFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidARNFault";
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidARNFault {
-  export function isa(o: any): o is InvalidARNFault {
-    return _smithy.isa(o, "InvalidARNFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cluster is not in the <code>available</code> state.</p>
- *
- */
-export interface InvalidCacheClusterStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidCacheClusterStateFault";
-  name: "InvalidCacheClusterStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheClusterStateFault {
-  export function isa(o: any): o is InvalidCacheClusterStateFault {
-    return _smithy.isa(o, "InvalidCacheClusterStateFault");
-  }
-}
-
-/**
- *
- *         <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
- *
- */
-export interface InvalidCacheParameterGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidCacheParameterGroupStateFault";
-  name: "InvalidCacheParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheParameterGroupStateFault {
-  export function isa(o: any): o is InvalidCacheParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidCacheParameterGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The current state of the cache security group does not allow deletion.</p>
- *
- */
-export interface InvalidCacheSecurityGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidCacheSecurityGroupStateFault";
-  name: "InvalidCacheSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidCacheSecurityGroupStateFault {
-  export function isa(o: any): o is InvalidCacheSecurityGroupStateFault {
-    return _smithy.isa(o, "InvalidCacheSecurityGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The KMS key supplied is not valid.</p>
- *
- */
-export interface InvalidKMSKeyFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidKMSKeyFault";
-  name: "InvalidKMSKeyFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidKMSKeyFault {
-  export function isa(o: any): o is InvalidKMSKeyFault {
-    return _smithy.isa(o, "InvalidKMSKeyFault");
-  }
-}
-
-/**
- *
- *         <p>The requested replication group is not in the <code>available</code> state.</p>
- *
- */
-export interface InvalidReplicationGroupStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidReplicationGroupStateFault";
-  name: "InvalidReplicationGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidReplicationGroupStateFault {
-  export function isa(o: any): o is InvalidReplicationGroupStateFault {
-    return _smithy.isa(o, "InvalidReplicationGroupStateFault");
-  }
-}
-
-/**
- *
- *         <p>The current state of the snapshot does not allow the requested operation to occur.</p>
- *
- */
-export interface InvalidSnapshotStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSnapshotStateFault";
-  name: "InvalidSnapshotStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSnapshotStateFault {
-  export function isa(o: any): o is InvalidSnapshotStateFault {
-    return _smithy.isa(o, "InvalidSnapshotStateFault");
-  }
-}
-
-/**
- *
- *         <p>An invalid subnet identifier was specified.</p>
- *
- */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidSubnet";
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidSubnet {
-  export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
-  }
-}
-
-/**
- *
- *         <p>The VPC network is in an invalid state.</p>
- *
- */
-export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidVPCNetworkStateFault";
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
-  }
-}
-
-/**
- *
- *         <p>The operation was not performed because no changes were required.</p>
- *
- */
-export interface NoOperationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NoOperationFault";
-  name: "NoOperationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NoOperationFault {
-  export function isa(o: any): o is NoOperationFault {
-    return _smithy.isa(o, "NoOperationFault");
-  }
-}
-
-/**
- *
- *         <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
- *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
- *
- */
-export interface NodeGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeGroupNotFoundFault";
-  name: "NodeGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeGroupNotFoundFault {
-  export function isa(o: any): o is NodeGroupNotFoundFault {
-    return _smithy.isa(o, "NodeGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the maximum allowed number
- *             of node groups (shards) in a single replication group. The default maximum is 90</p>
- *
- */
-export interface NodeGroupsPerReplicationGroupQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeGroupsPerReplicationGroupQuotaExceededFault";
-  name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
-  export function isa(
-    o: any
-  ): o is NodeGroupsPerReplicationGroupQuotaExceededFault {
-    return _smithy.isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
- *
- */
-export interface NodeQuotaForClusterExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeQuotaForClusterExceededFault";
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForClusterExceededFault {
-  export function isa(o: any): o is NodeQuotaForClusterExceededFault {
-    return _smithy.isa(o, "NodeQuotaForClusterExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
- *
- */
-export interface NodeQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NodeQuotaForCustomerExceededFault";
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace NodeQuotaForCustomerExceededFault {
-  export function isa(o: any): o is NodeQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "NodeQuotaForCustomerExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The specified replication group already exists.</p>
- *
- */
-export interface ReplicationGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReplicationGroupAlreadyExistsFault";
-  name: "ReplicationGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupAlreadyExistsFault {
-  export function isa(o: any): o is ReplicationGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ReplicationGroupAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The targeted replication group is not available. </p>
- *
- */
-export interface ReplicationGroupAlreadyUnderMigrationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReplicationGroupAlreadyUnderMigrationFault";
-  name: "ReplicationGroupAlreadyUnderMigrationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupAlreadyUnderMigrationFault {
-  export function isa(o: any): o is ReplicationGroupAlreadyUnderMigrationFault {
-    return _smithy.isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
-  }
-}
-
-/**
- *
- *         <p>The specified replication group does not exist.</p>
- *
- */
-export interface ReplicationGroupNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReplicationGroupNotFoundFault";
-  name: "ReplicationGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupNotFoundFault {
-  export function isa(o: any): o is ReplicationGroupNotFoundFault {
-    return _smithy.isa(o, "ReplicationGroupNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The designated replication group is not available for data migration.</p>
- *
- */
-export interface ReplicationGroupNotUnderMigrationFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReplicationGroupNotUnderMigrationFault";
-  name: "ReplicationGroupNotUnderMigrationFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupNotUnderMigrationFault {
-  export function isa(o: any): o is ReplicationGroupNotUnderMigrationFault {
-    return _smithy.isa(o, "ReplicationGroupNotUnderMigrationFault");
-  }
-}
-
-/**
- *
- *         <p>You already have a reservation with the given identifier.</p>
- *
- */
-export interface ReservedCacheNodeAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedCacheNodeAlreadyExistsFault";
-  name: "ReservedCacheNodeAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeAlreadyExistsFault {
-  export function isa(o: any): o is ReservedCacheNodeAlreadyExistsFault {
-    return _smithy.isa(o, "ReservedCacheNodeAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>The requested reserved cache node was not found.</p>
- *
- */
-export interface ReservedCacheNodeNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedCacheNodeNotFoundFault";
-  name: "ReservedCacheNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeNotFoundFault {
-  export function isa(o: any): o is ReservedCacheNodeNotFoundFault {
-    return _smithy.isa(o, "ReservedCacheNodeNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
- *
- */
-export interface ReservedCacheNodeQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedCacheNodeQuotaExceededFault";
-  name: "ReservedCacheNodeQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeQuotaExceededFault {
-  export function isa(o: any): o is ReservedCacheNodeQuotaExceededFault {
-    return _smithy.isa(o, "ReservedCacheNodeQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The requested cache node offering does not exist.</p>
- *
- */
-export interface ReservedCacheNodesOfferingNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ReservedCacheNodesOfferingNotFoundFault";
-  name: "ReservedCacheNodesOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodesOfferingNotFoundFault {
-  export function isa(o: any): o is ReservedCacheNodesOfferingNotFoundFault {
-    return _smithy.isa(o, "ReservedCacheNodesOfferingNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The specified service linked role (SLR) was not found.</p>
- *
- */
-export interface ServiceLinkedRoleNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceLinkedRoleNotFoundFault";
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceLinkedRoleNotFoundFault {
-  export function isa(o: any): o is ServiceLinkedRoleNotFoundFault {
-    return _smithy.isa(o, "ServiceLinkedRoleNotFoundFault");
-  }
-}
-
-/**
- *
- *          <p>The service update doesn't exist</p>
- *
- */
-export interface ServiceUpdateNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUpdateNotFoundFault";
-  name: "ServiceUpdateNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ServiceUpdateNotFoundFault {
-  export function isa(o: any): o is ServiceUpdateNotFoundFault {
-    return _smithy.isa(o, "ServiceUpdateNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>You already have a snapshot with the given name.</p>
- *
- */
-export interface SnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotAlreadyExistsFault";
-  name: "SnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotAlreadyExistsFault {
-  export function isa(o: any): o is SnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "SnapshotAlreadyExistsFault");
-  }
-}
-
-/**
- *
- *         <p>You attempted one of the following operations:</p>
- *         <ul>
- *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
- *                     node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
- *             </li>
- *          </ul>
- *         <p>Neither of these are supported by ElastiCache.</p>
- *
- */
-export interface SnapshotFeatureNotSupportedFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotFeatureNotSupportedFault";
-  name: "SnapshotFeatureNotSupportedFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotFeatureNotSupportedFault {
-  export function isa(o: any): o is SnapshotFeatureNotSupportedFault {
-    return _smithy.isa(o, "SnapshotFeatureNotSupportedFault");
-  }
-}
-
-/**
- *
- *         <p>The requested snapshot name does not refer to an existing snapshot.</p>
- *
- */
-export interface SnapshotNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotNotFoundFault";
-  name: "SnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotNotFoundFault {
-  export function isa(o: any): o is SnapshotNotFoundFault {
-    return _smithy.isa(o, "SnapshotNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
- *
- */
-export interface SnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SnapshotQuotaExceededFault";
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  export function isa(o: any): o is SnapshotQuotaExceededFault {
-    return _smithy.isa(o, "SnapshotQuotaExceededFault");
-  }
-}
-
-/**
- *
- *         <p>The requested subnet is being used by another cache subnet group.</p>
- *
- */
-export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
-  __type: "SubnetInUse";
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace SubnetInUse {
-  export function isa(o: any): o is SubnetInUse {
-    return _smithy.isa(o, "SubnetInUse");
-  }
-}
-
-/**
- *
- *         <p>The requested tag was not found on this resource.</p>
- *
- */
-export interface TagNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TagNotFoundFault";
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagNotFoundFault {
-  export function isa(o: any): o is TagNotFoundFault {
-    return _smithy.isa(o, "TagNotFoundFault");
-  }
-}
-
-/**
- *
- *         <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
- *
- */
-export interface TagQuotaPerResourceExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TagQuotaPerResourceExceeded";
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TagQuotaPerResourceExceeded {
-  export function isa(o: any): o is TagQuotaPerResourceExceeded {
-    return _smithy.isa(o, "TagQuotaPerResourceExceeded");
-  }
-}
-
-/**
- *
- *         <p>The <code>TestFailover</code> action is not available.</p>
- *
- */
-export interface TestFailoverNotAvailableFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TestFailoverNotAvailableFault";
-  name: "TestFailoverNotAvailableFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TestFailoverNotAvailableFault {
-  export function isa(o: any): o is TestFailoverNotAvailableFault {
-    return _smithy.isa(o, "TestFailoverNotAvailableFault");
-  }
-}
-
-export enum AZMode {
-  CROSS_AZ = "cross-az",
-  SINGLE_AZ = "single-az"
 }
 
 /**
@@ -1140,9 +168,45 @@ export namespace AllowedNodeTypeModificationsMessage {
   }
 }
 
-export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
+/**
+ *
+ *         <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
+ *
+ */
+export interface AuthorizationAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationAlreadyExistsFault";
+  name: "AuthorizationAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
 
-export type AuthTokenUpdateStrategyType = "ROTATE" | "SET";
+export namespace AuthorizationAlreadyExistsFault {
+  export function isa(o: any): o is AuthorizationAlreadyExistsFault {
+    return _smithy.isa(o, "AuthorizationAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
+ *
+ */
+export interface AuthorizationNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "AuthorizationNotFoundFault";
+  name: "AuthorizationNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace AuthorizationNotFoundFault {
+  export function isa(o: any): o is AuthorizationNotFoundFault {
+    return _smithy.isa(o, "AuthorizationNotFoundFault");
+  }
+}
 
 /**
  *
@@ -1179,13 +243,6 @@ export namespace AuthorizeCacheSecurityGroupIngressMessage {
   export function isa(o: any): o is AuthorizeCacheSecurityGroupIngressMessage {
     return _smithy.isa(o, "AuthorizeCacheSecurityGroupIngressMessage");
   }
-}
-
-export enum AutomaticFailoverStatus {
-  DISABLED = "disabled",
-  DISABLING = "disabling",
-  ENABLED = "enabled",
-  ENABLING = "enabling"
 }
 
 /**
@@ -1726,6 +783,26 @@ export namespace CacheCluster {
 
 /**
  *
+ *         <p>You already have a cluster with the given identifier.</p>
+ *
+ */
+export interface CacheClusterAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheClusterAlreadyExistsFault";
+  name: "CacheClusterAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheClusterAlreadyExistsFault {
+  export function isa(o: any): o is CacheClusterAlreadyExistsFault {
+    return _smithy.isa(o, "CacheClusterAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  *
  */
@@ -1749,6 +826,26 @@ export interface CacheClusterMessage extends $MetadataBearer {
 export namespace CacheClusterMessage {
   export function isa(o: any): o is CacheClusterMessage {
     return _smithy.isa(o, "CacheClusterMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ */
+export interface CacheClusterNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheClusterNotFoundFault";
+  name: "CacheClusterNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheClusterNotFoundFault {
+  export function isa(o: any): o is CacheClusterNotFoundFault {
+    return _smithy.isa(o, "CacheClusterNotFoundFault");
   }
 }
 
@@ -2298,6 +1395,26 @@ export namespace CacheParameterGroup {
 
 /**
  *
+ *         <p>A cache parameter group with the requested name already exists.</p>
+ *
+ */
+export interface CacheParameterGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheParameterGroupAlreadyExistsFault";
+  name: "CacheParameterGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupAlreadyExistsFault {
+  export function isa(o: any): o is CacheParameterGroupAlreadyExistsFault {
+    return _smithy.isa(o, "CacheParameterGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  *
  */
@@ -2364,6 +1481,46 @@ export interface CacheParameterGroupNameMessage extends $MetadataBearer {
 export namespace CacheParameterGroupNameMessage {
   export function isa(o: any): o is CacheParameterGroupNameMessage {
     return _smithy.isa(o, "CacheParameterGroupNameMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ */
+export interface CacheParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheParameterGroupNotFoundFault";
+  name: "CacheParameterGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupNotFoundFault {
+  export function isa(o: any): o is CacheParameterGroupNotFoundFault {
+    return _smithy.isa(o, "CacheParameterGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+ *
+ */
+export interface CacheParameterGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheParameterGroupQuotaExceededFault";
+  name: "CacheParameterGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupQuotaExceededFault {
+  export function isa(o: any): o is CacheParameterGroupQuotaExceededFault {
+    return _smithy.isa(o, "CacheParameterGroupQuotaExceededFault");
   }
 }
 
@@ -2493,6 +1650,26 @@ export namespace CacheSecurityGroup {
 
 /**
  *
+ *         <p>A cache security group with the specified name already exists.</p>
+ *
+ */
+export interface CacheSecurityGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSecurityGroupAlreadyExistsFault";
+  name: "CacheSecurityGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupAlreadyExistsFault {
+  export function isa(o: any): o is CacheSecurityGroupAlreadyExistsFault {
+    return _smithy.isa(o, "CacheSecurityGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents a cluster's status within a particular cache security group.</p>
  *
  */
@@ -2546,6 +1723,46 @@ export interface CacheSecurityGroupMessage extends $MetadataBearer {
 export namespace CacheSecurityGroupMessage {
   export function isa(o: any): o is CacheSecurityGroupMessage {
     return _smithy.isa(o, "CacheSecurityGroupMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ */
+export interface CacheSecurityGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSecurityGroupNotFoundFault";
+  name: "CacheSecurityGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupNotFoundFault {
+  export function isa(o: any): o is CacheSecurityGroupNotFoundFault {
+    return _smithy.isa(o, "CacheSecurityGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
+ *
+ */
+export interface CacheSecurityGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSecurityGroupQuotaExceededFault";
+  name: "CacheSecurityGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupQuotaExceededFault {
+  export function isa(o: any): o is CacheSecurityGroupQuotaExceededFault {
+    return _smithy.isa(o, "CacheSecurityGroupQuotaExceededFault");
   }
 }
 
@@ -2605,6 +1822,46 @@ export namespace CacheSubnetGroup {
 
 /**
  *
+ *         <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
+ *
+ */
+export interface CacheSubnetGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSubnetGroupAlreadyExistsFault";
+  name: "CacheSubnetGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupAlreadyExistsFault {
+  export function isa(o: any): o is CacheSubnetGroupAlreadyExistsFault {
+    return _smithy.isa(o, "CacheSubnetGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cache subnet group is currently in use.</p>
+ *
+ */
+export interface CacheSubnetGroupInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSubnetGroupInUse";
+  name: "CacheSubnetGroupInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupInUse {
+  export function isa(o: any): o is CacheSubnetGroupInUse {
+    return _smithy.isa(o, "CacheSubnetGroupInUse");
+  }
+}
+
+/**
+ *
  *         <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  *
  */
@@ -2633,7 +1890,85 @@ export namespace CacheSubnetGroupMessage {
   }
 }
 
-export type ChangeType = "immediate" | "requires-reboot";
+/**
+ *
+ *         <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *
+ */
+export interface CacheSubnetGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSubnetGroupNotFoundFault";
+  name: "CacheSubnetGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupNotFoundFault {
+  export function isa(o: any): o is CacheSubnetGroupNotFoundFault {
+    return _smithy.isa(o, "CacheSubnetGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
+ *
+ */
+export interface CacheSubnetGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSubnetGroupQuotaExceededFault";
+  name: "CacheSubnetGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupQuotaExceededFault {
+  export function isa(o: any): o is CacheSubnetGroupQuotaExceededFault {
+    return _smithy.isa(o, "CacheSubnetGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
+ *
+ */
+export interface CacheSubnetQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CacheSubnetQuotaExceededFault";
+  name: "CacheSubnetQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetQuotaExceededFault {
+  export function isa(o: any): o is CacheSubnetQuotaExceededFault {
+    return _smithy.isa(o, "CacheSubnetQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
+ *
+ */
+export interface ClusterQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ClusterQuotaForCustomerExceededFault";
+  name: "ClusterQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ClusterQuotaForCustomerExceededFault {
+  export function isa(o: any): o is ClusterQuotaForCustomerExceededFault {
+    return _smithy.isa(o, "ClusterQuotaForCustomerExceededFault");
+  }
+}
 
 export interface CompleteMigrationMessage {
   __type?: "CompleteMigrationMessage";
@@ -5768,6 +5103,257 @@ export namespace IncreaseReplicaCountMessage {
 
 /**
  *
+ *         <p>The requested cache node type is not available in the specified Availability Zone.
+ *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *
+ */
+export interface InsufficientCacheClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InsufficientCacheClusterCapacityFault";
+  name: "InsufficientCacheClusterCapacityFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientCacheClusterCapacityFault {
+  export function isa(o: any): o is InsufficientCacheClusterCapacityFault {
+    return _smithy.isa(o, "InsufficientCacheClusterCapacityFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ */
+export interface InvalidARNFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidARNFault";
+  name: "InvalidARNFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidARNFault {
+  export function isa(o: any): o is InvalidARNFault {
+    return _smithy.isa(o, "InvalidARNFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ */
+export interface InvalidCacheClusterStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidCacheClusterStateFault";
+  name: "InvalidCacheClusterStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheClusterStateFault {
+  export function isa(o: any): o is InvalidCacheClusterStateFault {
+    return _smithy.isa(o, "InvalidCacheClusterStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *
+ */
+export interface InvalidCacheParameterGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidCacheParameterGroupStateFault";
+  name: "InvalidCacheParameterGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheParameterGroupStateFault {
+  export function isa(o: any): o is InvalidCacheParameterGroupStateFault {
+    return _smithy.isa(o, "InvalidCacheParameterGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ */
+export interface InvalidCacheSecurityGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidCacheSecurityGroupStateFault";
+  name: "InvalidCacheSecurityGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCacheSecurityGroupStateFault {
+  export function isa(o: any): o is InvalidCacheSecurityGroupStateFault {
+    return _smithy.isa(o, "InvalidCacheSecurityGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The KMS key supplied is not valid.</p>
+ *
+ */
+export interface InvalidKMSKeyFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidKMSKeyFault";
+  name: "InvalidKMSKeyFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidKMSKeyFault {
+  export function isa(o: any): o is InvalidKMSKeyFault {
+    return _smithy.isa(o, "InvalidKMSKeyFault");
+  }
+}
+
+/**
+ *
+ *         <p>Two or more incompatible parameters were specified.</p>
+ *
+ */
+export interface InvalidParameterCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   *
+   *         <p>Two or more parameters that must not be used together were used together.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export function isa(o: any): o is InvalidParameterCombinationException {
+    return _smithy.isa(o, "InvalidParameterCombinationException");
+  }
+}
+
+/**
+ *
+ *         <p>The value for a parameter is invalid.</p>
+ *
+ */
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  /**
+   *
+   *         <p>A parameter value is invalid.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export function isa(o: any): o is InvalidParameterValueException {
+    return _smithy.isa(o, "InvalidParameterValueException");
+  }
+}
+
+/**
+ *
+ *         <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ */
+export interface InvalidReplicationGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidReplicationGroupStateFault";
+  name: "InvalidReplicationGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidReplicationGroupStateFault {
+  export function isa(o: any): o is InvalidReplicationGroupStateFault {
+    return _smithy.isa(o, "InvalidReplicationGroupStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ *
+ */
+export interface InvalidSnapshotStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSnapshotStateFault";
+  name: "InvalidSnapshotStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSnapshotStateFault {
+  export function isa(o: any): o is InvalidSnapshotStateFault {
+    return _smithy.isa(o, "InvalidSnapshotStateFault");
+  }
+}
+
+/**
+ *
+ *         <p>An invalid subnet identifier was specified.</p>
+ *
+ */
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidSubnet";
+  name: "InvalidSubnet";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSubnet {
+  export function isa(o: any): o is InvalidSubnet {
+    return _smithy.isa(o, "InvalidSubnet");
+  }
+}
+
+/**
+ *
+ *         <p>The VPC network is in an invalid state.</p>
+ *
+ */
+export interface InvalidVPCNetworkStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidVPCNetworkStateFault";
+  name: "InvalidVPCNetworkStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidVPCNetworkStateFault {
+  export function isa(o: any): o is InvalidVPCNetworkStateFault {
+    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+  }
+}
+
+/**
+ *
  *         <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code> operation.</p>
  *
  */
@@ -6662,6 +6248,26 @@ export namespace ModifyReplicationGroupShardConfigurationMessage {
 
 /**
  *
+ *         <p>The operation was not performed because no changes were required.</p>
+ *
+ */
+export interface NoOperationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NoOperationFault";
+  name: "NoOperationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NoOperationFault {
+  export function isa(o: any): o is NoOperationFault {
+    return _smithy.isa(o, "NoOperationFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents a collection of cache nodes in a replication group.
  *             One node in the node group is the read/write primary node.
  *             All the other nodes are read-only Replica nodes.</p>
@@ -6909,6 +6515,27 @@ export namespace NodeGroupMemberUpdateStatus {
 
 /**
  *
+ *         <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
+ *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
+ *
+ */
+export interface NodeGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeGroupNotFoundFault";
+  name: "NodeGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeGroupNotFoundFault {
+  export function isa(o: any): o is NodeGroupNotFoundFault {
+    return _smithy.isa(o, "NodeGroupNotFoundFault");
+  }
+}
+
+/**
+ *
  *          <p>The status of the service update on the node group </p>
  *
  */
@@ -6932,6 +6559,69 @@ export interface NodeGroupUpdateStatus {
 export namespace NodeGroupUpdateStatus {
   export function isa(o: any): o is NodeGroupUpdateStatus {
     return _smithy.isa(o, "NodeGroupUpdateStatus");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the maximum allowed number
+ *             of node groups (shards) in a single replication group. The default maximum is 90</p>
+ *
+ */
+export interface NodeGroupsPerReplicationGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeGroupsPerReplicationGroupQuotaExceededFault";
+  name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
+  export function isa(
+    o: any
+  ): o is NodeGroupsPerReplicationGroupQuotaExceededFault {
+    return _smithy.isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
+ *
+ */
+export interface NodeQuotaForClusterExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeQuotaForClusterExceededFault";
+  name: "NodeQuotaForClusterExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForClusterExceededFault {
+  export function isa(o: any): o is NodeQuotaForClusterExceededFault {
+    return _smithy.isa(o, "NodeQuotaForClusterExceededFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
+ *
+ */
+export interface NodeQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NodeQuotaForCustomerExceededFault";
+  name: "NodeQuotaForCustomerExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NodeQuotaForCustomerExceededFault {
+  export function isa(o: any): o is NodeQuotaForCustomerExceededFault {
+    return _smithy.isa(o, "NodeQuotaForCustomerExceededFault");
   }
 }
 
@@ -6996,20 +6686,6 @@ export namespace NodeSnapshot {
   export function isa(o: any): o is NodeSnapshot {
     return _smithy.isa(o, "NodeSnapshot");
   }
-}
-
-export enum NodeUpdateInitiatedBy {
-  CUSTOMER = "customer",
-  SYSTEM = "system"
-}
-
-export enum NodeUpdateStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "not-applied",
-  STOPPED = "stopped",
-  STOPPING = "stopping",
-  WAITING_TO_START = "waiting-to-start"
 }
 
 /**
@@ -7149,11 +6825,6 @@ export namespace ParameterNameValue {
   export function isa(o: any): o is ParameterNameValue {
     return _smithy.isa(o, "ParameterNameValue");
   }
-}
-
-export enum PendingAutomaticFailoverStatus {
-  DISABLED = "disabled",
-  ENABLED = "enabled"
 }
 
 /**
@@ -7585,6 +7256,46 @@ export namespace ReplicationGroup {
 
 /**
  *
+ *         <p>The specified replication group already exists.</p>
+ *
+ */
+export interface ReplicationGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReplicationGroupAlreadyExistsFault";
+  name: "ReplicationGroupAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupAlreadyExistsFault {
+  export function isa(o: any): o is ReplicationGroupAlreadyExistsFault {
+    return _smithy.isa(o, "ReplicationGroupAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>The targeted replication group is not available. </p>
+ *
+ */
+export interface ReplicationGroupAlreadyUnderMigrationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReplicationGroupAlreadyUnderMigrationFault";
+  name: "ReplicationGroupAlreadyUnderMigrationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupAlreadyUnderMigrationFault {
+  export function isa(o: any): o is ReplicationGroupAlreadyUnderMigrationFault {
+    return _smithy.isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  *
  */
@@ -7610,6 +7321,46 @@ export interface ReplicationGroupMessage extends $MetadataBearer {
 export namespace ReplicationGroupMessage {
   export function isa(o: any): o is ReplicationGroupMessage {
     return _smithy.isa(o, "ReplicationGroupMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The specified replication group does not exist.</p>
+ *
+ */
+export interface ReplicationGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReplicationGroupNotFoundFault";
+  name: "ReplicationGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupNotFoundFault {
+  export function isa(o: any): o is ReplicationGroupNotFoundFault {
+    return _smithy.isa(o, "ReplicationGroupNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The designated replication group is not available for data migration.</p>
+ *
+ */
+export interface ReplicationGroupNotUnderMigrationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReplicationGroupNotUnderMigrationFault";
+  name: "ReplicationGroupNotUnderMigrationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupNotUnderMigrationFault {
+  export function isa(o: any): o is ReplicationGroupNotUnderMigrationFault {
+    return _smithy.isa(o, "ReplicationGroupNotUnderMigrationFault");
   }
 }
 
@@ -7941,6 +7692,26 @@ export namespace ReservedCacheNode {
 
 /**
  *
+ *         <p>You already have a reservation with the given identifier.</p>
+ *
+ */
+export interface ReservedCacheNodeAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedCacheNodeAlreadyExistsFault";
+  name: "ReservedCacheNodeAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeAlreadyExistsFault {
+  export function isa(o: any): o is ReservedCacheNodeAlreadyExistsFault {
+    return _smithy.isa(o, "ReservedCacheNodeAlreadyExistsFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  *
  */
@@ -7964,6 +7735,46 @@ export interface ReservedCacheNodeMessage extends $MetadataBearer {
 export namespace ReservedCacheNodeMessage {
   export function isa(o: any): o is ReservedCacheNodeMessage {
     return _smithy.isa(o, "ReservedCacheNodeMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The requested reserved cache node was not found.</p>
+ *
+ */
+export interface ReservedCacheNodeNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedCacheNodeNotFoundFault";
+  name: "ReservedCacheNodeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeNotFoundFault {
+  export function isa(o: any): o is ReservedCacheNodeNotFoundFault {
+    return _smithy.isa(o, "ReservedCacheNodeNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+ *
+ */
+export interface ReservedCacheNodeQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedCacheNodeQuotaExceededFault";
+  name: "ReservedCacheNodeQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeQuotaExceededFault {
+  export function isa(o: any): o is ReservedCacheNodeQuotaExceededFault {
+    return _smithy.isa(o, "ReservedCacheNodeQuotaExceededFault");
   }
 }
 
@@ -8231,6 +8042,26 @@ export namespace ReservedCacheNodesOfferingMessage {
 
 /**
  *
+ *         <p>The requested cache node offering does not exist.</p>
+ *
+ */
+export interface ReservedCacheNodesOfferingNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ReservedCacheNodesOfferingNotFoundFault";
+  name: "ReservedCacheNodesOfferingNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodesOfferingNotFoundFault {
+  export function isa(o: any): o is ReservedCacheNodesOfferingNotFoundFault {
+    return _smithy.isa(o, "ReservedCacheNodesOfferingNotFoundFault");
+  }
+}
+
+/**
+ *
  *         <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  *
  */
@@ -8393,6 +8224,26 @@ export namespace SecurityGroupMembership {
 
 /**
  *
+ *         <p>The specified service linked role (SLR) was not found.</p>
+ *
+ */
+export interface ServiceLinkedRoleNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceLinkedRoleNotFoundFault";
+  name: "ServiceLinkedRoleNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ServiceLinkedRoleNotFoundFault {
+  export function isa(o: any): o is ServiceLinkedRoleNotFoundFault {
+    return _smithy.isa(o, "ServiceLinkedRoleNotFoundFault");
+  }
+}
+
+/**
+ *
  *          <p>An update that you can apply to your Redis clusters.</p>
  *
  */
@@ -8489,21 +8340,24 @@ export namespace ServiceUpdate {
   }
 }
 
-export enum ServiceUpdateSeverity {
-  CRITICAL = "critical",
-  IMPORTANT = "important",
-  LOW = "low",
-  MEDIUM = "medium"
+/**
+ *
+ *          <p>The service update doesn't exist</p>
+ *
+ */
+export interface ServiceUpdateNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUpdateNotFoundFault";
+  name: "ServiceUpdateNotFoundFault";
+  $fault: "client";
+  message?: string;
 }
 
-export enum ServiceUpdateStatus {
-  AVAILABLE = "available",
-  CANCELLED = "cancelled",
-  EXPIRED = "expired"
-}
-
-export enum ServiceUpdateType {
-  SECURITY_UPDATE = "security-update"
+export namespace ServiceUpdateNotFoundFault {
+  export function isa(o: any): o is ServiceUpdateNotFoundFault {
+    return _smithy.isa(o, "ServiceUpdateNotFoundFault");
+  }
 }
 
 export interface ServiceUpdatesMessage extends $MetadataBearer {
@@ -8530,12 +8384,6 @@ export namespace ServiceUpdatesMessage {
   export function isa(o: any): o is ServiceUpdatesMessage {
     return _smithy.isa(o, "ServiceUpdatesMessage");
   }
-}
-
-export enum SlaMet {
-  NA = "n/a",
-  NO = "no",
-  YES = "yes"
 }
 
 /**
@@ -8984,12 +8832,95 @@ export namespace Snapshot {
   }
 }
 
-export type SourceType =
-  | "cache-cluster"
-  | "cache-parameter-group"
-  | "cache-security-group"
-  | "cache-subnet-group"
-  | "replication-group";
+/**
+ *
+ *         <p>You already have a snapshot with the given name.</p>
+ *
+ */
+export interface SnapshotAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotAlreadyExistsFault";
+  name: "SnapshotAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotAlreadyExistsFault {
+  export function isa(o: any): o is SnapshotAlreadyExistsFault {
+    return _smithy.isa(o, "SnapshotAlreadyExistsFault");
+  }
+}
+
+/**
+ *
+ *         <p>You attempted one of the following operations:</p>
+ *         <ul>
+ *             <li>
+ *                <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache
+ *                     node.</p>
+ *             </li>
+ *             <li>
+ *                <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>
+ *             </li>
+ *          </ul>
+ *         <p>Neither of these are supported by ElastiCache.</p>
+ *
+ */
+export interface SnapshotFeatureNotSupportedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotFeatureNotSupportedFault";
+  name: "SnapshotFeatureNotSupportedFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotFeatureNotSupportedFault {
+  export function isa(o: any): o is SnapshotFeatureNotSupportedFault {
+    return _smithy.isa(o, "SnapshotFeatureNotSupportedFault");
+  }
+}
+
+/**
+ *
+ *         <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ */
+export interface SnapshotNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotNotFoundFault";
+  name: "SnapshotNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotNotFoundFault {
+  export function isa(o: any): o is SnapshotNotFoundFault {
+    return _smithy.isa(o, "SnapshotNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *
+ */
+export interface SnapshotQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SnapshotQuotaExceededFault";
+  name: "SnapshotQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotQuotaExceededFault {
+  export function isa(o: any): o is SnapshotQuotaExceededFault {
+    return _smithy.isa(o, "SnapshotQuotaExceededFault");
+  }
+}
 
 export interface StartMigrationMessage {
   __type?: "StartMigrationMessage";
@@ -9061,6 +8992,24 @@ export namespace Subnet {
 
 /**
  *
+ *         <p>The requested subnet is being used by another cache subnet group.</p>
+ *
+ */
+export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
+  __type: "SubnetInUse";
+  name: "SubnetInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubnetInUse {
+  export function isa(o: any): o is SubnetInUse {
+    return _smithy.isa(o, "SubnetInUse");
+  }
+}
+
+/**
+ *
  *         <p>A cost allocation Tag that can be added to an ElastiCache cluster or replication group.
  *             Tags are composed of a Key/Value pair. A tag with a null Value is permitted.</p>
  *
@@ -9110,6 +9059,46 @@ export namespace TagListMessage {
   }
 }
 
+/**
+ *
+ *         <p>The requested tag was not found on this resource.</p>
+ *
+ */
+export interface TagNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TagNotFoundFault";
+  name: "TagNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagNotFoundFault {
+  export function isa(o: any): o is TagNotFoundFault {
+    return _smithy.isa(o, "TagNotFoundFault");
+  }
+}
+
+/**
+ *
+ *         <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ */
+export interface TagQuotaPerResourceExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TagQuotaPerResourceExceeded";
+  name: "TagQuotaPerResourceExceeded";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TagQuotaPerResourceExceeded {
+  export function isa(o: any): o is TagQuotaPerResourceExceeded {
+    return _smithy.isa(o, "TagQuotaPerResourceExceeded");
+  }
+}
+
 export interface TestFailoverMessage {
   __type?: "TestFailoverMessage";
   /**
@@ -9133,6 +9122,26 @@ export interface TestFailoverMessage {
 export namespace TestFailoverMessage {
   export function isa(o: any): o is TestFailoverMessage {
     return _smithy.isa(o, "TestFailoverMessage");
+  }
+}
+
+/**
+ *
+ *         <p>The <code>TestFailover</code> action is not available.</p>
+ *
+ */
+export interface TestFailoverNotAvailableFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TestFailoverNotAvailableFault";
+  name: "TestFailoverNotAvailableFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TestFailoverNotAvailableFault {
+  export function isa(o: any): o is TestFailoverNotAvailableFault {
+    return _smithy.isa(o, "TestFailoverNotAvailableFault");
   }
 }
 
@@ -9368,15 +9377,6 @@ export namespace UpdateActionResultsMessage {
   export function isa(o: any): o is UpdateActionResultsMessage {
     return _smithy.isa(o, "UpdateActionResultsMessage");
   }
-}
-
-export enum UpdateActionStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "not-applied",
-  STOPPED = "stopped",
-  STOPPING = "stopping",
-  WAITING_TO_START = "waiting-to-start"
 }
 
 export interface UpdateActionsMessage extends $MetadataBearer {

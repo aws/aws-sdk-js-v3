@@ -1,6 +1,90 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum CustomHealthStatus {
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY"
+}
+
+export enum FilterCondition {
+  BETWEEN = "BETWEEN",
+  EQ = "EQ",
+  IN = "IN"
+}
+
+export enum HealthCheckType {
+  HTTP = "HTTP",
+  HTTPS = "HTTPS",
+  TCP = "TCP"
+}
+
+export enum HealthStatus {
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY",
+  UNKNOWN = "UNKNOWN"
+}
+
+export enum HealthStatusFilter {
+  ALL = "ALL",
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY"
+}
+
+export enum NamespaceFilterName {
+  TYPE = "TYPE"
+}
+
+export enum NamespaceType {
+  DNS_PRIVATE = "DNS_PRIVATE",
+  DNS_PUBLIC = "DNS_PUBLIC",
+  HTTP = "HTTP"
+}
+
+export enum OperationFilterName {
+  NAMESPACE_ID = "NAMESPACE_ID",
+  SERVICE_ID = "SERVICE_ID",
+  STATUS = "STATUS",
+  TYPE = "TYPE",
+  UPDATE_DATE = "UPDATE_DATE"
+}
+
+export enum OperationStatus {
+  FAIL = "FAIL",
+  PENDING = "PENDING",
+  SUBMITTED = "SUBMITTED",
+  SUCCESS = "SUCCESS"
+}
+
+export enum OperationTargetType {
+  INSTANCE = "INSTANCE",
+  NAMESPACE = "NAMESPACE",
+  SERVICE = "SERVICE"
+}
+
+export enum OperationType {
+  CREATE_NAMESPACE = "CREATE_NAMESPACE",
+  DELETE_NAMESPACE = "DELETE_NAMESPACE",
+  DEREGISTER_INSTANCE = "DEREGISTER_INSTANCE",
+  REGISTER_INSTANCE = "REGISTER_INSTANCE",
+  UPDATE_SERVICE = "UPDATE_SERVICE"
+}
+
+export enum RecordType {
+  A = "A",
+  AAAA = "AAAA",
+  CNAME = "CNAME",
+  SRV = "SRV"
+}
+
+export enum RoutingPolicy {
+  MULTIVALUE = "MULTIVALUE",
+  WEIGHTED = "WEIGHTED"
+}
+
+export enum ServiceFilterName {
+  NAMESPACE_ID = "NAMESPACE_ID"
+}
+
 export interface CreateHttpNamespaceRequest {
   __type?: "CreateHttpNamespaceRequest";
   /**
@@ -258,11 +342,6 @@ export namespace CustomHealthNotFound {
   export function isa(o: any): o is CustomHealthNotFound {
     return _smithy.isa(o, "CustomHealthNotFound");
   }
-}
-
-export enum CustomHealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY"
 }
 
 export interface DeleteNamespaceRequest {
@@ -696,12 +775,6 @@ export namespace DuplicateRequest {
   }
 }
 
-export enum FilterCondition {
-  BETWEEN = "BETWEEN",
-  EQ = "EQ",
-  IN = "IN"
-}
-
 export interface GetInstanceRequest {
   __type?: "GetInstanceRequest";
   /**
@@ -1126,24 +1199,6 @@ export namespace HealthCheckCustomConfig {
   export function isa(o: any): o is HealthCheckCustomConfig {
     return _smithy.isa(o, "HealthCheckCustomConfig");
   }
-}
-
-export enum HealthCheckType {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP"
-}
-
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN"
-}
-
-export enum HealthStatusFilter {
-  ALL = "ALL",
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY"
 }
 
 /**
@@ -1882,10 +1937,6 @@ export namespace NamespaceFilter {
   }
 }
 
-export enum NamespaceFilterName {
-  TYPE = "TYPE"
-}
-
 /**
  *
  * 		       <p>No namespace exists with the specified ID.</p>
@@ -2003,12 +2054,6 @@ export namespace NamespaceSummary {
   export function isa(o: any): o is NamespaceSummary {
     return _smithy.isa(o, "NamespaceSummary");
   }
-}
-
-export enum NamespaceType {
-  DNS_PRIVATE = "DNS_PRIVATE",
-  DNS_PUBLIC = "DNS_PUBLIC",
-  HTTP = "HTTP"
 }
 
 /**
@@ -2257,14 +2302,6 @@ export namespace OperationFilter {
   }
 }
 
-export enum OperationFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID",
-  SERVICE_ID = "SERVICE_ID",
-  STATUS = "STATUS",
-  TYPE = "TYPE",
-  UPDATE_DATE = "UPDATE_DATE"
-}
-
 /**
  *
  * 		       <p>No operation exists with the specified ID.</p>
@@ -2283,13 +2320,6 @@ export namespace OperationNotFound {
   export function isa(o: any): o is OperationNotFound {
     return _smithy.isa(o, "OperationNotFound");
   }
-}
-
-export enum OperationStatus {
-  FAIL = "FAIL",
-  PENDING = "PENDING",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -2337,27 +2367,6 @@ export namespace OperationSummary {
   export function isa(o: any): o is OperationSummary {
     return _smithy.isa(o, "OperationSummary");
   }
-}
-
-export enum OperationTargetType {
-  INSTANCE = "INSTANCE",
-  NAMESPACE = "NAMESPACE",
-  SERVICE = "SERVICE"
-}
-
-export enum OperationType {
-  CREATE_NAMESPACE = "CREATE_NAMESPACE",
-  DELETE_NAMESPACE = "DELETE_NAMESPACE",
-  DEREGISTER_INSTANCE = "DEREGISTER_INSTANCE",
-  REGISTER_INSTANCE = "REGISTER_INSTANCE",
-  UPDATE_SERVICE = "UPDATE_SERVICE"
-}
-
-export enum RecordType {
-  A = "A",
-  AAAA = "AAAA",
-  CNAME = "CNAME",
-  SRV = "SRV"
 }
 
 export interface RegisterInstanceRequest {
@@ -2567,11 +2576,6 @@ export namespace ResourceLimitExceeded {
   export function isa(o: any): o is ResourceLimitExceeded {
     return _smithy.isa(o, "ResourceLimitExceeded");
   }
-}
-
-export enum RoutingPolicy {
-  MULTIVALUE = "MULTIVALUE",
-  WEIGHTED = "WEIGHTED"
 }
 
 /**
@@ -2857,10 +2861,6 @@ export namespace ServiceFilter {
   export function isa(o: any): o is ServiceFilter {
     return _smithy.isa(o, "ServiceFilter");
   }
-}
-
-export enum ServiceFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID"
 }
 
 /**

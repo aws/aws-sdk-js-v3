@@ -1,6 +1,102 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum EndpointStatus {
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  IN_SERVICE = "IN_SERVICE",
+  UPDATING = "UPDATING"
+}
+
+export enum EntityType {
+  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
+  DATE = "DATE",
+  EVENT = "EVENT",
+  LOCATION = "LOCATION",
+  ORGANIZATION = "ORGANIZATION",
+  OTHER = "OTHER",
+  PERSON = "PERSON",
+  QUANTITY = "QUANTITY",
+  TITLE = "TITLE"
+}
+
+export enum InputFormat {
+  ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
+  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE"
+}
+
+export enum JobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  STOPPED = "STOPPED",
+  STOP_REQUESTED = "STOP_REQUESTED",
+  SUBMITTED = "SUBMITTED"
+}
+
+export enum LanguageCode {
+  AR = "ar",
+  DE = "de",
+  EN = "en",
+  ES = "es",
+  FR = "fr",
+  HI = "hi",
+  IT = "it",
+  JA = "ja",
+  KO = "ko",
+  PT = "pt",
+  ZH = "zh",
+  ZH_TW = "zh-TW"
+}
+
+export enum ModelStatus {
+  DELETING = "DELETING",
+  IN_ERROR = "IN_ERROR",
+  STOPPED = "STOPPED",
+  STOP_REQUESTED = "STOP_REQUESTED",
+  SUBMITTED = "SUBMITTED",
+  TRAINED = "TRAINED",
+  TRAINING = "TRAINING"
+}
+
+export enum PartOfSpeechTagType {
+  ADJ = "ADJ",
+  ADP = "ADP",
+  ADV = "ADV",
+  AUX = "AUX",
+  CCONJ = "CCONJ",
+  CONJ = "CONJ",
+  DET = "DET",
+  INTJ = "INTJ",
+  NOUN = "NOUN",
+  NUM = "NUM",
+  O = "O",
+  PART = "PART",
+  PRON = "PRON",
+  PROPN = "PROPN",
+  PUNCT = "PUNCT",
+  SCONJ = "SCONJ",
+  SYM = "SYM",
+  VERB = "VERB"
+}
+
+export enum SentimentType {
+  MIXED = "MIXED",
+  NEGATIVE = "NEGATIVE",
+  NEUTRAL = "NEUTRAL",
+  POSITIVE = "POSITIVE"
+}
+
+export enum SyntaxLanguageCode {
+  DE = "de",
+  EN = "en",
+  ES = "es",
+  FR = "fr",
+  IT = "it",
+  PT = "pt"
+}
+
 /**
  *
  *          <p>The result of calling the  operation.
@@ -2257,14 +2353,6 @@ export namespace EndpointProperties {
   }
 }
 
-export enum EndpointStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_SERVICE = "IN_SERVICE",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *          <p>Provides information for filtering a list of dominant language detection jobs. For more
@@ -2875,18 +2963,6 @@ export namespace EntityRecognizerProperties {
   }
 }
 
-export enum EntityType {
-  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
-  DATE = "DATE",
-  EVENT = "EVENT",
-  LOCATION = "LOCATION",
-  ORGANIZATION = "ORGANIZATION",
-  OTHER = "OTHER",
-  PERSON = "PERSON",
-  QUANTITY = "QUANTITY",
-  TITLE = "TITLE"
-}
-
 /**
  *
  *          <p>Detailed information about the accuracy of an entity recognizer for a specific entity type. </p>
@@ -2996,11 +3072,6 @@ export namespace InputDataConfig {
   }
 }
 
-export enum InputFormat {
-  ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
-  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE"
-}
-
 /**
  *
  *          <p>An internal server error occurred. Retry your request.</p>
@@ -3081,15 +3152,6 @@ export namespace JobNotFoundException {
   export function isa(o: any): o is JobNotFoundException {
     return _smithy.isa(o, "JobNotFoundException");
   }
-}
-
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
 }
 
 /**
@@ -3320,21 +3382,6 @@ export namespace KmsKeyValidationException {
   export function isa(o: any): o is KmsKeyValidationException {
     return _smithy.isa(o, "KmsKeyValidationException");
   }
-}
-
-export enum LanguageCode {
-  AR = "ar",
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  HI = "hi",
-  IT = "it",
-  JA = "ja",
-  KO = "ko",
-  PT = "pt",
-  ZH = "zh",
-  ZH_TW = "zh-TW"
 }
 
 export interface ListDocumentClassificationJobsRequest {
@@ -3870,16 +3917,6 @@ export namespace ListTopicsDetectionJobsResponse {
   }
 }
 
-export enum ModelStatus {
-  DELETING = "DELETING",
-  IN_ERROR = "IN_ERROR",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-  TRAINED = "TRAINED",
-  TRAINING = "TRAINING"
-}
-
 /**
  *
  *          <p>Provides configuration parameters for the output of topic detection jobs.</p>
@@ -3962,27 +3999,6 @@ export namespace PartOfSpeechTag {
   export function isa(o: any): o is PartOfSpeechTag {
     return _smithy.isa(o, "PartOfSpeechTag");
   }
-}
-
-export enum PartOfSpeechTagType {
-  ADJ = "ADJ",
-  ADP = "ADP",
-  ADV = "ADV",
-  AUX = "AUX",
-  CCONJ = "CCONJ",
-  CONJ = "CONJ",
-  DET = "DET",
-  INTJ = "INTJ",
-  NOUN = "NOUN",
-  NUM = "NUM",
-  O = "O",
-  PART = "PART",
-  PRON = "PRON",
-  PROPN = "PROPN",
-  PUNCT = "PUNCT",
-  SCONJ = "SCONJ",
-  SYM = "SYM",
-  VERB = "VERB"
 }
 
 /**
@@ -4272,13 +4288,6 @@ export namespace SentimentScore {
   export function isa(o: any): o is SentimentScore {
     return _smithy.isa(o, "SentimentScore");
   }
-}
-
-export enum SentimentType {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE"
 }
 
 export interface StartDocumentClassificationJobRequest {
@@ -5226,15 +5235,6 @@ export namespace StopTrainingEntityRecognizerResponse {
   export function isa(o: any): o is StopTrainingEntityRecognizerResponse {
     return _smithy.isa(o, "StopTrainingEntityRecognizerResponse");
   }
-}
-
-export enum SyntaxLanguageCode {
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  IT = "it",
-  PT = "pt"
 }
 
 /**

@@ -1,79 +1,64 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- * 		       <p>Parameters were used together that cannot be used together.</p>
- *
- */
-export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterCombinationException";
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  /**
-   *
-   * 		       <p></p>
-   *
-   */
-  message?: string;
+export type ComparisonOperator =
+  | "GreaterThanOrEqualToThreshold"
+  | "GreaterThanThreshold"
+  | "GreaterThanUpperThreshold"
+  | "LessThanLowerOrGreaterThanUpperThreshold"
+  | "LessThanLowerThreshold"
+  | "LessThanOrEqualToThreshold"
+  | "LessThanThreshold";
+
+export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
+
+export enum ScanBy {
+  TIMESTAMP_ASCENDING = "TimestampAscending",
+  TIMESTAMP_DESCENDING = "TimestampDescending"
 }
 
-export namespace InvalidParameterCombinationException {
-  export function isa(o: any): o is InvalidParameterCombinationException {
-    return _smithy.isa(o, "InvalidParameterCombinationException");
-  }
-}
+export type StandardUnit =
+  | "Bits"
+  | "Bits/Second"
+  | "Bytes"
+  | "Bytes/Second"
+  | "Count"
+  | "Count/Second"
+  | "Gigabits"
+  | "Gigabits/Second"
+  | "Gigabytes"
+  | "Gigabytes/Second"
+  | "Kilobits"
+  | "Kilobits/Second"
+  | "Kilobytes"
+  | "Kilobytes/Second"
+  | "Megabits"
+  | "Megabits/Second"
+  | "Megabytes"
+  | "Megabytes/Second"
+  | "Microseconds"
+  | "Milliseconds"
+  | "None"
+  | "Percent"
+  | "Seconds"
+  | "Terabits"
+  | "Terabits/Second"
+  | "Terabytes"
+  | "Terabytes/Second";
 
-/**
- *
- * 		       <p>The value of an input parameter is bad or out-of-range.</p>
- *
- */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidParameterValueException";
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  /**
-   *
-   * 		       <p></p>
-   *
-   */
-  message?: string;
-}
+export type StateValue = "ALARM" | "INSUFFICIENT_DATA" | "OK";
 
-export namespace InvalidParameterValueException {
-  export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
-  }
-}
+export type Statistic =
+  | "Average"
+  | "Maximum"
+  | "Minimum"
+  | "SampleCount"
+  | "Sum";
 
-/**
- *
- * 		       <p>An input parameter that is required is missing.</p>
- *
- */
-export interface MissingRequiredParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "MissingRequiredParameterException";
-  name: "MissingRequiredParameterException";
-  $fault: "client";
-  /**
-   *
-   * 		       <p></p>
-   *
-   */
-  message?: string;
-}
-
-export namespace MissingRequiredParameterException {
-  export function isa(o: any): o is MissingRequiredParameterException {
-    return _smithy.isa(o, "MissingRequiredParameterException");
-  }
+export enum StatusCode {
+  COMPLETE = "Complete",
+  INTERNAL_ERROR = "InternalError",
+  PARTIAL_DATA = "PartialData"
 }
 
 /**
@@ -215,15 +200,6 @@ export namespace AnomalyDetectorConfiguration {
     return _smithy.isa(o, "AnomalyDetectorConfiguration");
   }
 }
-
-export type ComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "GreaterThanUpperThreshold"
-  | "LessThanLowerOrGreaterThanUpperThreshold"
-  | "LessThanLowerThreshold"
-  | "LessThanOrEqualToThreshold"
-  | "LessThanThreshold";
 
 /**
  *
@@ -1619,8 +1595,6 @@ export namespace GetMetricWidgetImageOutput {
   }
 }
 
-export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
-
 /**
  *
  * 		       <p>This structure contains the definition for a Contributor Insights rule.</p>
@@ -1888,6 +1862,56 @@ export interface InvalidNextToken
 export namespace InvalidNextToken {
   export function isa(o: any): o is InvalidNextToken {
     return _smithy.isa(o, "InvalidNextToken");
+  }
+}
+
+/**
+ *
+ * 		       <p>Parameters were used together that cannot be used together.</p>
+ *
+ */
+export interface InvalidParameterCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterCombinationException";
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   *
+   * 		       <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export function isa(o: any): o is InvalidParameterCombinationException {
+    return _smithy.isa(o, "InvalidParameterCombinationException");
+  }
+}
+
+/**
+ *
+ * 		       <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ */
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidParameterValueException";
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  /**
+   *
+   * 		       <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export function isa(o: any): o is InvalidParameterValueException {
+    return _smithy.isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -2701,6 +2725,31 @@ export namespace MetricStat {
 
 /**
  *
+ * 		       <p>An input parameter that is required is missing.</p>
+ *
+ */
+export interface MissingRequiredParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "MissingRequiredParameterException";
+  name: "MissingRequiredParameterException";
+  $fault: "client";
+  /**
+   *
+   * 		       <p></p>
+   *
+   */
+  message?: string;
+}
+
+export namespace MissingRequiredParameterException {
+  export function isa(o: any): o is MissingRequiredParameterException {
+    return _smithy.isa(o, "MissingRequiredParameterException");
+  }
+}
+
+/**
+ *
  * 		       <p>This array is empty if the API operation was successful for all the rules specified in the request. If the operation could
  * 		not process one of the rules, the following data is returned for each of those rules.</p>
  *
@@ -3296,11 +3345,6 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export enum ScanBy {
-  TIMESTAMP_ASCENDING = "TimestampAscending",
-  TIMESTAMP_DESCENDING = "TimestampDescending"
-}
-
 export interface SetAlarmStateInput {
   __type?: "SetAlarmStateInput";
   /**
@@ -3338,44 +3382,6 @@ export namespace SetAlarmStateInput {
     return _smithy.isa(o, "SetAlarmStateInput");
   }
 }
-
-export type StandardUnit =
-  | "Bits"
-  | "Bits/Second"
-  | "Bytes"
-  | "Bytes/Second"
-  | "Count"
-  | "Count/Second"
-  | "Gigabits"
-  | "Gigabits/Second"
-  | "Gigabytes"
-  | "Gigabytes/Second"
-  | "Kilobits"
-  | "Kilobits/Second"
-  | "Kilobytes"
-  | "Kilobytes/Second"
-  | "Megabits"
-  | "Megabits/Second"
-  | "Megabytes"
-  | "Megabytes/Second"
-  | "Microseconds"
-  | "Milliseconds"
-  | "None"
-  | "Percent"
-  | "Seconds"
-  | "Terabits"
-  | "Terabits/Second"
-  | "Terabytes"
-  | "Terabytes/Second";
-
-export type StateValue = "ALARM" | "INSUFFICIENT_DATA" | "OK";
-
-export type Statistic =
-  | "Average"
-  | "Maximum"
-  | "Minimum"
-  | "SampleCount"
-  | "Sum";
 
 /**
  *
@@ -3417,12 +3423,6 @@ export namespace StatisticSet {
   export function isa(o: any): o is StatisticSet {
     return _smithy.isa(o, "StatisticSet");
   }
-}
-
-export enum StatusCode {
-  COMPLETE = "Complete",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData"
 }
 
 /**

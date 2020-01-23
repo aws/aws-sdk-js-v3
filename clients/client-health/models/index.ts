@@ -26,41 +26,98 @@ export enum EventTypeCategory {
 
 /**
  *
- *          <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *          <p>Information about an entity that is affected by a Health event.</p>
  *
  */
-export interface InvalidPaginationToken
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidPaginationToken";
-  name: "InvalidPaginationToken";
-  $fault: "client";
-  message?: string;
+export interface AffectedEntity {
+  __type?: "AffectedEntity";
+  /**
+   *
+   *          <p>The 12-digit AWS account number that contains the affected entity.</p>
+   *
+   */
+  awsAccountId?: string;
+
+  /**
+   *
+   *          <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>
+   *             </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>
+   *          </p>
+   *
+   */
+  entityArn?: string;
+
+  entityUrl?: string;
+  /**
+   *
+   *          <p>The ID of the affected entity.</p>
+   *
+   */
+  entityValue?: string;
+
+  /**
+   *
+   *          <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   *          </p>
+   *
+   */
+  eventArn?: string;
+
+  /**
+   *
+   *          <p>The most recent time that the entity was updated.</p>
+   *
+   */
+  lastUpdatedTime?: Date;
+
+  /**
+   *
+   *          <p>The most recent status of the entity affected by the event.
+   *         The possible values are <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
+   *
+   */
+  statusCode?: EntityStatusCode | string;
+
+  /**
+   *
+   *          <p>A map of entity tags attached to the affected entity.</p>
+   *
+   */
+  tags?: { [key: string]: string };
 }
 
-export namespace InvalidPaginationToken {
-  export function isa(o: any): o is InvalidPaginationToken {
-    return _smithy.isa(o, "InvalidPaginationToken");
+export namespace AffectedEntity {
+  export function isa(o: any): o is AffectedEntity {
+    return _smithy.isa(o, "AffectedEntity");
   }
 }
 
 /**
  *
- *          <p>The specified locale is not supported.</p>
+ *          <p>A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.</p>
  *
  */
-export interface UnsupportedLocale
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnsupportedLocale";
-  name: "UnsupportedLocale";
-  $fault: "client";
-  message?: string;
+export interface DateTimeRange {
+  __type?: "DateTimeRange";
+  /**
+   *
+   *          <p>The starting date and time of a time range.</p>
+   *
+   */
+  from?: Date;
+
+  /**
+   *
+   *          <p>The ending date and time of a time range.</p>
+   *
+   */
+  to?: Date;
 }
 
-export namespace UnsupportedLocale {
-  export function isa(o: any): o is UnsupportedLocale {
-    return _smithy.isa(o, "UnsupportedLocale");
+export namespace DateTimeRange {
+  export function isa(o: any): o is DateTimeRange {
+    return _smithy.isa(o, "DateTimeRange");
   }
 }
 
@@ -411,103 +468,6 @@ export interface DescribeEventsResponse extends $MetadataBearer {
 export namespace DescribeEventsResponse {
   export function isa(o: any): o is DescribeEventsResponse {
     return _smithy.isa(o, "DescribeEventsResponse");
-  }
-}
-
-/**
- *
- *          <p>Information about an entity that is affected by a Health event.</p>
- *
- */
-export interface AffectedEntity {
-  __type?: "AffectedEntity";
-  /**
-   *
-   *          <p>The 12-digit AWS account number that contains the affected entity.</p>
-   *
-   */
-  awsAccountId?: string;
-
-  /**
-   *
-   *          <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>
-   *             </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code>
-   *          </p>
-   *
-   */
-  entityArn?: string;
-
-  entityUrl?: string;
-  /**
-   *
-   *          <p>The ID of the affected entity.</p>
-   *
-   */
-  entityValue?: string;
-
-  /**
-   *
-   *          <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
-   *          </p>
-   *
-   */
-  eventArn?: string;
-
-  /**
-   *
-   *          <p>The most recent time that the entity was updated.</p>
-   *
-   */
-  lastUpdatedTime?: Date;
-
-  /**
-   *
-   *          <p>The most recent status of the entity affected by the event.
-   *         The possible values are <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
-   *
-   */
-  statusCode?: EntityStatusCode | string;
-
-  /**
-   *
-   *          <p>A map of entity tags attached to the affected entity.</p>
-   *
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace AffectedEntity {
-  export function isa(o: any): o is AffectedEntity {
-    return _smithy.isa(o, "AffectedEntity");
-  }
-}
-
-/**
- *
- *          <p>A range of dates and times that is used by the <a>EventFilter</a> and <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code> inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set and <code>to</code> is set: match items where the timestamp value is equal to or before <code>to</code>.</p>
- *
- */
-export interface DateTimeRange {
-  __type?: "DateTimeRange";
-  /**
-   *
-   *          <p>The starting date and time of a time range.</p>
-   *
-   */
-  from?: Date;
-
-  /**
-   *
-   *          <p>The ending date and time of a time range.</p>
-   *
-   */
-  to?: Date;
-}
-
-export namespace DateTimeRange {
-  export function isa(o: any): o is DateTimeRange {
-    return _smithy.isa(o, "DateTimeRange");
   }
 }
 
@@ -981,5 +941,45 @@ export interface EventTypeFilter {
 export namespace EventTypeFilter {
   export function isa(o: any): o is EventTypeFilter {
     return _smithy.isa(o, "EventTypeFilter");
+  }
+}
+
+/**
+ *
+ *          <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ */
+export interface InvalidPaginationToken
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidPaginationToken";
+  name: "InvalidPaginationToken";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidPaginationToken {
+  export function isa(o: any): o is InvalidPaginationToken {
+    return _smithy.isa(o, "InvalidPaginationToken");
+  }
+}
+
+/**
+ *
+ *          <p>The specified locale is not supported.</p>
+ *
+ */
+export interface UnsupportedLocale
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnsupportedLocale";
+  name: "UnsupportedLocale";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedLocale {
+  export function isa(o: any): o is UnsupportedLocale {
+    return _smithy.isa(o, "UnsupportedLocale");
   }
 }

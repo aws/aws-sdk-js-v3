@@ -1,6 +1,33 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum InventoryFilterCondition {
+  BEGINS_WITH = "BEGINS_WITH",
+  CONTAINS = "CONTAINS",
+  EQUALS = "EQUALS",
+  NOT_EQUALS = "NOT_EQUALS"
+}
+
+export enum LicenseConfigurationStatus {
+  AVAILABLE = "AVAILABLE",
+  DISABLED = "DISABLED"
+}
+
+export enum LicenseCountingType {
+  CORE = "Core",
+  INSTANCE = "Instance",
+  SOCKET = "Socket",
+  VCPU = "vCPU"
+}
+
+export enum ResourceType {
+  EC2_AMI = "EC2_AMI",
+  EC2_HOST = "EC2_HOST",
+  EC2_INSTANCE = "EC2_INSTANCE",
+  RDS = "RDS",
+  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE"
+}
+
 /**
  *
  *          <p>Access to resource denied.</p>
@@ -565,13 +592,6 @@ export namespace InventoryFilter {
   }
 }
 
-export enum InventoryFilterCondition {
-  BEGINS_WITH = "BEGINS_WITH",
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS"
-}
-
 /**
  *
  *          <p>A license configuration is an abstraction of a customer license agreement that can be
@@ -737,11 +757,6 @@ export namespace LicenseConfigurationAssociation {
   }
 }
 
-export enum LicenseConfigurationStatus {
-  AVAILABLE = "AVAILABLE",
-  DISABLED = "DISABLED"
-}
-
 /**
  *
  *          <p>Details about the usage of a resource associated with a license configuration.</p>
@@ -796,13 +811,6 @@ export namespace LicenseConfigurationUsage {
   export function isa(o: any): o is LicenseConfigurationUsage {
     return _smithy.isa(o, "LicenseConfigurationUsage");
   }
-}
-
-export enum LicenseCountingType {
-  CORE = "Core",
-  INSTANCE = "Instance",
-  SOCKET = "Socket",
-  VCPU = "vCPU"
 }
 
 /**
@@ -1641,14 +1649,6 @@ export namespace ResourceLimitExceededException {
   export function isa(o: any): o is ResourceLimitExceededException {
     return _smithy.isa(o, "ResourceLimitExceededException");
   }
-}
-
-export enum ResourceType {
-  EC2_AMI = "EC2_AMI",
-  EC2_HOST = "EC2_HOST",
-  EC2_INSTANCE = "EC2_INSTANCE",
-  RDS = "RDS",
-  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE"
 }
 
 /**

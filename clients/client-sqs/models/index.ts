@@ -1,6 +1,38 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type MessageSystemAttributeName =
+  | "AWSTraceHeader"
+  | "ApproximateFirstReceiveTimestamp"
+  | "ApproximateReceiveCount"
+  | "MessageDeduplicationId"
+  | "MessageGroupId"
+  | "SenderId"
+  | "SentTimestamp"
+  | "SequenceNumber";
+
+export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
+
+export type QueueAttributeName =
+  | "All"
+  | "ApproximateNumberOfMessages"
+  | "ApproximateNumberOfMessagesDelayed"
+  | "ApproximateNumberOfMessagesNotVisible"
+  | "ContentBasedDeduplication"
+  | "CreatedTimestamp"
+  | "DelaySeconds"
+  | "FifoQueue"
+  | "KmsDataKeyReusePeriodSeconds"
+  | "KmsMasterKeyId"
+  | "LastModifiedTimestamp"
+  | "MaximumMessageSize"
+  | "MessageRetentionPeriod"
+  | "Policy"
+  | "QueueArn"
+  | "ReceiveMessageWaitTimeSeconds"
+  | "RedrivePolicy"
+  | "VisibilityTimeout";
+
 /**
  *
  *          <p></p>
@@ -1310,18 +1342,6 @@ export namespace MessageNotInflight {
   }
 }
 
-export type MessageSystemAttributeName =
-  | "AWSTraceHeader"
-  | "ApproximateFirstReceiveTimestamp"
-  | "ApproximateReceiveCount"
-  | "MessageDeduplicationId"
-  | "MessageGroupId"
-  | "SenderId"
-  | "SentTimestamp"
-  | "SequenceNumber";
-
-export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
-
 /**
  *
  *          <p>The user-specified message system attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code>
@@ -1436,26 +1456,6 @@ export namespace PurgeQueueRequest {
     return _smithy.isa(o, "PurgeQueueRequest");
   }
 }
-
-export type QueueAttributeName =
-  | "All"
-  | "ApproximateNumberOfMessages"
-  | "ApproximateNumberOfMessagesDelayed"
-  | "ApproximateNumberOfMessagesNotVisible"
-  | "ContentBasedDeduplication"
-  | "CreatedTimestamp"
-  | "DelaySeconds"
-  | "FifoQueue"
-  | "KmsDataKeyReusePeriodSeconds"
-  | "KmsMasterKeyId"
-  | "LastModifiedTimestamp"
-  | "MaximumMessageSize"
-  | "MessageRetentionPeriod"
-  | "Policy"
-  | "QueueArn"
-  | "ReceiveMessageWaitTimeSeconds"
-  | "RedrivePolicy"
-  | "VisibilityTimeout";
 
 /**
  *

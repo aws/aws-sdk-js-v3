@@ -1,6 +1,194 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type AnalyticsS3ExportFileFormat = "CSV";
+
+export type BucketAccelerateStatus = "Enabled" | "Suspended";
+
+export type BucketCannedACL =
+  | "authenticated-read"
+  | "private"
+  | "public-read"
+  | "public-read-write";
+
+export type BucketLocationConstraint =
+  | "EU"
+  | "ap-northeast-1"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "cn-north-1"
+  | "eu-central-1"
+  | "eu-west-1"
+  | "sa-east-1"
+  | "us-west-1"
+  | "us-west-2";
+
+export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
+
+export type BucketVersioningStatus = "Enabled" | "Suspended";
+
+export type CompressionType = "BZIP2" | "GZIP" | "NONE";
+
+export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
+
+export type EncodingType = "url";
+
+export type Event =
+  | "s3:ObjectCreated:*"
+  | "s3:ObjectCreated:CompleteMultipartUpload"
+  | "s3:ObjectCreated:Copy"
+  | "s3:ObjectCreated:Post"
+  | "s3:ObjectCreated:Put"
+  | "s3:ObjectRemoved:*"
+  | "s3:ObjectRemoved:Delete"
+  | "s3:ObjectRemoved:DeleteMarkerCreated"
+  | "s3:ObjectRestore:*"
+  | "s3:ObjectRestore:Completed"
+  | "s3:ObjectRestore:Post"
+  | "s3:ReducedRedundancyLostObject"
+  | "s3:Replication:*"
+  | "s3:Replication:OperationFailedReplication"
+  | "s3:Replication:OperationMissedThreshold"
+  | "s3:Replication:OperationNotTracked"
+  | "s3:Replication:OperationReplicatedAfterThreshold";
+
+export type ExistingObjectReplicationStatus = "Disabled" | "Enabled";
+
+export type ExpirationStatus = "Disabled" | "Enabled";
+
+export enum ExpressionType {
+  SQL = "SQL"
+}
+
+export enum FileHeaderInfo {
+  IGNORE = "IGNORE",
+  NONE = "NONE",
+  USE = "USE"
+}
+
+export type FilterRuleName = "prefix" | "suffix";
+
+export type InventoryFormat = "CSV" | "ORC" | "Parquet";
+
+export type InventoryFrequency = "Daily" | "Weekly";
+
+export type InventoryIncludedObjectVersions = "All" | "Current";
+
+export type InventoryOptionalField =
+  | "ETag"
+  | "EncryptionStatus"
+  | "IntelligentTieringAccessTier"
+  | "IsMultipartUploaded"
+  | "LastModifiedDate"
+  | "ObjectLockLegalHoldStatus"
+  | "ObjectLockMode"
+  | "ObjectLockRetainUntilDate"
+  | "ReplicationStatus"
+  | "Size"
+  | "StorageClass";
+
+export enum JSONType {
+  DOCUMENT = "DOCUMENT",
+  LINES = "LINES"
+}
+
+export type MFADelete = "Disabled" | "Enabled";
+
+export type MFADeleteStatus = "Disabled" | "Enabled";
+
+export type MetadataDirective = "COPY" | "REPLACE";
+
+export type MetricsStatus = "Disabled" | "Enabled";
+
+export type ObjectCannedACL =
+  | "authenticated-read"
+  | "aws-exec-read"
+  | "bucket-owner-full-control"
+  | "bucket-owner-read"
+  | "private"
+  | "public-read"
+  | "public-read-write";
+
+export type ObjectLockEnabled = "Enabled";
+
+export type ObjectLockLegalHoldStatus = "OFF" | "ON";
+
+export type ObjectLockMode = "COMPLIANCE" | "GOVERNANCE";
+
+export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
+
+export type ObjectStorageClass =
+  | "DEEP_ARCHIVE"
+  | "GLACIER"
+  | "INTELLIGENT_TIERING"
+  | "ONEZONE_IA"
+  | "REDUCED_REDUNDANCY"
+  | "STANDARD"
+  | "STANDARD_IA";
+
+export type ObjectVersionStorageClass = "STANDARD";
+
+export type OwnerOverride = "Destination";
+
+export type Payer = "BucketOwner" | "Requester";
+
+export type Permission =
+  | "FULL_CONTROL"
+  | "READ"
+  | "READ_ACP"
+  | "WRITE"
+  | "WRITE_ACP";
+
+export type Protocol = "http" | "https";
+
+export enum QuoteFields {
+  ALWAYS = "ALWAYS",
+  ASNEEDED = "ASNEEDED"
+}
+
+export type ReplicationRuleStatus = "Disabled" | "Enabled";
+
+export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
+
+export type ReplicationTimeStatus = "Disabled" | "Enabled";
+
+export type RequestCharged = "requester";
+
+export type RequestPayer = "requester";
+
+export enum RestoreRequestType {
+  SELECT = "SELECT"
+}
+
+export type ServerSideEncryption = "AES256" | "aws:kms";
+
+export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
+
+export type StorageClass =
+  | "DEEP_ARCHIVE"
+  | "GLACIER"
+  | "INTELLIGENT_TIERING"
+  | "ONEZONE_IA"
+  | "REDUCED_REDUNDANCY"
+  | "STANDARD"
+  | "STANDARD_IA";
+
+export type StorageClassAnalysisSchemaVersion = "V_1";
+
+export type TaggingDirective = "COPY" | "REPLACE";
+
+export type Tier = "Bulk" | "Expedited" | "Standard";
+
+export type TransitionStorageClass =
+  | "DEEP_ARCHIVE"
+  | "GLACIER"
+  | "INTELLIGENT_TIERING"
+  | "ONEZONE_IA"
+  | "STANDARD_IA";
+
+export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
+
 /**
  *
  *          <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
@@ -325,8 +513,6 @@ export namespace AnalyticsS3BucketDestination {
   }
 }
 
-export type AnalyticsS3ExportFileFormat = "CSV";
-
 /**
  *
  *          <p> In terms of implementation, a Bucket is a resource. An Amazon S3 bucket name is
@@ -355,8 +541,6 @@ export namespace Bucket {
     return _smithy.isa(o, "Bucket");
   }
 }
-
-export type BucketAccelerateStatus = "Enabled" | "Suspended";
 
 /**
  *
@@ -399,12 +583,6 @@ export namespace BucketAlreadyOwnedByYou {
   }
 }
 
-export type BucketCannedACL =
-  | "authenticated-read"
-  | "private"
-  | "public-read"
-  | "public-read-write";
-
 /**
  *
  *          <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
@@ -428,19 +606,6 @@ export namespace BucketLifecycleConfiguration {
   }
 }
 
-export type BucketLocationConstraint =
-  | "EU"
-  | "ap-northeast-1"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "cn-north-1"
-  | "eu-central-1"
-  | "eu-west-1"
-  | "sa-east-1"
-  | "us-west-1"
-  | "us-west-2";
-
 /**
  *
  *          <p>Container for logging status information.</p>
@@ -463,10 +628,6 @@ export namespace BucketLoggingStatus {
     return _smithy.isa(o, "BucketLoggingStatus");
   }
 }
-
-export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
-
-export type BucketVersioningStatus = "Enabled" | "Suspended";
 
 /**
  *
@@ -891,8 +1052,6 @@ export namespace CompletedPart {
     return _smithy.isa(o, "CompletedPart");
   }
 }
-
-export type CompressionType = "BZIP2" | "GZIP" | "NONE";
 
 /**
  *
@@ -2132,8 +2291,6 @@ export namespace DeleteMarkerReplication {
   }
 }
 
-export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
-
 export interface DeleteObjectOutput extends $MetadataBearer {
   __type?: "DeleteObjectOutput";
   /**
@@ -2490,8 +2647,6 @@ export namespace Destination {
     return _smithy.isa(o, "Destination");
   }
 }
-
-export type EncodingType = "url";
 
 /**
  *
@@ -4447,25 +4602,6 @@ export namespace ErrorDocument {
   }
 }
 
-export type Event =
-  | "s3:ObjectCreated:*"
-  | "s3:ObjectCreated:CompleteMultipartUpload"
-  | "s3:ObjectCreated:Copy"
-  | "s3:ObjectCreated:Post"
-  | "s3:ObjectCreated:Put"
-  | "s3:ObjectRemoved:*"
-  | "s3:ObjectRemoved:Delete"
-  | "s3:ObjectRemoved:DeleteMarkerCreated"
-  | "s3:ObjectRestore:*"
-  | "s3:ObjectRestore:Completed"
-  | "s3:ObjectRestore:Post"
-  | "s3:ReducedRedundancyLostObject"
-  | "s3:Replication:*"
-  | "s3:Replication:OperationFailedReplication"
-  | "s3:Replication:OperationMissedThreshold"
-  | "s3:Replication:OperationNotTracked"
-  | "s3:Replication:OperationReplicatedAfterThreshold";
-
 /**
  *
  *          <p>Optional configuration to replicate existing source bucket objects. For more
@@ -4487,20 +4623,6 @@ export namespace ExistingObjectReplication {
   export function isa(o: any): o is ExistingObjectReplication {
     return _smithy.isa(o, "ExistingObjectReplication");
   }
-}
-
-export type ExistingObjectReplicationStatus = "Disabled" | "Enabled";
-
-export type ExpirationStatus = "Disabled" | "Enabled";
-
-export enum ExpressionType {
-  SQL = "SQL"
-}
-
-export enum FileHeaderInfo {
-  IGNORE = "IGNORE",
-  NONE = "NONE",
-  USE = "USE"
 }
 
 /**
@@ -4533,8 +4655,6 @@ export namespace FilterRule {
     return _smithy.isa(o, "FilterRule");
   }
 }
-
-export type FilterRuleName = "prefix" | "suffix";
 
 export interface GetBucketAccelerateConfigurationOutput
   extends $MetadataBearer {
@@ -6618,25 +6738,6 @@ export namespace InventoryFilter {
   }
 }
 
-export type InventoryFormat = "CSV" | "ORC" | "Parquet";
-
-export type InventoryFrequency = "Daily" | "Weekly";
-
-export type InventoryIncludedObjectVersions = "All" | "Current";
-
-export type InventoryOptionalField =
-  | "ETag"
-  | "EncryptionStatus"
-  | "IntelligentTieringAccessTier"
-  | "IsMultipartUploaded"
-  | "LastModifiedDate"
-  | "ObjectLockLegalHoldStatus"
-  | "ObjectLockMode"
-  | "ObjectLockRetainUntilDate"
-  | "ReplicationStatus"
-  | "Size"
-  | "StorageClass";
-
 /**
  *
  *          <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where
@@ -6748,11 +6849,6 @@ export namespace JSONOutput {
   export function isa(o: any): o is JSONOutput {
     return _smithy.isa(o, "JSONOutput");
   }
-}
-
-export enum JSONType {
-  DOCUMENT = "DOCUMENT",
-  LINES = "LINES"
 }
 
 /**
@@ -8110,12 +8206,6 @@ export namespace LoggingEnabled {
   }
 }
 
-export type MFADelete = "Disabled" | "Enabled";
-
-export type MFADeleteStatus = "Disabled" | "Enabled";
-
-export type MetadataDirective = "COPY" | "REPLACE";
-
 /**
  *
  *          <p>A metadata key-value pair to store with an object.</p>
@@ -8275,8 +8365,6 @@ export namespace MetricsFilter {
     return _smithy.isa(o, "MetricsFilter");
   }
 }
-
-export type MetricsStatus = "Disabled" | "Enabled";
 
 /**
  *
@@ -8577,15 +8665,6 @@ export namespace ObjectAlreadyInActiveTierError {
   }
 }
 
-export type ObjectCannedACL =
-  | "authenticated-read"
-  | "aws-exec-read"
-  | "bucket-owner-full-control"
-  | "bucket-owner-read"
-  | "private"
-  | "public-read"
-  | "public-read-write";
-
 /**
  *
  *          <p>Object Identifier is unique value to identify objects.</p>
@@ -8643,8 +8722,6 @@ export namespace ObjectLockConfiguration {
   }
 }
 
-export type ObjectLockEnabled = "Enabled";
-
 /**
  *
  *          <p>A Legal Hold configuration for an object.</p>
@@ -8665,10 +8742,6 @@ export namespace ObjectLockLegalHold {
     return _smithy.isa(o, "ObjectLockLegalHold");
   }
 }
-
-export type ObjectLockLegalHoldStatus = "OFF" | "ON";
-
-export type ObjectLockMode = "COMPLIANCE" | "GOVERNANCE";
 
 /**
  *
@@ -8697,8 +8770,6 @@ export namespace ObjectLockRetention {
     return _smithy.isa(o, "ObjectLockRetention");
   }
 }
-
-export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
 
 /**
  *
@@ -8740,15 +8811,6 @@ export namespace ObjectNotInActiveTierError {
     return _smithy.isa(o, "ObjectNotInActiveTierError");
   }
 }
-
-export type ObjectStorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD"
-  | "STANDARD_IA";
 
 /**
  *
@@ -8819,8 +8881,6 @@ export namespace ObjectVersion {
     return _smithy.isa(o, "ObjectVersion");
   }
 }
-
-export type ObjectVersionStorageClass = "STANDARD";
 
 /**
  *
@@ -8899,8 +8959,6 @@ export namespace Owner {
   }
 }
 
-export type OwnerOverride = "Destination";
-
 /**
  *
  *          <p>Container for Parquet.</p>
@@ -8957,15 +9015,6 @@ export namespace Part {
     return _smithy.isa(o, "Part");
   }
 }
-
-export type Payer = "BucketOwner" | "Requester";
-
-export type Permission =
-  | "FULL_CONTROL"
-  | "READ"
-  | "READ_ACP"
-  | "WRITE"
-  | "WRITE_ACP";
 
 /**
  *
@@ -9044,8 +9093,6 @@ export namespace ProgressEvent {
     return _smithy.isa(o, "ProgressEvent");
   }
 }
-
-export type Protocol = "http" | "https";
 
 /**
  *
@@ -10455,11 +10502,6 @@ export namespace QueueConfiguration {
   }
 }
 
-export enum QuoteFields {
-  ALWAYS = "ALWAYS",
-  ASNEEDED = "ASNEEDED"
-}
-
 /**
  *
  *          <p>The container for the records event.</p>
@@ -10790,10 +10832,6 @@ export namespace ReplicationRuleFilter {
   }
 }
 
-export type ReplicationRuleStatus = "Disabled" | "Enabled";
-
-export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
-
 /**
  *
  *          <p>
@@ -10828,8 +10866,6 @@ export namespace ReplicationTime {
   }
 }
 
-export type ReplicationTimeStatus = "Disabled" | "Enabled";
-
 /**
  *
  *          <p>
@@ -10855,10 +10891,6 @@ export namespace ReplicationTimeValue {
     return _smithy.isa(o, "ReplicationTimeValue");
   }
 }
-
-export type RequestCharged = "requester";
-
-export type RequestPayer = "requester";
 
 /**
  *
@@ -11037,10 +11069,6 @@ export namespace RestoreRequest {
   export function isa(o: any): o is RestoreRequest {
     return _smithy.isa(o, "RestoreRequest");
   }
-}
-
-export enum RestoreRequestType {
-  SELECT = "SELECT"
 }
 
 /**
@@ -11236,117 +11264,6 @@ export namespace ScanRange {
   }
 }
 
-/**
- *
- *          <p>The container for selecting objects from a content event stream.</p>
- *
- */
-export type SelectObjectContentEventStream =
-  | SelectObjectContentEventStream.ContMember
-  | SelectObjectContentEventStream.EndMember
-  | SelectObjectContentEventStream.ProgressMember
-  | SelectObjectContentEventStream.RecordsMember
-  | SelectObjectContentEventStream.StatsMember
-  | SelectObjectContentEventStream.$UnknownMember;
-
-export namespace SelectObjectContentEventStream {
-  interface $Base {
-    __type?: "SelectObjectContentEventStream";
-  }
-  /**
-   *
-   *          <p>The Continuation Event.</p>
-   *
-   */
-  export interface ContMember extends $Base {
-    Cont: ContinuationEvent;
-    End?: never;
-    Progress?: never;
-    Records?: never;
-    Stats?: never;
-    $unknown?: never;
-  }
-  /**
-   *
-   *          <p>The End Event.</p>
-   *
-   */
-  export interface EndMember extends $Base {
-    Cont?: never;
-    End: EndEvent;
-    Progress?: never;
-    Records?: never;
-    Stats?: never;
-    $unknown?: never;
-  }
-  /**
-   *
-   *          <p>The Progress Event.</p>
-   *
-   */
-  export interface ProgressMember extends $Base {
-    Cont?: never;
-    End?: never;
-    Progress: ProgressEvent;
-    Records?: never;
-    Stats?: never;
-    $unknown?: never;
-  }
-  /**
-   *
-   *          <p>The Records Event.</p>
-   *
-   */
-  export interface RecordsMember extends $Base {
-    Cont?: never;
-    End?: never;
-    Progress?: never;
-    Records: RecordsEvent;
-    Stats?: never;
-    $unknown?: never;
-  }
-  /**
-   *
-   *          <p>The Stats Event.</p>
-   *
-   */
-  export interface StatsMember extends $Base {
-    Cont?: never;
-    End?: never;
-    Progress?: never;
-    Records?: never;
-    Stats: StatsEvent;
-    $unknown?: never;
-  }
-  export interface $UnknownMember extends $Base {
-    Cont?: never;
-    End?: never;
-    Progress?: never;
-    Records?: never;
-    Stats?: never;
-    $unknown: [string, any];
-  }
-  export interface Visitor<T> {
-    Cont: (value: ContinuationEvent) => T;
-    End: (value: EndEvent) => T;
-    Progress: (value: ProgressEvent) => T;
-    Records: (value: RecordsEvent) => T;
-    Stats: (value: StatsEvent) => T;
-    _: (name: string, value: any) => T;
-  }
-  export function visit<T>(
-    value: SelectObjectContentEventStream,
-    visitor: Visitor<T>
-  ): T {
-    if (value.Cont !== undefined) return visitor.Cont(value.Cont);
-    if (value.End !== undefined) return visitor.End(value.End);
-    if (value.Progress !== undefined) return visitor.Progress(value.Progress);
-    if (value.Records !== undefined) return visitor.Records(value.Records);
-    if (value.Stats !== undefined) return visitor.Stats(value.Stats);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  }
-}
-
 export interface SelectObjectContentOutput extends $MetadataBearer {
   __type?: "SelectObjectContentOutput";
   /**
@@ -11520,8 +11437,6 @@ export namespace SelectParameters {
   }
 }
 
-export type ServerSideEncryption = "AES256" | "aws:kms";
-
 /**
  *
  *          <p>Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
@@ -11640,8 +11555,6 @@ export namespace SseKmsEncryptedObjects {
   }
 }
 
-export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
-
 /**
  *
  *          <p>Container for the stats details.</p>
@@ -11698,15 +11611,6 @@ export namespace StatsEvent {
   }
 }
 
-export type StorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD"
-  | "STANDARD_IA";
-
 /**
  *
  *          <p>Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.</p>
@@ -11755,8 +11659,6 @@ export namespace StorageClassAnalysisDataExport {
     return _smithy.isa(o, "StorageClassAnalysisDataExport");
   }
 }
-
-export type StorageClassAnalysisSchemaVersion = "V_1";
 
 /**
  *
@@ -11807,8 +11709,6 @@ export namespace Tagging {
   }
 }
 
-export type TaggingDirective = "COPY" | "REPLACE";
-
 /**
  *
  *          <p>Container for granting information.</p>
@@ -11836,8 +11736,6 @@ export namespace TargetGrant {
     return _smithy.isa(o, "TargetGrant");
   }
 }
-
-export type Tier = "Bulk" | "Expedited" | "Standard";
 
 /**
  *
@@ -11923,15 +11821,6 @@ export namespace Transition {
     return _smithy.isa(o, "Transition");
   }
 }
-
-export type TransitionStorageClass =
-  | "DEEP_ARCHIVE"
-  | "GLACIER"
-  | "INTELLIGENT_TIERING"
-  | "ONEZONE_IA"
-  | "STANDARD_IA";
-
-export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
 
 export interface UploadPartCopyOutput extends $MetadataBearer {
   __type?: "UploadPartCopyOutput";
@@ -12360,5 +12249,116 @@ export interface WebsiteConfiguration {
 export namespace WebsiteConfiguration {
   export function isa(o: any): o is WebsiteConfiguration {
     return _smithy.isa(o, "WebsiteConfiguration");
+  }
+}
+
+/**
+ *
+ *          <p>The container for selecting objects from a content event stream.</p>
+ *
+ */
+export type SelectObjectContentEventStream =
+  | SelectObjectContentEventStream.ContMember
+  | SelectObjectContentEventStream.EndMember
+  | SelectObjectContentEventStream.ProgressMember
+  | SelectObjectContentEventStream.RecordsMember
+  | SelectObjectContentEventStream.StatsMember
+  | SelectObjectContentEventStream.$UnknownMember;
+
+export namespace SelectObjectContentEventStream {
+  interface $Base {
+    __type?: "SelectObjectContentEventStream";
+  }
+  /**
+   *
+   *          <p>The Continuation Event.</p>
+   *
+   */
+  export interface ContMember extends $Base {
+    Cont: ContinuationEvent;
+    End?: never;
+    Progress?: never;
+    Records?: never;
+    Stats?: never;
+    $unknown?: never;
+  }
+  /**
+   *
+   *          <p>The End Event.</p>
+   *
+   */
+  export interface EndMember extends $Base {
+    Cont?: never;
+    End: EndEvent;
+    Progress?: never;
+    Records?: never;
+    Stats?: never;
+    $unknown?: never;
+  }
+  /**
+   *
+   *          <p>The Progress Event.</p>
+   *
+   */
+  export interface ProgressMember extends $Base {
+    Cont?: never;
+    End?: never;
+    Progress: ProgressEvent;
+    Records?: never;
+    Stats?: never;
+    $unknown?: never;
+  }
+  /**
+   *
+   *          <p>The Records Event.</p>
+   *
+   */
+  export interface RecordsMember extends $Base {
+    Cont?: never;
+    End?: never;
+    Progress?: never;
+    Records: RecordsEvent;
+    Stats?: never;
+    $unknown?: never;
+  }
+  /**
+   *
+   *          <p>The Stats Event.</p>
+   *
+   */
+  export interface StatsMember extends $Base {
+    Cont?: never;
+    End?: never;
+    Progress?: never;
+    Records?: never;
+    Stats: StatsEvent;
+    $unknown?: never;
+  }
+  export interface $UnknownMember extends $Base {
+    Cont?: never;
+    End?: never;
+    Progress?: never;
+    Records?: never;
+    Stats?: never;
+    $unknown: [string, any];
+  }
+  export interface Visitor<T> {
+    Cont: (value: ContinuationEvent) => T;
+    End: (value: EndEvent) => T;
+    Progress: (value: ProgressEvent) => T;
+    Records: (value: RecordsEvent) => T;
+    Stats: (value: StatsEvent) => T;
+    _: (name: string, value: any) => T;
+  }
+  export function visit<T>(
+    value: SelectObjectContentEventStream,
+    visitor: Visitor<T>
+  ): T {
+    if (value.Cont !== undefined) return visitor.Cont(value.Cont);
+    if (value.End !== undefined) return visitor.End(value.End);
+    if (value.Progress !== undefined) return visitor.Progress(value.Progress);
+    if (value.Records !== undefined) return visitor.Records(value.Records);
+    if (value.Stats !== undefined) return visitor.Stats(value.Stats);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }

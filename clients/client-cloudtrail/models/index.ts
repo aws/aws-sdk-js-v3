@@ -1,6 +1,31 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum EventCategory {
+  Insight = "insight"
+}
+
+export enum InsightType {
+  ApiCallRateInsight = "ApiCallRateInsight"
+}
+
+export enum LookupAttributeKey {
+  ACCESS_KEY_ID = "AccessKeyId",
+  EVENT_ID = "EventId",
+  EVENT_NAME = "EventName",
+  EVENT_SOURCE = "EventSource",
+  READ_ONLY = "ReadOnly",
+  RESOURCE_NAME = "ResourceName",
+  RESOURCE_TYPE = "ResourceType",
+  USERNAME = "Username"
+}
+
+export enum ReadWriteType {
+  All = "All",
+  ReadOnly = "ReadOnly",
+  WriteOnly = "WriteOnly"
+}
+
 /**
  *
  *          <p>Specifies the tags to add to a trail.</p>
@@ -694,10 +719,6 @@ export namespace Event {
   }
 }
 
-export enum EventCategory {
-  Insight = "insight"
-}
-
 /**
  *
  *          <p>Use event selectors to further specify the management and data event settings for your trail. By
@@ -1133,10 +1154,6 @@ export namespace InsightSelector {
   export function isa(o: any): o is InsightSelector {
     return _smithy.isa(o, "InsightSelector");
   }
-}
-
-export enum InsightType {
-  ApiCallRateInsight = "ApiCallRateInsight"
 }
 
 /**
@@ -2005,17 +2022,6 @@ export namespace LookupAttribute {
   }
 }
 
-export enum LookupAttributeKey {
-  ACCESS_KEY_ID = "AccessKeyId",
-  EVENT_ID = "EventId",
-  EVENT_NAME = "EventName",
-  EVENT_SOURCE = "EventSource",
-  READ_ONLY = "ReadOnly",
-  RESOURCE_NAME = "ResourceName",
-  RESOURCE_TYPE = "ResourceType",
-  USERNAME = "Username"
-}
-
 /**
  *
  *          <p>Contains a request for LookupEvents.</p>
@@ -2395,12 +2401,6 @@ export namespace PutInsightSelectorsResponse {
   export function isa(o: any): o is PutInsightSelectorsResponse {
     return _smithy.isa(o, "PutInsightSelectorsResponse");
   }
-}
-
-export enum ReadWriteType {
-  All = "All",
-  ReadOnly = "ReadOnly",
-  WriteOnly = "WriteOnly"
 }
 
 /**

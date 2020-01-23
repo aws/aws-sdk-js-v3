@@ -1,6 +1,46 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum DomainStatus {
+  AVAILABLE = "AVAILABLE",
+  CREATING = "CREATING",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING_DEPLOYMENT = "PENDING_DEPLOYMENT",
+  PENDING_VERIFICATION = "PENDING_VERIFICATION",
+  REQUESTING_CERTIFICATE = "REQUESTING_CERTIFICATE",
+  UPDATING = "UPDATING"
+}
+
+export enum JobStatus {
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  PROVISIONING = "PROVISIONING",
+  RUNNING = "RUNNING",
+  SUCCEED = "SUCCEED"
+}
+
+export enum JobType {
+  MANUAL = "MANUAL",
+  RELEASE = "RELEASE",
+  RETRY = "RETRY",
+  WEB_HOOK = "WEB_HOOK"
+}
+
+export enum Platform {
+  WEB = "WEB"
+}
+
+export enum Stage {
+  BETA = "BETA",
+  DEVELOPMENT = "DEVELOPMENT",
+  EXPERIMENTAL = "EXPERIMENTAL",
+  PRODUCTION = "PRODUCTION",
+  PULL_REQUEST = "PULL_REQUEST"
+}
+
 /**
  *
  *         <p>
@@ -1864,17 +1904,6 @@ export namespace DomainAssociation {
   }
 }
 
-export enum DomainStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_DEPLOYMENT = "PENDING_DEPLOYMENT",
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  REQUESTING_CERTIFICATE = "REQUESTING_CERTIFICATE",
-  UPDATING = "UPDATING"
-}
-
 /**
  *
  *         <p>
@@ -2391,16 +2420,6 @@ export namespace Job {
   }
 }
 
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  SUCCEED = "SUCCEED"
-}
-
 /**
  *
  *         <p>
@@ -2499,13 +2518,6 @@ export namespace JobSummary {
   export function isa(o: any): o is JobSummary {
     return _smithy.isa(o, "JobSummary");
   }
-}
-
-export enum JobType {
-  MANUAL = "MANUAL",
-  RELEASE = "RELEASE",
-  RETRY = "RETRY",
-  WEB_HOOK = "WEB_HOOK"
 }
 
 /**
@@ -3189,10 +3201,6 @@ export namespace NotFoundException {
   }
 }
 
-export enum Platform {
-  WEB = "WEB"
-}
-
 /**
  *
  *         <p>
@@ -3266,14 +3274,6 @@ export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
     return _smithy.isa(o, "ResourceNotFoundException");
   }
-}
-
-export enum Stage {
-  BETA = "BETA",
-  DEVELOPMENT = "DEVELOPMENT",
-  EXPERIMENTAL = "EXPERIMENTAL",
-  PRODUCTION = "PRODUCTION",
-  PULL_REQUEST = "PULL_REQUEST"
 }
 
 /**

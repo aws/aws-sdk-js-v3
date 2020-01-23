@@ -1,6 +1,18 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type Category = "AWSIoT";
+
+export type EncryptionAlgorithm = "ECDSA" | "RSA";
+
+export type HashAlgorithm = "SHA1" | "SHA256";
+
+export type ImageFormat = "JSON";
+
+export type SigningProfileStatus = "Active" | "Canceled";
+
+export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
+
 /**
  *
  * 		       <p>You do not have sufficient access to perform this action.</p>
@@ -59,8 +71,6 @@ export namespace CancelSigningProfileRequest {
     return _smithy.isa(o, "CancelSigningProfileRequest");
   }
 }
-
-export type Category = "AWSIoT";
 
 export interface DescribeSigningJobRequest {
   __type?: "DescribeSigningJobRequest";
@@ -201,8 +211,6 @@ export namespace Destination {
     return _smithy.isa(o, "Destination");
   }
 }
-
-export type EncryptionAlgorithm = "ECDSA" | "RSA";
 
 /**
  *
@@ -401,8 +409,6 @@ export namespace GetSigningProfileResponse {
   }
 }
 
-export type HashAlgorithm = "SHA1" | "SHA256";
-
 /**
  *
  * 		       <p>The hash algorithms that are available to a code signing job.</p>
@@ -430,8 +436,6 @@ export namespace HashAlgorithmOptions {
     return _smithy.isa(o, "HashAlgorithmOptions");
   }
 }
-
-export type ImageFormat = "JSON";
 
 /**
  *
@@ -1251,10 +1255,6 @@ export namespace SigningProfile {
     return _smithy.isa(o, "SigningProfile");
   }
 }
-
-export type SigningProfileStatus = "Active" | "Canceled";
-
-export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
 
 /**
  *

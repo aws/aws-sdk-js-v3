@@ -1,6 +1,128 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AccountType {
+  EnterpriseDirectory = "EnterpriseDirectory",
+  EnterpriseLWA = "EnterpriseLWA",
+  EnterpriseOIDC = "EnterpriseOIDC",
+  Team = "Team"
+}
+
+export enum BotType {
+  ChatBot = "ChatBot"
+}
+
+export enum CallingNameStatus {
+  Unassigned = "Unassigned",
+  UpdateFailed = "UpdateFailed",
+  UpdateInProgress = "UpdateInProgress",
+  UpdateSucceeded = "UpdateSucceeded"
+}
+
+export enum EmailStatus {
+  Failed = "Failed",
+  NotSent = "NotSent",
+  Sent = "Sent"
+}
+
+export enum ErrorCode {
+  AccessDenied = "AccessDenied",
+  BadRequest = "BadRequest",
+  Conflict = "Conflict",
+  Forbidden = "Forbidden",
+  NotFound = "NotFound",
+  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
+  PreconditionFailed = "PreconditionFailed",
+  ResourceLimitExceeded = "ResourceLimitExceeded",
+  ServiceFailure = "ServiceFailure",
+  ServiceUnavailable = "ServiceUnavailable",
+  Throttled = "Throttled",
+  Unauthorized = "Unauthorized",
+  Unprocessable = "Unprocessable",
+  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist"
+}
+
+export enum InviteStatus {
+  Accepted = "Accepted",
+  Failed = "Failed",
+  Pending = "Pending"
+}
+
+export enum License {
+  Basic = "Basic",
+  Plus = "Plus",
+  Pro = "Pro",
+  ProTrial = "ProTrial"
+}
+
+export enum MemberType {
+  Bot = "Bot",
+  User = "User",
+  Webhook = "Webhook"
+}
+
+export enum OrderedPhoneNumberStatus {
+  Acquired = "Acquired",
+  Failed = "Failed",
+  Processing = "Processing"
+}
+
+export enum OriginationRouteProtocol {
+  TCP = "TCP",
+  UDP = "UDP"
+}
+
+export enum PhoneNumberAssociationName {
+  AccountId = "AccountId",
+  UserId = "UserId",
+  VoiceConnectorGroupId = "VoiceConnectorGroupId",
+  VoiceConnectorId = "VoiceConnectorId"
+}
+
+export enum PhoneNumberOrderStatus {
+  Failed = "Failed",
+  Partial = "Partial",
+  Processing = "Processing",
+  Successful = "Successful"
+}
+
+export enum PhoneNumberProductType {
+  BusinessCalling = "BusinessCalling",
+  VoiceConnector = "VoiceConnector"
+}
+
+export enum PhoneNumberStatus {
+  AcquireFailed = "AcquireFailed",
+  AcquireInProgress = "AcquireInProgress",
+  Assigned = "Assigned",
+  DeleteFailed = "DeleteFailed",
+  DeleteInProgress = "DeleteInProgress",
+  ReleaseFailed = "ReleaseFailed",
+  ReleaseInProgress = "ReleaseInProgress",
+  Unassigned = "Unassigned"
+}
+
+export enum PhoneNumberType {
+  Local = "Local",
+  TollFree = "TollFree"
+}
+
+export enum RegistrationStatus {
+  Registered = "Registered",
+  Suspended = "Suspended",
+  Unregistered = "Unregistered"
+}
+
+export enum RoomMembershipRole {
+  Administrator = "Administrator",
+  Member = "Member"
+}
+
+export enum VoiceConnectorAwsRegion {
+  US_EAST_1 = "us-east-1",
+  US_WEST_2 = "us-west-2"
+}
+
 /**
  *
  *          <p>You don't have permissions to perform the requested operation.</p>
@@ -118,13 +240,6 @@ export namespace AccountSettings {
   export function isa(o: any): o is AccountSettings {
     return _smithy.isa(o, "AccountSettings");
   }
-}
-
-export enum AccountType {
-  EnterpriseDirectory = "EnterpriseDirectory",
-  EnterpriseLWA = "EnterpriseLWA",
-  EnterpriseOIDC = "EnterpriseOIDC",
-  Team = "Team"
 }
 
 export interface AssociatePhoneNumberWithUserRequest {
@@ -692,10 +807,6 @@ export namespace Bot {
   }
 }
 
-export enum BotType {
-  ChatBot = "ChatBot"
-}
-
 /**
  *
  *          <p>The Amazon Chime Business Calling settings for the administrator's AWS account.
@@ -716,13 +827,6 @@ export namespace BusinessCallingSettings {
   export function isa(o: any): o is BusinessCallingSettings {
     return _smithy.isa(o, "BusinessCallingSettings");
   }
-}
-
-export enum CallingNameStatus {
-  Unassigned = "Unassigned",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
-  UpdateSucceeded = "UpdateSucceeded"
 }
 
 /**
@@ -1617,29 +1721,6 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
   }
 }
 
-export enum EmailStatus {
-  Failed = "Failed",
-  NotSent = "NotSent",
-  Sent = "Sent"
-}
-
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist"
-}
-
 /**
  *
  *          <p>The configuration that allows a bot to receive outgoing events. Can be either an HTTPS endpoint or a Lambda function ARN.</p>
@@ -2415,12 +2496,6 @@ export namespace Invite {
   }
 }
 
-export enum InviteStatus {
-  Accepted = "Accepted",
-  Failed = "Failed",
-  Pending = "Pending"
-}
-
 export interface InviteUsersRequest {
   __type?: "InviteUsersRequest";
   /**
@@ -2458,13 +2533,6 @@ export namespace InviteUsersResponse {
   export function isa(o: any): o is InviteUsersResponse {
     return _smithy.isa(o, "InviteUsersResponse");
   }
-}
-
-export enum License {
-  Basic = "Basic",
-  Plus = "Plus",
-  Pro = "Pro",
-  ProTrial = "ProTrial"
 }
 
 export interface ListAccountsRequest {
@@ -3365,12 +3433,6 @@ export namespace MemberError {
   }
 }
 
-export enum MemberType {
-  Bot = "Bot",
-  User = "User",
-  Webhook = "Webhook"
-}
-
 /**
  *
  *          <p>Membership details, such as member ID and member role.</p>
@@ -3446,12 +3508,6 @@ export namespace OrderedPhoneNumber {
   export function isa(o: any): o is OrderedPhoneNumber {
     return _smithy.isa(o, "OrderedPhoneNumber");
   }
-}
-
-export enum OrderedPhoneNumberStatus {
-  Acquired = "Acquired",
-  Failed = "Failed",
-  Processing = "Processing"
 }
 
 /**
@@ -3536,11 +3592,6 @@ export namespace OriginationRoute {
   export function isa(o: any): o is OriginationRoute {
     return _smithy.isa(o, "OriginationRoute");
   }
-}
-
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP"
 }
 
 /**
@@ -3677,13 +3728,6 @@ export namespace PhoneNumberAssociation {
   export function isa(o: any): o is PhoneNumberAssociation {
     return _smithy.isa(o, "PhoneNumberAssociation");
   }
-}
-
-export enum PhoneNumberAssociationName {
-  AccountId = "AccountId",
-  UserId = "UserId",
-  VoiceConnectorGroupId = "VoiceConnectorGroupId",
-  VoiceConnectorId = "VoiceConnectorId"
 }
 
 /**
@@ -3834,34 +3878,6 @@ export namespace PhoneNumberOrder {
   export function isa(o: any): o is PhoneNumberOrder {
     return _smithy.isa(o, "PhoneNumberOrder");
   }
-}
-
-export enum PhoneNumberOrderStatus {
-  Failed = "Failed",
-  Partial = "Partial",
-  Processing = "Processing",
-  Successful = "Successful"
-}
-
-export enum PhoneNumberProductType {
-  BusinessCalling = "BusinessCalling",
-  VoiceConnector = "VoiceConnector"
-}
-
-export enum PhoneNumberStatus {
-  AcquireFailed = "AcquireFailed",
-  AcquireInProgress = "AcquireInProgress",
-  Assigned = "Assigned",
-  DeleteFailed = "DeleteFailed",
-  DeleteInProgress = "DeleteInProgress",
-  ReleaseFailed = "ReleaseFailed",
-  ReleaseInProgress = "ReleaseInProgress",
-  Unassigned = "Unassigned"
-}
-
-export enum PhoneNumberType {
-  Local = "Local",
-  TollFree = "TollFree"
 }
 
 export interface PutEventsConfigurationRequest {
@@ -4147,12 +4163,6 @@ export namespace RegenerateSecurityTokenResponse {
   }
 }
 
-export enum RegistrationStatus {
-  Registered = "Registered",
-  Suspended = "Suspended",
-  Unregistered = "Unregistered"
-}
-
 export interface ResetPersonalPINRequest {
   __type?: "ResetPersonalPINRequest";
   /**
@@ -4348,11 +4358,6 @@ export namespace RoomMembership {
   export function isa(o: any): o is RoomMembership {
     return _smithy.isa(o, "RoomMembership");
   }
-}
-
-export enum RoomMembershipRole {
-  Administrator = "Administrator",
-  Member = "Member"
 }
 
 export interface SearchAvailablePhoneNumbersRequest {
@@ -5424,11 +5429,6 @@ export namespace VoiceConnector {
   export function isa(o: any): o is VoiceConnector {
     return _smithy.isa(o, "VoiceConnector");
   }
-}
-
-export enum VoiceConnectorAwsRegion {
-  US_EAST_1 = "us-east-1",
-  US_WEST_2 = "us-west-2"
 }
 
 /**

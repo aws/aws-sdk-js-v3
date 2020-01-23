@@ -1,872 +1,16 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-/**
- *
- *          <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway.
- *          It is a string made of information such as your account, gateway name, and AWS Region. This
- *          ARN is used to reference the gateway in other API operations as well as resource-based
- *          authorization.</p>
- *          <note>
- *             <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the
- *             gateway name rather than the gateway ID. Changing the name of the gateway has no effect
- *             on the gateway ARN.</p>
- *          </note>
- *
- */
-export interface ActivateGatewayOutput extends $MetadataBearer {
-  __type?: "ActivateGatewayOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace ActivateGatewayOutput {
-  export function isa(o: any): o is ActivateGatewayOutput {
-    return _smithy.isa(o, "ActivateGatewayOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>AddWorkingStorageInput$DiskIds</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface AddWorkingStorageInput {
-  __type?: "AddWorkingStorageInput";
-  /**
-   *
-   *          <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   *
-   */
-  DiskIds: Array<string> | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddWorkingStorageInput {
-  export function isa(o: any): o is AddWorkingStorageInput {
-    return _smithy.isa(o, "AddWorkingStorageInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway for which working storage was
- *          configured.</p>
- *
- */
-export interface AddWorkingStorageOutput extends $MetadataBearer {
-  __type?: "AddWorkingStorageOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddWorkingStorageOutput {
-  export function isa(o: any): o is AddWorkingStorageOutput {
-    return _smithy.isa(o, "AddWorkingStorageOutput");
-  }
-}
-
-/**
- *
- *          <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that
- *          supports authentication between your gateway and iSCSI initiators.</p>
- *
- */
-export interface ChapInfo {
-  __type?: "ChapInfo";
-  /**
-   *
-   *          <p>The iSCSI initiator that connects to the target.</p>
-   *
-   */
-  InitiatorName?: string;
-
-  /**
-   *
-   *          <p>The secret key that the initiator (for example, the Windows client) must provide to
-   *          participate in mutual CHAP with the target.</p>
-   *
-   */
-  SecretToAuthenticateInitiator?: string;
-
-  /**
-   *
-   *          <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g. Windows client).</p>
-   *
-   */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume.</p>
-   *          <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
-   *          (-).</p>
-   *
-   */
-  TargetARN?: string;
-}
-
-export namespace ChapInfo {
-  export function isa(o: any): o is ChapInfo {
-    return _smithy.isa(o, "ChapInfo");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateSnapshotInput$SnapshotDescription</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateSnapshotInput$VolumeARN</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface CreateSnapshotInput {
-  __type?: "CreateSnapshotInput";
-  /**
-   *
-   *          <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
-   *          Block Store snapshots panel in the <b>Description</b> field, and
-   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
-   *             <b>Description</b> field</p>
-   *
-   */
-  SnapshotDescription: string | undefined;
-
-  /**
-   *
-   *          <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   *
-   */
-  Tags?: Array<Tag>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   *
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace CreateSnapshotInput {
-  export function isa(o: any): o is CreateSnapshotInput {
-    return _smithy.isa(o, "CreateSnapshotInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- */
-export interface CreateSnapshotOutput extends $MetadataBearer {
-  __type?: "CreateSnapshotOutput";
-  /**
-   *
-   *          <p>The snapshot ID that is used to refer to the snapshot in future operations such as
-   *          describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or
-   *          creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>).</p>
-   *
-   */
-  SnapshotId?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume of which the snapshot was
-   *          taken.</p>
-   *
-   */
-  VolumeARN?: string;
-}
-
-export namespace CreateSnapshotOutput {
-  export function isa(o: any): o is CreateSnapshotOutput {
-    return _smithy.isa(o, "CreateSnapshotOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$DiskId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$SnapshotId</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStorediSCSIVolumeInput$TargetName</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface CreateStorediSCSIVolumeInput {
-  __type?: "CreateStorediSCSIVolumeInput";
-  /**
-   *
-   *          <p>The unique identifier for the gateway local disk that is configured as a stored
-   *          volume. Use <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a> to
-   *          list disk IDs for a gateway.</p>
-   *
-   */
-  DiskId: string | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   *
-   *          <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
-   *          use a key managed by Amazon S3. Optional.</p>
-   *
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side
-   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
-   *
-   */
-  KMSKey?: string;
-
-  /**
-   *
-   *          <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *          <p> Valid Values: A valid IP address.</p>
-   *
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   *
-   *          <p>Specify this field as true if you want to preserve the data on the local disk.
-   *          Otherwise, specifying this field as false creates an empty volume.</p>
-   *          <p> Valid Values: true, false</p>
-   *
-   */
-  PreserveExistingData: boolean | undefined;
-
-  /**
-   *
-   *          <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
-   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
-   *             Reference</i>.</p>
-   *
-   */
-  SnapshotId?: string;
-
-  /**
-   *
-   *          <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   *
-   */
-  Tags?: Array<Tag>;
-
-  /**
-   *
-   *          <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
-   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-   *             <i>myvolume</i> results in the target ARN of
-   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
-   *          The target name must be unique across all volumes on a gateway.</p>
-   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
-   *          for this volume as the new target name.</p>
-   *
-   */
-  TargetName: string | undefined;
-}
-
-export namespace CreateStorediSCSIVolumeInput {
-  export function isa(o: any): o is CreateStorediSCSIVolumeInput {
-    return _smithy.isa(o, "CreateStorediSCSIVolumeInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- */
-export interface CreateStorediSCSIVolumeOutput extends $MetadataBearer {
-  __type?: "CreateStorediSCSIVolumeOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
-   *          that initiators can use to connect to the target.</p>
-   *
-   */
-  TargetARN?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the configured volume.</p>
-   *
-   */
-  VolumeARN?: string;
-
-  /**
-   *
-   *          <p>The size of the volume in bytes.</p>
-   *
-   */
-  VolumeSizeInBytes?: number;
-}
-
-export namespace CreateStorediSCSIVolumeOutput {
-  export function isa(o: any): o is CreateStorediSCSIVolumeOutput {
-    return _smithy.isa(o, "CreateStorediSCSIVolumeOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway whose bandwidth rate information was
- *          deleted.</p>
- *
- */
-export interface DeleteBandwidthRateLimitOutput extends $MetadataBearer {
-  __type?: "DeleteBandwidthRateLimitOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace DeleteBandwidthRateLimitOutput {
-  export function isa(o: any): o is DeleteBandwidthRateLimitOutput {
-    return _smithy.isa(o, "DeleteBandwidthRateLimitOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteChapCredentialsInput$InitiatorName</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteChapCredentialsInput$TargetARN</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface DeleteChapCredentialsInput {
-  __type?: "DeleteChapCredentialsInput";
-  /**
-   *
-   *          <p>The iSCSI initiator that connects to the target.</p>
-   *
-   */
-  InitiatorName: string | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   *
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace DeleteChapCredentialsInput {
-  export function isa(o: any): o is DeleteChapCredentialsInput {
-    return _smithy.isa(o, "DeleteChapCredentialsInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- */
-export interface DeleteChapCredentialsOutput extends $MetadataBearer {
-  __type?: "DeleteChapCredentialsOutput";
-  /**
-   *
-   *          <p>The iSCSI initiator that connects to the target.</p>
-   *
-   */
-  InitiatorName?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the target.</p>
-   *
-   */
-  TargetARN?: string;
-}
-
-export namespace DeleteChapCredentialsOutput {
-  export function isa(o: any): o is DeleteChapCredentialsOutput {
-    return _smithy.isa(o, "DeleteChapCredentialsOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the ID of the gateway to delete.</p>
- *
- */
-export interface DeleteGatewayInput {
-  __type?: "DeleteGatewayInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DeleteGatewayInput {
-  export function isa(o: any): o is DeleteGatewayInput {
-    return _smithy.isa(o, "DeleteGatewayInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the ID of the deleted gateway.</p>
- *
- */
-export interface DeleteGatewayOutput extends $MetadataBearer {
-  __type?: "DeleteGatewayOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace DeleteGatewayOutput {
-  export function isa(o: any): o is DeleteGatewayOutput {
-    return _smithy.isa(o, "DeleteGatewayOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to
- *          delete.</p>
- *
- */
-export interface DeleteVolumeInput {
-  __type?: "DeleteVolumeInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   *
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DeleteVolumeInput {
-  export function isa(o: any): o is DeleteVolumeInput {
-    return _smithy.isa(o, "DeleteVolumeInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the storage volume that was deleted</p>
- *
- */
-export interface DeleteVolumeOutput extends $MetadataBearer {
-  __type?: "DeleteVolumeOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
-   *          ARN you provided in the request.</p>
-   *
-   */
-  VolumeARN?: string;
-}
-
-export namespace DeleteVolumeOutput {
-  export function isa(o: any): o is DeleteVolumeOutput {
-    return _smithy.isa(o, "DeleteVolumeOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway.</p>
- *
- */
-export interface DescribeBandwidthRateLimitInput {
-  __type?: "DescribeBandwidthRateLimitInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeBandwidthRateLimitInput {
-  export function isa(o: any): o is DescribeBandwidthRateLimitInput {
-    return _smithy.isa(o, "DescribeBandwidthRateLimitInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- *
- */
-export interface DescribeBandwidthRateLimitOutput extends $MetadataBearer {
-  __type?: "DescribeBandwidthRateLimitOutput";
-  /**
-   *
-   *          <p>The average download bandwidth rate limit in bits per second. This field does not
-   *          appear in the response if the download rate limit is not set.</p>
-   *
-   */
-  AverageDownloadRateLimitInBitsPerSec?: number;
-
-  /**
-   *
-   *          <p>The average upload bandwidth rate limit in bits per second. This field does not
-   *          appear in the response if the upload rate limit is not set.</p>
-   *
-   */
-  AverageUploadRateLimitInBitsPerSec?: number;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace DescribeBandwidthRateLimitOutput {
-  export function isa(o: any): o is DescribeBandwidthRateLimitOutput {
-    return _smithy.isa(o, "DescribeBandwidthRateLimitOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
- *          target.</p>
- *
- */
-export interface DescribeChapCredentialsInput {
-  __type?: "DescribeChapCredentialsInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   *
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace DescribeChapCredentialsInput {
-  export function isa(o: any): o is DescribeChapCredentialsInput {
-    return _smithy.isa(o, "DescribeChapCredentialsInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing a .</p>
- *
- */
-export interface DescribeChapCredentialsOutput extends $MetadataBearer {
-  __type?: "DescribeChapCredentialsOutput";
-  /**
-   *
-   *          <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
-   *          object in the array contains CHAP credential information for one target-initiator pair. If
-   *          no CHAP credentials are set, an empty array is returned. CHAP credential information is
-   *          provided in a JSON object with the following fields:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>InitiatorName</b>: The iSCSI initiator that connects to
-   *                the target.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SecretToAuthenticateInitiator</b>: The secret key that
-   *                the initiator (for example, the Windows client) must provide to participate in mutual
-   *                CHAP with the target.</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SecretToAuthenticateTarget</b>: The secret key that the
-   *                target must provide to participate in mutual CHAP with the initiator (e.g. Windows
-   *                client).</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>TargetARN</b>: The Amazon Resource Name (ARN) of the
-   *                storage volume.</p>
-   *
-   *             </li>
-   *          </ul>
-   *
-   */
-  ChapCredentials?: Array<ChapInfo>;
-}
-
-export namespace DescribeChapCredentialsOutput {
-  export function isa(o: any): o is DescribeChapCredentialsOutput {
-    return _smithy.isa(o, "DescribeChapCredentialsOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the ID of the gateway.</p>
- *
- */
-export interface DescribeGatewayInformationInput {
-  __type?: "DescribeGatewayInformationInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeGatewayInformationInput {
-  export function isa(o: any): o is DescribeGatewayInformationInput {
-    return _smithy.isa(o, "DescribeGatewayInformationInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway.</p>
- *
- */
-export interface DescribeMaintenanceStartTimeInput {
-  __type?: "DescribeMaintenanceStartTimeInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeMaintenanceStartTimeInput {
-  export function isa(o: any): o is DescribeMaintenanceStartTimeInput {
-    return _smithy.isa(o, "DescribeMaintenanceStartTimeInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.</p>
- *
- */
-export interface DescribeSnapshotScheduleInput {
-  __type?: "DescribeSnapshotScheduleInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   *
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DescribeSnapshotScheduleInput {
-  export function isa(o: any): o is DescribeSnapshotScheduleInput {
-    return _smithy.isa(o, "DescribeSnapshotScheduleInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
- *
- */
-export interface DescribeStorediSCSIVolumesInput {
-  __type?: "DescribeStorediSCSIVolumesInput";
-  /**
-   *
-   *          <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
-   *          stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
-   *
-   */
-  VolumeARNs: Array<string> | undefined;
-}
-
-export namespace DescribeStorediSCSIVolumesInput {
-  export function isa(o: any): o is DescribeStorediSCSIVolumesInput {
-    return _smithy.isa(o, "DescribeStorediSCSIVolumesInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway.</p>
- *
- */
-export interface DescribeWorkingStorageInput {
-  __type?: "DescribeWorkingStorageInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeWorkingStorageInput {
-  export function isa(o: any): o is DescribeWorkingStorageInput {
-    return _smithy.isa(o, "DescribeWorkingStorageInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- *
- */
-export interface DescribeWorkingStorageOutput extends $MetadataBearer {
-  __type?: "DescribeWorkingStorageOutput";
-  /**
-   *
-   *          <p>An array of the gateway's local disk IDs that are configured as working storage. Each
-   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
-   *          no local disks are configured as working storage, then the DiskIds array is
-   *          empty.</p>
-   *
-   */
-  DiskIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-
-  /**
-   *
-   *          <p>The total working storage in bytes allocated for the gateway. If no working storage
-   *          is configured for the gateway, this field returns 0.</p>
-   *
-   */
-  WorkingStorageAllocatedInBytes?: number;
-
-  /**
-   *
-   *          <p>The total working storage in bytes in use by the gateway. If no working storage is
-   *          configured for the gateway, this field returns 0.</p>
-   *
-   */
-  WorkingStorageUsedInBytes?: number;
-}
-
-export namespace DescribeWorkingStorageOutput {
-  export function isa(o: any): o is DescribeWorkingStorageOutput {
-    return _smithy.isa(o, "DescribeWorkingStorageOutput");
-  }
-}
+export type ActiveDirectoryStatus =
+  | "ACCESS_DENIED"
+  | "DETACHED"
+  | "JOINED"
+  | "JOINING"
+  | "NETWORK_ERROR"
+  | "TIMEOUT"
+  | "UNKNOWN_ERROR";
+
+export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
 
 export type ErrorCode =
   | "ActivationKeyExpired"
@@ -932,1412 +76,23 @@ export type ErrorCode =
   | "VolumeNotFound"
   | "VolumeNotReady";
 
-/**
- *
- *          <p>An internal server error has occurred during the request. For more information, see
- *          the error and message fields.</p>
- *
- */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalServerError";
-  name: "InternalServerError";
-  $fault: "server";
-  /**
-   *
-   *          <p>A <a>StorageGatewayError</a> that provides more information about the
-   *          cause of the error.</p>
-   *
-   */
-  error?: StorageGatewayError;
-
-  /**
-   *
-   *          <p>A human-readable message describing the error that occurred.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalServerError {
-  export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
-  }
-}
-
-/**
- *
- *          <p>An exception occurred because an invalid gateway request was issued to the service.
- *          For more information, see the error and message fields.</p>
- *
- */
-export interface InvalidGatewayRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidGatewayRequestException";
-  name: "InvalidGatewayRequestException";
-  $fault: "client";
-  /**
-   *
-   *          <p>A <a>StorageGatewayError</a> that provides more detail about the cause of
-   *          the error.</p>
-   *
-   */
-  error?: StorageGatewayError;
-
-  /**
-   *
-   *          <p>A human-readable message describing the error that occurred.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidGatewayRequestException {
-  export function isa(o: any): o is InvalidGatewayRequestException {
-    return _smithy.isa(o, "InvalidGatewayRequestException");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing zero or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListGatewaysInput$Limit</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGatewaysInput$Marker</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface ListGatewaysInput {
-  __type?: "ListGatewaysInput";
-  /**
-   *
-   *          <p>Specifies that the list of gateways returned be limited to the specified number of
-   *          items.</p>
-   *
-   */
-  Limit?: number;
-
-  /**
-   *
-   *          <p>An opaque string that indicates the position at which to begin the returned list of
-   *          gateways.</p>
-   *
-   */
-  Marker?: string;
-}
-
-export namespace ListGatewaysInput {
-  export function isa(o: any): o is ListGatewaysInput {
-    return _smithy.isa(o, "ListGatewaysInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway.</p>
- *
- */
-export interface ListLocalDisksInput {
-  __type?: "ListLocalDisksInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ListLocalDisksInput {
-  export function isa(o: any): o is ListLocalDisksInput {
-    return _smithy.isa(o, "ListLocalDisksInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object that contains one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListVolumesInput$Limit</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListVolumesInput$Marker</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface ListVolumesInput {
-  __type?: "ListVolumesInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-
-  /**
-   *
-   *          <p>Specifies that the list of volumes returned be limited to the specified number of
-   *          items.</p>
-   *
-   */
-  Limit?: number;
-
-  /**
-   *
-   *          <p>A string that indicates the position at which to begin the returned list of volumes.
-   *          Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
-   *
-   */
-  Marker?: string;
-}
-
-export namespace ListVolumesInput {
-  export function isa(o: any): o is ListVolumesInput {
-    return _smithy.isa(o, "ListVolumesInput");
-  }
-}
-
-/**
- *
- *          <p>Describes a gateway's network interface.</p>
- *
- */
-export interface NetworkInterface {
-  __type?: "NetworkInterface";
-  /**
-   *
-   *          <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
-   *
-   */
-  Ipv4Address?: string;
-
-  /**
-   *
-   *          <p>The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently
-   *             not supported</i>.</p>
-   *
-   */
-  Ipv6Address?: string;
-
-  /**
-   *
-   *          <p>The Media Access Control (MAC) address of the interface.</p>
-   *          <note>
-   *             <p>This is currently unsupported and will not be returned in output.</p>
-   *          </note>
-   *
-   */
-  MacAddress?: string;
-}
-
-export namespace NetworkInterface {
-  export function isa(o: any): o is NetworkInterface {
-    return _smithy.isa(o, "NetworkInterface");
-  }
-}
-
-/**
- *
- *          <p>An internal server error has occurred because the service is unavailable. For more
- *          information, see the error and message fields.</p>
- *
- */
-export interface ServiceUnavailableError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableError";
-  name: "ServiceUnavailableError";
-  $fault: "server";
-  /**
-   *
-   *          <p>A <a>StorageGatewayError</a> that provides more information about the
-   *          cause of the error.</p>
-   *
-   */
-  error?: StorageGatewayError;
-
-  /**
-   *
-   *          <p>A human-readable message describing the error that occurred.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableError {
-  export function isa(o: any): o is ServiceUnavailableError {
-    return _smithy.isa(o, "ServiceUnavailableError");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway to shut down.</p>
- *
- */
-export interface ShutdownGatewayInput {
-  __type?: "ShutdownGatewayInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ShutdownGatewayInput {
-  export function isa(o: any): o is ShutdownGatewayInput {
-    return _smithy.isa(o, "ShutdownGatewayInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway that was shut down.</p>
- *
- */
-export interface ShutdownGatewayOutput extends $MetadataBearer {
-  __type?: "ShutdownGatewayOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace ShutdownGatewayOutput {
-  export function isa(o: any): o is ShutdownGatewayOutput {
-    return _smithy.isa(o, "ShutdownGatewayOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway to start.</p>
- *
- */
-export interface StartGatewayInput {
-  __type?: "StartGatewayInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace StartGatewayInput {
-  export function isa(o: any): o is StartGatewayInput {
-    return _smithy.isa(o, "StartGatewayInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway that was restarted.</p>
- *
- */
-export interface StartGatewayOutput extends $MetadataBearer {
-  __type?: "StartGatewayOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace StartGatewayOutput {
-  export function isa(o: any): o is StartGatewayOutput {
-    return _smithy.isa(o, "StartGatewayOutput");
-  }
-}
-
-/**
- *
- *          <p>Provides additional information about an error that was returned by the service as an
- *          or. See the <code>errorCode</code> and <code>errorDetails</code> members for more
- *          information about the error.</p>
- *
- */
-export interface StorageGatewayError {
-  __type?: "StorageGatewayError";
-  /**
-   *
-   *          <p>Additional information about the error.</p>
-   *
-   */
-  errorCode?: ErrorCode | string;
-
-  /**
-   *
-   *          <p>Human-readable text that provides detail about the error that occurred.</p>
-   *
-   */
-  errorDetails?: { [key: string]: string };
-}
-
-export namespace StorageGatewayError {
-  export function isa(o: any): o is StorageGatewayError {
-    return _smithy.isa(o, "StorageGatewayError");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface UpdateBandwidthRateLimitInput {
-  __type?: "UpdateBandwidthRateLimitInput";
-  /**
-   *
-   *          <p>The average download bandwidth rate limit in bits per second.</p>
-   *
-   */
-  AverageDownloadRateLimitInBitsPerSec?: number;
-
-  /**
-   *
-   *          <p>The average upload bandwidth rate limit in bits per second.</p>
-   *
-   */
-  AverageUploadRateLimitInBitsPerSec?: number;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace UpdateBandwidthRateLimitInput {
-  export function isa(o: any): o is UpdateBandwidthRateLimitInput {
-    return _smithy.isa(o, "UpdateBandwidthRateLimitInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway whose throttle information was
- *          updated.</p>
- *
- */
-export interface UpdateBandwidthRateLimitOutput extends $MetadataBearer {
-  __type?: "UpdateBandwidthRateLimitOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateBandwidthRateLimitOutput {
-  export function isa(o: any): o is UpdateBandwidthRateLimitOutput {
-    return _smithy.isa(o, "UpdateBandwidthRateLimitOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$InitiatorName</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a>
- *                </p>
- *
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateChapCredentialsInput$TargetARN</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface UpdateChapCredentialsInput {
-  __type?: "UpdateChapCredentialsInput";
-  /**
-   *
-   *          <p>The iSCSI initiator that connects to the target.</p>
-   *
-   */
-  InitiatorName: string | undefined;
-
-  /**
-   *
-   *          <p>The secret key that the initiator (for example, the Windows client) must provide to
-   *          participate in mutual CHAP with the target.</p>
-   *          <note>
-   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
-   *          </note>
-   *
-   */
-  SecretToAuthenticateInitiator: string | undefined;
-
-  /**
-   *
-   *          <p>The secret key that the target must provide to participate in mutual CHAP with the
-   *          initiator (e.g. Windows client).</p>
-   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
-   *          <note>
-   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
-   *          </note>
-   *
-   */
-  SecretToAuthenticateTarget?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
-   *          VolumeARN.</p>
-   *
-   */
-  TargetARN: string | undefined;
-}
-
-export namespace UpdateChapCredentialsInput {
-  export function isa(o: any): o is UpdateChapCredentialsInput {
-    return _smithy.isa(o, "UpdateChapCredentialsInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *
- *
- */
-export interface UpdateChapCredentialsOutput extends $MetadataBearer {
-  __type?: "UpdateChapCredentialsOutput";
-  /**
-   *
-   *          <p>The iSCSI initiator that connects to the target. This is the same initiator name
-   *          specified in the request.</p>
-   *
-   */
-  InitiatorName?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in
-   *          the request.</p>
-   *
-   */
-  TargetARN?: string;
-}
-
-export namespace UpdateChapCredentialsOutput {
-  export function isa(o: any): o is UpdateChapCredentialsOutput {
-    return _smithy.isa(o, "UpdateChapCredentialsOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the ARN of the gateway that was updated.</p>
- *
- */
-export interface UpdateGatewayInformationOutput extends $MetadataBearer {
-  __type?: "UpdateGatewayInformationOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-
-  /**
-   *
-   *          <p>The name you configured for your gateway.</p>
-   *
-   */
-  GatewayName?: string;
-}
-
-export namespace UpdateGatewayInformationOutput {
-  export function isa(o: any): o is UpdateGatewayInformationOutput {
-    return _smithy.isa(o, "UpdateGatewayInformationOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway to update.</p>
- *
- */
-export interface UpdateGatewaySoftwareNowInput {
-  __type?: "UpdateGatewaySoftwareNowInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace UpdateGatewaySoftwareNowInput {
-  export function isa(o: any): o is UpdateGatewaySoftwareNowInput {
-    return _smithy.isa(o, "UpdateGatewaySoftwareNowInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway that was updated.</p>
- *
- */
-export interface UpdateGatewaySoftwareNowOutput extends $MetadataBearer {
-  __type?: "UpdateGatewaySoftwareNowOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateGatewaySoftwareNowOutput {
-  export function isa(o: any): o is UpdateGatewaySoftwareNowOutput {
-    return _smithy.isa(o, "UpdateGatewaySoftwareNowOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$HourOfDay</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface UpdateMaintenanceStartTimeInput {
-  __type?: "UpdateMaintenanceStartTimeInput";
-  /**
-   *
-   *          <p>The day of the month component of the maintenance start time represented as an ordinal number from
-   *          1 to 28, where 1 represents the first day of the month and 28 represents the last day of
-   *          the month.</p>
-   *          <note>
-   *             <p>This value is only available for tape and volume gateways.</p>
-   *          </note>
-   *
-   */
-  DayOfMonth?: number;
-
-  /**
-   *
-   *          <p>The day of the week component of the maintenance start time week represented as an
-   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
-   *
-   */
-  DayOfWeek?: number;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   *
-   *          <p>The hour component of the maintenance start time represented as
-   *             <i>hh</i>, where <i>hh</i> is the hour (00 to 23). The hour
-   *          of the day is in the time zone of the gateway.</p>
-   *
-   */
-  HourOfDay: number | undefined;
-
-  /**
-   *
-   *          <p>The minute component of the maintenance start time represented as
-   *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
-   *          minute of the hour is in the time zone of the gateway.</p>
-   *
-   */
-  MinuteOfHour: number | undefined;
-}
-
-export namespace UpdateMaintenanceStartTimeInput {
-  export function isa(o: any): o is UpdateMaintenanceStartTimeInput {
-    return _smithy.isa(o, "UpdateMaintenanceStartTimeInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the gateway whose maintenance start time is
- *          updated.</p>
- *
- */
-export interface UpdateMaintenanceStartTimeOutput extends $MetadataBearer {
-  __type?: "UpdateMaintenanceStartTimeOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace UpdateMaintenanceStartTimeOutput {
-  export function isa(o: any): o is UpdateMaintenanceStartTimeOutput {
-    return _smithy.isa(o, "UpdateMaintenanceStartTimeOutput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing one or more of the following fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$Description</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$StartAt</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateSnapshotScheduleInput$VolumeARN</a>
- *                </p>
- *             </li>
- *          </ul>
- *
- */
-export interface UpdateSnapshotScheduleInput {
-  __type?: "UpdateSnapshotScheduleInput";
-  /**
-   *
-   *          <p>Optional description of the snapshot that overwrites the existing
-   *          description.</p>
-   *
-   */
-  Description?: string;
-
-  /**
-   *
-   *          <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
-   *
-   */
-  RecurrenceInHours: number | undefined;
-
-  /**
-   *
-   *          <p>The hour of the day at which the snapshot schedule begins represented as
-   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
-   *          of the day is in the time zone of the gateway.</p>
-   *
-   */
-  StartAt: number | undefined;
-
-  /**
-   *
-   *          <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
-   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
-   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
-   *             256.</p>
-   *          </note>
-   *
-   */
-  Tags?: Array<Tag>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   *
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace UpdateSnapshotScheduleInput {
-  export function isa(o: any): o is UpdateSnapshotScheduleInput {
-    return _smithy.isa(o, "UpdateSnapshotScheduleInput");
-  }
-}
-
-/**
- *
- *          <p>A JSON object containing the of the updated storage volume.</p>
- *
- */
-export interface UpdateSnapshotScheduleOutput extends $MetadataBearer {
-  __type?: "UpdateSnapshotScheduleOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
-   *          operation to return a list of gateway volumes.</p>
-   *
-   */
-  VolumeARN?: string;
-}
-
-export namespace UpdateSnapshotScheduleOutput {
-  export function isa(o: any): o is UpdateSnapshotScheduleOutput {
-    return _smithy.isa(o, "UpdateSnapshotScheduleOutput");
-  }
-}
-
-/**
- *
- *          <p>Lists iSCSI information about a volume.</p>
- *
- */
-export interface VolumeiSCSIAttributes {
-  __type?: "VolumeiSCSIAttributes";
-  /**
-   *
-   *          <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
-   *
-   */
-  ChapEnabled?: boolean;
-
-  /**
-   *
-   *          <p>The logical disk number.</p>
-   *
-   */
-  LunNumber?: number;
-
-  /**
-   *
-   *          <p>The network interface identifier.</p>
-   *
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   *
-   *          <p>The port used to communicate with iSCSI targets.</p>
-   *
-   */
-  NetworkInterfacePort?: number;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume target.</p>
-   *
-   */
-  TargetARN?: string;
-}
-
-export namespace VolumeiSCSIAttributes {
-  export function isa(o: any): o is VolumeiSCSIAttributes {
-    return _smithy.isa(o, "VolumeiSCSIAttributes");
-  }
-}
-
-export interface AddCacheInput {
-  __type?: "AddCacheInput";
-  /**
-   *
-   *          <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   *
-   */
-  DiskIds: Array<string> | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddCacheInput {
-  export function isa(o: any): o is AddCacheInput {
-    return _smithy.isa(o, "AddCacheInput");
-  }
-}
-
-export interface AddCacheOutput extends $MetadataBearer {
-  __type?: "AddCacheOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddCacheOutput {
-  export function isa(o: any): o is AddCacheOutput {
-    return _smithy.isa(o, "AddCacheOutput");
-  }
-}
-
-export interface AddUploadBufferInput {
-  __type?: "AddUploadBufferInput";
-  /**
-   *
-   *          <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   *
-   */
-  DiskIds: Array<string> | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace AddUploadBufferInput {
-  export function isa(o: any): o is AddUploadBufferInput {
-    return _smithy.isa(o, "AddUploadBufferInput");
-  }
-}
-
-export interface AddUploadBufferOutput extends $MetadataBearer {
-  __type?: "AddUploadBufferOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace AddUploadBufferOutput {
-  export function isa(o: any): o is AddUploadBufferOutput {
-    return _smithy.isa(o, "AddUploadBufferOutput");
-  }
-}
-
-export interface CreateCachediSCSIVolumeInput {
-  __type?: "CreateCachediSCSIVolumeInput";
-  /**
-   *
-   *          <p>A unique identifier that you use to retry a request. If you retry a request, use the
-   *          same <code>ClientToken</code> you specified in the initial request.</p>
-   *
-   *
-   */
-  ClientToken: string | undefined;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-
-  /**
-   *
-   *          <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
-   *          use a key managed by Amazon S3. Optional.</p>
-   *
-   */
-  KMSEncrypted?: boolean;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side
-   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
-   *
-   */
-  KMSKey?: string;
-
-  /**
-   *
-   *          <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
-   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
-   *          the network interfaces available on a gateway.</p>
-   *          <p> Valid Values: A valid IP address.</p>
-   *
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   *
-   *          <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
-   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
-   *             Reference</i>.</p>
-   *
-   */
-  SnapshotId?: string;
-
-  /**
-   *
-   *          <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an
-   *          exact copy of the specified existing volume's latest recovery point. The
-   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
-   *          the size of the existing volume, in bytes.</p>
-   *
-   */
-  SourceVolumeARN?: string;
-
-  /**
-   *
-   *          <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a
-   *          key-value pair.</p>
-   *          <note>
-   *             <p>Valid characters for key and value are letters, spaces, and numbers that you can
-   *             represent in UTF-8 format, and the following special characters: + - = . _ : / @. The
-   *             maximum length of a tag's key is 128 characters, and the maximum length for a
-   *             tag's value is 256 characters.</p>
-   *          </note>
-   *
-   */
-  Tags?: Array<Tag>;
-
-  /**
-   *
-   *          <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
-   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
-   *             <i>myvolume</i> results in the target ARN of
-   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
-   *          The target name must be unique across all volumes on a gateway.</p>
-   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
-   *          for this volume as the new target name.</p>
-   *
-   */
-  TargetName: string | undefined;
-
-  /**
-   *
-   *          <p>The size of the volume in bytes.</p>
-   *
-   */
-  VolumeSizeInBytes: number | undefined;
-}
-
-export namespace CreateCachediSCSIVolumeInput {
-  export function isa(o: any): o is CreateCachediSCSIVolumeInput {
-    return _smithy.isa(o, "CreateCachediSCSIVolumeInput");
-  }
-}
-
-export interface CreateCachediSCSIVolumeOutput extends $MetadataBearer {
-  __type?: "CreateCachediSCSIVolumeOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
-   *          that initiators can use to connect to the target.</p>
-   *
-   */
-  TargetARN?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the configured volume.</p>
-   *
-   */
-  VolumeARN?: string;
-}
-
-export namespace CreateCachediSCSIVolumeOutput {
-  export function isa(o: any): o is CreateCachediSCSIVolumeOutput {
-    return _smithy.isa(o, "CreateCachediSCSIVolumeOutput");
-  }
-}
-
-export interface CreateSnapshotFromVolumeRecoveryPointOutput
-  extends $MetadataBearer {
-  __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
-  /**
-   *
-   *          <p>The ID of the snapshot.</p>
-   *
-   */
-  SnapshotId?: string;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
-   *          specified VolumeARN.</p>
-   *
-   */
-  VolumeARN?: string;
-
-  /**
-   *
-   *          <p>The time the volume was created from the recovery point.</p>
-   *
-   */
-  VolumeRecoveryPointTime?: string;
-}
-
-export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
-  export function isa(
-    o: any
-  ): o is CreateSnapshotFromVolumeRecoveryPointOutput {
-    return _smithy.isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
-  }
-}
-
-export interface DeleteSnapshotScheduleInput {
-  __type?: "DeleteSnapshotScheduleInput";
-  /**
-   *
-   *          <p>The volume which snapshot schedule to delete.</p>
-   *
-   */
-  VolumeARN: string | undefined;
-}
-
-export namespace DeleteSnapshotScheduleInput {
-  export function isa(o: any): o is DeleteSnapshotScheduleInput {
-    return _smithy.isa(o, "DeleteSnapshotScheduleInput");
-  }
-}
-
-export interface DeleteSnapshotScheduleOutput extends $MetadataBearer {
-  __type?: "DeleteSnapshotScheduleOutput";
-  /**
-   *
-   *          <p>The volume which snapshot schedule was deleted.</p>
-   *
-   */
-  VolumeARN?: string;
-}
-
-export namespace DeleteSnapshotScheduleOutput {
-  export function isa(o: any): o is DeleteSnapshotScheduleOutput {
-    return _smithy.isa(o, "DeleteSnapshotScheduleOutput");
-  }
-}
-
-export interface DescribeCacheInput {
-  __type?: "DescribeCacheInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeCacheInput {
-  export function isa(o: any): o is DescribeCacheInput {
-    return _smithy.isa(o, "DescribeCacheInput");
-  }
-}
-
-export interface DescribeCacheOutput extends $MetadataBearer {
-  __type?: "DescribeCacheOutput";
-  /**
-   *
-   *          <p>The amount of cache in bytes allocated to the a gateway.</p>
-   *
-   */
-  CacheAllocatedInBytes?: number;
-
-  /**
-   *
-   *          <p>The file share's contribution to the overall percentage of the gateway's cache that has
-   *          not been persisted to AWS. The sample is taken at the end of the reporting period.</p>
-   *
-   */
-  CacheDirtyPercentage?: number;
-
-  /**
-   *
-   *          <p>Percent of application read operations from the file shares that are served from cache.
-   *          The sample is taken at the end of the reporting period.</p>
-   *
-   */
-  CacheHitPercentage?: number;
-
-  /**
-   *
-   *          <p>Percent of application read operations from the file shares that are not served from cache.
-   *          The sample is taken at the end of the reporting period.</p>
-   *
-   */
-  CacheMissPercentage?: number;
-
-  /**
-   *
-   *          <p>Percent use of the gateway's cache storage. This metric applies only to the
-   *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
-   *
-   */
-  CacheUsedPercentage?: number;
-
-  /**
-   *
-   *          <p>An array of strings that identify disks that are to be configured as working storage.
-   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
-   *          from the <a>ListLocalDisks</a> API.</p>
-   *
-   *
-   */
-  DiskIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-}
-
-export namespace DescribeCacheOutput {
-  export function isa(o: any): o is DescribeCacheOutput {
-    return _smithy.isa(o, "DescribeCacheOutput");
-  }
-}
-
-export interface DescribeCachediSCSIVolumesInput {
-  __type?: "DescribeCachediSCSIVolumesInput";
-  /**
-   *
-   *          <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
-   *          cached volume. All of the specified cached volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
-   *
-   */
-  VolumeARNs: Array<string> | undefined;
-}
-
-export namespace DescribeCachediSCSIVolumesInput {
-  export function isa(o: any): o is DescribeCachediSCSIVolumesInput {
-    return _smithy.isa(o, "DescribeCachediSCSIVolumesInput");
-  }
-}
-
-export interface DescribeUploadBufferInput {
-  __type?: "DescribeUploadBufferInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace DescribeUploadBufferInput {
-  export function isa(o: any): o is DescribeUploadBufferInput {
-    return _smithy.isa(o, "DescribeUploadBufferInput");
-  }
-}
-
-export interface DescribeUploadBufferOutput extends $MetadataBearer {
-  __type?: "DescribeUploadBufferOutput";
-  /**
-   *
-   *          <p>An array of the gateway's local disk IDs that are configured as working storage. Each
-   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
-   *          no local disks are configured as working storage, then the DiskIds array is
-   *          empty.</p>
-   *
-   */
-  DiskIds?: Array<string>;
-
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-
-  /**
-   *
-   *          <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
-   *
-   */
-  UploadBufferAllocatedInBytes?: number;
-
-  /**
-   *
-   *          <p>The total number of bytes being used in the gateway's upload buffer.</p>
-   *
-   */
-  UploadBufferUsedInBytes?: number;
-}
-
-export namespace DescribeUploadBufferOutput {
-  export function isa(o: any): o is DescribeUploadBufferOutput {
-    return _smithy.isa(o, "DescribeUploadBufferOutput");
-  }
-}
-
-export interface ListVolumeRecoveryPointsInput {
-  __type?: "ListVolumeRecoveryPointsInput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN: string | undefined;
-}
-
-export namespace ListVolumeRecoveryPointsInput {
-  export function isa(o: any): o is ListVolumeRecoveryPointsInput {
-    return _smithy.isa(o, "ListVolumeRecoveryPointsInput");
-  }
-}
-
-export interface ListVolumeRecoveryPointsOutput extends $MetadataBearer {
-  __type?: "ListVolumeRecoveryPointsOutput";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
-   *          operation to return a list of gateways for your account and AWS Region.</p>
-   *
-   */
-  GatewayARN?: string;
-
-  /**
-   *
-   *          <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
-   *
-   */
-  VolumeRecoveryPointInfos?: Array<VolumeRecoveryPointInfo>;
-}
-
-export namespace ListVolumeRecoveryPointsOutput {
-  export function isa(o: any): o is ListVolumeRecoveryPointsOutput {
-    return _smithy.isa(o, "ListVolumeRecoveryPointsOutput");
-  }
-}
-
-/**
- *
- *          <p>Describes a storage volume recovery point object.</p>
- *
- */
-export interface VolumeRecoveryPointInfo {
-  __type?: "VolumeRecoveryPointInfo";
-  /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the volume target.</p>
-   *
-   */
-  VolumeARN?: string;
-
-  /**
-   *
-   *          <p>The time the recovery point was taken.</p>
-   *
-   */
-  VolumeRecoveryPointTime?: string;
-
-  /**
-   *
-   *          <p>The size of the volume in bytes.</p>
-   *
-   */
-  VolumeSizeInBytes?: number;
-
-  /**
-   *
-   *          <p>The size of the data stored on the volume in bytes.</p>
-   *          <note>
-   *             <p>This value is not available for volumes created prior to May 13, 2015, until you
-   *             store data on the volume.</p>
-   *          </note>
-   *
-   */
-  VolumeUsageInBytes?: number;
-}
-
-export namespace VolumeRecoveryPointInfo {
-  export function isa(o: any): o is VolumeRecoveryPointInfo {
-    return _smithy.isa(o, "VolumeRecoveryPointInfo");
-  }
-}
+export type FileShareType = "NFS" | "SMB";
+
+export type HostEnvironment = "EC2" | "HYPER-V" | "OTHER" | "VMWARE";
+
+export type ObjectACL =
+  | "authenticated-read"
+  | "aws-exec-read"
+  | "bucket-owner-full-control"
+  | "bucket-owner-read"
+  | "private"
+  | "public-read"
+  | "public-read-write";
+
+export type SMBSecurityStrategy =
+  | "ClientSpecified"
+  | "MandatoryEncryption"
+  | "MandatorySigning";
 
 /**
  *
@@ -2484,14 +239,78 @@ export namespace ActivateGatewayInput {
   }
 }
 
-export type ActiveDirectoryStatus =
-  | "ACCESS_DENIED"
-  | "DETACHED"
-  | "JOINED"
-  | "JOINING"
-  | "NETWORK_ERROR"
-  | "TIMEOUT"
-  | "UNKNOWN_ERROR";
+/**
+ *
+ *          <p>AWS Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway.
+ *          It is a string made of information such as your account, gateway name, and AWS Region. This
+ *          ARN is used to reference the gateway in other API operations as well as resource-based
+ *          authorization.</p>
+ *          <note>
+ *             <p>For gateways activated prior to September 02, 2015, the gateway ARN contains the
+ *             gateway name rather than the gateway ID. Changing the name of the gateway has no effect
+ *             on the gateway ARN.</p>
+ *          </note>
+ *
+ */
+export interface ActivateGatewayOutput extends $MetadataBearer {
+  __type?: "ActivateGatewayOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace ActivateGatewayOutput {
+  export function isa(o: any): o is ActivateGatewayOutput {
+    return _smithy.isa(o, "ActivateGatewayOutput");
+  }
+}
+
+export interface AddCacheInput {
+  __type?: "AddCacheInput";
+  /**
+   *
+   *          <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   *
+   */
+  DiskIds: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddCacheInput {
+  export function isa(o: any): o is AddCacheInput {
+    return _smithy.isa(o, "AddCacheInput");
+  }
+}
+
+export interface AddCacheOutput extends $MetadataBearer {
+  __type?: "AddCacheOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddCacheOutput {
+  export function isa(o: any): o is AddCacheOutput {
+    return _smithy.isa(o, "AddCacheOutput");
+  }
+}
 
 /**
  *
@@ -2546,6 +365,110 @@ export interface AddTagsToResourceOutput extends $MetadataBearer {
 export namespace AddTagsToResourceOutput {
   export function isa(o: any): o is AddTagsToResourceOutput {
     return _smithy.isa(o, "AddTagsToResourceOutput");
+  }
+}
+
+export interface AddUploadBufferInput {
+  __type?: "AddUploadBufferInput";
+  /**
+   *
+   *          <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   *
+   */
+  DiskIds: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddUploadBufferInput {
+  export function isa(o: any): o is AddUploadBufferInput {
+    return _smithy.isa(o, "AddUploadBufferInput");
+  }
+}
+
+export interface AddUploadBufferOutput extends $MetadataBearer {
+  __type?: "AddUploadBufferOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddUploadBufferOutput {
+  export function isa(o: any): o is AddUploadBufferOutput {
+    return _smithy.isa(o, "AddUploadBufferOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>AddWorkingStorageInput$DiskIds</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface AddWorkingStorageInput {
+  __type?: "AddWorkingStorageInput";
+  /**
+   *
+   *          <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   *
+   */
+  DiskIds: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace AddWorkingStorageInput {
+  export function isa(o: any): o is AddWorkingStorageInput {
+    return _smithy.isa(o, "AddWorkingStorageInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway for which working storage was
+ *          configured.</p>
+ *
+ */
+export interface AddWorkingStorageOutput extends $MetadataBearer {
+  __type?: "AddWorkingStorageOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace AddWorkingStorageOutput {
+  export function isa(o: any): o is AddWorkingStorageOutput {
+    return _smithy.isa(o, "AddWorkingStorageOutput");
   }
 }
 
@@ -2683,8 +606,6 @@ export namespace AttachVolumeOutput {
     return _smithy.isa(o, "AttachVolumeOutput");
   }
 }
-
-export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
 
 /**
  *
@@ -2918,6 +839,183 @@ export interface CancelRetrievalOutput extends $MetadataBearer {
 export namespace CancelRetrievalOutput {
   export function isa(o: any): o is CancelRetrievalOutput {
     return _smithy.isa(o, "CancelRetrievalOutput");
+  }
+}
+
+/**
+ *
+ *          <p>Describes Challenge-Handshake Authentication Protocol (CHAP) information that
+ *          supports authentication between your gateway and iSCSI initiators.</p>
+ *
+ */
+export interface ChapInfo {
+  __type?: "ChapInfo";
+  /**
+   *
+   *          <p>The iSCSI initiator that connects to the target.</p>
+   *
+   */
+  InitiatorName?: string;
+
+  /**
+   *
+   *          <p>The secret key that the initiator (for example, the Windows client) must provide to
+   *          participate in mutual CHAP with the target.</p>
+   *
+   */
+  SecretToAuthenticateInitiator?: string;
+
+  /**
+   *
+   *          <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g. Windows client).</p>
+   *
+   */
+  SecretToAuthenticateTarget?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume.</p>
+   *          <p> Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens
+   *          (-).</p>
+   *
+   */
+  TargetARN?: string;
+}
+
+export namespace ChapInfo {
+  export function isa(o: any): o is ChapInfo {
+    return _smithy.isa(o, "ChapInfo");
+  }
+}
+
+export interface CreateCachediSCSIVolumeInput {
+  __type?: "CreateCachediSCSIVolumeInput";
+  /**
+   *
+   *          <p>A unique identifier that you use to retry a request. If you retry a request, use the
+   *          same <code>ClientToken</code> you specified in the initial request.</p>
+   *
+   *
+   */
+  ClientToken: string | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   *
+   *          <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+   *          use a key managed by Amazon S3. Optional.</p>
+   *
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side
+   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
+   *
+   */
+  KMSKey?: string;
+
+  /**
+   *
+   *          <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *          <p> Valid Values: A valid IP address.</p>
+   *
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   *
+   *          <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
+   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
+   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+   *             Reference</i>.</p>
+   *
+   */
+  SnapshotId?: string;
+
+  /**
+   *
+   *          <p>The ARN for an existing volume. Specifying this ARN makes the new volume into an
+   *          exact copy of the specified existing volume's latest recovery point. The
+   *             <code>VolumeSizeInBytes</code> value for this new volume must be equal to or larger than
+   *          the size of the existing volume, in bytes.</p>
+   *
+   */
+  SourceVolumeARN?: string;
+
+  /**
+   *
+   *          <p>A list of up to 50 tags that you can assign to a cached volume. Each tag is a
+   *          key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers that you can
+   *             represent in UTF-8 format, and the following special characters: + - = . _ : / @. The
+   *             maximum length of a tag's key is 128 characters, and the maximum length for a
+   *             tag's value is 256 characters.</p>
+   *          </note>
+   *
+   */
+  Tags?: Array<Tag>;
+
+  /**
+   *
+   *          <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
+   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+   *             <i>myvolume</i> results in the target ARN of
+   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+   *          The target name must be unique across all volumes on a gateway.</p>
+   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
+   *          for this volume as the new target name.</p>
+   *
+   */
+  TargetName: string | undefined;
+
+  /**
+   *
+   *          <p>The size of the volume in bytes.</p>
+   *
+   */
+  VolumeSizeInBytes: number | undefined;
+}
+
+export namespace CreateCachediSCSIVolumeInput {
+  export function isa(o: any): o is CreateCachediSCSIVolumeInput {
+    return _smithy.isa(o, "CreateCachediSCSIVolumeInput");
+  }
+}
+
+export interface CreateCachediSCSIVolumeOutput extends $MetadataBearer {
+  __type?: "CreateCachediSCSIVolumeOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
+   *          that initiators can use to connect to the target.</p>
+   *
+   */
+  TargetARN?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the configured volume.</p>
+   *
+   */
+  VolumeARN?: string;
+}
+
+export namespace CreateCachediSCSIVolumeOutput {
+  export function isa(o: any): o is CreateCachediSCSIVolumeOutput {
+    return _smithy.isa(o, "CreateCachediSCSIVolumeOutput");
   }
 }
 
@@ -3341,6 +1439,293 @@ export namespace CreateSnapshotFromVolumeRecoveryPointInput {
   }
 }
 
+export interface CreateSnapshotFromVolumeRecoveryPointOutput
+  extends $MetadataBearer {
+  __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
+  /**
+   *
+   *          <p>The ID of the snapshot.</p>
+   *
+   */
+  SnapshotId?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   *
+   */
+  VolumeARN?: string;
+
+  /**
+   *
+   *          <p>The time the volume was created from the recovery point.</p>
+   *
+   */
+  VolumeRecoveryPointTime?: string;
+}
+
+export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
+  export function isa(
+    o: any
+  ): o is CreateSnapshotFromVolumeRecoveryPointOutput {
+    return _smithy.isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateSnapshotInput$SnapshotDescription</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateSnapshotInput$VolumeARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface CreateSnapshotInput {
+  __type?: "CreateSnapshotInput";
+  /**
+   *
+   *          <p>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
+   *          Block Store snapshots panel in the <b>Description</b> field, and
+   *          in the AWS Storage Gateway snapshot <b>Details</b> pane,
+   *             <b>Description</b> field</p>
+   *
+   */
+  SnapshotDescription: string | undefined;
+
+  /**
+   *
+   *          <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   *
+   */
+  Tags?: Array<Tag>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   *
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace CreateSnapshotInput {
+  export function isa(o: any): o is CreateSnapshotInput {
+    return _smithy.isa(o, "CreateSnapshotInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ */
+export interface CreateSnapshotOutput extends $MetadataBearer {
+  __type?: "CreateSnapshotOutput";
+  /**
+   *
+   *          <p>The snapshot ID that is used to refer to the snapshot in future operations such as
+   *          describing snapshots (Amazon Elastic Compute Cloud API <code>DescribeSnapshots</code>) or
+   *          creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>).</p>
+   *
+   */
+  SnapshotId?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume of which the snapshot was
+   *          taken.</p>
+   *
+   */
+  VolumeARN?: string;
+}
+
+export namespace CreateSnapshotOutput {
+  export function isa(o: any): o is CreateSnapshotOutput {
+    return _smithy.isa(o, "CreateSnapshotOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$DiskId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$NetworkInterfaceId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$PreserveExistingData</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$SnapshotId</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorediSCSIVolumeInput$TargetName</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface CreateStorediSCSIVolumeInput {
+  __type?: "CreateStorediSCSIVolumeInput";
+  /**
+   *
+   *          <p>The unique identifier for the gateway local disk that is configured as a stored
+   *          volume. Use <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a> to
+   *          list disk IDs for a gateway.</p>
+   *
+   */
+  DiskId: string | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   *
+   *          <p>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+   *          use a key managed by Amazon S3. Optional.</p>
+   *
+   */
+  KMSEncrypted?: boolean;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the KMS key used for Amazon S3 server side
+   *          encryption. This value can only be set when KMSEncrypted is true. Optional.</p>
+   *
+   */
+  KMSKey?: string;
+
+  /**
+   *
+   *          <p>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
+   *          addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of
+   *          the network interfaces available on a gateway.</p>
+   *          <p> Valid Values: A valid IP address.</p>
+   *
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   *
+   *          <p>Specify this field as true if you want to preserve the data on the local disk.
+   *          Otherwise, specifying this field as false creates an empty volume.</p>
+   *          <p> Valid Values: true, false</p>
+   *
+   */
+  PreserveExistingData: boolean | undefined;
+
+  /**
+   *
+   *          <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
+   *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
+   *          otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
+   *             Reference</i>.</p>
+   *
+   */
+  SnapshotId?: string;
+
+  /**
+   *
+   *          <p>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   *
+   */
+  Tags?: Array<Tag>;
+
+  /**
+   *
+   *          <p>The name of the iSCSI target used by an initiator to connect to a volume and used as
+   *          a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+   *             <i>myvolume</i> results in the target ARN of
+   *             <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+   *          The target name must be unique across all volumes on a gateway.</p>
+   *          <p>If you don't specify a value, Storage Gateway uses the value that was previously used
+   *          for this volume as the new target name.</p>
+   *
+   */
+  TargetName: string | undefined;
+}
+
+export namespace CreateStorediSCSIVolumeInput {
+  export function isa(o: any): o is CreateStorediSCSIVolumeInput {
+    return _smithy.isa(o, "CreateStorediSCSIVolumeInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ */
+export interface CreateStorediSCSIVolumeOutput extends $MetadataBearer {
+  __type?: "CreateStorediSCSIVolumeOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume target, which includes the iSCSI name
+   *          that initiators can use to connect to the target.</p>
+   *
+   */
+  TargetARN?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the configured volume.</p>
+   *
+   */
+  VolumeARN?: string;
+
+  /**
+   *
+   *          <p>The size of the volume in bytes.</p>
+   *
+   */
+  VolumeSizeInBytes?: number;
+}
+
+export namespace CreateStorediSCSIVolumeOutput {
+  export function isa(o: any): o is CreateStorediSCSIVolumeOutput {
+    return _smithy.isa(o, "CreateStorediSCSIVolumeOutput");
+  }
+}
+
 /**
  *
  *          <p>CreateTapeWithBarcodeInput</p>
@@ -3611,6 +1996,98 @@ export namespace DeleteBandwidthRateLimitInput {
 
 /**
  *
+ *          <p>A JSON object containing the of the gateway whose bandwidth rate information was
+ *          deleted.</p>
+ *
+ */
+export interface DeleteBandwidthRateLimitOutput extends $MetadataBearer {
+  __type?: "DeleteBandwidthRateLimitOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace DeleteBandwidthRateLimitOutput {
+  export function isa(o: any): o is DeleteBandwidthRateLimitOutput {
+    return _smithy.isa(o, "DeleteBandwidthRateLimitOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteChapCredentialsInput$InitiatorName</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteChapCredentialsInput$TargetARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface DeleteChapCredentialsInput {
+  __type?: "DeleteChapCredentialsInput";
+  /**
+   *
+   *          <p>The iSCSI initiator that connects to the target.</p>
+   *
+   */
+  InitiatorName: string | undefined;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   *
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace DeleteChapCredentialsInput {
+  export function isa(o: any): o is DeleteChapCredentialsInput {
+    return _smithy.isa(o, "DeleteChapCredentialsInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ */
+export interface DeleteChapCredentialsOutput extends $MetadataBearer {
+  __type?: "DeleteChapCredentialsOutput";
+  /**
+   *
+   *          <p>The iSCSI initiator that connects to the target.</p>
+   *
+   */
+  InitiatorName?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the target.</p>
+   *
+   */
+  TargetARN?: string;
+}
+
+export namespace DeleteChapCredentialsOutput {
+  export function isa(o: any): o is DeleteChapCredentialsOutput {
+    return _smithy.isa(o, "DeleteChapCredentialsOutput");
+  }
+}
+
+/**
+ *
  *          <p>DeleteFileShareInput</p>
  *
  */
@@ -3658,6 +2135,82 @@ export interface DeleteFileShareOutput extends $MetadataBearer {
 export namespace DeleteFileShareOutput {
   export function isa(o: any): o is DeleteFileShareOutput {
     return _smithy.isa(o, "DeleteFileShareOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the ID of the gateway to delete.</p>
+ *
+ */
+export interface DeleteGatewayInput {
+  __type?: "DeleteGatewayInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DeleteGatewayInput {
+  export function isa(o: any): o is DeleteGatewayInput {
+    return _smithy.isa(o, "DeleteGatewayInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the ID of the deleted gateway.</p>
+ *
+ */
+export interface DeleteGatewayOutput extends $MetadataBearer {
+  __type?: "DeleteGatewayOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace DeleteGatewayOutput {
+  export function isa(o: any): o is DeleteGatewayOutput {
+    return _smithy.isa(o, "DeleteGatewayOutput");
+  }
+}
+
+export interface DeleteSnapshotScheduleInput {
+  __type?: "DeleteSnapshotScheduleInput";
+  /**
+   *
+   *          <p>The volume which snapshot schedule to delete.</p>
+   *
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DeleteSnapshotScheduleInput {
+  export function isa(o: any): o is DeleteSnapshotScheduleInput {
+    return _smithy.isa(o, "DeleteSnapshotScheduleInput");
+  }
+}
+
+export interface DeleteSnapshotScheduleOutput extends $MetadataBearer {
+  __type?: "DeleteSnapshotScheduleOutput";
+  /**
+   *
+   *          <p>The volume which snapshot schedule was deleted.</p>
+   *
+   */
+  VolumeARN?: string;
+}
+
+export namespace DeleteSnapshotScheduleOutput {
+  export function isa(o: any): o is DeleteSnapshotScheduleOutput {
+    return _smithy.isa(o, "DeleteSnapshotScheduleOutput");
   }
 }
 
@@ -3756,6 +2309,51 @@ export namespace DeleteTapeOutput {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing the <a>DeleteVolumeInput$VolumeARN</a> to
+ *          delete.</p>
+ *
+ */
+export interface DeleteVolumeInput {
+  __type?: "DeleteVolumeInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   *
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DeleteVolumeInput {
+  export function isa(o: any): o is DeleteVolumeInput {
+    return _smithy.isa(o, "DeleteVolumeInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the storage volume that was deleted</p>
+ *
+ */
+export interface DeleteVolumeOutput extends $MetadataBearer {
+  __type?: "DeleteVolumeOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same
+   *          ARN you provided in the request.</p>
+   *
+   */
+  VolumeARN?: string;
+}
+
+export namespace DeleteVolumeOutput {
+  export function isa(o: any): o is DeleteVolumeOutput {
+    return _smithy.isa(o, "DeleteVolumeOutput");
+  }
+}
+
 export interface DescribeAvailabilityMonitorTestInput {
   __type?: "DescribeAvailabilityMonitorTestInput";
   /**
@@ -3808,6 +2406,167 @@ export namespace DescribeAvailabilityMonitorTestOutput {
 
 /**
  *
+ *          <p>A JSON object containing the of the gateway.</p>
+ *
+ */
+export interface DescribeBandwidthRateLimitInput {
+  __type?: "DescribeBandwidthRateLimitInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeBandwidthRateLimitInput {
+  export function isa(o: any): o is DescribeBandwidthRateLimitInput {
+    return _smithy.isa(o, "DescribeBandwidthRateLimitInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ *
+ */
+export interface DescribeBandwidthRateLimitOutput extends $MetadataBearer {
+  __type?: "DescribeBandwidthRateLimitOutput";
+  /**
+   *
+   *          <p>The average download bandwidth rate limit in bits per second. This field does not
+   *          appear in the response if the download rate limit is not set.</p>
+   *
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
+
+  /**
+   *
+   *          <p>The average upload bandwidth rate limit in bits per second. This field does not
+   *          appear in the response if the upload rate limit is not set.</p>
+   *
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace DescribeBandwidthRateLimitOutput {
+  export function isa(o: any): o is DescribeBandwidthRateLimitOutput {
+    return _smithy.isa(o, "DescribeBandwidthRateLimitOutput");
+  }
+}
+
+export interface DescribeCacheInput {
+  __type?: "DescribeCacheInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeCacheInput {
+  export function isa(o: any): o is DescribeCacheInput {
+    return _smithy.isa(o, "DescribeCacheInput");
+  }
+}
+
+export interface DescribeCacheOutput extends $MetadataBearer {
+  __type?: "DescribeCacheOutput";
+  /**
+   *
+   *          <p>The amount of cache in bytes allocated to the a gateway.</p>
+   *
+   */
+  CacheAllocatedInBytes?: number;
+
+  /**
+   *
+   *          <p>The file share's contribution to the overall percentage of the gateway's cache that has
+   *          not been persisted to AWS. The sample is taken at the end of the reporting period.</p>
+   *
+   */
+  CacheDirtyPercentage?: number;
+
+  /**
+   *
+   *          <p>Percent of application read operations from the file shares that are served from cache.
+   *          The sample is taken at the end of the reporting period.</p>
+   *
+   */
+  CacheHitPercentage?: number;
+
+  /**
+   *
+   *          <p>Percent of application read operations from the file shares that are not served from cache.
+   *          The sample is taken at the end of the reporting period.</p>
+   *
+   */
+  CacheMissPercentage?: number;
+
+  /**
+   *
+   *          <p>Percent use of the gateway's cache storage. This metric applies only to the
+   *          gateway-cached volume setup. The sample is taken at the end of the reporting period.</p>
+   *
+   */
+  CacheUsedPercentage?: number;
+
+  /**
+   *
+   *          <p>An array of strings that identify disks that are to be configured as working storage.
+   *          Each string have a minimum length of 1 and maximum length of 300. You can get the disk IDs
+   *          from the <a>ListLocalDisks</a> API.</p>
+   *
+   *
+   */
+  DiskIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace DescribeCacheOutput {
+  export function isa(o: any): o is DescribeCacheOutput {
+    return _smithy.isa(o, "DescribeCacheOutput");
+  }
+}
+
+export interface DescribeCachediSCSIVolumesInput {
+  __type?: "DescribeCachediSCSIVolumesInput";
+  /**
+   *
+   *          <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
+   *          cached volume. All of the specified cached volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+   *
+   */
+  VolumeARNs: Array<string> | undefined;
+}
+
+export namespace DescribeCachediSCSIVolumesInput {
+  export function isa(o: any): o is DescribeCachediSCSIVolumesInput {
+    return _smithy.isa(o, "DescribeCachediSCSIVolumesInput");
+  }
+}
+
+/**
+ *
  *          <p>A JSON object containing the following fields:</p>
  *
  *
@@ -3826,6 +2585,103 @@ export interface DescribeCachediSCSIVolumesOutput extends $MetadataBearer {
 export namespace DescribeCachediSCSIVolumesOutput {
   export function isa(o: any): o is DescribeCachediSCSIVolumesOutput {
     return _smithy.isa(o, "DescribeCachediSCSIVolumesOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
+ *          target.</p>
+ *
+ */
+export interface DescribeChapCredentialsInput {
+  __type?: "DescribeChapCredentialsInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for
+   *          specified VolumeARN.</p>
+   *
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace DescribeChapCredentialsInput {
+  export function isa(o: any): o is DescribeChapCredentialsInput {
+    return _smithy.isa(o, "DescribeChapCredentialsInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing a .</p>
+ *
+ */
+export interface DescribeChapCredentialsOutput extends $MetadataBearer {
+  __type?: "DescribeChapCredentialsOutput";
+  /**
+   *
+   *          <p>An array of <a>ChapInfo</a> objects that represent CHAP credentials. Each
+   *          object in the array contains CHAP credential information for one target-initiator pair. If
+   *          no CHAP credentials are set, an empty array is returned. CHAP credential information is
+   *          provided in a JSON object with the following fields:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>InitiatorName</b>: The iSCSI initiator that connects to
+   *                the target.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SecretToAuthenticateInitiator</b>: The secret key that
+   *                the initiator (for example, the Windows client) must provide to participate in mutual
+   *                CHAP with the target.</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SecretToAuthenticateTarget</b>: The secret key that the
+   *                target must provide to participate in mutual CHAP with the initiator (e.g. Windows
+   *                client).</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>TargetARN</b>: The Amazon Resource Name (ARN) of the
+   *                storage volume.</p>
+   *
+   *             </li>
+   *          </ul>
+   *
+   */
+  ChapCredentials?: Array<ChapInfo>;
+}
+
+export namespace DescribeChapCredentialsOutput {
+  export function isa(o: any): o is DescribeChapCredentialsOutput {
+    return _smithy.isa(o, "DescribeChapCredentialsOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the ID of the gateway.</p>
+ *
+ */
+export interface DescribeGatewayInformationInput {
+  __type?: "DescribeGatewayInformationInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeGatewayInformationInput {
+  export function isa(o: any): o is DescribeGatewayInformationInput {
+    return _smithy.isa(o, "DescribeGatewayInformationInput");
   }
 }
 
@@ -3955,6 +2811,28 @@ export interface DescribeGatewayInformationOutput extends $MetadataBearer {
 export namespace DescribeGatewayInformationOutput {
   export function isa(o: any): o is DescribeGatewayInformationOutput {
     return _smithy.isa(o, "DescribeGatewayInformationOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway.</p>
+ *
+ */
+export interface DescribeMaintenanceStartTimeInput {
+  __type?: "DescribeMaintenanceStartTimeInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeMaintenanceStartTimeInput {
+  export function isa(o: any): o is DescribeMaintenanceStartTimeInput {
+    return _smithy.isa(o, "DescribeMaintenanceStartTimeInput");
   }
 }
 
@@ -4243,6 +3121,28 @@ export namespace DescribeSMBSettingsOutput {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a> of the volume.</p>
+ *
+ */
+export interface DescribeSnapshotScheduleInput {
+  __type?: "DescribeSnapshotScheduleInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   *
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace DescribeSnapshotScheduleInput {
+  export function isa(o: any): o is DescribeSnapshotScheduleInput {
+    return _smithy.isa(o, "DescribeSnapshotScheduleInput");
+  }
+}
+
 export interface DescribeSnapshotScheduleOutput extends $MetadataBearer {
   __type?: "DescribeSnapshotScheduleOutput";
   /**
@@ -4296,6 +3196,28 @@ export interface DescribeSnapshotScheduleOutput extends $MetadataBearer {
 export namespace DescribeSnapshotScheduleOutput {
   export function isa(o: any): o is DescribeSnapshotScheduleOutput {
     return _smithy.isa(o, "DescribeSnapshotScheduleOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
+ *
+ */
+export interface DescribeStorediSCSIVolumesInput {
+  __type?: "DescribeStorediSCSIVolumesInput";
+  /**
+   *
+   *          <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
+   *          stored volume. All of the specified stored volumes must from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+   *
+   */
+  VolumeARNs: Array<string> | undefined;
+}
+
+export namespace DescribeStorediSCSIVolumesInput {
+  export function isa(o: any): o is DescribeStorediSCSIVolumesInput {
+    return _smithy.isa(o, "DescribeStorediSCSIVolumesInput");
   }
 }
 
@@ -4649,6 +3571,64 @@ export namespace DescribeTapesOutput {
   }
 }
 
+export interface DescribeUploadBufferInput {
+  __type?: "DescribeUploadBufferInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeUploadBufferInput {
+  export function isa(o: any): o is DescribeUploadBufferInput {
+    return _smithy.isa(o, "DescribeUploadBufferInput");
+  }
+}
+
+export interface DescribeUploadBufferOutput extends $MetadataBearer {
+  __type?: "DescribeUploadBufferOutput";
+  /**
+   *
+   *          <p>An array of the gateway's local disk IDs that are configured as working storage. Each
+   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
+   *          no local disks are configured as working storage, then the DiskIds array is
+   *          empty.</p>
+   *
+   */
+  DiskIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+
+  /**
+   *
+   *          <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
+   *
+   */
+  UploadBufferAllocatedInBytes?: number;
+
+  /**
+   *
+   *          <p>The total number of bytes being used in the gateway's upload buffer.</p>
+   *
+   */
+  UploadBufferUsedInBytes?: number;
+}
+
+export namespace DescribeUploadBufferOutput {
+  export function isa(o: any): o is DescribeUploadBufferOutput {
+    return _smithy.isa(o, "DescribeUploadBufferOutput");
+  }
+}
+
 /**
  *
  *          <p>DescribeVTLDevicesInput</p>
@@ -4736,6 +3716,77 @@ export interface DescribeVTLDevicesOutput extends $MetadataBearer {
 export namespace DescribeVTLDevicesOutput {
   export function isa(o: any): o is DescribeVTLDevicesOutput {
     return _smithy.isa(o, "DescribeVTLDevicesOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway.</p>
+ *
+ */
+export interface DescribeWorkingStorageInput {
+  __type?: "DescribeWorkingStorageInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace DescribeWorkingStorageInput {
+  export function isa(o: any): o is DescribeWorkingStorageInput {
+    return _smithy.isa(o, "DescribeWorkingStorageInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ *
+ */
+export interface DescribeWorkingStorageOutput extends $MetadataBearer {
+  __type?: "DescribeWorkingStorageOutput";
+  /**
+   *
+   *          <p>An array of the gateway's local disk IDs that are configured as working storage. Each
+   *          local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If
+   *          no local disks are configured as working storage, then the DiskIds array is
+   *          empty.</p>
+   *
+   */
+  DiskIds?: Array<string>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+
+  /**
+   *
+   *          <p>The total working storage in bytes allocated for the gateway. If no working storage
+   *          is configured for the gateway, this field returns 0.</p>
+   *
+   */
+  WorkingStorageAllocatedInBytes?: number;
+
+  /**
+   *
+   *          <p>The total working storage in bytes in use by the gateway. If no working storage is
+   *          configured for the gateway, this field returns 0.</p>
+   *
+   */
+  WorkingStorageUsedInBytes?: number;
+}
+
+export namespace DescribeWorkingStorageOutput {
+  export function isa(o: any): o is DescribeWorkingStorageOutput {
+    return _smithy.isa(o, "DescribeWorkingStorageOutput");
   }
 }
 
@@ -5006,8 +4057,6 @@ export namespace FileShareInfo {
   }
 }
 
-export type FileShareType = "NFS" | "SMB";
-
 /**
  *
  *          <p>Describes a gateway object.</p>
@@ -5075,7 +4124,73 @@ export namespace GatewayInfo {
   }
 }
 
-export type HostEnvironment = "EC2" | "HYPER-V" | "OTHER" | "VMWARE";
+/**
+ *
+ *          <p>An internal server error has occurred during the request. For more information, see
+ *          the error and message fields.</p>
+ *
+ */
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalServerError";
+  name: "InternalServerError";
+  $fault: "server";
+  /**
+   *
+   *          <p>A <a>StorageGatewayError</a> that provides more information about the
+   *          cause of the error.</p>
+   *
+   */
+  error?: StorageGatewayError;
+
+  /**
+   *
+   *          <p>A human-readable message describing the error that occurred.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InternalServerError {
+  export function isa(o: any): o is InternalServerError {
+    return _smithy.isa(o, "InternalServerError");
+  }
+}
+
+/**
+ *
+ *          <p>An exception occurred because an invalid gateway request was issued to the service.
+ *          For more information, see the error and message fields.</p>
+ *
+ */
+export interface InvalidGatewayRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidGatewayRequestException";
+  name: "InvalidGatewayRequestException";
+  $fault: "client";
+  /**
+   *
+   *          <p>A <a>StorageGatewayError</a> that provides more detail about the cause of
+   *          the error.</p>
+   *
+   */
+  error?: StorageGatewayError;
+
+  /**
+   *
+   *          <p>A human-readable message describing the error that occurred.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidGatewayRequestException {
+  export function isa(o: any): o is InvalidGatewayRequestException {
+    return _smithy.isa(o, "InvalidGatewayRequestException");
+  }
+}
 
 /**
  *
@@ -5283,6 +4398,48 @@ export namespace ListFileSharesOutput {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing zero or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListGatewaysInput$Limit</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGatewaysInput$Marker</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface ListGatewaysInput {
+  __type?: "ListGatewaysInput";
+  /**
+   *
+   *          <p>Specifies that the list of gateways returned be limited to the specified number of
+   *          items.</p>
+   *
+   */
+  Limit?: number;
+
+  /**
+   *
+   *          <p>An opaque string that indicates the position at which to begin the returned list of
+   *          gateways.</p>
+   *
+   */
+  Marker?: string;
+}
+
+export namespace ListGatewaysInput {
+  export function isa(o: any): o is ListGatewaysInput {
+    return _smithy.isa(o, "ListGatewaysInput");
+  }
+}
+
 export interface ListGatewaysOutput extends $MetadataBearer {
   __type?: "ListGatewaysOutput";
   /**
@@ -5304,6 +4461,28 @@ export interface ListGatewaysOutput extends $MetadataBearer {
 export namespace ListGatewaysOutput {
   export function isa(o: any): o is ListGatewaysOutput {
     return _smithy.isa(o, "ListGatewaysOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway.</p>
+ *
+ */
+export interface ListLocalDisksInput {
+  __type?: "ListLocalDisksInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ListLocalDisksInput {
+  export function isa(o: any): o is ListLocalDisksInput {
+    return _smithy.isa(o, "ListLocalDisksInput");
   }
 }
 
@@ -5553,6 +4732,97 @@ export interface ListVolumeInitiatorsOutput extends $MetadataBearer {
 export namespace ListVolumeInitiatorsOutput {
   export function isa(o: any): o is ListVolumeInitiatorsOutput {
     return _smithy.isa(o, "ListVolumeInitiatorsOutput");
+  }
+}
+
+export interface ListVolumeRecoveryPointsInput {
+  __type?: "ListVolumeRecoveryPointsInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ListVolumeRecoveryPointsInput {
+  export function isa(o: any): o is ListVolumeRecoveryPointsInput {
+    return _smithy.isa(o, "ListVolumeRecoveryPointsInput");
+  }
+}
+
+export interface ListVolumeRecoveryPointsOutput extends $MetadataBearer {
+  __type?: "ListVolumeRecoveryPointsOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+
+  /**
+   *
+   *          <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
+   *
+   */
+  VolumeRecoveryPointInfos?: Array<VolumeRecoveryPointInfo>;
+}
+
+export namespace ListVolumeRecoveryPointsOutput {
+  export function isa(o: any): o is ListVolumeRecoveryPointsOutput {
+    return _smithy.isa(o, "ListVolumeRecoveryPointsOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object that contains one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListVolumesInput$Limit</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListVolumesInput$Marker</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface ListVolumesInput {
+  __type?: "ListVolumesInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+
+  /**
+   *
+   *          <p>Specifies that the list of volumes returned be limited to the specified number of
+   *          items.</p>
+   *
+   */
+  Limit?: number;
+
+  /**
+   *
+   *          <p>A string that indicates the position at which to begin the returned list of volumes.
+   *          Obtain the marker from the response of a previous List iSCSI Volumes request.</p>
+   *
+   */
+  Marker?: string;
+}
+
+export namespace ListVolumesInput {
+  export function isa(o: any): o is ListVolumesInput {
+    return _smithy.isa(o, "ListVolumesInput");
   }
 }
 
@@ -5843,6 +5113,45 @@ export namespace NFSFileShareInfo {
   }
 }
 
+/**
+ *
+ *          <p>Describes a gateway's network interface.</p>
+ *
+ */
+export interface NetworkInterface {
+  __type?: "NetworkInterface";
+  /**
+   *
+   *          <p>The Internet Protocol version 4 (IPv4) address of the interface.</p>
+   *
+   */
+  Ipv4Address?: string;
+
+  /**
+   *
+   *          <p>The Internet Protocol version 6 (IPv6) address of the interface. <i>Currently
+   *             not supported</i>.</p>
+   *
+   */
+  Ipv6Address?: string;
+
+  /**
+   *
+   *          <p>The Media Access Control (MAC) address of the interface.</p>
+   *          <note>
+   *             <p>This is currently unsupported and will not be returned in output.</p>
+   *          </note>
+   *
+   */
+  MacAddress?: string;
+}
+
+export namespace NetworkInterface {
+  export function isa(o: any): o is NetworkInterface {
+    return _smithy.isa(o, "NetworkInterface");
+  }
+}
+
 export interface NotifyWhenUploadedInput {
   __type?: "NotifyWhenUploadedInput";
   /**
@@ -5882,15 +5191,6 @@ export namespace NotifyWhenUploadedOutput {
     return _smithy.isa(o, "NotifyWhenUploadedOutput");
   }
 }
-
-export type ObjectACL =
-  | "authenticated-read"
-  | "aws-exec-read"
-  | "bucket-owner-full-control"
-  | "bucket-owner-read"
-  | "private"
-  | "public-read"
-  | "public-read-write";
 
 /**
  *
@@ -6352,10 +5652,39 @@ export namespace SMBFileShareInfo {
   }
 }
 
-export type SMBSecurityStrategy =
-  | "ClientSpecified"
-  | "MandatoryEncryption"
-  | "MandatorySigning";
+/**
+ *
+ *          <p>An internal server error has occurred because the service is unavailable. For more
+ *          information, see the error and message fields.</p>
+ *
+ */
+export interface ServiceUnavailableError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableError";
+  name: "ServiceUnavailableError";
+  $fault: "server";
+  /**
+   *
+   *          <p>A <a>StorageGatewayError</a> that provides more information about the
+   *          cause of the error.</p>
+   *
+   */
+  error?: StorageGatewayError;
+
+  /**
+   *
+   *          <p>A human-readable message describing the error that occurred.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableError {
+  export function isa(o: any): o is ServiceUnavailableError {
+    return _smithy.isa(o, "ServiceUnavailableError");
+  }
+}
 
 /**
  *
@@ -6449,6 +5778,50 @@ export namespace SetSMBGuestPasswordOutput {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing the of the gateway to shut down.</p>
+ *
+ */
+export interface ShutdownGatewayInput {
+  __type?: "ShutdownGatewayInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace ShutdownGatewayInput {
+  export function isa(o: any): o is ShutdownGatewayInput {
+    return _smithy.isa(o, "ShutdownGatewayInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway that was shut down.</p>
+ *
+ */
+export interface ShutdownGatewayOutput extends $MetadataBearer {
+  __type?: "ShutdownGatewayOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace ShutdownGatewayOutput {
+  export function isa(o: any): o is ShutdownGatewayOutput {
+    return _smithy.isa(o, "ShutdownGatewayOutput");
+  }
+}
+
 export interface StartAvailabilityMonitorTestInput {
   __type?: "StartAvailabilityMonitorTestInput";
   /**
@@ -6480,6 +5853,80 @@ export interface StartAvailabilityMonitorTestOutput extends $MetadataBearer {
 export namespace StartAvailabilityMonitorTestOutput {
   export function isa(o: any): o is StartAvailabilityMonitorTestOutput {
     return _smithy.isa(o, "StartAvailabilityMonitorTestOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway to start.</p>
+ *
+ */
+export interface StartGatewayInput {
+  __type?: "StartGatewayInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace StartGatewayInput {
+  export function isa(o: any): o is StartGatewayInput {
+    return _smithy.isa(o, "StartGatewayInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway that was restarted.</p>
+ *
+ */
+export interface StartGatewayOutput extends $MetadataBearer {
+  __type?: "StartGatewayOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace StartGatewayOutput {
+  export function isa(o: any): o is StartGatewayOutput {
+    return _smithy.isa(o, "StartGatewayOutput");
+  }
+}
+
+/**
+ *
+ *          <p>Provides additional information about an error that was returned by the service as an
+ *          or. See the <code>errorCode</code> and <code>errorDetails</code> members for more
+ *          information about the error.</p>
+ *
+ */
+export interface StorageGatewayError {
+  __type?: "StorageGatewayError";
+  /**
+   *
+   *          <p>Additional information about the error.</p>
+   *
+   */
+  errorCode?: ErrorCode | string;
+
+  /**
+   *
+   *          <p>Human-readable text that provides detail about the error that occurred.</p>
+   *
+   */
+  errorDetails?: { [key: string]: string };
+}
+
+export namespace StorageGatewayError {
+  export function isa(o: any): o is StorageGatewayError {
+    return _smithy.isa(o, "StorageGatewayError");
   }
 }
 
@@ -6948,6 +6395,183 @@ export namespace TapeRecoveryPointInfo {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface UpdateBandwidthRateLimitInput {
+  __type?: "UpdateBandwidthRateLimitInput";
+  /**
+   *
+   *          <p>The average download bandwidth rate limit in bits per second.</p>
+   *
+   */
+  AverageDownloadRateLimitInBitsPerSec?: number;
+
+  /**
+   *
+   *          <p>The average upload bandwidth rate limit in bits per second.</p>
+   *
+   */
+  AverageUploadRateLimitInBitsPerSec?: number;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace UpdateBandwidthRateLimitInput {
+  export function isa(o: any): o is UpdateBandwidthRateLimitInput {
+    return _smithy.isa(o, "UpdateBandwidthRateLimitInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway whose throttle information was
+ *          updated.</p>
+ *
+ */
+export interface UpdateBandwidthRateLimitOutput extends $MetadataBearer {
+  __type?: "UpdateBandwidthRateLimitOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateBandwidthRateLimitOutput {
+  export function isa(o: any): o is UpdateBandwidthRateLimitOutput {
+    return _smithy.isa(o, "UpdateBandwidthRateLimitOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$InitiatorName</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateInitiator</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$SecretToAuthenticateTarget</a>
+ *                </p>
+ *
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateChapCredentialsInput$TargetARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface UpdateChapCredentialsInput {
+  __type?: "UpdateChapCredentialsInput";
+  /**
+   *
+   *          <p>The iSCSI initiator that connects to the target.</p>
+   *
+   */
+  InitiatorName: string | undefined;
+
+  /**
+   *
+   *          <p>The secret key that the initiator (for example, the Windows client) must provide to
+   *          participate in mutual CHAP with the target.</p>
+   *          <note>
+   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
+   *          </note>
+   *
+   */
+  SecretToAuthenticateInitiator: string | undefined;
+
+  /**
+   *
+   *          <p>The secret key that the target must provide to participate in mutual CHAP with the
+   *          initiator (e.g. Windows client).</p>
+   *          <p>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</p>
+   *          <note>
+   *             <p>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</p>
+   *          </note>
+   *
+   */
+  SecretToAuthenticateTarget?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for specified
+   *          VolumeARN.</p>
+   *
+   */
+  TargetARN: string | undefined;
+}
+
+export namespace UpdateChapCredentialsInput {
+  export function isa(o: any): o is UpdateChapCredentialsInput {
+    return _smithy.isa(o, "UpdateChapCredentialsInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *
+ *
+ */
+export interface UpdateChapCredentialsOutput extends $MetadataBearer {
+  __type?: "UpdateChapCredentialsOutput";
+  /**
+   *
+   *          <p>The iSCSI initiator that connects to the target. This is the same initiator name
+   *          specified in the request.</p>
+   *
+   */
+  InitiatorName?: string;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the target. This is the same target specified in
+   *          the request.</p>
+   *
+   */
+  TargetARN?: string;
+}
+
+export namespace UpdateChapCredentialsOutput {
+  export function isa(o: any): o is UpdateChapCredentialsOutput {
+    return _smithy.isa(o, "UpdateChapCredentialsOutput");
+  }
+}
+
 export interface UpdateGatewayInformationInput {
   __type?: "UpdateGatewayInformationInput";
   /**
@@ -6984,6 +6608,184 @@ export interface UpdateGatewayInformationInput {
 export namespace UpdateGatewayInformationInput {
   export function isa(o: any): o is UpdateGatewayInformationInput {
     return _smithy.isa(o, "UpdateGatewayInformationInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the ARN of the gateway that was updated.</p>
+ *
+ */
+export interface UpdateGatewayInformationOutput extends $MetadataBearer {
+  __type?: "UpdateGatewayInformationOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+
+  /**
+   *
+   *          <p>The name you configured for your gateway.</p>
+   *
+   */
+  GatewayName?: string;
+}
+
+export namespace UpdateGatewayInformationOutput {
+  export function isa(o: any): o is UpdateGatewayInformationOutput {
+    return _smithy.isa(o, "UpdateGatewayInformationOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway to update.</p>
+ *
+ */
+export interface UpdateGatewaySoftwareNowInput {
+  __type?: "UpdateGatewaySoftwareNowInput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+}
+
+export namespace UpdateGatewaySoftwareNowInput {
+  export function isa(o: any): o is UpdateGatewaySoftwareNowInput {
+    return _smithy.isa(o, "UpdateGatewaySoftwareNowInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway that was updated.</p>
+ *
+ */
+export interface UpdateGatewaySoftwareNowOutput extends $MetadataBearer {
+  __type?: "UpdateGatewaySoftwareNowOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateGatewaySoftwareNowOutput {
+  export function isa(o: any): o is UpdateGatewaySoftwareNowOutput {
+    return _smithy.isa(o, "UpdateGatewaySoftwareNowOutput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$HourOfDay</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface UpdateMaintenanceStartTimeInput {
+  __type?: "UpdateMaintenanceStartTimeInput";
+  /**
+   *
+   *          <p>The day of the month component of the maintenance start time represented as an ordinal number from
+   *          1 to 28, where 1 represents the first day of the month and 28 represents the last day of
+   *          the month.</p>
+   *          <note>
+   *             <p>This value is only available for tape and volume gateways.</p>
+   *          </note>
+   *
+   */
+  DayOfMonth?: number;
+
+  /**
+   *
+   *          <p>The day of the week component of the maintenance start time week represented as an
+   *          ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+   *
+   */
+  DayOfWeek?: number;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   *
+   *          <p>The hour component of the maintenance start time represented as
+   *             <i>hh</i>, where <i>hh</i> is the hour (00 to 23). The hour
+   *          of the day is in the time zone of the gateway.</p>
+   *
+   */
+  HourOfDay: number | undefined;
+
+  /**
+   *
+   *          <p>The minute component of the maintenance start time represented as
+   *             <i>mm</i>, where <i>mm</i> is the minute (00 to 59). The
+   *          minute of the hour is in the time zone of the gateway.</p>
+   *
+   */
+  MinuteOfHour: number | undefined;
+}
+
+export namespace UpdateMaintenanceStartTimeInput {
+  export function isa(o: any): o is UpdateMaintenanceStartTimeInput {
+    return _smithy.isa(o, "UpdateMaintenanceStartTimeInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the gateway whose maintenance start time is
+ *          updated.</p>
+ *
+ */
+export interface UpdateMaintenanceStartTimeOutput extends $MetadataBearer {
+  __type?: "UpdateMaintenanceStartTimeOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   *
+   */
+  GatewayARN?: string;
+}
+
+export namespace UpdateMaintenanceStartTimeOutput {
+  export function isa(o: any): o is UpdateMaintenanceStartTimeOutput {
+    return _smithy.isa(o, "UpdateMaintenanceStartTimeOutput");
   }
 }
 
@@ -7331,6 +7133,109 @@ export namespace UpdateSMBSecurityStrategyOutput {
   }
 }
 
+/**
+ *
+ *          <p>A JSON object containing one or more of the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$Description</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$RecurrenceInHours</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$StartAt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateSnapshotScheduleInput$VolumeARN</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *
+ */
+export interface UpdateSnapshotScheduleInput {
+  __type?: "UpdateSnapshotScheduleInput";
+  /**
+   *
+   *          <p>Optional description of the snapshot that overwrites the existing
+   *          description.</p>
+   *
+   */
+  Description?: string;
+
+  /**
+   *
+   *          <p>Frequency of snapshots. Specify the number of hours between snapshots.</p>
+   *
+   */
+  RecurrenceInHours: number | undefined;
+
+  /**
+   *
+   *          <p>The hour of the day at which the snapshot schedule begins represented as
+   *             <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour
+   *          of the day is in the time zone of the gateway.</p>
+   *
+   */
+  StartAt: number | undefined;
+
+  /**
+   *
+   *          <p>A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.</p>
+   *          <note>
+   *             <p>Valid characters for key and value are letters, spaces, and numbers representable
+   *             in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+   *             length of a tag's key is 128 characters, and the maximum length for a tag's value is
+   *             256.</p>
+   *          </note>
+   *
+   */
+  Tags?: Array<Tag>;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   *
+   */
+  VolumeARN: string | undefined;
+}
+
+export namespace UpdateSnapshotScheduleInput {
+  export function isa(o: any): o is UpdateSnapshotScheduleInput {
+    return _smithy.isa(o, "UpdateSnapshotScheduleInput");
+  }
+}
+
+/**
+ *
+ *          <p>A JSON object containing the of the updated storage volume.</p>
+ *
+ */
+export interface UpdateSnapshotScheduleOutput extends $MetadataBearer {
+  __type?: "UpdateSnapshotScheduleOutput";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a>
+   *          operation to return a list of gateway volumes.</p>
+   *
+   */
+  VolumeARN?: string;
+}
+
+export namespace UpdateSnapshotScheduleOutput {
+  export function isa(o: any): o is UpdateSnapshotScheduleOutput {
+    return _smithy.isa(o, "UpdateSnapshotScheduleOutput");
+  }
+}
+
 export interface UpdateVTLDeviceTypeInput {
   __type?: "UpdateVTLDeviceTypeInput";
   /**
@@ -7502,5 +7407,100 @@ export interface VolumeInfo {
 export namespace VolumeInfo {
   export function isa(o: any): o is VolumeInfo {
     return _smithy.isa(o, "VolumeInfo");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a storage volume recovery point object.</p>
+ *
+ */
+export interface VolumeRecoveryPointInfo {
+  __type?: "VolumeRecoveryPointInfo";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume target.</p>
+   *
+   */
+  VolumeARN?: string;
+
+  /**
+   *
+   *          <p>The time the recovery point was taken.</p>
+   *
+   */
+  VolumeRecoveryPointTime?: string;
+
+  /**
+   *
+   *          <p>The size of the volume in bytes.</p>
+   *
+   */
+  VolumeSizeInBytes?: number;
+
+  /**
+   *
+   *          <p>The size of the data stored on the volume in bytes.</p>
+   *          <note>
+   *             <p>This value is not available for volumes created prior to May 13, 2015, until you
+   *             store data on the volume.</p>
+   *          </note>
+   *
+   */
+  VolumeUsageInBytes?: number;
+}
+
+export namespace VolumeRecoveryPointInfo {
+  export function isa(o: any): o is VolumeRecoveryPointInfo {
+    return _smithy.isa(o, "VolumeRecoveryPointInfo");
+  }
+}
+
+/**
+ *
+ *          <p>Lists iSCSI information about a volume.</p>
+ *
+ */
+export interface VolumeiSCSIAttributes {
+  __type?: "VolumeiSCSIAttributes";
+  /**
+   *
+   *          <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
+   *
+   */
+  ChapEnabled?: boolean;
+
+  /**
+   *
+   *          <p>The logical disk number.</p>
+   *
+   */
+  LunNumber?: number;
+
+  /**
+   *
+   *          <p>The network interface identifier.</p>
+   *
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   *
+   *          <p>The port used to communicate with iSCSI targets.</p>
+   *
+   */
+  NetworkInterfacePort?: number;
+
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the volume target.</p>
+   *
+   */
+  TargetARN?: string;
+}
+
+export namespace VolumeiSCSIAttributes {
+  export function isa(o: any): o is VolumeiSCSIAttributes {
+    return _smithy.isa(o, "VolumeiSCSIAttributes");
   }
 }

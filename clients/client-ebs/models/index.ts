@@ -1,6 +1,18 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ChecksumAlgorithm {
+  CHECKSUM_ALGORITHM_SHA256 = "SHA256"
+}
+
+export enum ValidationExceptionReason {
+  INVALID_BLOCK_TOKEN = "INVALID_BLOCK_TOKEN",
+  INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
+  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
+  INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
+  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS"
+}
+
 /**
  *
  *         <p>A block of data in an Amazon Elastic Block Store snapshot.</p>
@@ -66,10 +78,6 @@ export namespace ChangedBlock {
   export function isa(o: any): o is ChangedBlock {
     return _smithy.isa(o, "ChangedBlock");
   }
-}
-
-export enum ChecksumAlgorithm {
-  CHECKSUM_ALGORITHM_SHA256 = "SHA256"
 }
 
 export interface GetSnapshotBlockRequest {
@@ -367,12 +375,4 @@ export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
     return _smithy.isa(o, "ValidationException");
   }
-}
-
-export enum ValidationExceptionReason {
-  INVALID_BLOCK_TOKEN = "INVALID_BLOCK_TOKEN",
-  INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
-  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
-  INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
-  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS"
 }

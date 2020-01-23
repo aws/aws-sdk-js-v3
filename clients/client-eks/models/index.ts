@@ -3,6 +3,94 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU";
 
+export type ClusterStatus =
+  | "ACTIVE"
+  | "CREATING"
+  | "DELETING"
+  | "FAILED"
+  | "UPDATING";
+
+export enum ErrorCode {
+  ACCESS_DENIED = "AccessDenied",
+  ENI_LIMIT_REACHED = "EniLimitReached",
+  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
+  IP_NOT_AVAILABLE = "IpNotAvailable",
+  NODE_CREATION_FAILURE = "NodeCreationFailure",
+  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
+  POD_EVICTION_FAILURE = "PodEvictionFailure",
+  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
+  SUBNET_NOT_FOUND = "SubnetNotFound",
+  UNKNOWN = "Unknown",
+  VPC_ID_NOT_FOUND = "VpcIdNotFound"
+}
+
+export type FargateProfileStatus =
+  | "ACTIVE"
+  | "CREATE_FAILED"
+  | "CREATING"
+  | "DELETE_FAILED"
+  | "DELETING";
+
+export enum LogType {
+  API = "api",
+  AUDIT = "audit",
+  AUTHENTICATOR = "authenticator",
+  CONTROLLER_MANAGER = "controllerManager",
+  SCHEDULER = "scheduler"
+}
+
+export enum NodegroupIssueCode {
+  ACCESS_DENIED = "AccessDenied",
+  ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
+  AUTO_SCALING_GROUP_NOT_FOUND = "AutoScalingGroupNotFound",
+  EC2_LAUNCH_TEMPLATE_NOT_FOUND = "Ec2LaunchTemplateNotFound",
+  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH = "Ec2LaunchTemplateVersionMismatch",
+  EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
+  EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
+  IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
+  IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
+  INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
+  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
+  INTERNAL_FAILURE = "InternalFailure"
+}
+
+export type NodegroupStatus =
+  | "ACTIVE"
+  | "CREATE_FAILED"
+  | "CREATING"
+  | "DEGRADED"
+  | "DELETE_FAILED"
+  | "DELETING"
+  | "UPDATING";
+
+export enum UpdateParamType {
+  CLUSTER_LOGGING = "ClusterLogging",
+  DESIRED_SIZE = "DesiredSize",
+  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
+  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
+  LABELS_TO_ADD = "LabelsToAdd",
+  LABELS_TO_REMOVE = "LabelsToRemove",
+  MAX_SIZE = "MaxSize",
+  MIN_SIZE = "MinSize",
+  PLATFORM_VERSION = "PlatformVersion",
+  RELEASE_VERSION = "ReleaseVersion",
+  VERSION = "Version"
+}
+
+export enum UpdateStatus {
+  CANCELLED = "Cancelled",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  SUCCESSFUL = "Successful"
+}
+
+export enum UpdateType {
+  CONFIG_UPDATE = "ConfigUpdate",
+  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
+  LOGGING_UPDATE = "LoggingUpdate",
+  VERSION_UPDATE = "VersionUpdate"
+}
+
 /**
  *
  *         <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
@@ -226,13 +314,6 @@ export namespace Cluster {
     return _smithy.isa(o, "Cluster");
   }
 }
-
-export type ClusterStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATING";
 
 export interface CreateClusterRequest {
   __type?: "CreateClusterRequest";
@@ -831,20 +912,6 @@ export namespace DescribeUpdateResponse {
   }
 }
 
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  ENI_LIMIT_REACHED = "EniLimitReached",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  IP_NOT_AVAILABLE = "IpNotAvailable",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
-  POD_EVICTION_FAILURE = "PodEvictionFailure",
-  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
-  SUBNET_NOT_FOUND = "SubnetNotFound",
-  UNKNOWN = "Unknown",
-  VPC_ID_NOT_FOUND = "VpcIdNotFound"
-}
-
 /**
  *
  *         <p>An object representing an error when an asynchronous operation fails.</p>
@@ -1028,13 +1095,6 @@ export namespace FargateProfileSelector {
     return _smithy.isa(o, "FargateProfileSelector");
   }
 }
-
-export type FargateProfileStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DELETE_FAILED"
-  | "DELETING";
 
 /**
  *
@@ -1585,14 +1645,6 @@ export namespace LogSetup {
   }
 }
 
-export enum LogType {
-  API = "api",
-  AUDIT = "audit",
-  AUTHENTICATOR = "authenticator",
-  CONTROLLER_MANAGER = "controllerManager",
-  SCHEDULER = "scheduler"
-}
-
 /**
  *
  *         <p>An object representing the logging configuration for resources in your cluster.</p>
@@ -1810,21 +1862,6 @@ export namespace NodegroupHealth {
   }
 }
 
-export enum NodegroupIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
-  AUTO_SCALING_GROUP_NOT_FOUND = "AutoScalingGroupNotFound",
-  EC2_LAUNCH_TEMPLATE_NOT_FOUND = "Ec2LaunchTemplateNotFound",
-  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH = "Ec2LaunchTemplateVersionMismatch",
-  EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
-  EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
-  IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
-  IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
-  INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INTERNAL_FAILURE = "InternalFailure"
-}
-
 /**
  *
  *         <p>An object representing the resources associated with the node group, such as Auto
@@ -1892,15 +1929,6 @@ export namespace NodegroupScalingConfig {
     return _smithy.isa(o, "NodegroupScalingConfig");
   }
 }
-
-export type NodegroupStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DEGRADED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "UPDATING";
 
 /**
  *
@@ -2612,34 +2640,6 @@ export namespace UpdateParam {
   export function isa(o: any): o is UpdateParam {
     return _smithy.isa(o, "UpdateParam");
   }
-}
-
-export enum UpdateParamType {
-  CLUSTER_LOGGING = "ClusterLogging",
-  DESIRED_SIZE = "DesiredSize",
-  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
-  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
-  LABELS_TO_ADD = "LabelsToAdd",
-  LABELS_TO_REMOVE = "LabelsToRemove",
-  MAX_SIZE = "MaxSize",
-  MIN_SIZE = "MinSize",
-  PLATFORM_VERSION = "PlatformVersion",
-  RELEASE_VERSION = "ReleaseVersion",
-  VERSION = "Version"
-}
-
-export enum UpdateStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful"
-}
-
-export enum UpdateType {
-  CONFIG_UPDATE = "ConfigUpdate",
-  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
-  LOGGING_UPDATE = "LoggingUpdate",
-  VERSION_UPDATE = "VersionUpdate"
 }
 
 /**

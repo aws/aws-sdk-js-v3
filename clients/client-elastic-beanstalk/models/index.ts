@@ -1,6 +1,106 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
+
+export type ActionStatus = "Pending" | "Running" | "Scheduled" | "Unknown";
+
+export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
+
+export type ApplicationVersionStatus =
+  | "Building"
+  | "Failed"
+  | "Processed"
+  | "Processing"
+  | "Unprocessed";
+
+export enum ComputeType {
+  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
+}
+
+export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
+
+export type ConfigurationOptionValueType = "List" | "Scalar";
+
+export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
+
+export enum EnvironmentHealthAttribute {
+  All = "All",
+  ApplicationMetrics = "ApplicationMetrics",
+  Causes = "Causes",
+  Color = "Color",
+  HealthStatus = "HealthStatus",
+  InstancesHealth = "InstancesHealth",
+  RefreshedAt = "RefreshedAt",
+  Status = "Status"
+}
+
+export type EnvironmentHealthStatus =
+  | "Degraded"
+  | "Info"
+  | "NoData"
+  | "Ok"
+  | "Pending"
+  | "Severe"
+  | "Suspended"
+  | "Unknown"
+  | "Warning";
+
+export type EnvironmentInfoType = "bundle" | "tail";
+
+export type EnvironmentStatus =
+  | "Launching"
+  | "Ready"
+  | "Terminated"
+  | "Terminating"
+  | "Updating";
+
+export type EventSeverity =
+  | "DEBUG"
+  | "ERROR"
+  | "FATAL"
+  | "INFO"
+  | "TRACE"
+  | "WARN";
+
+export type FailureType =
+  | "CancellationFailed"
+  | "InternalFailure"
+  | "InvalidEnvironmentState"
+  | "PermissionsError"
+  | "RollbackFailed"
+  | "RollbackSuccessful"
+  | "UpdateCancelled";
+
+export enum InstancesHealthAttribute {
+  All = "All",
+  ApplicationMetrics = "ApplicationMetrics",
+  AvailabilityZone = "AvailabilityZone",
+  Causes = "Causes",
+  Color = "Color",
+  Deployment = "Deployment",
+  HealthStatus = "HealthStatus",
+  InstanceType = "InstanceType",
+  LaunchedAt = "LaunchedAt",
+  RefreshedAt = "RefreshedAt",
+  System = "System"
+}
+
+export type PlatformStatus =
+  | "Creating"
+  | "Deleted"
+  | "Deleting"
+  | "Failed"
+  | "Ready";
+
+export type SourceRepository = "CodeCommit" | "S3";
+
+export type SourceType = "Git" | "Zip";
+
+export type ValidationSeverity = "error" | "warning";
+
 /**
  *
  *          <p></p>
@@ -30,12 +130,6 @@ export namespace AbortEnvironmentUpdateMessage {
     return _smithy.isa(o, "AbortEnvironmentUpdateMessage");
   }
 }
-
-export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
-
-export type ActionStatus = "Pending" | "Running" | "Scheduled" | "Unknown";
-
-export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
 
 /**
  *
@@ -463,13 +557,6 @@ export namespace ApplicationVersionLifecycleConfig {
   }
 }
 
-export type ApplicationVersionStatus =
-  | "Building"
-  | "Failed"
-  | "Processed"
-  | "Processing"
-  | "Unprocessed";
-
 /**
  *
  *          <p>Request to execute a scheduled managed action immediately.</p>
@@ -870,14 +957,6 @@ export namespace ComposeEnvironmentsMessage {
   }
 }
 
-export enum ComputeType {
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
-}
-
-export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
-
 /**
  *
  *          <p>Describes the possible values for a configuration option.</p>
@@ -1076,8 +1155,6 @@ export namespace ConfigurationOptionSetting {
     return _smithy.isa(o, "ConfigurationOptionSetting");
   }
 }
-
-export type ConfigurationOptionValueType = "List" | "Scalar";
 
 /**
  *
@@ -3047,30 +3124,6 @@ export namespace EnvironmentDescriptionsMessage {
   }
 }
 
-export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
-
-export enum EnvironmentHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  Causes = "Causes",
-  Color = "Color",
-  HealthStatus = "HealthStatus",
-  InstancesHealth = "InstancesHealth",
-  RefreshedAt = "RefreshedAt",
-  Status = "Status"
-}
-
-export type EnvironmentHealthStatus =
-  | "Degraded"
-  | "Info"
-  | "NoData"
-  | "Ok"
-  | "Pending"
-  | "Severe"
-  | "Suspended"
-  | "Unknown"
-  | "Warning";
-
 /**
  *
  *          <p>The information retrieved from the Amazon EC2 instances.</p>
@@ -3115,8 +3168,6 @@ export namespace EnvironmentInfoDescription {
     return _smithy.isa(o, "EnvironmentInfoDescription");
   }
 }
-
-export type EnvironmentInfoType = "bundle" | "tail";
 
 /**
  *
@@ -3262,13 +3313,6 @@ export namespace EnvironmentResourcesDescription {
     return _smithy.isa(o, "EnvironmentResourcesDescription");
   }
 }
-
-export type EnvironmentStatus =
-  | "Launching"
-  | "Ready"
-  | "Terminated"
-  | "Terminating"
-  | "Updating";
 
 /**
  *
@@ -3438,23 +3482,6 @@ export namespace EventDescriptionsMessage {
   }
 }
 
-export type EventSeverity =
-  | "DEBUG"
-  | "ERROR"
-  | "FATAL"
-  | "INFO"
-  | "TRACE"
-  | "WARN";
-
-export type FailureType =
-  | "CancellationFailed"
-  | "InternalFailure"
-  | "InvalidEnvironmentState"
-  | "PermissionsError"
-  | "RollbackFailed"
-  | "RollbackSuccessful"
-  | "UpdateCancelled";
-
 /**
  *
  *          <p>The description of an Amazon EC2 instance.</p>
@@ -3560,20 +3587,6 @@ export namespace InstanceHealthSummary {
   export function isa(o: any): o is InstanceHealthSummary {
     return _smithy.isa(o, "InstanceHealthSummary");
   }
-}
-
-export enum InstancesHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  AvailabilityZone = "AvailabilityZone",
-  Causes = "Causes",
-  Color = "Color",
-  Deployment = "Deployment",
-  HealthStatus = "HealthStatus",
-  InstanceType = "InstanceType",
-  LaunchedAt = "LaunchedAt",
-  RefreshedAt = "RefreshedAt",
-  System = "System"
 }
 
 /**
@@ -4514,13 +4527,6 @@ export namespace PlatformProgrammingLanguage {
   }
 }
 
-export type PlatformStatus =
-  | "Creating"
-  | "Deleted"
-  | "Deleting"
-  | "Failed"
-  | "Ready";
-
 /**
  *
  *          <p>Detailed information about a platform.</p>
@@ -5304,10 +5310,6 @@ export namespace SourceConfiguration {
     return _smithy.isa(o, "SourceConfiguration");
   }
 }
-
-export type SourceRepository = "CodeCommit" | "S3";
-
-export type SourceType = "Git" | "Zip";
 
 /**
  *
@@ -6143,5 +6145,3 @@ export namespace ValidationMessage {
     return _smithy.isa(o, "ValidationMessage");
   }
 }
-
-export type ValidationSeverity = "error" | "warning";

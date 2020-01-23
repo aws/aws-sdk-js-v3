@@ -1,6 +1,153 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type AccountLimitType =
+  | "MAX_HEALTH_CHECKS_BY_OWNER"
+  | "MAX_HOSTED_ZONES_BY_OWNER"
+  | "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
+  | "MAX_TRAFFIC_POLICIES_BY_OWNER"
+  | "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER";
+
+export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
+
+export type ChangeStatus = "INSYNC" | "PENDING";
+
+export type CloudWatchRegion =
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ca-central-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "me-south-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2";
+
+export type ComparisonOperator =
+  | "GreaterThanOrEqualToThreshold"
+  | "GreaterThanThreshold"
+  | "LessThanOrEqualToThreshold"
+  | "LessThanThreshold";
+
+export type HealthCheckRegion =
+  | "ap-northeast-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "eu-west-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-west-1"
+  | "us-west-2";
+
+export enum HealthCheckType {
+  CALCULATED = "CALCULATED",
+  CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC",
+  HTTP = "HTTP",
+  HTTPS = "HTTPS",
+  HTTPS_STR_MATCH = "HTTPS_STR_MATCH",
+  HTTP_STR_MATCH = "HTTP_STR_MATCH",
+  TCP = "TCP"
+}
+
+export type HostedZoneLimitType =
+  | "MAX_RRSETS_BY_ZONE"
+  | "MAX_VPCS_ASSOCIATED_BY_ZONE";
+
+export type InsufficientDataHealthStatus =
+  | "Healthy"
+  | "LastKnownStatus"
+  | "Unhealthy";
+
+export type RRType =
+  | "A"
+  | "AAAA"
+  | "CAA"
+  | "CNAME"
+  | "MX"
+  | "NAPTR"
+  | "NS"
+  | "PTR"
+  | "SOA"
+  | "SPF"
+  | "SRV"
+  | "TXT";
+
+export type ResettableElementName =
+  | "ChildHealthChecks"
+  | "FullyQualifiedDomainName"
+  | "Regions"
+  | "ResourcePath";
+
+export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
+
+export type ResourceRecordSetRegion =
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ca-central-1"
+  | "cn-north-1"
+  | "cn-northwest-1"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "me-south-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2";
+
+export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
+
+export type Statistic =
+  | "Average"
+  | "Maximum"
+  | "Minimum"
+  | "SampleCount"
+  | "Sum";
+
+export type TagResourceType = "healthcheck" | "hostedzone";
+
+export type VPCRegion =
+  | "ap-east-1"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
+  | "ap-south-1"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ca-central-1"
+  | "cn-north-1"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "me-south-1"
+  | "sa-east-1"
+  | "us-east-1"
+  | "us-east-2"
+  | "us-west-1"
+  | "us-west-2";
+
 /**
  *
  * 		       <p>A complex type that contains the type of limit that you specified in the request and the current value for that limit.</p>
@@ -57,13 +204,6 @@ export namespace AccountLimit {
     return _smithy.isa(o, "AccountLimit");
   }
 }
-
-export type AccountLimitType =
-  | "MAX_HEALTH_CHECKS_BY_OWNER"
-  | "MAX_HOSTED_ZONES_BY_OWNER"
-  | "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
-  | "MAX_TRAFFIC_POLICIES_BY_OWNER"
-  | "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER";
 
 /**
  *
@@ -587,8 +727,6 @@ export namespace Change {
   }
 }
 
-export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
-
 /**
  *
  * 		       <p>The information for a change request.</p>
@@ -720,8 +858,6 @@ export namespace ChangeResourceRecordSetsResponse {
     return _smithy.isa(o, "ChangeResourceRecordSetsResponse");
   }
 }
-
-export type ChangeStatus = "INSYNC" | "PENDING";
 
 /**
  *
@@ -864,35 +1000,6 @@ export namespace CloudWatchAlarmConfiguration {
     return _smithy.isa(o, "CloudWatchAlarmConfiguration");
   }
 }
-
-export type CloudWatchRegion =
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "cn-northwest-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-1"
-  | "us-west-2";
-
-export type ComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "LessThanOrEqualToThreshold"
-  | "LessThanThreshold";
 
 /**
  *
@@ -3538,26 +3645,6 @@ export namespace HealthCheckObservation {
   }
 }
 
-export type HealthCheckRegion =
-  | "ap-northeast-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "eu-west-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-west-1"
-  | "us-west-2";
-
-export enum HealthCheckType {
-  CALCULATED = "CALCULATED",
-  CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  HTTPS_STR_MATCH = "HTTPS_STR_MATCH",
-  HTTP_STR_MATCH = "HTTP_STR_MATCH",
-  TCP = "TCP"
-}
-
 /**
  *
  * 		       <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code>
@@ -3740,10 +3827,6 @@ export namespace HostedZoneLimit {
   }
 }
 
-export type HostedZoneLimitType =
-  | "MAX_RRSETS_BY_ZONE"
-  | "MAX_VPCS_ASSOCIATED_BY_ZONE";
-
 /**
  *
  * 		       <p>The hosted zone contains resource records that are not SOA or NS records.</p>
@@ -3871,11 +3954,6 @@ export namespace InsufficientCloudWatchLogsResourcePolicy {
     return _smithy.isa(o, "InsufficientCloudWatchLogsResourcePolicy");
   }
 }
-
-export type InsufficientDataHealthStatus =
-  | "Healthy"
-  | "LastKnownStatus"
-  | "Unhealthy";
 
 /**
  *
@@ -5942,26 +6020,6 @@ export namespace QueryLoggingConfigAlreadyExists {
   }
 }
 
-export type RRType =
-  | "A"
-  | "AAAA"
-  | "CAA"
-  | "CNAME"
-  | "MX"
-  | "NAPTR"
-  | "NS"
-  | "PTR"
-  | "SOA"
-  | "SPF"
-  | "SRV"
-  | "TXT";
-
-export type ResettableElementName =
-  | "ChildHealthChecks"
-  | "FullyQualifiedDomainName"
-  | "Regions"
-  | "ResourcePath";
-
 /**
  *
  * 		       <p>Information specific to the resource record.</p>
@@ -6526,31 +6584,6 @@ export namespace ResourceRecordSet {
   }
 }
 
-export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
-
-export type ResourceRecordSetRegion =
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "cn-northwest-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-1"
-  | "us-west-2";
-
 /**
  *
  * 		       <p>A complex type containing a resource and its associated tags.</p>
@@ -6622,15 +6655,6 @@ export namespace ReusableDelegationSetLimit {
     return _smithy.isa(o, "ReusableDelegationSetLimit");
   }
 }
-
-export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
-
-export type Statistic =
-  | "Average"
-  | "Maximum"
-  | "Minimum"
-  | "SampleCount"
-  | "Sum";
 
 /**
  *
@@ -6720,8 +6744,6 @@ export namespace Tag {
     return _smithy.isa(o, "Tag");
   }
 }
-
-export type TagResourceType = "healthcheck" | "hostedzone";
 
 /**
  *
@@ -7974,25 +7996,3 @@ export namespace VPCAssociationNotFound {
     return _smithy.isa(o, "VPCAssociationNotFound");
   }
 }
-
-export type VPCRegion =
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-1"
-  | "us-west-2";

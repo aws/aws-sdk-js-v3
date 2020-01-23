@@ -1,6 +1,64 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum LanguageCode {
+  AR_AE = "ar-AE",
+  AR_SA = "ar-SA",
+  DE_CH = "de-CH",
+  DE_DE = "de-DE",
+  EN_AB = "en-AB",
+  EN_AU = "en-AU",
+  EN_GB = "en-GB",
+  EN_IE = "en-IE",
+  EN_IN = "en-IN",
+  EN_US = "en-US",
+  EN_WL = "en-WL",
+  ES_ES = "es-ES",
+  ES_US = "es-US",
+  FA_IR = "fa-IR",
+  FR_CA = "fr-CA",
+  FR_FR = "fr-FR",
+  HE_IL = "he-IL",
+  HI_IN = "hi-IN",
+  ID_ID = "id-ID",
+  IT_IT = "it-IT",
+  JA_JP = "ja-JP",
+  KO_KR = "ko-KR",
+  MS_MY = "ms-MY",
+  NL_NL = "nl-NL",
+  PT_BR = "pt-BR",
+  PT_PT = "pt-PT",
+  RU_RU = "ru-RU",
+  TA_IN = "ta-IN",
+  TE_IN = "te-IN",
+  TR_TR = "tr-TR",
+  ZH_CN = "zh-CN"
+}
+
+export enum MediaFormat {
+  FLAC = "flac",
+  MP3 = "mp3",
+  MP4 = "mp4",
+  WAV = "wav"
+}
+
+export enum OutputLocationType {
+  CUSTOMER_BUCKET = "CUSTOMER_BUCKET",
+  SERVICE_BUCKET = "SERVICE_BUCKET"
+}
+
+export enum TranscriptionJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+export enum VocabularyState {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  READY = "READY"
+}
+
 /**
  *
  *
@@ -302,40 +360,6 @@ export namespace InternalFailureException {
   }
 }
 
-export enum LanguageCode {
-  AR_AE = "ar-AE",
-  AR_SA = "ar-SA",
-  DE_CH = "de-CH",
-  DE_DE = "de-DE",
-  EN_AB = "en-AB",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_IE = "en-IE",
-  EN_IN = "en-IN",
-  EN_US = "en-US",
-  EN_WL = "en-WL",
-  ES_ES = "es-ES",
-  ES_US = "es-US",
-  FA_IR = "fa-IR",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HE_IL = "he-IL",
-  HI_IN = "hi-IN",
-  ID_ID = "id-ID",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  MS_MY = "ms-MY",
-  NL_NL = "nl-NL",
-  PT_BR = "pt-BR",
-  PT_PT = "pt-PT",
-  RU_RU = "ru-RU",
-  TA_IN = "ta-IN",
-  TE_IN = "te-IN",
-  TR_TR = "tr-TR",
-  ZH_CN = "zh-CN"
-}
-
 /**
  *
  *         <p>Either you have sent too many requests or your input file is too long. Wait before you
@@ -546,13 +570,6 @@ export namespace Media {
   }
 }
 
-export enum MediaFormat {
-  FLAC = "flac",
-  MP3 = "mp3",
-  MP4 = "mp4",
-  WAV = "wav"
-}
-
 /**
  *
  *         <p>We can't find the requested resource. Check the name and try your request
@@ -572,11 +589,6 @@ export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
     return _smithy.isa(o, "NotFoundException");
   }
-}
-
-export enum OutputLocationType {
-  CUSTOMER_BUCKET = "CUSTOMER_BUCKET",
-  SERVICE_BUCKET = "SERVICE_BUCKET"
 }
 
 /**
@@ -949,12 +961,6 @@ export namespace TranscriptionJob {
   }
 }
 
-export enum TranscriptionJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
 /**
  *
  *         <p>Provides a summary of information about a transcription job.</p>
@@ -1157,10 +1163,4 @@ export namespace VocabularyInfo {
   export function isa(o: any): o is VocabularyInfo {
     return _smithy.isa(o, "VocabularyInfo");
   }
-}
-
-export enum VocabularyState {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY"
 }

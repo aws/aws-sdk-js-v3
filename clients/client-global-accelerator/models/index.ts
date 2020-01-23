@@ -1,6 +1,27 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
+
+export type ClientAffinity = "NONE" | "SOURCE_IP";
+
+export enum HealthCheckProtocol {
+  HTTP = "HTTP",
+  HTTPS = "HTTPS",
+  TCP = "TCP"
+}
+
+export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
+
+export enum IpAddressType {
+  IPV4 = "IPV4"
+}
+
+export enum Protocol {
+  TCP = "TCP",
+  UDP = "UDP"
+}
+
 /**
  *
  * 		       <p>An accelerator is a complex type that includes one or more listeners that process inbound connections and then direct
@@ -171,8 +192,6 @@ export namespace AcceleratorNotFoundException {
   }
 }
 
-export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
-
 /**
  *
  * 		       <p>You don't have access permission.</p>
@@ -234,8 +253,6 @@ export namespace AssociatedListenerFoundException {
     return _smithy.isa(o, "AssociatedListenerFoundException");
   }
 }
-
-export type ClientAffinity = "NONE" | "SOURCE_IP";
 
 export interface CreateAcceleratorRequest {
   __type?: "CreateAcceleratorRequest";
@@ -913,14 +930,6 @@ export namespace EndpointGroupNotFoundException {
   }
 }
 
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP"
-}
-
-export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
-
 /**
  *
  * 		       <p>There was an internal error for AWS Global Accelerator.</p>
@@ -999,10 +1008,6 @@ export namespace InvalidPortRangeException {
   export function isa(o: any): o is InvalidPortRangeException {
     return _smithy.isa(o, "InvalidPortRangeException");
   }
-}
-
-export enum IpAddressType {
-  IPV4 = "IPV4"
 }
 
 /**
@@ -1304,11 +1309,6 @@ export namespace PortRange {
   export function isa(o: any): o is PortRange {
     return _smithy.isa(o, "PortRange");
   }
-}
-
-export enum Protocol {
-  TCP = "TCP",
-  UDP = "UDP"
 }
 
 export interface UpdateAcceleratorAttributesRequest {

@@ -1,6 +1,900 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AlgorithmSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name"
+}
+
+export enum AlgorithmStatus {
+  COMPLETED = "Completed",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending"
+}
+
+export enum AppInstanceType {
+  ML_C5_12XLARGE = "ml.c5.12xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_24XLARGE = "ml.c5.24xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_LARGE = "ml.c5.large",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_16XLARGE = "ml.m5.16xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_8XLARGE = "ml.m5.8xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_T3_2XLARGE = "ml.t3.2xlarge",
+  ML_T3_LARGE = "ml.t3.large",
+  ML_T3_MEDIUM = "ml.t3.medium",
+  ML_T3_MICRO = "ml.t3.micro",
+  ML_T3_SMALL = "ml.t3.small",
+  ML_T3_XLARGE = "ml.t3.xlarge",
+  SYSTEM = "system"
+}
+
+export enum AppSortKey {
+  CreationTime = "CreationTime"
+}
+
+export enum AppStatus {
+  Deleted = "Deleted",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending"
+}
+
+export enum AppType {
+  JupyterServer = "JupyterServer",
+  KernelGateway = "KernelGateway",
+  TensorBoard = "TensorBoard"
+}
+
+export enum AssemblyType {
+  LINE = "Line",
+  NONE = "None"
+}
+
+export enum AuthMode {
+  IAM = "IAM",
+  SSO = "SSO"
+}
+
+export enum AutoMLJobObjectiveType {
+  MAXIMIZE = "Maximize",
+  MINIMIZE = "Minimize"
+}
+
+export enum AutoMLJobSecondaryStatus {
+  ANALYZING_DATA = "AnalyzingData",
+  CANDIDATE_DEFINITIONS_GENERATED = "CandidateDefinitionsGenerated",
+  FAILED = "Failed",
+  FEATURE_ENGINEERING = "FeatureEngineering",
+  MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
+  MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
+  MODEL_TUNING = "ModelTuning",
+  STARTING = "Starting",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum AutoMLJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum AutoMLMetricEnum {
+  ACCURACY = "Accuracy",
+  F1 = "F1",
+  F1_MACRO = "F1macro",
+  MSE = "MSE"
+}
+
+export enum AutoMLS3DataType {
+  MANIFEST_FILE = "ManifestFile",
+  S3_PREFIX = "S3Prefix"
+}
+
+export enum AutoMLSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum AutoMLSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum AwsManagedHumanLoopRequestSource {
+  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
+  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1"
+}
+
+export enum BatchStrategy {
+  MULTI_RECORD = "MultiRecord",
+  SINGLE_RECORD = "SingleRecord"
+}
+
+export enum BooleanOperator {
+  AND = "And",
+  OR = "Or"
+}
+
+export enum CandidateSortBy {
+  CreationTime = "CreationTime",
+  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
+  Status = "Status"
+}
+
+export enum CandidateStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum CandidateStepType {
+  PROCESSING = "AWS::SageMaker::ProcessingJob",
+  TRAINING = "AWS::SageMaker::TrainingJob",
+  TRANSFORM = "AWS::SageMaker::TransformJob"
+}
+
+export enum CaptureMode {
+  INPUT = "Input",
+  OUTPUT = "Output"
+}
+
+export enum CaptureStatus {
+  STARTED = "Started",
+  STOPPED = "Stopped"
+}
+
+export enum CodeRepositorySortBy {
+  CREATION_TIME = "CreationTime",
+  LAST_MODIFIED_TIME = "LastModifiedTime",
+  NAME = "Name"
+}
+
+export enum CodeRepositorySortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum CompilationJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  INPROGRESS = "INPROGRESS",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING"
+}
+
+export enum CompressionType {
+  GZIP = "Gzip",
+  NONE = "None"
+}
+
+export enum ContainerMode {
+  MULTI_MODEL = "MultiModel",
+  SINGLE_MODEL = "SingleModel"
+}
+
+export enum ContentClassifier {
+  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
+}
+
+export enum DetailedAlgorithmStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  NOT_STARTED = "NotStarted"
+}
+
+export enum DetailedModelPackageStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  NOT_STARTED = "NotStarted"
+}
+
+export enum DirectInternetAccess {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled"
+}
+
+export enum DomainStatus {
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending"
+}
+
+export enum EndpointConfigSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name"
+}
+
+export enum EndpointSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name",
+  Status = "Status"
+}
+
+export enum EndpointStatus {
+  CREATING = "Creating",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IN_SERVICE = "InService",
+  OUT_OF_SERVICE = "OutOfService",
+  ROLLING_BACK = "RollingBack",
+  SYSTEM_UPDATING = "SystemUpdating",
+  UPDATING = "Updating"
+}
+
+export enum ExecutionStatus {
+  COMPLETED = "Completed",
+  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum FileSystemAccessMode {
+  RO = "ro",
+  RW = "rw"
+}
+
+export enum FileSystemType {
+  EFS = "EFS",
+  FSXLUSTRE = "FSxLustre"
+}
+
+export enum FlowDefinitionStatus {
+  ACTIVE = "Active",
+  DELETED = "Deleted",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  INITIALIZING = "Initializing"
+}
+
+export enum Framework {
+  MXNET = "MXNET",
+  ONNX = "ONNX",
+  PYTORCH = "PYTORCH",
+  TENSORFLOW = "TENSORFLOW",
+  XGBOOST = "XGBOOST"
+}
+
+export enum HyperParameterScalingType {
+  AUTO = "Auto",
+  LINEAR = "Linear",
+  LOGARITHMIC = "Logarithmic",
+  REVERSE_LOGARITHMIC = "ReverseLogarithmic"
+}
+
+export enum HyperParameterTuningJobObjectiveType {
+  MAXIMIZE = "Maximize",
+  MINIMIZE = "Minimize"
+}
+
+export enum HyperParameterTuningJobSortByOptions {
+  CreationTime = "CreationTime",
+  Name = "Name",
+  Status = "Status"
+}
+
+export enum HyperParameterTuningJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum HyperParameterTuningJobStrategyType {
+  BAYESIAN = "Bayesian",
+  RANDOM = "Random"
+}
+
+export enum HyperParameterTuningJobWarmStartType {
+  IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
+  TRANSFER_LEARNING = "TransferLearning"
+}
+
+export enum _InstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
+  ML_C5D_XLARGE = "ml.c5d.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_T2_2XLARGE = "ml.t2.2xlarge",
+  ML_T2_LARGE = "ml.t2.large",
+  ML_T2_MEDIUM = "ml.t2.medium",
+  ML_T2_XLARGE = "ml.t2.xlarge",
+  ML_T3_2XLARGE = "ml.t3.2xlarge",
+  ML_T3_LARGE = "ml.t3.large",
+  ML_T3_MEDIUM = "ml.t3.medium",
+  ML_T3_XLARGE = "ml.t3.xlarge"
+}
+
+export enum JoinSource {
+  INPUT = "Input",
+  NONE = "None"
+}
+
+export enum LabelingJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum ListCompilationJobsSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum ListLabelingJobsForWorkteamSortByOptions {
+  CREATION_TIME = "CreationTime"
+}
+
+export enum ListWorkteamsSortByOptions {
+  CreateDate = "CreateDate",
+  Name = "Name"
+}
+
+export enum ModelPackageSortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name"
+}
+
+export enum ModelPackageStatus {
+  COMPLETED = "Completed",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending"
+}
+
+export enum ModelSortKey {
+  CreationTime = "CreationTime",
+  Name = "Name"
+}
+
+export enum MonitoringExecutionSortKey {
+  CREATION_TIME = "CreationTime",
+  SCHEDULED_TIME = "ScheduledTime",
+  STATUS = "Status"
+}
+
+export enum MonitoringScheduleSortKey {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum NotebookInstanceAcceleratorType {
+  ML_EIA1_LARGE = "ml.eia1.large",
+  ML_EIA1_MEDIUM = "ml.eia1.medium",
+  ML_EIA1_XLARGE = "ml.eia1.xlarge",
+  ML_EIA2_LARGE = "ml.eia2.large",
+  ML_EIA2_MEDIUM = "ml.eia2.medium",
+  ML_EIA2_XLARGE = "ml.eia2.xlarge"
+}
+
+export enum NotebookInstanceLifecycleConfigSortKey {
+  CREATION_TIME = "CreationTime",
+  LAST_MODIFIED_TIME = "LastModifiedTime",
+  NAME = "Name"
+}
+
+export enum NotebookInstanceLifecycleConfigSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum NotebookInstanceSortKey {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum NotebookInstanceSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum NotebookInstanceStatus {
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending",
+  Stopped = "Stopped",
+  Stopping = "Stopping",
+  Updating = "Updating"
+}
+
+export enum NotebookOutputOption {
+  Allowed = "Allowed",
+  Disabled = "Disabled"
+}
+
+export enum ObjectiveStatus {
+  Failed = "Failed",
+  Pending = "Pending",
+  Succeeded = "Succeeded"
+}
+
+export enum Operator {
+  CONTAINS = "Contains",
+  EQUALS = "Equals",
+  EXISTS = "Exists",
+  GREATER_THAN = "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
+  LESS_THAN = "LessThan",
+  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
+  NOT_EQUALS = "NotEquals",
+  NOT_EXISTS = "NotExists"
+}
+
+export enum OrderKey {
+  Ascending = "Ascending",
+  Descending = "Descending"
+}
+
+export enum ParameterType {
+  CATEGORICAL = "Categorical",
+  CONTINUOUS = "Continuous",
+  FREE_TEXT = "FreeText",
+  INTEGER = "Integer"
+}
+
+export enum ProblemType {
+  BINARY_CLASSIFICATION = "BinaryClassification",
+  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
+  REGRESSION = "Regression"
+}
+
+export enum ProcessingInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_16XLARGE = "ml.r5.16xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_8XLARGE = "ml.r5.8xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_T3_2XLARGE = "ml.t3.2xlarge",
+  ML_T3_LARGE = "ml.t3.large",
+  ML_T3_MEDIUM = "ml.t3.medium",
+  ML_T3_XLARGE = "ml.t3.xlarge"
+}
+
+export enum ProcessingJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum ProcessingS3CompressionType {
+  GZIP = "Gzip",
+  NONE = "None"
+}
+
+export enum ProcessingS3DataDistributionType {
+  FULLYREPLICATED = "FullyReplicated",
+  SHARDEDBYS3KEY = "ShardedByS3Key"
+}
+
+export enum ProcessingS3DataType {
+  MANIFEST_FILE = "ManifestFile",
+  S3_PREFIX = "S3Prefix"
+}
+
+export enum ProcessingS3InputMode {
+  FILE = "File",
+  PIPE = "Pipe"
+}
+
+export enum ProcessingS3UploadMode {
+  CONTINUOUS = "Continuous",
+  END_OF_JOB = "EndOfJob"
+}
+
+export enum ProductionVariantAcceleratorType {
+  ML_EIA1_LARGE = "ml.eia1.large",
+  ML_EIA1_MEDIUM = "ml.eia1.medium",
+  ML_EIA1_XLARGE = "ml.eia1.xlarge",
+  ML_EIA2_LARGE = "ml.eia2.large",
+  ML_EIA2_MEDIUM = "ml.eia2.medium",
+  ML_EIA2_XLARGE = "ml.eia2.xlarge"
+}
+
+export enum ProductionVariantInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_LARGE = "ml.c4.large",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
+  ML_C5D_LARGE = "ml.c5d.large",
+  ML_C5D_XLARGE = "ml.c5d.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_LARGE = "ml.c5.large",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
+  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
+  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
+  ML_INF1_XLARGE = "ml.inf1.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
+  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
+  ML_M5D_LARGE = "ml.m5d.large",
+  ML_M5D_XLARGE = "ml.m5d.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
+  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
+  ML_R5D_LARGE = "ml.r5d.large",
+  ML_R5D_XLARGE = "ml.r5d.xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_T2_2XLARGE = "ml.t2.2xlarge",
+  ML_T2_LARGE = "ml.t2.large",
+  ML_T2_MEDIUM = "ml.t2.medium",
+  ML_T2_XLARGE = "ml.t2.xlarge"
+}
+
+export enum RecordWrapper {
+  NONE = "None",
+  RECORDIO = "RecordIO"
+}
+
+export enum ResourceType {
+  EXPERIMENT = "Experiment",
+  EXPERIMENT_TRIAL = "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
+  TRAINING_JOB = "TrainingJob"
+}
+
+export enum RetentionType {
+  Delete = "Delete",
+  Retain = "Retain"
+}
+
+export enum RootAccess {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled"
+}
+
+export enum RuleEvaluationStatus {
+  ERROR = "Error",
+  IN_PROGRESS = "InProgress",
+  ISSUES_FOUND = "IssuesFound",
+  NO_ISSUES_FOUND = "NoIssuesFound",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum S3DataDistribution {
+  FULLY_REPLICATED = "FullyReplicated",
+  SHARDED_BY_S3_KEY = "ShardedByS3Key"
+}
+
+export enum S3DataType {
+  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
+  MANIFEST_FILE = "ManifestFile",
+  S3_PREFIX = "S3Prefix"
+}
+
+export enum ScheduleStatus {
+  FAILED = "Failed",
+  PENDING = "Pending",
+  SCHEDULED = "Scheduled",
+  STOPPED = "Stopped"
+}
+
+export enum SearchSortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum SecondaryStatus {
+  COMPLETED = "Completed",
+  DOWNLOADING = "Downloading",
+  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
+  FAILED = "Failed",
+  INTERRUPTED = "Interrupted",
+  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
+  STARTING = "Starting",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+  TRAINING = "Training",
+  UPLOADING = "Uploading"
+}
+
+export enum SortBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name",
+  STATUS = "Status"
+}
+
+export enum SortExperimentsBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name"
+}
+
+export enum SortOrder {
+  ASCENDING = "Ascending",
+  DESCENDING = "Descending"
+}
+
+export enum SortTrialComponentsBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name"
+}
+
+export enum SortTrialsBy {
+  CREATION_TIME = "CreationTime",
+  NAME = "Name"
+}
+
+export enum SplitType {
+  LINE = "Line",
+  NONE = "None",
+  RECORDIO = "RecordIO",
+  TFRECORD = "TFRecord"
+}
+
+export enum TargetDevice {
+  AISAGE = "aisage",
+  DEEPLENS = "deeplens",
+  JETSON_NANO = "jetson_nano",
+  JETSON_TX1 = "jetson_tx1",
+  JETSON_TX2 = "jetson_tx2",
+  LAMBDA = "lambda",
+  ML_C4 = "ml_c4",
+  ML_C5 = "ml_c5",
+  ML_INF1 = "ml_inf1",
+  ML_M4 = "ml_m4",
+  ML_M5 = "ml_m5",
+  ML_P2 = "ml_p2",
+  ML_P3 = "ml_p3",
+  QCS603 = "qcs603",
+  QCS605 = "qcs605",
+  RASP3B = "rasp3b",
+  RK3288 = "rk3288",
+  RK3399 = "rk3399",
+  SBE_C = "sbe_c"
+}
+
+export enum TrainingInputMode {
+  FILE = "File",
+  PIPE = "Pipe"
+}
+
+export enum TrainingInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge"
+}
+
+export enum TrainingJobEarlyStoppingType {
+  AUTO = "Auto",
+  OFF = "Off"
+}
+
+export enum TrainingJobSortByOptions {
+  CreationTime = "CreationTime",
+  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
+  Name = "Name",
+  Status = "Status"
+}
+
+export enum TrainingJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum TransformInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge"
+}
+
+export enum TransformJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping"
+}
+
+export enum TrialComponentPrimaryStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress"
+}
+
+export enum UserProfileSortKey {
+  CreationTime = "CreationTime",
+  LastModifiedTime = "LastModifiedTime"
+}
+
+export enum UserProfileStatus {
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending"
+}
+
 export interface AddTagsInput {
   __type?: "AddTagsInput";
   /**
@@ -40,11 +934,6 @@ export namespace AddTagsOutput {
   export function isa(o: any): o is AddTagsOutput {
     return _smithy.isa(o, "AddTagsOutput");
   }
-}
-
-export enum AlgorithmSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name"
 }
 
 /**
@@ -146,14 +1035,6 @@ export namespace AlgorithmSpecification {
   export function isa(o: any): o is AlgorithmSpecification {
     return _smithy.isa(o, "AlgorithmSpecification");
   }
-}
-
-export enum AlgorithmStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending"
 }
 
 /**
@@ -801,45 +1682,6 @@ export namespace AppDetails {
   }
 }
 
-export enum AppInstanceType {
-  ML_C5_12XLARGE = "ml.c5.12xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_24XLARGE = "ml.c5.24xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_16XLARGE = "ml.m5.16xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_8XLARGE = "ml.m5.8xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_MICRO = "ml.t3.micro",
-  ML_T3_SMALL = "ml.t3.small",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-  SYSTEM = "system"
-}
-
-export enum AppSortKey {
-  CreationTime = "CreationTime"
-}
-
 /**
  *
  *         <p>Configuration to run a processing job in a specified container image.</p>
@@ -874,25 +1716,6 @@ export namespace AppSpecification {
   export function isa(o: any): o is AppSpecification {
     return _smithy.isa(o, "AppSpecification");
   }
-}
-
-export enum AppStatus {
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending"
-}
-
-export enum AppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-  TensorBoard = "TensorBoard"
-}
-
-export enum AssemblyType {
-  LINE = "Line",
-  NONE = "None"
 }
 
 export interface AssociateTrialComponentRequest {
@@ -939,11 +1762,6 @@ export namespace AssociateTrialComponentResponse {
   export function isa(o: any): o is AssociateTrialComponentResponse {
     return _smithy.isa(o, "AssociateTrialComponentResponse");
   }
-}
-
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO"
 }
 
 /**
@@ -1276,32 +2094,6 @@ export namespace AutoMLJobObjective {
   }
 }
 
-export enum AutoMLJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize"
-}
-
-export enum AutoMLJobSecondaryStatus {
-  ANALYZING_DATA = "AnalyzingData",
-  CANDIDATE_DEFINITIONS_GENERATED = "CandidateDefinitionsGenerated",
-  FAILED = "Failed",
-  FEATURE_ENGINEERING = "FeatureEngineering",
-  MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
-  MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
-  MODEL_TUNING = "ModelTuning",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
-export enum AutoMLJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
 /**
  *
  *          <p>Provides a summary about a job.</p>
@@ -1372,13 +2164,6 @@ export namespace AutoMLJobSummary {
   }
 }
 
-export enum AutoMLMetricEnum {
-  ACCURACY = "Accuracy",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  MSE = "MSE"
-}
-
 /**
  *
  *          <p>The output data configuration.</p>
@@ -1435,11 +2220,6 @@ export namespace AutoMLS3DataSource {
   }
 }
 
-export enum AutoMLS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
-}
-
 /**
  *
  *          <p>Security options.</p>
@@ -1475,52 +2255,6 @@ export namespace AutoMLSecurityConfig {
   }
 }
 
-export enum AutoMLSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status"
-}
-
-export enum AutoMLSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
-export enum AwsManagedHumanLoopRequestSource {
-  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
-  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1"
-}
-
-export enum BatchStrategy {
-  MULTI_RECORD = "MultiRecord",
-  SINGLE_RECORD = "SingleRecord"
-}
-
-export enum BooleanOperator {
-  AND = "And",
-  OR = "Or"
-}
-
-export enum CandidateSortBy {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Status = "Status"
-}
-
-export enum CandidateStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
-export enum CandidateStepType {
-  PROCESSING = "AWS::SageMaker::ProcessingJob",
-  TRAINING = "AWS::SageMaker::TrainingJob",
-  TRANSFORM = "AWS::SageMaker::TransformJob"
-}
-
 /**
  *
  *          <p></p>
@@ -1549,11 +2283,6 @@ export namespace CaptureContentTypeHeader {
   }
 }
 
-export enum CaptureMode {
-  INPUT = "Input",
-  OUTPUT = "Output"
-}
-
 /**
  *
  *          <p></p>
@@ -1573,11 +2302,6 @@ export namespace CaptureOption {
   export function isa(o: any): o is CaptureOption {
     return _smithy.isa(o, "CaptureOption");
   }
-}
-
-export enum CaptureStatus {
-  STARTED = "Started",
-  STOPPED = "Stopped"
 }
 
 /**
@@ -1817,17 +2541,6 @@ export namespace CheckpointConfig {
   }
 }
 
-export enum CodeRepositorySortBy {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name"
-}
-
-export enum CodeRepositorySortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
 /**
  *
  *         <p>Specifies summary information about a Git repository.</p>
@@ -1950,15 +2663,6 @@ export namespace CollectionConfiguration {
   }
 }
 
-export enum CompilationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING"
-}
-
 /**
  *
  *         <p>A summary of a model compilation job.</p>
@@ -2027,11 +2731,6 @@ export namespace CompilationJobSummary {
   export function isa(o: any): o is CompilationJobSummary {
     return _smithy.isa(o, "CompilationJobSummary");
   }
-}
-
-export enum CompressionType {
-  GZIP = "Gzip",
-  NONE = "None"
 }
 
 /**
@@ -2141,16 +2840,6 @@ export namespace ContainerDefinition {
   export function isa(o: any): o is ContainerDefinition {
     return _smithy.isa(o, "ContainerDefinition");
   }
-}
-
-export enum ContainerMode {
-  MULTI_MODEL = "MultiModel",
-  SINGLE_MODEL = "SingleModel"
-}
-
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
 }
 
 /**
@@ -8778,25 +9467,6 @@ export namespace DesiredWeightAndCapacity {
   }
 }
 
-export enum DetailedAlgorithmStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted"
-}
-
-export enum DetailedModelPackageStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted"
-}
-
-export enum DirectInternetAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled"
-}
-
 export interface DisassociateTrialComponentRequest {
   __type?: "DisassociateTrialComponentRequest";
   /**
@@ -8906,18 +9576,6 @@ export namespace DomainDetails {
   }
 }
 
-export enum DomainStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending"
-}
-
-export enum EndpointConfigSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name"
-}
-
 /**
  *
  *         <p>Provides summary information for an endpoint configuration.</p>
@@ -8999,23 +9657,6 @@ export namespace EndpointInput {
   export function isa(o: any): o is EndpointInput {
     return _smithy.isa(o, "EndpointInput");
   }
-}
-
-export enum EndpointSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status"
-}
-
-export enum EndpointStatus {
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_SERVICE = "InService",
-  OUT_OF_SERVICE = "OutOfService",
-  ROLLING_BACK = "RollingBack",
-  SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating"
 }
 
 /**
@@ -9114,16 +9755,6 @@ export namespace EndpointSummary {
   export function isa(o: any): o is EndpointSummary {
     return _smithy.isa(o, "EndpointSummary");
   }
-}
-
-export enum ExecutionStatus {
-  COMPLETED = "Completed",
-  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
 }
 
 /**
@@ -9338,11 +9969,6 @@ export namespace ExperimentSummary {
   }
 }
 
-export enum FileSystemAccessMode {
-  RO = "ro",
-  RW = "rw"
-}
-
 /**
  *
  *          <p>Specifies a file system data source for a channel.</p>
@@ -9384,11 +10010,6 @@ export namespace FileSystemDataSource {
   export function isa(o: any): o is FileSystemDataSource {
     return _smithy.isa(o, "FileSystemDataSource");
   }
-}
-
-export enum FileSystemType {
-  EFS = "EFS",
-  FSXLUSTRE = "FSxLustre"
 }
 
 /**
@@ -9651,14 +10272,6 @@ export namespace FlowDefinitionOutputConfig {
   }
 }
 
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing"
-}
-
 /**
  *
  *          <p>Contains summary information about the flow definition.</p>
@@ -9706,14 +10319,6 @@ export namespace FlowDefinitionSummary {
   export function isa(o: any): o is FlowDefinitionSummary {
     return _smithy.isa(o, "FlowDefinitionSummary");
   }
-}
-
-export enum Framework {
-  MXNET = "MXNET",
-  ONNX = "ONNX",
-  PYTORCH = "PYTORCH",
-  TENSORFLOW = "TENSORFLOW",
-  XGBOOST = "XGBOOST"
 }
 
 export interface GetSearchSuggestionsRequest {
@@ -11150,13 +11755,6 @@ export namespace HyperParameterAlgorithmSpecification {
   }
 }
 
-export enum HyperParameterScalingType {
-  AUTO = "Auto",
-  LINEAR = "Linear",
-  LOGARITHMIC = "Logarithmic",
-  REVERSE_LOGARITHMIC = "ReverseLogarithmic"
-}
-
 /**
  *
  *         <p>Defines a hyperparameter to be used by an algorithm.</p>
@@ -11662,30 +12260,6 @@ export namespace HyperParameterTuningJobObjective {
   }
 }
 
-export enum HyperParameterTuningJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize"
-}
-
-export enum HyperParameterTuningJobSortByOptions {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status"
-}
-
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
-export enum HyperParameterTuningJobStrategyType {
-  BAYESIAN = "Bayesian",
-  RANDOM = "Random"
-}
-
 /**
  *
  *         <p>Provides summary information about a hyperparameter tuning job.</p>
@@ -11859,11 +12433,6 @@ export namespace HyperParameterTuningJobWarmStartConfig {
   export function isa(o: any): o is HyperParameterTuningJobWarmStartConfig {
     return _smithy.isa(o, "HyperParameterTuningJobWarmStartConfig");
   }
-}
-
-export enum HyperParameterTuningJobWarmStartType {
-  IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
-  TRANSFER_LEARNING = "TransferLearning"
 }
 
 /**
@@ -12094,47 +12663,6 @@ export namespace InputConfig {
   }
 }
 
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge"
-}
-
 /**
  *
  *         <p>For a hyperparameter of the integer type, specifies the range
@@ -12229,11 +12757,6 @@ export namespace IntegerParameterRangeSpecification {
   export function isa(o: any): o is IntegerParameterRangeSpecification {
     return _smithy.isa(o, "IntegerParameterRangeSpecification");
   }
-}
-
-export enum JoinSource {
-  INPUT = "Input",
-  NONE = "None"
 }
 
 /**
@@ -12693,14 +13216,6 @@ export namespace LabelingJobS3DataSource {
   export function isa(o: any): o is LabelingJobS3DataSource {
     return _smithy.isa(o, "LabelingJobS3DataSource");
   }
-}
-
-export enum LabelingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
 }
 
 /**
@@ -13426,12 +13941,6 @@ export namespace ListCompilationJobsResponse {
   }
 }
 
-export enum ListCompilationJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status"
-}
-
 export interface ListDomainsRequest {
   __type?: "ListDomainsRequest";
   /**
@@ -14108,10 +14617,6 @@ export namespace ListLabelingJobsForWorkteamResponse {
   export function isa(o: any): o is ListLabelingJobsForWorkteamResponse {
     return _smithy.isa(o, "ListLabelingJobsForWorkteamResponse");
   }
-}
-
-export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime"
 }
 
 export interface ListLabelingJobsRequest {
@@ -15744,11 +16249,6 @@ export namespace ListWorkteamsResponse {
   }
 }
 
-export enum ListWorkteamsSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name"
-}
-
 /**
  *
  *         <p>Defines the Amazon Cognito user group that is part of a work team.</p>
@@ -15926,19 +16426,6 @@ export namespace ModelPackageContainerDefinition {
   }
 }
 
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name"
-}
-
-export enum ModelPackageStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending"
-}
-
 /**
  *
  *         <p>Specifies the validation and image scan statuses of the model package.</p>
@@ -16110,11 +16597,6 @@ export namespace ModelPackageValidationSpecification {
   export function isa(o: any): o is ModelPackageValidationSpecification {
     return _smithy.isa(o, "ModelPackageValidationSpecification");
   }
-}
-
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name"
 }
 
 /**
@@ -16302,12 +16784,6 @@ export namespace MonitoringConstraintsResource {
   export function isa(o: any): o is MonitoringConstraintsResource {
     return _smithy.isa(o, "MonitoringConstraintsResource");
   }
-}
-
-export enum MonitoringExecutionSortKey {
-  CREATION_TIME = "CreationTime",
-  SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status"
 }
 
 /**
@@ -16622,12 +17098,6 @@ export namespace MonitoringScheduleConfig {
   }
 }
 
-export enum MonitoringScheduleSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status"
-}
-
 /**
  *
  *          <p>Summarizes the monitoring schedule.</p>
@@ -16826,26 +17296,6 @@ export namespace NetworkConfig {
   }
 }
 
-export enum NotebookInstanceAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge"
-}
-
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name"
-}
-
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
 /**
  *
  *         <p>Provides a summary of a notebook instance lifecycle configuration.</p>
@@ -16919,27 +17369,6 @@ export namespace NotebookInstanceLifecycleHook {
   export function isa(o: any): o is NotebookInstanceLifecycleHook {
     return _smithy.isa(o, "NotebookInstanceLifecycleHook");
   }
-}
-
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status"
-}
-
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
-export enum NotebookInstanceStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating"
 }
 
 /**
@@ -17042,11 +17471,6 @@ export namespace NotebookInstanceSummary {
   }
 }
 
-export enum NotebookOutputOption {
-  Allowed = "Allowed",
-  Disabled = "Disabled"
-}
-
 /**
  *
  *         <p>Configures SNS notifications of available or expiring work items for work
@@ -17067,12 +17491,6 @@ export namespace NotificationConfiguration {
   export function isa(o: any): o is NotificationConfiguration {
     return _smithy.isa(o, "NotificationConfiguration");
   }
-}
-
-export enum ObjectiveStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Succeeded = "Succeeded"
 }
 
 /**
@@ -17117,23 +17535,6 @@ export namespace ObjectiveStatusCounters {
   export function isa(o: any): o is ObjectiveStatusCounters {
     return _smithy.isa(o, "ObjectiveStatusCounters");
   }
-}
-
-export enum Operator {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
-  LESS_THAN = "LessThan",
-  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
-  NOT_EQUALS = "NotEquals",
-  NOT_EXISTS = "NotExists"
-}
-
-export enum OrderKey {
-  Ascending = "Ascending",
-  Descending = "Descending"
 }
 
 /**
@@ -17331,13 +17732,6 @@ export namespace ParameterRanges {
   }
 }
 
-export enum ParameterType {
-  CATEGORICAL = "Categorical",
-  CONTINUOUS = "Continuous",
-  FREE_TEXT = "FreeText",
-  INTEGER = "Integer"
-}
-
 /**
  *
  *          <p>The trial that a trial component is associated with and the experiment the trial is part
@@ -17389,12 +17783,6 @@ export namespace ParentHyperParameterTuningJob {
   export function isa(o: any): o is ParentHyperParameterTuningJob {
     return _smithy.isa(o, "ParentHyperParameterTuningJob");
   }
-}
-
-export enum ProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression"
 }
 
 /**
@@ -17469,55 +17857,6 @@ export namespace ProcessingInput {
   export function isa(o: any): o is ProcessingInput {
     return _smithy.isa(o, "ProcessingInput");
   }
-}
-
-export enum ProcessingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge"
-}
-
-export enum ProcessingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
 }
 
 /**
@@ -17674,21 +18013,6 @@ export namespace ProcessingResources {
   }
 }
 
-export enum ProcessingS3CompressionType {
-  GZIP = "Gzip",
-  NONE = "None"
-}
-
-export enum ProcessingS3DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key"
-}
-
-export enum ProcessingS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
-}
-
 /**
  *
  *         <p>Information about where and how you want to obtain the inputs for an processing
@@ -17759,11 +18083,6 @@ export namespace ProcessingS3Input {
   }
 }
 
-export enum ProcessingS3InputMode {
-  FILE = "File",
-  PIPE = "Pipe"
-}
-
 /**
  *
  *         <p>Information about where and how you want to store the results of an
@@ -17801,11 +18120,6 @@ export namespace ProcessingS3Output {
   export function isa(o: any): o is ProcessingS3Output {
     return _smithy.isa(o, "ProcessingS3Output");
   }
-}
-
-export enum ProcessingS3UploadMode {
-  CONTINUOUS = "Continuous",
-  END_OF_JOB = "EndOfJob"
 }
 
 /**
@@ -17894,84 +18208,6 @@ export namespace ProductionVariant {
   export function isa(o: any): o is ProductionVariant {
     return _smithy.isa(o, "ProductionVariant");
   }
-}
-
-export enum ProductionVariantAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge"
-}
-
-export enum ProductionVariantInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_LARGE = "ml.c4.large",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_LARGE = "ml.c5d.large",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
-  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
-  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
-  ML_INF1_XLARGE = "ml.inf1.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
-  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
-  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
-  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
-  ML_R5D_LARGE = "ml.r5d.large",
-  ML_R5D_XLARGE = "ml.r5d.xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge"
 }
 
 /**
@@ -18464,11 +18700,6 @@ export namespace PublicWorkforceTaskPrice {
   }
 }
 
-export enum RecordWrapper {
-  NONE = "None",
-  RECORDIO = "RecordIO"
-}
-
 export interface RenderUiTemplateRequest {
   __type?: "RenderUiTemplateRequest";
   /**
@@ -18827,13 +19058,6 @@ export namespace ResourceSpec {
   }
 }
 
-export enum ResourceType {
-  EXPERIMENT = "Experiment",
-  EXPERIMENT_TRIAL = "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
-  TRAINING_JOB = "TrainingJob"
-}
-
 /**
  *
  *          <p>The retention policy.</p>
@@ -18853,30 +19077,6 @@ export namespace RetentionPolicy {
   export function isa(o: any): o is RetentionPolicy {
     return _smithy.isa(o, "RetentionPolicy");
   }
-}
-
-export enum RetentionType {
-  Delete = "Delete",
-  Retain = "Retain"
-}
-
-export enum RootAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled"
-}
-
-export enum RuleEvaluationStatus {
-  ERROR = "Error",
-  IN_PROGRESS = "InProgress",
-  ISSUES_FOUND = "IssuesFound",
-  NO_ISSUES_FOUND = "NoIssuesFound",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
-export enum S3DataDistribution {
-  FULLY_REPLICATED = "FullyReplicated",
-  SHARDED_BY_S3_KEY = "ShardedByS3Key"
 }
 
 /**
@@ -18998,12 +19198,6 @@ export namespace S3DataSource {
   }
 }
 
-export enum S3DataType {
-  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
-}
-
 /**
  *
  *          <p>Configuration details about the monitoring schedule.</p>
@@ -19080,13 +19274,6 @@ export namespace ScheduleConfig {
   export function isa(o: any): o is ScheduleConfig {
     return _smithy.isa(o, "ScheduleConfig");
   }
-}
-
-export enum ScheduleStatus {
-  FAILED = "Failed",
-  PENDING = "Pending",
-  SCHEDULED = "Scheduled",
-  STOPPED = "Stopped"
 }
 
 /**
@@ -19290,28 +19477,6 @@ export namespace SearchResponse {
   export function isa(o: any): o is SearchResponse {
     return _smithy.isa(o, "SearchResponse");
   }
-}
-
-export enum SearchSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
-export enum SecondaryStatus {
-  COMPLETED = "Completed",
-  DOWNLOADING = "Downloading",
-  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
-  FAILED = "Failed",
-  INTERRUPTED = "Interrupted",
-  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
-  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
-  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
-  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  TRAINING = "Training",
-  UPLOADING = "Uploading"
 }
 
 /**
@@ -19590,32 +19755,6 @@ export namespace ShuffleConfig {
   }
 }
 
-export enum SortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status"
-}
-
-export enum SortExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name"
-}
-
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending"
-}
-
-export enum SortTrialComponentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name"
-}
-
-export enum SortTrialsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name"
-}
-
 /**
  *
  *         <p>Specifies an algorithm that was used to create the model package. The algorithm must
@@ -19669,13 +19808,6 @@ export namespace SourceAlgorithmSpecification {
   export function isa(o: any): o is SourceAlgorithmSpecification {
     return _smithy.isa(o, "SourceAlgorithmSpecification");
   }
-}
-
-export enum SplitType {
-  LINE = "Line",
-  NONE = "None",
-  RECORDIO = "RecordIO",
-  TFRECORD = "TFRecord"
 }
 
 export interface StartMonitoringScheduleRequest {
@@ -20004,28 +20136,6 @@ export namespace Tag {
   }
 }
 
-export enum TargetDevice {
-  AISAGE = "aisage",
-  DEEPLENS = "deeplens",
-  JETSON_NANO = "jetson_nano",
-  JETSON_TX1 = "jetson_tx1",
-  JETSON_TX2 = "jetson_tx2",
-  LAMBDA = "lambda",
-  ML_C4 = "ml_c4",
-  ML_C5 = "ml_c5",
-  ML_INF1 = "ml_inf1",
-  ML_M4 = "ml_m4",
-  ML_M5 = "ml_m5",
-  ML_P2 = "ml_p2",
-  ML_P3 = "ml_p3",
-  QCS603 = "qcs603",
-  QCS605 = "qcs605",
-  RASP3B = "rasp3b",
-  RK3288 = "rk3288",
-  RK3399 = "rk3399",
-  SBE_C = "sbe_c"
-}
-
 /**
  *
  *          <p>The TensorBoard app settings.</p>
@@ -20074,41 +20184,6 @@ export namespace TensorBoardOutputConfig {
   export function isa(o: any): o is TensorBoardOutputConfig {
     return _smithy.isa(o, "TensorBoardOutputConfig");
   }
-}
-
-export enum TrainingInputMode {
-  FILE = "File",
-  PIPE = "Pipe"
-}
-
-export enum TrainingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge"
 }
 
 /**
@@ -20593,26 +20668,6 @@ export namespace TrainingJobDefinition {
   }
 }
 
-export enum TrainingJobEarlyStoppingType {
-  AUTO = "Auto",
-  OFF = "Off"
-}
-
-export enum TrainingJobSortByOptions {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Name = "Name",
-  Status = "Status"
-}
-
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
-}
-
 /**
  *
  *         <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by
@@ -20907,35 +20962,6 @@ export namespace TransformInput {
   }
 }
 
-export enum TransformInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge"
-}
-
 /**
  *
  *         <p>Defines the input needed to run a transform job using the inference specification
@@ -21006,14 +21032,6 @@ export namespace TransformJobDefinition {
   export function isa(o: any): o is TransformJobDefinition {
     return _smithy.isa(o, "TransformJobDefinition");
   }
-}
-
-export enum TransformJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping"
 }
 
 /**
@@ -21728,12 +21746,6 @@ export namespace TrialComponentParameterValue {
   export function isa(o: any): o is TrialComponentParameterValue {
     return _smithy.isa(o, "TrialComponentParameterValue");
   }
-}
-
-export enum TrialComponentPrimaryStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress"
 }
 
 /**
@@ -22969,18 +22981,6 @@ export namespace UserProfileDetails {
   export function isa(o: any): o is UserProfileDetails {
     return _smithy.isa(o, "UserProfileDetails");
   }
-}
-
-export enum UserProfileSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime"
-}
-
-export enum UserProfileStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending"
 }
 
 /**

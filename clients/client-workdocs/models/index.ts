@@ -1,6 +1,189 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum ActivityType {
+  DOCUMENT_ANNOTATION_ADDED = "DOCUMENT_ANNOTATION_ADDED",
+  DOCUMENT_ANNOTATION_DELETED = "DOCUMENT_ANNOTATION_DELETED",
+  DOCUMENT_CHECKED_IN = "DOCUMENT_CHECKED_IN",
+  DOCUMENT_CHECKED_OUT = "DOCUMENT_CHECKED_OUT",
+  DOCUMENT_COMMENT_ADDED = "DOCUMENT_COMMENT_ADDED",
+  DOCUMENT_COMMENT_DELETED = "DOCUMENT_COMMENT_DELETED",
+  DOCUMENT_MOVED = "DOCUMENT_MOVED",
+  DOCUMENT_RECYCLED = "DOCUMENT_RECYCLED",
+  DOCUMENT_RENAMED = "DOCUMENT_RENAMED",
+  DOCUMENT_RESTORED = "DOCUMENT_RESTORED",
+  DOCUMENT_REVERTED = "DOCUMENT_REVERTED",
+  DOCUMENT_SHAREABLE_LINK_CREATED = "DOCUMENT_SHAREABLE_LINK_CREATED",
+  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED = "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+  DOCUMENT_SHAREABLE_LINK_REMOVED = "DOCUMENT_SHAREABLE_LINK_REMOVED",
+  DOCUMENT_SHARED = "DOCUMENT_SHARED",
+  DOCUMENT_SHARE_PERMISSION_CHANGED = "DOCUMENT_SHARE_PERMISSION_CHANGED",
+  DOCUMENT_UNSHARED = "DOCUMENT_UNSHARED",
+  DOCUMENT_VERSION_DELETED = "DOCUMENT_VERSION_DELETED",
+  DOCUMENT_VERSION_DOWNLOADED = "DOCUMENT_VERSION_DOWNLOADED",
+  DOCUMENT_VERSION_UPLOADED = "DOCUMENT_VERSION_UPLOADED",
+  DOCUMENT_VERSION_VIEWED = "DOCUMENT_VERSION_VIEWED",
+  FOLDER_CREATED = "FOLDER_CREATED",
+  FOLDER_DELETED = "FOLDER_DELETED",
+  FOLDER_MOVED = "FOLDER_MOVED",
+  FOLDER_RECYCLED = "FOLDER_RECYCLED",
+  FOLDER_RENAMED = "FOLDER_RENAMED",
+  FOLDER_RESTORED = "FOLDER_RESTORED",
+  FOLDER_SHAREABLE_LINK_CREATED = "FOLDER_SHAREABLE_LINK_CREATED",
+  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED = "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+  FOLDER_SHAREABLE_LINK_REMOVED = "FOLDER_SHAREABLE_LINK_REMOVED",
+  FOLDER_SHARED = "FOLDER_SHARED",
+  FOLDER_SHARE_PERMISSION_CHANGED = "FOLDER_SHARE_PERMISSION_CHANGED",
+  FOLDER_UNSHARED = "FOLDER_UNSHARED"
+}
+
+export enum BooleanEnumType {
+  FALSE = "FALSE",
+  TRUE = "TRUE"
+}
+
+export enum CommentStatusType {
+  DELETED = "DELETED",
+  DRAFT = "DRAFT",
+  PUBLISHED = "PUBLISHED"
+}
+
+export enum CommentVisibilityType {
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC"
+}
+
+export enum DocumentSourceType {
+  ORIGINAL = "ORIGINAL",
+  WITH_COMMENTS = "WITH_COMMENTS"
+}
+
+export enum DocumentStatusType {
+  ACTIVE = "ACTIVE",
+  INITIALIZED = "INITIALIZED"
+}
+
+export enum DocumentThumbnailType {
+  LARGE = "LARGE",
+  SMALL = "SMALL",
+  SMALL_HQ = "SMALL_HQ"
+}
+
+export enum DocumentVersionStatus {
+  ACTIVE = "ACTIVE"
+}
+
+export enum FolderContentType {
+  ALL = "ALL",
+  DOCUMENT = "DOCUMENT",
+  FOLDER = "FOLDER"
+}
+
+export enum LocaleType {
+  DE = "de",
+  DEFAULT = "default",
+  EN = "en",
+  ES = "es",
+  FR = "fr",
+  JA = "ja",
+  KO = "ko",
+  PT_BR = "pt_BR",
+  RU = "ru",
+  ZH_CN = "zh_CN",
+  ZH_TW = "zh_TW"
+}
+
+export enum OrderType {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING"
+}
+
+export enum PrincipalType {
+  ANONYMOUS = "ANONYMOUS",
+  GROUP = "GROUP",
+  INVITE = "INVITE",
+  ORGANIZATION = "ORGANIZATION",
+  USER = "USER"
+}
+
+export enum ResourceCollectionType {
+  SHARED_WITH_ME = "SHARED_WITH_ME"
+}
+
+export enum ResourceSortType {
+  DATE = "DATE",
+  NAME = "NAME"
+}
+
+export enum ResourceStateType {
+  ACTIVE = "ACTIVE",
+  RECYCLED = "RECYCLED",
+  RECYCLING = "RECYCLING",
+  RESTORING = "RESTORING"
+}
+
+export enum ResourceType {
+  DOCUMENT = "DOCUMENT",
+  FOLDER = "FOLDER"
+}
+
+export enum RolePermissionType {
+  DIRECT = "DIRECT",
+  INHERITED = "INHERITED"
+}
+
+export enum RoleType {
+  CONTRIBUTOR = "CONTRIBUTOR",
+  COOWNER = "COOWNER",
+  OWNER = "OWNER",
+  VIEWER = "VIEWER"
+}
+
+export enum ShareStatusType {
+  FAILURE = "FAILURE",
+  SUCCESS = "SUCCESS"
+}
+
+export enum StorageType {
+  QUOTA = "QUOTA",
+  UNLIMITED = "UNLIMITED"
+}
+
+export enum SubscriptionProtocolType {
+  HTTPS = "HTTPS"
+}
+
+export enum SubscriptionType {
+  ALL = "ALL"
+}
+
+export enum UserFilterType {
+  ACTIVE_PENDING = "ACTIVE_PENDING",
+  ALL = "ALL"
+}
+
+export enum UserSortType {
+  FULL_NAME = "FULL_NAME",
+  STORAGE_LIMIT = "STORAGE_LIMIT",
+  STORAGE_USED = "STORAGE_USED",
+  USER_NAME = "USER_NAME",
+  USER_STATUS = "USER_STATUS"
+}
+
+export enum UserStatusType {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  PENDING = "PENDING"
+}
+
+export enum UserType {
+  ADMIN = "ADMIN",
+  MINIMALUSER = "MINIMALUSER",
+  POWERUSER = "POWERUSER",
+  USER = "USER",
+  WORKSPACESUSER = "WORKSPACESUSER"
+}
+
 export interface AbortDocumentVersionUploadRequest {
   __type?: "AbortDocumentVersionUploadRequest";
   /**
@@ -156,42 +339,6 @@ export namespace Activity {
   }
 }
 
-export enum ActivityType {
-  DOCUMENT_ANNOTATION_ADDED = "DOCUMENT_ANNOTATION_ADDED",
-  DOCUMENT_ANNOTATION_DELETED = "DOCUMENT_ANNOTATION_DELETED",
-  DOCUMENT_CHECKED_IN = "DOCUMENT_CHECKED_IN",
-  DOCUMENT_CHECKED_OUT = "DOCUMENT_CHECKED_OUT",
-  DOCUMENT_COMMENT_ADDED = "DOCUMENT_COMMENT_ADDED",
-  DOCUMENT_COMMENT_DELETED = "DOCUMENT_COMMENT_DELETED",
-  DOCUMENT_MOVED = "DOCUMENT_MOVED",
-  DOCUMENT_RECYCLED = "DOCUMENT_RECYCLED",
-  DOCUMENT_RENAMED = "DOCUMENT_RENAMED",
-  DOCUMENT_RESTORED = "DOCUMENT_RESTORED",
-  DOCUMENT_REVERTED = "DOCUMENT_REVERTED",
-  DOCUMENT_SHAREABLE_LINK_CREATED = "DOCUMENT_SHAREABLE_LINK_CREATED",
-  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED = "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
-  DOCUMENT_SHAREABLE_LINK_REMOVED = "DOCUMENT_SHAREABLE_LINK_REMOVED",
-  DOCUMENT_SHARED = "DOCUMENT_SHARED",
-  DOCUMENT_SHARE_PERMISSION_CHANGED = "DOCUMENT_SHARE_PERMISSION_CHANGED",
-  DOCUMENT_UNSHARED = "DOCUMENT_UNSHARED",
-  DOCUMENT_VERSION_DELETED = "DOCUMENT_VERSION_DELETED",
-  DOCUMENT_VERSION_DOWNLOADED = "DOCUMENT_VERSION_DOWNLOADED",
-  DOCUMENT_VERSION_UPLOADED = "DOCUMENT_VERSION_UPLOADED",
-  DOCUMENT_VERSION_VIEWED = "DOCUMENT_VERSION_VIEWED",
-  FOLDER_CREATED = "FOLDER_CREATED",
-  FOLDER_DELETED = "FOLDER_DELETED",
-  FOLDER_MOVED = "FOLDER_MOVED",
-  FOLDER_RECYCLED = "FOLDER_RECYCLED",
-  FOLDER_RENAMED = "FOLDER_RENAMED",
-  FOLDER_RESTORED = "FOLDER_RESTORED",
-  FOLDER_SHAREABLE_LINK_CREATED = "FOLDER_SHAREABLE_LINK_CREATED",
-  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED = "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
-  FOLDER_SHAREABLE_LINK_REMOVED = "FOLDER_SHAREABLE_LINK_REMOVED",
-  FOLDER_SHARED = "FOLDER_SHARED",
-  FOLDER_SHARE_PERMISSION_CHANGED = "FOLDER_SHARE_PERMISSION_CHANGED",
-  FOLDER_UNSHARED = "FOLDER_UNSHARED"
-}
-
 export interface AddResourcePermissionsRequest {
   __type?: "AddResourcePermissionsRequest";
   /**
@@ -244,11 +391,6 @@ export namespace AddResourcePermissionsResponse {
   export function isa(o: any): o is AddResourcePermissionsResponse {
     return _smithy.isa(o, "AddResourcePermissionsResponse");
   }
-}
-
-export enum BooleanEnumType {
-  FALSE = "FALSE",
-  TRUE = "TRUE"
 }
 
 /**
@@ -378,17 +520,6 @@ export namespace CommentMetadata {
   export function isa(o: any): o is CommentMetadata {
     return _smithy.isa(o, "CommentMetadata");
   }
-}
-
-export enum CommentStatusType {
-  DELETED = "DELETED",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED"
-}
-
-export enum CommentVisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC"
 }
 
 /**
@@ -1941,22 +2072,6 @@ export namespace DocumentMetadata {
   }
 }
 
-export enum DocumentSourceType {
-  ORIGINAL = "ORIGINAL",
-  WITH_COMMENTS = "WITH_COMMENTS"
-}
-
-export enum DocumentStatusType {
-  ACTIVE = "ACTIVE",
-  INITIALIZED = "INITIALIZED"
-}
-
-export enum DocumentThumbnailType {
-  LARGE = "LARGE",
-  SMALL = "SMALL",
-  SMALL_HQ = "SMALL_HQ"
-}
-
 /**
  *
  *         <p>Describes a version of a document.</p>
@@ -2062,10 +2177,6 @@ export namespace DocumentVersionMetadata {
   }
 }
 
-export enum DocumentVersionStatus {
-  ACTIVE = "ACTIVE"
-}
-
 /**
  *
  *         <p>This exception is thrown when a valid checkout ID is not presented on document
@@ -2148,12 +2259,6 @@ export namespace FailedDependencyException {
   export function isa(o: any): o is FailedDependencyException {
     return _smithy.isa(o, "FailedDependencyException");
   }
-}
-
-export enum FolderContentType {
-  ALL = "ALL",
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER"
 }
 
 /**
@@ -2896,20 +3001,6 @@ export namespace LimitExceededException {
   }
 }
 
-export enum LocaleType {
-  DE = "de",
-  DEFAULT = "default",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  JA = "ja",
-  KO = "ko",
-  PT_BR = "pt_BR",
-  RU = "ru",
-  ZH_CN = "zh_CN",
-  ZH_TW = "zh_TW"
-}
-
 /**
  *
  *         <p>Set of options which defines notification preferences of given action.</p>
@@ -2937,11 +3028,6 @@ export namespace NotificationOptions {
   export function isa(o: any): o is NotificationOptions {
     return _smithy.isa(o, "NotificationOptions");
   }
-}
-
-export enum OrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
 }
 
 /**
@@ -3033,14 +3119,6 @@ export namespace Principal {
   export function isa(o: any): o is Principal {
     return _smithy.isa(o, "Principal");
   }
-}
-
-export enum PrincipalType {
-  ANONYMOUS = "ANONYMOUS",
-  GROUP = "GROUP",
-  INVITE = "INVITE",
-  ORGANIZATION = "ORGANIZATION",
-  USER = "USER"
 }
 
 /**
@@ -3165,10 +3243,6 @@ export namespace ResourceAlreadyCheckedOutException {
   }
 }
 
-export enum ResourceCollectionType {
-  SHARED_WITH_ME = "SHARED_WITH_ME"
-}
-
 /**
  *
  *         <p>Describes the metadata of a resource.</p>
@@ -3282,35 +3356,6 @@ export namespace ResourcePathComponent {
   }
 }
 
-export enum ResourceSortType {
-  DATE = "DATE",
-  NAME = "NAME"
-}
-
-export enum ResourceStateType {
-  ACTIVE = "ACTIVE",
-  RECYCLED = "RECYCLED",
-  RECYCLING = "RECYCLING",
-  RESTORING = "RESTORING"
-}
-
-export enum ResourceType {
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER"
-}
-
-export enum RolePermissionType {
-  DIRECT = "DIRECT",
-  INHERITED = "INHERITED"
-}
-
-export enum RoleType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  COOWNER = "COOWNER",
-  OWNER = "OWNER",
-  VIEWER = "VIEWER"
-}
-
 /**
  *
  *         <p>One or more of the dependencies is unavailable.</p>
@@ -3422,11 +3467,6 @@ export namespace ShareResult {
   }
 }
 
-export enum ShareStatusType {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS"
-}
-
 /**
  *
  *         <p>The storage limit has been exceeded.</p>
@@ -3495,11 +3535,6 @@ export namespace StorageRuleType {
   }
 }
 
-export enum StorageType {
-  QUOTA = "QUOTA",
-  UNLIMITED = "UNLIMITED"
-}
-
 /**
  *
  *         <p>Describes a subscription.</p>
@@ -3533,14 +3568,6 @@ export namespace Subscription {
   export function isa(o: any): o is Subscription {
     return _smithy.isa(o, "Subscription");
   }
-}
-
-export enum SubscriptionProtocolType {
-  HTTPS = "HTTPS"
-}
-
-export enum SubscriptionType {
-  ALL = "ALL"
 }
 
 /**
@@ -3992,11 +4019,6 @@ export namespace User {
   }
 }
 
-export enum UserFilterType {
-  ACTIVE_PENDING = "ACTIVE_PENDING",
-  ALL = "ALL"
-}
-
 /**
  *
  *         <p>Describes the metadata of the user.</p>
@@ -4046,20 +4068,6 @@ export namespace UserMetadata {
   }
 }
 
-export enum UserSortType {
-  FULL_NAME = "FULL_NAME",
-  STORAGE_LIMIT = "STORAGE_LIMIT",
-  STORAGE_USED = "STORAGE_USED",
-  USER_NAME = "USER_NAME",
-  USER_STATUS = "USER_STATUS"
-}
-
-export enum UserStatusType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING"
-}
-
 /**
  *
  *         <p>Describes the storage for a user.</p>
@@ -4086,12 +4094,4 @@ export namespace UserStorageMetadata {
   export function isa(o: any): o is UserStorageMetadata {
     return _smithy.isa(o, "UserStorageMetadata");
   }
-}
-
-export enum UserType {
-  ADMIN = "ADMIN",
-  MINIMALUSER = "MINIMALUSER",
-  POWERUSER = "POWERUSER",
-  USER = "USER",
-  WORKSPACESUSER = "WORKSPACESUSER"
 }

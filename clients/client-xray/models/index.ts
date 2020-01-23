@@ -1,6 +1,26 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum EncryptionStatus {
+  ACTIVE = "ACTIVE",
+  UPDATING = "UPDATING"
+}
+
+export enum EncryptionType {
+  KMS = "KMS",
+  NONE = "NONE"
+}
+
+export enum SamplingStrategyName {
+  FixedRate = "FixedRate",
+  PartialScan = "PartialScan"
+}
+
+export enum TimeRangeType {
+  Event = "Event",
+  TraceId = "TraceId"
+}
+
 /**
  *
  *          <p>An alias for an edge.</p>
@@ -491,16 +511,6 @@ export namespace EncryptionConfig {
   export function isa(o: any): o is EncryptionConfig {
     return _smithy.isa(o, "EncryptionConfig");
   }
-}
-
-export enum EncryptionStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING"
-}
-
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE"
 }
 
 /**
@@ -2254,11 +2264,6 @@ export namespace SamplingStrategy {
   }
 }
 
-export enum SamplingStrategyName {
-  FixedRate = "FixedRate",
-  PartialScan = "PartialScan"
-}
-
 /**
  *
  *          <p>Temporary changes to a sampling rule configuration. To meet the global sampling target
@@ -2641,11 +2646,6 @@ export namespace ThrottledException {
   export function isa(o: any): o is ThrottledException {
     return _smithy.isa(o, "ThrottledException");
   }
-}
-
-export enum TimeRangeType {
-  Event = "Event",
-  TraceId = "TraceId"
 }
 
 /**

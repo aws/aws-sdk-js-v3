@@ -1,6 +1,24 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum GroupFilterName {
+  ResourceType = "resource-type"
+}
+
+export enum QueryErrorCode {
+  CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
+  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING"
+}
+
+export enum QueryType {
+  CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
+  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0"
+}
+
+export enum ResourceFilterName {
+  ResourceType = "resource-type"
+}
+
 /**
  *
  *          <p>The request does not comply with validation rules that are defined for the request parameters.</p>
@@ -310,10 +328,6 @@ export namespace GroupFilter {
   }
 }
 
-export enum GroupFilterName {
-  ResourceType = "resource-type"
-}
-
 /**
  *
  *          <p>The ARN and group name of a group.</p>
@@ -610,16 +624,6 @@ export namespace QueryError {
   }
 }
 
-export enum QueryErrorCode {
-  CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING"
-}
-
-export enum QueryType {
-  CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0"
-}
-
 /**
  *
  *          <p>A filter name and value pair that is used to obtain more specific results from a list of resources.</p>
@@ -646,10 +650,6 @@ export namespace ResourceFilter {
   export function isa(o: any): o is ResourceFilter {
     return _smithy.isa(o, "ResourceFilter");
   }
-}
-
-export enum ResourceFilterName {
-  ResourceType = "resource-type"
 }
 
 /**

@@ -1,6 +1,40 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum EnvironmentLifecycleStatus {
+  CREATED = "CREATED",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING"
+}
+
+export enum EnvironmentStatus {
+  CONNECTING = "connecting",
+  CREATING = "creating",
+  DELETING = "deleting",
+  ERROR = "error",
+  READY = "ready",
+  STOPPED = "stopped",
+  STOPPING = "stopping"
+}
+
+export enum EnvironmentType {
+  EC2 = "ec2",
+  SSH = "ssh"
+}
+
+export enum MemberPermissions {
+  READ_ONLY = "read-only",
+  READ_WRITE = "read-write"
+}
+
+export enum Permissions {
+  OWNER = "owner",
+  READ_ONLY = "read-only",
+  READ_WRITE = "read-write"
+}
+
 /**
  *
  *          <p>The target request is invalid.</p>
@@ -549,14 +583,6 @@ export namespace EnvironmentLifecycle {
   }
 }
 
-export enum EnvironmentLifecycleStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING"
-}
-
 /**
  *
  *          <p>Information about an environment member for an AWS Cloud9 development environment.</p>
@@ -618,21 +644,6 @@ export namespace EnvironmentMember {
   export function isa(o: any): o is EnvironmentMember {
     return _smithy.isa(o, "EnvironmentMember");
   }
-}
-
-export enum EnvironmentStatus {
-  CONNECTING = "connecting",
-  CREATING = "creating",
-  DELETING = "deleting",
-  ERROR = "error",
-  READY = "ready",
-  STOPPED = "stopped",
-  STOPPING = "stopping"
-}
-
-export enum EnvironmentType {
-  EC2 = "ec2",
-  SSH = "ssh"
 }
 
 /**
@@ -747,11 +758,6 @@ export namespace ListEnvironmentsResult {
   }
 }
 
-export enum MemberPermissions {
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write"
-}
-
 /**
  *
  *          <p>The target resource cannot be found.</p>
@@ -772,12 +778,6 @@ export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
     return _smithy.isa(o, "NotFoundException");
   }
-}
-
-export enum Permissions {
-  OWNER = "owner",
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write"
 }
 
 /**
