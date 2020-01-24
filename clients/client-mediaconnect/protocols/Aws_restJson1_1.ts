@@ -3025,7 +3025,9 @@ const collectBody = (
   streamBody: any,
   context: __SerdeContext
 ): Promise<Uint8Array> => {
-  return context.streamCollector(streamBody) || new Uint8Array();
+  return (
+    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
+  );
 };
 
 // Encode Uint8Array data into string with utf-8.
