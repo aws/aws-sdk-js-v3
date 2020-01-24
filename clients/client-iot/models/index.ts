@@ -1,166 +1,154 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum AbortAction {
-  CANCEL = "CANCEL"
+/**
+ *
+ *          <p>Unable to verify the CA certificate used to sign the device certificate you are
+ *          attempting to register. This is happens when you have registered more than one CA
+ *          certificate that has the same subject field and public key.</p>
+ *
+ */
+export interface CertificateConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CertificateConflictException";
+  name: "CertificateConflictException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum ActionType {
-  CONNECT = "CONNECT",
-  PUBLISH = "PUBLISH",
-  RECEIVE = "RECEIVE",
-  SUBSCRIBE = "SUBSCRIBE"
+export namespace CertificateConflictException {
+  export function isa(o: any): o is CertificateConflictException {
+    return _smithy.isa(o, "CertificateConflictException");
+  }
 }
 
-export enum AlertTargetType {
-  SNS = "SNS"
+/**
+ *
+ *          <p>The certificate operation is not allowed.</p>
+ *
+ */
+export interface CertificateStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CertificateStateException";
+  name: "CertificateStateException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum AuditCheckRunStatus {
-  CANCELED = "CANCELED",
-  COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
-  COMPLETED_NON_COMPLIANT = "COMPLETED_NON_COMPLIANT",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  WAITING_FOR_DATA_COLLECTION = "WAITING_FOR_DATA_COLLECTION"
+export namespace CertificateStateException {
+  export function isa(o: any): o is CertificateStateException {
+    return _smithy.isa(o, "CertificateStateException");
+  }
 }
 
-export enum AuditFindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM"
+/**
+ *
+ *          <p>The certificate is invalid.</p>
+ *
+ */
+export interface CertificateValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "CertificateValidationException";
+  name: "CertificateValidationException";
+  $fault: "client";
+  /**
+   *
+   *          <p>Additional information about the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum AuditFrequency {
-  BIWEEKLY = "BIWEEKLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY"
+export namespace CertificateValidationException {
+  export function isa(o: any): o is CertificateValidationException {
+    return _smithy.isa(o, "CertificateValidationException");
+  }
 }
 
-export enum AuditMitigationActionsExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED"
+/**
+ *
+ *          <p>Configuration.</p>
+ *
+ */
+export interface Configuration {
+  __type?: "Configuration";
+  /**
+   *
+   *          <p>True to enable the configuration.</p>
+   *
+   */
+  Enabled?: boolean;
 }
 
-export enum AuditMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+export namespace Configuration {
+  export function isa(o: any): o is Configuration {
+    return _smithy.isa(o, "Configuration");
+  }
 }
 
-export enum AuditNotificationType {
-  SNS = "SNS"
+/**
+ *
+ *          <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ *
+ */
+export interface ConflictingResourceUpdateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ConflictingResourceUpdateException";
+  name: "ConflictingResourceUpdateException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum AuditTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+export namespace ConflictingResourceUpdateException {
+  export function isa(o: any): o is ConflictingResourceUpdateException {
+    return _smithy.isa(o, "ConflictingResourceUpdateException");
+  }
 }
 
-export enum AuditTaskType {
-  ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
-  SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK"
+/**
+ *
+ *          <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ *
+ */
+export interface DeleteConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "DeleteConflictException";
+  name: "DeleteConflictException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum AuthDecision {
-  ALLOWED = "ALLOWED",
-  EXPLICIT_DENY = "EXPLICIT_DENY",
-  IMPLICIT_DENY = "IMPLICIT_DENY"
-}
-
-export enum AuthorizerStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
-}
-
-export enum AutoRegistrationStatus {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE"
-}
-
-export enum CACertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
-}
-
-export enum CACertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE"
-}
-
-export enum CannedAccessControlList {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  LogDeliveryWrite = "log-delivery-write",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write"
-}
-
-export enum CertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-  PENDING_TRANSFER = "PENDING_TRANSFER",
-  REGISTER_INACTIVE = "REGISTER_INACTIVE",
-  REVOKED = "REVOKED"
-}
-
-export enum ComparisonOperator {
-  GREATER_THAN = "greater-than",
-  GREATER_THAN_EQUALS = "greater-than-equals",
-  IN_CIDR_SET = "in-cidr-set",
-  IN_PORT_SET = "in-port-set",
-  LESS_THAN = "less-than",
-  LESS_THAN_EQUALS = "less-than-equals",
-  NOT_IN_CIDR_SET = "not-in-cidr-set",
-  NOT_IN_PORT_SET = "not-in-port-set"
-}
-
-export enum DayOfWeek {
-  FRI = "FRI",
-  MON = "MON",
-  SAT = "SAT",
-  SUN = "SUN",
-  THU = "THU",
-  TUE = "TUE",
-  WED = "WED"
-}
-
-export enum DeviceCertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE"
-}
-
-export enum DomainConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
-}
-
-export enum DomainType {
-  AWS_MANAGED = "AWS_MANAGED",
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
-  ENDPOINT = "ENDPOINT"
-}
-
-export enum DynamicGroupStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING"
-}
-
-export enum DynamoKeyType {
-  NUMBER = "NUMBER",
-  STRING = "STRING"
+export namespace DeleteConflictException {
+  export function isa(o: any): o is DeleteConflictException {
+    return _smithy.isa(o, "DeleteConflictException");
+  }
 }
 
 export enum EventType {
@@ -177,41 +165,201 @@ export enum EventType {
   THING_TYPE_ASSOCIATION = "THING_TYPE_ASSOCIATION"
 }
 
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  NUMBER = "Number",
-  STRING = "String"
+/**
+ *
+ *          <p>An unexpected error has occurred.</p>
+ *
+ */
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalException";
+  name: "InternalException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING"
+export namespace InternalException {
+  export function isa(o: any): o is InternalException {
+    return _smithy.isa(o, "InternalException");
+  }
 }
 
-export enum JobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT"
+/**
+ *
+ *          <p>An unexpected error has occurred.</p>
+ *
+ */
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InternalFailureException";
+  name: "InternalFailureException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
 }
 
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
+export namespace InternalFailureException {
+  export function isa(o: any): o is InternalFailureException {
+    return _smithy.isa(o, "InternalFailureException");
+  }
 }
 
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  IN_PROGRESS = "IN_PROGRESS"
+/**
+ *
+ *          <p>The aggregation is invalid.</p>
+ *
+ */
+export interface InvalidAggregationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidAggregationException";
+  name: "InvalidAggregationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidAggregationException {
+  export function isa(o: any): o is InvalidAggregationException {
+    return _smithy.isa(o, "InvalidAggregationException");
+  }
+}
+
+/**
+ *
+ *          <p>The query is invalid.</p>
+ *
+ */
+export interface InvalidQueryException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidQueryException";
+  name: "InvalidQueryException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidQueryException {
+  export function isa(o: any): o is InvalidQueryException {
+    return _smithy.isa(o, "InvalidQueryException");
+  }
+}
+
+/**
+ *
+ *          <p>The request is not valid.</p>
+ *
+ */
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidRequestException";
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  export function isa(o: any): o is InvalidRequestException {
+    return _smithy.isa(o, "InvalidRequestException");
+  }
+}
+
+/**
+ *
+ *          <p>The response is invalid.</p>
+ *
+ */
+export interface InvalidResponseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidResponseException";
+  name: "InvalidResponseException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidResponseException {
+  export function isa(o: any): o is InvalidResponseException {
+    return _smithy.isa(o, "InvalidResponseException");
+  }
+}
+
+/**
+ *
+ *          <p>An attempt was made to change to an invalid state, for example by deleting a job or a
+ *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
+ *          parameter.</p>
+ *
+ */
+export interface InvalidStateTransitionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidStateTransitionException";
+  name: "InvalidStateTransitionException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace InvalidStateTransitionException {
+  export function isa(o: any): o is InvalidStateTransitionException {
+    return _smithy.isa(o, "InvalidStateTransitionException");
+  }
+}
+
+/**
+ *
+ *          <p>A limit has been exceeded.</p>
+ *
+ */
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "LimitExceededException";
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  export function isa(o: any): o is LimitExceededException {
+    return _smithy.isa(o, "LimitExceededException");
+  }
 }
 
 export enum LogLevel {
@@ -222,195 +370,399 @@ export enum LogLevel {
   WARN = "WARN"
 }
 
-export enum LogTargetType {
-  DEFAULT = "DEFAULT",
-  THING_GROUP = "THING_GROUP"
-}
-
-export enum MessageFormat {
-  JSON = "JSON",
-  RAW = "RAW"
-}
-
-export enum MitigationActionType {
-  ADD_THINGS_TO_THING_GROUP = "ADD_THINGS_TO_THING_GROUP",
-  ENABLE_IOT_LOGGING = "ENABLE_IOT_LOGGING",
-  PUBLISH_FINDING_TO_SNS = "PUBLISH_FINDING_TO_SNS",
-  REPLACE_DEFAULT_POLICY_VERSION = "REPLACE_DEFAULT_POLICY_VERSION",
-  UPDATE_CA_CERTIFICATE = "UPDATE_CA_CERTIFICATE",
-  UPDATE_DEVICE_CERTIFICATE = "UPDATE_DEVICE_CERTIFICATE"
-}
-
-export enum OTAUpdateStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING"
-}
-
-export enum PolicyTemplateName {
-  BLANK_POLICY = "BLANK_POLICY"
-}
-
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS"
-}
-
-export enum ResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CLIENT_ID = "CLIENT_ID",
-  COGNITO_IDENTITY_POOL = "COGNITO_IDENTITY_POOL",
-  DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
-  IAM_ROLE = "IAM_ROLE",
-  IOT_POLICY = "IOT_POLICY",
-  ROLE_ALIAS = "ROLE_ALIAS"
-}
-
-export enum ServerCertificateStatus {
-  INVALID = "INVALID",
-  VALID = "VALID"
-}
-
-export enum ServiceType {
-  CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
-  DATA = "DATA",
-  JOBS = "JOBS"
-}
-
-export enum Status {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Completed = "Completed",
-  Failed = "Failed",
-  InProgress = "InProgress"
-}
-
-export enum TargetSelection {
-  CONTINUOUS = "CONTINUOUS",
-  SNAPSHOT = "SNAPSHOT"
-}
-
-export enum ThingConnectivityIndexingMode {
-  OFF = "OFF",
-  STATUS = "STATUS"
-}
-
-export enum ThingGroupIndexingMode {
-  OFF = "OFF",
-  ON = "ON"
-}
-
-export enum ThingIndexingMode {
-  OFF = "OFF",
-  REGISTRY = "REGISTRY",
-  REGISTRY_AND_SHADOW = "REGISTRY_AND_SHADOW"
-}
-
-export enum TopicRuleDestinationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS"
-}
-
-export enum ViolationEventType {
-  ALARM_CLEARED = "alarm-cleared",
-  ALARM_INVALIDATED = "alarm-invalidated",
-  IN_ALARM = "in-alarm"
-}
-
 /**
  *
- *         <p>Details of abort criteria to abort the job.</p>
+ *          <p>The policy documentation is not valid.</p>
  *
  */
-export interface AbortConfig {
-  __type?: "AbortConfig";
+export interface MalformedPolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "MalformedPolicyException";
+  name: "MalformedPolicyException";
+  $fault: "client";
   /**
    *
-   *         <p>The list of abort criteria to define rules to abort the job.</p>
+   *          <p>The message for the exception.</p>
    *
    */
-  criteriaList: Array<AbortCriteria> | undefined;
+  message?: string;
 }
 
-export namespace AbortConfig {
-  export function isa(o: any): o is AbortConfig {
-    return _smithy.isa(o, "AbortConfig");
+export namespace MalformedPolicyException {
+  export function isa(o: any): o is MalformedPolicyException {
+    return _smithy.isa(o, "MalformedPolicyException");
   }
 }
 
 /**
  *
- *         <p>Details of abort criteria to define rules to abort the job.</p>
+ *          <p>The resource is not configured.</p>
  *
  */
-export interface AbortCriteria {
-  __type?: "AbortCriteria";
+export interface NotConfiguredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "NotConfiguredException";
+  name: "NotConfiguredException";
+  $fault: "client";
   /**
    *
-   *         <p>The type of abort action to initiate a job abort.</p>
+   *          <p>The message for the exception.</p>
    *
    */
-  action: AbortAction | string | undefined;
-
-  /**
-   *
-   *         <p>The type of job execution failure to define a rule to initiate a job abort.</p>
-   *
-   */
-  failureType: JobExecutionFailureType | string | undefined;
-
-  /**
-   *
-   *         <p>Minimum number of executed things before evaluating an abort rule.</p>
-   *
-   */
-  minNumberOfExecutedThings: number | undefined;
-
-  /**
-   *
-   *         <p>The threshold as a percentage of the total number of executed things that will initiate a job abort.</p>
-   *         <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
-   *
-   */
-  thresholdPercentage: number | undefined;
+  message?: string;
 }
 
-export namespace AbortCriteria {
-  export function isa(o: any): o is AbortCriteria {
-    return _smithy.isa(o, "AbortCriteria");
+export namespace NotConfiguredException {
+  export function isa(o: any): o is NotConfiguredException {
+    return _smithy.isa(o, "NotConfiguredException");
   }
 }
 
 /**
  *
- *          <p>The input for the AcceptCertificateTransfer operation.</p>
+ *          <p>The registration code is invalid.</p>
  *
  */
-export interface AcceptCertificateTransferRequest {
-  __type?: "AcceptCertificateTransferRequest";
+export interface RegistrationCodeValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "RegistrationCodeValidationException";
+  name: "RegistrationCodeValidationException";
+  $fault: "client";
   /**
    *
-   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
+   *          <p>Additional information about the exception.</p>
    *
    */
-  certificateId: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies whether the certificate is active.</p>
-   *
-   */
-  setAsActive?: boolean;
+  message?: string;
 }
 
-export namespace AcceptCertificateTransferRequest {
-  export function isa(o: any): o is AcceptCertificateTransferRequest {
-    return _smithy.isa(o, "AcceptCertificateTransferRequest");
+export namespace RegistrationCodeValidationException {
+  export function isa(o: any): o is RegistrationCodeValidationException {
+    return _smithy.isa(o, "RegistrationCodeValidationException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource already exists.</p>
+ *
+ */
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceAlreadyExistsException";
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   *          <p>The ARN of the resource that caused the exception.</p>
+   *
+   */
+  resourceArn?: string;
+
+  /**
+   *
+   *          <p>The ID of the resource that caused the exception.</p>
+   *
+   */
+  resourceId?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  export function isa(o: any): o is ResourceAlreadyExistsException {
+    return _smithy.isa(o, "ResourceAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource does not exist.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
+
+/**
+ *
+ *          <p>The resource registration failed.</p>
+ *
+ */
+export interface ResourceRegistrationFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceRegistrationFailureException";
+  name: "ResourceRegistrationFailureException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ResourceRegistrationFailureException {
+  export function isa(o: any): o is ResourceRegistrationFailureException {
+    return _smithy.isa(o, "ResourceRegistrationFailureException");
+  }
+}
+
+/**
+ *
+ *          <p>The service is temporarily unavailable.</p>
+ *
+ */
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ServiceUnavailableException";
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export function isa(o: any): o is ServiceUnavailableException {
+    return _smithy.isa(o, "ServiceUnavailableException");
+  }
+}
+
+/**
+ *
+ *          <p>The Rule-SQL expression can't be parsed correctly.</p>
+ *
+ */
+export interface SqlParseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "SqlParseException";
+  name: "SqlParseException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace SqlParseException {
+  export function isa(o: any): o is SqlParseException {
+    return _smithy.isa(o, "SqlParseException");
+  }
+}
+
+/**
+ *
+ *          <p>A set of key/value pairs that are used to manage the resource.</p>
+ *
+ */
+export interface Tag {
+  __type?: "Tag";
+  /**
+   *
+   *          <p>The tag's key.</p>
+   *
+   */
+  Key?: string;
+
+  /**
+   *
+   *          <p>The tag's value.</p>
+   *
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  export function isa(o: any): o is Tag {
+    return _smithy.isa(o, "Tag");
+  }
+}
+
+/**
+ *
+ *          <p>The rate exceeds the limit.</p>
+ *
+ */
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ThrottlingException";
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export function isa(o: any): o is ThrottlingException {
+    return _smithy.isa(o, "ThrottlingException");
+  }
+}
+
+/**
+ *
+ *          <p>You can't revert the certificate transfer because the transfer is already
+ *          complete.</p>
+ *
+ */
+export interface TransferAlreadyCompletedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TransferAlreadyCompletedException";
+  name: "TransferAlreadyCompletedException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace TransferAlreadyCompletedException {
+  export function isa(o: any): o is TransferAlreadyCompletedException {
+    return _smithy.isa(o, "TransferAlreadyCompletedException");
+  }
+}
+
+/**
+ *
+ *          <p>You can't transfer the certificate because authorization policies are still
+ *          attached.</p>
+ *
+ */
+export interface TransferConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TransferConflictException";
+  name: "TransferConflictException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace TransferConflictException {
+  export function isa(o: any): o is TransferConflictException {
+    return _smithy.isa(o, "TransferConflictException");
+  }
+}
+
+/**
+ *
+ *          <p>You are not authorized to perform this operation.</p>
+ *
+ */
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "UnauthorizedException";
+  name: "UnauthorizedException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace UnauthorizedException {
+  export function isa(o: any): o is UnauthorizedException {
+    return _smithy.isa(o, "UnauthorizedException");
+  }
+}
+
+/**
+ *
+ *          <p>An exception thrown when the version of an entity specified with the
+ *             <code>expectedVersion</code> parameter does not match the latest version in the
+ *          system.</p>
+ *
+ */
+export interface VersionConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "VersionConflictException";
+  name: "VersionConflictException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace VersionConflictException {
+  export function isa(o: any): o is VersionConflictException {
+    return _smithy.isa(o, "VersionConflictException");
+  }
+}
+
+/**
+ *
+ *          <p>The number of policy versions exceeds the limit.</p>
+ *
+ */
+export interface VersionsLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "VersionsLimitExceededException";
+  name: "VersionsLimitExceededException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace VersionsLimitExceededException {
+  export function isa(o: any): o is VersionsLimitExceededException {
+    return _smithy.isa(o, "VersionsLimitExceededException");
   }
 }
 
@@ -559,251 +911,6 @@ export namespace Action {
 
 /**
  *
- *          <p>Information about an active Device Defender security profile behavior violation.</p>
- *
- */
-export interface ActiveViolation {
-  __type?: "ActiveViolation";
-  /**
-   *
-   *          <p>The behavior which is being violated.</p>
-   *
-   */
-  behavior?: Behavior;
-
-  /**
-   *
-   *          <p>The time the most recent violation occurred.</p>
-   *
-   */
-  lastViolationTime?: Date;
-
-  /**
-   *
-   *          <p>The value of the metric (the measurement) which caused the most recent violation.</p>
-   *
-   */
-  lastViolationValue?: MetricValue;
-
-  /**
-   *
-   *          <p>The security profile whose behavior is in violation.</p>
-   *
-   */
-  securityProfileName?: string;
-
-  /**
-   *
-   *          <p>The name of the thing responsible for the active violation.</p>
-   *
-   */
-  thingName?: string;
-
-  /**
-   *
-   *          <p>The ID of the active violation.</p>
-   *
-   */
-  violationId?: string;
-
-  /**
-   *
-   *          <p>The time the violation started.</p>
-   *
-   */
-  violationStartTime?: Date;
-}
-
-export namespace ActiveViolation {
-  export function isa(o: any): o is ActiveViolation {
-    return _smithy.isa(o, "ActiveViolation");
-  }
-}
-
-export interface AddThingToBillingGroupRequest {
-  __type?: "AddThingToBillingGroupRequest";
-  /**
-   *
-   * 		       <p>The ARN of the billing group.</p>
-   *
-   */
-  billingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The name of the billing group.</p>
-   *
-   */
-  billingGroupName?: string;
-
-  /**
-   *
-   * 		       <p>The ARN of the thing to be added to the billing group.</p>
-   *
-   */
-  thingArn?: string;
-
-  /**
-   *
-   * 		       <p>The name of the thing to be added to the billing group.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace AddThingToBillingGroupRequest {
-  export function isa(o: any): o is AddThingToBillingGroupRequest {
-    return _smithy.isa(o, "AddThingToBillingGroupRequest");
-  }
-}
-
-export interface AddThingToBillingGroupResponse extends $MetadataBearer {
-  __type?: "AddThingToBillingGroupResponse";
-}
-
-export namespace AddThingToBillingGroupResponse {
-  export function isa(o: any): o is AddThingToBillingGroupResponse {
-    return _smithy.isa(o, "AddThingToBillingGroupResponse");
-  }
-}
-
-export interface AddThingToThingGroupRequest {
-  __type?: "AddThingToThingGroupRequest";
-  /**
-   *
-   * 		       <p>Override dynamic thing groups with static thing groups when 10-group limit is
-   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
-   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
-   * 			dynamic group.</p>
-   *
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
-   *
-   * 		       <p>The ARN of the thing to add to a group.</p>
-   *
-   */
-  thingArn?: string;
-
-  /**
-   *
-   * 		       <p>The ARN of the group to which you are adding a thing.</p>
-   *
-   */
-  thingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The name of the group to which you are adding a thing.</p>
-   *
-   */
-  thingGroupName?: string;
-
-  /**
-   *
-   * 		       <p>The name of the thing to add to a group.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace AddThingToThingGroupRequest {
-  export function isa(o: any): o is AddThingToThingGroupRequest {
-    return _smithy.isa(o, "AddThingToThingGroupRequest");
-  }
-}
-
-export interface AddThingToThingGroupResponse extends $MetadataBearer {
-  __type?: "AddThingToThingGroupResponse";
-}
-
-export namespace AddThingToThingGroupResponse {
-  export function isa(o: any): o is AddThingToThingGroupResponse {
-    return _smithy.isa(o, "AddThingToThingGroupResponse");
-  }
-}
-
-/**
- *
- *         <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
- *
- */
-export interface AddThingsToThingGroupParams {
-  __type?: "AddThingsToThingGroupParams";
-  /**
-   *
-   *         <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
-   *
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
-   *
-   *         <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
-   *
-   */
-  thingGroupNames: Array<string> | undefined;
-}
-
-export namespace AddThingsToThingGroupParams {
-  export function isa(o: any): o is AddThingsToThingGroupParams {
-    return _smithy.isa(o, "AddThingsToThingGroupParams");
-  }
-}
-
-/**
- *
- *          <p>A structure containing the alert target ARN and the role ARN.</p>
- *
- */
-export interface AlertTarget {
-  __type?: "AlertTarget";
-  /**
-   *
-   *          <p>The ARN of the notification target to which alerts are sent.</p>
-   *
-   */
-  alertTargetArn: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the role that grants permission to send alerts to the
-   *         notification target.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace AlertTarget {
-  export function isa(o: any): o is AlertTarget {
-    return _smithy.isa(o, "AlertTarget");
-  }
-}
-
-/**
- *
- *          <p>Contains information that allowed the authorization.</p>
- *
- */
-export interface Allowed {
-  __type?: "Allowed";
-  /**
-   *
-   *          <p>A list of policies that allowed the authentication.</p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace Allowed {
-  export function isa(o: any): o is Allowed {
-    return _smithy.isa(o, "Allowed");
-  }
-}
-
-/**
- *
  *          <p>An asset property timestamp entry containing the following information.</p>
  *
  */
@@ -913,63 +1020,2225 @@ export namespace AssetPropertyVariant {
   }
 }
 
-export interface AssociateTargetsWithJobRequest {
-  __type?: "AssociateTargetsWithJobRequest";
-  /**
-   *
-   *         <p>An optional comment string describing why the job was associated with the targets.</p>
-   *
-   */
-  comment?: string;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>A list of thing group ARNs that define the targets of the job.</p>
-   *
-   */
-  targets: Array<string> | undefined;
+export enum CannedAccessControlList {
+  AuthenticatedRead = "authenticated-read",
+  AwsExecRead = "aws-exec-read",
+  BucketOwnerFullControl = "bucket-owner-full-control",
+  BucketOwnerRead = "bucket-owner-read",
+  LogDeliveryWrite = "log-delivery-write",
+  Private = "private",
+  PublicRead = "public-read",
+  PublicReadWrite = "public-read-write"
 }
 
-export namespace AssociateTargetsWithJobRequest {
-  export function isa(o: any): o is AssociateTargetsWithJobRequest {
-    return _smithy.isa(o, "AssociateTargetsWithJobRequest");
+/**
+ *
+ *          <p>Describes an action that updates a CloudWatch alarm.</p>
+ *
+ */
+export interface CloudwatchAlarmAction {
+  __type?: "CloudwatchAlarmAction";
+  /**
+   *
+   *          <p>The CloudWatch alarm name.</p>
+   *
+   */
+  alarmName: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role that allows access to the CloudWatch alarm.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The reason for the alarm change.</p>
+   *
+   */
+  stateReason: string | undefined;
+
+  /**
+   *
+   *          <p>The value of the alarm state. Acceptable values are: OK, ALARM,
+   *          INSUFFICIENT_DATA.</p>
+   *
+   */
+  stateValue: string | undefined;
+}
+
+export namespace CloudwatchAlarmAction {
+  export function isa(o: any): o is CloudwatchAlarmAction {
+    return _smithy.isa(o, "CloudwatchAlarmAction");
   }
 }
 
-export interface AssociateTargetsWithJobResponse extends $MetadataBearer {
-  __type?: "AssociateTargetsWithJobResponse";
+/**
+ *
+ *          <p>Describes an action that captures a CloudWatch metric.</p>
+ *
+ */
+export interface CloudwatchMetricAction {
+  __type?: "CloudwatchMetricAction";
   /**
    *
-   *         <p>A short text description of the job.</p>
+   *          <p>The CloudWatch metric name.</p>
+   *
+   */
+  metricName: string | undefined;
+
+  /**
+   *
+   *          <p>The CloudWatch metric namespace name.</p>
+   *
+   */
+  metricNamespace: string | undefined;
+
+  /**
+   *
+   *          <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
+   *
+   */
+  metricTimestamp?: string;
+
+  /**
+   *
+   *          <p>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
+   *             unit</a> supported by CloudWatch.</p>
+   *
+   */
+  metricUnit: string | undefined;
+
+  /**
+   *
+   *          <p>The CloudWatch metric value.</p>
+   *
+   */
+  metricValue: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role that allows access to the CloudWatch metric.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace CloudwatchMetricAction {
+  export function isa(o: any): o is CloudwatchMetricAction {
+    return _smithy.isa(o, "CloudwatchMetricAction");
+  }
+}
+
+export interface ConfirmTopicRuleDestinationRequest {
+  __type?: "ConfirmTopicRuleDestinationRequest";
+  /**
+   *
+   *          <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
+   *
+   */
+  confirmationToken: string | undefined;
+}
+
+export namespace ConfirmTopicRuleDestinationRequest {
+  export function isa(o: any): o is ConfirmTopicRuleDestinationRequest {
+    return _smithy.isa(o, "ConfirmTopicRuleDestinationRequest");
+  }
+}
+
+export interface ConfirmTopicRuleDestinationResponse extends $MetadataBearer {
+  __type?: "ConfirmTopicRuleDestinationResponse";
+}
+
+export namespace ConfirmTopicRuleDestinationResponse {
+  export function isa(o: any): o is ConfirmTopicRuleDestinationResponse {
+    return _smithy.isa(o, "ConfirmTopicRuleDestinationResponse");
+  }
+}
+
+export interface CreateTopicRuleDestinationRequest {
+  __type?: "CreateTopicRuleDestinationRequest";
+  /**
+   *
+   *          <p>The topic rule destination configuration.</p>
+   *
+   */
+  destinationConfiguration: TopicRuleDestinationConfiguration | undefined;
+}
+
+export namespace CreateTopicRuleDestinationRequest {
+  export function isa(o: any): o is CreateTopicRuleDestinationRequest {
+    return _smithy.isa(o, "CreateTopicRuleDestinationRequest");
+  }
+}
+
+export interface CreateTopicRuleDestinationResponse extends $MetadataBearer {
+  __type?: "CreateTopicRuleDestinationResponse";
+  /**
+   *
+   *          <p>The topic rule destination.</p>
+   *
+   */
+  topicRuleDestination?: TopicRuleDestination;
+}
+
+export namespace CreateTopicRuleDestinationResponse {
+  export function isa(o: any): o is CreateTopicRuleDestinationResponse {
+    return _smithy.isa(o, "CreateTopicRuleDestinationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the CreateTopicRule operation.</p>
+ *
+ */
+export interface CreateTopicRuleRequest {
+  __type?: "CreateTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName: string | undefined;
+
+  /**
+   *
+   *          <p>Metadata which can be used to manage the topic rule.</p>
+   *          <note>
+   *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
+   *             <p>For the CLI command-line parameter use format: --tags
+   *             "key1=value1&key2=value2..."</p>
+   *             <p>For the cli-input-json file use format: "tags":
+   *             "key1=value1&key2=value2..."</p>
+   *          </note>
+   *
+   */
+  tags?: string;
+
+  /**
+   *
+   *          <p>The rule payload.</p>
+   *
+   */
+  topicRulePayload: TopicRulePayload | undefined;
+}
+
+export namespace CreateTopicRuleRequest {
+  export function isa(o: any): o is CreateTopicRuleRequest {
+    return _smithy.isa(o, "CreateTopicRuleRequest");
+  }
+}
+
+export interface DeleteTopicRuleDestinationRequest {
+  __type?: "DeleteTopicRuleDestinationRequest";
+  /**
+   *
+   *          <p>The ARN of the topic rule destination to delete.</p>
+   *
+   */
+  arn: string | undefined;
+}
+
+export namespace DeleteTopicRuleDestinationRequest {
+  export function isa(o: any): o is DeleteTopicRuleDestinationRequest {
+    return _smithy.isa(o, "DeleteTopicRuleDestinationRequest");
+  }
+}
+
+export interface DeleteTopicRuleDestinationResponse extends $MetadataBearer {
+  __type?: "DeleteTopicRuleDestinationResponse";
+}
+
+export namespace DeleteTopicRuleDestinationResponse {
+  export function isa(o: any): o is DeleteTopicRuleDestinationResponse {
+    return _smithy.isa(o, "DeleteTopicRuleDestinationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the DeleteTopicRule operation.</p>
+ *
+ */
+export interface DeleteTopicRuleRequest {
+  __type?: "DeleteTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName: string | undefined;
+}
+
+export namespace DeleteTopicRuleRequest {
+  export function isa(o: any): o is DeleteTopicRuleRequest {
+    return _smithy.isa(o, "DeleteTopicRuleRequest");
+  }
+}
+
+export interface DeleteV2LoggingLevelRequest {
+  __type?: "DeleteV2LoggingLevelRequest";
+  /**
+   *
+   *          <p>The name of the resource for which you are configuring logging.</p>
+   *
+   */
+  targetName: string | undefined;
+
+  /**
+   *
+   *          <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   *
+   */
+  targetType: LogTargetType | string | undefined;
+}
+
+export namespace DeleteV2LoggingLevelRequest {
+  export function isa(o: any): o is DeleteV2LoggingLevelRequest {
+    return _smithy.isa(o, "DeleteV2LoggingLevelRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the DisableTopicRuleRequest operation.</p>
+ *
+ */
+export interface DisableTopicRuleRequest {
+  __type?: "DisableTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the rule to disable.</p>
+   *
+   */
+  ruleName: string | undefined;
+}
+
+export namespace DisableTopicRuleRequest {
+  export function isa(o: any): o is DisableTopicRuleRequest {
+    return _smithy.isa(o, "DisableTopicRuleRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to write to a DynamoDB table.</p>
+ *          <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code>
+ *          values must match the values used when you created the table.</p>
+ *          <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a
+ *          substitution template syntax. These templates provide data at runtime. The syntax is as
+ *          follows: ${<i>sql-expression</i>}.</p>
+ *          <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON
+ *          properties, comparisons, calculations, and functions. For example, the following field uses
+ *          the third level of the topic:</p>
+ *          <p>
+ *             <code>"hashKeyValue": "${topic(3)}"</code>
+ *          </p>
+ *          <p>The following field uses the timestamp:</p>
+ *          <p>
+ *             <code>"rangeKeyValue": "${timestamp()}"</code>
+ *          </p>
+ *
+ */
+export interface DynamoDBAction {
+  __type?: "DynamoDBAction";
+  /**
+   *
+   *          <p>The hash key name.</p>
+   *
+   */
+  hashKeyField: string | undefined;
+
+  /**
+   *
+   *          <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
+   *
+   */
+  hashKeyType?: DynamoKeyType | string;
+
+  /**
+   *
+   *          <p>The hash key value.</p>
+   *
+   */
+  hashKeyValue: string | undefined;
+
+  /**
+   *
+   *          <p>The type of operation to be performed. This follows the substitution template, so it
+   *          can be <code>${operation}</code>, but the substitution must result in one of the following:
+   *             <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
+   *
+   */
+  operation?: string;
+
+  /**
+   *
+   *          <p>The action payload. This name can be customized.</p>
+   *
+   */
+  payloadField?: string;
+
+  /**
+   *
+   *          <p>The range key name.</p>
+   *
+   */
+  rangeKeyField?: string;
+
+  /**
+   *
+   *          <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
+   *
+   */
+  rangeKeyType?: DynamoKeyType | string;
+
+  /**
+   *
+   *          <p>The range key value.</p>
+   *
+   */
+  rangeKeyValue?: string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the DynamoDB table.</p>
+   *
+   */
+  tableName: string | undefined;
+}
+
+export namespace DynamoDBAction {
+  export function isa(o: any): o is DynamoDBAction {
+    return _smithy.isa(o, "DynamoDBAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to write to a DynamoDB table.</p>
+ *          <p>This DynamoDB action writes each attribute in the message payload into it's own
+ *          column in the DynamoDB table.</p>
+ *
+ */
+export interface DynamoDBv2Action {
+  __type?: "DynamoDBv2Action";
+  /**
+   *
+   *          <p>Specifies the DynamoDB table to which the message data will be written. For
+   *          example:</p>
+   *          <p>
+   *             <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName":
+   *             "my-table" } } }</code>
+   *          </p>
+   *          <p>Each attribute in the message payload will be written to a separate column in the
+   *          DynamoDB database.</p>
+   *
+   */
+  putItem: PutItemInput | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace DynamoDBv2Action {
+  export function isa(o: any): o is DynamoDBv2Action {
+    return _smithy.isa(o, "DynamoDBv2Action");
+  }
+}
+
+export enum DynamoKeyType {
+  NUMBER = "NUMBER",
+  STRING = "STRING"
+}
+
+/**
+ *
+ *          <p>Describes an action that writes data to an Amazon Elasticsearch Service
+ *          domain.</p>
+ *
+ */
+export interface ElasticsearchAction {
+  __type?: "ElasticsearchAction";
+  /**
+   *
+   *          <p>The endpoint of your Elasticsearch domain.</p>
+   *
+   */
+  endpoint: string | undefined;
+
+  /**
+   *
+   *          <p>The unique identifier for the document you are storing.</p>
+   *
+   */
+  id: string | undefined;
+
+  /**
+   *
+   *          <p>The Elasticsearch index where you want to store your data.</p>
+   *
+   */
+  index: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role ARN that has access to Elasticsearch.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The type of document you are storing.</p>
+   *
+   */
+  type: string | undefined;
+}
+
+export namespace ElasticsearchAction {
+  export function isa(o: any): o is ElasticsearchAction {
+    return _smithy.isa(o, "ElasticsearchAction");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the EnableTopicRuleRequest operation.</p>
+ *
+ */
+export interface EnableTopicRuleRequest {
+  __type?: "EnableTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the topic rule to enable.</p>
+   *
+   */
+  ruleName: string | undefined;
+}
+
+export namespace EnableTopicRuleRequest {
+  export function isa(o: any): o is EnableTopicRuleRequest {
+    return _smithy.isa(o, "EnableTopicRuleRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
+ *
+ */
+export interface FirehoseAction {
+  __type?: "FirehoseAction";
+  /**
+   *
+   *          <p>The delivery stream name.</p>
+   *
+   */
+  deliveryStreamName: string | undefined;
+
+  /**
+   *
+   *          <p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>A character separator that will be used to separate records written to the Firehose
+   *          stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ','
+   *          (comma).</p>
+   *
+   */
+  separator?: string;
+}
+
+export namespace FirehoseAction {
+  export function isa(o: any): o is FirehoseAction {
+    return _smithy.isa(o, "FirehoseAction");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the GetLoggingOptions operation.</p>
+ *
+ */
+export interface GetLoggingOptionsRequest {
+  __type?: "GetLoggingOptionsRequest";
+}
+
+export namespace GetLoggingOptionsRequest {
+  export function isa(o: any): o is GetLoggingOptionsRequest {
+    return _smithy.isa(o, "GetLoggingOptionsRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the GetLoggingOptions operation.</p>
+ *
+ */
+export interface GetLoggingOptionsResponse extends $MetadataBearer {
+  __type?: "GetLoggingOptionsResponse";
+  /**
+   *
+   *          <p>The logging level.</p>
+   *
+   */
+  logLevel?: LogLevel | string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace GetLoggingOptionsResponse {
+  export function isa(o: any): o is GetLoggingOptionsResponse {
+    return _smithy.isa(o, "GetLoggingOptionsResponse");
+  }
+}
+
+export interface GetTopicRuleDestinationRequest {
+  __type?: "GetTopicRuleDestinationRequest";
+  /**
+   *
+   *          <p>The ARN of the topic rule destination.</p>
+   *
+   */
+  arn: string | undefined;
+}
+
+export namespace GetTopicRuleDestinationRequest {
+  export function isa(o: any): o is GetTopicRuleDestinationRequest {
+    return _smithy.isa(o, "GetTopicRuleDestinationRequest");
+  }
+}
+
+export interface GetTopicRuleDestinationResponse extends $MetadataBearer {
+  __type?: "GetTopicRuleDestinationResponse";
+  /**
+   *
+   *          <p>The topic rule destination.</p>
+   *
+   */
+  topicRuleDestination?: TopicRuleDestination;
+}
+
+export namespace GetTopicRuleDestinationResponse {
+  export function isa(o: any): o is GetTopicRuleDestinationResponse {
+    return _smithy.isa(o, "GetTopicRuleDestinationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the GetTopicRule operation.</p>
+ *
+ */
+export interface GetTopicRuleRequest {
+  __type?: "GetTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName: string | undefined;
+}
+
+export namespace GetTopicRuleRequest {
+  export function isa(o: any): o is GetTopicRuleRequest {
+    return _smithy.isa(o, "GetTopicRuleRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the GetTopicRule operation.</p>
+ *
+ */
+export interface GetTopicRuleResponse extends $MetadataBearer {
+  __type?: "GetTopicRuleResponse";
+  /**
+   *
+   *          <p>The rule.</p>
+   *
+   */
+  rule?: TopicRule;
+
+  /**
+   *
+   *          <p>The rule ARN.</p>
+   *
+   */
+  ruleArn?: string;
+}
+
+export namespace GetTopicRuleResponse {
+  export function isa(o: any): o is GetTopicRuleResponse {
+    return _smithy.isa(o, "GetTopicRuleResponse");
+  }
+}
+
+export interface GetV2LoggingOptionsRequest {
+  __type?: "GetV2LoggingOptionsRequest";
+}
+
+export namespace GetV2LoggingOptionsRequest {
+  export function isa(o: any): o is GetV2LoggingOptionsRequest {
+    return _smithy.isa(o, "GetV2LoggingOptionsRequest");
+  }
+}
+
+export interface GetV2LoggingOptionsResponse extends $MetadataBearer {
+  __type?: "GetV2LoggingOptionsResponse";
+  /**
+   *
+   *          <p>The default log level.</p>
+   *
+   */
+  defaultLogLevel?: LogLevel | string;
+
+  /**
+   *
+   *          <p>Disables all logs.</p>
+   *
+   */
+  disableAllLogs?: boolean;
+
+  /**
+   *
+   *
+   *          <p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>
+   *
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace GetV2LoggingOptionsResponse {
+  export function isa(o: any): o is GetV2LoggingOptionsResponse {
+    return _smithy.isa(o, "GetV2LoggingOptionsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Send data to an HTTPS endpoint.</p>
+ *
+ */
+export interface HttpAction {
+  __type?: "HttpAction";
+  /**
+   *
+   *          <p>The authentication method to use when sending data to an HTTPS endpoint.</p>
+   *
+   */
+  auth?: HttpAuthorization;
+
+  /**
+   *
+   *          <p>The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL
+   *          must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses
+   *          the endpoint URL as the confirmation URL. If you use substitution templates in the
+   *          confirmationUrl, you must create and enable topic rule destinations that match each
+   *          possible value of the substituion template before traffic is allowed to your endpoint
+   *          URL.</p>
+   *
+   */
+  confirmationUrl?: string;
+
+  /**
+   *
+   *          <p>The HTTP headers to send with the message data.</p>
+   *
+   */
+  headers?: Array<HttpActionHeader>;
+
+  /**
+   *
+   *          <p>The endpoint URL. If substitution templates are used in the URL, you must also specify a
+   *             <code>confirmationUrl</code>. If this is a new destination, a new
+   *             <code>TopicRuleDestination</code> is created if possible.</p>
+   *
+   */
+  url: string | undefined;
+}
+
+export namespace HttpAction {
+  export function isa(o: any): o is HttpAction {
+    return _smithy.isa(o, "HttpAction");
+  }
+}
+
+/**
+ *
+ *          <p>The HTTP action header.</p>
+ *
+ */
+export interface HttpActionHeader {
+  __type?: "HttpActionHeader";
+  /**
+   *
+   *          <p>The HTTP header key.</p>
+   *
+   */
+  key: string | undefined;
+
+  /**
+   *
+   *          <p>The HTTP header value. Substitution templates are supported.</p>
+   *
+   */
+  value: string | undefined;
+}
+
+export namespace HttpActionHeader {
+  export function isa(o: any): o is HttpActionHeader {
+    return _smithy.isa(o, "HttpActionHeader");
+  }
+}
+
+/**
+ *
+ *          <p>The authorization method used to send messages.</p>
+ *
+ */
+export interface HttpAuthorization {
+  __type?: "HttpAuthorization";
+  /**
+   *
+   *          <p>Use Sig V4 authorization. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+   *             Version 4 Signing Process</a>.</p>
+   *
+   */
+  sigv4?: SigV4Authorization;
+}
+
+export namespace HttpAuthorization {
+  export function isa(o: any): o is HttpAuthorization {
+    return _smithy.isa(o, "HttpAuthorization");
+  }
+}
+
+/**
+ *
+ *          <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
+ *
+ */
+export interface HttpUrlDestinationConfiguration {
+  __type?: "HttpUrlDestinationConfiguration";
+  /**
+   *
+   *          <p>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination
+   *          URL.</p>
+   *
+   */
+  confirmationUrl: string | undefined;
+}
+
+export namespace HttpUrlDestinationConfiguration {
+  export function isa(o: any): o is HttpUrlDestinationConfiguration {
+    return _smithy.isa(o, "HttpUrlDestinationConfiguration");
+  }
+}
+
+/**
+ *
+ *          <p>HTTP URL destination properties.</p>
+ *
+ */
+export interface HttpUrlDestinationProperties {
+  __type?: "HttpUrlDestinationProperties";
+  /**
+   *
+   *          <p>The URL used to confirm the HTTP topic rule destination URL.</p>
+   *
+   */
+  confirmationUrl?: string;
+}
+
+export namespace HttpUrlDestinationProperties {
+  export function isa(o: any): o is HttpUrlDestinationProperties {
+    return _smithy.isa(o, "HttpUrlDestinationProperties");
+  }
+}
+
+/**
+ *
+ *          <p>Information about an HTTP URL destination.</p>
+ *
+ */
+export interface HttpUrlDestinationSummary {
+  __type?: "HttpUrlDestinationSummary";
+  /**
+   *
+   *          <p>The URL used to confirm ownership of or access to the HTTP topic rule destination
+   *          URL.</p>
+   *
+   */
+  confirmationUrl?: string;
+}
+
+export namespace HttpUrlDestinationSummary {
+  export function isa(o: any): o is HttpUrlDestinationSummary {
+    return _smithy.isa(o, "HttpUrlDestinationSummary");
+  }
+}
+
+/**
+ *
+ *          <p>Sends message data to an AWS IoT Analytics channel.</p>
+ *
+ */
+export interface IotAnalyticsAction {
+  __type?: "IotAnalyticsAction";
+  /**
+   *
+   *          <p>(deprecated) The ARN of the IoT Analytics channel to which message data will be
+   *          sent.</p>
+   *
+   */
+  channelArn?: string;
+
+  /**
+   *
+   *          <p>The name of the IoT Analytics channel to which message data will be sent.</p>
+   *
+   */
+  channelName?: string;
+
+  /**
+   *
+   *          <p>The ARN of the role which has a policy that grants IoT Analytics permission to send
+   *          message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace IotAnalyticsAction {
+  export function isa(o: any): o is IotAnalyticsAction {
+    return _smithy.isa(o, "IotAnalyticsAction");
+  }
+}
+
+/**
+ *
+ *          <p>Sends an input to an AWS IoT Events detector.</p>
+ *
+ */
+export interface IotEventsAction {
+  __type?: "IotEventsAction";
+  /**
+   *
+   *          <p>The name of the AWS IoT Events input.</p>
+   *
+   */
+  inputName: string | undefined;
+
+  /**
+   *
+   *          <p>[Optional] Use this to ensure that only one input (message) with a given messageId will
+   *       be processed by an AWS IoT Events detector.</p>
+   *
+   */
+  messageId?: string;
+
+  /**
+   *
+   *          <p>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
+   *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace IotEventsAction {
+  export function isa(o: any): o is IotEventsAction {
+    return _smithy.isa(o, "IotEventsAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to send data from an MQTT message that triggered the rule to AWS IoT
+ *       SiteWise asset properties.</p>
+ *
+ */
+export interface IotSiteWiseAction {
+  __type?: "IotSiteWiseAction";
+  /**
+   *
+   *          <p>A list of asset property value entries.</p>
+   *
+   */
+  putAssetPropertyValueEntries: Array<PutAssetPropertyValueEntry> | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
+   *       IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
+   *       policy can restrict access to specific asset hierarchy paths.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace IotSiteWiseAction {
+  export function isa(o: any): o is IotSiteWiseAction {
+    return _smithy.isa(o, "IotSiteWiseAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to write data to an Amazon Kinesis stream.</p>
+ *
+ */
+export interface KinesisAction {
+  __type?: "KinesisAction";
+  /**
+   *
+   *          <p>The partition key.</p>
+   *
+   */
+  partitionKey?: string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access to the Amazon Kinesis stream.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the Amazon Kinesis stream.</p>
+   *
+   */
+  streamName: string | undefined;
+}
+
+export namespace KinesisAction {
+  export function isa(o: any): o is KinesisAction {
+    return _smithy.isa(o, "KinesisAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to invoke a Lambda function.</p>
+ *
+ */
+export interface LambdaAction {
+  __type?: "LambdaAction";
+  /**
+   *
+   *          <p>The ARN of the Lambda function.</p>
+   *
+   */
+  functionArn: string | undefined;
+}
+
+export namespace LambdaAction {
+  export function isa(o: any): o is LambdaAction {
+    return _smithy.isa(o, "LambdaAction");
+  }
+}
+
+export interface ListTopicRuleDestinationsRequest {
+  __type?: "ListTopicRuleDestinationsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListTopicRuleDestinationsRequest {
+  export function isa(o: any): o is ListTopicRuleDestinationsRequest {
+    return _smithy.isa(o, "ListTopicRuleDestinationsRequest");
+  }
+}
+
+export interface ListTopicRuleDestinationsResponse extends $MetadataBearer {
+  __type?: "ListTopicRuleDestinationsResponse";
+  /**
+   *
+   *          <p>Information about a topic rule destination.</p>
+   *
+   */
+  destinationSummaries?: Array<TopicRuleDestinationSummary>;
+
+  /**
+   *
+   *          <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListTopicRuleDestinationsResponse {
+  export function isa(o: any): o is ListTopicRuleDestinationsResponse {
+    return _smithy.isa(o, "ListTopicRuleDestinationsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListTopicRules operation.</p>
+ *
+ */
+export interface ListTopicRulesRequest {
+  __type?: "ListTopicRulesRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>A token used to retrieve the next value.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>Specifies whether the rule is disabled.</p>
+   *
+   */
+  ruleDisabled?: boolean;
+
+  /**
+   *
+   *          <p>The topic.</p>
+   *
+   */
+  topic?: string;
+}
+
+export namespace ListTopicRulesRequest {
+  export function isa(o: any): o is ListTopicRulesRequest {
+    return _smithy.isa(o, "ListTopicRulesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListTopicRules operation.</p>
+ *
+ */
+export interface ListTopicRulesResponse extends $MetadataBearer {
+  __type?: "ListTopicRulesResponse";
+  /**
+   *
+   *          <p>A token used to retrieve the next value.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The rules.</p>
+   *
+   */
+  rules?: Array<TopicRuleListItem>;
+}
+
+export namespace ListTopicRulesResponse {
+  export function isa(o: any): o is ListTopicRulesResponse {
+    return _smithy.isa(o, "ListTopicRulesResponse");
+  }
+}
+
+export interface ListV2LoggingLevelsRequest {
+  __type?: "ListV2LoggingLevelsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   *
+   */
+  targetType?: LogTargetType | string;
+}
+
+export namespace ListV2LoggingLevelsRequest {
+  export function isa(o: any): o is ListV2LoggingLevelsRequest {
+    return _smithy.isa(o, "ListV2LoggingLevelsRequest");
+  }
+}
+
+export interface ListV2LoggingLevelsResponse extends $MetadataBearer {
+  __type?: "ListV2LoggingLevelsResponse";
+  /**
+   *
+   *          <p>The logging configuration for a target.</p>
+   *
+   */
+  logTargetConfigurations?: Array<LogTargetConfiguration>;
+
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListV2LoggingLevelsResponse {
+  export function isa(o: any): o is ListV2LoggingLevelsResponse {
+    return _smithy.isa(o, "ListV2LoggingLevelsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A log target.</p>
+ *
+ */
+export interface LogTarget {
+  __type?: "LogTarget";
+  /**
+   *
+   *          <p>The target name.</p>
+   *
+   */
+  targetName?: string;
+
+  /**
+   *
+   *          <p>The target type.</p>
+   *
+   */
+  targetType: LogTargetType | string | undefined;
+}
+
+export namespace LogTarget {
+  export function isa(o: any): o is LogTarget {
+    return _smithy.isa(o, "LogTarget");
+  }
+}
+
+/**
+ *
+ *          <p>The target configuration.</p>
+ *
+ */
+export interface LogTargetConfiguration {
+  __type?: "LogTargetConfiguration";
+  /**
+   *
+   *          <p>The logging level.</p>
+   *
+   */
+  logLevel?: LogLevel | string;
+
+  /**
+   *
+   *          <p>A log target</p>
+   *
+   */
+  logTarget?: LogTarget;
+}
+
+export namespace LogTargetConfiguration {
+  export function isa(o: any): o is LogTargetConfiguration {
+    return _smithy.isa(o, "LogTargetConfiguration");
+  }
+}
+
+export enum LogTargetType {
+  DEFAULT = "DEFAULT",
+  THING_GROUP = "THING_GROUP"
+}
+
+/**
+ *
+ *          <p>Describes the logging options payload.</p>
+ *
+ */
+export interface LoggingOptionsPayload {
+  __type?: "LoggingOptionsPayload";
+  /**
+   *
+   *          <p>The log level.</p>
+   *
+   */
+  logLevel?: LogLevel | string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace LoggingOptionsPayload {
+  export function isa(o: any): o is LoggingOptionsPayload {
+    return _smithy.isa(o, "LoggingOptionsPayload");
+  }
+}
+
+export enum MessageFormat {
+  JSON = "JSON",
+  RAW = "RAW"
+}
+
+/**
+ *
+ *          <p>An asset property value entry containing the following information.</p>
+ *
+ */
+export interface PutAssetPropertyValueEntry {
+  __type?: "PutAssetPropertyValueEntry";
+  /**
+   *
+   *          <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
+   *       or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution
+   *       templates.</p>
+   *
+   */
+  assetId?: string;
+
+  /**
+   *
+   *          <p>Optional. A unique identifier for this entry that you can define to better track which
+   *       message caused an error in case of failure. Accepts substitution templates. Defaults to a new
+   *       UUID.</p>
+   *
+   */
+  entryId?: string;
+
+  /**
+   *
+   *          <p>The name of the property alias associated with your asset property. You must specify
+   *       either a <code>propertyAlias</code> or both an <code>aliasId</code> and a
+   *         <code>propertyId</code>. Accepts substitution templates.</p>
+   *
+   */
+  propertyAlias?: string;
+
+  /**
+   *
+   *          <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or
+   *       both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution
+   *       templates.</p>
+   *
+   */
+  propertyId?: string;
+
+  /**
+   *
+   *          <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
+   *       information.</p>
+   *
+   */
+  propertyValues: Array<AssetPropertyValue> | undefined;
+}
+
+export namespace PutAssetPropertyValueEntry {
+  export function isa(o: any): o is PutAssetPropertyValueEntry {
+    return _smithy.isa(o, "PutAssetPropertyValueEntry");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the DynamoActionVS action that specifies the DynamoDB table to which
+ *          the message data will be written.</p>
+ *
+ */
+export interface PutItemInput {
+  __type?: "PutItemInput";
+  /**
+   *
+   *          <p>The table where the message data will be written.</p>
+   *
+   */
+  tableName: string | undefined;
+}
+
+export namespace PutItemInput {
+  export function isa(o: any): o is PutItemInput {
+    return _smithy.isa(o, "PutItemInput");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ReplaceTopicRule operation.</p>
+ *
+ */
+export interface ReplaceTopicRuleRequest {
+  __type?: "ReplaceTopicRuleRequest";
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName: string | undefined;
+
+  /**
+   *
+   *          <p>The rule payload.</p>
+   *
+   */
+  topicRulePayload: TopicRulePayload | undefined;
+}
+
+export namespace ReplaceTopicRuleRequest {
+  export function isa(o: any): o is ReplaceTopicRuleRequest {
+    return _smithy.isa(o, "ReplaceTopicRuleRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to republish to another topic.</p>
+ *
+ */
+export interface RepublishAction {
+  __type?: "RepublishAction";
+  /**
+   *
+   *          <p>The Quality of Service (QoS) level to use when republishing messages. The default value
+   *          is 0.</p>
+   *
+   */
+  qos?: number;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the MQTT topic.</p>
+   *
+   */
+  topic: string | undefined;
+}
+
+export namespace RepublishAction {
+  export function isa(o: any): o is RepublishAction {
+    return _smithy.isa(o, "RepublishAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to write data to an Amazon S3 bucket.</p>
+ *
+ */
+export interface S3Action {
+  __type?: "S3Action";
+  /**
+   *
+   *          <p>The Amazon S3 bucket.</p>
+   *
+   */
+  bucketName: string | undefined;
+
+  /**
+   *
+   *          <p>The Amazon S3 canned ACL that controls access to the object identified by the object
+   *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
+   *
+   */
+  cannedAcl?: CannedAccessControlList | string;
+
+  /**
+   *
+   *          <p>The object key.</p>
+   *
+   */
+  key: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace S3Action {
+  export function isa(o: any): o is S3Action {
+    return _smithy.isa(o, "S3Action");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to write a message to a Salesforce IoT Cloud Input
+ *          Stream.</p>
+ *
+ */
+export interface SalesforceAction {
+  __type?: "SalesforceAction";
+  /**
+   *
+   *          <p>The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The
+   *          token is available from the Salesforce IoT Cloud platform after creation of the Input
+   *          Stream.</p>
+   *
+   */
+  token: string | undefined;
+
+  /**
+   *
+   *          <p>The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from
+   *          the Salesforce IoT Cloud platform after creation of the Input Stream.</p>
+   *
+   */
+  url: string | undefined;
+}
+
+export namespace SalesforceAction {
+  export function isa(o: any): o is SalesforceAction {
+    return _smithy.isa(o, "SalesforceAction");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the SetLoggingOptions operation.</p>
+ *
+ */
+export interface SetLoggingOptionsRequest {
+  __type?: "SetLoggingOptionsRequest";
+  /**
+   *
+   *          <p>The logging options payload.</p>
+   *
+   */
+  loggingOptionsPayload: LoggingOptionsPayload | undefined;
+}
+
+export namespace SetLoggingOptionsRequest {
+  export function isa(o: any): o is SetLoggingOptionsRequest {
+    return _smithy.isa(o, "SetLoggingOptionsRequest");
+  }
+}
+
+export interface SetV2LoggingLevelRequest {
+  __type?: "SetV2LoggingLevelRequest";
+  /**
+   *
+   *          <p>The log level.</p>
+   *
+   */
+  logLevel: LogLevel | string | undefined;
+
+  /**
+   *
+   *          <p>The log target.</p>
+   *
+   */
+  logTarget: LogTarget | undefined;
+}
+
+export namespace SetV2LoggingLevelRequest {
+  export function isa(o: any): o is SetV2LoggingLevelRequest {
+    return _smithy.isa(o, "SetV2LoggingLevelRequest");
+  }
+}
+
+export interface SetV2LoggingOptionsRequest {
+  __type?: "SetV2LoggingOptionsRequest";
+  /**
+   *
+   *          <p>The default logging level.</p>
+   *
+   */
+  defaultLogLevel?: LogLevel | string;
+
+  /**
+   *
+   *          <p>If true all logs are disabled. The default is false.</p>
+   *
+   */
+  disableAllLogs?: boolean;
+
+  /**
+   *
+   *          <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace SetV2LoggingOptionsRequest {
+  export function isa(o: any): o is SetV2LoggingOptionsRequest {
+    return _smithy.isa(o, "SetV2LoggingOptionsRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Use Sig V4 authorization.</p>
+ *
+ */
+export interface SigV4Authorization {
+  __type?: "SigV4Authorization";
+  /**
+   *
+   *          <p>The ARN of the signing role.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The service name to use while signing with Sig V4.</p>
+   *
+   */
+  serviceName: string | undefined;
+
+  /**
+   *
+   *          <p>The signing region.</p>
+   *
+   */
+  signingRegion: string | undefined;
+}
+
+export namespace SigV4Authorization {
+  export function isa(o: any): o is SigV4Authorization {
+    return _smithy.isa(o, "SigV4Authorization");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to publish to an Amazon SNS topic.</p>
+ *
+ */
+export interface SnsAction {
+  __type?: "SnsAction";
+  /**
+   *
+   *          <p>(Optional) The message format of the message to publish. Accepted values are "JSON"
+   *          and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine
+   *          if the payload should be parsed and relevant platform-specific bits of the payload should
+   *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
+   *
+   */
+  messageFormat?: MessageFormat | string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the SNS topic.</p>
+   *
+   */
+  targetArn: string | undefined;
+}
+
+export namespace SnsAction {
+  export function isa(o: any): o is SnsAction {
+    return _smithy.isa(o, "SnsAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an action to publish data to an Amazon SQS queue.</p>
+ *
+ */
+export interface SqsAction {
+  __type?: "SqsAction";
+  /**
+   *
+   *          <p>The URL of the Amazon SQS queue.</p>
+   *
+   */
+  queueUrl: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that grants access.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies whether to use Base64 encoding.</p>
+   *
+   */
+  useBase64?: boolean;
+}
+
+export namespace SqsAction {
+  export function isa(o: any): o is SqsAction {
+    return _smithy.isa(o, "SqsAction");
+  }
+}
+
+/**
+ *
+ *          <p>Starts execution of a Step Functions state machine.</p>
+ *
+ */
+export interface StepFunctionsAction {
+  __type?: "StepFunctionsAction";
+  /**
+   *
+   *          <p>(Optional) A name will be given to the state machine execution consisting of this
+   *       prefix followed by a UUID. Step Functions automatically creates a unique name for each state
+   *       machine execution if one is not provided.</p>
+   *
+   */
+  executionNamePrefix?: string;
+
+  /**
+   *
+   *          <p>The ARN of the role that grants IoT permission to start execution of a state machine
+   *       ("Action":"states:StartExecution").</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the Step Functions state machine whose execution will be started.</p>
+   *
+   */
+  stateMachineName: string | undefined;
+}
+
+export namespace StepFunctionsAction {
+  export function isa(o: any): o is StepFunctionsAction {
+    return _smithy.isa(o, "StepFunctionsAction");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a rule.</p>
+ *
+ */
+export interface TopicRule {
+  __type?: "TopicRule";
+  /**
+   *
+   *          <p>The actions associated with the rule.</p>
+   *
+   */
+  actions?: Array<Action>;
+
+  /**
+   *
+   *          <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   *
+   */
+  awsIotSqlVersion?: string;
+
+  /**
+   *
+   *          <p>The date and time the rule was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The description of the rule.</p>
    *
    */
   description?: string;
 
   /**
    *
-   *         <p>An ARN identifying the job.</p>
+   *          <p>The action to perform when an error occurs.</p>
    *
    */
-  jobArn?: string;
+  errorAction?: Action;
 
   /**
    *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *          <p>Specifies whether the rule is disabled.</p>
    *
    */
-  jobId?: string;
+  ruleDisabled?: boolean;
+
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName?: string;
+
+  /**
+   *
+   *          <p>The SQL statement used to query the topic. When using a SQL query with multiple
+   *          lines, be sure to escape the newline characters.</p>
+   *
+   */
+  sql?: string;
 }
 
-export namespace AssociateTargetsWithJobResponse {
-  export function isa(o: any): o is AssociateTargetsWithJobResponse {
-    return _smithy.isa(o, "AssociateTargetsWithJobResponse");
+export namespace TopicRule {
+  export function isa(o: any): o is TopicRule {
+    return _smithy.isa(o, "TopicRule");
+  }
+}
+
+/**
+ *
+ *          <p>A topic rule destination.</p>
+ *
+ */
+export interface TopicRuleDestination {
+  __type?: "TopicRuleDestination";
+  /**
+   *
+   *          <p>The topic rule destination URL.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>Properties of the HTTP URL.</p>
+   *
+   */
+  httpUrlProperties?: HttpUrlDestinationProperties;
+
+  /**
+   *
+   *          <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   *
+   */
+  status?: TopicRuleDestinationStatus | string;
+
+  /**
+   *
+   *          <p>Additional details or reason why the topic rule destination is in the current
+   *          status.</p>
+   *
+   */
+  statusReason?: string;
+}
+
+export namespace TopicRuleDestination {
+  export function isa(o: any): o is TopicRuleDestination {
+    return _smithy.isa(o, "TopicRuleDestination");
+  }
+}
+
+/**
+ *
+ *          <p>Configuration of the topic rule destination.</p>
+ *
+ */
+export interface TopicRuleDestinationConfiguration {
+  __type?: "TopicRuleDestinationConfiguration";
+  /**
+   *
+   *          <p>Configuration of the HTTP URL.</p>
+   *
+   */
+  httpUrlConfiguration?: HttpUrlDestinationConfiguration;
+}
+
+export namespace TopicRuleDestinationConfiguration {
+  export function isa(o: any): o is TopicRuleDestinationConfiguration {
+    return _smithy.isa(o, "TopicRuleDestinationConfiguration");
+  }
+}
+
+export enum TopicRuleDestinationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ERROR = "ERROR",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+/**
+ *
+ *          <p>Information about the topic rule destination.</p>
+ *
+ */
+export interface TopicRuleDestinationSummary {
+  __type?: "TopicRuleDestinationSummary";
+  /**
+   *
+   *          <p>The topic rule destination ARN.</p>
+   *
+   */
+  arn?: string;
+
+  /**
+   *
+   *          <p>Information about the HTTP URL.</p>
+   *
+   */
+  httpUrlSummary?: HttpUrlDestinationSummary;
+
+  /**
+   *
+   *          <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   *
+   */
+  status?: TopicRuleDestinationStatus | string;
+
+  /**
+   *
+   *          <p>The reason the topic rule destination is in the current status.</p>
+   *
+   */
+  statusReason?: string;
+}
+
+export namespace TopicRuleDestinationSummary {
+  export function isa(o: any): o is TopicRuleDestinationSummary {
+    return _smithy.isa(o, "TopicRuleDestinationSummary");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a rule.</p>
+ *
+ */
+export interface TopicRuleListItem {
+  __type?: "TopicRuleListItem";
+  /**
+   *
+   *          <p>The date and time the rule was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *          <p>The rule ARN.</p>
+   *
+   */
+  ruleArn?: string;
+
+  /**
+   *
+   *          <p>Specifies whether the rule is disabled.</p>
+   *
+   */
+  ruleDisabled?: boolean;
+
+  /**
+   *
+   *          <p>The name of the rule.</p>
+   *
+   */
+  ruleName?: string;
+
+  /**
+   *
+   *          <p>The pattern for the topic names that apply.</p>
+   *
+   */
+  topicPattern?: string;
+}
+
+export namespace TopicRuleListItem {
+  export function isa(o: any): o is TopicRuleListItem {
+    return _smithy.isa(o, "TopicRuleListItem");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a rule.</p>
+ *
+ */
+export interface TopicRulePayload {
+  __type?: "TopicRulePayload";
+  /**
+   *
+   *          <p>The actions associated with the rule.</p>
+   *
+   */
+  actions: Array<Action> | undefined;
+
+  /**
+   *
+   *          <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   *
+   */
+  awsIotSqlVersion?: string;
+
+  /**
+   *
+   *          <p>The description of the rule.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *          <p>The action to take when an error occurs.</p>
+   *
+   */
+  errorAction?: Action;
+
+  /**
+   *
+   *          <p>Specifies whether the rule is disabled.</p>
+   *
+   */
+  ruleDisabled?: boolean;
+
+  /**
+   *
+   *          <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS IoT SQL
+   *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
+   *
+   */
+  sql: string | undefined;
+}
+
+export namespace TopicRulePayload {
+  export function isa(o: any): o is TopicRulePayload {
+    return _smithy.isa(o, "TopicRulePayload");
+  }
+}
+
+export interface UpdateTopicRuleDestinationRequest {
+  __type?: "UpdateTopicRuleDestinationRequest";
+  /**
+   *
+   *          <p>The ARN of the topic rule destination.</p>
+   *
+   */
+  arn: string | undefined;
+
+  /**
+   *
+   *          <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   *
+   *
+   */
+  status: TopicRuleDestinationStatus | string | undefined;
+}
+
+export namespace UpdateTopicRuleDestinationRequest {
+  export function isa(o: any): o is UpdateTopicRuleDestinationRequest {
+    return _smithy.isa(o, "UpdateTopicRuleDestinationRequest");
+  }
+}
+
+export interface UpdateTopicRuleDestinationResponse extends $MetadataBearer {
+  __type?: "UpdateTopicRuleDestinationResponse";
+}
+
+export namespace UpdateTopicRuleDestinationResponse {
+  export function isa(o: any): o is UpdateTopicRuleDestinationResponse {
+    return _smithy.isa(o, "UpdateTopicRuleDestinationResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the AcceptCertificateTransfer operation.</p>
+ *
+ */
+export interface AcceptCertificateTransferRequest {
+  __type?: "AcceptCertificateTransferRequest";
+  /**
+   *
+   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   *
+   */
+  certificateId: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies whether the certificate is active.</p>
+   *
+   */
+  setAsActive?: boolean;
+}
+
+export namespace AcceptCertificateTransferRequest {
+  export function isa(o: any): o is AcceptCertificateTransferRequest {
+    return _smithy.isa(o, "AcceptCertificateTransferRequest");
+  }
+}
+
+export enum ActionType {
+  CONNECT = "CONNECT",
+  PUBLISH = "PUBLISH",
+  RECEIVE = "RECEIVE",
+  SUBSCRIBE = "SUBSCRIBE"
+}
+
+/**
+ *
+ *          <p>Contains information that allowed the authorization.</p>
+ *
+ */
+export interface Allowed {
+  __type?: "Allowed";
+  /**
+   *
+   *          <p>A list of policies that allowed the authentication.</p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace Allowed {
+  export function isa(o: any): o is Allowed {
+    return _smithy.isa(o, "Allowed");
   }
 }
 
@@ -1025,500 +3294,10 @@ export namespace AttachPrincipalPolicyRequest {
   }
 }
 
-export interface AttachSecurityProfileRequest {
-  __type?: "AttachSecurityProfileRequest";
-  /**
-   *
-   *          <p>The security profile that is attached.</p>
-   *
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the target (thing group) to which the security profile is attached.</p>
-   *
-   */
-  securityProfileTargetArn: string | undefined;
-}
-
-export namespace AttachSecurityProfileRequest {
-  export function isa(o: any): o is AttachSecurityProfileRequest {
-    return _smithy.isa(o, "AttachSecurityProfileRequest");
-  }
-}
-
-export interface AttachSecurityProfileResponse extends $MetadataBearer {
-  __type?: "AttachSecurityProfileResponse";
-}
-
-export namespace AttachSecurityProfileResponse {
-  export function isa(o: any): o is AttachSecurityProfileResponse {
-    return _smithy.isa(o, "AttachSecurityProfileResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the AttachThingPrincipal operation.</p>
- *
- */
-export interface AttachThingPrincipalRequest {
-  __type?: "AttachThingPrincipalRequest";
-  /**
-   *
-   * 		       <p>The principal, which can be a certificate ARN (as returned from the
-   * 			CreateCertificate operation) or an Amazon Cognito ID.</p>
-   *
-   */
-  principal: string | undefined;
-
-  /**
-   *
-   * 		       <p>The name of the thing.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace AttachThingPrincipalRequest {
-  export function isa(o: any): o is AttachThingPrincipalRequest {
-    return _smithy.isa(o, "AttachThingPrincipalRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output from the AttachThingPrincipal operation.</p>
- *
- */
-export interface AttachThingPrincipalResponse extends $MetadataBearer {
-  __type?: "AttachThingPrincipalResponse";
-}
-
-export namespace AttachThingPrincipalResponse {
-  export function isa(o: any): o is AttachThingPrincipalResponse {
-    return _smithy.isa(o, "AttachThingPrincipalResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The attribute payload.</p>
- *
- */
-export interface AttributePayload {
-  __type?: "AttributePayload";
-  /**
-   *
-   * 		       <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
-   *
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   *
-   * 		       <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
-   * 			the attributes stored in the registry, instead of overwriting them.</p>
-   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
-   * 		       <note>
-   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
-   * 		       </note>
-   *
-   */
-  merge?: boolean;
-}
-
-export namespace AttributePayload {
-  export function isa(o: any): o is AttributePayload {
-    return _smithy.isa(o, "AttributePayload");
-  }
-}
-
-/**
- *
- *          <p>Which audit checks are enabled and disabled for this account.</p>
- *
- */
-export interface AuditCheckConfiguration {
-  __type?: "AuditCheckConfiguration";
-  /**
-   *
-   *          <p>True if this audit check is enabled for this account.</p>
-   *
-   */
-  enabled?: boolean;
-}
-
-export namespace AuditCheckConfiguration {
-  export function isa(o: any): o is AuditCheckConfiguration {
-    return _smithy.isa(o, "AuditCheckConfiguration");
-  }
-}
-
-/**
- *
- *          <p>Information about the audit check.</p>
- *
- */
-export interface AuditCheckDetails {
-  __type?: "AuditCheckDetails";
-  /**
-   *
-   *          <p>True if the check is complete and found all resources compliant.</p>
-   *
-   */
-  checkCompliant?: boolean;
-
-  /**
-   *
-   *          <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
-   *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
-   *
-   */
-  checkRunStatus?: AuditCheckRunStatus | string;
-
-  /**
-   *
-   *          <p>The code of any error encountered when this check is performed during this audit.
-   *           One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".</p>
-   *
-   */
-  errorCode?: string;
-
-  /**
-   *
-   *          <p>The message associated with any error encountered when this check is performed during this audit.</p>
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   *          <p>The number of resources that were found noncompliant during the check.</p>
-   *
-   */
-  nonCompliantResourcesCount?: number;
-
-  /**
-   *
-   *          <p>The number of resources on which the check was performed.</p>
-   *
-   */
-  totalResourcesCount?: number;
-}
-
-export namespace AuditCheckDetails {
-  export function isa(o: any): o is AuditCheckDetails {
-    return _smithy.isa(o, "AuditCheckDetails");
-  }
-}
-
-/**
- *
- *          <p>The findings (results) of the audit.</p>
- *
- */
-export interface AuditFinding {
-  __type?: "AuditFinding";
-  /**
-   *
-   *         <p>The audit check that generated this result.</p>
-   *
-   */
-  checkName?: string;
-
-  /**
-   *
-   *          <p>A unique identifier for this set of audit findings. This identifier is used to apply
-   *       mitigation tasks to one or more sets of findings.</p>
-   *
-   */
-  findingId?: string;
-
-  /**
-   *
-   *         <p>The time the result (finding) was discovered.</p>
-   *
-   */
-  findingTime?: Date;
-
-  /**
-   *
-   *         <p>The resource that was found to be noncompliant with the
-   *         audit check.</p>
-   *
-   */
-  nonCompliantResource?: NonCompliantResource;
-
-  /**
-   *
-   *         <p>The reason the resource was noncompliant.</p>
-   *
-   */
-  reasonForNonCompliance?: string;
-
-  /**
-   *
-   *          <p>A code that indicates the reason that the resource was noncompliant.</p>
-   *
-   */
-  reasonForNonComplianceCode?: string;
-
-  /**
-   *
-   *         <p>The list of related resources.</p>
-   *
-   */
-  relatedResources?: Array<RelatedResource>;
-
-  /**
-   *
-   *         <p>The severity of the result (finding).</p>
-   *
-   */
-  severity?: AuditFindingSeverity | string;
-
-  /**
-   *
-   *         <p>The ID of the audit that generated this result (finding).</p>
-   *
-   */
-  taskId?: string;
-
-  /**
-   *
-   *         <p>The time the audit started.</p>
-   *
-   */
-  taskStartTime?: Date;
-}
-
-export namespace AuditFinding {
-  export function isa(o: any): o is AuditFinding {
-    return _smithy.isa(o, "AuditFinding");
-  }
-}
-
-/**
- *
- *          <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
- *
- */
-export interface AuditMitigationActionExecutionMetadata {
-  __type?: "AuditMitigationActionExecutionMetadata";
-  /**
-   *
-   *          <p>The unique identifier for the mitigation action being applied by the task.</p>
-   *
-   */
-  actionId?: string;
-
-  /**
-   *
-   *          <p>The friendly name of the mitigation action being applied by the task.</p>
-   *
-   */
-  actionName?: string;
-
-  /**
-   *
-   *          <p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>
-   *
-   */
-  endTime?: Date;
-
-  /**
-   *
-   *          <p>If an error occurred, the code that indicates which type of error occurred.</p>
-   *
-   */
-  errorCode?: string;
-
-  /**
-   *
-   *          <p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>
-   *
-   */
-  findingId?: string;
-
-  /**
-   *
-   *          <p>If an error occurred, a message that describes the error.</p>
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   *          <p>The date and time when the task was started.</p>
-   *
-   */
-  startTime?: Date;
-
-  /**
-   *
-   *          <p>The current status of the task being executed.</p>
-   *
-   */
-  status?: AuditMitigationActionsExecutionStatus | string;
-
-  /**
-   *
-   *          <p>The unique identifier for the task that applies the mitigation action.</p>
-   *
-   */
-  taskId?: string;
-}
-
-export namespace AuditMitigationActionExecutionMetadata {
-  export function isa(o: any): o is AuditMitigationActionExecutionMetadata {
-    return _smithy.isa(o, "AuditMitigationActionExecutionMetadata");
-  }
-}
-
-/**
- *
- *          <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
- *
- */
-export interface AuditMitigationActionsTaskMetadata {
-  __type?: "AuditMitigationActionsTaskMetadata";
-  /**
-   *
-   *          <p>The time at which the audit mitigation actions task was started.</p>
-   *
-   */
-  startTime?: Date;
-
-  /**
-   *
-   *          <p>The unique identifier for the task.</p>
-   *
-   */
-  taskId?: string;
-
-  /**
-   *
-   *          <p>The current state of the audit mitigation actions task.</p>
-   *
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-}
-
-export namespace AuditMitigationActionsTaskMetadata {
-  export function isa(o: any): o is AuditMitigationActionsTaskMetadata {
-    return _smithy.isa(o, "AuditMitigationActionsTaskMetadata");
-  }
-}
-
-/**
- *
- *          <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
- *
- */
-export interface AuditMitigationActionsTaskTarget {
-  __type?: "AuditMitigationActionsTaskTarget";
-  /**
-   *
-   *          <p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>
-   *
-   */
-  auditCheckToReasonCodeFilter?: { [key: string]: Array<string> };
-
-  /**
-   *
-   *          <p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>
-   *
-   */
-  auditTaskId?: string;
-
-  /**
-   *
-   *          <p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>
-   *
-   */
-  findingIds?: Array<string>;
-}
-
-export namespace AuditMitigationActionsTaskTarget {
-  export function isa(o: any): o is AuditMitigationActionsTaskTarget {
-    return _smithy.isa(o, "AuditMitigationActionsTaskTarget");
-  }
-}
-
-/**
- *
- *          <p>Information about the targets to which audit notifications are sent.</p>
- *
- */
-export interface AuditNotificationTarget {
-  __type?: "AuditNotificationTarget";
-  /**
-   *
-   *          <p>True if notifications to the target are enabled.</p>
-   *
-   */
-  enabled?: boolean;
-
-  /**
-   *
-   *          <p>The ARN of the role that grants permission to send notifications to the target.</p>
-   *
-   */
-  roleArn?: string;
-
-  /**
-   *
-   *          <p>The ARN of the target (SNS topic) to which audit notifications are sent.</p>
-   *
-   */
-  targetArn?: string;
-}
-
-export namespace AuditNotificationTarget {
-  export function isa(o: any): o is AuditNotificationTarget {
-    return _smithy.isa(o, "AuditNotificationTarget");
-  }
-}
-
-/**
- *
- *          <p>The audits that were performed.</p>
- *
- */
-export interface AuditTaskMetadata {
-  __type?: "AuditTaskMetadata";
-  /**
-   *
-   *          <p>The ID of this audit.</p>
-   *
-   */
-  taskId?: string;
-
-  /**
-   *
-   *          <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
-   *         "FAILED", or "CANCELED".</p>
-   *
-   */
-  taskStatus?: AuditTaskStatus | string;
-
-  /**
-   *
-   *          <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
-   *
-   */
-  taskType?: AuditTaskType | string;
-}
-
-export namespace AuditTaskMetadata {
-  export function isa(o: any): o is AuditTaskMetadata {
-    return _smithy.isa(o, "AuditTaskMetadata");
-  }
+export enum AuthDecision {
+  ALLOWED = "ALLOWED",
+  EXPLICIT_DENY = "EXPLICIT_DENY",
+  IMPLICIT_DENY = "IMPLICIT_DENY"
 }
 
 /**
@@ -1707,6 +3486,11 @@ export namespace AuthorizerDescription {
   }
 }
 
+export enum AuthorizerStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
+}
+
 /**
  *
  *          <p>The authorizer summary.</p>
@@ -1735,169 +3519,9 @@ export namespace AuthorizerSummary {
   }
 }
 
-/**
- *
- * 		       <p>Configuration for the rollout of OTA updates.</p>
- *
- */
-export interface AwsJobExecutionsRolloutConfig {
-  __type?: "AwsJobExecutionsRolloutConfig";
-  /**
-   *
-   * 		       <p>The maximum number of OTA update job executions started per minute.</p>
-   *
-   */
-  maximumPerMinute?: number;
-}
-
-export namespace AwsJobExecutionsRolloutConfig {
-  export function isa(o: any): o is AwsJobExecutionsRolloutConfig {
-    return _smithy.isa(o, "AwsJobExecutionsRolloutConfig");
-  }
-}
-
-/**
- *
- *          <p>A Device Defender security profile behavior.</p>
- *
- */
-export interface Behavior {
-  __type?: "Behavior";
-  /**
-   *
-   *          <p>The criteria that determine if a device is behaving normally in regard to
-   *           the <code>metric</code>.</p>
-   *
-   */
-  criteria?: BehaviorCriteria;
-
-  /**
-   *
-   *          <p>What is measured by the behavior.</p>
-   *
-   */
-  metric?: string;
-
-  /**
-   *
-   *          <p>The name you have given to the behavior.</p>
-   *
-   */
-  name: string | undefined;
-}
-
-export namespace Behavior {
-  export function isa(o: any): o is Behavior {
-    return _smithy.isa(o, "Behavior");
-  }
-}
-
-/**
- *
- *          <p>The criteria by which the behavior is determined to be normal.</p>
- *
- */
-export interface BehaviorCriteria {
-  __type?: "BehaviorCriteria";
-  /**
-   *
-   *          <p>The operator that relates the thing measured (<code>metric</code>) to the criteria
-   *           (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
-   *
-   */
-  comparisonOperator?: ComparisonOperator | string;
-
-  /**
-   *
-   *          <p>If a device is in violation of the behavior for the specified number of consecutive
-   *           datapoints, an alarm occurs. If not specified, the default is 1.</p>
-   *
-   */
-  consecutiveDatapointsToAlarm?: number;
-
-  /**
-   *
-   *          <p>If an alarm has occurred and the offending device is no longer in violation of the behavior
-   *           for the specified number of consecutive datapoints, the alarm is cleared. If not specified,
-   *           the default is 1.</p>
-   *
-   */
-  consecutiveDatapointsToClear?: number;
-
-  /**
-   *
-   *          <p>Use this to specify the time duration over which the behavior is evaluated,
-   *           for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).
-   *           For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are
-   *           accumulated over this time duration before being used to calculate percentiles, and later,
-   *           measurements from an individual device are also accumulated over this time duration before being
-   *           given a percentile rank.</p>
-   *
-   */
-  durationSeconds?: number;
-
-  /**
-   *
-   *          <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
-   *           is determined to be in compliance or in violation of the behavior.</p>
-   *
-   */
-  statisticalThreshold?: StatisticalThreshold;
-
-  /**
-   *
-   *          <p>The value to be compared with the <code>metric</code>.</p>
-   *
-   */
-  value?: MetricValue;
-}
-
-export namespace BehaviorCriteria {
-  export function isa(o: any): o is BehaviorCriteria {
-    return _smithy.isa(o, "BehaviorCriteria");
-  }
-}
-
-/**
- *
- *          <p>Additional information about the billing group.</p>
- *
- */
-export interface BillingGroupMetadata {
-  __type?: "BillingGroupMetadata";
-  /**
-   *
-   *          <p>The date the billing group was created.</p>
-   *
-   */
-  creationDate?: Date;
-}
-
-export namespace BillingGroupMetadata {
-  export function isa(o: any): o is BillingGroupMetadata {
-    return _smithy.isa(o, "BillingGroupMetadata");
-  }
-}
-
-/**
- *
- *          <p>The properties of a billing group.</p>
- *
- */
-export interface BillingGroupProperties {
-  __type?: "BillingGroupProperties";
-  /**
-   *
-   *          <p>The description of the billing group.</p>
-   *
-   */
-  billingGroupDescription?: string;
-}
-
-export namespace BillingGroupProperties {
-  export function isa(o: any): o is BillingGroupProperties {
-    return _smithy.isa(o, "BillingGroupProperties");
-  }
+export enum AutoRegistrationStatus {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE"
 }
 
 /**
@@ -2036,58 +3660,9 @@ export namespace CACertificateDescription {
   }
 }
 
-export interface CancelAuditMitigationActionsTaskRequest {
-  __type?: "CancelAuditMitigationActionsTaskRequest";
-  /**
-   *
-   *          <p>The unique identifier for the task that you want to cancel. </p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace CancelAuditMitigationActionsTaskRequest {
-  export function isa(o: any): o is CancelAuditMitigationActionsTaskRequest {
-    return _smithy.isa(o, "CancelAuditMitigationActionsTaskRequest");
-  }
-}
-
-export interface CancelAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
-  __type?: "CancelAuditMitigationActionsTaskResponse";
-}
-
-export namespace CancelAuditMitigationActionsTaskResponse {
-  export function isa(o: any): o is CancelAuditMitigationActionsTaskResponse {
-    return _smithy.isa(o, "CancelAuditMitigationActionsTaskResponse");
-  }
-}
-
-export interface CancelAuditTaskRequest {
-  __type?: "CancelAuditTaskRequest";
-  /**
-   *
-   *           <p>The ID of the audit you want to cancel. You can only cancel an
-   *               audit that is "IN_PROGRESS".</p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace CancelAuditTaskRequest {
-  export function isa(o: any): o is CancelAuditTaskRequest {
-    return _smithy.isa(o, "CancelAuditTaskRequest");
-  }
-}
-
-export interface CancelAuditTaskResponse extends $MetadataBearer {
-  __type?: "CancelAuditTaskResponse";
-}
-
-export namespace CancelAuditTaskResponse {
-  export function isa(o: any): o is CancelAuditTaskResponse {
-    return _smithy.isa(o, "CancelAuditTaskResponse");
-  }
+export enum CACertificateStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE"
 }
 
 /**
@@ -2109,135 +3684,6 @@ export interface CancelCertificateTransferRequest {
 export namespace CancelCertificateTransferRequest {
   export function isa(o: any): o is CancelCertificateTransferRequest {
     return _smithy.isa(o, "CancelCertificateTransferRequest");
-  }
-}
-
-export interface CancelJobExecutionRequest {
-  __type?: "CancelJobExecutionRequest";
-  /**
-   *
-   *          <p>(Optional) The expected current version of the job execution. Each time you update the job
-   *           execution, its version is incremented. If the version of the job execution stored in Jobs does
-   *           not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that
-   *           contains the current job execution status data is returned. (This makes it unnecessary to
-   *           perform a separate DescribeJobExecution request in order to obtain the job execution status
-   *           data.)</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   *          <p>(Optional) If <code>true</code> the job execution will be canceled if it has status
-   *           IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status
-   *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
-   *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
-   *           will be thrown. The default is <code>false</code>.</p>
-   *         <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
-   *           to update the job execution status.  Use caution and ensure that the device is able to
-   *           recover to a valid state.</p>
-   *
-   */
-  force?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the job to be canceled.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *          <p>A collection of name/value pairs that describe the status of the job execution. If not
-   *           specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
-   *
-   */
-  statusDetails?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The name of the thing whose execution of the job will be canceled.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace CancelJobExecutionRequest {
-  export function isa(o: any): o is CancelJobExecutionRequest {
-    return _smithy.isa(o, "CancelJobExecutionRequest");
-  }
-}
-
-export interface CancelJobRequest {
-  __type?: "CancelJobRequest";
-  /**
-   *
-   *         <p>An optional comment string describing why the job was canceled.</p>
-   *
-   */
-  comment?: string;
-
-  /**
-   *
-   *          <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
-   *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
-   *           is <code>false</code>.</p>
-   *         <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
-   *           the job to be unable to update the job execution status.  Use caution and ensure that each
-   *           device executing a job which is canceled is able to recover to a valid state.</p>
-   *
-   */
-  force?: boolean;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>(Optional)A reason code string that explains why the job was canceled.</p>
-   *
-   */
-  reasonCode?: string;
-}
-
-export namespace CancelJobRequest {
-  export function isa(o: any): o is CancelJobRequest {
-    return _smithy.isa(o, "CancelJobRequest");
-  }
-}
-
-export interface CancelJobResponse extends $MetadataBearer {
-  __type?: "CancelJobResponse";
-  /**
-   *
-   *         <p>A short text description of the job.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *         <p>The job ARN.</p>
-   *
-   */
-  jobArn?: string;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId?: string;
-}
-
-export namespace CancelJobResponse {
-  export function isa(o: any): o is CancelJobResponse {
-    return _smithy.isa(o, "CancelJobResponse");
   }
 }
 
@@ -2282,33 +3728,6 @@ export interface Certificate {
 export namespace Certificate {
   export function isa(o: any): o is Certificate {
     return _smithy.isa(o, "Certificate");
-  }
-}
-
-/**
- *
- *          <p>Unable to verify the CA certificate used to sign the device certificate you are
- *          attempting to register. This is happens when you have registered more than one CA
- *          certificate that has the same subject field and public key.</p>
- *
- */
-export interface CertificateConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CertificateConflictException";
-  name: "CertificateConflictException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CertificateConflictException {
-  export function isa(o: any): o is CertificateConflictException {
-    return _smithy.isa(o, "CertificateConflictException");
   }
 }
 
@@ -2417,54 +3836,13 @@ export namespace CertificateDescription {
   }
 }
 
-/**
- *
- *          <p>The certificate operation is not allowed.</p>
- *
- */
-export interface CertificateStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CertificateStateException";
-  name: "CertificateStateException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CertificateStateException {
-  export function isa(o: any): o is CertificateStateException {
-    return _smithy.isa(o, "CertificateStateException");
-  }
-}
-
-/**
- *
- *          <p>The certificate is invalid.</p>
- *
- */
-export interface CertificateValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "CertificateValidationException";
-  name: "CertificateValidationException";
-  $fault: "client";
-  /**
-   *
-   *          <p>Additional information about the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace CertificateValidationException {
-  export function isa(o: any): o is CertificateValidationException {
-    return _smithy.isa(o, "CertificateValidationException");
-  }
+export enum CertificateStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  PENDING_ACTIVATION = "PENDING_ACTIVATION",
+  PENDING_TRANSFER = "PENDING_TRANSFER",
+  REGISTER_INACTIVE = "REGISTER_INACTIVE",
+  REVOKED = "REVOKED"
 }
 
 /**
@@ -2512,263 +3890,6 @@ export interface ClearDefaultAuthorizerResponse extends $MetadataBearer {
 export namespace ClearDefaultAuthorizerResponse {
   export function isa(o: any): o is ClearDefaultAuthorizerResponse {
     return _smithy.isa(o, "ClearDefaultAuthorizerResponse");
-  }
-}
-
-/**
- *
- *          <p>Describes an action that updates a CloudWatch alarm.</p>
- *
- */
-export interface CloudwatchAlarmAction {
-  __type?: "CloudwatchAlarmAction";
-  /**
-   *
-   *          <p>The CloudWatch alarm name.</p>
-   *
-   */
-  alarmName: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role that allows access to the CloudWatch alarm.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The reason for the alarm change.</p>
-   *
-   */
-  stateReason: string | undefined;
-
-  /**
-   *
-   *          <p>The value of the alarm state. Acceptable values are: OK, ALARM,
-   *          INSUFFICIENT_DATA.</p>
-   *
-   */
-  stateValue: string | undefined;
-}
-
-export namespace CloudwatchAlarmAction {
-  export function isa(o: any): o is CloudwatchAlarmAction {
-    return _smithy.isa(o, "CloudwatchAlarmAction");
-  }
-}
-
-/**
- *
- *          <p>Describes an action that captures a CloudWatch metric.</p>
- *
- */
-export interface CloudwatchMetricAction {
-  __type?: "CloudwatchMetricAction";
-  /**
-   *
-   *          <p>The CloudWatch metric name.</p>
-   *
-   */
-  metricName: string | undefined;
-
-  /**
-   *
-   *          <p>The CloudWatch metric namespace name.</p>
-   *
-   */
-  metricNamespace: string | undefined;
-
-  /**
-   *
-   *          <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
-   *
-   */
-  metricTimestamp?: string;
-
-  /**
-   *
-   *          <p>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
-   *             unit</a> supported by CloudWatch.</p>
-   *
-   */
-  metricUnit: string | undefined;
-
-  /**
-   *
-   *          <p>The CloudWatch metric value.</p>
-   *
-   */
-  metricValue: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role that allows access to the CloudWatch metric.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace CloudwatchMetricAction {
-  export function isa(o: any): o is CloudwatchMetricAction {
-    return _smithy.isa(o, "CloudwatchMetricAction");
-  }
-}
-
-/**
- *
- * 		       <p>Describes the method to use when code signing a file.</p>
- *
- */
-export interface CodeSigning {
-  __type?: "CodeSigning";
-  /**
-   *
-   * 		       <p>The ID of the AWSSignerJob which was created to sign the file.</p>
-   *
-   */
-  awsSignerJobId?: string;
-
-  /**
-   *
-   * 		       <p>A custom method for code signing a file.</p>
-   *
-   */
-  customCodeSigning?: CustomCodeSigning;
-
-  /**
-   *
-   * 		       <p>Describes the code-signing job.</p>
-   *
-   */
-  startSigningJobParameter?: StartSigningJobParameter;
-}
-
-export namespace CodeSigning {
-  export function isa(o: any): o is CodeSigning {
-    return _smithy.isa(o, "CodeSigning");
-  }
-}
-
-/**
- *
- * 		       <p>Describes the certificate chain being used when code signing a file.</p>
- *
- */
-export interface CodeSigningCertificateChain {
-  __type?: "CodeSigningCertificateChain";
-  /**
-   *
-   * 		       <p>The name of the certificate.</p>
-   *
-   */
-  certificateName?: string;
-
-  /**
-   *
-   * 		       <p>A base64 encoded binary representation of the code signing certificate chain.</p>
-   *
-   */
-  inlineDocument?: string;
-}
-
-export namespace CodeSigningCertificateChain {
-  export function isa(o: any): o is CodeSigningCertificateChain {
-    return _smithy.isa(o, "CodeSigningCertificateChain");
-  }
-}
-
-/**
- *
- * 		       <p>Describes the signature for a file.</p>
- *
- */
-export interface CodeSigningSignature {
-  __type?: "CodeSigningSignature";
-  /**
-   *
-   * 		       <p>A base64 encoded binary representation of the code signing signature.</p>
-   *
-   */
-  inlineDocument?: Uint8Array;
-}
-
-export namespace CodeSigningSignature {
-  export function isa(o: any): o is CodeSigningSignature {
-    return _smithy.isa(o, "CodeSigningSignature");
-  }
-}
-
-/**
- *
- *          <p>Configuration.</p>
- *
- */
-export interface Configuration {
-  __type?: "Configuration";
-  /**
-   *
-   *          <p>True to enable the configuration.</p>
-   *
-   */
-  Enabled?: boolean;
-}
-
-export namespace Configuration {
-  export function isa(o: any): o is Configuration {
-    return _smithy.isa(o, "Configuration");
-  }
-}
-
-export interface ConfirmTopicRuleDestinationRequest {
-  __type?: "ConfirmTopicRuleDestinationRequest";
-  /**
-   *
-   *          <p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>
-   *
-   */
-  confirmationToken: string | undefined;
-}
-
-export namespace ConfirmTopicRuleDestinationRequest {
-  export function isa(o: any): o is ConfirmTopicRuleDestinationRequest {
-    return _smithy.isa(o, "ConfirmTopicRuleDestinationRequest");
-  }
-}
-
-export interface ConfirmTopicRuleDestinationResponse extends $MetadataBearer {
-  __type?: "ConfirmTopicRuleDestinationResponse";
-}
-
-export namespace ConfirmTopicRuleDestinationResponse {
-  export function isa(o: any): o is ConfirmTopicRuleDestinationResponse {
-    return _smithy.isa(o, "ConfirmTopicRuleDestinationResponse");
-  }
-}
-
-/**
- *
- *          <p>A conflicting resource update exception. This exception is thrown when two pending
- *          updates cause a conflict.</p>
- *
- */
-export interface ConflictingResourceUpdateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ConflictingResourceUpdateException";
-  name: "ConflictingResourceUpdateException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ConflictingResourceUpdateException {
-  export function isa(o: any): o is ConflictingResourceUpdateException {
-    return _smithy.isa(o, "ConflictingResourceUpdateException");
   }
 }
 
@@ -2844,66 +3965,6 @@ export interface CreateAuthorizerResponse extends $MetadataBearer {
 export namespace CreateAuthorizerResponse {
   export function isa(o: any): o is CreateAuthorizerResponse {
     return _smithy.isa(o, "CreateAuthorizerResponse");
-  }
-}
-
-export interface CreateBillingGroupRequest {
-  __type?: "CreateBillingGroupRequest";
-  /**
-   *
-   * 		       <p>The name you wish to give to the billing group.</p>
-   *
-   */
-  billingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The properties of the billing group.</p>
-   *
-   */
-  billingGroupProperties?: BillingGroupProperties;
-
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage the billing group.</p>
-   *
-   */
-  tags?: Array<Tag>;
-}
-
-export namespace CreateBillingGroupRequest {
-  export function isa(o: any): o is CreateBillingGroupRequest {
-    return _smithy.isa(o, "CreateBillingGroupRequest");
-  }
-}
-
-export interface CreateBillingGroupResponse extends $MetadataBearer {
-  __type?: "CreateBillingGroupResponse";
-  /**
-   *
-   * 		       <p>The ARN of the billing group.</p>
-   *
-   */
-  billingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The ID of the billing group.</p>
-   *
-   */
-  billingGroupId?: string;
-
-  /**
-   *
-   * 		       <p>The name you gave to the billing group.</p>
-   *
-   */
-  billingGroupName?: string;
-}
-
-export namespace CreateBillingGroupResponse {
-  export function isa(o: any): o is CreateBillingGroupResponse {
-    return _smithy.isa(o, "CreateBillingGroupResponse");
   }
 }
 
@@ -3048,247 +4109,6 @@ export namespace CreateDomainConfigurationResponse {
   }
 }
 
-export interface CreateDynamicThingGroupRequest {
-  __type?: "CreateDynamicThingGroupRequest";
-  /**
-   *
-   * 		       <p>The dynamic thing group index name.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: "AWS_Things".</p>
-   * 		       </note>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group search query string.</p>
-   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
-   *
-   */
-  queryString: string | undefined;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group query version.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
-   * 				query version defaults to this value.</p>
-   * 		       </note>
-   *
-   */
-  queryVersion?: string;
-
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage the dynamic thing group.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group name to create.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group properties.</p>
-   *
-   */
-  thingGroupProperties?: ThingGroupProperties;
-}
-
-export namespace CreateDynamicThingGroupRequest {
-  export function isa(o: any): o is CreateDynamicThingGroupRequest {
-    return _smithy.isa(o, "CreateDynamicThingGroupRequest");
-  }
-}
-
-export interface CreateDynamicThingGroupResponse extends $MetadataBearer {
-  __type?: "CreateDynamicThingGroupResponse";
-  /**
-   *
-   * 		       <p>The dynamic thing group index name.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group search query string.</p>
-   *
-   */
-  queryString?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group query version.</p>
-   *
-   */
-  queryVersion?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group ARN.</p>
-   *
-   */
-  thingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group ID.</p>
-   *
-   */
-  thingGroupId?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group name.</p>
-   *
-   */
-  thingGroupName?: string;
-}
-
-export namespace CreateDynamicThingGroupResponse {
-  export function isa(o: any): o is CreateDynamicThingGroupResponse {
-    return _smithy.isa(o, "CreateDynamicThingGroupResponse");
-  }
-}
-
-export interface CreateJobRequest {
-  __type?: "CreateJobRequest";
-  /**
-   *
-   *         <p>Allows you to create criteria to abort a job.</p>
-   *
-   */
-  abortConfig?: AbortConfig;
-
-  /**
-   *
-   *         <p>A short text description of the job.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *         <p>The job document.</p>
-   *         <note>
-   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
-   *             <p>The placeholder link is of the following form:</p>
-   *             <p>
-   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
-   *             </p>
-   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *         </note>
-   *
-   */
-  document?: string;
-
-  /**
-   *
-   *         <p>An S3 link to the job document.</p>
-   *
-   */
-  documentSource?: string;
-
-  /**
-   *
-   *         <p>Allows you to create a staged rollout of the job.</p>
-   *
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
-
-  /**
-   *
-   *         <p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric
-   *             characters, "-" and "_" are valid for use here.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>Configuration information for pre-signed S3 URLs.</p>
-   *
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   *
-   *          <p>Metadata which can be used to manage the job.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group.</p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   *         <p>A list of things and thing groups to which the job should be sent.</p>
-   *
-   */
-  targets: Array<string> | undefined;
-
-  /**
-   *
-   *          <p>Specifies the amount of time each device has to finish its execution of the job. The timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the time expires, it will be
-   *            automatically set to <code>TIMED_OUT</code>.</p>
-   *
-   */
-  timeoutConfig?: TimeoutConfig;
-}
-
-export namespace CreateJobRequest {
-  export function isa(o: any): o is CreateJobRequest {
-    return _smithy.isa(o, "CreateJobRequest");
-  }
-}
-
-export interface CreateJobResponse extends $MetadataBearer {
-  __type?: "CreateJobResponse";
-  /**
-   *
-   *         <p>The job description.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *         <p>The job ARN.</p>
-   *
-   */
-  jobArn?: string;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job.</p>
-   *
-   */
-  jobId?: string;
-}
-
-export namespace CreateJobResponse {
-  export function isa(o: any): o is CreateJobResponse {
-    return _smithy.isa(o, "CreateJobResponse");
-  }
-}
-
 /**
  *
  *          <p>The input for the CreateKeysAndCertificate operation.</p>
@@ -3350,186 +4170,6 @@ export interface CreateKeysAndCertificateResponse extends $MetadataBearer {
 export namespace CreateKeysAndCertificateResponse {
   export function isa(o: any): o is CreateKeysAndCertificateResponse {
     return _smithy.isa(o, "CreateKeysAndCertificateResponse");
-  }
-}
-
-export interface CreateMitigationActionRequest {
-  __type?: "CreateMitigationActionRequest";
-  /**
-   *
-   *          <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
-   *
-   */
-  actionName: string | undefined;
-
-  /**
-   *
-   *          <p>Defines the type of action and the parameters for that action.</p>
-   *
-   */
-  actionParams: MitigationActionParams | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>Metadata that can be used to manage the mitigation action.</p>
-   *
-   */
-  tags?: Array<Tag>;
-}
-
-export namespace CreateMitigationActionRequest {
-  export function isa(o: any): o is CreateMitigationActionRequest {
-    return _smithy.isa(o, "CreateMitigationActionRequest");
-  }
-}
-
-export interface CreateMitigationActionResponse extends $MetadataBearer {
-  __type?: "CreateMitigationActionResponse";
-  /**
-   *
-   *          <p>The ARN for the new mitigation action.</p>
-   *
-   */
-  actionArn?: string;
-
-  /**
-   *
-   *          <p>A unique identifier for the new mitigation action.</p>
-   *
-   */
-  actionId?: string;
-}
-
-export namespace CreateMitigationActionResponse {
-  export function isa(o: any): o is CreateMitigationActionResponse {
-    return _smithy.isa(o, "CreateMitigationActionResponse");
-  }
-}
-
-export interface CreateOTAUpdateRequest {
-  __type?: "CreateOTAUpdateRequest";
-  /**
-   *
-   * 		       <p>A list of additional OTA update parameters which are name-value pairs.</p>
-   *
-   */
-  additionalParameters?: { [key: string]: string };
-
-  /**
-   *
-   * 		       <p>Configuration for the rollout of OTA updates.</p>
-   *
-   */
-  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
-
-  /**
-   *
-   * 		       <p>The description of the OTA update.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>The files to be streamed by the OTA update.</p>
-   *
-   */
-  files: Array<OTAUpdateFile> | undefined;
-
-  /**
-   *
-   * 		       <p>The ID of the OTA update to be created.</p>
-   *
-   */
-  otaUpdateId: string | undefined;
-
-  /**
-   *
-   * 		       <p>The IAM role that allows access to the AWS IoT Jobs service.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage updates.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   * 		       <p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things
-   * 			specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a
-   * 			thing when a change is detected in a target. For example, an update will run on a thing when the thing is
-   * 			added to a target group, even after the update was completed by all things originally in the group. Valid
-   * 			values: CONTINUOUS | SNAPSHOT.</p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   * 		       <p>The targeted devices to receive OTA updates.</p>
-   *
-   */
-  targets: Array<string> | undefined;
-}
-
-export namespace CreateOTAUpdateRequest {
-  export function isa(o: any): o is CreateOTAUpdateRequest {
-    return _smithy.isa(o, "CreateOTAUpdateRequest");
-  }
-}
-
-export interface CreateOTAUpdateResponse extends $MetadataBearer {
-  __type?: "CreateOTAUpdateResponse";
-  /**
-   *
-   * 		       <p>The AWS IoT job ARN associated with the OTA update.</p>
-   *
-   */
-  awsIotJobArn?: string;
-
-  /**
-   *
-   * 		       <p>The AWS IoT job ID associated with the OTA update.</p>
-   *
-   */
-  awsIotJobId?: string;
-
-  /**
-   *
-   * 		       <p>The OTA update ARN.</p>
-   *
-   */
-  otaUpdateArn?: string;
-
-  /**
-   *
-   * 		       <p>The OTA update ID.</p>
-   *
-   */
-  otaUpdateId?: string;
-
-  /**
-   *
-   * 		       <p>The OTA update status.</p>
-   *
-   */
-  otaUpdateStatus?: OTAUpdateStatus | string;
-}
-
-export namespace CreateOTAUpdateResponse {
-  export function isa(o: any): o is CreateOTAUpdateResponse {
-    return _smithy.isa(o, "CreateOTAUpdateResponse");
   }
 }
 
@@ -3949,604 +4589,6 @@ export namespace CreateRoleAliasResponse {
   }
 }
 
-export interface CreateScheduledAuditRequest {
-  __type?: "CreateScheduledAuditRequest";
-  /**
-   *
-   *           <p>The day of the month on which the scheduled audit takes place. Can be "1"
-   *             through "31" or "LAST". This field is required if the "frequency" parameter is
-   *             set to "MONTHLY". If days 29-31 are specified, and the month does not have that many
-   *             days, the audit takes place on the "LAST" day of the month.</p>
-   *
-   */
-  dayOfMonth?: string;
-
-  /**
-   *
-   *           <p>The day of the week on which the scheduled audit takes place. Can be one of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
-   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
-   *
-   */
-  dayOfWeek?: DayOfWeek | string;
-
-  /**
-   *
-   *           <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
-   *             "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
-   *
-   */
-  frequency: AuditFrequency | string | undefined;
-
-  /**
-   *
-   *           <p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>
-   *
-   */
-  scheduledAuditName: string | undefined;
-
-  /**
-   *
-   *            <p>Metadata that can be used to manage the scheduled audit.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   *           <p>Which checks are performed during the scheduled audit. Checks must be enabled
-   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
-   *
-   */
-  targetCheckNames: Array<string> | undefined;
-}
-
-export namespace CreateScheduledAuditRequest {
-  export function isa(o: any): o is CreateScheduledAuditRequest {
-    return _smithy.isa(o, "CreateScheduledAuditRequest");
-  }
-}
-
-export interface CreateScheduledAuditResponse extends $MetadataBearer {
-  __type?: "CreateScheduledAuditResponse";
-  /**
-   *
-   *           <p>The ARN of the scheduled audit.</p>
-   *
-   */
-  scheduledAuditArn?: string;
-}
-
-export namespace CreateScheduledAuditResponse {
-  export function isa(o: any): o is CreateScheduledAuditResponse {
-    return _smithy.isa(o, "CreateScheduledAuditResponse");
-  }
-}
-
-export interface CreateSecurityProfileRequest {
-  __type?: "CreateSecurityProfileRequest";
-  /**
-   *
-   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
-   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here.</p>
-   *
-   */
-  additionalMetricsToRetain?: Array<string>;
-
-  /**
-   *
-   *          <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
-   *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
-   *
-   */
-  alertTargets?: { [key: string]: AlertTarget };
-
-  /**
-   *
-   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
-   *
-   */
-  behaviors?: Array<Behavior>;
-
-  /**
-   *
-   *          <p>A description of the security profile.</p>
-   *
-   */
-  securityProfileDescription?: string;
-
-  /**
-   *
-   *          <p>The name you are giving to the security profile.</p>
-   *
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   *
-   *          <p>Metadata that can be used to manage the security profile.</p>
-   *
-   */
-  tags?: Array<Tag>;
-}
-
-export namespace CreateSecurityProfileRequest {
-  export function isa(o: any): o is CreateSecurityProfileRequest {
-    return _smithy.isa(o, "CreateSecurityProfileRequest");
-  }
-}
-
-export interface CreateSecurityProfileResponse extends $MetadataBearer {
-  __type?: "CreateSecurityProfileResponse";
-  /**
-   *
-   *          <p>The ARN of the security profile.</p>
-   *
-   */
-  securityProfileArn?: string;
-
-  /**
-   *
-   *          <p>The name you gave to the security profile.</p>
-   *
-   */
-  securityProfileName?: string;
-}
-
-export namespace CreateSecurityProfileResponse {
-  export function isa(o: any): o is CreateSecurityProfileResponse {
-    return _smithy.isa(o, "CreateSecurityProfileResponse");
-  }
-}
-
-export interface CreateStreamRequest {
-  __type?: "CreateStreamRequest";
-  /**
-   *
-   * 		       <p>A description of the stream.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>The files to stream.</p>
-   *
-   */
-  files: Array<StreamFile> | undefined;
-
-  /**
-   *
-   * 		       <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId: string | undefined;
-
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage streams.</p>
-   *
-   */
-  tags?: Array<Tag>;
-}
-
-export namespace CreateStreamRequest {
-  export function isa(o: any): o is CreateStreamRequest {
-    return _smithy.isa(o, "CreateStreamRequest");
-  }
-}
-
-export interface CreateStreamResponse extends $MetadataBearer {
-  __type?: "CreateStreamResponse";
-  /**
-   *
-   * 		       <p>A description of the stream.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>The stream ARN.</p>
-   *
-   */
-  streamArn?: string;
-
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId?: string;
-
-  /**
-   *
-   * 		       <p>The version of the stream.</p>
-   *
-   */
-  streamVersion?: number;
-}
-
-export namespace CreateStreamResponse {
-  export function isa(o: any): o is CreateStreamResponse {
-    return _smithy.isa(o, "CreateStreamResponse");
-  }
-}
-
-export interface CreateThingGroupRequest {
-  __type?: "CreateThingGroupRequest";
-  /**
-   *
-   * 		       <p>The name of the parent thing group.</p>
-   *
-   */
-  parentGroupName?: string;
-
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage the thing group.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   * 		       <p>The thing group name to create.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The thing group properties.</p>
-   *
-   */
-  thingGroupProperties?: ThingGroupProperties;
-}
-
-export namespace CreateThingGroupRequest {
-  export function isa(o: any): o is CreateThingGroupRequest {
-    return _smithy.isa(o, "CreateThingGroupRequest");
-  }
-}
-
-export interface CreateThingGroupResponse extends $MetadataBearer {
-  __type?: "CreateThingGroupResponse";
-  /**
-   *
-   * 		       <p>The thing group ARN.</p>
-   *
-   */
-  thingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The thing group ID.</p>
-   *
-   */
-  thingGroupId?: string;
-
-  /**
-   *
-   * 		       <p>The thing group name.</p>
-   *
-   */
-  thingGroupName?: string;
-}
-
-export namespace CreateThingGroupResponse {
-  export function isa(o: any): o is CreateThingGroupResponse {
-    return _smithy.isa(o, "CreateThingGroupResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the CreateThing operation.</p>
- *
- */
-export interface CreateThingRequest {
-  __type?: "CreateThingRequest";
-  /**
-   *
-   * 		       <p>The attribute payload, which consists of up to three name/value pairs in a JSON
-   * 			document. For example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
-   * 		       </p>
-   *
-   */
-  attributePayload?: AttributePayload;
-
-  /**
-   *
-   * 		       <p>The name of the billing group the thing will be added to.</p>
-   *
-   */
-  billingGroupName?: string;
-
-  /**
-   *
-   * 		       <p>The name of the thing to create.</p>
-   *
-   */
-  thingName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The name of the thing type associated with the new thing.</p>
-   *
-   */
-  thingTypeName?: string;
-}
-
-export namespace CreateThingRequest {
-  export function isa(o: any): o is CreateThingRequest {
-    return _smithy.isa(o, "CreateThingRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output of the CreateThing operation.</p>
- *
- */
-export interface CreateThingResponse extends $MetadataBearer {
-  __type?: "CreateThingResponse";
-  /**
-   *
-   * 		       <p>The ARN of the new thing.</p>
-   *
-   */
-  thingArn?: string;
-
-  /**
-   *
-   * 		       <p>The thing ID.</p>
-   *
-   */
-  thingId?: string;
-
-  /**
-   *
-   * 		       <p>The name of the new thing.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace CreateThingResponse {
-  export function isa(o: any): o is CreateThingResponse {
-    return _smithy.isa(o, "CreateThingResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the CreateThingType operation.</p>
- *
- */
-export interface CreateThingTypeRequest {
-  __type?: "CreateThingTypeRequest";
-  /**
-   *
-   * 		       <p>Metadata which can be used to manage the thing type.</p>
-   *
-   */
-  tags?: Array<Tag>;
-
-  /**
-   *
-   * 		       <p>The name of the thing type.</p>
-   *
-   */
-  thingTypeName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The ThingTypeProperties for the thing type to create. It contains information about
-   * 			the new thing type including a description, and a list of searchable thing attribute
-   * 			names.</p>
-   *
-   */
-  thingTypeProperties?: ThingTypeProperties;
-}
-
-export namespace CreateThingTypeRequest {
-  export function isa(o: any): o is CreateThingTypeRequest {
-    return _smithy.isa(o, "CreateThingTypeRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output of the CreateThingType operation.</p>
- *
- */
-export interface CreateThingTypeResponse extends $MetadataBearer {
-  __type?: "CreateThingTypeResponse";
-  /**
-   *
-   * 		       <p>The Amazon Resource Name (ARN) of the thing type.</p>
-   *
-   */
-  thingTypeArn?: string;
-
-  /**
-   *
-   * 		       <p>The thing type ID.</p>
-   *
-   */
-  thingTypeId?: string;
-
-  /**
-   *
-   * 		       <p>The name of the thing type.</p>
-   *
-   */
-  thingTypeName?: string;
-}
-
-export namespace CreateThingTypeResponse {
-  export function isa(o: any): o is CreateThingTypeResponse {
-    return _smithy.isa(o, "CreateThingTypeResponse");
-  }
-}
-
-export interface CreateTopicRuleDestinationRequest {
-  __type?: "CreateTopicRuleDestinationRequest";
-  /**
-   *
-   *          <p>The topic rule destination configuration.</p>
-   *
-   */
-  destinationConfiguration: TopicRuleDestinationConfiguration | undefined;
-}
-
-export namespace CreateTopicRuleDestinationRequest {
-  export function isa(o: any): o is CreateTopicRuleDestinationRequest {
-    return _smithy.isa(o, "CreateTopicRuleDestinationRequest");
-  }
-}
-
-export interface CreateTopicRuleDestinationResponse extends $MetadataBearer {
-  __type?: "CreateTopicRuleDestinationResponse";
-  /**
-   *
-   *          <p>The topic rule destination.</p>
-   *
-   */
-  topicRuleDestination?: TopicRuleDestination;
-}
-
-export namespace CreateTopicRuleDestinationResponse {
-  export function isa(o: any): o is CreateTopicRuleDestinationResponse {
-    return _smithy.isa(o, "CreateTopicRuleDestinationResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the CreateTopicRule operation.</p>
- *
- */
-export interface CreateTopicRuleRequest {
-  __type?: "CreateTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName: string | undefined;
-
-  /**
-   *
-   *          <p>Metadata which can be used to manage the topic rule.</p>
-   *          <note>
-   *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
-   *             <p>For the CLI command-line parameter use format: --tags
-   *             "key1=value1&key2=value2..."</p>
-   *             <p>For the cli-input-json file use format: "tags":
-   *             "key1=value1&key2=value2..."</p>
-   *          </note>
-   *
-   */
-  tags?: string;
-
-  /**
-   *
-   *          <p>The rule payload.</p>
-   *
-   */
-  topicRulePayload: TopicRulePayload | undefined;
-}
-
-export namespace CreateTopicRuleRequest {
-  export function isa(o: any): o is CreateTopicRuleRequest {
-    return _smithy.isa(o, "CreateTopicRuleRequest");
-  }
-}
-
-/**
- *
- * 		       <p>Describes a custom method used to code sign a file.</p>
- *
- */
-export interface CustomCodeSigning {
-  __type?: "CustomCodeSigning";
-  /**
-   *
-   * 		       <p>The certificate chain.</p>
-   *
-   */
-  certificateChain?: CodeSigningCertificateChain;
-
-  /**
-   *
-   * 		       <p>The hash algorithm used to code sign the file.</p>
-   *
-   */
-  hashAlgorithm?: string;
-
-  /**
-   *
-   * 		       <p>The signature for the file.</p>
-   *
-   */
-  signature?: CodeSigningSignature;
-
-  /**
-   *
-   * 		       <p>The signature algorithm used to code sign the file.</p>
-   *
-   */
-  signatureAlgorithm?: string;
-}
-
-export namespace CustomCodeSigning {
-  export function isa(o: any): o is CustomCodeSigning {
-    return _smithy.isa(o, "CustomCodeSigning");
-  }
-}
-
-export interface DeleteAccountAuditConfigurationRequest {
-  __type?: "DeleteAccountAuditConfigurationRequest";
-  /**
-   *
-   *          <p>If true, all scheduled audits are deleted.</p>
-   *
-   */
-  deleteScheduledAudits?: boolean;
-}
-
-export namespace DeleteAccountAuditConfigurationRequest {
-  export function isa(o: any): o is DeleteAccountAuditConfigurationRequest {
-    return _smithy.isa(o, "DeleteAccountAuditConfigurationRequest");
-  }
-}
-
-export interface DeleteAccountAuditConfigurationResponse
-  extends $MetadataBearer {
-  __type?: "DeleteAccountAuditConfigurationResponse";
-}
-
-export namespace DeleteAccountAuditConfigurationResponse {
-  export function isa(o: any): o is DeleteAccountAuditConfigurationResponse {
-    return _smithy.isa(o, "DeleteAccountAuditConfigurationResponse");
-  }
-}
-
 export interface DeleteAuthorizerRequest {
   __type?: "DeleteAuthorizerRequest";
   /**
@@ -4570,42 +4612,6 @@ export interface DeleteAuthorizerResponse extends $MetadataBearer {
 export namespace DeleteAuthorizerResponse {
   export function isa(o: any): o is DeleteAuthorizerResponse {
     return _smithy.isa(o, "DeleteAuthorizerResponse");
-  }
-}
-
-export interface DeleteBillingGroupRequest {
-  __type?: "DeleteBillingGroupRequest";
-  /**
-   *
-   * 		       <p>The name of the billing group.</p>
-   *
-   */
-  billingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The expected version of the billing group. If the version of the billing group does
-   * 			not match the expected version specified in the request, the
-   * 				<code>DeleteBillingGroup</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   *
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteBillingGroupRequest {
-  export function isa(o: any): o is DeleteBillingGroupRequest {
-    return _smithy.isa(o, "DeleteBillingGroupRequest");
-  }
-}
-
-export interface DeleteBillingGroupResponse extends $MetadataBearer {
-  __type?: "DeleteBillingGroupResponse";
-}
-
-export namespace DeleteBillingGroupResponse {
-  export function isa(o: any): o is DeleteBillingGroupResponse {
-    return _smithy.isa(o, "DeleteBillingGroupResponse");
   }
 }
 
@@ -4676,32 +4682,6 @@ export namespace DeleteCertificateRequest {
   }
 }
 
-/**
- *
- *          <p>You can't delete the resource because it is attached to one or more
- *          resources.</p>
- *
- */
-export interface DeleteConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "DeleteConflictException";
-  name: "DeleteConflictException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace DeleteConflictException {
-  export function isa(o: any): o is DeleteConflictException {
-    return _smithy.isa(o, "DeleteConflictException");
-  }
-}
-
 export interface DeleteDomainConfigurationRequest {
   __type?: "DeleteDomainConfigurationRequest";
   /**
@@ -4725,186 +4705,6 @@ export interface DeleteDomainConfigurationResponse extends $MetadataBearer {
 export namespace DeleteDomainConfigurationResponse {
   export function isa(o: any): o is DeleteDomainConfigurationResponse {
     return _smithy.isa(o, "DeleteDomainConfigurationResponse");
-  }
-}
-
-export interface DeleteDynamicThingGroupRequest {
-  __type?: "DeleteDynamicThingGroupRequest";
-  /**
-   *
-   * 		       <p>The expected version of the dynamic thing group to delete.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   * 		       <p>The name of the dynamic thing group to delete.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-}
-
-export namespace DeleteDynamicThingGroupRequest {
-  export function isa(o: any): o is DeleteDynamicThingGroupRequest {
-    return _smithy.isa(o, "DeleteDynamicThingGroupRequest");
-  }
-}
-
-export interface DeleteDynamicThingGroupResponse extends $MetadataBearer {
-  __type?: "DeleteDynamicThingGroupResponse";
-}
-
-export namespace DeleteDynamicThingGroupResponse {
-  export function isa(o: any): o is DeleteDynamicThingGroupResponse {
-    return _smithy.isa(o, "DeleteDynamicThingGroupResponse");
-  }
-}
-
-export interface DeleteJobExecutionRequest {
-  __type?: "DeleteJobExecutionRequest";
-  /**
-   *
-   *          <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
-   *         execution of a particular job on a particular device.</p>
-   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
-   *         by IoT, so be sure you get and use the correct value here.</p>
-   *
-   */
-  executionNumber: number | undefined;
-
-  /**
-   *
-   *          <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
-   *         you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
-   *         "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p>
-   *          <note>
-   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device
-   *         to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that the device is able to recover to a valid state.</p>
-   *          </note>
-   *
-   */
-  force?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the job whose execution on a particular device will be deleted.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the thing whose job execution will be deleted.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace DeleteJobExecutionRequest {
-  export function isa(o: any): o is DeleteJobExecutionRequest {
-    return _smithy.isa(o, "DeleteJobExecutionRequest");
-  }
-}
-
-export interface DeleteJobRequest {
-  __type?: "DeleteJobRequest";
-  /**
-   *
-   *          <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
-   *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
-   *         will occur. The default is false.</p>
-   *          <note>
-   *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
-   *         the job to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that each device executing a job which is deleted is able to recover to
-   *         a valid state.</p>
-   *          </note>
-   *
-   */
-  force?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the job to be deleted.</p>
-   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new job.
-   *         However, this is not recommended, and you must ensure that your devices are not using the
-   *         jobId to refer to the deleted job.</p>
-   *
-   */
-  jobId: string | undefined;
-}
-
-export namespace DeleteJobRequest {
-  export function isa(o: any): o is DeleteJobRequest {
-    return _smithy.isa(o, "DeleteJobRequest");
-  }
-}
-
-export interface DeleteMitigationActionRequest {
-  __type?: "DeleteMitigationActionRequest";
-  /**
-   *
-   *          <p>The name of the mitigation action that you want to delete.</p>
-   *
-   */
-  actionName: string | undefined;
-}
-
-export namespace DeleteMitigationActionRequest {
-  export function isa(o: any): o is DeleteMitigationActionRequest {
-    return _smithy.isa(o, "DeleteMitigationActionRequest");
-  }
-}
-
-export interface DeleteMitigationActionResponse extends $MetadataBearer {
-  __type?: "DeleteMitigationActionResponse";
-}
-
-export namespace DeleteMitigationActionResponse {
-  export function isa(o: any): o is DeleteMitigationActionResponse {
-    return _smithy.isa(o, "DeleteMitigationActionResponse");
-  }
-}
-
-export interface DeleteOTAUpdateRequest {
-  __type?: "DeleteOTAUpdateRequest";
-  /**
-   *
-   * 		       <p>Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.</p>
-   *
-   */
-  deleteStream?: boolean;
-
-  /**
-   *
-   * 		       <p>Specifies if the AWS Job associated with the OTA update should be deleted with the OTA update is deleted.</p>
-   *
-   */
-  forceDeleteAWSJob?: boolean;
-
-  /**
-   *
-   * 		       <p>The OTA update ID to delete.</p>
-   *
-   */
-  otaUpdateId: string | undefined;
-}
-
-export namespace DeleteOTAUpdateRequest {
-  export function isa(o: any): o is DeleteOTAUpdateRequest {
-    return _smithy.isa(o, "DeleteOTAUpdateRequest");
-  }
-}
-
-export interface DeleteOTAUpdateResponse extends $MetadataBearer {
-  __type?: "DeleteOTAUpdateResponse";
-}
-
-export namespace DeleteOTAUpdateResponse {
-  export function isa(o: any): o is DeleteOTAUpdateResponse {
-    return _smithy.isa(o, "DeleteOTAUpdateResponse");
   }
 }
 
@@ -5073,279 +4873,6 @@ export namespace DeleteRoleAliasResponse {
   }
 }
 
-export interface DeleteScheduledAuditRequest {
-  __type?: "DeleteScheduledAuditRequest";
-  /**
-   *
-   *           <p>The name of the scheduled audit you want to delete.</p>
-   *
-   */
-  scheduledAuditName: string | undefined;
-}
-
-export namespace DeleteScheduledAuditRequest {
-  export function isa(o: any): o is DeleteScheduledAuditRequest {
-    return _smithy.isa(o, "DeleteScheduledAuditRequest");
-  }
-}
-
-export interface DeleteScheduledAuditResponse extends $MetadataBearer {
-  __type?: "DeleteScheduledAuditResponse";
-}
-
-export namespace DeleteScheduledAuditResponse {
-  export function isa(o: any): o is DeleteScheduledAuditResponse {
-    return _smithy.isa(o, "DeleteScheduledAuditResponse");
-  }
-}
-
-export interface DeleteSecurityProfileRequest {
-  __type?: "DeleteSecurityProfileRequest";
-  /**
-   *
-   *          <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   *          <p>The name of the security profile to be deleted.</p>
-   *
-   */
-  securityProfileName: string | undefined;
-}
-
-export namespace DeleteSecurityProfileRequest {
-  export function isa(o: any): o is DeleteSecurityProfileRequest {
-    return _smithy.isa(o, "DeleteSecurityProfileRequest");
-  }
-}
-
-export interface DeleteSecurityProfileResponse extends $MetadataBearer {
-  __type?: "DeleteSecurityProfileResponse";
-}
-
-export namespace DeleteSecurityProfileResponse {
-  export function isa(o: any): o is DeleteSecurityProfileResponse {
-    return _smithy.isa(o, "DeleteSecurityProfileResponse");
-  }
-}
-
-export interface DeleteStreamRequest {
-  __type?: "DeleteStreamRequest";
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId: string | undefined;
-}
-
-export namespace DeleteStreamRequest {
-  export function isa(o: any): o is DeleteStreamRequest {
-    return _smithy.isa(o, "DeleteStreamRequest");
-  }
-}
-
-export interface DeleteStreamResponse extends $MetadataBearer {
-  __type?: "DeleteStreamResponse";
-}
-
-export namespace DeleteStreamResponse {
-  export function isa(o: any): o is DeleteStreamResponse {
-    return _smithy.isa(o, "DeleteStreamResponse");
-  }
-}
-
-export interface DeleteThingGroupRequest {
-  __type?: "DeleteThingGroupRequest";
-  /**
-   *
-   * 		       <p>The expected version of the thing group to delete.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   * 		       <p>The name of the thing group to delete.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-}
-
-export namespace DeleteThingGroupRequest {
-  export function isa(o: any): o is DeleteThingGroupRequest {
-    return _smithy.isa(o, "DeleteThingGroupRequest");
-  }
-}
-
-export interface DeleteThingGroupResponse extends $MetadataBearer {
-  __type?: "DeleteThingGroupResponse";
-}
-
-export namespace DeleteThingGroupResponse {
-  export function isa(o: any): o is DeleteThingGroupResponse {
-    return _smithy.isa(o, "DeleteThingGroupResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the DeleteThing operation.</p>
- *
- */
-export interface DeleteThingRequest {
-  __type?: "DeleteThingRequest";
-  /**
-   *
-   * 		       <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>DeleteThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   * 		       <p>The name of the thing to delete.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace DeleteThingRequest {
-  export function isa(o: any): o is DeleteThingRequest {
-    return _smithy.isa(o, "DeleteThingRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output of the DeleteThing operation.</p>
- *
- */
-export interface DeleteThingResponse extends $MetadataBearer {
-  __type?: "DeleteThingResponse";
-}
-
-export namespace DeleteThingResponse {
-  export function isa(o: any): o is DeleteThingResponse {
-    return _smithy.isa(o, "DeleteThingResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the DeleteThingType operation.</p>
- *
- */
-export interface DeleteThingTypeRequest {
-  __type?: "DeleteThingTypeRequest";
-  /**
-   *
-   * 		       <p>The name of the thing type.</p>
-   *
-   */
-  thingTypeName: string | undefined;
-}
-
-export namespace DeleteThingTypeRequest {
-  export function isa(o: any): o is DeleteThingTypeRequest {
-    return _smithy.isa(o, "DeleteThingTypeRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output for the DeleteThingType operation.</p>
- *
- */
-export interface DeleteThingTypeResponse extends $MetadataBearer {
-  __type?: "DeleteThingTypeResponse";
-}
-
-export namespace DeleteThingTypeResponse {
-  export function isa(o: any): o is DeleteThingTypeResponse {
-    return _smithy.isa(o, "DeleteThingTypeResponse");
-  }
-}
-
-export interface DeleteTopicRuleDestinationRequest {
-  __type?: "DeleteTopicRuleDestinationRequest";
-  /**
-   *
-   *          <p>The ARN of the topic rule destination to delete.</p>
-   *
-   */
-  arn: string | undefined;
-}
-
-export namespace DeleteTopicRuleDestinationRequest {
-  export function isa(o: any): o is DeleteTopicRuleDestinationRequest {
-    return _smithy.isa(o, "DeleteTopicRuleDestinationRequest");
-  }
-}
-
-export interface DeleteTopicRuleDestinationResponse extends $MetadataBearer {
-  __type?: "DeleteTopicRuleDestinationResponse";
-}
-
-export namespace DeleteTopicRuleDestinationResponse {
-  export function isa(o: any): o is DeleteTopicRuleDestinationResponse {
-    return _smithy.isa(o, "DeleteTopicRuleDestinationResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the DeleteTopicRule operation.</p>
- *
- */
-export interface DeleteTopicRuleRequest {
-  __type?: "DeleteTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName: string | undefined;
-}
-
-export namespace DeleteTopicRuleRequest {
-  export function isa(o: any): o is DeleteTopicRuleRequest {
-    return _smithy.isa(o, "DeleteTopicRuleRequest");
-  }
-}
-
-export interface DeleteV2LoggingLevelRequest {
-  __type?: "DeleteV2LoggingLevelRequest";
-  /**
-   *
-   *          <p>The name of the resource for which you are configuring logging.</p>
-   *
-   */
-  targetName: string | undefined;
-
-  /**
-   *
-   *          <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   *
-   */
-  targetType: LogTargetType | string | undefined;
-}
-
-export namespace DeleteV2LoggingLevelRequest {
-  export function isa(o: any): o is DeleteV2LoggingLevelRequest {
-    return _smithy.isa(o, "DeleteV2LoggingLevelRequest");
-  }
-}
-
 /**
  *
  *          <p>Contains information that denied the authorization.</p>
@@ -5373,273 +4900,6 @@ export interface Denied {
 export namespace Denied {
   export function isa(o: any): o is Denied {
     return _smithy.isa(o, "Denied");
-  }
-}
-
-/**
- *
- * 		       <p>The input for the DeprecateThingType operation.</p>
- *
- */
-export interface DeprecateThingTypeRequest {
-  __type?: "DeprecateThingTypeRequest";
-  /**
-   *
-   * 		       <p>The name of the thing type to deprecate.</p>
-   *
-   */
-  thingTypeName: string | undefined;
-
-  /**
-   *
-   * 		       <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
-   * 			associate it with things.</p>
-   *
-   */
-  undoDeprecate?: boolean;
-}
-
-export namespace DeprecateThingTypeRequest {
-  export function isa(o: any): o is DeprecateThingTypeRequest {
-    return _smithy.isa(o, "DeprecateThingTypeRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output for the DeprecateThingType operation.</p>
- *
- */
-export interface DeprecateThingTypeResponse extends $MetadataBearer {
-  __type?: "DeprecateThingTypeResponse";
-}
-
-export namespace DeprecateThingTypeResponse {
-  export function isa(o: any): o is DeprecateThingTypeResponse {
-    return _smithy.isa(o, "DeprecateThingTypeResponse");
-  }
-}
-
-export interface DescribeAccountAuditConfigurationRequest {
-  __type?: "DescribeAccountAuditConfigurationRequest";
-}
-
-export namespace DescribeAccountAuditConfigurationRequest {
-  export function isa(o: any): o is DescribeAccountAuditConfigurationRequest {
-    return _smithy.isa(o, "DescribeAccountAuditConfigurationRequest");
-  }
-}
-
-export interface DescribeAccountAuditConfigurationResponse
-  extends $MetadataBearer {
-  __type?: "DescribeAccountAuditConfigurationResponse";
-  /**
-   *
-   *           <p>Which audit checks are enabled and disabled for this account.</p>
-   *
-   */
-  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
-
-  /**
-   *
-   *           <p>Information about the targets to which audit notifications are sent for
-   *             this account.</p>
-   *
-   */
-  auditNotificationTargetConfigurations?: {
-    [key: string]: AuditNotificationTarget;
-  };
-
-  /**
-   *
-   *           <p>The ARN of the role that grants permission to AWS IoT to access information
-   *             about your devices, policies, certificates, and other items as required when
-   *             performing an audit.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
-   *             this parameter is required.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace DescribeAccountAuditConfigurationResponse {
-  export function isa(o: any): o is DescribeAccountAuditConfigurationResponse {
-    return _smithy.isa(o, "DescribeAccountAuditConfigurationResponse");
-  }
-}
-
-export interface DescribeAuditFindingRequest {
-  __type?: "DescribeAuditFindingRequest";
-  /**
-   *
-   *          <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
-   *
-   */
-  findingId: string | undefined;
-}
-
-export namespace DescribeAuditFindingRequest {
-  export function isa(o: any): o is DescribeAuditFindingRequest {
-    return _smithy.isa(o, "DescribeAuditFindingRequest");
-  }
-}
-
-export interface DescribeAuditFindingResponse extends $MetadataBearer {
-  __type?: "DescribeAuditFindingResponse";
-  /**
-   *
-   *          <p>The findings (results) of the audit.</p>
-   *
-   */
-  finding?: AuditFinding;
-}
-
-export namespace DescribeAuditFindingResponse {
-  export function isa(o: any): o is DescribeAuditFindingResponse {
-    return _smithy.isa(o, "DescribeAuditFindingResponse");
-  }
-}
-
-export interface DescribeAuditMitigationActionsTaskRequest {
-  __type?: "DescribeAuditMitigationActionsTaskRequest";
-  /**
-   *
-   *          <p>The unique identifier for the audit mitigation task.</p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeAuditMitigationActionsTaskRequest {
-  export function isa(o: any): o is DescribeAuditMitigationActionsTaskRequest {
-    return _smithy.isa(o, "DescribeAuditMitigationActionsTaskRequest");
-  }
-}
-
-export interface DescribeAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
-  __type?: "DescribeAuditMitigationActionsTaskResponse";
-  /**
-   *
-   *          <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
-   *
-   */
-  actionsDefinition?: Array<MitigationAction>;
-
-  /**
-   *
-   *          <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
-   *
-   */
-  auditCheckToActionsMapping?: { [key: string]: Array<string> };
-
-  /**
-   *
-   *          <p>The date and time when the task was completed or canceled.</p>
-   *
-   */
-  endTime?: Date;
-
-  /**
-   *
-   *          <p>The date and time when the task was started.</p>
-   *
-   */
-  startTime?: Date;
-
-  /**
-   *
-   *          <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
-   *
-   */
-  target?: AuditMitigationActionsTaskTarget;
-
-  /**
-   *
-   *          <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
-   *
-   */
-  taskStatistics?: { [key: string]: TaskStatisticsForAuditCheck };
-
-  /**
-   *
-   *          <p>The current status of the task.</p>
-   *
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-}
-
-export namespace DescribeAuditMitigationActionsTaskResponse {
-  export function isa(o: any): o is DescribeAuditMitigationActionsTaskResponse {
-    return _smithy.isa(o, "DescribeAuditMitigationActionsTaskResponse");
-  }
-}
-
-export interface DescribeAuditTaskRequest {
-  __type?: "DescribeAuditTaskRequest";
-  /**
-   *
-   *           <p>The ID of the audit whose information you want to get.</p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeAuditTaskRequest {
-  export function isa(o: any): o is DescribeAuditTaskRequest {
-    return _smithy.isa(o, "DescribeAuditTaskRequest");
-  }
-}
-
-export interface DescribeAuditTaskResponse extends $MetadataBearer {
-  __type?: "DescribeAuditTaskResponse";
-  /**
-   *
-   *           <p>Detailed information about each check performed during this audit.</p>
-   *
-   */
-  auditDetails?: { [key: string]: AuditCheckDetails };
-
-  /**
-   *
-   *           <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
-   *
-   */
-  scheduledAuditName?: string;
-
-  /**
-   *
-   *           <p>The time the audit started.</p>
-   *
-   */
-  taskStartTime?: Date;
-
-  /**
-   *
-   *          <p>Statistical information about the audit.</p>
-   *
-   */
-  taskStatistics?: TaskStatistics;
-
-  /**
-   *
-   *           <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
-   *             "FAILED", or "CANCELED".</p>
-   *
-   */
-  taskStatus?: AuditTaskStatus | string;
-
-  /**
-   *
-   *           <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
-   *
-   */
-  taskType?: AuditTaskType | string;
-}
-
-export namespace DescribeAuditTaskResponse {
-  export function isa(o: any): o is DescribeAuditTaskResponse {
-    return _smithy.isa(o, "DescribeAuditTaskResponse");
   }
 }
 
@@ -5672,73 +4932,6 @@ export interface DescribeAuthorizerResponse extends $MetadataBearer {
 export namespace DescribeAuthorizerResponse {
   export function isa(o: any): o is DescribeAuthorizerResponse {
     return _smithy.isa(o, "DescribeAuthorizerResponse");
-  }
-}
-
-export interface DescribeBillingGroupRequest {
-  __type?: "DescribeBillingGroupRequest";
-  /**
-   *
-   * 		       <p>The name of the billing group.</p>
-   *
-   */
-  billingGroupName: string | undefined;
-}
-
-export namespace DescribeBillingGroupRequest {
-  export function isa(o: any): o is DescribeBillingGroupRequest {
-    return _smithy.isa(o, "DescribeBillingGroupRequest");
-  }
-}
-
-export interface DescribeBillingGroupResponse extends $MetadataBearer {
-  __type?: "DescribeBillingGroupResponse";
-  /**
-   *
-   * 		       <p>The ARN of the billing group.</p>
-   *
-   */
-  billingGroupArn?: string;
-
-  /**
-   *
-   * 		       <p>The ID of the billing group.</p>
-   *
-   */
-  billingGroupId?: string;
-
-  /**
-   *
-   * 		       <p>Additional information about the billing group.</p>
-   *
-   */
-  billingGroupMetadata?: BillingGroupMetadata;
-
-  /**
-   *
-   * 		       <p>The name of the billing group.</p>
-   *
-   */
-  billingGroupName?: string;
-
-  /**
-   *
-   * 		       <p>The properties of the billing group.</p>
-   *
-   */
-  billingGroupProperties?: BillingGroupProperties;
-
-  /**
-   *
-   * 		       <p>The version of the billing group.</p>
-   *
-   */
-  version?: number;
-}
-
-export namespace DescribeBillingGroupResponse {
-  export function isa(o: any): o is DescribeBillingGroupResponse {
-    return _smithy.isa(o, "DescribeBillingGroupResponse");
   }
 }
 
@@ -6010,276 +5203,6 @@ export namespace DescribeEndpointResponse {
   }
 }
 
-export interface DescribeEventConfigurationsRequest {
-  __type?: "DescribeEventConfigurationsRequest";
-}
-
-export namespace DescribeEventConfigurationsRequest {
-  export function isa(o: any): o is DescribeEventConfigurationsRequest {
-    return _smithy.isa(o, "DescribeEventConfigurationsRequest");
-  }
-}
-
-export interface DescribeEventConfigurationsResponse extends $MetadataBearer {
-  __type?: "DescribeEventConfigurationsResponse";
-  /**
-   *
-   * 		       <p>The creation date of the event configuration.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   * 		       <p>The event configurations.</p>
-   *
-   */
-  eventConfigurations?: { [key: string]: Configuration };
-
-  /**
-   *
-   * 		       <p>The date the event configurations were last modified.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-}
-
-export namespace DescribeEventConfigurationsResponse {
-  export function isa(o: any): o is DescribeEventConfigurationsResponse {
-    return _smithy.isa(o, "DescribeEventConfigurationsResponse");
-  }
-}
-
-export interface DescribeIndexRequest {
-  __type?: "DescribeIndexRequest";
-  /**
-   *
-   *          <p>The index name.</p>
-   *
-   */
-  indexName: string | undefined;
-}
-
-export namespace DescribeIndexRequest {
-  export function isa(o: any): o is DescribeIndexRequest {
-    return _smithy.isa(o, "DescribeIndexRequest");
-  }
-}
-
-export interface DescribeIndexResponse extends $MetadataBearer {
-  __type?: "DescribeIndexResponse";
-  /**
-   *
-   *          <p>The index name.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   *          <p>The index status.</p>
-   *
-   */
-  indexStatus?: IndexStatus | string;
-
-  /**
-   *
-   *          <p>Contains a value that specifies the type of indexing performed. Valid values
-   *       are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>REGISTRY – Your thing index contains only registry data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and
-   *           thing connectivity status data.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry
-   *           data, shadow data, and thing connectivity status data.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  schema?: string;
-}
-
-export namespace DescribeIndexResponse {
-  export function isa(o: any): o is DescribeIndexResponse {
-    return _smithy.isa(o, "DescribeIndexResponse");
-  }
-}
-
-export interface DescribeJobExecutionRequest {
-  __type?: "DescribeJobExecutionRequest";
-  /**
-   *
-   *         <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
-   *             on a particular device.</p>
-   *
-   */
-  executionNumber?: number;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>The name of the thing on which the job execution is running.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace DescribeJobExecutionRequest {
-  export function isa(o: any): o is DescribeJobExecutionRequest {
-    return _smithy.isa(o, "DescribeJobExecutionRequest");
-  }
-}
-
-export interface DescribeJobExecutionResponse extends $MetadataBearer {
-  __type?: "DescribeJobExecutionResponse";
-  /**
-   *
-   *         <p>Information about the job execution.</p>
-   *
-   */
-  execution?: JobExecution;
-}
-
-export namespace DescribeJobExecutionResponse {
-  export function isa(o: any): o is DescribeJobExecutionResponse {
-    return _smithy.isa(o, "DescribeJobExecutionResponse");
-  }
-}
-
-export interface DescribeJobRequest {
-  __type?: "DescribeJobRequest";
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-}
-
-export namespace DescribeJobRequest {
-  export function isa(o: any): o is DescribeJobRequest {
-    return _smithy.isa(o, "DescribeJobRequest");
-  }
-}
-
-export interface DescribeJobResponse extends $MetadataBearer {
-  __type?: "DescribeJobResponse";
-  /**
-   *
-   *         <p>An S3 link to the job document.</p>
-   *
-   */
-  documentSource?: string;
-
-  /**
-   *
-   *         <p>Information about the job.</p>
-   *
-   */
-  job?: Job;
-}
-
-export namespace DescribeJobResponse {
-  export function isa(o: any): o is DescribeJobResponse {
-    return _smithy.isa(o, "DescribeJobResponse");
-  }
-}
-
-export interface DescribeMitigationActionRequest {
-  __type?: "DescribeMitigationActionRequest";
-  /**
-   *
-   *          <p>The friendly name that uniquely identifies the mitigation action.</p>
-   *
-   */
-  actionName: string | undefined;
-}
-
-export namespace DescribeMitigationActionRequest {
-  export function isa(o: any): o is DescribeMitigationActionRequest {
-    return _smithy.isa(o, "DescribeMitigationActionRequest");
-  }
-}
-
-export interface DescribeMitigationActionResponse extends $MetadataBearer {
-  __type?: "DescribeMitigationActionResponse";
-  /**
-   *
-   *          <p>The ARN that identifies this migration action.</p>
-   *
-   */
-  actionArn?: string;
-
-  /**
-   *
-   *          <p>A unique identifier for this action.</p>
-   *
-   */
-  actionId?: string;
-
-  /**
-   *
-   *          <p>The friendly name that uniquely identifies the mitigation action.</p>
-   *
-   */
-  actionName?: string;
-
-  /**
-   *
-   *          <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
-   *
-   */
-  actionParams?: MitigationActionParams;
-
-  /**
-   *
-   *          <p>The type of mitigation action.</p>
-   *
-   */
-  actionType?: MitigationActionType | string;
-
-  /**
-   *
-   *          <p>The date and time when the mitigation action was added to your AWS account.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The date and time when the mitigation action was last changed.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role used to apply this action.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace DescribeMitigationActionResponse {
-  export function isa(o: any): o is DescribeMitigationActionResponse {
-    return _smithy.isa(o, "DescribeMitigationActionResponse");
-  }
-}
-
 export interface DescribeProvisioningTemplateRequest {
   __type?: "DescribeProvisioningTemplateRequest";
   /**
@@ -6464,202 +5387,6768 @@ export namespace DescribeRoleAliasResponse {
   }
 }
 
-export interface DescribeScheduledAuditRequest {
-  __type?: "DescribeScheduledAuditRequest";
+export interface DetachPolicyRequest {
+  __type?: "DetachPolicyRequest";
   /**
    *
-   *           <p>The name of the scheduled audit whose information you want to get.</p>
+   *          <p>The policy to detach.</p>
    *
    */
-  scheduledAuditName: string | undefined;
+  policyName: string | undefined;
+
+  /**
+   *
+   *          <p>The target from which the policy will be detached.</p>
+   *
+   */
+  target: string | undefined;
 }
 
-export namespace DescribeScheduledAuditRequest {
-  export function isa(o: any): o is DescribeScheduledAuditRequest {
-    return _smithy.isa(o, "DescribeScheduledAuditRequest");
+export namespace DetachPolicyRequest {
+  export function isa(o: any): o is DetachPolicyRequest {
+    return _smithy.isa(o, "DetachPolicyRequest");
   }
 }
 
-export interface DescribeScheduledAuditResponse extends $MetadataBearer {
-  __type?: "DescribeScheduledAuditResponse";
+/**
+ *
+ *          <p>The input for the DetachPrincipalPolicy operation.</p>
+ *
+ */
+export interface DetachPrincipalPolicyRequest {
+  __type?: "DetachPrincipalPolicyRequest";
   /**
    *
-   *           <p>The day of the month on which the scheduled audit takes place. Will be "1"
-   *             through "31" or "LAST". If days 29-31 are specified, and the month does not have that many
-   *             days, the audit takes place on the "LAST" day of the month.</p>
+   *          <p>The name of the policy to detach.</p>
    *
    */
-  dayOfMonth?: string;
+  policyName: string | undefined;
 
   /**
    *
-   *           <p>The day of the week on which the scheduled audit takes place. One of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".</p>
+   *          <p>The principal.</p>
+   *          <p>If the principal is a certificate, specify the certificate ARN. If the principal is
+   *          an Amazon Cognito identity, specify the identity ID.</p>
    *
    */
-  dayOfWeek?: DayOfWeek | string;
-
-  /**
-   *
-   *           <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
-   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
-   *
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
-   *
-   *           <p>The ARN of the scheduled audit.</p>
-   *
-   */
-  scheduledAuditArn?: string;
-
-  /**
-   *
-   *           <p>The name of the scheduled audit.</p>
-   *
-   */
-  scheduledAuditName?: string;
-
-  /**
-   *
-   *           <p>Which checks are performed during the scheduled audit. Checks must be
-   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
-   *
-   */
-  targetCheckNames?: Array<string>;
+  principal: string | undefined;
 }
 
-export namespace DescribeScheduledAuditResponse {
-  export function isa(o: any): o is DescribeScheduledAuditResponse {
-    return _smithy.isa(o, "DescribeScheduledAuditResponse");
+export namespace DetachPrincipalPolicyRequest {
+  export function isa(o: any): o is DetachPrincipalPolicyRequest {
+    return _smithy.isa(o, "DetachPrincipalPolicyRequest");
   }
 }
 
-export interface DescribeSecurityProfileRequest {
-  __type?: "DescribeSecurityProfileRequest";
-  /**
-   *
-   *          <p>The name of the security profile whose information you want to get.</p>
-   *
-   */
-  securityProfileName: string | undefined;
+export enum DomainConfigurationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED"
 }
 
-export namespace DescribeSecurityProfileRequest {
-  export function isa(o: any): o is DescribeSecurityProfileRequest {
-    return _smithy.isa(o, "DescribeSecurityProfileRequest");
+/**
+ *
+ *          <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
+ *          A domain configuration can be associated with an AWS-managed domain
+ *          (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Data</p>
+ *             </li>
+ *             <li>
+ *                <p>Jobs</p>
+ *             </li>
+ *             <li>
+ *                <p>CredentialProvider</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>The domain configuration feature is in public preview and is subject to change.</p>
+ *          </note>
+ *
+ */
+export interface DomainConfigurationSummary {
+  __type?: "DomainConfigurationSummary";
+  /**
+   *
+   *          <p>The ARN of the domain configuration.</p>
+   *
+   */
+  domainConfigurationArn?: string;
+
+  /**
+   *
+   *          <p>The name of the domain configuration. This value must be unique to a region.</p>
+   *
+   */
+  domainConfigurationName?: string;
+
+  /**
+   *
+   *          <p>The type of service delivered by the endpoint.</p>
+   *
+   */
+  serviceType?: ServiceType | string;
+}
+
+export namespace DomainConfigurationSummary {
+  export function isa(o: any): o is DomainConfigurationSummary {
+    return _smithy.isa(o, "DomainConfigurationSummary");
   }
 }
 
-export interface DescribeSecurityProfileResponse extends $MetadataBearer {
-  __type?: "DescribeSecurityProfileResponse";
+export enum DomainType {
+  AWS_MANAGED = "AWS_MANAGED",
+  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
+  ENDPOINT = "ENDPOINT"
+}
+
+/**
+ *
+ *          <p>The policy that has the effect on the authorization results.</p>
+ *
+ */
+export interface EffectivePolicy {
+  __type?: "EffectivePolicy";
   /**
    *
-   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
-   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here.</p>
+   *          <p>The policy ARN.</p>
    *
    */
-  additionalMetricsToRetain?: Array<string>;
+  policyArn?: string;
 
   /**
    *
-   *          <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   *          <p>The IAM policy document.</p>
    *
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  policyDocument?: string;
 
   /**
    *
-   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   *          <p>The policy name.</p>
    *
    */
-  behaviors?: Array<Behavior>;
+  policyName?: string;
+}
+
+export namespace EffectivePolicy {
+  export function isa(o: any): o is EffectivePolicy {
+    return _smithy.isa(o, "EffectivePolicy");
+  }
+}
+
+/**
+ *
+ *          <p>Information that explicitly denies authorization.</p>
+ *
+ */
+export interface ExplicitDeny {
+  __type?: "ExplicitDeny";
+  /**
+   *
+   *          <p>The policies that denied the authorization.</p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace ExplicitDeny {
+  export function isa(o: any): o is ExplicitDeny {
+    return _smithy.isa(o, "ExplicitDeny");
+  }
+}
+
+export interface GetEffectivePoliciesRequest {
+  __type?: "GetEffectivePoliciesRequest";
+  /**
+   *
+   *          <p>The Cognito identity pool ID.</p>
+   *
+   */
+  cognitoIdentityPoolId?: string;
 
   /**
    *
-   *          <p>The time the security profile was created.</p>
+   *          <p>The principal.</p>
+   *
+   */
+  principal?: string;
+
+  /**
+   *
+   *          <p>The thing name.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace GetEffectivePoliciesRequest {
+  export function isa(o: any): o is GetEffectivePoliciesRequest {
+    return _smithy.isa(o, "GetEffectivePoliciesRequest");
+  }
+}
+
+export interface GetEffectivePoliciesResponse extends $MetadataBearer {
+  __type?: "GetEffectivePoliciesResponse";
+  /**
+   *
+   *          <p>The effective policies.</p>
+   *
+   */
+  effectivePolicies?: Array<EffectivePolicy>;
+}
+
+export namespace GetEffectivePoliciesResponse {
+  export function isa(o: any): o is GetEffectivePoliciesResponse {
+    return _smithy.isa(o, "GetEffectivePoliciesResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the GetPolicy operation.</p>
+ *
+ */
+export interface GetPolicyRequest {
+  __type?: "GetPolicyRequest";
+  /**
+   *
+   *          <p>The name of the policy.</p>
+   *
+   */
+  policyName: string | undefined;
+}
+
+export namespace GetPolicyRequest {
+  export function isa(o: any): o is GetPolicyRequest {
+    return _smithy.isa(o, "GetPolicyRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the GetPolicy operation.</p>
+ *
+ */
+export interface GetPolicyResponse extends $MetadataBearer {
+  __type?: "GetPolicyResponse";
+  /**
+   *
+   *          <p>The date the policy was created.</p>
    *
    */
   creationDate?: Date;
 
   /**
    *
-   *          <p>The time the security profile was last modified.</p>
+   *          <p>The default policy version ID.</p>
+   *
+   */
+  defaultVersionId?: string;
+
+  /**
+   *
+   *          <p>The generation ID of the policy.</p>
+   *
+   */
+  generationId?: string;
+
+  /**
+   *
+   *          <p>The date the policy was last modified.</p>
    *
    */
   lastModifiedDate?: Date;
 
   /**
    *
-   *          <p>The ARN of the security profile.</p>
+   *          <p>The policy ARN.</p>
    *
    */
-  securityProfileArn?: string;
+  policyArn?: string;
 
   /**
    *
-   *          <p>A description of the security profile (associated with the security profile
-   *         when it was created or updated).</p>
+   *          <p>The JSON document that describes the policy.</p>
    *
    */
-  securityProfileDescription?: string;
+  policyDocument?: string;
 
   /**
    *
-   *          <p>The name of the security profile.</p>
+   *          <p>The policy name.</p>
    *
    */
-  securityProfileName?: string;
-
-  /**
-   *
-   *          <p>The version of the security profile. A new version is generated whenever the
-   *         security profile is updated.</p>
-   *
-   */
-  version?: number;
+  policyName?: string;
 }
 
-export namespace DescribeSecurityProfileResponse {
-  export function isa(o: any): o is DescribeSecurityProfileResponse {
-    return _smithy.isa(o, "DescribeSecurityProfileResponse");
+export namespace GetPolicyResponse {
+  export function isa(o: any): o is GetPolicyResponse {
+    return _smithy.isa(o, "GetPolicyResponse");
   }
 }
 
-export interface DescribeStreamRequest {
-  __type?: "DescribeStreamRequest";
+/**
+ *
+ *          <p>The input for the GetPolicyVersion operation.</p>
+ *
+ */
+export interface GetPolicyVersionRequest {
+  __type?: "GetPolicyVersionRequest";
+  /**
+   *
+   *          <p>The name of the policy.</p>
+   *
+   */
+  policyName: string | undefined;
+
+  /**
+   *
+   *          <p>The policy version ID.</p>
+   *
+   */
+  policyVersionId: string | undefined;
+}
+
+export namespace GetPolicyVersionRequest {
+  export function isa(o: any): o is GetPolicyVersionRequest {
+    return _smithy.isa(o, "GetPolicyVersionRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the GetPolicyVersion operation.</p>
+ *
+ */
+export interface GetPolicyVersionResponse extends $MetadataBearer {
+  __type?: "GetPolicyVersionResponse";
+  /**
+   *
+   *          <p>The date the policy was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The generation ID of the policy version.</p>
+   *
+   */
+  generationId?: string;
+
+  /**
+   *
+   *          <p>Specifies whether the policy version is the default.</p>
+   *
+   */
+  isDefaultVersion?: boolean;
+
+  /**
+   *
+   *          <p>The date the policy was last modified.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   *          <p>The policy ARN.</p>
+   *
+   */
+  policyArn?: string;
+
+  /**
+   *
+   *          <p>The JSON document that describes the policy.</p>
+   *
+   */
+  policyDocument?: string;
+
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName?: string;
+
+  /**
+   *
+   *          <p>The policy version ID.</p>
+   *
+   */
+  policyVersionId?: string;
+}
+
+export namespace GetPolicyVersionResponse {
+  export function isa(o: any): o is GetPolicyVersionResponse {
+    return _smithy.isa(o, "GetPolicyVersionResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the GetRegistrationCode operation.</p>
+ *
+ */
+export interface GetRegistrationCodeRequest {
+  __type?: "GetRegistrationCodeRequest";
+}
+
+export namespace GetRegistrationCodeRequest {
+  export function isa(o: any): o is GetRegistrationCodeRequest {
+    return _smithy.isa(o, "GetRegistrationCodeRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the GetRegistrationCode operation.</p>
+ *
+ */
+export interface GetRegistrationCodeResponse extends $MetadataBearer {
+  __type?: "GetRegistrationCodeResponse";
+  /**
+   *
+   *          <p>The CA certificate registration code.</p>
+   *
+   */
+  registrationCode?: string;
+}
+
+export namespace GetRegistrationCodeResponse {
+  export function isa(o: any): o is GetRegistrationCodeResponse {
+    return _smithy.isa(o, "GetRegistrationCodeResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies the HTTP context to use for the test authorizer request.</p>
+ *
+ */
+export interface HttpContext {
+  __type?: "HttpContext";
+  /**
+   *
+   *          <p>The header keys and values in an HTTP authorization request.</p>
+   *
+   */
+  headers?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The query string keys and values in an HTTP authorization request.</p>
+   *
+   */
+  queryString?: string;
+}
+
+export namespace HttpContext {
+  export function isa(o: any): o is HttpContext {
+    return _smithy.isa(o, "HttpContext");
+  }
+}
+
+/**
+ *
+ *          <p>Information that implicitly denies authorization. When policy doesn't explicitly deny
+ *          or allow an action on a resource it is considered an implicit deny.</p>
+ *
+ */
+export interface ImplicitDeny {
+  __type?: "ImplicitDeny";
+  /**
+   *
+   *          <p>Policies that don't contain a matching allow or deny statement for the specified
+   *          action on the specified resource. </p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace ImplicitDeny {
+  export function isa(o: any): o is ImplicitDeny {
+    return _smithy.isa(o, "ImplicitDeny");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a key pair.</p>
+ *
+ */
+export interface KeyPair {
+  __type?: "KeyPair";
+  /**
+   *
+   *          <p>The private key.</p>
+   *
+   */
+  PrivateKey?: string;
+
+  /**
+   *
+   *          <p>The public key.</p>
+   *
+   */
+  PublicKey?: string;
+}
+
+export namespace KeyPair {
+  export function isa(o: any): o is KeyPair {
+    return _smithy.isa(o, "KeyPair");
+  }
+}
+
+export interface ListAttachedPoliciesRequest {
+  __type?: "ListAttachedPoliciesRequest";
+  /**
+   *
+   *          <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to be returned per request.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>When true, recursively list attached policies.</p>
+   *
+   */
+  recursive?: boolean;
+
+  /**
+   *
+   *          <p>The group or principal for which the policies will be listed.</p>
+   *
+   */
+  target: string | undefined;
+}
+
+export namespace ListAttachedPoliciesRequest {
+  export function isa(o: any): o is ListAttachedPoliciesRequest {
+    return _smithy.isa(o, "ListAttachedPoliciesRequest");
+  }
+}
+
+export interface ListAttachedPoliciesResponse extends $MetadataBearer {
+  __type?: "ListAttachedPoliciesResponse";
+  /**
+   *
+   *          <p>The token to retrieve the next set of results, or ``null`` if there are no more
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The policies.</p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace ListAttachedPoliciesResponse {
+  export function isa(o: any): o is ListAttachedPoliciesResponse {
+    return _smithy.isa(o, "ListAttachedPoliciesResponse");
+  }
+}
+
+export interface ListAuthorizersRequest {
+  __type?: "ListAuthorizersRequest";
+  /**
+   *
+   *          <p>Return the list of authorizers in ascending alphabetical order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>The status of the list authorizers request.</p>
+   *
+   */
+  status?: AuthorizerStatus | string;
+}
+
+export namespace ListAuthorizersRequest {
+  export function isa(o: any): o is ListAuthorizersRequest {
+    return _smithy.isa(o, "ListAuthorizersRequest");
+  }
+}
+
+export interface ListAuthorizersResponse extends $MetadataBearer {
+  __type?: "ListAuthorizersResponse";
+  /**
+   *
+   *          <p>The authorizers.</p>
+   *
+   */
+  authorizers?: Array<AuthorizerSummary>;
+
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  nextMarker?: string;
+}
+
+export namespace ListAuthorizersResponse {
+  export function isa(o: any): o is ListAuthorizersResponse {
+    return _smithy.isa(o, "ListAuthorizersResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Input for the ListCACertificates operation.</p>
+ *
+ */
+export interface ListCACertificatesRequest {
+  __type?: "ListCACertificatesRequest";
+  /**
+   *
+   *          <p>Determines the order of the results.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListCACertificatesRequest {
+  export function isa(o: any): o is ListCACertificatesRequest {
+    return _smithy.isa(o, "ListCACertificatesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListCACertificates operation.</p>
+ *
+ */
+export interface ListCACertificatesResponse extends $MetadataBearer {
+  __type?: "ListCACertificatesResponse";
+  /**
+   *
+   *          <p>The CA certificates registered in your AWS account.</p>
+   *
+   */
+  certificates?: Array<CACertificate>;
+
+  /**
+   *
+   *          <p>The current position within the list of CA certificates.</p>
+   *
+   */
+  nextMarker?: string;
+}
+
+export namespace ListCACertificatesResponse {
+  export function isa(o: any): o is ListCACertificatesResponse {
+    return _smithy.isa(o, "ListCACertificatesResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the ListCertificatesByCA operation.</p>
+ *
+ */
+export interface ListCertificatesByCARequest {
+  __type?: "ListCertificatesByCARequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the CA certificate. This operation will list all registered device
+   *          certificate that were signed by this CA certificate.</p>
+   *
+   */
+  caCertificateId: string | undefined;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListCertificatesByCARequest {
+  export function isa(o: any): o is ListCertificatesByCARequest {
+    return _smithy.isa(o, "ListCertificatesByCARequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output of the ListCertificatesByCA operation.</p>
+ *
+ */
+export interface ListCertificatesByCAResponse extends $MetadataBearer {
+  __type?: "ListCertificatesByCAResponse";
+  /**
+   *
+   *          <p>The device certificates signed by the specified CA certificate.</p>
+   *
+   */
+  certificates?: Array<Certificate>;
+
+  /**
+   *
+   *          <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+}
+
+export namespace ListCertificatesByCAResponse {
+  export function isa(o: any): o is ListCertificatesByCAResponse {
+    return _smithy.isa(o, "ListCertificatesByCAResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListCertificates operation.</p>
+ *
+ */
+export interface ListCertificatesRequest {
+  __type?: "ListCertificatesRequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListCertificatesRequest {
+  export function isa(o: any): o is ListCertificatesRequest {
+    return _smithy.isa(o, "ListCertificatesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output of the ListCertificates operation.</p>
+ *
+ */
+export interface ListCertificatesResponse extends $MetadataBearer {
+  __type?: "ListCertificatesResponse";
+  /**
+   *
+   *          <p>The descriptions of the certificates.</p>
+   *
+   */
+  certificates?: Array<Certificate>;
+
+  /**
+   *
+   *          <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+}
+
+export namespace ListCertificatesResponse {
+  export function isa(o: any): o is ListCertificatesResponse {
+    return _smithy.isa(o, "ListCertificatesResponse");
+  }
+}
+
+export interface ListDomainConfigurationsRequest {
+  __type?: "ListDomainConfigurationsRequest";
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>The type of service delivered by the endpoint.</p>
+   *
+   */
+  serviceType?: ServiceType | string;
+}
+
+export namespace ListDomainConfigurationsRequest {
+  export function isa(o: any): o is ListDomainConfigurationsRequest {
+    return _smithy.isa(o, "ListDomainConfigurationsRequest");
+  }
+}
+
+export interface ListDomainConfigurationsResponse extends $MetadataBearer {
+  __type?: "ListDomainConfigurationsResponse";
+  /**
+   *
+   *          <p>A list of objects that contain summary information about the user's domain configurations.</p>
+   *
+   */
+  domainConfigurations?: Array<DomainConfigurationSummary>;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  nextMarker?: string;
+}
+
+export namespace ListDomainConfigurationsResponse {
+  export function isa(o: any): o is ListDomainConfigurationsResponse {
+    return _smithy.isa(o, "ListDomainConfigurationsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the ListOutgoingCertificates operation.</p>
+ *
+ */
+export interface ListOutgoingCertificatesRequest {
+  __type?: "ListOutgoingCertificatesRequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListOutgoingCertificatesRequest {
+  export function isa(o: any): o is ListOutgoingCertificatesRequest {
+    return _smithy.isa(o, "ListOutgoingCertificatesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListOutgoingCertificates operation.</p>
+ *
+ */
+export interface ListOutgoingCertificatesResponse extends $MetadataBearer {
+  __type?: "ListOutgoingCertificatesResponse";
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The certificates that are being transferred but not yet accepted.</p>
+   *
+   */
+  outgoingCertificates?: Array<OutgoingCertificate>;
+}
+
+export namespace ListOutgoingCertificatesResponse {
+  export function isa(o: any): o is ListOutgoingCertificatesResponse {
+    return _smithy.isa(o, "ListOutgoingCertificatesResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListPolicies operation.</p>
+ *
+ */
+export interface ListPoliciesRequest {
+  __type?: "ListPoliciesRequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListPoliciesRequest {
+  export function isa(o: any): o is ListPoliciesRequest {
+    return _smithy.isa(o, "ListPoliciesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListPolicies operation.</p>
+ *
+ */
+export interface ListPoliciesResponse extends $MetadataBearer {
+  __type?: "ListPoliciesResponse";
+  /**
+   *
+   *          <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The descriptions of the policies.</p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace ListPoliciesResponse {
+  export function isa(o: any): o is ListPoliciesResponse {
+    return _smithy.isa(o, "ListPoliciesResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListPolicyPrincipals operation.</p>
+ *
+ */
+export interface ListPolicyPrincipalsRequest {
+  __type?: "ListPolicyPrincipalsRequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName: string | undefined;
+}
+
+export namespace ListPolicyPrincipalsRequest {
+  export function isa(o: any): o is ListPolicyPrincipalsRequest {
+    return _smithy.isa(o, "ListPolicyPrincipalsRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListPolicyPrincipals operation.</p>
+ *
+ */
+export interface ListPolicyPrincipalsResponse extends $MetadataBearer {
+  __type?: "ListPolicyPrincipalsResponse";
+  /**
+   *
+   *          <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The descriptions of the principals.</p>
+   *
+   */
+  principals?: Array<string>;
+}
+
+export namespace ListPolicyPrincipalsResponse {
+  export function isa(o: any): o is ListPolicyPrincipalsResponse {
+    return _smithy.isa(o, "ListPolicyPrincipalsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListPolicyVersions operation.</p>
+ *
+ */
+export interface ListPolicyVersionsRequest {
+  __type?: "ListPolicyVersionsRequest";
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName: string | undefined;
+}
+
+export namespace ListPolicyVersionsRequest {
+  export function isa(o: any): o is ListPolicyVersionsRequest {
+    return _smithy.isa(o, "ListPolicyVersionsRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListPolicyVersions operation.</p>
+ *
+ */
+export interface ListPolicyVersionsResponse extends $MetadataBearer {
+  __type?: "ListPolicyVersionsResponse";
+  /**
+   *
+   *          <p>The policy versions.</p>
+   *
+   */
+  policyVersions?: Array<PolicyVersion>;
+}
+
+export namespace ListPolicyVersionsResponse {
+  export function isa(o: any): o is ListPolicyVersionsResponse {
+    return _smithy.isa(o, "ListPolicyVersionsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the ListPrincipalPolicies operation.</p>
+ *
+ */
+export interface ListPrincipalPoliciesRequest {
+  __type?: "ListPrincipalPoliciesRequest";
+  /**
+   *
+   *          <p>Specifies the order for results. If true, results are returned in ascending creation
+   *          order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>The marker for the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The result page size.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>The principal.</p>
+   *
+   */
+  principal: string | undefined;
+}
+
+export namespace ListPrincipalPoliciesRequest {
+  export function isa(o: any): o is ListPrincipalPoliciesRequest {
+    return _smithy.isa(o, "ListPrincipalPoliciesRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the ListPrincipalPolicies operation.</p>
+ *
+ */
+export interface ListPrincipalPoliciesResponse extends $MetadataBearer {
+  __type?: "ListPrincipalPoliciesResponse";
+  /**
+   *
+   *          <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The policies.</p>
+   *
+   */
+  policies?: Array<Policy>;
+}
+
+export namespace ListPrincipalPoliciesResponse {
+  export function isa(o: any): o is ListPrincipalPoliciesResponse {
+    return _smithy.isa(o, "ListPrincipalPoliciesResponse");
+  }
+}
+
+export interface ListProvisioningTemplateVersionsRequest {
+  __type?: "ListProvisioningTemplateVersionsRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>A token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The name of the fleet provisioning template.</p>
+   *
+   */
+  templateName: string | undefined;
+}
+
+export namespace ListProvisioningTemplateVersionsRequest {
+  export function isa(o: any): o is ListProvisioningTemplateVersionsRequest {
+    return _smithy.isa(o, "ListProvisioningTemplateVersionsRequest");
+  }
+}
+
+export interface ListProvisioningTemplateVersionsResponse
+  extends $MetadataBearer {
+  __type?: "ListProvisioningTemplateVersionsResponse";
+  /**
+   *
+   *          <p>A token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The list of fleet provisioning template versions.</p>
+   *
+   */
+  versions?: Array<ProvisioningTemplateVersionSummary>;
+}
+
+export namespace ListProvisioningTemplateVersionsResponse {
+  export function isa(o: any): o is ListProvisioningTemplateVersionsResponse {
+    return _smithy.isa(o, "ListProvisioningTemplateVersionsResponse");
+  }
+}
+
+export interface ListProvisioningTemplatesRequest {
+  __type?: "ListProvisioningTemplatesRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>A token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListProvisioningTemplatesRequest {
+  export function isa(o: any): o is ListProvisioningTemplatesRequest {
+    return _smithy.isa(o, "ListProvisioningTemplatesRequest");
+  }
+}
+
+export interface ListProvisioningTemplatesResponse extends $MetadataBearer {
+  __type?: "ListProvisioningTemplatesResponse";
+  /**
+   *
+   *          <p>A token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>A list of fleet provisioning templates</p>
+   *
+   */
+  templates?: Array<ProvisioningTemplateSummary>;
+}
+
+export namespace ListProvisioningTemplatesResponse {
+  export function isa(o: any): o is ListProvisioningTemplatesResponse {
+    return _smithy.isa(o, "ListProvisioningTemplatesResponse");
+  }
+}
+
+export interface ListRoleAliasesRequest {
+  __type?: "ListRoleAliasesRequest";
+  /**
+   *
+   *          <p>Return the list of role aliases in ascending alphabetical order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  pageSize?: number;
+}
+
+export namespace ListRoleAliasesRequest {
+  export function isa(o: any): o is ListRoleAliasesRequest {
+    return _smithy.isa(o, "ListRoleAliasesRequest");
+  }
+}
+
+export interface ListRoleAliasesResponse extends $MetadataBearer {
+  __type?: "ListRoleAliasesResponse";
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The role aliases.</p>
+   *
+   */
+  roleAliases?: Array<string>;
+}
+
+export namespace ListRoleAliasesResponse {
+  export function isa(o: any): o is ListRoleAliasesResponse {
+    return _smithy.isa(o, "ListRoleAliasesResponse");
+  }
+}
+
+export interface ListTargetsForPolicyRequest {
+  __type?: "ListTargetsForPolicyRequest";
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  marker?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  pageSize?: number;
+
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName: string | undefined;
+}
+
+export namespace ListTargetsForPolicyRequest {
+  export function isa(o: any): o is ListTargetsForPolicyRequest {
+    return _smithy.isa(o, "ListTargetsForPolicyRequest");
+  }
+}
+
+export interface ListTargetsForPolicyResponse extends $MetadataBearer {
+  __type?: "ListTargetsForPolicyResponse";
+  /**
+   *
+   *          <p>A marker used to get the next set of results.</p>
+   *
+   */
+  nextMarker?: string;
+
+  /**
+   *
+   *          <p>The policy targets.</p>
+   *
+   */
+  targets?: Array<string>;
+}
+
+export namespace ListTargetsForPolicyResponse {
+  export function isa(o: any): o is ListTargetsForPolicyResponse {
+    return _smithy.isa(o, "ListTargetsForPolicyResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies the MQTT context to use for the test authorizer request</p>
+ *
+ */
+export interface MqttContext {
+  __type?: "MqttContext";
+  /**
+   *
+   *          <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
+   *
+   */
+  clientId?: string;
+
+  /**
+   *
+   *          <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
+   *
+   */
+  password?: Uint8Array;
+
+  /**
+   *
+   *          <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
+   *
+   */
+  username?: string;
+}
+
+export namespace MqttContext {
+  export function isa(o: any): o is MqttContext {
+    return _smithy.isa(o, "MqttContext");
+  }
+}
+
+/**
+ *
+ *          <p>A certificate that has been transferred but not yet accepted.</p>
+ *
+ */
+export interface OutgoingCertificate {
+  __type?: "OutgoingCertificate";
+  /**
+   *
+   *          <p>The certificate ARN.</p>
+   *
+   */
+  certificateArn?: string;
+
+  /**
+   *
+   *          <p>The certificate ID.</p>
+   *
+   */
+  certificateId?: string;
+
+  /**
+   *
+   *          <p>The certificate creation date.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The date the transfer was initiated.</p>
+   *
+   */
+  transferDate?: Date;
+
+  /**
+   *
+   *          <p>The transfer message.</p>
+   *
+   */
+  transferMessage?: string;
+
+  /**
+   *
+   *          <p>The AWS account to which the transfer was made.</p>
+   *
+   */
+  transferredTo?: string;
+}
+
+export namespace OutgoingCertificate {
+  export function isa(o: any): o is OutgoingCertificate {
+    return _smithy.isa(o, "OutgoingCertificate");
+  }
+}
+
+/**
+ *
+ *          <p>Describes an AWS IoT policy.</p>
+ *
+ */
+export interface Policy {
+  __type?: "Policy";
+  /**
+   *
+   *          <p>The policy ARN.</p>
+   *
+   */
+  policyArn?: string;
+
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName?: string;
+}
+
+export namespace Policy {
+  export function isa(o: any): o is Policy {
+    return _smithy.isa(o, "Policy");
+  }
+}
+
+/**
+ *
+ *          <p>Describes a policy version.</p>
+ *
+ */
+export interface PolicyVersion {
+  __type?: "PolicyVersion";
+  /**
+   *
+   *          <p>The date and time the policy was created.</p>
+   *
+   */
+  createDate?: Date;
+
+  /**
+   *
+   *          <p>Specifies whether the policy version is the default.</p>
+   *
+   */
+  isDefaultVersion?: boolean;
+
+  /**
+   *
+   *          <p>The policy version ID.</p>
+   *
+   */
+  versionId?: string;
+}
+
+export namespace PolicyVersion {
+  export function isa(o: any): o is PolicyVersion {
+    return _smithy.isa(o, "PolicyVersion");
+  }
+}
+
+/**
+ *
+ *          <p>A summary of information about a fleet provisioning template.</p>
+ *
+ */
+export interface ProvisioningTemplateSummary {
+  __type?: "ProvisioningTemplateSummary";
+  /**
+   *
+   *          <p>The date when the fleet provisioning template summary was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The description of the fleet provisioning template.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *          <p>True if the fleet provision template is enabled, otherwise false.</p>
+   *
+   */
+  enabled?: boolean;
+
+  /**
+   *
+   *          <p>The date when the fleet provisioning template summary was last modified.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   *          <p>The ARN of the fleet provisioning template.</p>
+   *
+   */
+  templateArn?: string;
+
+  /**
+   *
+   *          <p>The name of the fleet provisioning template.</p>
+   *
+   */
+  templateName?: string;
+}
+
+export namespace ProvisioningTemplateSummary {
+  export function isa(o: any): o is ProvisioningTemplateSummary {
+    return _smithy.isa(o, "ProvisioningTemplateSummary");
+  }
+}
+
+/**
+ *
+ *          <p>A summary of information about a fleet provision template version.</p>
+ *
+ */
+export interface ProvisioningTemplateVersionSummary {
+  __type?: "ProvisioningTemplateVersionSummary";
+  /**
+   *
+   *          <p>The date when the fleet provisioning template version was created</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>True if the fleet provisioning template version is the default version, otherwise
+   *          false.</p>
+   *
+   */
+  isDefaultVersion?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the fleet privisioning template version.</p>
+   *
+   */
+  versionId?: number;
+}
+
+export namespace ProvisioningTemplateVersionSummary {
+  export function isa(o: any): o is ProvisioningTemplateVersionSummary {
+    return _smithy.isa(o, "ProvisioningTemplateVersionSummary");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the RegisterCACertificate operation.</p>
+ *
+ */
+export interface RegisterCACertificateRequest {
+  __type?: "RegisterCACertificateRequest";
+  /**
+   *
+   *          <p>Allows this CA certificate to be used for auto registration of device
+   *          certificates.</p>
+   *
+   */
+  allowAutoRegistration?: boolean;
+
+  /**
+   *
+   *          <p>The CA certificate.</p>
+   *
+   */
+  caCertificate: string | undefined;
+
+  /**
+   *
+   *          <p>Information about the registration configuration.</p>
+   *
+   */
+  registrationConfig?: RegistrationConfig;
+
+  /**
+   *
+   *          <p>A boolean value that specifies if the CA certificate is set to active.</p>
+   *
+   */
+  setAsActive?: boolean;
+
+  /**
+   *
+   *          <p>The private key verification certificate.</p>
+   *
+   */
+  verificationCertificate: string | undefined;
+}
+
+export namespace RegisterCACertificateRequest {
+  export function isa(o: any): o is RegisterCACertificateRequest {
+    return _smithy.isa(o, "RegisterCACertificateRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the RegisterCACertificateResponse operation.</p>
+ *
+ */
+export interface RegisterCACertificateResponse extends $MetadataBearer {
+  __type?: "RegisterCACertificateResponse";
+  /**
+   *
+   *          <p>The CA certificate ARN.</p>
+   *
+   */
+  certificateArn?: string;
+
+  /**
+   *
+   *          <p>The CA certificate identifier.</p>
+   *
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCACertificateResponse {
+  export function isa(o: any): o is RegisterCACertificateResponse {
+    return _smithy.isa(o, "RegisterCACertificateResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the RegisterCertificate operation.</p>
+ *
+ */
+export interface RegisterCertificateRequest {
+  __type?: "RegisterCertificateRequest";
+  /**
+   *
+   *          <p>The CA certificate used to sign the device certificate being registered.</p>
+   *
+   */
+  caCertificatePem?: string;
+
+  /**
+   *
+   *          <p>The certificate data, in PEM format.</p>
+   *
+   */
+  certificatePem: string | undefined;
+
+  /**
+   *
+   *          <p>A boolean value that specifies if the certificate is set to active.</p>
+   *
+   */
+  setAsActive?: boolean;
+
+  /**
+   *
+   *          <p>The status of the register certificate request.</p>
+   *
+   */
+  status?: CertificateStatus | string;
+}
+
+export namespace RegisterCertificateRequest {
+  export function isa(o: any): o is RegisterCertificateRequest {
+    return _smithy.isa(o, "RegisterCertificateRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the RegisterCertificate operation.</p>
+ *
+ */
+export interface RegisterCertificateResponse extends $MetadataBearer {
+  __type?: "RegisterCertificateResponse";
+  /**
+   *
+   *          <p>The certificate ARN.</p>
+   *
+   */
+  certificateArn?: string;
+
+  /**
+   *
+   *          <p>The certificate identifier.</p>
+   *
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCertificateResponse {
+  export function isa(o: any): o is RegisterCertificateResponse {
+    return _smithy.isa(o, "RegisterCertificateResponse");
+  }
+}
+
+export interface RegisterThingRequest {
+  __type?: "RegisterThingRequest";
+  /**
+   *
+   *          <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+   *             Provisioning</a> for more information.</p>
+   *
+   */
+  parameters?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+   *             Provisioning</a> for more information.</p>
+   *
+   */
+  templateBody: string | undefined;
+}
+
+export namespace RegisterThingRequest {
+  export function isa(o: any): o is RegisterThingRequest {
+    return _smithy.isa(o, "RegisterThingRequest");
+  }
+}
+
+export interface RegisterThingResponse extends $MetadataBearer {
+  __type?: "RegisterThingResponse";
+  /**
+   *
+   *          <p>.</p>
+   *
+   */
+  certificatePem?: string;
+
+  /**
+   *
+   *          <p>ARNs for the generated resources.</p>
+   *
+   */
+  resourceArns?: { [key: string]: string };
+}
+
+export namespace RegisterThingResponse {
+  export function isa(o: any): o is RegisterThingResponse {
+    return _smithy.isa(o, "RegisterThingResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The registration configuration.</p>
+ *
+ */
+export interface RegistrationConfig {
+  __type?: "RegistrationConfig";
+  /**
+   *
+   *          <p>The ARN of the role.</p>
+   *
+   */
+  roleArn?: string;
+
+  /**
+   *
+   *          <p>The template body.</p>
+   *
+   */
+  templateBody?: string;
+}
+
+export namespace RegistrationConfig {
+  export function isa(o: any): o is RegistrationConfig {
+    return _smithy.isa(o, "RegistrationConfig");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the RejectCertificateTransfer operation.</p>
+ *
+ */
+export interface RejectCertificateTransferRequest {
+  __type?: "RejectCertificateTransferRequest";
+  /**
+   *
+   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   *
+   */
+  certificateId: string | undefined;
+
+  /**
+   *
+   *          <p>The reason the certificate transfer was rejected.</p>
+   *
+   */
+  rejectReason?: string;
+}
+
+export namespace RejectCertificateTransferRequest {
+  export function isa(o: any): o is RejectCertificateTransferRequest {
+    return _smithy.isa(o, "RejectCertificateTransferRequest");
+  }
+}
+
+/**
+ *
+ *          <p>Role alias description.</p>
+ *
+ */
+export interface RoleAliasDescription {
+  __type?: "RoleAliasDescription";
+  /**
+   *
+   *          <p>The UNIX timestamp of when the role alias was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The number of seconds for which the credential is valid.</p>
+   *
+   */
+  credentialDurationSeconds?: number;
+
+  /**
+   *
+   *          <p>The UNIX timestamp of when the role alias was last modified.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   *          <p>The role alias owner.</p>
+   *
+   */
+  owner?: string;
+
+  /**
+   *
+   *          <p>The role alias.</p>
+   *
+   */
+  roleAlias?: string;
+
+  /**
+   *
+   *          <p>The ARN of the role alias.</p>
+   *
+   */
+  roleAliasArn?: string;
+
+  /**
+   *
+   *          <p>The role ARN.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace RoleAliasDescription {
+  export function isa(o: any): o is RoleAliasDescription {
+    return _smithy.isa(o, "RoleAliasDescription");
+  }
+}
+
+export enum ServerCertificateStatus {
+  INVALID = "INVALID",
+  VALID = "VALID"
+}
+
+/**
+ *
+ *          <p>An object that contains information about a server certificate.</p>
+ *
+ */
+export interface ServerCertificateSummary {
+  __type?: "ServerCertificateSummary";
+  /**
+   *
+   *          <p>The ARN of the server certificate.</p>
+   *
+   */
+  serverCertificateArn?: string;
+
+  /**
+   *
+   *          <p>The status of the server certificate.</p>
+   *
+   */
+  serverCertificateStatus?: ServerCertificateStatus | string;
+
+  /**
+   *
+   *          <p>Details that explain the status of the server certificate.</p>
+   *
+   */
+  serverCertificateStatusDetail?: string;
+}
+
+export namespace ServerCertificateSummary {
+  export function isa(o: any): o is ServerCertificateSummary {
+    return _smithy.isa(o, "ServerCertificateSummary");
+  }
+}
+
+export enum ServiceType {
+  CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
+  DATA = "DATA",
+  JOBS = "JOBS"
+}
+
+export interface SetDefaultAuthorizerRequest {
+  __type?: "SetDefaultAuthorizerRequest";
+  /**
+   *
+   *          <p>The authorizer name.</p>
+   *
+   */
+  authorizerName: string | undefined;
+}
+
+export namespace SetDefaultAuthorizerRequest {
+  export function isa(o: any): o is SetDefaultAuthorizerRequest {
+    return _smithy.isa(o, "SetDefaultAuthorizerRequest");
+  }
+}
+
+export interface SetDefaultAuthorizerResponse extends $MetadataBearer {
+  __type?: "SetDefaultAuthorizerResponse";
+  /**
+   *
+   *          <p>The authorizer ARN.</p>
+   *
+   */
+  authorizerArn?: string;
+
+  /**
+   *
+   *          <p>The authorizer name.</p>
+   *
+   */
+  authorizerName?: string;
+}
+
+export namespace SetDefaultAuthorizerResponse {
+  export function isa(o: any): o is SetDefaultAuthorizerResponse {
+    return _smithy.isa(o, "SetDefaultAuthorizerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the SetDefaultPolicyVersion operation.</p>
+ *
+ */
+export interface SetDefaultPolicyVersionRequest {
+  __type?: "SetDefaultPolicyVersionRequest";
+  /**
+   *
+   *          <p>The policy name.</p>
+   *
+   */
+  policyName: string | undefined;
+
+  /**
+   *
+   *          <p>The policy version ID.</p>
+   *
+   */
+  policyVersionId: string | undefined;
+}
+
+export namespace SetDefaultPolicyVersionRequest {
+  export function isa(o: any): o is SetDefaultPolicyVersionRequest {
+    return _smithy.isa(o, "SetDefaultPolicyVersionRequest");
+  }
+}
+
+export interface TestAuthorizationRequest {
+  __type?: "TestAuthorizationRequest";
+  /**
+   *
+   *          <p>A list of authorization info objects. Simulating authorization will create a response
+   *          for each <code>authInfo</code> object in the list.</p>
+   *
+   */
+  authInfos: Array<AuthInfo> | undefined;
+
+  /**
+   *
+   *          <p>The MQTT client ID.</p>
+   *
+   */
+  clientId?: string;
+
+  /**
+   *
+   *          <p>The Cognito identity pool ID.</p>
+   *
+   */
+  cognitoIdentityPoolId?: string;
+
+  /**
+   *
+   *          <p>When testing custom authorization, the policies specified here are treated as if they
+   *          are attached to the principal being authorized.</p>
+   *
+   */
+  policyNamesToAdd?: Array<string>;
+
+  /**
+   *
+   *          <p>When testing custom authorization, the policies specified here are treated as if they
+   *          are not attached to the principal being authorized.</p>
+   *
+   */
+  policyNamesToSkip?: Array<string>;
+
+  /**
+   *
+   *          <p>The principal.</p>
+   *
+   */
+  principal?: string;
+}
+
+export namespace TestAuthorizationRequest {
+  export function isa(o: any): o is TestAuthorizationRequest {
+    return _smithy.isa(o, "TestAuthorizationRequest");
+  }
+}
+
+export interface TestAuthorizationResponse extends $MetadataBearer {
+  __type?: "TestAuthorizationResponse";
+  /**
+   *
+   *          <p>The authentication results.</p>
+   *
+   */
+  authResults?: Array<AuthResult>;
+}
+
+export namespace TestAuthorizationResponse {
+  export function isa(o: any): o is TestAuthorizationResponse {
+    return _smithy.isa(o, "TestAuthorizationResponse");
+  }
+}
+
+export interface TestInvokeAuthorizerRequest {
+  __type?: "TestInvokeAuthorizerRequest";
+  /**
+   *
+   *          <p>The custom authorizer name.</p>
+   *
+   *
+   */
+  authorizerName: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies a test HTTP authorization request.</p>
+   *
+   */
+  httpContext?: HttpContext;
+
+  /**
+   *
+   *          <p>Specifies a test MQTT authorization request.></p>
+   *
+   */
+  mqttContext?: MqttContext;
+
+  /**
+   *
+   *          <p>Specifies a test TLS authorization request.</p>
+   *
+   */
+  tlsContext?: TlsContext;
+
+  /**
+   *
+   *          <p>The token returned by your custom authentication service.</p>
+   *
+   */
+  token?: string;
+
+  /**
+   *
+   *          <p>The signature made with the token and your custom authentication service's private
+   *          key.</p>
+   *
+   */
+  tokenSignature?: string;
+}
+
+export namespace TestInvokeAuthorizerRequest {
+  export function isa(o: any): o is TestInvokeAuthorizerRequest {
+    return _smithy.isa(o, "TestInvokeAuthorizerRequest");
+  }
+}
+
+export interface TestInvokeAuthorizerResponse extends $MetadataBearer {
+  __type?: "TestInvokeAuthorizerResponse";
+  /**
+   *
+   *          <p>The number of seconds after which the connection is terminated.</p>
+   *
+   */
+  disconnectAfterInSeconds?: number;
+
+  /**
+   *
+   *          <p>True if the token is authenticated, otherwise false.</p>
+   *
+   */
+  isAuthenticated?: boolean;
+
+  /**
+   *
+   *          <p>IAM policy documents.</p>
+   *
+   */
+  policyDocuments?: Array<string>;
+
+  /**
+   *
+   *          <p>The principal ID.</p>
+   *
+   */
+  principalId?: string;
+
+  /**
+   *
+   *          <p>The number of seconds after which the temporary credentials are refreshed.</p>
+   *
+   */
+  refreshAfterInSeconds?: number;
+}
+
+export namespace TestInvokeAuthorizerResponse {
+  export function isa(o: any): o is TestInvokeAuthorizerResponse {
+    return _smithy.isa(o, "TestInvokeAuthorizerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Specifies the TLS context to use for the test authorizer request.</p>
+ *
+ */
+export interface TlsContext {
+  __type?: "TlsContext";
+  /**
+   *
+   *          <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
+   *
+   */
+  serverName?: string;
+}
+
+export namespace TlsContext {
+  export function isa(o: any): o is TlsContext {
+    return _smithy.isa(o, "TlsContext");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the TransferCertificate operation.</p>
+ *
+ */
+export interface TransferCertificateRequest {
+  __type?: "TransferCertificateRequest";
+  /**
+   *
+   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   *
+   */
+  certificateId: string | undefined;
+
+  /**
+   *
+   *          <p>The AWS account.</p>
+   *
+   */
+  targetAwsAccount: string | undefined;
+
+  /**
+   *
+   *          <p>The transfer message.</p>
+   *
+   */
+  transferMessage?: string;
+}
+
+export namespace TransferCertificateRequest {
+  export function isa(o: any): o is TransferCertificateRequest {
+    return _smithy.isa(o, "TransferCertificateRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The output from the TransferCertificate operation.</p>
+ *
+ */
+export interface TransferCertificateResponse extends $MetadataBearer {
+  __type?: "TransferCertificateResponse";
+  /**
+   *
+   *          <p>The ARN of the certificate.</p>
+   *
+   */
+  transferredCertificateArn?: string;
+}
+
+export namespace TransferCertificateResponse {
+  export function isa(o: any): o is TransferCertificateResponse {
+    return _smithy.isa(o, "TransferCertificateResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Data used to transfer a certificate to an AWS account.</p>
+ *
+ */
+export interface TransferData {
+  __type?: "TransferData";
+  /**
+   *
+   *          <p>The date the transfer was accepted.</p>
+   *
+   */
+  acceptDate?: Date;
+
+  /**
+   *
+   *          <p>The date the transfer was rejected.</p>
+   *
+   */
+  rejectDate?: Date;
+
+  /**
+   *
+   *          <p>The reason why the transfer was rejected.</p>
+   *
+   */
+  rejectReason?: string;
+
+  /**
+   *
+   *          <p>The date the transfer took place.</p>
+   *
+   */
+  transferDate?: Date;
+
+  /**
+   *
+   *          <p>The transfer message.</p>
+   *
+   */
+  transferMessage?: string;
+}
+
+export namespace TransferData {
+  export function isa(o: any): o is TransferData {
+    return _smithy.isa(o, "TransferData");
+  }
+}
+
+export interface UpdateAuthorizerRequest {
+  __type?: "UpdateAuthorizerRequest";
+  /**
+   *
+   *          <p>The ARN of the authorizer's Lambda function.</p>
+   *
+   */
+  authorizerFunctionArn?: string;
+
+  /**
+   *
+   *          <p>The authorizer name.</p>
+   *
+   */
+  authorizerName: string | undefined;
+
+  /**
+   *
+   *          <p>The status of the update authorizer request.</p>
+   *
+   */
+  status?: AuthorizerStatus | string;
+
+  /**
+   *
+   *          <p>The key used to extract the token from the HTTP headers. </p>
+   *
+   */
+  tokenKeyName?: string;
+
+  /**
+   *
+   *          <p>The public keys used to verify the token signature.</p>
+   *
+   */
+  tokenSigningPublicKeys?: { [key: string]: string };
+}
+
+export namespace UpdateAuthorizerRequest {
+  export function isa(o: any): o is UpdateAuthorizerRequest {
+    return _smithy.isa(o, "UpdateAuthorizerRequest");
+  }
+}
+
+export interface UpdateAuthorizerResponse extends $MetadataBearer {
+  __type?: "UpdateAuthorizerResponse";
+  /**
+   *
+   *          <p>The authorizer ARN.</p>
+   *
+   */
+  authorizerArn?: string;
+
+  /**
+   *
+   *          <p>The authorizer name.</p>
+   *
+   */
+  authorizerName?: string;
+}
+
+export namespace UpdateAuthorizerResponse {
+  export function isa(o: any): o is UpdateAuthorizerResponse {
+    return _smithy.isa(o, "UpdateAuthorizerResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The input to the UpdateCACertificate operation.</p>
+ *
+ */
+export interface UpdateCACertificateRequest {
+  __type?: "UpdateCACertificateRequest";
+  /**
+   *
+   *          <p>The CA certificate identifier.</p>
+   *
+   */
+  certificateId: string | undefined;
+
+  /**
+   *
+   *          <p>The new value for the auto registration status. Valid values are: "ENABLE" or
+   *          "DISABLE".</p>
+   *
+   */
+  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
+
+  /**
+   *
+   *          <p>The updated status of the CA certificate.</p>
+   *          <p>
+   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
+   *          should not be used.</p>
+   *
+   */
+  newStatus?: CACertificateStatus | string;
+
+  /**
+   *
+   *          <p>Information about the registration configuration.</p>
+   *
+   */
+  registrationConfig?: RegistrationConfig;
+
+  /**
+   *
+   *          <p>If true, removes auto registration.</p>
+   *
+   */
+  removeAutoRegistration?: boolean;
+}
+
+export namespace UpdateCACertificateRequest {
+  export function isa(o: any): o is UpdateCACertificateRequest {
+    return _smithy.isa(o, "UpdateCACertificateRequest");
+  }
+}
+
+/**
+ *
+ *          <p>The input for the UpdateCertificate operation.</p>
+ *
+ */
+export interface UpdateCertificateRequest {
+  __type?: "UpdateCertificateRequest";
+  /**
+   *
+   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   *
+   */
+  certificateId: string | undefined;
+
+  /**
+   *
+   *          <p>The new status.</p>
+   *          <p>
+   *             <b>Note:</b> Setting the status to PENDING_TRANSFER will result
+   *          in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It
+   *          is not intended for developer use.</p>
+   *          <p>
+   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
+   *          should not be used.</p>
+   *
+   */
+  newStatus: CertificateStatus | string | undefined;
+}
+
+export namespace UpdateCertificateRequest {
+  export function isa(o: any): o is UpdateCertificateRequest {
+    return _smithy.isa(o, "UpdateCertificateRequest");
+  }
+}
+
+export interface UpdateDomainConfigurationRequest {
+  __type?: "UpdateDomainConfigurationRequest";
+  /**
+   *
+   *          <p>An object that specifies the authorization service for a domain.</p>
+   *
+   */
+  authorizerConfig?: AuthorizerConfig;
+
+  /**
+   *
+   *          <p>The name of the domain configuration to be updated.</p>
+   *
+   */
+  domainConfigurationName: string | undefined;
+
+  /**
+   *
+   *          <p>The status to which the domain configuration should be updated.</p>
+   *
+   */
+  domainConfigurationStatus?: DomainConfigurationStatus | string;
+
+  /**
+   *
+   *          <p>Removes the authorization configuration from a domain.</p>
+   *
+   */
+  removeAuthorizerConfig?: boolean;
+}
+
+export namespace UpdateDomainConfigurationRequest {
+  export function isa(o: any): o is UpdateDomainConfigurationRequest {
+    return _smithy.isa(o, "UpdateDomainConfigurationRequest");
+  }
+}
+
+export interface UpdateDomainConfigurationResponse extends $MetadataBearer {
+  __type?: "UpdateDomainConfigurationResponse";
+  /**
+   *
+   *          <p>The ARN of the domain configuration that was updated.</p>
+   *
+   */
+  domainConfigurationArn?: string;
+
+  /**
+   *
+   *          <p>The name of the domain configuration that was updated.</p>
+   *
+   */
+  domainConfigurationName?: string;
+}
+
+export namespace UpdateDomainConfigurationResponse {
+  export function isa(o: any): o is UpdateDomainConfigurationResponse {
+    return _smithy.isa(o, "UpdateDomainConfigurationResponse");
+  }
+}
+
+export interface UpdateProvisioningTemplateRequest {
+  __type?: "UpdateProvisioningTemplateRequest";
+  /**
+   *
+   *          <p>The ID of the default provisioning template version.</p>
+   *
+   */
+  defaultVersionId?: number;
+
+  /**
+   *
+   *          <p>The description of the fleet provisioning template.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *          <p>True to enable the fleet provisioning template, otherwise false.</p>
+   *
+   */
+  enabled?: boolean;
+
+  /**
+   *
+   *          <p>The ARN of the role associated with the provisioning template. This IoT role grants
+   *          permission to provision a device.</p>
+   *
+   */
+  provisioningRoleArn?: string;
+
+  /**
+   *
+   *          <p>The name of the fleet provisioning template.</p>
+   *
+   */
+  templateName: string | undefined;
+}
+
+export namespace UpdateProvisioningTemplateRequest {
+  export function isa(o: any): o is UpdateProvisioningTemplateRequest {
+    return _smithy.isa(o, "UpdateProvisioningTemplateRequest");
+  }
+}
+
+export interface UpdateProvisioningTemplateResponse extends $MetadataBearer {
+  __type?: "UpdateProvisioningTemplateResponse";
+}
+
+export namespace UpdateProvisioningTemplateResponse {
+  export function isa(o: any): o is UpdateProvisioningTemplateResponse {
+    return _smithy.isa(o, "UpdateProvisioningTemplateResponse");
+  }
+}
+
+export interface UpdateRoleAliasRequest {
+  __type?: "UpdateRoleAliasRequest";
+  /**
+   *
+   *          <p>The number of seconds the credential will be valid.</p>
+   *
+   */
+  credentialDurationSeconds?: number;
+
+  /**
+   *
+   *          <p>The role alias to update.</p>
+   *
+   */
+  roleAlias: string | undefined;
+
+  /**
+   *
+   *          <p>The role ARN.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace UpdateRoleAliasRequest {
+  export function isa(o: any): o is UpdateRoleAliasRequest {
+    return _smithy.isa(o, "UpdateRoleAliasRequest");
+  }
+}
+
+export interface UpdateRoleAliasResponse extends $MetadataBearer {
+  __type?: "UpdateRoleAliasResponse";
+  /**
+   *
+   *          <p>The role alias.</p>
+   *
+   */
+  roleAlias?: string;
+
+  /**
+   *
+   *          <p>The role alias ARN.</p>
+   *
+   */
+  roleAliasArn?: string;
+}
+
+export namespace UpdateRoleAliasResponse {
+  export function isa(o: any): o is UpdateRoleAliasResponse {
+    return _smithy.isa(o, "UpdateRoleAliasResponse");
+  }
+}
+
+export interface DescribeIndexRequest {
+  __type?: "DescribeIndexRequest";
+  /**
+   *
+   *          <p>The index name.</p>
+   *
+   */
+  indexName: string | undefined;
+}
+
+export namespace DescribeIndexRequest {
+  export function isa(o: any): o is DescribeIndexRequest {
+    return _smithy.isa(o, "DescribeIndexRequest");
+  }
+}
+
+export interface DescribeIndexResponse extends $MetadataBearer {
+  __type?: "DescribeIndexResponse";
+  /**
+   *
+   *          <p>The index name.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   *          <p>The index status.</p>
+   *
+   */
+  indexStatus?: IndexStatus | string;
+
+  /**
+   *
+   *          <p>Contains a value that specifies the type of indexing performed. Valid values
+   *       are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>REGISTRY – Your thing index contains only registry data.</p>
+   *             </li>
+   *             <li>
+   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p>
+   *             </li>
+   *             <li>
+   *                <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and
+   *           thing connectivity status data.</p>
+   *             </li>
+   *             <li>
+   *                <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry
+   *           data, shadow data, and thing connectivity status data.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  schema?: string;
+}
+
+export namespace DescribeIndexResponse {
+  export function isa(o: any): o is DescribeIndexResponse {
+    return _smithy.isa(o, "DescribeIndexResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Describes the name and data type at a field.</p>
+ *
+ */
+export interface Field {
+  __type?: "Field";
+  /**
+   *
+   *          <p>The name of the field.</p>
+   *
+   */
+  name?: string;
+
+  /**
+   *
+   *          <p>The datatype of the field.</p>
+   *
+   */
+  type?: FieldType | string;
+}
+
+export namespace Field {
+  export function isa(o: any): o is Field {
+    return _smithy.isa(o, "Field");
+  }
+}
+
+export enum FieldType {
+  BOOLEAN = "Boolean",
+  NUMBER = "Number",
+  STRING = "String"
+}
+
+export interface GetCardinalityRequest {
+  __type?: "GetCardinalityRequest";
+  /**
+   *
+   *          <p>The field to aggregate.</p>
+   *
+   */
+  aggregationField?: string;
+
+  /**
+   *
+   *          <p>The name of the index to search.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   *          <p>The search query.</p>
+   *
+   */
+  queryString: string | undefined;
+
+  /**
+   *
+   *          <p>The query version.</p>
+   *
+   */
+  queryVersion?: string;
+}
+
+export namespace GetCardinalityRequest {
+  export function isa(o: any): o is GetCardinalityRequest {
+    return _smithy.isa(o, "GetCardinalityRequest");
+  }
+}
+
+export interface GetCardinalityResponse extends $MetadataBearer {
+  __type?: "GetCardinalityResponse";
+  /**
+   *
+   *          <p>The approximate count of unique values that match the query.</p>
+   *
+   */
+  cardinality?: number;
+}
+
+export namespace GetCardinalityResponse {
+  export function isa(o: any): o is GetCardinalityResponse {
+    return _smithy.isa(o, "GetCardinalityResponse");
+  }
+}
+
+export interface GetIndexingConfigurationRequest {
+  __type?: "GetIndexingConfigurationRequest";
+}
+
+export namespace GetIndexingConfigurationRequest {
+  export function isa(o: any): o is GetIndexingConfigurationRequest {
+    return _smithy.isa(o, "GetIndexingConfigurationRequest");
+  }
+}
+
+export interface GetIndexingConfigurationResponse extends $MetadataBearer {
+  __type?: "GetIndexingConfigurationResponse";
+  /**
+   *
+   *          <p>The index configuration.</p>
+   *
+   */
+  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
+
+  /**
+   *
+   *          <p>Thing indexing configuration.</p>
+   *
+   */
+  thingIndexingConfiguration?: ThingIndexingConfiguration;
+}
+
+export namespace GetIndexingConfigurationResponse {
+  export function isa(o: any): o is GetIndexingConfigurationResponse {
+    return _smithy.isa(o, "GetIndexingConfigurationResponse");
+  }
+}
+
+export interface GetPercentilesRequest {
+  __type?: "GetPercentilesRequest";
+  /**
+   *
+   *          <p>The field to aggregate.</p>
+   *
+   */
+  aggregationField?: string;
+
+  /**
+   *
+   *          <p>The name of the index to search.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   *          <p>The percentile groups returned.</p>
+   *
+   */
+  percents?: Array<number>;
+
+  /**
+   *
+   *          <p>The query string.</p>
+   *
+   */
+  queryString: string | undefined;
+
+  /**
+   *
+   *          <p>The query version.</p>
+   *
+   */
+  queryVersion?: string;
+}
+
+export namespace GetPercentilesRequest {
+  export function isa(o: any): o is GetPercentilesRequest {
+    return _smithy.isa(o, "GetPercentilesRequest");
+  }
+}
+
+export interface GetPercentilesResponse extends $MetadataBearer {
+  __type?: "GetPercentilesResponse";
+  /**
+   *
+   *          <p>The percentile values of the aggregated fields.</p>
+   *
+   */
+  percentiles?: Array<PercentPair>;
+}
+
+export namespace GetPercentilesResponse {
+  export function isa(o: any): o is GetPercentilesResponse {
+    return _smithy.isa(o, "GetPercentilesResponse");
+  }
+}
+
+export interface GetStatisticsRequest {
+  __type?: "GetStatisticsRequest";
+  /**
+   *
+   *          <p>The aggregation field name.</p>
+   *
+   */
+  aggregationField?: string;
+
+  /**
+   *
+   *          <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   *          <p>The query used to search. You can specify "*" for the query string to get the count of all
+   *       indexed things in your AWS account.</p>
+   *
+   */
+  queryString: string | undefined;
+
+  /**
+   *
+   *          <p>The version of the query used to search.</p>
+   *
+   */
+  queryVersion?: string;
+}
+
+export namespace GetStatisticsRequest {
+  export function isa(o: any): o is GetStatisticsRequest {
+    return _smithy.isa(o, "GetStatisticsRequest");
+  }
+}
+
+export interface GetStatisticsResponse extends $MetadataBearer {
+  __type?: "GetStatisticsResponse";
+  /**
+   *
+   *          <p>The statistics returned by the Fleet Indexing service based on the query and aggregation
+   *       field.</p>
+   *
+   */
+  statistics?: Statistics;
+}
+
+export namespace GetStatisticsResponse {
+  export function isa(o: any): o is GetStatisticsResponse {
+    return _smithy.isa(o, "GetStatisticsResponse");
+  }
+}
+
+/**
+ *
+ *          <p>The index is not ready.</p>
+ *
+ */
+export interface IndexNotReadyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "IndexNotReadyException";
+  name: "IndexNotReadyException";
+  $fault: "client";
+  /**
+   *
+   *          <p>The message for the exception.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace IndexNotReadyException {
+  export function isa(o: any): o is IndexNotReadyException {
+    return _smithy.isa(o, "IndexNotReadyException");
+  }
+}
+
+export enum IndexStatus {
+  ACTIVE = "ACTIVE",
+  BUILDING = "BUILDING",
+  REBUILDING = "REBUILDING"
+}
+
+export interface ListIndicesRequest {
+  __type?: "ListIndicesRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListIndicesRequest {
+  export function isa(o: any): o is ListIndicesRequest {
+    return _smithy.isa(o, "ListIndicesRequest");
+  }
+}
+
+export interface ListIndicesResponse extends $MetadataBearer {
+  __type?: "ListIndicesResponse";
+  /**
+   *
+   *          <p>The index names.</p>
+   *
+   */
+  indexNames?: Array<string>;
+
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListIndicesResponse {
+  export function isa(o: any): o is ListIndicesResponse {
+    return _smithy.isa(o, "ListIndicesResponse");
+  }
+}
+
+/**
+ *
+ *          <p>Describes the percentile and percentile value.</p>
+ *
+ */
+export interface PercentPair {
+  __type?: "PercentPair";
+  /**
+   *
+   *          <p>The percentile.</p>
+   *
+   */
+  percent?: number;
+
+  /**
+   *
+   *          <p>The value of the percentile.</p>
+   *
+   */
+  value?: number;
+}
+
+export namespace PercentPair {
+  export function isa(o: any): o is PercentPair {
+    return _smithy.isa(o, "PercentPair");
+  }
+}
+
+export interface SearchIndexRequest {
+  __type?: "SearchIndexRequest";
+  /**
+   *
+   *          <p>The search index name.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The search query string.</p>
+   *
+   */
+  queryString: string | undefined;
+
+  /**
+   *
+   *          <p>The query version.</p>
+   *
+   */
+  queryVersion?: string;
+}
+
+export namespace SearchIndexRequest {
+  export function isa(o: any): o is SearchIndexRequest {
+    return _smithy.isa(o, "SearchIndexRequest");
+  }
+}
+
+export interface SearchIndexResponse extends $MetadataBearer {
+  __type?: "SearchIndexResponse";
+  /**
+   *
+   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The thing groups that match the search query.</p>
+   *
+   */
+  thingGroups?: Array<ThingGroupDocument>;
+
+  /**
+   *
+   *          <p>The things that match the search query.</p>
+   *
+   */
+  things?: Array<ThingDocument>;
+}
+
+export namespace SearchIndexResponse {
+  export function isa(o: any): o is SearchIndexResponse {
+    return _smithy.isa(o, "SearchIndexResponse");
+  }
+}
+
+/**
+ *
+ *          <p>A map of key-value pairs for all supported statistics. Currently, only count is
+ *       supported.</p>
+ *
+ */
+export interface Statistics {
+  __type?: "Statistics";
+  /**
+   *
+   *          <p>The average of the aggregated field values.</p>
+   *
+   */
+  average?: number;
+
+  /**
+   *
+   *          <p>The count of things that match the query.</p>
+   *
+   */
+  count?: number;
+
+  /**
+   *
+   *          <p>The maximum aggregated field value.</p>
+   *
+   */
+  maximum?: number;
+
+  /**
+   *
+   *          <p>The minimum aggregated field value.</p>
+   *
+   */
+  minimum?: number;
+
+  /**
+   *
+   *          <p>The standard deviation of the aggregated field values.</p>
+   *
+   */
+  stdDeviation?: number;
+
+  /**
+   *
+   *          <p>The sum of the aggregated field values.</p>
+   *
+   */
+  sum?: number;
+
+  /**
+   *
+   *          <p>The sum of the squares of the aggregated field values.</p>
+   *
+   */
+  sumOfSquares?: number;
+
+  /**
+   *
+   *          <p>The variance of the aggregated field values.</p>
+   *
+   */
+  variance?: number;
+}
+
+export namespace Statistics {
+  export function isa(o: any): o is Statistics {
+    return _smithy.isa(o, "Statistics");
+  }
+}
+
+/**
+ *
+ *          <p>The connectivity status of the thing.</p>
+ *
+ */
+export interface ThingConnectivity {
+  __type?: "ThingConnectivity";
+  /**
+   *
+   *          <p>True if the thing is connected to the AWS IoT service; false if it is not
+   *       connected.</p>
+   *
+   */
+  connected?: boolean;
+
+  /**
+   *
+   *          <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
+   *       thing has been disconnected for more than a few weeks, the time value might be missing.</p>
+   *
+   */
+  timestamp?: number;
+}
+
+export namespace ThingConnectivity {
+  export function isa(o: any): o is ThingConnectivity {
+    return _smithy.isa(o, "ThingConnectivity");
+  }
+}
+
+export enum ThingConnectivityIndexingMode {
+  OFF = "OFF",
+  STATUS = "STATUS"
+}
+
+/**
+ *
+ *          <p>The thing search index document.</p>
+ *
+ */
+export interface ThingDocument {
+  __type?: "ThingDocument";
+  /**
+   *
+   *          <p>The attributes.</p>
+   *
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>Indicates whether the thing is connected to the AWS IoT service.</p>
+   *
+   */
+  connectivity?: ThingConnectivity;
+
+  /**
+   *
+   *          <p>The shadow.</p>
+   *
+   */
+  shadow?: string;
+
+  /**
+   *
+   *          <p>Thing group names.</p>
+   *
+   */
+  thingGroupNames?: Array<string>;
+
+  /**
+   *
+   *          <p>The thing ID.</p>
+   *
+   */
+  thingId?: string;
+
+  /**
+   *
+   *          <p>The thing name.</p>
+   *
+   */
+  thingName?: string;
+
+  /**
+   *
+   *          <p>The thing type name.</p>
+   *
+   */
+  thingTypeName?: string;
+}
+
+export namespace ThingDocument {
+  export function isa(o: any): o is ThingDocument {
+    return _smithy.isa(o, "ThingDocument");
+  }
+}
+
+/**
+ *
+ *          <p>The thing group search index document.</p>
+ *
+ */
+export interface ThingGroupDocument {
+  __type?: "ThingGroupDocument";
+  /**
+   *
+   *          <p>The thing group attributes.</p>
+   *
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>Parent group names.</p>
+   *
+   */
+  parentGroupNames?: Array<string>;
+
+  /**
+   *
+   *          <p>The thing group description.</p>
+   *
+   */
+  thingGroupDescription?: string;
+
+  /**
+   *
+   *          <p>The thing group ID.</p>
+   *
+   */
+  thingGroupId?: string;
+
+  /**
+   *
+   *          <p>The thing group name.</p>
+   *
+   */
+  thingGroupName?: string;
+}
+
+export namespace ThingGroupDocument {
+  export function isa(o: any): o is ThingGroupDocument {
+    return _smithy.isa(o, "ThingGroupDocument");
+  }
+}
+
+/**
+ *
+ *          <p>Thing group indexing configuration.</p>
+ *
+ */
+export interface ThingGroupIndexingConfiguration {
+  __type?: "ThingGroupIndexingConfiguration";
+  /**
+   *
+   *          <p>A list of thing group fields to index. This list cannot contain any managed fields. Use
+   *       the GetIndexingConfiguration API to get a list of managed fields.</p>
+   *          <p>Contains custom field names and their data type.</p>
+   *
+   */
+  customFields?: Array<Field>;
+
+  /**
+   *
+   *          <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
+   *       service.</p>
+   *
+   */
+  managedFields?: Array<Field>;
+
+  /**
+   *
+   *          <p>Thing group indexing mode.</p>
+   *
+   */
+  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
+}
+
+export namespace ThingGroupIndexingConfiguration {
+  export function isa(o: any): o is ThingGroupIndexingConfiguration {
+    return _smithy.isa(o, "ThingGroupIndexingConfiguration");
+  }
+}
+
+export enum ThingGroupIndexingMode {
+  OFF = "OFF",
+  ON = "ON"
+}
+
+/**
+ *
+ *          <p>The thing indexing configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html">Managing
+ *         Thing Indexing</a>.</p>
+ *
+ */
+export interface ThingIndexingConfiguration {
+  __type?: "ThingIndexingConfiguration";
+  /**
+   *
+   *          <p>Contains custom field names and their data type.</p>
+   *
+   */
+  customFields?: Array<Field>;
+
+  /**
+   *
+   *          <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
+   *       service.</p>
+   *
+   */
+  managedFields?: Array<Field>;
+
+  /**
+   *
+   *          <p>Thing connectivity indexing mode. Valid values are: </p>
+   *          <ul>
+   *             <li>
+   *                <p>STATUS – Your thing index contains connectivity status. To enable thing
+   *           connectivity indexing, thingIndexMode must not be set to OFF.</p>
+   *             </li>
+   *             <li>
+   *                <p>OFF - Thing connectivity status indexing is disabled.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
+
+  /**
+   *
+   *          <p>Thing indexing mode. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>REGISTRY – Your thing index contains registry data only.</p>
+   *             </li>
+   *             <li>
+   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p>
+   *             </li>
+   *             <li>
+   *                <p>OFF - Thing indexing is disabled.</p>
+   *             </li>
+   *          </ul>
+   *
+   */
+  thingIndexingMode: ThingIndexingMode | string | undefined;
+}
+
+export namespace ThingIndexingConfiguration {
+  export function isa(o: any): o is ThingIndexingConfiguration {
+    return _smithy.isa(o, "ThingIndexingConfiguration");
+  }
+}
+
+export enum ThingIndexingMode {
+  OFF = "OFF",
+  REGISTRY = "REGISTRY",
+  REGISTRY_AND_SHADOW = "REGISTRY_AND_SHADOW"
+}
+
+export interface UpdateIndexingConfigurationRequest {
+  __type?: "UpdateIndexingConfigurationRequest";
+  /**
+   *
+   *          <p>Thing group indexing configuration.</p>
+   *
+   */
+  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
+
+  /**
+   *
+   *          <p>Thing indexing configuration.</p>
+   *
+   */
+  thingIndexingConfiguration?: ThingIndexingConfiguration;
+}
+
+export namespace UpdateIndexingConfigurationRequest {
+  export function isa(o: any): o is UpdateIndexingConfigurationRequest {
+    return _smithy.isa(o, "UpdateIndexingConfigurationRequest");
+  }
+}
+
+export interface UpdateIndexingConfigurationResponse extends $MetadataBearer {
+  __type?: "UpdateIndexingConfigurationResponse";
+}
+
+export namespace UpdateIndexingConfigurationResponse {
+  export function isa(o: any): o is UpdateIndexingConfigurationResponse {
+    return _smithy.isa(o, "UpdateIndexingConfigurationResponse");
+  }
+}
+
+export enum AbortAction {
+  CANCEL = "CANCEL"
+}
+
+/**
+ *
+ *         <p>Details of abort criteria to abort the job.</p>
+ *
+ */
+export interface AbortConfig {
+  __type?: "AbortConfig";
+  /**
+   *
+   *         <p>The list of abort criteria to define rules to abort the job.</p>
+   *
+   */
+  criteriaList: Array<AbortCriteria> | undefined;
+}
+
+export namespace AbortConfig {
+  export function isa(o: any): o is AbortConfig {
+    return _smithy.isa(o, "AbortConfig");
+  }
+}
+
+/**
+ *
+ *         <p>Details of abort criteria to define rules to abort the job.</p>
+ *
+ */
+export interface AbortCriteria {
+  __type?: "AbortCriteria";
+  /**
+   *
+   *         <p>The type of abort action to initiate a job abort.</p>
+   *
+   */
+  action: AbortAction | string | undefined;
+
+  /**
+   *
+   *         <p>The type of job execution failure to define a rule to initiate a job abort.</p>
+   *
+   */
+  failureType: JobExecutionFailureType | string | undefined;
+
+  /**
+   *
+   *         <p>Minimum number of executed things before evaluating an abort rule.</p>
+   *
+   */
+  minNumberOfExecutedThings: number | undefined;
+
+  /**
+   *
+   *         <p>The threshold as a percentage of the total number of executed things that will initiate a job abort.</p>
+   *         <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   *
+   */
+  thresholdPercentage: number | undefined;
+}
+
+export namespace AbortCriteria {
+  export function isa(o: any): o is AbortCriteria {
+    return _smithy.isa(o, "AbortCriteria");
+  }
+}
+
+export interface AssociateTargetsWithJobRequest {
+  __type?: "AssociateTargetsWithJobRequest";
+  /**
+   *
+   *         <p>An optional comment string describing why the job was associated with the targets.</p>
+   *
+   */
+  comment?: string;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>A list of thing group ARNs that define the targets of the job.</p>
+   *
+   */
+  targets: Array<string> | undefined;
+}
+
+export namespace AssociateTargetsWithJobRequest {
+  export function isa(o: any): o is AssociateTargetsWithJobRequest {
+    return _smithy.isa(o, "AssociateTargetsWithJobRequest");
+  }
+}
+
+export interface AssociateTargetsWithJobResponse extends $MetadataBearer {
+  __type?: "AssociateTargetsWithJobResponse";
+  /**
+   *
+   *         <p>A short text description of the job.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *         <p>An ARN identifying the job.</p>
+   *
+   */
+  jobArn?: string;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId?: string;
+}
+
+export namespace AssociateTargetsWithJobResponse {
+  export function isa(o: any): o is AssociateTargetsWithJobResponse {
+    return _smithy.isa(o, "AssociateTargetsWithJobResponse");
+  }
+}
+
+export interface CancelJobExecutionRequest {
+  __type?: "CancelJobExecutionRequest";
+  /**
+   *
+   *          <p>(Optional) The expected current version of the job execution. Each time you update the job
+   *           execution, its version is incremented. If the version of the job execution stored in Jobs does
+   *           not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that
+   *           contains the current job execution status data is returned. (This makes it unnecessary to
+   *           perform a separate DescribeJobExecution request in order to obtain the job execution status
+   *           data.)</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   *          <p>(Optional) If <code>true</code> the job execution will be canceled if it has status
+   *           IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status
+   *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
+   *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
+   *           will be thrown. The default is <code>false</code>.</p>
+   *         <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
+   *           to update the job execution status.  Use caution and ensure that the device is able to
+   *           recover to a valid state.</p>
+   *
+   */
+  force?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the job to be canceled.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *          <p>A collection of name/value pairs that describe the status of the job execution. If not
+   *           specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
+   *
+   */
+  statusDetails?: { [key: string]: string };
+
+  /**
+   *
+   *          <p>The name of the thing whose execution of the job will be canceled.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace CancelJobExecutionRequest {
+  export function isa(o: any): o is CancelJobExecutionRequest {
+    return _smithy.isa(o, "CancelJobExecutionRequest");
+  }
+}
+
+export interface CancelJobRequest {
+  __type?: "CancelJobRequest";
+  /**
+   *
+   *         <p>An optional comment string describing why the job was canceled.</p>
+   *
+   */
+  comment?: string;
+
+  /**
+   *
+   *          <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
+   *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
+   *           is <code>false</code>.</p>
+   *         <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
+   *           the job to be unable to update the job execution status.  Use caution and ensure that each
+   *           device executing a job which is canceled is able to recover to a valid state.</p>
+   *
+   */
+  force?: boolean;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>(Optional)A reason code string that explains why the job was canceled.</p>
+   *
+   */
+  reasonCode?: string;
+}
+
+export namespace CancelJobRequest {
+  export function isa(o: any): o is CancelJobRequest {
+    return _smithy.isa(o, "CancelJobRequest");
+  }
+}
+
+export interface CancelJobResponse extends $MetadataBearer {
+  __type?: "CancelJobResponse";
+  /**
+   *
+   *         <p>A short text description of the job.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *         <p>The job ARN.</p>
+   *
+   */
+  jobArn?: string;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId?: string;
+}
+
+export namespace CancelJobResponse {
+  export function isa(o: any): o is CancelJobResponse {
+    return _smithy.isa(o, "CancelJobResponse");
+  }
+}
+
+export interface CreateJobRequest {
+  __type?: "CreateJobRequest";
+  /**
+   *
+   *         <p>Allows you to create criteria to abort a job.</p>
+   *
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   *
+   *         <p>A short text description of the job.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *         <p>The job document.</p>
+   *         <note>
+   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
+   *             <p>The placeholder link is of the following form:</p>
+   *             <p>
+   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *             </p>
+   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
+   *         </note>
+   *
+   */
+  document?: string;
+
+  /**
+   *
+   *         <p>An S3 link to the job document.</p>
+   *
+   */
+  documentSource?: string;
+
+  /**
+   *
+   *         <p>Allows you to create a staged rollout of the job.</p>
+   *
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   *
+   *         <p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric
+   *             characters, "-" and "_" are valid for use here.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>Configuration information for pre-signed S3 URLs.</p>
+   *
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   *
+   *          <p>Metadata which can be used to manage the job.</p>
+   *
+   */
+  tags?: Array<Tag>;
+
+  /**
+   *
+   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+   *             target group, even after the job was completed by all things originally in the group.</p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   *         <p>A list of things and thing groups to which the job should be sent.</p>
+   *
+   */
+  targets: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>Specifies the amount of time each device has to finish its execution of the job. The timer
+   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+   *            execution status is not set to another terminal state before the time expires, it will be
+   *            automatically set to <code>TIMED_OUT</code>.</p>
+   *
+   */
+  timeoutConfig?: TimeoutConfig;
+}
+
+export namespace CreateJobRequest {
+  export function isa(o: any): o is CreateJobRequest {
+    return _smithy.isa(o, "CreateJobRequest");
+  }
+}
+
+export interface CreateJobResponse extends $MetadataBearer {
+  __type?: "CreateJobResponse";
+  /**
+   *
+   *         <p>The job description.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *         <p>The job ARN.</p>
+   *
+   */
+  jobArn?: string;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job.</p>
+   *
+   */
+  jobId?: string;
+}
+
+export namespace CreateJobResponse {
+  export function isa(o: any): o is CreateJobResponse {
+    return _smithy.isa(o, "CreateJobResponse");
+  }
+}
+
+export interface DeleteJobExecutionRequest {
+  __type?: "DeleteJobExecutionRequest";
+  /**
+   *
+   *          <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
+   *         execution of a particular job on a particular device.</p>
+   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
+   *         by IoT, so be sure you get and use the correct value here.</p>
+   *
+   */
+  executionNumber: number | undefined;
+
+  /**
+   *
+   *          <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
+   *         you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
+   *         "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device
+   *         to be unable to access job information or update the job execution status.
+   *         Use caution and ensure that the device is able to recover to a valid state.</p>
+   *          </note>
+   *
+   */
+  force?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the job whose execution on a particular device will be deleted.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *          <p>The name of the thing whose job execution will be deleted.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace DeleteJobExecutionRequest {
+  export function isa(o: any): o is DeleteJobExecutionRequest {
+    return _smithy.isa(o, "DeleteJobExecutionRequest");
+  }
+}
+
+export interface DeleteJobRequest {
+  __type?: "DeleteJobRequest";
+  /**
+   *
+   *          <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
+   *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
+   *         will occur. The default is false.</p>
+   *          <note>
+   *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
+   *         the job to be unable to access job information or update the job execution status.
+   *         Use caution and ensure that each device executing a job which is deleted is able to recover to
+   *         a valid state.</p>
+   *          </note>
+   *
+   */
+  force?: boolean;
+
+  /**
+   *
+   *          <p>The ID of the job to be deleted.</p>
+   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new job.
+   *         However, this is not recommended, and you must ensure that your devices are not using the
+   *         jobId to refer to the deleted job.</p>
+   *
+   */
+  jobId: string | undefined;
+}
+
+export namespace DeleteJobRequest {
+  export function isa(o: any): o is DeleteJobRequest {
+    return _smithy.isa(o, "DeleteJobRequest");
+  }
+}
+
+export interface DescribeJobExecutionRequest {
+  __type?: "DescribeJobExecutionRequest";
+  /**
+   *
+   *         <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
+   *             on a particular device.</p>
+   *
+   */
+  executionNumber?: number;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>The name of the thing on which the job execution is running.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace DescribeJobExecutionRequest {
+  export function isa(o: any): o is DescribeJobExecutionRequest {
+    return _smithy.isa(o, "DescribeJobExecutionRequest");
+  }
+}
+
+export interface DescribeJobExecutionResponse extends $MetadataBearer {
+  __type?: "DescribeJobExecutionResponse";
+  /**
+   *
+   *         <p>Information about the job execution.</p>
+   *
+   */
+  execution?: JobExecution;
+}
+
+export namespace DescribeJobExecutionResponse {
+  export function isa(o: any): o is DescribeJobExecutionResponse {
+    return _smithy.isa(o, "DescribeJobExecutionResponse");
+  }
+}
+
+export interface DescribeJobRequest {
+  __type?: "DescribeJobRequest";
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+}
+
+export namespace DescribeJobRequest {
+  export function isa(o: any): o is DescribeJobRequest {
+    return _smithy.isa(o, "DescribeJobRequest");
+  }
+}
+
+export interface DescribeJobResponse extends $MetadataBearer {
+  __type?: "DescribeJobResponse";
+  /**
+   *
+   *         <p>An S3 link to the job document.</p>
+   *
+   */
+  documentSource?: string;
+
+  /**
+   *
+   *         <p>Information about the job.</p>
+   *
+   */
+  job?: Job;
+}
+
+export namespace DescribeJobResponse {
+  export function isa(o: any): o is DescribeJobResponse {
+    return _smithy.isa(o, "DescribeJobResponse");
+  }
+}
+
+/**
+ *
+ *         <p>Allows you to create an exponential rate of rollout for a job.</p>
+ *
+ */
+export interface ExponentialRolloutRate {
+  __type?: "ExponentialRolloutRate";
+  /**
+   *
+   *         <p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+   *             This parameter allows you to define the initial rate of rollout.</p>
+   *
+   */
+  baseRatePerMinute: number | undefined;
+
+  /**
+   *
+   *         <p>The exponential factor to increase the rate of rollout for a job.</p>
+   *
+   */
+  incrementFactor: number | undefined;
+
+  /**
+   *
+   *         <p>The criteria to initiate the increase in rate of rollout for a job.</p>
+   *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *
+   */
+  rateIncreaseCriteria: RateIncreaseCriteria | undefined;
+}
+
+export namespace ExponentialRolloutRate {
+  export function isa(o: any): o is ExponentialRolloutRate {
+    return _smithy.isa(o, "ExponentialRolloutRate");
+  }
+}
+
+export interface GetJobDocumentRequest {
+  __type?: "GetJobDocumentRequest";
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+}
+
+export namespace GetJobDocumentRequest {
+  export function isa(o: any): o is GetJobDocumentRequest {
+    return _smithy.isa(o, "GetJobDocumentRequest");
+  }
+}
+
+export interface GetJobDocumentResponse extends $MetadataBearer {
+  __type?: "GetJobDocumentResponse";
+  /**
+   *
+   *         <p>The job document content.</p>
+   *
+   */
+  document?: string;
+}
+
+export namespace GetJobDocumentResponse {
+  export function isa(o: any): o is GetJobDocumentResponse {
+    return _smithy.isa(o, "GetJobDocumentResponse");
+  }
+}
+
+/**
+ *
+ *         <p>The <code>Job</code> object contains details about a job.</p>
+ *
+ */
+export interface Job {
+  __type?: "Job";
+  /**
+   *
+   *         <p>Configuration for criteria to abort the job.</p>
+   *
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   *
+   *         <p>If the job was updated, describes the reason for the update.</p>
+   *
+   */
+  comment?: string;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job was completed.</p>
+   *
+   */
+  completedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *         <p>A short text description of the job.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *          <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
+   *           <code>true</code>.</p>
+   *
+   */
+  forceCanceled?: boolean;
+
+  /**
+   *
+   *         <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
+   *
+   */
+  jobArn?: string;
+
+  /**
+   *
+   *         <p>Allows you to create a staged rollout of a job.</p>
+   *
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId?: string;
+
+  /**
+   *
+   *         <p>Details about the job process.</p>
+   *
+   */
+  jobProcessDetails?: JobProcessDetails;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job was last updated.</p>
+   *
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   *
+   *         <p>Configuration for pre-signed S3 URLs.</p>
+   *
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   *
+   *         <p>If the job was updated, provides the reason code for the update.</p>
+   *
+   */
+  reasonCode?: string;
+
+  /**
+   *
+   *         <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+   *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
+   *
+   */
+  status?: JobStatus | string;
+
+  /**
+   *
+   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a device when the thing representing
+   *             the device is added to a target group, even after the job was completed by all things originally in the
+   *             group. </p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   *         <p>A list of IoT things and thing groups to which the job should be sent.</p>
+   *
+   */
+  targets?: Array<string>;
+
+  /**
+   *
+   *          <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+   *            execution status is not set to another terminal state before the timer expires, it will
+   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   *
+   */
+  timeoutConfig?: TimeoutConfig;
+}
+
+export namespace Job {
+  export function isa(o: any): o is Job {
+    return _smithy.isa(o, "Job");
+  }
+}
+
+/**
+ *
+ *         <p>The job execution object represents the execution of a job on a particular device.</p>
+ *
+ */
+export interface JobExecution {
+  __type?: "JobExecution";
+  /**
+   *
+   *          <p>The estimated number of seconds that remain before the job execution status will be
+   *            changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+   *            The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+   *        This value will not be included if the job execution has reached a terminal status.</p>
+   *
+   */
+  approximateSecondsBeforeTimedOut?: number;
+
+  /**
+   *
+   *         <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
+   *             this particular device. It can be used in commands which return or update job execution information.
+   *         </p>
+   *
+   */
+  executionNumber?: number;
+
+  /**
+   *
+   *          <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
+   *           parameter set to <code>true</code>.</p>
+   *
+   */
+  forceCanceled?: boolean;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to the job when it was created.</p>
+   *
+   */
+  jobId?: string;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   *
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution was queued.</p>
+   *
+   */
+  queuedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution started.</p>
+   *
+   */
+  startedAt?: Date;
+
+  /**
+   *
+   *         <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
+   *             CANCELED, or REJECTED).</p>
+   *
+   */
+  status?: JobExecutionStatus | string;
+
+  /**
+   *
+   *         <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   *
+   */
+  statusDetails?: JobExecutionStatusDetails;
+
+  /**
+   *
+   *         <p>The ARN of the thing on which the job execution is running.</p>
+   *
+   */
+  thingArn?: string;
+
+  /**
+   *
+   *          <p>The version of the job execution. Job execution versions are incremented each time they are updated
+   *       by a device.</p>
+   *
+   */
+  versionNumber?: number;
+}
+
+export namespace JobExecution {
+  export function isa(o: any): o is JobExecution {
+    return _smithy.isa(o, "JobExecution");
+  }
+}
+
+export enum JobExecutionFailureType {
+  ALL = "ALL",
+  FAILED = "FAILED",
+  REJECTED = "REJECTED",
+  TIMED_OUT = "TIMED_OUT"
+}
+
+/**
+ *
+ *         <p>Details of the job execution status.</p>
+ *
+ */
+export interface JobExecutionStatusDetails {
+  __type?: "JobExecutionStatusDetails";
+  /**
+   *
+   *          <p>The job execution status.</p>
+   *
+   */
+  detailsMap?: { [key: string]: string };
+}
+
+export namespace JobExecutionStatusDetails {
+  export function isa(o: any): o is JobExecutionStatusDetails {
+    return _smithy.isa(o, "JobExecutionStatusDetails");
+  }
+}
+
+/**
+ *
+ *         <p>The job execution summary.</p>
+ *
+ */
+export interface JobExecutionSummary {
+  __type?: "JobExecutionSummary";
+  /**
+   *
+   *         <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
+   *             this particular device. It can be used later in commands which return or update job execution
+   *             information.</p>
+   *
+   */
+  executionNumber?: number;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   *
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution was queued.</p>
+   *
+   */
+  queuedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job execution started.</p>
+   *
+   */
+  startedAt?: Date;
+
+  /**
+   *
+   *         <p>The status of the job execution.</p>
+   *
+   */
+  status?: JobExecutionStatus | string;
+}
+
+export namespace JobExecutionSummary {
+  export function isa(o: any): o is JobExecutionSummary {
+    return _smithy.isa(o, "JobExecutionSummary");
+  }
+}
+
+/**
+ *
+ *         <p>Contains a summary of information about job executions for a specific job.</p>
+ *
+ */
+export interface JobExecutionSummaryForJob {
+  __type?: "JobExecutionSummaryForJob";
+  /**
+   *
+   *         <p>Contains a subset of information about a job execution.</p>
+   *
+   */
+  jobExecutionSummary?: JobExecutionSummary;
+
+  /**
+   *
+   *         <p>The ARN of the thing on which the job execution is running.</p>
+   *
+   */
+  thingArn?: string;
+}
+
+export namespace JobExecutionSummaryForJob {
+  export function isa(o: any): o is JobExecutionSummaryForJob {
+    return _smithy.isa(o, "JobExecutionSummaryForJob");
+  }
+}
+
+/**
+ *
+ *         <p>The job execution summary for a thing.</p>
+ *
+ */
+export interface JobExecutionSummaryForThing {
+  __type?: "JobExecutionSummaryForThing";
+  /**
+   *
+   *         <p>Contains a subset of information about a job execution.</p>
+   *
+   */
+  jobExecutionSummary?: JobExecutionSummary;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId?: string;
+}
+
+export namespace JobExecutionSummaryForThing {
+  export function isa(o: any): o is JobExecutionSummaryForThing {
+    return _smithy.isa(o, "JobExecutionSummaryForThing");
+  }
+}
+
+/**
+ *
+ *         <p>Allows you to create a staged rollout of a job.</p>
+ *
+ */
+export interface JobExecutionsRolloutConfig {
+  __type?: "JobExecutionsRolloutConfig";
+  /**
+   *
+   *         <p>The rate of increase for a job rollout.
+   *             This parameter allows you to define an exponential rate for a job rollout.</p>
+   *
+   */
+  exponentialRate?: ExponentialRolloutRate;
+
+  /**
+   *
+   *          <p>The maximum number of things that will be notified of a pending job, per minute.
+   *         This parameter allows you to create a staged rollout.</p>
+   *
+   */
+  maximumPerMinute?: number;
+}
+
+export namespace JobExecutionsRolloutConfig {
+  export function isa(o: any): o is JobExecutionsRolloutConfig {
+    return _smithy.isa(o, "JobExecutionsRolloutConfig");
+  }
+}
+
+/**
+ *
+ *         <p>The job process details.</p>
+ *
+ */
+export interface JobProcessDetails {
+  __type?: "JobProcessDetails";
+  /**
+   *
+   *         <p>The number of things that cancelled the job.</p>
+   *
+   */
+  numberOfCanceledThings?: number;
+
+  /**
+   *
+   *         <p>The number of things that failed executing the job.</p>
+   *
+   */
+  numberOfFailedThings?: number;
+
+  /**
+   *
+   *         <p>The number of things currently executing the job.</p>
+   *
+   */
+  numberOfInProgressThings?: number;
+
+  /**
+   *
+   *         <p>The number of things that are awaiting execution of the job.</p>
+   *
+   */
+  numberOfQueuedThings?: number;
+
+  /**
+   *
+   *         <p>The number of things that rejected the job.</p>
+   *
+   */
+  numberOfRejectedThings?: number;
+
+  /**
+   *
+   *         <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
+   *             have been removed from the group that was a target of the job.</p>
+   *
+   */
+  numberOfRemovedThings?: number;
+
+  /**
+   *
+   *          <p>The number of things which successfully completed the job.</p>
+   *
+   */
+  numberOfSucceededThings?: number;
+
+  /**
+   *
+   *          <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
+   *
+   */
+  numberOfTimedOutThings?: number;
+
+  /**
+   *
+   *         <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
+   *
+   */
+  processingTargets?: Array<string>;
+}
+
+export namespace JobProcessDetails {
+  export function isa(o: any): o is JobProcessDetails {
+    return _smithy.isa(o, "JobProcessDetails");
+  }
+}
+
+/**
+ *
+ *         <p>The job summary.</p>
+ *
+ */
+export interface JobSummary {
+  __type?: "JobSummary";
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job completed.</p>
+   *
+   */
+  completedAt?: Date;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   *         <p>The job ARN.</p>
+   *
+   */
+  jobArn?: string;
+
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId?: string;
+
+  /**
+   *
+   *         <p>The time, in seconds since the epoch, when the job was last updated.</p>
+   *
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   *
+   *         <p>The job summary status.</p>
+   *
+   */
+  status?: JobStatus | string;
+
+  /**
+   *
+   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+   *             target group, even after the job was completed by all things originally in the group.</p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   *         <p>The ID of the thing group.</p>
+   *
+   */
+  thingGroupId?: string;
+}
+
+export namespace JobSummary {
+  export function isa(o: any): o is JobSummary {
+    return _smithy.isa(o, "JobSummary");
+  }
+}
+
+export interface ListJobExecutionsForJobRequest {
+  __type?: "ListJobExecutionsForJobRequest";
+  /**
+   *
+   *         <p>The unique identifier you assigned to this job when it was created.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>The maximum number of results to be returned per request.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *         <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *         <p>The status of the job.</p>
+   *
+   */
+  status?: JobExecutionStatus | string;
+}
+
+export namespace ListJobExecutionsForJobRequest {
+  export function isa(o: any): o is ListJobExecutionsForJobRequest {
+    return _smithy.isa(o, "ListJobExecutionsForJobRequest");
+  }
+}
+
+export interface ListJobExecutionsForJobResponse extends $MetadataBearer {
+  __type?: "ListJobExecutionsForJobResponse";
+  /**
+   *
+   *         <p>A list of job execution summaries.</p>
+   *
+   */
+  executionSummaries?: Array<JobExecutionSummaryForJob>;
+
+  /**
+   *
+   *         <p>The token for the next set of results, or <b>null</b> if there are no
+   *             additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListJobExecutionsForJobResponse {
+  export function isa(o: any): o is ListJobExecutionsForJobResponse {
+    return _smithy.isa(o, "ListJobExecutionsForJobResponse");
+  }
+}
+
+export interface ListJobExecutionsForThingRequest {
+  __type?: "ListJobExecutionsForThingRequest";
+  /**
+   *
+   *         <p>The maximum number of results to be returned per request.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *         <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *         <p>An optional filter that lets you search for jobs that have the specified status.</p>
+   *
+   */
+  status?: JobExecutionStatus | string;
+
+  /**
+   *
+   *         <p>The thing name.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace ListJobExecutionsForThingRequest {
+  export function isa(o: any): o is ListJobExecutionsForThingRequest {
+    return _smithy.isa(o, "ListJobExecutionsForThingRequest");
+  }
+}
+
+export interface ListJobExecutionsForThingResponse extends $MetadataBearer {
+  __type?: "ListJobExecutionsForThingResponse";
+  /**
+   *
+   *         <p>A list of job execution summaries.</p>
+   *
+   */
+  executionSummaries?: Array<JobExecutionSummaryForThing>;
+
+  /**
+   *
+   *         <p>The token for the next set of results, or <b>null</b> if there are no
+   *             additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListJobExecutionsForThingResponse {
+  export function isa(o: any): o is ListJobExecutionsForThingResponse {
+    return _smithy.isa(o, "ListJobExecutionsForThingResponse");
+  }
+}
+
+export interface ListJobsRequest {
+  __type?: "ListJobsRequest";
+  /**
+   *
+   *         <p>The maximum number of results to return per request.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *         <p>The token to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *         <p>An optional filter that lets you search for jobs that have the specified status.</p>
+   *
+   */
+  status?: JobStatus | string;
+
+  /**
+   *
+   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+   *             target group, even after the job was completed by all things originally in the group. </p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   *          <p>A filter that limits the returned jobs to those for the specified group.</p>
+   *
+   */
+  thingGroupId?: string;
+
+  /**
+   *
+   *          <p>A filter that limits the returned jobs to those for the specified group.</p>
+   *
+   */
+  thingGroupName?: string;
+}
+
+export namespace ListJobsRequest {
+  export function isa(o: any): o is ListJobsRequest {
+    return _smithy.isa(o, "ListJobsRequest");
+  }
+}
+
+export interface ListJobsResponse extends $MetadataBearer {
+  __type?: "ListJobsResponse";
+  /**
+   *
+   *         <p>A list of jobs.</p>
+   *
+   */
+  jobs?: Array<JobSummary>;
+
+  /**
+   *
+   *         <p>The token for the next set of results, or <b>null</b> if there are no
+   *             additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListJobsResponse {
+  export function isa(o: any): o is ListJobsResponse {
+    return _smithy.isa(o, "ListJobsResponse");
+  }
+}
+
+/**
+ *
+ *         <p>Configuration for pre-signed S3 URLs.</p>
+ *
+ */
+export interface PresignedUrlConfig {
+  __type?: "PresignedUrlConfig";
+  /**
+   *
+   *         <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600
+   *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
+   *
+   */
+  expiresInSec?: number;
+
+  /**
+   *
+   *         <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
+   *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace PresignedUrlConfig {
+  export function isa(o: any): o is PresignedUrlConfig {
+    return _smithy.isa(o, "PresignedUrlConfig");
+  }
+}
+
+/**
+ *
+ *         <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
+ *
+ */
+export interface RateIncreaseCriteria {
+  __type?: "RateIncreaseCriteria";
+  /**
+   *
+   *         <p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>
+   *
+   */
+  numberOfNotifiedThings?: number;
+
+  /**
+   *
+   *         <p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>
+   *
+   */
+  numberOfSucceededThings?: number;
+}
+
+export namespace RateIncreaseCriteria {
+  export function isa(o: any): o is RateIncreaseCriteria {
+    return _smithy.isa(o, "RateIncreaseCriteria");
+  }
+}
+
+export enum TargetSelection {
+  CONTINUOUS = "CONTINUOUS",
+  SNAPSHOT = "SNAPSHOT"
+}
+
+/**
+ *
+ *          <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+ *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+ *            execution status is not set to another terminal state before the timer expires, it will
+ *            be automatically set to <code>TIMED_OUT</code>.</p>
+ *
+ */
+export interface TimeoutConfig {
+  __type?: "TimeoutConfig";
+  /**
+   *
+   *          <p>Specifies the amount of time, in minutes, this device has to finish execution of this job.
+   *            The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The
+   *            in progress timer can't be updated and will apply to all job executions for the job. Whenever a job
+   *            execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail
+   *            and switch to the terminal <code>TIMED_OUT</code> status.</p>
+   *
+   */
+  inProgressTimeoutInMinutes?: number;
+}
+
+export namespace TimeoutConfig {
+  export function isa(o: any): o is TimeoutConfig {
+    return _smithy.isa(o, "TimeoutConfig");
+  }
+}
+
+export interface UpdateJobRequest {
+  __type?: "UpdateJobRequest";
+  /**
+   *
+   *         <p>Allows you to create criteria to abort a job.</p>
+   *
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   *
+   *         <p>A short text description of the job.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   *         <p>Allows you to create a staged rollout of the job.</p>
+   *
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   *
+   *         <p>The ID of the job to be updated.</p>
+   *
+   */
+  jobId: string | undefined;
+
+  /**
+   *
+   *         <p>Configuration information for pre-signed S3 URLs.</p>
+   *
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   *
+   *         <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
+   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
+   *
+   */
+  timeoutConfig?: TimeoutConfig;
+}
+
+export namespace UpdateJobRequest {
+  export function isa(o: any): o is UpdateJobRequest {
+    return _smithy.isa(o, "UpdateJobRequest");
+  }
+}
+
+export enum JobExecutionStatus {
+  CANCELED = "CANCELED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  QUEUED = "QUEUED",
+  REJECTED = "REJECTED",
+  REMOVED = "REMOVED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT"
+}
+
+export enum JobStatus {
+  CANCELED = "CANCELED",
+  COMPLETED = "COMPLETED",
+  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+/**
+ *
+ * 		       <p>Configuration for the rollout of OTA updates.</p>
+ *
+ */
+export interface AwsJobExecutionsRolloutConfig {
+  __type?: "AwsJobExecutionsRolloutConfig";
+  /**
+   *
+   * 		       <p>The maximum number of OTA update job executions started per minute.</p>
+   *
+   */
+  maximumPerMinute?: number;
+}
+
+export namespace AwsJobExecutionsRolloutConfig {
+  export function isa(o: any): o is AwsJobExecutionsRolloutConfig {
+    return _smithy.isa(o, "AwsJobExecutionsRolloutConfig");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the method to use when code signing a file.</p>
+ *
+ */
+export interface CodeSigning {
+  __type?: "CodeSigning";
+  /**
+   *
+   * 		       <p>The ID of the AWSSignerJob which was created to sign the file.</p>
+   *
+   */
+  awsSignerJobId?: string;
+
+  /**
+   *
+   * 		       <p>A custom method for code signing a file.</p>
+   *
+   */
+  customCodeSigning?: CustomCodeSigning;
+
+  /**
+   *
+   * 		       <p>Describes the code-signing job.</p>
+   *
+   */
+  startSigningJobParameter?: StartSigningJobParameter;
+}
+
+export namespace CodeSigning {
+  export function isa(o: any): o is CodeSigning {
+    return _smithy.isa(o, "CodeSigning");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the certificate chain being used when code signing a file.</p>
+ *
+ */
+export interface CodeSigningCertificateChain {
+  __type?: "CodeSigningCertificateChain";
+  /**
+   *
+   * 		       <p>The name of the certificate.</p>
+   *
+   */
+  certificateName?: string;
+
+  /**
+   *
+   * 		       <p>A base64 encoded binary representation of the code signing certificate chain.</p>
+   *
+   */
+  inlineDocument?: string;
+}
+
+export namespace CodeSigningCertificateChain {
+  export function isa(o: any): o is CodeSigningCertificateChain {
+    return _smithy.isa(o, "CodeSigningCertificateChain");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the signature for a file.</p>
+ *
+ */
+export interface CodeSigningSignature {
+  __type?: "CodeSigningSignature";
+  /**
+   *
+   * 		       <p>A base64 encoded binary representation of the code signing signature.</p>
+   *
+   */
+  inlineDocument?: Uint8Array;
+}
+
+export namespace CodeSigningSignature {
+  export function isa(o: any): o is CodeSigningSignature {
+    return _smithy.isa(o, "CodeSigningSignature");
+  }
+}
+
+export interface CreateOTAUpdateRequest {
+  __type?: "CreateOTAUpdateRequest";
+  /**
+   *
+   * 		       <p>A list of additional OTA update parameters which are name-value pairs.</p>
+   *
+   */
+  additionalParameters?: { [key: string]: string };
+
+  /**
+   *
+   * 		       <p>Configuration for the rollout of OTA updates.</p>
+   *
+   */
+  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
+
+  /**
+   *
+   * 		       <p>The description of the OTA update.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>The files to be streamed by the OTA update.</p>
+   *
+   */
+  files: Array<OTAUpdateFile> | undefined;
+
+  /**
+   *
+   * 		       <p>The ID of the OTA update to be created.</p>
+   *
+   */
+  otaUpdateId: string | undefined;
+
+  /**
+   *
+   * 		       <p>The IAM role that allows access to the AWS IoT Jobs service.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage updates.</p>
+   *
+   */
+  tags?: Array<Tag>;
+
+  /**
+   *
+   * 		       <p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things
+   * 			specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a
+   * 			thing when a change is detected in a target. For example, an update will run on a thing when the thing is
+   * 			added to a target group, even after the update was completed by all things originally in the group. Valid
+   * 			values: CONTINUOUS | SNAPSHOT.</p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   * 		       <p>The targeted devices to receive OTA updates.</p>
+   *
+   */
+  targets: Array<string> | undefined;
+}
+
+export namespace CreateOTAUpdateRequest {
+  export function isa(o: any): o is CreateOTAUpdateRequest {
+    return _smithy.isa(o, "CreateOTAUpdateRequest");
+  }
+}
+
+export interface CreateOTAUpdateResponse extends $MetadataBearer {
+  __type?: "CreateOTAUpdateResponse";
+  /**
+   *
+   * 		       <p>The AWS IoT job ARN associated with the OTA update.</p>
+   *
+   */
+  awsIotJobArn?: string;
+
+  /**
+   *
+   * 		       <p>The AWS IoT job ID associated with the OTA update.</p>
+   *
+   */
+  awsIotJobId?: string;
+
+  /**
+   *
+   * 		       <p>The OTA update ARN.</p>
+   *
+   */
+  otaUpdateArn?: string;
+
+  /**
+   *
+   * 		       <p>The OTA update ID.</p>
+   *
+   */
+  otaUpdateId?: string;
+
+  /**
+   *
+   * 		       <p>The OTA update status.</p>
+   *
+   */
+  otaUpdateStatus?: OTAUpdateStatus | string;
+}
+
+export namespace CreateOTAUpdateResponse {
+  export function isa(o: any): o is CreateOTAUpdateResponse {
+    return _smithy.isa(o, "CreateOTAUpdateResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes a custom method used to code sign a file.</p>
+ *
+ */
+export interface CustomCodeSigning {
+  __type?: "CustomCodeSigning";
+  /**
+   *
+   * 		       <p>The certificate chain.</p>
+   *
+   */
+  certificateChain?: CodeSigningCertificateChain;
+
+  /**
+   *
+   * 		       <p>The hash algorithm used to code sign the file.</p>
+   *
+   */
+  hashAlgorithm?: string;
+
+  /**
+   *
+   * 		       <p>The signature for the file.</p>
+   *
+   */
+  signature?: CodeSigningSignature;
+
+  /**
+   *
+   * 		       <p>The signature algorithm used to code sign the file.</p>
+   *
+   */
+  signatureAlgorithm?: string;
+}
+
+export namespace CustomCodeSigning {
+  export function isa(o: any): o is CustomCodeSigning {
+    return _smithy.isa(o, "CustomCodeSigning");
+  }
+}
+
+export interface DeleteOTAUpdateRequest {
+  __type?: "DeleteOTAUpdateRequest";
+  /**
+   *
+   * 		       <p>Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.</p>
+   *
+   */
+  deleteStream?: boolean;
+
+  /**
+   *
+   * 		       <p>Specifies if the AWS Job associated with the OTA update should be deleted with the OTA update is deleted.</p>
+   *
+   */
+  forceDeleteAWSJob?: boolean;
+
+  /**
+   *
+   * 		       <p>The OTA update ID to delete.</p>
+   *
+   */
+  otaUpdateId: string | undefined;
+}
+
+export namespace DeleteOTAUpdateRequest {
+  export function isa(o: any): o is DeleteOTAUpdateRequest {
+    return _smithy.isa(o, "DeleteOTAUpdateRequest");
+  }
+}
+
+export interface DeleteOTAUpdateResponse extends $MetadataBearer {
+  __type?: "DeleteOTAUpdateResponse";
+}
+
+export namespace DeleteOTAUpdateResponse {
+  export function isa(o: any): o is DeleteOTAUpdateResponse {
+    return _smithy.isa(o, "DeleteOTAUpdateResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the location of the updated firmware.</p>
+ *
+ */
+export interface Destination {
+  __type?: "Destination";
+  /**
+   *
+   * 		       <p>Describes the location in S3 of the updated firmware.</p>
+   *
+   */
+  s3Destination?: S3Destination;
+}
+
+export namespace Destination {
+  export function isa(o: any): o is Destination {
+    return _smithy.isa(o, "Destination");
+  }
+}
+
+/**
+ *
+ * 		       <p>Error information.</p>
+ *
+ */
+export interface ErrorInfo {
+  __type?: "ErrorInfo";
+  /**
+   *
+   * 		       <p>The error code.</p>
+   *
+   */
+  code?: string;
+
+  /**
+   *
+   * 		       <p>The error message.</p>
+   *
+   */
+  message?: string;
+}
+
+export namespace ErrorInfo {
+  export function isa(o: any): o is ErrorInfo {
+    return _smithy.isa(o, "ErrorInfo");
+  }
+}
+
+/**
+ *
+ * 		       <p>The location of the OTA update.</p>
+ *
+ */
+export interface FileLocation {
+  __type?: "FileLocation";
+  /**
+   *
+   * 		       <p>The location of the updated firmware in S3.</p>
+   *
+   */
+  s3Location?: S3Location;
+
+  /**
+   *
+   * 		       <p>The stream that contains the OTA update.</p>
+   *
+   */
+  stream?: _Stream;
+}
+
+export namespace FileLocation {
+  export function isa(o: any): o is FileLocation {
+    return _smithy.isa(o, "FileLocation");
+  }
+}
+
+export interface GetOTAUpdateRequest {
+  __type?: "GetOTAUpdateRequest";
+  /**
+   *
+   * 		       <p>The OTA update ID.</p>
+   *
+   */
+  otaUpdateId: string | undefined;
+}
+
+export namespace GetOTAUpdateRequest {
+  export function isa(o: any): o is GetOTAUpdateRequest {
+    return _smithy.isa(o, "GetOTAUpdateRequest");
+  }
+}
+
+export interface GetOTAUpdateResponse extends $MetadataBearer {
+  __type?: "GetOTAUpdateResponse";
+  /**
+   *
+   * 		       <p>The OTA update info.</p>
+   *
+   */
+  otaUpdateInfo?: OTAUpdateInfo;
+}
+
+export namespace GetOTAUpdateResponse {
+  export function isa(o: any): o is GetOTAUpdateResponse {
+    return _smithy.isa(o, "GetOTAUpdateResponse");
+  }
+}
+
+export interface ListOTAUpdatesRequest {
+  __type?: "ListOTAUpdatesRequest";
+  /**
+   *
+   * 		       <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   * 		       <p>A token used to retrieve the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   * 		       <p>The OTA update job status.</p>
+   *
+   */
+  otaUpdateStatus?: OTAUpdateStatus | string;
+}
+
+export namespace ListOTAUpdatesRequest {
+  export function isa(o: any): o is ListOTAUpdatesRequest {
+    return _smithy.isa(o, "ListOTAUpdatesRequest");
+  }
+}
+
+export interface ListOTAUpdatesResponse extends $MetadataBearer {
+  __type?: "ListOTAUpdatesResponse";
+  /**
+   *
+   * 		       <p>A token to use to get the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   * 		       <p>A list of OTA update jobs.</p>
+   *
+   */
+  otaUpdates?: Array<OTAUpdateSummary>;
+}
+
+export namespace ListOTAUpdatesResponse {
+  export function isa(o: any): o is ListOTAUpdatesResponse {
+    return _smithy.isa(o, "ListOTAUpdatesResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes a file to be associated with an OTA update.</p>
+ *
+ */
+export interface OTAUpdateFile {
+  __type?: "OTAUpdateFile";
+  /**
+   *
+   * 		       <p>A list of name/attribute pairs.</p>
+   *
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   *
+   * 		       <p>The code signing method of the file.</p>
+   *
+   */
+  codeSigning?: CodeSigning;
+
+  /**
+   *
+   * 		       <p>The location of the updated firmware.</p>
+   *
+   */
+  fileLocation?: FileLocation;
+
+  /**
+   *
+   * 		       <p>The name of the file.</p>
+   *
+   */
+  fileName?: string;
+
+  /**
+   *
+   * 		       <p>The file version.</p>
+   *
+   */
+  fileVersion?: string;
+}
+
+export namespace OTAUpdateFile {
+  export function isa(o: any): o is OTAUpdateFile {
+    return _smithy.isa(o, "OTAUpdateFile");
+  }
+}
+
+/**
+ *
+ * 		       <p>Information about an OTA update.</p>
+ *
+ */
+export interface OTAUpdateInfo {
+  __type?: "OTAUpdateInfo";
+  /**
+   *
+   * 		       <p>A collection of name/value pairs</p>
+   *
+   */
+  additionalParameters?: { [key: string]: string };
+
+  /**
+   *
+   * 		       <p>The AWS IoT job ARN associated with the OTA update.</p>
+   *
+   */
+  awsIotJobArn?: string;
+
+  /**
+   *
+   * 		       <p>The AWS IoT job ID associated with the OTA update.</p>
+   *
+   */
+  awsIotJobId?: string;
+
+  /**
+   *
+   * 		       <p>Configuration for the rollout of OTA updates.</p>
+   *
+   */
+  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
+
+  /**
+   *
+   * 		       <p>The date when the OTA update was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   * 		       <p>A description of the OTA update.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>Error information associated with the OTA update.</p>
+   *
+   */
+  errorInfo?: ErrorInfo;
+
+  /**
+   *
+   * 		       <p>The date when the OTA update was last updated.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   * 		       <p>The OTA update ARN.</p>
+   *
+   */
+  otaUpdateArn?: string;
+
+  /**
+   *
+   * 		       <p>A list of files associated with the OTA update.</p>
+   *
+   */
+  otaUpdateFiles?: Array<OTAUpdateFile>;
+
+  /**
+   *
+   * 		       <p>The OTA update ID.</p>
+   *
+   */
+  otaUpdateId?: string;
+
+  /**
+   *
+   * 		       <p>The status of the OTA update.</p>
+   *
+   */
+  otaUpdateStatus?: OTAUpdateStatus | string;
+
+  /**
+   *
+   * 		       <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
+   * 			things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also
+   * 			be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when
+   * 			the thing is added to a target group, even after the OTA update was completed by all things originally in
+   * 			the group. </p>
+   *
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   *
+   * 		       <p>The targets of the OTA update.</p>
+   *
+   */
+  targets?: Array<string>;
+}
+
+export namespace OTAUpdateInfo {
+  export function isa(o: any): o is OTAUpdateInfo {
+    return _smithy.isa(o, "OTAUpdateInfo");
+  }
+}
+
+export enum OTAUpdateStatus {
+  CREATE_COMPLETE = "CREATE_COMPLETE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  CREATE_PENDING = "CREATE_PENDING"
+}
+
+/**
+ *
+ * 		       <p>An OTA update summary.</p>
+ *
+ */
+export interface OTAUpdateSummary {
+  __type?: "OTAUpdateSummary";
+  /**
+   *
+   * 		       <p>The date when the OTA update was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   * 		       <p>The OTA update ARN.</p>
+   *
+   */
+  otaUpdateArn?: string;
+
+  /**
+   *
+   * 		       <p>The OTA update ID.</p>
+   *
+   */
+  otaUpdateId?: string;
+}
+
+export namespace OTAUpdateSummary {
+  export function isa(o: any): o is OTAUpdateSummary {
+    return _smithy.isa(o, "OTAUpdateSummary");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the location of updated firmware in S3.</p>
+ *
+ */
+export interface S3Destination {
+  __type?: "S3Destination";
+  /**
+   *
+   * 		       <p>The S3 bucket that contains the updated firmware.</p>
+   *
+   */
+  bucket?: string;
+
+  /**
+   *
+   * 		       <p>The S3 prefix.</p>
+   *
+   */
+  prefix?: string;
+}
+
+export namespace S3Destination {
+  export function isa(o: any): o is S3Destination {
+    return _smithy.isa(o, "S3Destination");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes the code-signing profile.</p>
+ *
+ */
+export interface SigningProfileParameter {
+  __type?: "SigningProfileParameter";
+  /**
+   *
+   * 		       <p>Certificate ARN.</p>
+   *
+   */
+  certificateArn?: string;
+
+  /**
+   *
+   * 		       <p>The location of the code-signing certificate on your device.</p>
+   *
+   */
+  certificatePathOnDevice?: string;
+
+  /**
+   *
+   * 		       <p>The hardware platform of your device.</p>
+   *
+   */
+  platform?: string;
+}
+
+export namespace SigningProfileParameter {
+  export function isa(o: any): o is SigningProfileParameter {
+    return _smithy.isa(o, "SigningProfileParameter");
+  }
+}
+
+/**
+ *
+ * 		       <p>Information required to start a signing job.</p>
+ *
+ */
+export interface StartSigningJobParameter {
+  __type?: "StartSigningJobParameter";
+  /**
+   *
+   * 		       <p>The location to write the code-signed file.</p>
+   *
+   */
+  destination?: Destination;
+
+  /**
+   *
+   * 		       <p>The code-signing profile name.</p>
+   *
+   */
+  signingProfileName?: string;
+
+  /**
+   *
+   * 		       <p>Describes the code-signing profile.</p>
+   *
+   */
+  signingProfileParameter?: SigningProfileParameter;
+}
+
+export namespace StartSigningJobParameter {
+  export function isa(o: any): o is StartSigningJobParameter {
+    return _smithy.isa(o, "StartSigningJobParameter");
+  }
+}
+
+/**
+ *
+ * 		       <p>Describes a group of files that can be streamed.</p>
+ *
+ */
+export interface _Stream {
+  __type?: "Stream";
+  /**
+   *
+   * 		       <p>The ID of a file associated with a stream.</p>
+   *
+   */
+  fileId?: number;
+
   /**
    *
    * 		       <p>The stream ID.</p>
    *
    */
-  streamId: string | undefined;
+  streamId?: string;
 }
 
-export namespace DescribeStreamRequest {
-  export function isa(o: any): o is DescribeStreamRequest {
-    return _smithy.isa(o, "DescribeStreamRequest");
+export namespace _Stream {
+  export function isa(o: any): o is _Stream {
+    return _smithy.isa(o, "Stream");
   }
 }
 
-export interface DescribeStreamResponse extends $MetadataBearer {
-  __type?: "DescribeStreamResponse";
+export interface AddThingToBillingGroupRequest {
+  __type?: "AddThingToBillingGroupRequest";
   /**
    *
-   * 		       <p>Information about the stream.</p>
+   * 		       <p>The ARN of the billing group.</p>
    *
    */
-  streamInfo?: StreamInfo;
+  billingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The name of the billing group.</p>
+   *
+   */
+  billingGroupName?: string;
+
+  /**
+   *
+   * 		       <p>The ARN of the thing to be added to the billing group.</p>
+   *
+   */
+  thingArn?: string;
+
+  /**
+   *
+   * 		       <p>The name of the thing to be added to the billing group.</p>
+   *
+   */
+  thingName?: string;
 }
 
-export namespace DescribeStreamResponse {
-  export function isa(o: any): o is DescribeStreamResponse {
-    return _smithy.isa(o, "DescribeStreamResponse");
+export namespace AddThingToBillingGroupRequest {
+  export function isa(o: any): o is AddThingToBillingGroupRequest {
+    return _smithy.isa(o, "AddThingToBillingGroupRequest");
+  }
+}
+
+export interface AddThingToBillingGroupResponse extends $MetadataBearer {
+  __type?: "AddThingToBillingGroupResponse";
+}
+
+export namespace AddThingToBillingGroupResponse {
+  export function isa(o: any): o is AddThingToBillingGroupResponse {
+    return _smithy.isa(o, "AddThingToBillingGroupResponse");
+  }
+}
+
+export interface AddThingToThingGroupRequest {
+  __type?: "AddThingToThingGroupRequest";
+  /**
+   *
+   * 		       <p>Override dynamic thing groups with static thing groups when 10-group limit is
+   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
+   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
+   * 			dynamic group.</p>
+   *
+   */
+  overrideDynamicGroups?: boolean;
+
+  /**
+   *
+   * 		       <p>The ARN of the thing to add to a group.</p>
+   *
+   */
+  thingArn?: string;
+
+  /**
+   *
+   * 		       <p>The ARN of the group to which you are adding a thing.</p>
+   *
+   */
+  thingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The name of the group to which you are adding a thing.</p>
+   *
+   */
+  thingGroupName?: string;
+
+  /**
+   *
+   * 		       <p>The name of the thing to add to a group.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace AddThingToThingGroupRequest {
+  export function isa(o: any): o is AddThingToThingGroupRequest {
+    return _smithy.isa(o, "AddThingToThingGroupRequest");
+  }
+}
+
+export interface AddThingToThingGroupResponse extends $MetadataBearer {
+  __type?: "AddThingToThingGroupResponse";
+}
+
+export namespace AddThingToThingGroupResponse {
+  export function isa(o: any): o is AddThingToThingGroupResponse {
+    return _smithy.isa(o, "AddThingToThingGroupResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the AttachThingPrincipal operation.</p>
+ *
+ */
+export interface AttachThingPrincipalRequest {
+  __type?: "AttachThingPrincipalRequest";
+  /**
+   *
+   * 		       <p>The principal, which can be a certificate ARN (as returned from the
+   * 			CreateCertificate operation) or an Amazon Cognito ID.</p>
+   *
+   */
+  principal: string | undefined;
+
+  /**
+   *
+   * 		       <p>The name of the thing.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace AttachThingPrincipalRequest {
+  export function isa(o: any): o is AttachThingPrincipalRequest {
+    return _smithy.isa(o, "AttachThingPrincipalRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output from the AttachThingPrincipal operation.</p>
+ *
+ */
+export interface AttachThingPrincipalResponse extends $MetadataBearer {
+  __type?: "AttachThingPrincipalResponse";
+}
+
+export namespace AttachThingPrincipalResponse {
+  export function isa(o: any): o is AttachThingPrincipalResponse {
+    return _smithy.isa(o, "AttachThingPrincipalResponse");
+  }
+}
+
+export interface CreateBillingGroupRequest {
+  __type?: "CreateBillingGroupRequest";
+  /**
+   *
+   * 		       <p>The name you wish to give to the billing group.</p>
+   *
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The properties of the billing group.</p>
+   *
+   */
+  billingGroupProperties?: BillingGroupProperties;
+
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage the billing group.</p>
+   *
+   */
+  tags?: Array<Tag>;
+}
+
+export namespace CreateBillingGroupRequest {
+  export function isa(o: any): o is CreateBillingGroupRequest {
+    return _smithy.isa(o, "CreateBillingGroupRequest");
+  }
+}
+
+export interface CreateBillingGroupResponse extends $MetadataBearer {
+  __type?: "CreateBillingGroupResponse";
+  /**
+   *
+   * 		       <p>The ARN of the billing group.</p>
+   *
+   */
+  billingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The ID of the billing group.</p>
+   *
+   */
+  billingGroupId?: string;
+
+  /**
+   *
+   * 		       <p>The name you gave to the billing group.</p>
+   *
+   */
+  billingGroupName?: string;
+}
+
+export namespace CreateBillingGroupResponse {
+  export function isa(o: any): o is CreateBillingGroupResponse {
+    return _smithy.isa(o, "CreateBillingGroupResponse");
+  }
+}
+
+export interface CreateDynamicThingGroupRequest {
+  __type?: "CreateDynamicThingGroupRequest";
+  /**
+   *
+   * 		       <p>The dynamic thing group index name.</p>
+   * 		       <note>
+   * 			         <p>Currently one index is supported: "AWS_Things".</p>
+   * 		       </note>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group search query string.</p>
+   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+   *
+   */
+  queryString: string | undefined;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group query version.</p>
+   * 		       <note>
+   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   * 				query version defaults to this value.</p>
+   * 		       </note>
+   *
+   */
+  queryVersion?: string;
+
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage the dynamic thing group.</p>
+   *
+   */
+  tags?: Array<Tag>;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group name to create.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group properties.</p>
+   *
+   */
+  thingGroupProperties?: ThingGroupProperties;
+}
+
+export namespace CreateDynamicThingGroupRequest {
+  export function isa(o: any): o is CreateDynamicThingGroupRequest {
+    return _smithy.isa(o, "CreateDynamicThingGroupRequest");
+  }
+}
+
+export interface CreateDynamicThingGroupResponse extends $MetadataBearer {
+  __type?: "CreateDynamicThingGroupResponse";
+  /**
+   *
+   * 		       <p>The dynamic thing group index name.</p>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group search query string.</p>
+   *
+   */
+  queryString?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group query version.</p>
+   *
+   */
+  queryVersion?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group ARN.</p>
+   *
+   */
+  thingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group ID.</p>
+   *
+   */
+  thingGroupId?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group name.</p>
+   *
+   */
+  thingGroupName?: string;
+}
+
+export namespace CreateDynamicThingGroupResponse {
+  export function isa(o: any): o is CreateDynamicThingGroupResponse {
+    return _smithy.isa(o, "CreateDynamicThingGroupResponse");
+  }
+}
+
+export interface CreateThingGroupRequest {
+  __type?: "CreateThingGroupRequest";
+  /**
+   *
+   * 		       <p>The name of the parent thing group.</p>
+   *
+   */
+  parentGroupName?: string;
+
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage the thing group.</p>
+   *
+   */
+  tags?: Array<Tag>;
+
+  /**
+   *
+   * 		       <p>The thing group name to create.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The thing group properties.</p>
+   *
+   */
+  thingGroupProperties?: ThingGroupProperties;
+}
+
+export namespace CreateThingGroupRequest {
+  export function isa(o: any): o is CreateThingGroupRequest {
+    return _smithy.isa(o, "CreateThingGroupRequest");
+  }
+}
+
+export interface CreateThingGroupResponse extends $MetadataBearer {
+  __type?: "CreateThingGroupResponse";
+  /**
+   *
+   * 		       <p>The thing group ARN.</p>
+   *
+   */
+  thingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The thing group ID.</p>
+   *
+   */
+  thingGroupId?: string;
+
+  /**
+   *
+   * 		       <p>The thing group name.</p>
+   *
+   */
+  thingGroupName?: string;
+}
+
+export namespace CreateThingGroupResponse {
+  export function isa(o: any): o is CreateThingGroupResponse {
+    return _smithy.isa(o, "CreateThingGroupResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the CreateThing operation.</p>
+ *
+ */
+export interface CreateThingRequest {
+  __type?: "CreateThingRequest";
+  /**
+   *
+   * 		       <p>The attribute payload, which consists of up to three name/value pairs in a JSON
+   * 			document. For example:</p>
+   * 		       <p>
+   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   * 		       </p>
+   *
+   */
+  attributePayload?: AttributePayload;
+
+  /**
+   *
+   * 		       <p>The name of the billing group the thing will be added to.</p>
+   *
+   */
+  billingGroupName?: string;
+
+  /**
+   *
+   * 		       <p>The name of the thing to create.</p>
+   *
+   */
+  thingName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The name of the thing type associated with the new thing.</p>
+   *
+   */
+  thingTypeName?: string;
+}
+
+export namespace CreateThingRequest {
+  export function isa(o: any): o is CreateThingRequest {
+    return _smithy.isa(o, "CreateThingRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output of the CreateThing operation.</p>
+ *
+ */
+export interface CreateThingResponse extends $MetadataBearer {
+  __type?: "CreateThingResponse";
+  /**
+   *
+   * 		       <p>The ARN of the new thing.</p>
+   *
+   */
+  thingArn?: string;
+
+  /**
+   *
+   * 		       <p>The thing ID.</p>
+   *
+   */
+  thingId?: string;
+
+  /**
+   *
+   * 		       <p>The name of the new thing.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace CreateThingResponse {
+  export function isa(o: any): o is CreateThingResponse {
+    return _smithy.isa(o, "CreateThingResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the CreateThingType operation.</p>
+ *
+ */
+export interface CreateThingTypeRequest {
+  __type?: "CreateThingTypeRequest";
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage the thing type.</p>
+   *
+   */
+  tags?: Array<Tag>;
+
+  /**
+   *
+   * 		       <p>The name of the thing type.</p>
+   *
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The ThingTypeProperties for the thing type to create. It contains information about
+   * 			the new thing type including a description, and a list of searchable thing attribute
+   * 			names.</p>
+   *
+   */
+  thingTypeProperties?: ThingTypeProperties;
+}
+
+export namespace CreateThingTypeRequest {
+  export function isa(o: any): o is CreateThingTypeRequest {
+    return _smithy.isa(o, "CreateThingTypeRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output of the CreateThingType operation.</p>
+ *
+ */
+export interface CreateThingTypeResponse extends $MetadataBearer {
+  __type?: "CreateThingTypeResponse";
+  /**
+   *
+   * 		       <p>The Amazon Resource Name (ARN) of the thing type.</p>
+   *
+   */
+  thingTypeArn?: string;
+
+  /**
+   *
+   * 		       <p>The thing type ID.</p>
+   *
+   */
+  thingTypeId?: string;
+
+  /**
+   *
+   * 		       <p>The name of the thing type.</p>
+   *
+   */
+  thingTypeName?: string;
+}
+
+export namespace CreateThingTypeResponse {
+  export function isa(o: any): o is CreateThingTypeResponse {
+    return _smithy.isa(o, "CreateThingTypeResponse");
+  }
+}
+
+export interface DeleteBillingGroupRequest {
+  __type?: "DeleteBillingGroupRequest";
+  /**
+   *
+   * 		       <p>The name of the billing group.</p>
+   *
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>DeleteBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   *
+   */
+  expectedVersion?: number;
+}
+
+export namespace DeleteBillingGroupRequest {
+  export function isa(o: any): o is DeleteBillingGroupRequest {
+    return _smithy.isa(o, "DeleteBillingGroupRequest");
+  }
+}
+
+export interface DeleteBillingGroupResponse extends $MetadataBearer {
+  __type?: "DeleteBillingGroupResponse";
+}
+
+export namespace DeleteBillingGroupResponse {
+  export function isa(o: any): o is DeleteBillingGroupResponse {
+    return _smithy.isa(o, "DeleteBillingGroupResponse");
+  }
+}
+
+export interface DeleteDynamicThingGroupRequest {
+  __type?: "DeleteDynamicThingGroupRequest";
+  /**
+   *
+   * 		       <p>The expected version of the dynamic thing group to delete.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   * 		       <p>The name of the dynamic thing group to delete.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+}
+
+export namespace DeleteDynamicThingGroupRequest {
+  export function isa(o: any): o is DeleteDynamicThingGroupRequest {
+    return _smithy.isa(o, "DeleteDynamicThingGroupRequest");
+  }
+}
+
+export interface DeleteDynamicThingGroupResponse extends $MetadataBearer {
+  __type?: "DeleteDynamicThingGroupResponse";
+}
+
+export namespace DeleteDynamicThingGroupResponse {
+  export function isa(o: any): o is DeleteDynamicThingGroupResponse {
+    return _smithy.isa(o, "DeleteDynamicThingGroupResponse");
+  }
+}
+
+export interface DeleteThingGroupRequest {
+  __type?: "DeleteThingGroupRequest";
+  /**
+   *
+   * 		       <p>The expected version of the thing group to delete.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   * 		       <p>The name of the thing group to delete.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+}
+
+export namespace DeleteThingGroupRequest {
+  export function isa(o: any): o is DeleteThingGroupRequest {
+    return _smithy.isa(o, "DeleteThingGroupRequest");
+  }
+}
+
+export interface DeleteThingGroupResponse extends $MetadataBearer {
+  __type?: "DeleteThingGroupResponse";
+}
+
+export namespace DeleteThingGroupResponse {
+  export function isa(o: any): o is DeleteThingGroupResponse {
+    return _smithy.isa(o, "DeleteThingGroupResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the DeleteThing operation.</p>
+ *
+ */
+export interface DeleteThingRequest {
+  __type?: "DeleteThingRequest";
+  /**
+   *
+   * 		       <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>DeleteThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   * 		       <p>The name of the thing to delete.</p>
+   *
+   */
+  thingName: string | undefined;
+}
+
+export namespace DeleteThingRequest {
+  export function isa(o: any): o is DeleteThingRequest {
+    return _smithy.isa(o, "DeleteThingRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output of the DeleteThing operation.</p>
+ *
+ */
+export interface DeleteThingResponse extends $MetadataBearer {
+  __type?: "DeleteThingResponse";
+}
+
+export namespace DeleteThingResponse {
+  export function isa(o: any): o is DeleteThingResponse {
+    return _smithy.isa(o, "DeleteThingResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the DeleteThingType operation.</p>
+ *
+ */
+export interface DeleteThingTypeRequest {
+  __type?: "DeleteThingTypeRequest";
+  /**
+   *
+   * 		       <p>The name of the thing type.</p>
+   *
+   */
+  thingTypeName: string | undefined;
+}
+
+export namespace DeleteThingTypeRequest {
+  export function isa(o: any): o is DeleteThingTypeRequest {
+    return _smithy.isa(o, "DeleteThingTypeRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output for the DeleteThingType operation.</p>
+ *
+ */
+export interface DeleteThingTypeResponse extends $MetadataBearer {
+  __type?: "DeleteThingTypeResponse";
+}
+
+export namespace DeleteThingTypeResponse {
+  export function isa(o: any): o is DeleteThingTypeResponse {
+    return _smithy.isa(o, "DeleteThingTypeResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>The input for the DeprecateThingType operation.</p>
+ *
+ */
+export interface DeprecateThingTypeRequest {
+  __type?: "DeprecateThingTypeRequest";
+  /**
+   *
+   * 		       <p>The name of the thing type to deprecate.</p>
+   *
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   *
+   * 		       <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
+   * 			associate it with things.</p>
+   *
+   */
+  undoDeprecate?: boolean;
+}
+
+export namespace DeprecateThingTypeRequest {
+  export function isa(o: any): o is DeprecateThingTypeRequest {
+    return _smithy.isa(o, "DeprecateThingTypeRequest");
+  }
+}
+
+/**
+ *
+ * 		       <p>The output for the DeprecateThingType operation.</p>
+ *
+ */
+export interface DeprecateThingTypeResponse extends $MetadataBearer {
+  __type?: "DeprecateThingTypeResponse";
+}
+
+export namespace DeprecateThingTypeResponse {
+  export function isa(o: any): o is DeprecateThingTypeResponse {
+    return _smithy.isa(o, "DeprecateThingTypeResponse");
+  }
+}
+
+export interface DescribeBillingGroupRequest {
+  __type?: "DescribeBillingGroupRequest";
+  /**
+   *
+   * 		       <p>The name of the billing group.</p>
+   *
+   */
+  billingGroupName: string | undefined;
+}
+
+export namespace DescribeBillingGroupRequest {
+  export function isa(o: any): o is DescribeBillingGroupRequest {
+    return _smithy.isa(o, "DescribeBillingGroupRequest");
+  }
+}
+
+export interface DescribeBillingGroupResponse extends $MetadataBearer {
+  __type?: "DescribeBillingGroupResponse";
+  /**
+   *
+   * 		       <p>The ARN of the billing group.</p>
+   *
+   */
+  billingGroupArn?: string;
+
+  /**
+   *
+   * 		       <p>The ID of the billing group.</p>
+   *
+   */
+  billingGroupId?: string;
+
+  /**
+   *
+   * 		       <p>Additional information about the billing group.</p>
+   *
+   */
+  billingGroupMetadata?: BillingGroupMetadata;
+
+  /**
+   *
+   * 		       <p>The name of the billing group.</p>
+   *
+   */
+  billingGroupName?: string;
+
+  /**
+   *
+   * 		       <p>The properties of the billing group.</p>
+   *
+   */
+  billingGroupProperties?: BillingGroupProperties;
+
+  /**
+   *
+   * 		       <p>The version of the billing group.</p>
+   *
+   */
+  version?: number;
+}
+
+export namespace DescribeBillingGroupResponse {
+  export function isa(o: any): o is DescribeBillingGroupResponse {
+    return _smithy.isa(o, "DescribeBillingGroupResponse");
+  }
+}
+
+export interface DescribeEventConfigurationsRequest {
+  __type?: "DescribeEventConfigurationsRequest";
+}
+
+export namespace DescribeEventConfigurationsRequest {
+  export function isa(o: any): o is DescribeEventConfigurationsRequest {
+    return _smithy.isa(o, "DescribeEventConfigurationsRequest");
+  }
+}
+
+export interface DescribeEventConfigurationsResponse extends $MetadataBearer {
+  __type?: "DescribeEventConfigurationsResponse";
+  /**
+   *
+   * 		       <p>The creation date of the event configuration.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   * 		       <p>The event configurations.</p>
+   *
+   */
+  eventConfigurations?: { [key: string]: Configuration };
+
+  /**
+   *
+   * 		       <p>The date the event configurations were last modified.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+}
+
+export namespace DescribeEventConfigurationsResponse {
+  export function isa(o: any): o is DescribeEventConfigurationsResponse {
+    return _smithy.isa(o, "DescribeEventConfigurationsResponse");
   }
 }
 
@@ -7038,113 +12527,6 @@ export namespace DescribeThingTypeResponse {
 
 /**
  *
- * 		       <p>Describes the location of the updated firmware.</p>
- *
- */
-export interface Destination {
-  __type?: "Destination";
-  /**
-   *
-   * 		       <p>Describes the location in S3 of the updated firmware.</p>
-   *
-   */
-  s3Destination?: S3Destination;
-}
-
-export namespace Destination {
-  export function isa(o: any): o is Destination {
-    return _smithy.isa(o, "Destination");
-  }
-}
-
-export interface DetachPolicyRequest {
-  __type?: "DetachPolicyRequest";
-  /**
-   *
-   *          <p>The policy to detach.</p>
-   *
-   */
-  policyName: string | undefined;
-
-  /**
-   *
-   *          <p>The target from which the policy will be detached.</p>
-   *
-   */
-  target: string | undefined;
-}
-
-export namespace DetachPolicyRequest {
-  export function isa(o: any): o is DetachPolicyRequest {
-    return _smithy.isa(o, "DetachPolicyRequest");
-  }
-}
-
-/**
- *
- *          <p>The input for the DetachPrincipalPolicy operation.</p>
- *
- */
-export interface DetachPrincipalPolicyRequest {
-  __type?: "DetachPrincipalPolicyRequest";
-  /**
-   *
-   *          <p>The name of the policy to detach.</p>
-   *
-   */
-  policyName: string | undefined;
-
-  /**
-   *
-   *          <p>The principal.</p>
-   *          <p>If the principal is a certificate, specify the certificate ARN. If the principal is
-   *          an Amazon Cognito identity, specify the identity ID.</p>
-   *
-   */
-  principal: string | undefined;
-}
-
-export namespace DetachPrincipalPolicyRequest {
-  export function isa(o: any): o is DetachPrincipalPolicyRequest {
-    return _smithy.isa(o, "DetachPrincipalPolicyRequest");
-  }
-}
-
-export interface DetachSecurityProfileRequest {
-  __type?: "DetachSecurityProfileRequest";
-  /**
-   *
-   *          <p>The security profile that is detached.</p>
-   *
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the thing group from which the security profile is detached.</p>
-   *
-   */
-  securityProfileTargetArn: string | undefined;
-}
-
-export namespace DetachSecurityProfileRequest {
-  export function isa(o: any): o is DetachSecurityProfileRequest {
-    return _smithy.isa(o, "DetachSecurityProfileRequest");
-  }
-}
-
-export interface DetachSecurityProfileResponse extends $MetadataBearer {
-  __type?: "DetachSecurityProfileResponse";
-}
-
-export namespace DetachSecurityProfileResponse {
-  export function isa(o: any): o is DetachSecurityProfileResponse {
-    return _smithy.isa(o, "DetachSecurityProfileResponse");
-  }
-}
-
-/**
- *
  * 		       <p>The input for the DetachThingPrincipal operation.</p>
  *
  */
@@ -7185,2928 +12567,6 @@ export interface DetachThingPrincipalResponse extends $MetadataBearer {
 export namespace DetachThingPrincipalResponse {
   export function isa(o: any): o is DetachThingPrincipalResponse {
     return _smithy.isa(o, "DetachThingPrincipalResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the DisableTopicRuleRequest operation.</p>
- *
- */
-export interface DisableTopicRuleRequest {
-  __type?: "DisableTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the rule to disable.</p>
-   *
-   */
-  ruleName: string | undefined;
-}
-
-export namespace DisableTopicRuleRequest {
-  export function isa(o: any): o is DisableTopicRuleRequest {
-    return _smithy.isa(o, "DisableTopicRuleRequest");
-  }
-}
-
-/**
- *
- *          <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
- *          A domain configuration can be associated with an AWS-managed domain
- *          (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p>
- *          <ul>
- *             <li>
- *                <p>Data</p>
- *             </li>
- *             <li>
- *                <p>Jobs</p>
- *             </li>
- *             <li>
- *                <p>CredentialProvider</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The domain configuration feature is in public preview and is subject to change.</p>
- *          </note>
- *
- */
-export interface DomainConfigurationSummary {
-  __type?: "DomainConfigurationSummary";
-  /**
-   *
-   *          <p>The ARN of the domain configuration.</p>
-   *
-   */
-  domainConfigurationArn?: string;
-
-  /**
-   *
-   *          <p>The name of the domain configuration. This value must be unique to a region.</p>
-   *
-   */
-  domainConfigurationName?: string;
-
-  /**
-   *
-   *          <p>The type of service delivered by the endpoint.</p>
-   *
-   */
-  serviceType?: ServiceType | string;
-}
-
-export namespace DomainConfigurationSummary {
-  export function isa(o: any): o is DomainConfigurationSummary {
-    return _smithy.isa(o, "DomainConfigurationSummary");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to write to a DynamoDB table.</p>
- *          <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code>
- *          values must match the values used when you created the table.</p>
- *          <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a
- *          substitution template syntax. These templates provide data at runtime. The syntax is as
- *          follows: ${<i>sql-expression</i>}.</p>
- *          <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON
- *          properties, comparisons, calculations, and functions. For example, the following field uses
- *          the third level of the topic:</p>
- *          <p>
- *             <code>"hashKeyValue": "${topic(3)}"</code>
- *          </p>
- *          <p>The following field uses the timestamp:</p>
- *          <p>
- *             <code>"rangeKeyValue": "${timestamp()}"</code>
- *          </p>
- *
- */
-export interface DynamoDBAction {
-  __type?: "DynamoDBAction";
-  /**
-   *
-   *          <p>The hash key name.</p>
-   *
-   */
-  hashKeyField: string | undefined;
-
-  /**
-   *
-   *          <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
-   *
-   */
-  hashKeyType?: DynamoKeyType | string;
-
-  /**
-   *
-   *          <p>The hash key value.</p>
-   *
-   */
-  hashKeyValue: string | undefined;
-
-  /**
-   *
-   *          <p>The type of operation to be performed. This follows the substitution template, so it
-   *          can be <code>${operation}</code>, but the substitution must result in one of the following:
-   *             <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
-   *
-   */
-  operation?: string;
-
-  /**
-   *
-   *          <p>The action payload. This name can be customized.</p>
-   *
-   */
-  payloadField?: string;
-
-  /**
-   *
-   *          <p>The range key name.</p>
-   *
-   */
-  rangeKeyField?: string;
-
-  /**
-   *
-   *          <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
-   *
-   */
-  rangeKeyType?: DynamoKeyType | string;
-
-  /**
-   *
-   *          <p>The range key value.</p>
-   *
-   */
-  rangeKeyValue?: string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the DynamoDB table.</p>
-   *
-   */
-  tableName: string | undefined;
-}
-
-export namespace DynamoDBAction {
-  export function isa(o: any): o is DynamoDBAction {
-    return _smithy.isa(o, "DynamoDBAction");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to write to a DynamoDB table.</p>
- *          <p>This DynamoDB action writes each attribute in the message payload into it's own
- *          column in the DynamoDB table.</p>
- *
- */
-export interface DynamoDBv2Action {
-  __type?: "DynamoDBv2Action";
-  /**
-   *
-   *          <p>Specifies the DynamoDB table to which the message data will be written. For
-   *          example:</p>
-   *          <p>
-   *             <code>{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName":
-   *             "my-table" } } }</code>
-   *          </p>
-   *          <p>Each attribute in the message payload will be written to a separate column in the
-   *          DynamoDB database.</p>
-   *
-   */
-  putItem: PutItemInput | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace DynamoDBv2Action {
-  export function isa(o: any): o is DynamoDBv2Action {
-    return _smithy.isa(o, "DynamoDBv2Action");
-  }
-}
-
-/**
- *
- *          <p>The policy that has the effect on the authorization results.</p>
- *
- */
-export interface EffectivePolicy {
-  __type?: "EffectivePolicy";
-  /**
-   *
-   *          <p>The policy ARN.</p>
-   *
-   */
-  policyArn?: string;
-
-  /**
-   *
-   *          <p>The IAM policy document.</p>
-   *
-   */
-  policyDocument?: string;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName?: string;
-}
-
-export namespace EffectivePolicy {
-  export function isa(o: any): o is EffectivePolicy {
-    return _smithy.isa(o, "EffectivePolicy");
-  }
-}
-
-/**
- *
- *          <p>Describes an action that writes data to an Amazon Elasticsearch Service
- *          domain.</p>
- *
- */
-export interface ElasticsearchAction {
-  __type?: "ElasticsearchAction";
-  /**
-   *
-   *          <p>The endpoint of your Elasticsearch domain.</p>
-   *
-   */
-  endpoint: string | undefined;
-
-  /**
-   *
-   *          <p>The unique identifier for the document you are storing.</p>
-   *
-   */
-  id: string | undefined;
-
-  /**
-   *
-   *          <p>The Elasticsearch index where you want to store your data.</p>
-   *
-   */
-  index: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role ARN that has access to Elasticsearch.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The type of document you are storing.</p>
-   *
-   */
-  type: string | undefined;
-}
-
-export namespace ElasticsearchAction {
-  export function isa(o: any): o is ElasticsearchAction {
-    return _smithy.isa(o, "ElasticsearchAction");
-  }
-}
-
-/**
- *
- *         <p>Parameters used when defining a mitigation action that enable AWS IoT logging.</p>
- *
- */
-export interface EnableIoTLoggingParams {
-  __type?: "EnableIoTLoggingParams";
-  /**
-   *
-   *         <p>Specifies the types of information to be logged.</p>
-   *
-   */
-  logLevel: LogLevel | string | undefined;
-
-  /**
-   *
-   *         <p>The ARN of the IAM role used for logging.</p>
-   *
-   */
-  roleArnForLogging: string | undefined;
-}
-
-export namespace EnableIoTLoggingParams {
-  export function isa(o: any): o is EnableIoTLoggingParams {
-    return _smithy.isa(o, "EnableIoTLoggingParams");
-  }
-}
-
-/**
- *
- *          <p>The input for the EnableTopicRuleRequest operation.</p>
- *
- */
-export interface EnableTopicRuleRequest {
-  __type?: "EnableTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the topic rule to enable.</p>
-   *
-   */
-  ruleName: string | undefined;
-}
-
-export namespace EnableTopicRuleRequest {
-  export function isa(o: any): o is EnableTopicRuleRequest {
-    return _smithy.isa(o, "EnableTopicRuleRequest");
-  }
-}
-
-/**
- *
- * 		       <p>Error information.</p>
- *
- */
-export interface ErrorInfo {
-  __type?: "ErrorInfo";
-  /**
-   *
-   * 		       <p>The error code.</p>
-   *
-   */
-  code?: string;
-
-  /**
-   *
-   * 		       <p>The error message.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ErrorInfo {
-  export function isa(o: any): o is ErrorInfo {
-    return _smithy.isa(o, "ErrorInfo");
-  }
-}
-
-/**
- *
- *          <p>Information that explicitly denies authorization.</p>
- *
- */
-export interface ExplicitDeny {
-  __type?: "ExplicitDeny";
-  /**
-   *
-   *          <p>The policies that denied the authorization.</p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace ExplicitDeny {
-  export function isa(o: any): o is ExplicitDeny {
-    return _smithy.isa(o, "ExplicitDeny");
-  }
-}
-
-/**
- *
- *         <p>Allows you to create an exponential rate of rollout for a job.</p>
- *
- */
-export interface ExponentialRolloutRate {
-  __type?: "ExponentialRolloutRate";
-  /**
-   *
-   *         <p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
-   *             This parameter allows you to define the initial rate of rollout.</p>
-   *
-   */
-  baseRatePerMinute: number | undefined;
-
-  /**
-   *
-   *         <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *
-   */
-  incrementFactor: number | undefined;
-
-  /**
-   *
-   *         <p>The criteria to initiate the increase in rate of rollout for a job.</p>
-   *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
-   *
-   */
-  rateIncreaseCriteria: RateIncreaseCriteria | undefined;
-}
-
-export namespace ExponentialRolloutRate {
-  export function isa(o: any): o is ExponentialRolloutRate {
-    return _smithy.isa(o, "ExponentialRolloutRate");
-  }
-}
-
-/**
- *
- *          <p>Describes the name and data type at a field.</p>
- *
- */
-export interface Field {
-  __type?: "Field";
-  /**
-   *
-   *          <p>The name of the field.</p>
-   *
-   */
-  name?: string;
-
-  /**
-   *
-   *          <p>The datatype of the field.</p>
-   *
-   */
-  type?: FieldType | string;
-}
-
-export namespace Field {
-  export function isa(o: any): o is Field {
-    return _smithy.isa(o, "Field");
-  }
-}
-
-/**
- *
- * 		       <p>The location of the OTA update.</p>
- *
- */
-export interface FileLocation {
-  __type?: "FileLocation";
-  /**
-   *
-   * 		       <p>The location of the updated firmware in S3.</p>
-   *
-   */
-  s3Location?: S3Location;
-
-  /**
-   *
-   * 		       <p>The stream that contains the OTA update.</p>
-   *
-   */
-  stream?: _Stream;
-}
-
-export namespace FileLocation {
-  export function isa(o: any): o is FileLocation {
-    return _smithy.isa(o, "FileLocation");
-  }
-}
-
-/**
- *
- *          <p>Describes an action that writes data to an Amazon Kinesis Firehose stream.</p>
- *
- */
-export interface FirehoseAction {
-  __type?: "FirehoseAction";
-  /**
-   *
-   *          <p>The delivery stream name.</p>
-   *
-   */
-  deliveryStreamName: string | undefined;
-
-  /**
-   *
-   *          <p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>A character separator that will be used to separate records written to the Firehose
-   *          stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ','
-   *          (comma).</p>
-   *
-   */
-  separator?: string;
-}
-
-export namespace FirehoseAction {
-  export function isa(o: any): o is FirehoseAction {
-    return _smithy.isa(o, "FirehoseAction");
-  }
-}
-
-export interface GetCardinalityRequest {
-  __type?: "GetCardinalityRequest";
-  /**
-   *
-   *          <p>The field to aggregate.</p>
-   *
-   */
-  aggregationField?: string;
-
-  /**
-   *
-   *          <p>The name of the index to search.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   *          <p>The search query.</p>
-   *
-   */
-  queryString: string | undefined;
-
-  /**
-   *
-   *          <p>The query version.</p>
-   *
-   */
-  queryVersion?: string;
-}
-
-export namespace GetCardinalityRequest {
-  export function isa(o: any): o is GetCardinalityRequest {
-    return _smithy.isa(o, "GetCardinalityRequest");
-  }
-}
-
-export interface GetCardinalityResponse extends $MetadataBearer {
-  __type?: "GetCardinalityResponse";
-  /**
-   *
-   *          <p>The approximate count of unique values that match the query.</p>
-   *
-   */
-  cardinality?: number;
-}
-
-export namespace GetCardinalityResponse {
-  export function isa(o: any): o is GetCardinalityResponse {
-    return _smithy.isa(o, "GetCardinalityResponse");
-  }
-}
-
-export interface GetEffectivePoliciesRequest {
-  __type?: "GetEffectivePoliciesRequest";
-  /**
-   *
-   *          <p>The Cognito identity pool ID.</p>
-   *
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   *
-   *          <p>The principal.</p>
-   *
-   */
-  principal?: string;
-
-  /**
-   *
-   *          <p>The thing name.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace GetEffectivePoliciesRequest {
-  export function isa(o: any): o is GetEffectivePoliciesRequest {
-    return _smithy.isa(o, "GetEffectivePoliciesRequest");
-  }
-}
-
-export interface GetEffectivePoliciesResponse extends $MetadataBearer {
-  __type?: "GetEffectivePoliciesResponse";
-  /**
-   *
-   *          <p>The effective policies.</p>
-   *
-   */
-  effectivePolicies?: Array<EffectivePolicy>;
-}
-
-export namespace GetEffectivePoliciesResponse {
-  export function isa(o: any): o is GetEffectivePoliciesResponse {
-    return _smithy.isa(o, "GetEffectivePoliciesResponse");
-  }
-}
-
-export interface GetIndexingConfigurationRequest {
-  __type?: "GetIndexingConfigurationRequest";
-}
-
-export namespace GetIndexingConfigurationRequest {
-  export function isa(o: any): o is GetIndexingConfigurationRequest {
-    return _smithy.isa(o, "GetIndexingConfigurationRequest");
-  }
-}
-
-export interface GetIndexingConfigurationResponse extends $MetadataBearer {
-  __type?: "GetIndexingConfigurationResponse";
-  /**
-   *
-   *          <p>The index configuration.</p>
-   *
-   */
-  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
-
-  /**
-   *
-   *          <p>Thing indexing configuration.</p>
-   *
-   */
-  thingIndexingConfiguration?: ThingIndexingConfiguration;
-}
-
-export namespace GetIndexingConfigurationResponse {
-  export function isa(o: any): o is GetIndexingConfigurationResponse {
-    return _smithy.isa(o, "GetIndexingConfigurationResponse");
-  }
-}
-
-export interface GetJobDocumentRequest {
-  __type?: "GetJobDocumentRequest";
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-}
-
-export namespace GetJobDocumentRequest {
-  export function isa(o: any): o is GetJobDocumentRequest {
-    return _smithy.isa(o, "GetJobDocumentRequest");
-  }
-}
-
-export interface GetJobDocumentResponse extends $MetadataBearer {
-  __type?: "GetJobDocumentResponse";
-  /**
-   *
-   *         <p>The job document content.</p>
-   *
-   */
-  document?: string;
-}
-
-export namespace GetJobDocumentResponse {
-  export function isa(o: any): o is GetJobDocumentResponse {
-    return _smithy.isa(o, "GetJobDocumentResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the GetLoggingOptions operation.</p>
- *
- */
-export interface GetLoggingOptionsRequest {
-  __type?: "GetLoggingOptionsRequest";
-}
-
-export namespace GetLoggingOptionsRequest {
-  export function isa(o: any): o is GetLoggingOptionsRequest {
-    return _smithy.isa(o, "GetLoggingOptionsRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the GetLoggingOptions operation.</p>
- *
- */
-export interface GetLoggingOptionsResponse extends $MetadataBearer {
-  __type?: "GetLoggingOptionsResponse";
-  /**
-   *
-   *          <p>The logging level.</p>
-   *
-   */
-  logLevel?: LogLevel | string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace GetLoggingOptionsResponse {
-  export function isa(o: any): o is GetLoggingOptionsResponse {
-    return _smithy.isa(o, "GetLoggingOptionsResponse");
-  }
-}
-
-export interface GetOTAUpdateRequest {
-  __type?: "GetOTAUpdateRequest";
-  /**
-   *
-   * 		       <p>The OTA update ID.</p>
-   *
-   */
-  otaUpdateId: string | undefined;
-}
-
-export namespace GetOTAUpdateRequest {
-  export function isa(o: any): o is GetOTAUpdateRequest {
-    return _smithy.isa(o, "GetOTAUpdateRequest");
-  }
-}
-
-export interface GetOTAUpdateResponse extends $MetadataBearer {
-  __type?: "GetOTAUpdateResponse";
-  /**
-   *
-   * 		       <p>The OTA update info.</p>
-   *
-   */
-  otaUpdateInfo?: OTAUpdateInfo;
-}
-
-export namespace GetOTAUpdateResponse {
-  export function isa(o: any): o is GetOTAUpdateResponse {
-    return _smithy.isa(o, "GetOTAUpdateResponse");
-  }
-}
-
-export interface GetPercentilesRequest {
-  __type?: "GetPercentilesRequest";
-  /**
-   *
-   *          <p>The field to aggregate.</p>
-   *
-   */
-  aggregationField?: string;
-
-  /**
-   *
-   *          <p>The name of the index to search.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   *          <p>The percentile groups returned.</p>
-   *
-   */
-  percents?: Array<number>;
-
-  /**
-   *
-   *          <p>The query string.</p>
-   *
-   */
-  queryString: string | undefined;
-
-  /**
-   *
-   *          <p>The query version.</p>
-   *
-   */
-  queryVersion?: string;
-}
-
-export namespace GetPercentilesRequest {
-  export function isa(o: any): o is GetPercentilesRequest {
-    return _smithy.isa(o, "GetPercentilesRequest");
-  }
-}
-
-export interface GetPercentilesResponse extends $MetadataBearer {
-  __type?: "GetPercentilesResponse";
-  /**
-   *
-   *          <p>The percentile values of the aggregated fields.</p>
-   *
-   */
-  percentiles?: Array<PercentPair>;
-}
-
-export namespace GetPercentilesResponse {
-  export function isa(o: any): o is GetPercentilesResponse {
-    return _smithy.isa(o, "GetPercentilesResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the GetPolicy operation.</p>
- *
- */
-export interface GetPolicyRequest {
-  __type?: "GetPolicyRequest";
-  /**
-   *
-   *          <p>The name of the policy.</p>
-   *
-   */
-  policyName: string | undefined;
-}
-
-export namespace GetPolicyRequest {
-  export function isa(o: any): o is GetPolicyRequest {
-    return _smithy.isa(o, "GetPolicyRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the GetPolicy operation.</p>
- *
- */
-export interface GetPolicyResponse extends $MetadataBearer {
-  __type?: "GetPolicyResponse";
-  /**
-   *
-   *          <p>The date the policy was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The default policy version ID.</p>
-   *
-   */
-  defaultVersionId?: string;
-
-  /**
-   *
-   *          <p>The generation ID of the policy.</p>
-   *
-   */
-  generationId?: string;
-
-  /**
-   *
-   *          <p>The date the policy was last modified.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   *          <p>The policy ARN.</p>
-   *
-   */
-  policyArn?: string;
-
-  /**
-   *
-   *          <p>The JSON document that describes the policy.</p>
-   *
-   */
-  policyDocument?: string;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName?: string;
-}
-
-export namespace GetPolicyResponse {
-  export function isa(o: any): o is GetPolicyResponse {
-    return _smithy.isa(o, "GetPolicyResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the GetPolicyVersion operation.</p>
- *
- */
-export interface GetPolicyVersionRequest {
-  __type?: "GetPolicyVersionRequest";
-  /**
-   *
-   *          <p>The name of the policy.</p>
-   *
-   */
-  policyName: string | undefined;
-
-  /**
-   *
-   *          <p>The policy version ID.</p>
-   *
-   */
-  policyVersionId: string | undefined;
-}
-
-export namespace GetPolicyVersionRequest {
-  export function isa(o: any): o is GetPolicyVersionRequest {
-    return _smithy.isa(o, "GetPolicyVersionRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the GetPolicyVersion operation.</p>
- *
- */
-export interface GetPolicyVersionResponse extends $MetadataBearer {
-  __type?: "GetPolicyVersionResponse";
-  /**
-   *
-   *          <p>The date the policy was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The generation ID of the policy version.</p>
-   *
-   */
-  generationId?: string;
-
-  /**
-   *
-   *          <p>Specifies whether the policy version is the default.</p>
-   *
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   *
-   *          <p>The date the policy was last modified.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   *          <p>The policy ARN.</p>
-   *
-   */
-  policyArn?: string;
-
-  /**
-   *
-   *          <p>The JSON document that describes the policy.</p>
-   *
-   */
-  policyDocument?: string;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName?: string;
-
-  /**
-   *
-   *          <p>The policy version ID.</p>
-   *
-   */
-  policyVersionId?: string;
-}
-
-export namespace GetPolicyVersionResponse {
-  export function isa(o: any): o is GetPolicyVersionResponse {
-    return _smithy.isa(o, "GetPolicyVersionResponse");
-  }
-}
-
-/**
- *
- *          <p>The input to the GetRegistrationCode operation.</p>
- *
- */
-export interface GetRegistrationCodeRequest {
-  __type?: "GetRegistrationCodeRequest";
-}
-
-export namespace GetRegistrationCodeRequest {
-  export function isa(o: any): o is GetRegistrationCodeRequest {
-    return _smithy.isa(o, "GetRegistrationCodeRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the GetRegistrationCode operation.</p>
- *
- */
-export interface GetRegistrationCodeResponse extends $MetadataBearer {
-  __type?: "GetRegistrationCodeResponse";
-  /**
-   *
-   *          <p>The CA certificate registration code.</p>
-   *
-   */
-  registrationCode?: string;
-}
-
-export namespace GetRegistrationCodeResponse {
-  export function isa(o: any): o is GetRegistrationCodeResponse {
-    return _smithy.isa(o, "GetRegistrationCodeResponse");
-  }
-}
-
-export interface GetStatisticsRequest {
-  __type?: "GetStatisticsRequest";
-  /**
-   *
-   *          <p>The aggregation field name.</p>
-   *
-   */
-  aggregationField?: string;
-
-  /**
-   *
-   *          <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   *          <p>The query used to search. You can specify "*" for the query string to get the count of all
-   *       indexed things in your AWS account.</p>
-   *
-   */
-  queryString: string | undefined;
-
-  /**
-   *
-   *          <p>The version of the query used to search.</p>
-   *
-   */
-  queryVersion?: string;
-}
-
-export namespace GetStatisticsRequest {
-  export function isa(o: any): o is GetStatisticsRequest {
-    return _smithy.isa(o, "GetStatisticsRequest");
-  }
-}
-
-export interface GetStatisticsResponse extends $MetadataBearer {
-  __type?: "GetStatisticsResponse";
-  /**
-   *
-   *          <p>The statistics returned by the Fleet Indexing service based on the query and aggregation
-   *       field.</p>
-   *
-   */
-  statistics?: Statistics;
-}
-
-export namespace GetStatisticsResponse {
-  export function isa(o: any): o is GetStatisticsResponse {
-    return _smithy.isa(o, "GetStatisticsResponse");
-  }
-}
-
-export interface GetTopicRuleDestinationRequest {
-  __type?: "GetTopicRuleDestinationRequest";
-  /**
-   *
-   *          <p>The ARN of the topic rule destination.</p>
-   *
-   */
-  arn: string | undefined;
-}
-
-export namespace GetTopicRuleDestinationRequest {
-  export function isa(o: any): o is GetTopicRuleDestinationRequest {
-    return _smithy.isa(o, "GetTopicRuleDestinationRequest");
-  }
-}
-
-export interface GetTopicRuleDestinationResponse extends $MetadataBearer {
-  __type?: "GetTopicRuleDestinationResponse";
-  /**
-   *
-   *          <p>The topic rule destination.</p>
-   *
-   */
-  topicRuleDestination?: TopicRuleDestination;
-}
-
-export namespace GetTopicRuleDestinationResponse {
-  export function isa(o: any): o is GetTopicRuleDestinationResponse {
-    return _smithy.isa(o, "GetTopicRuleDestinationResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the GetTopicRule operation.</p>
- *
- */
-export interface GetTopicRuleRequest {
-  __type?: "GetTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName: string | undefined;
-}
-
-export namespace GetTopicRuleRequest {
-  export function isa(o: any): o is GetTopicRuleRequest {
-    return _smithy.isa(o, "GetTopicRuleRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the GetTopicRule operation.</p>
- *
- */
-export interface GetTopicRuleResponse extends $MetadataBearer {
-  __type?: "GetTopicRuleResponse";
-  /**
-   *
-   *          <p>The rule.</p>
-   *
-   */
-  rule?: TopicRule;
-
-  /**
-   *
-   *          <p>The rule ARN.</p>
-   *
-   */
-  ruleArn?: string;
-}
-
-export namespace GetTopicRuleResponse {
-  export function isa(o: any): o is GetTopicRuleResponse {
-    return _smithy.isa(o, "GetTopicRuleResponse");
-  }
-}
-
-export interface GetV2LoggingOptionsRequest {
-  __type?: "GetV2LoggingOptionsRequest";
-}
-
-export namespace GetV2LoggingOptionsRequest {
-  export function isa(o: any): o is GetV2LoggingOptionsRequest {
-    return _smithy.isa(o, "GetV2LoggingOptionsRequest");
-  }
-}
-
-export interface GetV2LoggingOptionsResponse extends $MetadataBearer {
-  __type?: "GetV2LoggingOptionsResponse";
-  /**
-   *
-   *          <p>The default log level.</p>
-   *
-   */
-  defaultLogLevel?: LogLevel | string;
-
-  /**
-   *
-   *          <p>Disables all logs.</p>
-   *
-   */
-  disableAllLogs?: boolean;
-
-  /**
-   *
-   *
-   *          <p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>
-   *
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace GetV2LoggingOptionsResponse {
-  export function isa(o: any): o is GetV2LoggingOptionsResponse {
-    return _smithy.isa(o, "GetV2LoggingOptionsResponse");
-  }
-}
-
-/**
- *
- * 		       <p>The name and ARN of a group.</p>
- *
- */
-export interface GroupNameAndArn {
-  __type?: "GroupNameAndArn";
-  /**
-   *
-   * 		       <p>The group ARN.</p>
-   *
-   */
-  groupArn?: string;
-
-  /**
-   *
-   * 		       <p>The group name.</p>
-   *
-   */
-  groupName?: string;
-}
-
-export namespace GroupNameAndArn {
-  export function isa(o: any): o is GroupNameAndArn {
-    return _smithy.isa(o, "GroupNameAndArn");
-  }
-}
-
-/**
- *
- *          <p>Send data to an HTTPS endpoint.</p>
- *
- */
-export interface HttpAction {
-  __type?: "HttpAction";
-  /**
-   *
-   *          <p>The authentication method to use when sending data to an HTTPS endpoint.</p>
-   *
-   */
-  auth?: HttpAuthorization;
-
-  /**
-   *
-   *          <p>The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL
-   *          must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses
-   *          the endpoint URL as the confirmation URL. If you use substitution templates in the
-   *          confirmationUrl, you must create and enable topic rule destinations that match each
-   *          possible value of the substituion template before traffic is allowed to your endpoint
-   *          URL.</p>
-   *
-   */
-  confirmationUrl?: string;
-
-  /**
-   *
-   *          <p>The HTTP headers to send with the message data.</p>
-   *
-   */
-  headers?: Array<HttpActionHeader>;
-
-  /**
-   *
-   *          <p>The endpoint URL. If substitution templates are used in the URL, you must also specify a
-   *             <code>confirmationUrl</code>. If this is a new destination, a new
-   *             <code>TopicRuleDestination</code> is created if possible.</p>
-   *
-   */
-  url: string | undefined;
-}
-
-export namespace HttpAction {
-  export function isa(o: any): o is HttpAction {
-    return _smithy.isa(o, "HttpAction");
-  }
-}
-
-/**
- *
- *          <p>The HTTP action header.</p>
- *
- */
-export interface HttpActionHeader {
-  __type?: "HttpActionHeader";
-  /**
-   *
-   *          <p>The HTTP header key.</p>
-   *
-   */
-  key: string | undefined;
-
-  /**
-   *
-   *          <p>The HTTP header value. Substitution templates are supported.</p>
-   *
-   */
-  value: string | undefined;
-}
-
-export namespace HttpActionHeader {
-  export function isa(o: any): o is HttpActionHeader {
-    return _smithy.isa(o, "HttpActionHeader");
-  }
-}
-
-/**
- *
- *          <p>The authorization method used to send messages.</p>
- *
- */
-export interface HttpAuthorization {
-  __type?: "HttpAuthorization";
-  /**
-   *
-   *          <p>Use Sig V4 authorization. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-   *             Version 4 Signing Process</a>.</p>
-   *
-   */
-  sigv4?: SigV4Authorization;
-}
-
-export namespace HttpAuthorization {
-  export function isa(o: any): o is HttpAuthorization {
-    return _smithy.isa(o, "HttpAuthorization");
-  }
-}
-
-/**
- *
- *          <p>Specifies the HTTP context to use for the test authorizer request.</p>
- *
- */
-export interface HttpContext {
-  __type?: "HttpContext";
-  /**
-   *
-   *          <p>The header keys and values in an HTTP authorization request.</p>
-   *
-   */
-  headers?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The query string keys and values in an HTTP authorization request.</p>
-   *
-   */
-  queryString?: string;
-}
-
-export namespace HttpContext {
-  export function isa(o: any): o is HttpContext {
-    return _smithy.isa(o, "HttpContext");
-  }
-}
-
-/**
- *
- *          <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
- *
- */
-export interface HttpUrlDestinationConfiguration {
-  __type?: "HttpUrlDestinationConfiguration";
-  /**
-   *
-   *          <p>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination
-   *          URL.</p>
-   *
-   */
-  confirmationUrl: string | undefined;
-}
-
-export namespace HttpUrlDestinationConfiguration {
-  export function isa(o: any): o is HttpUrlDestinationConfiguration {
-    return _smithy.isa(o, "HttpUrlDestinationConfiguration");
-  }
-}
-
-/**
- *
- *          <p>HTTP URL destination properties.</p>
- *
- */
-export interface HttpUrlDestinationProperties {
-  __type?: "HttpUrlDestinationProperties";
-  /**
-   *
-   *          <p>The URL used to confirm the HTTP topic rule destination URL.</p>
-   *
-   */
-  confirmationUrl?: string;
-}
-
-export namespace HttpUrlDestinationProperties {
-  export function isa(o: any): o is HttpUrlDestinationProperties {
-    return _smithy.isa(o, "HttpUrlDestinationProperties");
-  }
-}
-
-/**
- *
- *          <p>Information about an HTTP URL destination.</p>
- *
- */
-export interface HttpUrlDestinationSummary {
-  __type?: "HttpUrlDestinationSummary";
-  /**
-   *
-   *          <p>The URL used to confirm ownership of or access to the HTTP topic rule destination
-   *          URL.</p>
-   *
-   */
-  confirmationUrl?: string;
-}
-
-export namespace HttpUrlDestinationSummary {
-  export function isa(o: any): o is HttpUrlDestinationSummary {
-    return _smithy.isa(o, "HttpUrlDestinationSummary");
-  }
-}
-
-/**
- *
- *          <p>Information that implicitly denies authorization. When policy doesn't explicitly deny
- *          or allow an action on a resource it is considered an implicit deny.</p>
- *
- */
-export interface ImplicitDeny {
-  __type?: "ImplicitDeny";
-  /**
-   *
-   *          <p>Policies that don't contain a matching allow or deny statement for the specified
-   *          action on the specified resource. </p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace ImplicitDeny {
-  export function isa(o: any): o is ImplicitDeny {
-    return _smithy.isa(o, "ImplicitDeny");
-  }
-}
-
-/**
- *
- *          <p>The index is not ready.</p>
- *
- */
-export interface IndexNotReadyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "IndexNotReadyException";
-  name: "IndexNotReadyException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace IndexNotReadyException {
-  export function isa(o: any): o is IndexNotReadyException {
-    return _smithy.isa(o, "IndexNotReadyException");
-  }
-}
-
-/**
- *
- *          <p>An unexpected error has occurred.</p>
- *
- */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalException";
-  name: "InternalException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalException {
-  export function isa(o: any): o is InternalException {
-    return _smithy.isa(o, "InternalException");
-  }
-}
-
-/**
- *
- *          <p>An unexpected error has occurred.</p>
- *
- */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InternalFailureException";
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
-  }
-}
-
-/**
- *
- *          <p>The aggregation is invalid.</p>
- *
- */
-export interface InvalidAggregationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidAggregationException";
-  name: "InvalidAggregationException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidAggregationException {
-  export function isa(o: any): o is InvalidAggregationException {
-    return _smithy.isa(o, "InvalidAggregationException");
-  }
-}
-
-/**
- *
- *          <p>The query is invalid.</p>
- *
- */
-export interface InvalidQueryException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidQueryException";
-  name: "InvalidQueryException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidQueryException {
-  export function isa(o: any): o is InvalidQueryException {
-    return _smithy.isa(o, "InvalidQueryException");
-  }
-}
-
-/**
- *
- *          <p>The request is not valid.</p>
- *
- */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidRequestException";
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
-  }
-}
-
-/**
- *
- *          <p>The response is invalid.</p>
- *
- */
-export interface InvalidResponseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidResponseException";
-  name: "InvalidResponseException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidResponseException {
-  export function isa(o: any): o is InvalidResponseException {
-    return _smithy.isa(o, "InvalidResponseException");
-  }
-}
-
-/**
- *
- *          <p>An attempt was made to change to an invalid state, for example by deleting a job or a
- *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
- *          parameter.</p>
- *
- */
-export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "InvalidStateTransitionException";
-  name: "InvalidStateTransitionException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace InvalidStateTransitionException {
-  export function isa(o: any): o is InvalidStateTransitionException {
-    return _smithy.isa(o, "InvalidStateTransitionException");
-  }
-}
-
-/**
- *
- *          <p>Sends message data to an AWS IoT Analytics channel.</p>
- *
- */
-export interface IotAnalyticsAction {
-  __type?: "IotAnalyticsAction";
-  /**
-   *
-   *          <p>(deprecated) The ARN of the IoT Analytics channel to which message data will be
-   *          sent.</p>
-   *
-   */
-  channelArn?: string;
-
-  /**
-   *
-   *          <p>The name of the IoT Analytics channel to which message data will be sent.</p>
-   *
-   */
-  channelName?: string;
-
-  /**
-   *
-   *          <p>The ARN of the role which has a policy that grants IoT Analytics permission to send
-   *          message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace IotAnalyticsAction {
-  export function isa(o: any): o is IotAnalyticsAction {
-    return _smithy.isa(o, "IotAnalyticsAction");
-  }
-}
-
-/**
- *
- *          <p>Sends an input to an AWS IoT Events detector.</p>
- *
- */
-export interface IotEventsAction {
-  __type?: "IotEventsAction";
-  /**
-   *
-   *          <p>The name of the AWS IoT Events input.</p>
-   *
-   */
-  inputName: string | undefined;
-
-  /**
-   *
-   *          <p>[Optional] Use this to ensure that only one input (message) with a given messageId will
-   *       be processed by an AWS IoT Events detector.</p>
-   *
-   */
-  messageId?: string;
-
-  /**
-   *
-   *          <p>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
-   *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace IotEventsAction {
-  export function isa(o: any): o is IotEventsAction {
-    return _smithy.isa(o, "IotEventsAction");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to send data from an MQTT message that triggered the rule to AWS IoT
- *       SiteWise asset properties.</p>
- *
- */
-export interface IotSiteWiseAction {
-  __type?: "IotSiteWiseAction";
-  /**
-   *
-   *          <p>A list of asset property value entries.</p>
-   *
-   */
-  putAssetPropertyValueEntries: Array<PutAssetPropertyValueEntry> | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
-   *       IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
-   *       policy can restrict access to specific asset hierarchy paths.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace IotSiteWiseAction {
-  export function isa(o: any): o is IotSiteWiseAction {
-    return _smithy.isa(o, "IotSiteWiseAction");
-  }
-}
-
-/**
- *
- *         <p>The <code>Job</code> object contains details about a job.</p>
- *
- */
-export interface Job {
-  __type?: "Job";
-  /**
-   *
-   *         <p>Configuration for criteria to abort the job.</p>
-   *
-   */
-  abortConfig?: AbortConfig;
-
-  /**
-   *
-   *         <p>If the job was updated, describes the reason for the update.</p>
-   *
-   */
-  comment?: string;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job was completed.</p>
-   *
-   */
-  completedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *         <p>A short text description of the job.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *          <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
-   *           <code>true</code>.</p>
-   *
-   */
-  forceCanceled?: boolean;
-
-  /**
-   *
-   *         <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
-   *
-   */
-  jobArn?: string;
-
-  /**
-   *
-   *         <p>Allows you to create a staged rollout of a job.</p>
-   *
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId?: string;
-
-  /**
-   *
-   *         <p>Details about the job process.</p>
-   *
-   */
-  jobProcessDetails?: JobProcessDetails;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job was last updated.</p>
-   *
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   *
-   *         <p>Configuration for pre-signed S3 URLs.</p>
-   *
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   *
-   *         <p>If the job was updated, provides the reason code for the update.</p>
-   *
-   */
-  reasonCode?: string;
-
-  /**
-   *
-   *         <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
-   *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
-   *
-   */
-  status?: JobStatus | string;
-
-  /**
-   *
-   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a device when the thing representing
-   *             the device is added to a target group, even after the job was completed by all things originally in the
-   *             group. </p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   *         <p>A list of IoT things and thing groups to which the job should be sent.</p>
-   *
-   */
-  targets?: Array<string>;
-
-  /**
-   *
-   *          <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
-   *
-   */
-  timeoutConfig?: TimeoutConfig;
-}
-
-export namespace Job {
-  export function isa(o: any): o is Job {
-    return _smithy.isa(o, "Job");
-  }
-}
-
-/**
- *
- *         <p>The job execution object represents the execution of a job on a particular device.</p>
- *
- */
-export interface JobExecution {
-  __type?: "JobExecution";
-  /**
-   *
-   *          <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
-   *            The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
-   *        This value will not be included if the job execution has reached a terminal status.</p>
-   *
-   */
-  approximateSecondsBeforeTimedOut?: number;
-
-  /**
-   *
-   *         <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used in commands which return or update job execution information.
-   *         </p>
-   *
-   */
-  executionNumber?: number;
-
-  /**
-   *
-   *          <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
-   *           parameter set to <code>true</code>.</p>
-   *
-   */
-  forceCanceled?: boolean;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to the job when it was created.</p>
-   *
-   */
-  jobId?: string;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
-   *
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution was queued.</p>
-   *
-   */
-  queuedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution started.</p>
-   *
-   */
-  startedAt?: Date;
-
-  /**
-   *
-   *         <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
-   *             CANCELED, or REJECTED).</p>
-   *
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
-   *
-   *         <p>A collection of name/value pairs that describe the status of the job execution.</p>
-   *
-   */
-  statusDetails?: JobExecutionStatusDetails;
-
-  /**
-   *
-   *         <p>The ARN of the thing on which the job execution is running.</p>
-   *
-   */
-  thingArn?: string;
-
-  /**
-   *
-   *          <p>The version of the job execution. Job execution versions are incremented each time they are updated
-   *       by a device.</p>
-   *
-   */
-  versionNumber?: number;
-}
-
-export namespace JobExecution {
-  export function isa(o: any): o is JobExecution {
-    return _smithy.isa(o, "JobExecution");
-  }
-}
-
-/**
- *
- *         <p>Details of the job execution status.</p>
- *
- */
-export interface JobExecutionStatusDetails {
-  __type?: "JobExecutionStatusDetails";
-  /**
-   *
-   *          <p>The job execution status.</p>
-   *
-   */
-  detailsMap?: { [key: string]: string };
-}
-
-export namespace JobExecutionStatusDetails {
-  export function isa(o: any): o is JobExecutionStatusDetails {
-    return _smithy.isa(o, "JobExecutionStatusDetails");
-  }
-}
-
-/**
- *
- *         <p>The job execution summary.</p>
- *
- */
-export interface JobExecutionSummary {
-  __type?: "JobExecutionSummary";
-  /**
-   *
-   *         <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used later in commands which return or update job execution
-   *             information.</p>
-   *
-   */
-  executionNumber?: number;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
-   *
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution was queued.</p>
-   *
-   */
-  queuedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job execution started.</p>
-   *
-   */
-  startedAt?: Date;
-
-  /**
-   *
-   *         <p>The status of the job execution.</p>
-   *
-   */
-  status?: JobExecutionStatus | string;
-}
-
-export namespace JobExecutionSummary {
-  export function isa(o: any): o is JobExecutionSummary {
-    return _smithy.isa(o, "JobExecutionSummary");
-  }
-}
-
-/**
- *
- *         <p>Contains a summary of information about job executions for a specific job.</p>
- *
- */
-export interface JobExecutionSummaryForJob {
-  __type?: "JobExecutionSummaryForJob";
-  /**
-   *
-   *         <p>Contains a subset of information about a job execution.</p>
-   *
-   */
-  jobExecutionSummary?: JobExecutionSummary;
-
-  /**
-   *
-   *         <p>The ARN of the thing on which the job execution is running.</p>
-   *
-   */
-  thingArn?: string;
-}
-
-export namespace JobExecutionSummaryForJob {
-  export function isa(o: any): o is JobExecutionSummaryForJob {
-    return _smithy.isa(o, "JobExecutionSummaryForJob");
-  }
-}
-
-/**
- *
- *         <p>The job execution summary for a thing.</p>
- *
- */
-export interface JobExecutionSummaryForThing {
-  __type?: "JobExecutionSummaryForThing";
-  /**
-   *
-   *         <p>Contains a subset of information about a job execution.</p>
-   *
-   */
-  jobExecutionSummary?: JobExecutionSummary;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId?: string;
-}
-
-export namespace JobExecutionSummaryForThing {
-  export function isa(o: any): o is JobExecutionSummaryForThing {
-    return _smithy.isa(o, "JobExecutionSummaryForThing");
-  }
-}
-
-/**
- *
- *         <p>Allows you to create a staged rollout of a job.</p>
- *
- */
-export interface JobExecutionsRolloutConfig {
-  __type?: "JobExecutionsRolloutConfig";
-  /**
-   *
-   *         <p>The rate of increase for a job rollout.
-   *             This parameter allows you to define an exponential rate for a job rollout.</p>
-   *
-   */
-  exponentialRate?: ExponentialRolloutRate;
-
-  /**
-   *
-   *          <p>The maximum number of things that will be notified of a pending job, per minute.
-   *         This parameter allows you to create a staged rollout.</p>
-   *
-   */
-  maximumPerMinute?: number;
-}
-
-export namespace JobExecutionsRolloutConfig {
-  export function isa(o: any): o is JobExecutionsRolloutConfig {
-    return _smithy.isa(o, "JobExecutionsRolloutConfig");
-  }
-}
-
-/**
- *
- *         <p>The job process details.</p>
- *
- */
-export interface JobProcessDetails {
-  __type?: "JobProcessDetails";
-  /**
-   *
-   *         <p>The number of things that cancelled the job.</p>
-   *
-   */
-  numberOfCanceledThings?: number;
-
-  /**
-   *
-   *         <p>The number of things that failed executing the job.</p>
-   *
-   */
-  numberOfFailedThings?: number;
-
-  /**
-   *
-   *         <p>The number of things currently executing the job.</p>
-   *
-   */
-  numberOfInProgressThings?: number;
-
-  /**
-   *
-   *         <p>The number of things that are awaiting execution of the job.</p>
-   *
-   */
-  numberOfQueuedThings?: number;
-
-  /**
-   *
-   *         <p>The number of things that rejected the job.</p>
-   *
-   */
-  numberOfRejectedThings?: number;
-
-  /**
-   *
-   *         <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
-   *             have been removed from the group that was a target of the job.</p>
-   *
-   */
-  numberOfRemovedThings?: number;
-
-  /**
-   *
-   *          <p>The number of things which successfully completed the job.</p>
-   *
-   */
-  numberOfSucceededThings?: number;
-
-  /**
-   *
-   *          <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
-   *
-   */
-  numberOfTimedOutThings?: number;
-
-  /**
-   *
-   *         <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
-   *
-   */
-  processingTargets?: Array<string>;
-}
-
-export namespace JobProcessDetails {
-  export function isa(o: any): o is JobProcessDetails {
-    return _smithy.isa(o, "JobProcessDetails");
-  }
-}
-
-/**
- *
- *         <p>The job summary.</p>
- *
- */
-export interface JobSummary {
-  __type?: "JobSummary";
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job completed.</p>
-   *
-   */
-  completedAt?: Date;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *         <p>The job ARN.</p>
-   *
-   */
-  jobArn?: string;
-
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId?: string;
-
-  /**
-   *
-   *         <p>The time, in seconds since the epoch, when the job was last updated.</p>
-   *
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   *
-   *         <p>The job summary status.</p>
-   *
-   */
-  status?: JobStatus | string;
-
-  /**
-   *
-   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group.</p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   *         <p>The ID of the thing group.</p>
-   *
-   */
-  thingGroupId?: string;
-}
-
-export namespace JobSummary {
-  export function isa(o: any): o is JobSummary {
-    return _smithy.isa(o, "JobSummary");
-  }
-}
-
-/**
- *
- *          <p>Describes a key pair.</p>
- *
- */
-export interface KeyPair {
-  __type?: "KeyPair";
-  /**
-   *
-   *          <p>The private key.</p>
-   *
-   */
-  PrivateKey?: string;
-
-  /**
-   *
-   *          <p>The public key.</p>
-   *
-   */
-  PublicKey?: string;
-}
-
-export namespace KeyPair {
-  export function isa(o: any): o is KeyPair {
-    return _smithy.isa(o, "KeyPair");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to write data to an Amazon Kinesis stream.</p>
- *
- */
-export interface KinesisAction {
-  __type?: "KinesisAction";
-  /**
-   *
-   *          <p>The partition key.</p>
-   *
-   */
-  partitionKey?: string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access to the Amazon Kinesis stream.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the Amazon Kinesis stream.</p>
-   *
-   */
-  streamName: string | undefined;
-}
-
-export namespace KinesisAction {
-  export function isa(o: any): o is KinesisAction {
-    return _smithy.isa(o, "KinesisAction");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to invoke a Lambda function.</p>
- *
- */
-export interface LambdaAction {
-  __type?: "LambdaAction";
-  /**
-   *
-   *          <p>The ARN of the Lambda function.</p>
-   *
-   */
-  functionArn: string | undefined;
-}
-
-export namespace LambdaAction {
-  export function isa(o: any): o is LambdaAction {
-    return _smithy.isa(o, "LambdaAction");
-  }
-}
-
-/**
- *
- *          <p>A limit has been exceeded.</p>
- *
- */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "LimitExceededException";
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
-  }
-}
-
-export interface ListActiveViolationsRequest {
-  __type?: "ListActiveViolationsRequest";
-  /**
-   *
-   *         <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *         <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *         <p>The name of the Device Defender security profile for which violations are listed.</p>
-   *
-   */
-  securityProfileName?: string;
-
-  /**
-   *
-   *         <p>The name of the thing whose active violations are listed.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace ListActiveViolationsRequest {
-  export function isa(o: any): o is ListActiveViolationsRequest {
-    return _smithy.isa(o, "ListActiveViolationsRequest");
-  }
-}
-
-export interface ListActiveViolationsResponse extends $MetadataBearer {
-  __type?: "ListActiveViolationsResponse";
-  /**
-   *
-   *         <p>The list of active violations.</p>
-   *
-   */
-  activeViolations?: Array<ActiveViolation>;
-
-  /**
-   *
-   *         <p>A token that can be used to retrieve the next set of results,
-   *             or <code>null</code> if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListActiveViolationsResponse {
-  export function isa(o: any): o is ListActiveViolationsResponse {
-    return _smithy.isa(o, "ListActiveViolationsResponse");
-  }
-}
-
-export interface ListAttachedPoliciesRequest {
-  __type?: "ListAttachedPoliciesRequest";
-  /**
-   *
-   *          <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to be returned per request.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>When true, recursively list attached policies.</p>
-   *
-   */
-  recursive?: boolean;
-
-  /**
-   *
-   *          <p>The group or principal for which the policies will be listed.</p>
-   *
-   */
-  target: string | undefined;
-}
-
-export namespace ListAttachedPoliciesRequest {
-  export function isa(o: any): o is ListAttachedPoliciesRequest {
-    return _smithy.isa(o, "ListAttachedPoliciesRequest");
-  }
-}
-
-export interface ListAttachedPoliciesResponse extends $MetadataBearer {
-  __type?: "ListAttachedPoliciesResponse";
-  /**
-   *
-   *          <p>The token to retrieve the next set of results, or ``null`` if there are no more
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The policies.</p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace ListAttachedPoliciesResponse {
-  export function isa(o: any): o is ListAttachedPoliciesResponse {
-    return _smithy.isa(o, "ListAttachedPoliciesResponse");
-  }
-}
-
-export interface ListAuditFindingsRequest {
-  __type?: "ListAuditFindingsRequest";
-  /**
-   *
-   *           <p>A filter to limit results to the findings for the specified audit check.</p>
-   *
-   */
-  checkName?: string;
-
-  /**
-   *
-   *           <p>A filter to limit results to those found before the specified time. You must
-   *             specify either the startTime and endTime or the taskId, but not both.</p>
-   *
-   */
-  endTime?: Date;
-
-  /**
-   *
-   *           <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *           <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>Information identifying the noncompliant resource.</p>
-   *
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   *
-   *           <p>A filter to limit results to those found after the specified time. You must
-   *             specify either the startTime and endTime or the taskId, but not both.</p>
-   *
-   */
-  startTime?: Date;
-
-  /**
-   *
-   *           <p>A filter to limit results to the audit with the specified ID. You must
-   *             specify either the taskId or the startTime and endTime, but not both.</p>
-   *
-   */
-  taskId?: string;
-}
-
-export namespace ListAuditFindingsRequest {
-  export function isa(o: any): o is ListAuditFindingsRequest {
-    return _smithy.isa(o, "ListAuditFindingsRequest");
-  }
-}
-
-export interface ListAuditFindingsResponse extends $MetadataBearer {
-  __type?: "ListAuditFindingsResponse";
-  /**
-   *
-   *           <p>The findings (results) of the audit.</p>
-   *
-   */
-  findings?: Array<AuditFinding>;
-
-  /**
-   *
-   *           <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *             if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditFindingsResponse {
-  export function isa(o: any): o is ListAuditFindingsResponse {
-    return _smithy.isa(o, "ListAuditFindingsResponse");
-  }
-}
-
-export interface ListAuditMitigationActionsExecutionsRequest {
-  __type?: "ListAuditMitigationActionsExecutionsRequest";
-  /**
-   *
-   *          <p>Specify this filter to limit results to those with a specific status.</p>
-   *
-   */
-  actionStatus?: AuditMitigationActionsExecutionStatus | string;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
-   *
-   */
-  findingId: string | undefined;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace ListAuditMitigationActionsExecutionsRequest {
-  export function isa(
-    o: any
-  ): o is ListAuditMitigationActionsExecutionsRequest {
-    return _smithy.isa(o, "ListAuditMitigationActionsExecutionsRequest");
-  }
-}
-
-export interface ListAuditMitigationActionsExecutionsResponse
-  extends $MetadataBearer {
-  __type?: "ListAuditMitigationActionsExecutionsResponse";
-  /**
-   *
-   *          <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
-   *
-   */
-  actionsExecutions?: Array<AuditMitigationActionExecutionMetadata>;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListAuditMitigationActionsExecutionsResponse {
-  export function isa(
-    o: any
-  ): o is ListAuditMitigationActionsExecutionsResponse {
-    return _smithy.isa(o, "ListAuditMitigationActionsExecutionsResponse");
-  }
-}
-
-export interface ListAuditMitigationActionsTasksRequest {
-  __type?: "ListAuditMitigationActionsTasksRequest";
-  /**
-   *
-   *          <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
-   *
-   */
-  auditTaskId?: string;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
-   *
-   */
-  endTime: Date | undefined;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
-   *
-   */
-  findingId?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
-   *
-   */
-  startTime: Date | undefined;
-
-  /**
-   *
-   *          <p>Specify this filter to limit results to tasks that are in a specific state.</p>
-   *
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-}
-
-export namespace ListAuditMitigationActionsTasksRequest {
-  export function isa(o: any): o is ListAuditMitigationActionsTasksRequest {
-    return _smithy.isa(o, "ListAuditMitigationActionsTasksRequest");
-  }
-}
-
-export interface ListAuditMitigationActionsTasksResponse
-  extends $MetadataBearer {
-  __type?: "ListAuditMitigationActionsTasksResponse";
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
-   *
-   */
-  tasks?: Array<AuditMitigationActionsTaskMetadata>;
-}
-
-export namespace ListAuditMitigationActionsTasksResponse {
-  export function isa(o: any): o is ListAuditMitigationActionsTasksResponse {
-    return _smithy.isa(o, "ListAuditMitigationActionsTasksResponse");
-  }
-}
-
-export interface ListAuditTasksRequest {
-  __type?: "ListAuditTasksRequest";
-  /**
-   *
-   *           <p>The end of the time period.</p>
-   *
-   */
-  endTime: Date | undefined;
-
-  /**
-   *
-   *           <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *           <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *           <p>The beginning of the time period. Audit information is retained for a
-   *               limited time (180 days). Requesting a start time prior to what is retained
-   *               results in an "InvalidRequestException".</p>
-   *
-   */
-  startTime: Date | undefined;
-
-  /**
-   *
-   *           <p>A filter to limit the output to audits with the specified completion
-   *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
-   *
-   */
-  taskStatus?: AuditTaskStatus | string;
-
-  /**
-   *
-   *           <p>A filter to limit the output to the specified type of audit: can be one of
-   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
-   *
-   */
-  taskType?: AuditTaskType | string;
-}
-
-export namespace ListAuditTasksRequest {
-  export function isa(o: any): o is ListAuditTasksRequest {
-    return _smithy.isa(o, "ListAuditTasksRequest");
-  }
-}
-
-export interface ListAuditTasksResponse extends $MetadataBearer {
-  __type?: "ListAuditTasksResponse";
-  /**
-   *
-   *           <p>A token that can be used to retrieve the next set of results, or <code>null</code>
-   *             if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *           <p>The audits that were performed during the specified time period.</p>
-   *
-   */
-  tasks?: Array<AuditTaskMetadata>;
-}
-
-export namespace ListAuditTasksResponse {
-  export function isa(o: any): o is ListAuditTasksResponse {
-    return _smithy.isa(o, "ListAuditTasksResponse");
-  }
-}
-
-export interface ListAuthorizersRequest {
-  __type?: "ListAuthorizersRequest";
-  /**
-   *
-   *          <p>Return the list of authorizers in ascending alphabetical order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>The status of the list authorizers request.</p>
-   *
-   */
-  status?: AuthorizerStatus | string;
-}
-
-export namespace ListAuthorizersRequest {
-  export function isa(o: any): o is ListAuthorizersRequest {
-    return _smithy.isa(o, "ListAuthorizersRequest");
-  }
-}
-
-export interface ListAuthorizersResponse extends $MetadataBearer {
-  __type?: "ListAuthorizersResponse";
-  /**
-   *
-   *          <p>The authorizers.</p>
-   *
-   */
-  authorizers?: Array<AuthorizerSummary>;
-
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  nextMarker?: string;
-}
-
-export namespace ListAuthorizersResponse {
-  export function isa(o: any): o is ListAuthorizersResponse {
-    return _smithy.isa(o, "ListAuthorizersResponse");
   }
 }
 
@@ -10160,929 +12620,6 @@ export interface ListBillingGroupsResponse extends $MetadataBearer {
 export namespace ListBillingGroupsResponse {
   export function isa(o: any): o is ListBillingGroupsResponse {
     return _smithy.isa(o, "ListBillingGroupsResponse");
-  }
-}
-
-/**
- *
- *          <p>Input for the ListCACertificates operation.</p>
- *
- */
-export interface ListCACertificatesRequest {
-  __type?: "ListCACertificatesRequest";
-  /**
-   *
-   *          <p>Determines the order of the results.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListCACertificatesRequest {
-  export function isa(o: any): o is ListCACertificatesRequest {
-    return _smithy.isa(o, "ListCACertificatesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListCACertificates operation.</p>
- *
- */
-export interface ListCACertificatesResponse extends $MetadataBearer {
-  __type?: "ListCACertificatesResponse";
-  /**
-   *
-   *          <p>The CA certificates registered in your AWS account.</p>
-   *
-   */
-  certificates?: Array<CACertificate>;
-
-  /**
-   *
-   *          <p>The current position within the list of CA certificates.</p>
-   *
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCACertificatesResponse {
-  export function isa(o: any): o is ListCACertificatesResponse {
-    return _smithy.isa(o, "ListCACertificatesResponse");
-  }
-}
-
-/**
- *
- *          <p>The input to the ListCertificatesByCA operation.</p>
- *
- */
-export interface ListCertificatesByCARequest {
-  __type?: "ListCertificatesByCARequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the CA certificate. This operation will list all registered device
-   *          certificate that were signed by this CA certificate.</p>
-   *
-   */
-  caCertificateId: string | undefined;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListCertificatesByCARequest {
-  export function isa(o: any): o is ListCertificatesByCARequest {
-    return _smithy.isa(o, "ListCertificatesByCARequest");
-  }
-}
-
-/**
- *
- *          <p>The output of the ListCertificatesByCA operation.</p>
- *
- */
-export interface ListCertificatesByCAResponse extends $MetadataBearer {
-  __type?: "ListCertificatesByCAResponse";
-  /**
-   *
-   *          <p>The device certificates signed by the specified CA certificate.</p>
-   *
-   */
-  certificates?: Array<Certificate>;
-
-  /**
-   *
-   *          <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCertificatesByCAResponse {
-  export function isa(o: any): o is ListCertificatesByCAResponse {
-    return _smithy.isa(o, "ListCertificatesByCAResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListCertificates operation.</p>
- *
- */
-export interface ListCertificatesRequest {
-  __type?: "ListCertificatesRequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListCertificatesRequest {
-  export function isa(o: any): o is ListCertificatesRequest {
-    return _smithy.isa(o, "ListCertificatesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output of the ListCertificates operation.</p>
- *
- */
-export interface ListCertificatesResponse extends $MetadataBearer {
-  __type?: "ListCertificatesResponse";
-  /**
-   *
-   *          <p>The descriptions of the certificates.</p>
-   *
-   */
-  certificates?: Array<Certificate>;
-
-  /**
-   *
-   *          <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-}
-
-export namespace ListCertificatesResponse {
-  export function isa(o: any): o is ListCertificatesResponse {
-    return _smithy.isa(o, "ListCertificatesResponse");
-  }
-}
-
-export interface ListDomainConfigurationsRequest {
-  __type?: "ListDomainConfigurationsRequest";
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>The type of service delivered by the endpoint.</p>
-   *
-   */
-  serviceType?: ServiceType | string;
-}
-
-export namespace ListDomainConfigurationsRequest {
-  export function isa(o: any): o is ListDomainConfigurationsRequest {
-    return _smithy.isa(o, "ListDomainConfigurationsRequest");
-  }
-}
-
-export interface ListDomainConfigurationsResponse extends $MetadataBearer {
-  __type?: "ListDomainConfigurationsResponse";
-  /**
-   *
-   *          <p>A list of objects that contain summary information about the user's domain configurations.</p>
-   *
-   */
-  domainConfigurations?: Array<DomainConfigurationSummary>;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  nextMarker?: string;
-}
-
-export namespace ListDomainConfigurationsResponse {
-  export function isa(o: any): o is ListDomainConfigurationsResponse {
-    return _smithy.isa(o, "ListDomainConfigurationsResponse");
-  }
-}
-
-export interface ListIndicesRequest {
-  __type?: "ListIndicesRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListIndicesRequest {
-  export function isa(o: any): o is ListIndicesRequest {
-    return _smithy.isa(o, "ListIndicesRequest");
-  }
-}
-
-export interface ListIndicesResponse extends $MetadataBearer {
-  __type?: "ListIndicesResponse";
-  /**
-   *
-   *          <p>The index names.</p>
-   *
-   */
-  indexNames?: Array<string>;
-
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListIndicesResponse {
-  export function isa(o: any): o is ListIndicesResponse {
-    return _smithy.isa(o, "ListIndicesResponse");
-  }
-}
-
-export interface ListJobExecutionsForJobRequest {
-  __type?: "ListJobExecutionsForJobRequest";
-  /**
-   *
-   *         <p>The unique identifier you assigned to this job when it was created.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>The maximum number of results to be returned per request.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *         <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *         <p>The status of the job.</p>
-   *
-   */
-  status?: JobExecutionStatus | string;
-}
-
-export namespace ListJobExecutionsForJobRequest {
-  export function isa(o: any): o is ListJobExecutionsForJobRequest {
-    return _smithy.isa(o, "ListJobExecutionsForJobRequest");
-  }
-}
-
-export interface ListJobExecutionsForJobResponse extends $MetadataBearer {
-  __type?: "ListJobExecutionsForJobResponse";
-  /**
-   *
-   *         <p>A list of job execution summaries.</p>
-   *
-   */
-  executionSummaries?: Array<JobExecutionSummaryForJob>;
-
-  /**
-   *
-   *         <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobExecutionsForJobResponse {
-  export function isa(o: any): o is ListJobExecutionsForJobResponse {
-    return _smithy.isa(o, "ListJobExecutionsForJobResponse");
-  }
-}
-
-export interface ListJobExecutionsForThingRequest {
-  __type?: "ListJobExecutionsForThingRequest";
-  /**
-   *
-   *         <p>The maximum number of results to be returned per request.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *         <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *         <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   *
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
-   *
-   *         <p>The thing name.</p>
-   *
-   */
-  thingName: string | undefined;
-}
-
-export namespace ListJobExecutionsForThingRequest {
-  export function isa(o: any): o is ListJobExecutionsForThingRequest {
-    return _smithy.isa(o, "ListJobExecutionsForThingRequest");
-  }
-}
-
-export interface ListJobExecutionsForThingResponse extends $MetadataBearer {
-  __type?: "ListJobExecutionsForThingResponse";
-  /**
-   *
-   *         <p>A list of job execution summaries.</p>
-   *
-   */
-  executionSummaries?: Array<JobExecutionSummaryForThing>;
-
-  /**
-   *
-   *         <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobExecutionsForThingResponse {
-  export function isa(o: any): o is ListJobExecutionsForThingResponse {
-    return _smithy.isa(o, "ListJobExecutionsForThingResponse");
-  }
-}
-
-export interface ListJobsRequest {
-  __type?: "ListJobsRequest";
-  /**
-   *
-   *         <p>The maximum number of results to return per request.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *         <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *         <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   *
-   */
-  status?: JobStatus | string;
-
-  /**
-   *
-   *         <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group. </p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   *          <p>A filter that limits the returned jobs to those for the specified group.</p>
-   *
-   */
-  thingGroupId?: string;
-
-  /**
-   *
-   *          <p>A filter that limits the returned jobs to those for the specified group.</p>
-   *
-   */
-  thingGroupName?: string;
-}
-
-export namespace ListJobsRequest {
-  export function isa(o: any): o is ListJobsRequest {
-    return _smithy.isa(o, "ListJobsRequest");
-  }
-}
-
-export interface ListJobsResponse extends $MetadataBearer {
-  __type?: "ListJobsResponse";
-  /**
-   *
-   *         <p>A list of jobs.</p>
-   *
-   */
-  jobs?: Array<JobSummary>;
-
-  /**
-   *
-   *         <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListJobsResponse {
-  export function isa(o: any): o is ListJobsResponse {
-    return _smithy.isa(o, "ListJobsResponse");
-  }
-}
-
-export interface ListMitigationActionsRequest {
-  __type?: "ListMitigationActionsRequest";
-  /**
-   *
-   *          <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
-   *
-   */
-  actionType?: MitigationActionType | string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListMitigationActionsRequest {
-  export function isa(o: any): o is ListMitigationActionsRequest {
-    return _smithy.isa(o, "ListMitigationActionsRequest");
-  }
-}
-
-export interface ListMitigationActionsResponse extends $MetadataBearer {
-  __type?: "ListMitigationActionsResponse";
-  /**
-   *
-   *          <p>A set of actions that matched the specified filter criteria.</p>
-   *
-   */
-  actionIdentifiers?: Array<MitigationActionIdentifier>;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListMitigationActionsResponse {
-  export function isa(o: any): o is ListMitigationActionsResponse {
-    return _smithy.isa(o, "ListMitigationActionsResponse");
-  }
-}
-
-export interface ListOTAUpdatesRequest {
-  __type?: "ListOTAUpdatesRequest";
-  /**
-   *
-   * 		       <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   * 		       <p>A token used to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   * 		       <p>The OTA update job status.</p>
-   *
-   */
-  otaUpdateStatus?: OTAUpdateStatus | string;
-}
-
-export namespace ListOTAUpdatesRequest {
-  export function isa(o: any): o is ListOTAUpdatesRequest {
-    return _smithy.isa(o, "ListOTAUpdatesRequest");
-  }
-}
-
-export interface ListOTAUpdatesResponse extends $MetadataBearer {
-  __type?: "ListOTAUpdatesResponse";
-  /**
-   *
-   * 		       <p>A token to use to get the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   * 		       <p>A list of OTA update jobs.</p>
-   *
-   */
-  otaUpdates?: Array<OTAUpdateSummary>;
-}
-
-export namespace ListOTAUpdatesResponse {
-  export function isa(o: any): o is ListOTAUpdatesResponse {
-    return _smithy.isa(o, "ListOTAUpdatesResponse");
-  }
-}
-
-/**
- *
- *          <p>The input to the ListOutgoingCertificates operation.</p>
- *
- */
-export interface ListOutgoingCertificatesRequest {
-  __type?: "ListOutgoingCertificatesRequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListOutgoingCertificatesRequest {
-  export function isa(o: any): o is ListOutgoingCertificatesRequest {
-    return _smithy.isa(o, "ListOutgoingCertificatesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListOutgoingCertificates operation.</p>
- *
- */
-export interface ListOutgoingCertificatesResponse extends $MetadataBearer {
-  __type?: "ListOutgoingCertificatesResponse";
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The certificates that are being transferred but not yet accepted.</p>
-   *
-   */
-  outgoingCertificates?: Array<OutgoingCertificate>;
-}
-
-export namespace ListOutgoingCertificatesResponse {
-  export function isa(o: any): o is ListOutgoingCertificatesResponse {
-    return _smithy.isa(o, "ListOutgoingCertificatesResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListPolicies operation.</p>
- *
- */
-export interface ListPoliciesRequest {
-  __type?: "ListPoliciesRequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListPoliciesRequest {
-  export function isa(o: any): o is ListPoliciesRequest {
-    return _smithy.isa(o, "ListPoliciesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListPolicies operation.</p>
- *
- */
-export interface ListPoliciesResponse extends $MetadataBearer {
-  __type?: "ListPoliciesResponse";
-  /**
-   *
-   *          <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The descriptions of the policies.</p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace ListPoliciesResponse {
-  export function isa(o: any): o is ListPoliciesResponse {
-    return _smithy.isa(o, "ListPoliciesResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListPolicyPrincipals operation.</p>
- *
- */
-export interface ListPolicyPrincipalsRequest {
-  __type?: "ListPolicyPrincipalsRequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName: string | undefined;
-}
-
-export namespace ListPolicyPrincipalsRequest {
-  export function isa(o: any): o is ListPolicyPrincipalsRequest {
-    return _smithy.isa(o, "ListPolicyPrincipalsRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListPolicyPrincipals operation.</p>
- *
- */
-export interface ListPolicyPrincipalsResponse extends $MetadataBearer {
-  __type?: "ListPolicyPrincipalsResponse";
-  /**
-   *
-   *          <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The descriptions of the principals.</p>
-   *
-   */
-  principals?: Array<string>;
-}
-
-export namespace ListPolicyPrincipalsResponse {
-  export function isa(o: any): o is ListPolicyPrincipalsResponse {
-    return _smithy.isa(o, "ListPolicyPrincipalsResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListPolicyVersions operation.</p>
- *
- */
-export interface ListPolicyVersionsRequest {
-  __type?: "ListPolicyVersionsRequest";
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName: string | undefined;
-}
-
-export namespace ListPolicyVersionsRequest {
-  export function isa(o: any): o is ListPolicyVersionsRequest {
-    return _smithy.isa(o, "ListPolicyVersionsRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListPolicyVersions operation.</p>
- *
- */
-export interface ListPolicyVersionsResponse extends $MetadataBearer {
-  __type?: "ListPolicyVersionsResponse";
-  /**
-   *
-   *          <p>The policy versions.</p>
-   *
-   */
-  policyVersions?: Array<PolicyVersion>;
-}
-
-export namespace ListPolicyVersionsResponse {
-  export function isa(o: any): o is ListPolicyVersionsResponse {
-    return _smithy.isa(o, "ListPolicyVersionsResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListPrincipalPolicies operation.</p>
- *
- */
-export interface ListPrincipalPoliciesRequest {
-  __type?: "ListPrincipalPoliciesRequest";
-  /**
-   *
-   *          <p>Specifies the order for results. If true, results are returned in ascending creation
-   *          order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>The marker for the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The result page size.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>The principal.</p>
-   *
-   */
-  principal: string | undefined;
-}
-
-export namespace ListPrincipalPoliciesRequest {
-  export function isa(o: any): o is ListPrincipalPoliciesRequest {
-    return _smithy.isa(o, "ListPrincipalPoliciesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListPrincipalPolicies operation.</p>
- *
- */
-export interface ListPrincipalPoliciesResponse extends $MetadataBearer {
-  __type?: "ListPrincipalPoliciesResponse";
-  /**
-   *
-   *          <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The policies.</p>
-   *
-   */
-  policies?: Array<Policy>;
-}
-
-export namespace ListPrincipalPoliciesResponse {
-  export function isa(o: any): o is ListPrincipalPoliciesResponse {
-    return _smithy.isa(o, "ListPrincipalPoliciesResponse");
   }
 }
 
@@ -11149,367 +12686,6 @@ export namespace ListPrincipalThingsResponse {
   }
 }
 
-export interface ListProvisioningTemplateVersionsRequest {
-  __type?: "ListProvisioningTemplateVersionsRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>A token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The name of the fleet provisioning template.</p>
-   *
-   */
-  templateName: string | undefined;
-}
-
-export namespace ListProvisioningTemplateVersionsRequest {
-  export function isa(o: any): o is ListProvisioningTemplateVersionsRequest {
-    return _smithy.isa(o, "ListProvisioningTemplateVersionsRequest");
-  }
-}
-
-export interface ListProvisioningTemplateVersionsResponse
-  extends $MetadataBearer {
-  __type?: "ListProvisioningTemplateVersionsResponse";
-  /**
-   *
-   *          <p>A token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The list of fleet provisioning template versions.</p>
-   *
-   */
-  versions?: Array<ProvisioningTemplateVersionSummary>;
-}
-
-export namespace ListProvisioningTemplateVersionsResponse {
-  export function isa(o: any): o is ListProvisioningTemplateVersionsResponse {
-    return _smithy.isa(o, "ListProvisioningTemplateVersionsResponse");
-  }
-}
-
-export interface ListProvisioningTemplatesRequest {
-  __type?: "ListProvisioningTemplatesRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>A token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListProvisioningTemplatesRequest {
-  export function isa(o: any): o is ListProvisioningTemplatesRequest {
-    return _smithy.isa(o, "ListProvisioningTemplatesRequest");
-  }
-}
-
-export interface ListProvisioningTemplatesResponse extends $MetadataBearer {
-  __type?: "ListProvisioningTemplatesResponse";
-  /**
-   *
-   *          <p>A token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>A list of fleet provisioning templates</p>
-   *
-   */
-  templates?: Array<ProvisioningTemplateSummary>;
-}
-
-export namespace ListProvisioningTemplatesResponse {
-  export function isa(o: any): o is ListProvisioningTemplatesResponse {
-    return _smithy.isa(o, "ListProvisioningTemplatesResponse");
-  }
-}
-
-export interface ListRoleAliasesRequest {
-  __type?: "ListRoleAliasesRequest";
-  /**
-   *
-   *          <p>Return the list of role aliases in ascending alphabetical order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  pageSize?: number;
-}
-
-export namespace ListRoleAliasesRequest {
-  export function isa(o: any): o is ListRoleAliasesRequest {
-    return _smithy.isa(o, "ListRoleAliasesRequest");
-  }
-}
-
-export interface ListRoleAliasesResponse extends $MetadataBearer {
-  __type?: "ListRoleAliasesResponse";
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The role aliases.</p>
-   *
-   */
-  roleAliases?: Array<string>;
-}
-
-export namespace ListRoleAliasesResponse {
-  export function isa(o: any): o is ListRoleAliasesResponse {
-    return _smithy.isa(o, "ListRoleAliasesResponse");
-  }
-}
-
-export interface ListScheduledAuditsRequest {
-  __type?: "ListScheduledAuditsRequest";
-  /**
-   *
-   *           <p>The maximum number of results to return at one time. The default is 25.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *           <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListScheduledAuditsRequest {
-  export function isa(o: any): o is ListScheduledAuditsRequest {
-    return _smithy.isa(o, "ListScheduledAuditsRequest");
-  }
-}
-
-export interface ListScheduledAuditsResponse extends $MetadataBearer {
-  __type?: "ListScheduledAuditsResponse";
-  /**
-   *
-   *           <p>A token that can be used to retrieve the next set of results,
-   *             or <code>null</code> if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *           <p>The list of scheduled audits.</p>
-   *
-   */
-  scheduledAudits?: Array<ScheduledAuditMetadata>;
-}
-
-export namespace ListScheduledAuditsResponse {
-  export function isa(o: any): o is ListScheduledAuditsResponse {
-    return _smithy.isa(o, "ListScheduledAuditsResponse");
-  }
-}
-
-export interface ListSecurityProfilesForTargetRequest {
-  __type?: "ListSecurityProfilesForTargetRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>If true, return child groups too.</p>
-   *
-   */
-  recursive?: boolean;
-
-  /**
-   *
-   *          <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
-   *
-   */
-  securityProfileTargetArn: string | undefined;
-}
-
-export namespace ListSecurityProfilesForTargetRequest {
-  export function isa(o: any): o is ListSecurityProfilesForTargetRequest {
-    return _smithy.isa(o, "ListSecurityProfilesForTargetRequest");
-  }
-}
-
-export interface ListSecurityProfilesForTargetResponse extends $MetadataBearer {
-  __type?: "ListSecurityProfilesForTargetResponse";
-  /**
-   *
-   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>A list of security profiles and their associated targets.</p>
-   *
-   */
-  securityProfileTargetMappings?: Array<SecurityProfileTargetMapping>;
-}
-
-export namespace ListSecurityProfilesForTargetResponse {
-  export function isa(o: any): o is ListSecurityProfilesForTargetResponse {
-    return _smithy.isa(o, "ListSecurityProfilesForTargetResponse");
-  }
-}
-
-export interface ListSecurityProfilesRequest {
-  __type?: "ListSecurityProfilesRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListSecurityProfilesRequest {
-  export function isa(o: any): o is ListSecurityProfilesRequest {
-    return _smithy.isa(o, "ListSecurityProfilesRequest");
-  }
-}
-
-export interface ListSecurityProfilesResponse extends $MetadataBearer {
-  __type?: "ListSecurityProfilesResponse";
-  /**
-   *
-   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>A list of security profile identifiers (names and ARNs).</p>
-   *
-   */
-  securityProfileIdentifiers?: Array<SecurityProfileIdentifier>;
-}
-
-export namespace ListSecurityProfilesResponse {
-  export function isa(o: any): o is ListSecurityProfilesResponse {
-    return _smithy.isa(o, "ListSecurityProfilesResponse");
-  }
-}
-
-export interface ListStreamsRequest {
-  __type?: "ListStreamsRequest";
-  /**
-   *
-   * 		       <p>Set to true to return the list of streams in ascending order.</p>
-   *
-   */
-  ascendingOrder?: boolean;
-
-  /**
-   *
-   * 		       <p>The maximum number of results to return at a time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   * 		       <p>A token used to get the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListStreamsRequest {
-  export function isa(o: any): o is ListStreamsRequest {
-    return _smithy.isa(o, "ListStreamsRequest");
-  }
-}
-
-export interface ListStreamsResponse extends $MetadataBearer {
-  __type?: "ListStreamsResponse";
-  /**
-   *
-   * 		       <p>A token used to get the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   * 		       <p>A list of streams.</p>
-   *
-   */
-  streams?: Array<StreamSummary>;
-}
-
-export namespace ListStreamsResponse {
-  export function isa(o: any): o is ListStreamsResponse {
-    return _smithy.isa(o, "ListStreamsResponse");
-  }
-}
-
 export interface ListTagsForResourceRequest {
   __type?: "ListTagsForResourceRequest";
   /**
@@ -11553,113 +12729,6 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
     return _smithy.isa(o, "ListTagsForResourceResponse");
-  }
-}
-
-export interface ListTargetsForPolicyRequest {
-  __type?: "ListTargetsForPolicyRequest";
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  marker?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  pageSize?: number;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName: string | undefined;
-}
-
-export namespace ListTargetsForPolicyRequest {
-  export function isa(o: any): o is ListTargetsForPolicyRequest {
-    return _smithy.isa(o, "ListTargetsForPolicyRequest");
-  }
-}
-
-export interface ListTargetsForPolicyResponse extends $MetadataBearer {
-  __type?: "ListTargetsForPolicyResponse";
-  /**
-   *
-   *          <p>A marker used to get the next set of results.</p>
-   *
-   */
-  nextMarker?: string;
-
-  /**
-   *
-   *          <p>The policy targets.</p>
-   *
-   */
-  targets?: Array<string>;
-}
-
-export namespace ListTargetsForPolicyResponse {
-  export function isa(o: any): o is ListTargetsForPolicyResponse {
-    return _smithy.isa(o, "ListTargetsForPolicyResponse");
-  }
-}
-
-export interface ListTargetsForSecurityProfileRequest {
-  __type?: "ListTargetsForSecurityProfileRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The security profile.</p>
-   *
-   */
-  securityProfileName: string | undefined;
-}
-
-export namespace ListTargetsForSecurityProfileRequest {
-  export function isa(o: any): o is ListTargetsForSecurityProfileRequest {
-    return _smithy.isa(o, "ListTargetsForSecurityProfileRequest");
-  }
-}
-
-export interface ListTargetsForSecurityProfileResponse extends $MetadataBearer {
-  __type?: "ListTargetsForSecurityProfileResponse";
-  /**
-   *
-   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The thing groups to which the security profile is attached.</p>
-   *
-   */
-  securityProfileTargets?: Array<SecurityProfileTarget>;
-}
-
-export namespace ListTargetsForSecurityProfileResponse {
-  export function isa(o: any): o is ListTargetsForSecurityProfileResponse {
-    return _smithy.isa(o, "ListTargetsForSecurityProfileResponse");
   }
 }
 
@@ -12201,1566 +13270,6 @@ export namespace ListThingsResponse {
   }
 }
 
-export interface ListTopicRuleDestinationsRequest {
-  __type?: "ListTopicRuleDestinationsRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListTopicRuleDestinationsRequest {
-  export function isa(o: any): o is ListTopicRuleDestinationsRequest {
-    return _smithy.isa(o, "ListTopicRuleDestinationsRequest");
-  }
-}
-
-export interface ListTopicRuleDestinationsResponse extends $MetadataBearer {
-  __type?: "ListTopicRuleDestinationsResponse";
-  /**
-   *
-   *          <p>Information about a topic rule destination.</p>
-   *
-   */
-  destinationSummaries?: Array<TopicRuleDestinationSummary>;
-
-  /**
-   *
-   *          <p>The token to retrieve the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListTopicRuleDestinationsResponse {
-  export function isa(o: any): o is ListTopicRuleDestinationsResponse {
-    return _smithy.isa(o, "ListTopicRuleDestinationsResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the ListTopicRules operation.</p>
- *
- */
-export interface ListTopicRulesRequest {
-  __type?: "ListTopicRulesRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>A token used to retrieve the next value.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>Specifies whether the rule is disabled.</p>
-   *
-   */
-  ruleDisabled?: boolean;
-
-  /**
-   *
-   *          <p>The topic.</p>
-   *
-   */
-  topic?: string;
-}
-
-export namespace ListTopicRulesRequest {
-  export function isa(o: any): o is ListTopicRulesRequest {
-    return _smithy.isa(o, "ListTopicRulesRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the ListTopicRules operation.</p>
- *
- */
-export interface ListTopicRulesResponse extends $MetadataBearer {
-  __type?: "ListTopicRulesResponse";
-  /**
-   *
-   *          <p>A token used to retrieve the next value.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The rules.</p>
-   *
-   */
-  rules?: Array<TopicRuleListItem>;
-}
-
-export namespace ListTopicRulesResponse {
-  export function isa(o: any): o is ListTopicRulesResponse {
-    return _smithy.isa(o, "ListTopicRulesResponse");
-  }
-}
-
-export interface ListV2LoggingLevelsRequest {
-  __type?: "ListV2LoggingLevelsRequest";
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   *
-   */
-  targetType?: LogTargetType | string;
-}
-
-export namespace ListV2LoggingLevelsRequest {
-  export function isa(o: any): o is ListV2LoggingLevelsRequest {
-    return _smithy.isa(o, "ListV2LoggingLevelsRequest");
-  }
-}
-
-export interface ListV2LoggingLevelsResponse extends $MetadataBearer {
-  __type?: "ListV2LoggingLevelsResponse";
-  /**
-   *
-   *          <p>The logging configuration for a target.</p>
-   *
-   */
-  logTargetConfigurations?: Array<LogTargetConfiguration>;
-
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   *
-   */
-  nextToken?: string;
-}
-
-export namespace ListV2LoggingLevelsResponse {
-  export function isa(o: any): o is ListV2LoggingLevelsResponse {
-    return _smithy.isa(o, "ListV2LoggingLevelsResponse");
-  }
-}
-
-export interface ListViolationEventsRequest {
-  __type?: "ListViolationEventsRequest";
-  /**
-   *
-   *          <p>The end time for the alerts to be listed.</p>
-   *
-   */
-  endTime: Date | undefined;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token for the next set of results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>A filter to limit results to those alerts generated by the specified security profile.</p>
-   *
-   */
-  securityProfileName?: string;
-
-  /**
-   *
-   *          <p>The start time for the alerts to be listed.</p>
-   *
-   */
-  startTime: Date | undefined;
-
-  /**
-   *
-   *          <p>A filter to limit results to those alerts caused by the specified thing.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace ListViolationEventsRequest {
-  export function isa(o: any): o is ListViolationEventsRequest {
-    return _smithy.isa(o, "ListViolationEventsRequest");
-  }
-}
-
-export interface ListViolationEventsResponse extends $MetadataBearer {
-  __type?: "ListViolationEventsResponse";
-  /**
-   *
-   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The security profile violation alerts issued for this account during the given time period,
-   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
-   *
-   */
-  violationEvents?: Array<ViolationEvent>;
-}
-
-export namespace ListViolationEventsResponse {
-  export function isa(o: any): o is ListViolationEventsResponse {
-    return _smithy.isa(o, "ListViolationEventsResponse");
-  }
-}
-
-/**
- *
- *          <p>A log target.</p>
- *
- */
-export interface LogTarget {
-  __type?: "LogTarget";
-  /**
-   *
-   *          <p>The target name.</p>
-   *
-   */
-  targetName?: string;
-
-  /**
-   *
-   *          <p>The target type.</p>
-   *
-   */
-  targetType: LogTargetType | string | undefined;
-}
-
-export namespace LogTarget {
-  export function isa(o: any): o is LogTarget {
-    return _smithy.isa(o, "LogTarget");
-  }
-}
-
-/**
- *
- *          <p>The target configuration.</p>
- *
- */
-export interface LogTargetConfiguration {
-  __type?: "LogTargetConfiguration";
-  /**
-   *
-   *          <p>The logging level.</p>
-   *
-   */
-  logLevel?: LogLevel | string;
-
-  /**
-   *
-   *          <p>A log target</p>
-   *
-   */
-  logTarget?: LogTarget;
-}
-
-export namespace LogTargetConfiguration {
-  export function isa(o: any): o is LogTargetConfiguration {
-    return _smithy.isa(o, "LogTargetConfiguration");
-  }
-}
-
-/**
- *
- *          <p>Describes the logging options payload.</p>
- *
- */
-export interface LoggingOptionsPayload {
-  __type?: "LoggingOptionsPayload";
-  /**
-   *
-   *          <p>The log level.</p>
-   *
-   */
-  logLevel?: LogLevel | string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace LoggingOptionsPayload {
-  export function isa(o: any): o is LoggingOptionsPayload {
-    return _smithy.isa(o, "LoggingOptionsPayload");
-  }
-}
-
-/**
- *
- *          <p>The policy documentation is not valid.</p>
- *
- */
-export interface MalformedPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "MalformedPolicyException";
-  name: "MalformedPolicyException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace MalformedPolicyException {
-  export function isa(o: any): o is MalformedPolicyException {
-    return _smithy.isa(o, "MalformedPolicyException");
-  }
-}
-
-/**
- *
- *          <p>The value to be compared with the <code>metric</code>.</p>
- *
- */
-export interface MetricValue {
-  __type?: "MetricValue";
-  /**
-   *
-   *          <p>If the <code>comparisonOperator</code> calls for a set of CIDRs, use this
-   *           to specify that set to be compared with the <code>metric</code>.</p>
-   *
-   */
-  cidrs?: Array<string>;
-
-  /**
-   *
-   *          <p>If the <code>comparisonOperator</code> calls for a numeric value, use this
-   *           to specify that numeric value to be compared with the <code>metric</code>.</p>
-   *
-   */
-  count?: number;
-
-  /**
-   *
-   *          <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
-   *           to specify that set to be compared with the <code>metric</code>.</p>
-   *
-   */
-  ports?: Array<number>;
-}
-
-export namespace MetricValue {
-  export function isa(o: any): o is MetricValue {
-    return _smithy.isa(o, "MetricValue");
-  }
-}
-
-/**
- *
- *         <p>Describes which changes should be applied as part of a mitigation action.</p>
- *
- */
-export interface MitigationAction {
-  __type?: "MitigationAction";
-  /**
-   *
-   *         <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
-   *
-   */
-  actionParams?: MitigationActionParams;
-
-  /**
-   *
-   *         <p>A unique identifier for the mitigation action.</p>
-   *
-   */
-  id?: string;
-
-  /**
-   *
-   *         <p>A user-friendly name for the mitigation action.</p>
-   *
-   */
-  name?: string;
-
-  /**
-   *
-   *         <p>The IAM role ARN used to apply this mitigation action.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace MitigationAction {
-  export function isa(o: any): o is MitigationAction {
-    return _smithy.isa(o, "MitigationAction");
-  }
-}
-
-/**
- *
- *         <p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>
- *
- */
-export interface MitigationActionIdentifier {
-  __type?: "MitigationActionIdentifier";
-  /**
-   *
-   *         <p>The IAM role ARN used to apply this mitigation action.</p>
-   *
-   */
-  actionArn?: string;
-
-  /**
-   *
-   *         <p>The friendly name of the mitigation action.</p>
-   *
-   */
-  actionName?: string;
-
-  /**
-   *
-   *         <p>The date when this mitigation action was created.</p>
-   *
-   */
-  creationDate?: Date;
-}
-
-export namespace MitigationActionIdentifier {
-  export function isa(o: any): o is MitigationActionIdentifier {
-    return _smithy.isa(o, "MitigationActionIdentifier");
-  }
-}
-
-/**
- *
- *         <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
- *
- */
-export interface MitigationActionParams {
-  __type?: "MitigationActionParams";
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
-   *
-   */
-  addThingsToThingGroupParams?: AddThingsToThingGroupParams;
-
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>
-   *
-   */
-  enableIoTLoggingParams?: EnableIoTLoggingParams;
-
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
-   *
-   */
-  publishFindingToSnsParams?: PublishFindingToSnsParams;
-
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
-   *
-   */
-  replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
-
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
-   *
-   */
-  updateCACertificateParams?: UpdateCACertificateParams;
-
-  /**
-   *
-   *         <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
-   *
-   */
-  updateDeviceCertificateParams?: UpdateDeviceCertificateParams;
-}
-
-export namespace MitigationActionParams {
-  export function isa(o: any): o is MitigationActionParams {
-    return _smithy.isa(o, "MitigationActionParams");
-  }
-}
-
-/**
- *
- *          <p>Specifies the MQTT context to use for the test authorizer request</p>
- *
- */
-export interface MqttContext {
-  __type?: "MqttContext";
-  /**
-   *
-   *          <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
-   *
-   */
-  clientId?: string;
-
-  /**
-   *
-   *          <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
-   *
-   */
-  password?: Uint8Array;
-
-  /**
-   *
-   *          <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
-   *
-   */
-  username?: string;
-}
-
-export namespace MqttContext {
-  export function isa(o: any): o is MqttContext {
-    return _smithy.isa(o, "MqttContext");
-  }
-}
-
-/**
- *
- *          <p>Information about the resource that was noncompliant with the audit check.</p>
- *
- */
-export interface NonCompliantResource {
-  __type?: "NonCompliantResource";
-  /**
-   *
-   *         <p>Other information about the noncompliant resource.</p>
-   *
-   */
-  additionalInfo?: { [key: string]: string };
-
-  /**
-   *
-   *         <p>Information that identifies the noncompliant resource.</p>
-   *
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   *
-   *         <p>The type of the noncompliant resource.</p>
-   *
-   */
-  resourceType?: ResourceType | string;
-}
-
-export namespace NonCompliantResource {
-  export function isa(o: any): o is NonCompliantResource {
-    return _smithy.isa(o, "NonCompliantResource");
-  }
-}
-
-/**
- *
- *          <p>The resource is not configured.</p>
- *
- */
-export interface NotConfiguredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "NotConfiguredException";
-  name: "NotConfiguredException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace NotConfiguredException {
-  export function isa(o: any): o is NotConfiguredException {
-    return _smithy.isa(o, "NotConfiguredException");
-  }
-}
-
-/**
- *
- * 		       <p>Describes a file to be associated with an OTA update.</p>
- *
- */
-export interface OTAUpdateFile {
-  __type?: "OTAUpdateFile";
-  /**
-   *
-   * 		       <p>A list of name/attribute pairs.</p>
-   *
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   *
-   * 		       <p>The code signing method of the file.</p>
-   *
-   */
-  codeSigning?: CodeSigning;
-
-  /**
-   *
-   * 		       <p>The location of the updated firmware.</p>
-   *
-   */
-  fileLocation?: FileLocation;
-
-  /**
-   *
-   * 		       <p>The name of the file.</p>
-   *
-   */
-  fileName?: string;
-
-  /**
-   *
-   * 		       <p>The file version.</p>
-   *
-   */
-  fileVersion?: string;
-}
-
-export namespace OTAUpdateFile {
-  export function isa(o: any): o is OTAUpdateFile {
-    return _smithy.isa(o, "OTAUpdateFile");
-  }
-}
-
-/**
- *
- * 		       <p>Information about an OTA update.</p>
- *
- */
-export interface OTAUpdateInfo {
-  __type?: "OTAUpdateInfo";
-  /**
-   *
-   * 		       <p>A collection of name/value pairs</p>
-   *
-   */
-  additionalParameters?: { [key: string]: string };
-
-  /**
-   *
-   * 		       <p>The AWS IoT job ARN associated with the OTA update.</p>
-   *
-   */
-  awsIotJobArn?: string;
-
-  /**
-   *
-   * 		       <p>The AWS IoT job ID associated with the OTA update.</p>
-   *
-   */
-  awsIotJobId?: string;
-
-  /**
-   *
-   * 		       <p>Configuration for the rollout of OTA updates.</p>
-   *
-   */
-  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
-
-  /**
-   *
-   * 		       <p>The date when the OTA update was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   * 		       <p>A description of the OTA update.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>Error information associated with the OTA update.</p>
-   *
-   */
-  errorInfo?: ErrorInfo;
-
-  /**
-   *
-   * 		       <p>The date when the OTA update was last updated.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   * 		       <p>The OTA update ARN.</p>
-   *
-   */
-  otaUpdateArn?: string;
-
-  /**
-   *
-   * 		       <p>A list of files associated with the OTA update.</p>
-   *
-   */
-  otaUpdateFiles?: Array<OTAUpdateFile>;
-
-  /**
-   *
-   * 		       <p>The OTA update ID.</p>
-   *
-   */
-  otaUpdateId?: string;
-
-  /**
-   *
-   * 		       <p>The status of the OTA update.</p>
-   *
-   */
-  otaUpdateStatus?: OTAUpdateStatus | string;
-
-  /**
-   *
-   * 		       <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
-   * 			things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also
-   * 			be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when
-   * 			the thing is added to a target group, even after the OTA update was completed by all things originally in
-   * 			the group. </p>
-   *
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
-   *
-   * 		       <p>The targets of the OTA update.</p>
-   *
-   */
-  targets?: Array<string>;
-}
-
-export namespace OTAUpdateInfo {
-  export function isa(o: any): o is OTAUpdateInfo {
-    return _smithy.isa(o, "OTAUpdateInfo");
-  }
-}
-
-/**
- *
- * 		       <p>An OTA update summary.</p>
- *
- */
-export interface OTAUpdateSummary {
-  __type?: "OTAUpdateSummary";
-  /**
-   *
-   * 		       <p>The date when the OTA update was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   * 		       <p>The OTA update ARN.</p>
-   *
-   */
-  otaUpdateArn?: string;
-
-  /**
-   *
-   * 		       <p>The OTA update ID.</p>
-   *
-   */
-  otaUpdateId?: string;
-}
-
-export namespace OTAUpdateSummary {
-  export function isa(o: any): o is OTAUpdateSummary {
-    return _smithy.isa(o, "OTAUpdateSummary");
-  }
-}
-
-/**
- *
- *          <p>A certificate that has been transferred but not yet accepted.</p>
- *
- */
-export interface OutgoingCertificate {
-  __type?: "OutgoingCertificate";
-  /**
-   *
-   *          <p>The certificate ARN.</p>
-   *
-   */
-  certificateArn?: string;
-
-  /**
-   *
-   *          <p>The certificate ID.</p>
-   *
-   */
-  certificateId?: string;
-
-  /**
-   *
-   *          <p>The certificate creation date.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The date the transfer was initiated.</p>
-   *
-   */
-  transferDate?: Date;
-
-  /**
-   *
-   *          <p>The transfer message.</p>
-   *
-   */
-  transferMessage?: string;
-
-  /**
-   *
-   *          <p>The AWS account to which the transfer was made.</p>
-   *
-   */
-  transferredTo?: string;
-}
-
-export namespace OutgoingCertificate {
-  export function isa(o: any): o is OutgoingCertificate {
-    return _smithy.isa(o, "OutgoingCertificate");
-  }
-}
-
-/**
- *
- *          <p>Describes the percentile and percentile value.</p>
- *
- */
-export interface PercentPair {
-  __type?: "PercentPair";
-  /**
-   *
-   *          <p>The percentile.</p>
-   *
-   */
-  percent?: number;
-
-  /**
-   *
-   *          <p>The value of the percentile.</p>
-   *
-   */
-  value?: number;
-}
-
-export namespace PercentPair {
-  export function isa(o: any): o is PercentPair {
-    return _smithy.isa(o, "PercentPair");
-  }
-}
-
-/**
- *
- *          <p>Describes an AWS IoT policy.</p>
- *
- */
-export interface Policy {
-  __type?: "Policy";
-  /**
-   *
-   *          <p>The policy ARN.</p>
-   *
-   */
-  policyArn?: string;
-
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName?: string;
-}
-
-export namespace Policy {
-  export function isa(o: any): o is Policy {
-    return _smithy.isa(o, "Policy");
-  }
-}
-
-/**
- *
- *          <p>Describes a policy version.</p>
- *
- */
-export interface PolicyVersion {
-  __type?: "PolicyVersion";
-  /**
-   *
-   *          <p>The date and time the policy was created.</p>
-   *
-   */
-  createDate?: Date;
-
-  /**
-   *
-   *          <p>Specifies whether the policy version is the default.</p>
-   *
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   *
-   *          <p>The policy version ID.</p>
-   *
-   */
-  versionId?: string;
-}
-
-export namespace PolicyVersion {
-  export function isa(o: any): o is PolicyVersion {
-    return _smithy.isa(o, "PolicyVersion");
-  }
-}
-
-/**
- *
- *          <p>Information about the version of the policy associated with the resource.</p>
- *
- */
-export interface PolicyVersionIdentifier {
-  __type?: "PolicyVersionIdentifier";
-  /**
-   *
-   *         <p>The name of the policy.</p>
-   *
-   */
-  policyName?: string;
-
-  /**
-   *
-   *          <p>The ID of the version of the policy associated with the resource.</p>
-   *
-   */
-  policyVersionId?: string;
-}
-
-export namespace PolicyVersionIdentifier {
-  export function isa(o: any): o is PolicyVersionIdentifier {
-    return _smithy.isa(o, "PolicyVersionIdentifier");
-  }
-}
-
-/**
- *
- *         <p>Configuration for pre-signed S3 URLs.</p>
- *
- */
-export interface PresignedUrlConfig {
-  __type?: "PresignedUrlConfig";
-  /**
-   *
-   *         <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600
-   *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
-   *
-   */
-  expiresInSec?: number;
-
-  /**
-   *
-   *         <p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job
-   *             data/updates are stored. The role must also grant permission for IoT to download the files.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace PresignedUrlConfig {
-  export function isa(o: any): o is PresignedUrlConfig {
-    return _smithy.isa(o, "PresignedUrlConfig");
-  }
-}
-
-/**
- *
- *          <p>A summary of information about a fleet provisioning template.</p>
- *
- */
-export interface ProvisioningTemplateSummary {
-  __type?: "ProvisioningTemplateSummary";
-  /**
-   *
-   *          <p>The date when the fleet provisioning template summary was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The description of the fleet provisioning template.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *          <p>True if the fleet provision template is enabled, otherwise false.</p>
-   *
-   */
-  enabled?: boolean;
-
-  /**
-   *
-   *          <p>The date when the fleet provisioning template summary was last modified.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   *          <p>The ARN of the fleet provisioning template.</p>
-   *
-   */
-  templateArn?: string;
-
-  /**
-   *
-   *          <p>The name of the fleet provisioning template.</p>
-   *
-   */
-  templateName?: string;
-}
-
-export namespace ProvisioningTemplateSummary {
-  export function isa(o: any): o is ProvisioningTemplateSummary {
-    return _smithy.isa(o, "ProvisioningTemplateSummary");
-  }
-}
-
-/**
- *
- *          <p>A summary of information about a fleet provision template version.</p>
- *
- */
-export interface ProvisioningTemplateVersionSummary {
-  __type?: "ProvisioningTemplateVersionSummary";
-  /**
-   *
-   *          <p>The date when the fleet provisioning template version was created</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>True if the fleet provisioning template version is the default version, otherwise
-   *          false.</p>
-   *
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   *
-   *          <p>The ID of the fleet privisioning template version.</p>
-   *
-   */
-  versionId?: number;
-}
-
-export namespace ProvisioningTemplateVersionSummary {
-  export function isa(o: any): o is ProvisioningTemplateVersionSummary {
-    return _smithy.isa(o, "ProvisioningTemplateVersionSummary");
-  }
-}
-
-/**
- *
- *         <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
- *
- */
-export interface PublishFindingToSnsParams {
-  __type?: "PublishFindingToSnsParams";
-  /**
-   *
-   *         <p>The ARN of the topic to which you want to publish the findings.</p>
-   *
-   */
-  topicArn: string | undefined;
-}
-
-export namespace PublishFindingToSnsParams {
-  export function isa(o: any): o is PublishFindingToSnsParams {
-    return _smithy.isa(o, "PublishFindingToSnsParams");
-  }
-}
-
-/**
- *
- *          <p>An asset property value entry containing the following information.</p>
- *
- */
-export interface PutAssetPropertyValueEntry {
-  __type?: "PutAssetPropertyValueEntry";
-  /**
-   *
-   *          <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
-   *       or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution
-   *       templates.</p>
-   *
-   */
-  assetId?: string;
-
-  /**
-   *
-   *          <p>Optional. A unique identifier for this entry that you can define to better track which
-   *       message caused an error in case of failure. Accepts substitution templates. Defaults to a new
-   *       UUID.</p>
-   *
-   */
-  entryId?: string;
-
-  /**
-   *
-   *          <p>The name of the property alias associated with your asset property. You must specify
-   *       either a <code>propertyAlias</code> or both an <code>aliasId</code> and a
-   *         <code>propertyId</code>. Accepts substitution templates.</p>
-   *
-   */
-  propertyAlias?: string;
-
-  /**
-   *
-   *          <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or
-   *       both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution
-   *       templates.</p>
-   *
-   */
-  propertyId?: string;
-
-  /**
-   *
-   *          <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
-   *       information.</p>
-   *
-   */
-  propertyValues: Array<AssetPropertyValue> | undefined;
-}
-
-export namespace PutAssetPropertyValueEntry {
-  export function isa(o: any): o is PutAssetPropertyValueEntry {
-    return _smithy.isa(o, "PutAssetPropertyValueEntry");
-  }
-}
-
-/**
- *
- *          <p>The input for the DynamoActionVS action that specifies the DynamoDB table to which
- *          the message data will be written.</p>
- *
- */
-export interface PutItemInput {
-  __type?: "PutItemInput";
-  /**
-   *
-   *          <p>The table where the message data will be written.</p>
-   *
-   */
-  tableName: string | undefined;
-}
-
-export namespace PutItemInput {
-  export function isa(o: any): o is PutItemInput {
-    return _smithy.isa(o, "PutItemInput");
-  }
-}
-
-/**
- *
- *         <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
- *
- */
-export interface RateIncreaseCriteria {
-  __type?: "RateIncreaseCriteria";
-  /**
-   *
-   *         <p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>
-   *
-   */
-  numberOfNotifiedThings?: number;
-
-  /**
-   *
-   *         <p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>
-   *
-   */
-  numberOfSucceededThings?: number;
-}
-
-export namespace RateIncreaseCriteria {
-  export function isa(o: any): o is RateIncreaseCriteria {
-    return _smithy.isa(o, "RateIncreaseCriteria");
-  }
-}
-
-/**
- *
- *          <p>The input to the RegisterCACertificate operation.</p>
- *
- */
-export interface RegisterCACertificateRequest {
-  __type?: "RegisterCACertificateRequest";
-  /**
-   *
-   *          <p>Allows this CA certificate to be used for auto registration of device
-   *          certificates.</p>
-   *
-   */
-  allowAutoRegistration?: boolean;
-
-  /**
-   *
-   *          <p>The CA certificate.</p>
-   *
-   */
-  caCertificate: string | undefined;
-
-  /**
-   *
-   *          <p>Information about the registration configuration.</p>
-   *
-   */
-  registrationConfig?: RegistrationConfig;
-
-  /**
-   *
-   *          <p>A boolean value that specifies if the CA certificate is set to active.</p>
-   *
-   */
-  setAsActive?: boolean;
-
-  /**
-   *
-   *          <p>The private key verification certificate.</p>
-   *
-   */
-  verificationCertificate: string | undefined;
-}
-
-export namespace RegisterCACertificateRequest {
-  export function isa(o: any): o is RegisterCACertificateRequest {
-    return _smithy.isa(o, "RegisterCACertificateRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the RegisterCACertificateResponse operation.</p>
- *
- */
-export interface RegisterCACertificateResponse extends $MetadataBearer {
-  __type?: "RegisterCACertificateResponse";
-  /**
-   *
-   *          <p>The CA certificate ARN.</p>
-   *
-   */
-  certificateArn?: string;
-
-  /**
-   *
-   *          <p>The CA certificate identifier.</p>
-   *
-   */
-  certificateId?: string;
-}
-
-export namespace RegisterCACertificateResponse {
-  export function isa(o: any): o is RegisterCACertificateResponse {
-    return _smithy.isa(o, "RegisterCACertificateResponse");
-  }
-}
-
-/**
- *
- *          <p>The input to the RegisterCertificate operation.</p>
- *
- */
-export interface RegisterCertificateRequest {
-  __type?: "RegisterCertificateRequest";
-  /**
-   *
-   *          <p>The CA certificate used to sign the device certificate being registered.</p>
-   *
-   */
-  caCertificatePem?: string;
-
-  /**
-   *
-   *          <p>The certificate data, in PEM format.</p>
-   *
-   */
-  certificatePem: string | undefined;
-
-  /**
-   *
-   *          <p>A boolean value that specifies if the certificate is set to active.</p>
-   *
-   */
-  setAsActive?: boolean;
-
-  /**
-   *
-   *          <p>The status of the register certificate request.</p>
-   *
-   */
-  status?: CertificateStatus | string;
-}
-
-export namespace RegisterCertificateRequest {
-  export function isa(o: any): o is RegisterCertificateRequest {
-    return _smithy.isa(o, "RegisterCertificateRequest");
-  }
-}
-
-/**
- *
- *          <p>The output from the RegisterCertificate operation.</p>
- *
- */
-export interface RegisterCertificateResponse extends $MetadataBearer {
-  __type?: "RegisterCertificateResponse";
-  /**
-   *
-   *          <p>The certificate ARN.</p>
-   *
-   */
-  certificateArn?: string;
-
-  /**
-   *
-   *          <p>The certificate identifier.</p>
-   *
-   */
-  certificateId?: string;
-}
-
-export namespace RegisterCertificateResponse {
-  export function isa(o: any): o is RegisterCertificateResponse {
-    return _smithy.isa(o, "RegisterCertificateResponse");
-  }
-}
-
-export interface RegisterThingRequest {
-  __type?: "RegisterThingRequest";
-  /**
-   *
-   *          <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
-   *             Provisioning</a> for more information.</p>
-   *
-   */
-  parameters?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
-   *             Provisioning</a> for more information.</p>
-   *
-   */
-  templateBody: string | undefined;
-}
-
-export namespace RegisterThingRequest {
-  export function isa(o: any): o is RegisterThingRequest {
-    return _smithy.isa(o, "RegisterThingRequest");
-  }
-}
-
-export interface RegisterThingResponse extends $MetadataBearer {
-  __type?: "RegisterThingResponse";
-  /**
-   *
-   *          <p>.</p>
-   *
-   */
-  certificatePem?: string;
-
-  /**
-   *
-   *          <p>ARNs for the generated resources.</p>
-   *
-   */
-  resourceArns?: { [key: string]: string };
-}
-
-export namespace RegisterThingResponse {
-  export function isa(o: any): o is RegisterThingResponse {
-    return _smithy.isa(o, "RegisterThingResponse");
-  }
-}
-
-/**
- *
- *          <p>The registration code is invalid.</p>
- *
- */
-export interface RegistrationCodeValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "RegistrationCodeValidationException";
-  name: "RegistrationCodeValidationException";
-  $fault: "client";
-  /**
-   *
-   *          <p>Additional information about the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace RegistrationCodeValidationException {
-  export function isa(o: any): o is RegistrationCodeValidationException {
-    return _smithy.isa(o, "RegistrationCodeValidationException");
-  }
-}
-
-/**
- *
- *          <p>The registration configuration.</p>
- *
- */
-export interface RegistrationConfig {
-  __type?: "RegistrationConfig";
-  /**
-   *
-   *          <p>The ARN of the role.</p>
-   *
-   */
-  roleArn?: string;
-
-  /**
-   *
-   *          <p>The template body.</p>
-   *
-   */
-  templateBody?: string;
-}
-
-export namespace RegistrationConfig {
-  export function isa(o: any): o is RegistrationConfig {
-    return _smithy.isa(o, "RegistrationConfig");
-  }
-}
-
-/**
- *
- *          <p>The input for the RejectCertificateTransfer operation.</p>
- *
- */
-export interface RejectCertificateTransferRequest {
-  __type?: "RejectCertificateTransferRequest";
-  /**
-   *
-   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   *
-   */
-  certificateId: string | undefined;
-
-  /**
-   *
-   *          <p>The reason the certificate transfer was rejected.</p>
-   *
-   */
-  rejectReason?: string;
-}
-
-export namespace RejectCertificateTransferRequest {
-  export function isa(o: any): o is RejectCertificateTransferRequest {
-    return _smithy.isa(o, "RejectCertificateTransferRequest");
-  }
-}
-
-/**
- *
- *          <p>Information about a related resource.</p>
- *
- */
-export interface RelatedResource {
-  __type?: "RelatedResource";
-  /**
-   *
-   *          <p>Other information about the resource.</p>
-   *
-   */
-  additionalInfo?: { [key: string]: string };
-
-  /**
-   *
-   *         <p>Information that identifies the resource.</p>
-   *
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   *
-   *         <p>The type of resource.</p>
-   *
-   */
-  resourceType?: ResourceType | string;
-}
-
-export namespace RelatedResource {
-  export function isa(o: any): o is RelatedResource {
-    return _smithy.isa(o, "RelatedResource");
-  }
-}
-
 export interface RemoveThingFromBillingGroupRequest {
   __type?: "RemoveThingFromBillingGroupRequest";
   /**
@@ -13855,1151 +13364,6 @@ export namespace RemoveThingFromThingGroupResponse {
   }
 }
 
-/**
- *
- *         <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
- *
- */
-export interface ReplaceDefaultPolicyVersionParams {
-  __type?: "ReplaceDefaultPolicyVersionParams";
-  /**
-   *
-   *         <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
-   *
-   */
-  templateName: PolicyTemplateName | string | undefined;
-}
-
-export namespace ReplaceDefaultPolicyVersionParams {
-  export function isa(o: any): o is ReplaceDefaultPolicyVersionParams {
-    return _smithy.isa(o, "ReplaceDefaultPolicyVersionParams");
-  }
-}
-
-/**
- *
- *          <p>The input for the ReplaceTopicRule operation.</p>
- *
- */
-export interface ReplaceTopicRuleRequest {
-  __type?: "ReplaceTopicRuleRequest";
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName: string | undefined;
-
-  /**
-   *
-   *          <p>The rule payload.</p>
-   *
-   */
-  topicRulePayload: TopicRulePayload | undefined;
-}
-
-export namespace ReplaceTopicRuleRequest {
-  export function isa(o: any): o is ReplaceTopicRuleRequest {
-    return _smithy.isa(o, "ReplaceTopicRuleRequest");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to republish to another topic.</p>
- *
- */
-export interface RepublishAction {
-  __type?: "RepublishAction";
-  /**
-   *
-   *          <p>The Quality of Service (QoS) level to use when republishing messages. The default value
-   *          is 0.</p>
-   *
-   */
-  qos?: number;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the MQTT topic.</p>
-   *
-   */
-  topic: string | undefined;
-}
-
-export namespace RepublishAction {
-  export function isa(o: any): o is RepublishAction {
-    return _smithy.isa(o, "RepublishAction");
-  }
-}
-
-/**
- *
- *          <p>The resource already exists.</p>
- *
- */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceAlreadyExistsException";
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-
-  /**
-   *
-   *          <p>The ARN of the resource that caused the exception.</p>
-   *
-   */
-  resourceArn?: string;
-
-  /**
-   *
-   *          <p>The ID of the resource that caused the exception.</p>
-   *
-   */
-  resourceId?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
-  }
-}
-
-/**
- *
- *          <p>Information that identifies the noncompliant resource.</p>
- *
- */
-export interface ResourceIdentifier {
-  __type?: "ResourceIdentifier";
-  /**
-   *
-   *         <p>The account with which the resource is associated.</p>
-   *
-   */
-  account?: string;
-
-  /**
-   *
-   *          <p>The ID of the CA certificate used to authorize the certificate.</p>
-   *
-   */
-  caCertificateId?: string;
-
-  /**
-   *
-   *         <p>The client ID.</p>
-   *
-   */
-  clientId?: string;
-
-  /**
-   *
-   *         <p>The ID of the Amazon Cognito identity pool.</p>
-   *
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   *
-   *          <p>The ID of the certificate attached to the resource.</p>
-   *
-   */
-  deviceCertificateId?: string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that has overly permissive actions.</p>
-   *
-   */
-  iamRoleArn?: string;
-
-  /**
-   *
-   *          <p>The version of the policy associated with the resource.</p>
-   *
-   */
-  policyVersionIdentifier?: PolicyVersionIdentifier;
-
-  /**
-   *
-   *          <p>The ARN of the role alias that has overly permissive actions.</p>
-   *
-   */
-  roleAliasArn?: string;
-}
-
-export namespace ResourceIdentifier {
-  export function isa(o: any): o is ResourceIdentifier {
-    return _smithy.isa(o, "ResourceIdentifier");
-  }
-}
-
-/**
- *
- *          <p>The specified resource does not exist.</p>
- *
- */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceNotFoundException";
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
-  }
-}
-
-/**
- *
- *          <p>The resource registration failed.</p>
- *
- */
-export interface ResourceRegistrationFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ResourceRegistrationFailureException";
-  name: "ResourceRegistrationFailureException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ResourceRegistrationFailureException {
-  export function isa(o: any): o is ResourceRegistrationFailureException {
-    return _smithy.isa(o, "ResourceRegistrationFailureException");
-  }
-}
-
-/**
- *
- *          <p>Role alias description.</p>
- *
- */
-export interface RoleAliasDescription {
-  __type?: "RoleAliasDescription";
-  /**
-   *
-   *          <p>The UNIX timestamp of when the role alias was created.</p>
-   *
-   */
-  creationDate?: Date;
-
-  /**
-   *
-   *          <p>The number of seconds for which the credential is valid.</p>
-   *
-   */
-  credentialDurationSeconds?: number;
-
-  /**
-   *
-   *          <p>The UNIX timestamp of when the role alias was last modified.</p>
-   *
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   *
-   *          <p>The role alias owner.</p>
-   *
-   */
-  owner?: string;
-
-  /**
-   *
-   *          <p>The role alias.</p>
-   *
-   */
-  roleAlias?: string;
-
-  /**
-   *
-   *          <p>The ARN of the role alias.</p>
-   *
-   */
-  roleAliasArn?: string;
-
-  /**
-   *
-   *          <p>The role ARN.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace RoleAliasDescription {
-  export function isa(o: any): o is RoleAliasDescription {
-    return _smithy.isa(o, "RoleAliasDescription");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to write data to an Amazon S3 bucket.</p>
- *
- */
-export interface S3Action {
-  __type?: "S3Action";
-  /**
-   *
-   *          <p>The Amazon S3 bucket.</p>
-   *
-   */
-  bucketName: string | undefined;
-
-  /**
-   *
-   *          <p>The Amazon S3 canned ACL that controls access to the object identified by the object
-   *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
-   *
-   */
-  cannedAcl?: CannedAccessControlList | string;
-
-  /**
-   *
-   *          <p>The object key.</p>
-   *
-   */
-  key: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn: string | undefined;
-}
-
-export namespace S3Action {
-  export function isa(o: any): o is S3Action {
-    return _smithy.isa(o, "S3Action");
-  }
-}
-
-/**
- *
- * 		       <p>Describes the location of updated firmware in S3.</p>
- *
- */
-export interface S3Destination {
-  __type?: "S3Destination";
-  /**
-   *
-   * 		       <p>The S3 bucket that contains the updated firmware.</p>
-   *
-   */
-  bucket?: string;
-
-  /**
-   *
-   * 		       <p>The S3 prefix.</p>
-   *
-   */
-  prefix?: string;
-}
-
-export namespace S3Destination {
-  export function isa(o: any): o is S3Destination {
-    return _smithy.isa(o, "S3Destination");
-  }
-}
-
-/**
- *
- * 		       <p>The S3 location.</p>
- *
- */
-export interface S3Location {
-  __type?: "S3Location";
-  /**
-   *
-   * 		       <p>The S3 bucket.</p>
-   *
-   */
-  bucket?: string;
-
-  /**
-   *
-   * 		       <p>The S3 key.</p>
-   *
-   */
-  key?: string;
-
-  /**
-   *
-   * 		       <p>The S3 bucket version.</p>
-   *
-   */
-  version?: string;
-}
-
-export namespace S3Location {
-  export function isa(o: any): o is S3Location {
-    return _smithy.isa(o, "S3Location");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to write a message to a Salesforce IoT Cloud Input
- *          Stream.</p>
- *
- */
-export interface SalesforceAction {
-  __type?: "SalesforceAction";
-  /**
-   *
-   *          <p>The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The
-   *          token is available from the Salesforce IoT Cloud platform after creation of the Input
-   *          Stream.</p>
-   *
-   */
-  token: string | undefined;
-
-  /**
-   *
-   *          <p>The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from
-   *          the Salesforce IoT Cloud platform after creation of the Input Stream.</p>
-   *
-   */
-  url: string | undefined;
-}
-
-export namespace SalesforceAction {
-  export function isa(o: any): o is SalesforceAction {
-    return _smithy.isa(o, "SalesforceAction");
-  }
-}
-
-/**
- *
- *          <p>Information about the scheduled audit.</p>
- *
- */
-export interface ScheduledAuditMetadata {
-  __type?: "ScheduledAuditMetadata";
-  /**
-   *
-   *          <p>The day of the month on which the scheduled audit is run (if the
-   *           <code>frequency</code> is "MONTHLY").
-   *         If days 29-31 are specified, and the month does not have that many
-   *         days, the audit takes place on the "LAST" day of the month.</p>
-   *
-   */
-  dayOfMonth?: string;
-
-  /**
-   *
-   *          <p>The day of the week on which the scheduled audit is run (if the
-   *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
-   *
-   */
-  dayOfWeek?: DayOfWeek | string;
-
-  /**
-   *
-   *          <p>How often the scheduled audit occurs.</p>
-   *
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
-   *
-   *          <p>The ARN of the scheduled audit.</p>
-   *
-   */
-  scheduledAuditArn?: string;
-
-  /**
-   *
-   *          <p>The name of the scheduled audit.</p>
-   *
-   */
-  scheduledAuditName?: string;
-}
-
-export namespace ScheduledAuditMetadata {
-  export function isa(o: any): o is ScheduledAuditMetadata {
-    return _smithy.isa(o, "ScheduledAuditMetadata");
-  }
-}
-
-export interface SearchIndexRequest {
-  __type?: "SearchIndexRequest";
-  /**
-   *
-   *          <p>The search index name.</p>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   *          <p>The maximum number of results to return at one time.</p>
-   *
-   */
-  maxResults?: number;
-
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The search query string.</p>
-   *
-   */
-  queryString: string | undefined;
-
-  /**
-   *
-   *          <p>The query version.</p>
-   *
-   */
-  queryVersion?: string;
-}
-
-export namespace SearchIndexRequest {
-  export function isa(o: any): o is SearchIndexRequest {
-    return _smithy.isa(o, "SearchIndexRequest");
-  }
-}
-
-export interface SearchIndexResponse extends $MetadataBearer {
-  __type?: "SearchIndexResponse";
-  /**
-   *
-   *          <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   *
-   */
-  nextToken?: string;
-
-  /**
-   *
-   *          <p>The thing groups that match the search query.</p>
-   *
-   */
-  thingGroups?: Array<ThingGroupDocument>;
-
-  /**
-   *
-   *          <p>The things that match the search query.</p>
-   *
-   */
-  things?: Array<ThingDocument>;
-}
-
-export namespace SearchIndexResponse {
-  export function isa(o: any): o is SearchIndexResponse {
-    return _smithy.isa(o, "SearchIndexResponse");
-  }
-}
-
-/**
- *
- *          <p>Identifying information for a Device Defender security profile.</p>
- *
- */
-export interface SecurityProfileIdentifier {
-  __type?: "SecurityProfileIdentifier";
-  /**
-   *
-   *          <p>The ARN of the security profile.</p>
-   *
-   */
-  arn: string | undefined;
-
-  /**
-   *
-   *          <p>The name you have given to the security profile.</p>
-   *
-   */
-  name: string | undefined;
-}
-
-export namespace SecurityProfileIdentifier {
-  export function isa(o: any): o is SecurityProfileIdentifier {
-    return _smithy.isa(o, "SecurityProfileIdentifier");
-  }
-}
-
-/**
- *
- *          <p>A target to which an alert is sent when a security profile behavior is
- *           violated.</p>
- *
- */
-export interface SecurityProfileTarget {
-  __type?: "SecurityProfileTarget";
-  /**
-   *
-   *          <p>The ARN of the security profile.</p>
-   *
-   */
-  arn: string | undefined;
-}
-
-export namespace SecurityProfileTarget {
-  export function isa(o: any): o is SecurityProfileTarget {
-    return _smithy.isa(o, "SecurityProfileTarget");
-  }
-}
-
-/**
- *
- *          <p>Information about a security profile and the target associated with it.</p>
- *
- */
-export interface SecurityProfileTargetMapping {
-  __type?: "SecurityProfileTargetMapping";
-  /**
-   *
-   *          <p>Information that identifies the security profile.</p>
-   *
-   */
-  securityProfileIdentifier?: SecurityProfileIdentifier;
-
-  /**
-   *
-   *          <p>Information about the target (thing group) associated with the security profile.</p>
-   *
-   */
-  target?: SecurityProfileTarget;
-}
-
-export namespace SecurityProfileTargetMapping {
-  export function isa(o: any): o is SecurityProfileTargetMapping {
-    return _smithy.isa(o, "SecurityProfileTargetMapping");
-  }
-}
-
-/**
- *
- *          <p>An object that contains information about a server certificate.</p>
- *
- */
-export interface ServerCertificateSummary {
-  __type?: "ServerCertificateSummary";
-  /**
-   *
-   *          <p>The ARN of the server certificate.</p>
-   *
-   */
-  serverCertificateArn?: string;
-
-  /**
-   *
-   *          <p>The status of the server certificate.</p>
-   *
-   */
-  serverCertificateStatus?: ServerCertificateStatus | string;
-
-  /**
-   *
-   *          <p>Details that explain the status of the server certificate.</p>
-   *
-   */
-  serverCertificateStatusDetail?: string;
-}
-
-export namespace ServerCertificateSummary {
-  export function isa(o: any): o is ServerCertificateSummary {
-    return _smithy.isa(o, "ServerCertificateSummary");
-  }
-}
-
-/**
- *
- *          <p>The service is temporarily unavailable.</p>
- *
- */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ServiceUnavailableException";
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
-  }
-}
-
-export interface SetDefaultAuthorizerRequest {
-  __type?: "SetDefaultAuthorizerRequest";
-  /**
-   *
-   *          <p>The authorizer name.</p>
-   *
-   */
-  authorizerName: string | undefined;
-}
-
-export namespace SetDefaultAuthorizerRequest {
-  export function isa(o: any): o is SetDefaultAuthorizerRequest {
-    return _smithy.isa(o, "SetDefaultAuthorizerRequest");
-  }
-}
-
-export interface SetDefaultAuthorizerResponse extends $MetadataBearer {
-  __type?: "SetDefaultAuthorizerResponse";
-  /**
-   *
-   *          <p>The authorizer ARN.</p>
-   *
-   */
-  authorizerArn?: string;
-
-  /**
-   *
-   *          <p>The authorizer name.</p>
-   *
-   */
-  authorizerName?: string;
-}
-
-export namespace SetDefaultAuthorizerResponse {
-  export function isa(o: any): o is SetDefaultAuthorizerResponse {
-    return _smithy.isa(o, "SetDefaultAuthorizerResponse");
-  }
-}
-
-/**
- *
- *          <p>The input for the SetDefaultPolicyVersion operation.</p>
- *
- */
-export interface SetDefaultPolicyVersionRequest {
-  __type?: "SetDefaultPolicyVersionRequest";
-  /**
-   *
-   *          <p>The policy name.</p>
-   *
-   */
-  policyName: string | undefined;
-
-  /**
-   *
-   *          <p>The policy version ID.</p>
-   *
-   */
-  policyVersionId: string | undefined;
-}
-
-export namespace SetDefaultPolicyVersionRequest {
-  export function isa(o: any): o is SetDefaultPolicyVersionRequest {
-    return _smithy.isa(o, "SetDefaultPolicyVersionRequest");
-  }
-}
-
-/**
- *
- *          <p>The input for the SetLoggingOptions operation.</p>
- *
- */
-export interface SetLoggingOptionsRequest {
-  __type?: "SetLoggingOptionsRequest";
-  /**
-   *
-   *          <p>The logging options payload.</p>
-   *
-   */
-  loggingOptionsPayload: LoggingOptionsPayload | undefined;
-}
-
-export namespace SetLoggingOptionsRequest {
-  export function isa(o: any): o is SetLoggingOptionsRequest {
-    return _smithy.isa(o, "SetLoggingOptionsRequest");
-  }
-}
-
-export interface SetV2LoggingLevelRequest {
-  __type?: "SetV2LoggingLevelRequest";
-  /**
-   *
-   *          <p>The log level.</p>
-   *
-   */
-  logLevel: LogLevel | string | undefined;
-
-  /**
-   *
-   *          <p>The log target.</p>
-   *
-   */
-  logTarget: LogTarget | undefined;
-}
-
-export namespace SetV2LoggingLevelRequest {
-  export function isa(o: any): o is SetV2LoggingLevelRequest {
-    return _smithy.isa(o, "SetV2LoggingLevelRequest");
-  }
-}
-
-export interface SetV2LoggingOptionsRequest {
-  __type?: "SetV2LoggingOptionsRequest";
-  /**
-   *
-   *          <p>The default logging level.</p>
-   *
-   */
-  defaultLogLevel?: LogLevel | string;
-
-  /**
-   *
-   *          <p>If true all logs are disabled. The default is false.</p>
-   *
-   */
-  disableAllLogs?: boolean;
-
-  /**
-   *
-   *          <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace SetV2LoggingOptionsRequest {
-  export function isa(o: any): o is SetV2LoggingOptionsRequest {
-    return _smithy.isa(o, "SetV2LoggingOptionsRequest");
-  }
-}
-
-/**
- *
- *          <p>Use Sig V4 authorization.</p>
- *
- */
-export interface SigV4Authorization {
-  __type?: "SigV4Authorization";
-  /**
-   *
-   *          <p>The ARN of the signing role.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The service name to use while signing with Sig V4.</p>
-   *
-   */
-  serviceName: string | undefined;
-
-  /**
-   *
-   *          <p>The signing region.</p>
-   *
-   */
-  signingRegion: string | undefined;
-}
-
-export namespace SigV4Authorization {
-  export function isa(o: any): o is SigV4Authorization {
-    return _smithy.isa(o, "SigV4Authorization");
-  }
-}
-
-/**
- *
- * 		       <p>Describes the code-signing profile.</p>
- *
- */
-export interface SigningProfileParameter {
-  __type?: "SigningProfileParameter";
-  /**
-   *
-   * 		       <p>Certificate ARN.</p>
-   *
-   */
-  certificateArn?: string;
-
-  /**
-   *
-   * 		       <p>The location of the code-signing certificate on your device.</p>
-   *
-   */
-  certificatePathOnDevice?: string;
-
-  /**
-   *
-   * 		       <p>The hardware platform of your device.</p>
-   *
-   */
-  platform?: string;
-}
-
-export namespace SigningProfileParameter {
-  export function isa(o: any): o is SigningProfileParameter {
-    return _smithy.isa(o, "SigningProfileParameter");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to publish to an Amazon SNS topic.</p>
- *
- */
-export interface SnsAction {
-  __type?: "SnsAction";
-  /**
-   *
-   *          <p>(Optional) The message format of the message to publish. Accepted values are "JSON"
-   *          and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine
-   *          if the payload should be parsed and relevant platform-specific bits of the payload should
-   *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
-   *
-   */
-  messageFormat?: MessageFormat | string;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the SNS topic.</p>
-   *
-   */
-  targetArn: string | undefined;
-}
-
-export namespace SnsAction {
-  export function isa(o: any): o is SnsAction {
-    return _smithy.isa(o, "SnsAction");
-  }
-}
-
-/**
- *
- *          <p>The Rule-SQL expression can't be parsed correctly.</p>
- *
- */
-export interface SqlParseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "SqlParseException";
-  name: "SqlParseException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace SqlParseException {
-  export function isa(o: any): o is SqlParseException {
-    return _smithy.isa(o, "SqlParseException");
-  }
-}
-
-/**
- *
- *          <p>Describes an action to publish data to an Amazon SQS queue.</p>
- *
- */
-export interface SqsAction {
-  __type?: "SqsAction";
-  /**
-   *
-   *          <p>The URL of the Amazon SQS queue.</p>
-   *
-   */
-  queueUrl: string | undefined;
-
-  /**
-   *
-   *          <p>The ARN of the IAM role that grants access.</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies whether to use Base64 encoding.</p>
-   *
-   */
-  useBase64?: boolean;
-}
-
-export namespace SqsAction {
-  export function isa(o: any): o is SqsAction {
-    return _smithy.isa(o, "SqsAction");
-  }
-}
-
-export interface StartAuditMitigationActionsTaskRequest {
-  __type?: "StartAuditMitigationActionsTaskRequest";
-  /**
-   *
-   *          <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>
-   *
-   */
-  auditCheckToActionsMapping: { [key: string]: Array<string> } | undefined;
-
-  /**
-   *
-   *          <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
-   *
-   */
-  clientRequestToken: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
-   *
-   */
-  target: AuditMitigationActionsTaskTarget | undefined;
-
-  /**
-   *
-   *          <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
-   *
-   */
-  taskId: string | undefined;
-}
-
-export namespace StartAuditMitigationActionsTaskRequest {
-  export function isa(o: any): o is StartAuditMitigationActionsTaskRequest {
-    return _smithy.isa(o, "StartAuditMitigationActionsTaskRequest");
-  }
-}
-
-export interface StartAuditMitigationActionsTaskResponse
-  extends $MetadataBearer {
-  __type?: "StartAuditMitigationActionsTaskResponse";
-  /**
-   *
-   *          <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
-   *
-   */
-  taskId?: string;
-}
-
-export namespace StartAuditMitigationActionsTaskResponse {
-  export function isa(o: any): o is StartAuditMitigationActionsTaskResponse {
-    return _smithy.isa(o, "StartAuditMitigationActionsTaskResponse");
-  }
-}
-
-export interface StartOnDemandAuditTaskRequest {
-  __type?: "StartOnDemandAuditTaskRequest";
-  /**
-   *
-   *           <p>Which checks are performed during the audit. The checks you specify must be enabled
-   *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
-   *             to see the list of all checks, including those that are enabled or
-   *             <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
-   *
-   */
-  targetCheckNames: Array<string> | undefined;
-}
-
-export namespace StartOnDemandAuditTaskRequest {
-  export function isa(o: any): o is StartOnDemandAuditTaskRequest {
-    return _smithy.isa(o, "StartOnDemandAuditTaskRequest");
-  }
-}
-
-export interface StartOnDemandAuditTaskResponse extends $MetadataBearer {
-  __type?: "StartOnDemandAuditTaskResponse";
-  /**
-   *
-   *           <p>The ID of the on-demand audit you started.</p>
-   *
-   */
-  taskId?: string;
-}
-
-export namespace StartOnDemandAuditTaskResponse {
-  export function isa(o: any): o is StartOnDemandAuditTaskResponse {
-    return _smithy.isa(o, "StartOnDemandAuditTaskResponse");
-  }
-}
-
-/**
- *
- * 		       <p>Information required to start a signing job.</p>
- *
- */
-export interface StartSigningJobParameter {
-  __type?: "StartSigningJobParameter";
-  /**
-   *
-   * 		       <p>The location to write the code-signed file.</p>
-   *
-   */
-  destination?: Destination;
-
-  /**
-   *
-   * 		       <p>The code-signing profile name.</p>
-   *
-   */
-  signingProfileName?: string;
-
-  /**
-   *
-   * 		       <p>Describes the code-signing profile.</p>
-   *
-   */
-  signingProfileParameter?: SigningProfileParameter;
-}
-
-export namespace StartSigningJobParameter {
-  export function isa(o: any): o is StartSigningJobParameter {
-    return _smithy.isa(o, "StartSigningJobParameter");
-  }
-}
-
 export interface StartThingRegistrationTaskRequest {
   __type?: "StartThingRegistrationTaskRequest";
   /**
@@ -15055,143 +13419,6 @@ export namespace StartThingRegistrationTaskResponse {
   }
 }
 
-/**
- *
- *          <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
- *           is determined to be in compliance or in violation of the behavior.</p>
- *
- */
-export interface StatisticalThreshold {
-  __type?: "StatisticalThreshold";
-  /**
-   *
-   *          <p>The percentile which resolves to a threshold value by which compliance with a behavior is
-   *           determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from
-   *           all reporting devices in your account and statistical ranks are calculated. Then, the measurements
-   *           from a device are collected over the same period. If the accumulated measurements from the device
-   *           fall above or below (<code>comparisonOperator</code>) the value associated with the percentile
-   *           specified, then the device is considered to be in compliance with the behavior, otherwise a
-   *           violation occurs.</p>
-   *
-   */
-  statistic?: string;
-}
-
-export namespace StatisticalThreshold {
-  export function isa(o: any): o is StatisticalThreshold {
-    return _smithy.isa(o, "StatisticalThreshold");
-  }
-}
-
-/**
- *
- *          <p>A map of key-value pairs for all supported statistics. Currently, only count is
- *       supported.</p>
- *
- */
-export interface Statistics {
-  __type?: "Statistics";
-  /**
-   *
-   *          <p>The average of the aggregated field values.</p>
-   *
-   */
-  average?: number;
-
-  /**
-   *
-   *          <p>The count of things that match the query.</p>
-   *
-   */
-  count?: number;
-
-  /**
-   *
-   *          <p>The maximum aggregated field value.</p>
-   *
-   */
-  maximum?: number;
-
-  /**
-   *
-   *          <p>The minimum aggregated field value.</p>
-   *
-   */
-  minimum?: number;
-
-  /**
-   *
-   *          <p>The standard deviation of the aggregated field values.</p>
-   *
-   */
-  stdDeviation?: number;
-
-  /**
-   *
-   *          <p>The sum of the aggregated field values.</p>
-   *
-   */
-  sum?: number;
-
-  /**
-   *
-   *          <p>The sum of the squares of the aggregated field values.</p>
-   *
-   */
-  sumOfSquares?: number;
-
-  /**
-   *
-   *          <p>The variance of the aggregated field values.</p>
-   *
-   */
-  variance?: number;
-}
-
-export namespace Statistics {
-  export function isa(o: any): o is Statistics {
-    return _smithy.isa(o, "Statistics");
-  }
-}
-
-/**
- *
- *          <p>Starts execution of a Step Functions state machine.</p>
- *
- */
-export interface StepFunctionsAction {
-  __type?: "StepFunctionsAction";
-  /**
-   *
-   *          <p>(Optional) A name will be given to the state machine execution consisting of this
-   *       prefix followed by a UUID. Step Functions automatically creates a unique name for each state
-   *       machine execution if one is not provided.</p>
-   *
-   */
-  executionNamePrefix?: string;
-
-  /**
-   *
-   *          <p>The ARN of the role that grants IoT permission to start execution of a state machine
-   *       ("Action":"states:StartExecution").</p>
-   *
-   */
-  roleArn: string | undefined;
-
-  /**
-   *
-   *          <p>The name of the Step Functions state machine whose execution will be started.</p>
-   *
-   */
-  stateMachineName: string | undefined;
-}
-
-export namespace StepFunctionsAction {
-  export function isa(o: any): o is StepFunctionsAction {
-    return _smithy.isa(o, "StepFunctionsAction");
-  }
-}
-
 export interface StopThingRegistrationTaskRequest {
   __type?: "StopThingRegistrationTaskRequest";
   /**
@@ -15215,202 +13442,6 @@ export interface StopThingRegistrationTaskResponse extends $MetadataBearer {
 export namespace StopThingRegistrationTaskResponse {
   export function isa(o: any): o is StopThingRegistrationTaskResponse {
     return _smithy.isa(o, "StopThingRegistrationTaskResponse");
-  }
-}
-
-/**
- *
- * 		       <p>Describes a group of files that can be streamed.</p>
- *
- */
-export interface _Stream {
-  __type?: "Stream";
-  /**
-   *
-   * 		       <p>The ID of a file associated with a stream.</p>
-   *
-   */
-  fileId?: number;
-
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId?: string;
-}
-
-export namespace _Stream {
-  export function isa(o: any): o is _Stream {
-    return _smithy.isa(o, "Stream");
-  }
-}
-
-/**
- *
- * 		       <p>Represents a file to stream.</p>
- *
- */
-export interface StreamFile {
-  __type?: "StreamFile";
-  /**
-   *
-   * 		       <p>The file ID.</p>
-   *
-   */
-  fileId?: number;
-
-  /**
-   *
-   * 		       <p>The location of the file in S3.</p>
-   *
-   */
-  s3Location?: S3Location;
-}
-
-export namespace StreamFile {
-  export function isa(o: any): o is StreamFile {
-    return _smithy.isa(o, "StreamFile");
-  }
-}
-
-/**
- *
- * 		       <p>Information about a stream.</p>
- *
- */
-export interface StreamInfo {
-  __type?: "StreamInfo";
-  /**
-   *
-   * 		       <p>The date when the stream was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   * 		       <p>The description of the stream.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>The files to stream.</p>
-   *
-   */
-  files?: Array<StreamFile>;
-
-  /**
-   *
-   * 		       <p>The date when the stream was last updated.</p>
-   *
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   *
-   * 		       <p>An IAM role AWS IoT assumes to access your S3 files.</p>
-   *
-   */
-  roleArn?: string;
-
-  /**
-   *
-   * 		       <p>The stream ARN.</p>
-   *
-   */
-  streamArn?: string;
-
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId?: string;
-
-  /**
-   *
-   * 		       <p>The stream version.</p>
-   *
-   */
-  streamVersion?: number;
-}
-
-export namespace StreamInfo {
-  export function isa(o: any): o is StreamInfo {
-    return _smithy.isa(o, "StreamInfo");
-  }
-}
-
-/**
- *
- * 		       <p>A summary of a stream.</p>
- *
- */
-export interface StreamSummary {
-  __type?: "StreamSummary";
-  /**
-   *
-   * 		       <p>A description of the stream.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   * 		       <p>The stream ARN.</p>
-   *
-   */
-  streamArn?: string;
-
-  /**
-   *
-   * 		       <p>The stream ID.</p>
-   *
-   */
-  streamId?: string;
-
-  /**
-   *
-   * 		       <p>The stream version.</p>
-   *
-   */
-  streamVersion?: number;
-}
-
-export namespace StreamSummary {
-  export function isa(o: any): o is StreamSummary {
-    return _smithy.isa(o, "StreamSummary");
-  }
-}
-
-/**
- *
- *          <p>A set of key/value pairs that are used to manage the resource.</p>
- *
- */
-export interface Tag {
-  __type?: "Tag";
-  /**
-   *
-   *          <p>The tag's key.</p>
-   *
-   */
-  Key?: string;
-
-  /**
-   *
-   *          <p>The tag's value.</p>
-   *
-   */
-  Value?: string;
-}
-
-export namespace Tag {
-  export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
   }
 }
 
@@ -15447,303 +13478,481 @@ export namespace TagResourceResponse {
   }
 }
 
-/**
- *
- *          <p>This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.</p>
- *
- */
-export interface TaskAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TaskAlreadyExistsException";
-  name: "TaskAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export interface UntagResourceRequest {
+  __type?: "UntagResourceRequest";
+  /**
+   *
+   * 		       <p>The ARN of the resource.</p>
+   *
+   */
+  resourceArn: string | undefined;
+
+  /**
+   *
+   * 		       <p>A list of the keys of the tags to be removed from the resource.</p>
+   *
+   */
+  tagKeys: Array<string> | undefined;
 }
 
-export namespace TaskAlreadyExistsException {
-  export function isa(o: any): o is TaskAlreadyExistsException {
-    return _smithy.isa(o, "TaskAlreadyExistsException");
+export namespace UntagResourceRequest {
+  export function isa(o: any): o is UntagResourceRequest {
+    return _smithy.isa(o, "UntagResourceRequest");
+  }
+}
+
+export interface UntagResourceResponse extends $MetadataBearer {
+  __type?: "UntagResourceResponse";
+}
+
+export namespace UntagResourceResponse {
+  export function isa(o: any): o is UntagResourceResponse {
+    return _smithy.isa(o, "UntagResourceResponse");
+  }
+}
+
+export interface UpdateBillingGroupRequest {
+  __type?: "UpdateBillingGroupRequest";
+  /**
+   *
+   * 		       <p>The name of the billing group.</p>
+   *
+   */
+  billingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The properties of the billing group.</p>
+   *
+   */
+  billingGroupProperties: BillingGroupProperties | undefined;
+
+  /**
+   *
+   * 		       <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>UpdateBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   *
+   */
+  expectedVersion?: number;
+}
+
+export namespace UpdateBillingGroupRequest {
+  export function isa(o: any): o is UpdateBillingGroupRequest {
+    return _smithy.isa(o, "UpdateBillingGroupRequest");
+  }
+}
+
+export interface UpdateBillingGroupResponse extends $MetadataBearer {
+  __type?: "UpdateBillingGroupResponse";
+  /**
+   *
+   * 		       <p>The latest version of the billing group.</p>
+   *
+   */
+  version?: number;
+}
+
+export namespace UpdateBillingGroupResponse {
+  export function isa(o: any): o is UpdateBillingGroupResponse {
+    return _smithy.isa(o, "UpdateBillingGroupResponse");
+  }
+}
+
+export interface UpdateDynamicThingGroupRequest {
+  __type?: "UpdateDynamicThingGroupRequest";
+  /**
+   *
+   * 		       <p>The expected version of the dynamic thing group to update.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group index to update.</p>
+   * 		       <note>
+   * 			         <p>Currently one index is supported: 'AWS_Things'.</p>
+   * 		       </note>
+   *
+   */
+  indexName?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group search query string to update.</p>
+   *
+   */
+  queryString?: string;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group query version to update.</p>
+   * 		       <note>
+   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   * 				query version defaults to this value.</p>
+   * 		       </note>
+   *
+   */
+  queryVersion?: string;
+
+  /**
+   *
+   * 		       <p>The name of the dynamic thing group to update.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The dynamic thing group properties to update.</p>
+   *
+   */
+  thingGroupProperties: ThingGroupProperties | undefined;
+}
+
+export namespace UpdateDynamicThingGroupRequest {
+  export function isa(o: any): o is UpdateDynamicThingGroupRequest {
+    return _smithy.isa(o, "UpdateDynamicThingGroupRequest");
+  }
+}
+
+export interface UpdateDynamicThingGroupResponse extends $MetadataBearer {
+  __type?: "UpdateDynamicThingGroupResponse";
+  /**
+   *
+   * 		       <p>The dynamic thing group version.</p>
+   *
+   */
+  version?: number;
+}
+
+export namespace UpdateDynamicThingGroupResponse {
+  export function isa(o: any): o is UpdateDynamicThingGroupResponse {
+    return _smithy.isa(o, "UpdateDynamicThingGroupResponse");
+  }
+}
+
+export interface UpdateEventConfigurationsRequest {
+  __type?: "UpdateEventConfigurationsRequest";
+  /**
+   *
+   * 		       <p>The new event configuration values.</p>
+   *
+   */
+  eventConfigurations?: { [key: string]: Configuration };
+}
+
+export namespace UpdateEventConfigurationsRequest {
+  export function isa(o: any): o is UpdateEventConfigurationsRequest {
+    return _smithy.isa(o, "UpdateEventConfigurationsRequest");
+  }
+}
+
+export interface UpdateEventConfigurationsResponse extends $MetadataBearer {
+  __type?: "UpdateEventConfigurationsResponse";
+}
+
+export namespace UpdateEventConfigurationsResponse {
+  export function isa(o: any): o is UpdateEventConfigurationsResponse {
+    return _smithy.isa(o, "UpdateEventConfigurationsResponse");
+  }
+}
+
+export interface UpdateThingGroupRequest {
+  __type?: "UpdateThingGroupRequest";
+  /**
+   *
+   * 		       <p>The expected version of the thing group. If this does not match the version of the
+   * 			thing group being updated, the update will fail.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   * 		       <p>The thing group to update.</p>
+   *
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   *
+   * 		       <p>The thing group properties.</p>
+   *
+   */
+  thingGroupProperties: ThingGroupProperties | undefined;
+}
+
+export namespace UpdateThingGroupRequest {
+  export function isa(o: any): o is UpdateThingGroupRequest {
+    return _smithy.isa(o, "UpdateThingGroupRequest");
+  }
+}
+
+export interface UpdateThingGroupResponse extends $MetadataBearer {
+  __type?: "UpdateThingGroupResponse";
+  /**
+   *
+   * 		       <p>The version of the updated thing group.</p>
+   *
+   */
+  version?: number;
+}
+
+export namespace UpdateThingGroupResponse {
+  export function isa(o: any): o is UpdateThingGroupResponse {
+    return _smithy.isa(o, "UpdateThingGroupResponse");
+  }
+}
+
+export interface UpdateThingGroupsForThingRequest {
+  __type?: "UpdateThingGroupsForThingRequest";
+  /**
+   *
+   * 		       <p>Override dynamic thing groups with static thing groups when 10-group limit is
+   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
+   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
+   * 			dynamic group.</p>
+   *
+   */
+  overrideDynamicGroups?: boolean;
+
+  /**
+   *
+   * 		       <p>The groups to which the thing will be added.</p>
+   *
+   */
+  thingGroupsToAdd?: Array<string>;
+
+  /**
+   *
+   * 		       <p>The groups from which the thing will be removed.</p>
+   *
+   */
+  thingGroupsToRemove?: Array<string>;
+
+  /**
+   *
+   * 		       <p>The thing whose group memberships will be updated.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace UpdateThingGroupsForThingRequest {
+  export function isa(o: any): o is UpdateThingGroupsForThingRequest {
+    return _smithy.isa(o, "UpdateThingGroupsForThingRequest");
+  }
+}
+
+export interface UpdateThingGroupsForThingResponse extends $MetadataBearer {
+  __type?: "UpdateThingGroupsForThingResponse";
+}
+
+export namespace UpdateThingGroupsForThingResponse {
+  export function isa(o: any): o is UpdateThingGroupsForThingResponse {
+    return _smithy.isa(o, "UpdateThingGroupsForThingResponse");
   }
 }
 
 /**
  *
- *          <p>Statistics for the checks performed during the audit.</p>
+ * 		       <p>The input for the UpdateThing operation.</p>
  *
  */
-export interface TaskStatistics {
-  __type?: "TaskStatistics";
+export interface UpdateThingRequest {
+  __type?: "UpdateThingRequest";
   /**
    *
-   *          <p>The number of checks that did not run because the audit was canceled.</p>
+   * 		       <p>A list of thing attributes, a JSON string containing name-value pairs. For
+   * 			example:</p>
+   * 		       <p>
+   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
+   * 		       </p>
+   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
    *
    */
-  canceledChecks?: number;
+  attributePayload?: AttributePayload;
 
   /**
    *
-   *          <p>The number of checks that found compliant resources.</p>
+   * 		       <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>UpdateThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
    *
    */
-  compliantChecks?: number;
+  expectedVersion?: number;
 
   /**
    *
-   *          <p>The number of checks.</p>
+   * 		       <p>Remove a thing type association. If <b>true</b>, the
+   * 			association is removed.</p>
    *
    */
-  failedChecks?: number;
+  removeThingType?: boolean;
 
   /**
    *
-   *          <p>The number of checks in progress.</p>
+   * 		       <p>The name of the thing to update.</p>
    *
    */
-  inProgressChecks?: number;
+  thingName: string | undefined;
 
   /**
    *
-   *          <p>The number of checks that found noncompliant resources.</p>
+   * 		       <p>The name of the thing type.</p>
    *
    */
-  nonCompliantChecks?: number;
-
-  /**
-   *
-   *          <p>The number of checks in this audit.</p>
-   *
-   */
-  totalChecks?: number;
-
-  /**
-   *
-   *          <p>The number of checks waiting for data collection.</p>
-   *
-   */
-  waitingForDataCollectionChecks?: number;
+  thingTypeName?: string;
 }
 
-export namespace TaskStatistics {
-  export function isa(o: any): o is TaskStatistics {
-    return _smithy.isa(o, "TaskStatistics");
+export namespace UpdateThingRequest {
+  export function isa(o: any): o is UpdateThingRequest {
+    return _smithy.isa(o, "UpdateThingRequest");
   }
 }
 
 /**
  *
- *          <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
+ * 		       <p>The output from the UpdateThing operation.</p>
  *
  */
-export interface TaskStatisticsForAuditCheck {
-  __type?: "TaskStatisticsForAuditCheck";
-  /**
-   *
-   *          <p>The number of findings to which the mitigation action task was canceled when applied.</p>
-   *
-   */
-  canceledFindingsCount?: number;
-
-  /**
-   *
-   *          <p>The number of findings for which at least one of the actions failed when applied.</p>
-   *
-   */
-  failedFindingsCount?: number;
-
-  /**
-   *
-   *          <p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>
-   *
-   */
-  skippedFindingsCount?: number;
-
-  /**
-   *
-   *          <p>The number of findings for which all mitigation actions succeeded when applied.</p>
-   *
-   */
-  succeededFindingsCount?: number;
-
-  /**
-   *
-   *          <p>The total number of findings to which a task is being applied.</p>
-   *
-   */
-  totalFindingsCount?: number;
+export interface UpdateThingResponse extends $MetadataBearer {
+  __type?: "UpdateThingResponse";
 }
 
-export namespace TaskStatisticsForAuditCheck {
-  export function isa(o: any): o is TaskStatisticsForAuditCheck {
-    return _smithy.isa(o, "TaskStatisticsForAuditCheck");
+export namespace UpdateThingResponse {
+  export function isa(o: any): o is UpdateThingResponse {
+    return _smithy.isa(o, "UpdateThingResponse");
   }
 }
 
-export interface TestAuthorizationRequest {
-  __type?: "TestAuthorizationRequest";
+/**
+ *
+ * 		       <p>The attribute payload.</p>
+ *
+ */
+export interface AttributePayload {
+  __type?: "AttributePayload";
   /**
    *
-   *          <p>A list of authorization info objects. Simulating authorization will create a response
-   *          for each <code>authInfo</code> object in the list.</p>
+   * 		       <p>A JSON string containing up to three key-value pair in JSON format. For example:</p>
+   * 		       <p>
+   * 			         <code>{\"attributes\":{\"string1\":\"string2\"}}</code>
+   * 		       </p>
    *
    */
-  authInfos: Array<AuthInfo> | undefined;
+  attributes?: { [key: string]: string };
 
   /**
    *
-   *          <p>The MQTT client ID.</p>
+   * 		       <p>Specifies whether the list of attributes provided in the <code>AttributePayload</code> is merged with
+   * 			the attributes stored in the registry, instead of overwriting them.</p>
+   * 		       <p>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</p>
+   * 		       <note>
+   * 			         <p>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code> or <code>UpdateThingGroup</code>.</p>
+   * 		       </note>
    *
    */
-  clientId?: string;
-
-  /**
-   *
-   *          <p>The Cognito identity pool ID.</p>
-   *
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   *
-   *          <p>When testing custom authorization, the policies specified here are treated as if they
-   *          are attached to the principal being authorized.</p>
-   *
-   */
-  policyNamesToAdd?: Array<string>;
-
-  /**
-   *
-   *          <p>When testing custom authorization, the policies specified here are treated as if they
-   *          are not attached to the principal being authorized.</p>
-   *
-   */
-  policyNamesToSkip?: Array<string>;
-
-  /**
-   *
-   *          <p>The principal.</p>
-   *
-   */
-  principal?: string;
+  merge?: boolean;
 }
 
-export namespace TestAuthorizationRequest {
-  export function isa(o: any): o is TestAuthorizationRequest {
-    return _smithy.isa(o, "TestAuthorizationRequest");
+export namespace AttributePayload {
+  export function isa(o: any): o is AttributePayload {
+    return _smithy.isa(o, "AttributePayload");
   }
 }
 
-export interface TestAuthorizationResponse extends $MetadataBearer {
-  __type?: "TestAuthorizationResponse";
+/**
+ *
+ *          <p>Additional information about the billing group.</p>
+ *
+ */
+export interface BillingGroupMetadata {
+  __type?: "BillingGroupMetadata";
   /**
    *
-   *          <p>The authentication results.</p>
+   *          <p>The date the billing group was created.</p>
    *
    */
-  authResults?: Array<AuthResult>;
+  creationDate?: Date;
 }
 
-export namespace TestAuthorizationResponse {
-  export function isa(o: any): o is TestAuthorizationResponse {
-    return _smithy.isa(o, "TestAuthorizationResponse");
+export namespace BillingGroupMetadata {
+  export function isa(o: any): o is BillingGroupMetadata {
+    return _smithy.isa(o, "BillingGroupMetadata");
   }
 }
 
-export interface TestInvokeAuthorizerRequest {
-  __type?: "TestInvokeAuthorizerRequest";
+/**
+ *
+ *          <p>The properties of a billing group.</p>
+ *
+ */
+export interface BillingGroupProperties {
+  __type?: "BillingGroupProperties";
   /**
    *
-   *          <p>The custom authorizer name.</p>
-   *
-   *
-   */
-  authorizerName: string | undefined;
-
-  /**
-   *
-   *          <p>Specifies a test HTTP authorization request.</p>
+   *          <p>The description of the billing group.</p>
    *
    */
-  httpContext?: HttpContext;
-
-  /**
-   *
-   *          <p>Specifies a test MQTT authorization request.></p>
-   *
-   */
-  mqttContext?: MqttContext;
-
-  /**
-   *
-   *          <p>Specifies a test TLS authorization request.</p>
-   *
-   */
-  tlsContext?: TlsContext;
-
-  /**
-   *
-   *          <p>The token returned by your custom authentication service.</p>
-   *
-   */
-  token?: string;
-
-  /**
-   *
-   *          <p>The signature made with the token and your custom authentication service's private
-   *          key.</p>
-   *
-   */
-  tokenSignature?: string;
+  billingGroupDescription?: string;
 }
 
-export namespace TestInvokeAuthorizerRequest {
-  export function isa(o: any): o is TestInvokeAuthorizerRequest {
-    return _smithy.isa(o, "TestInvokeAuthorizerRequest");
+export namespace BillingGroupProperties {
+  export function isa(o: any): o is BillingGroupProperties {
+    return _smithy.isa(o, "BillingGroupProperties");
   }
 }
 
-export interface TestInvokeAuthorizerResponse extends $MetadataBearer {
-  __type?: "TestInvokeAuthorizerResponse";
-  /**
-   *
-   *          <p>The number of seconds after which the connection is terminated.</p>
-   *
-   */
-  disconnectAfterInSeconds?: number;
-
-  /**
-   *
-   *          <p>True if the token is authenticated, otherwise false.</p>
-   *
-   */
-  isAuthenticated?: boolean;
-
-  /**
-   *
-   *          <p>IAM policy documents.</p>
-   *
-   */
-  policyDocuments?: Array<string>;
-
-  /**
-   *
-   *          <p>The principal ID.</p>
-   *
-   */
-  principalId?: string;
-
-  /**
-   *
-   *          <p>The number of seconds after which the temporary credentials are refreshed.</p>
-   *
-   */
-  refreshAfterInSeconds?: number;
+export enum DynamicGroupStatus {
+  ACTIVE = "ACTIVE",
+  BUILDING = "BUILDING",
+  REBUILDING = "REBUILDING"
 }
 
-export namespace TestInvokeAuthorizerResponse {
-  export function isa(o: any): o is TestInvokeAuthorizerResponse {
-    return _smithy.isa(o, "TestInvokeAuthorizerResponse");
+/**
+ *
+ * 		       <p>The name and ARN of a group.</p>
+ *
+ */
+export interface GroupNameAndArn {
+  __type?: "GroupNameAndArn";
+  /**
+   *
+   * 		       <p>The group ARN.</p>
+   *
+   */
+  groupArn?: string;
+
+  /**
+   *
+   * 		       <p>The group name.</p>
+   *
+   */
+  groupName?: string;
+}
+
+export namespace GroupNameAndArn {
+  export function isa(o: any): o is GroupNameAndArn {
+    return _smithy.isa(o, "GroupNameAndArn");
   }
+}
+
+export enum ReportType {
+  ERRORS = "ERRORS",
+  RESULTS = "RESULTS"
+}
+
+export enum Status {
+  Cancelled = "Cancelled",
+  Cancelling = "Cancelling",
+  Completed = "Completed",
+  Failed = "Failed",
+  InProgress = "InProgress"
 }
 
 /**
@@ -15793,186 +14002,6 @@ export interface ThingAttribute {
 export namespace ThingAttribute {
   export function isa(o: any): o is ThingAttribute {
     return _smithy.isa(o, "ThingAttribute");
-  }
-}
-
-/**
- *
- *          <p>The connectivity status of the thing.</p>
- *
- */
-export interface ThingConnectivity {
-  __type?: "ThingConnectivity";
-  /**
-   *
-   *          <p>True if the thing is connected to the AWS IoT service; false if it is not
-   *       connected.</p>
-   *
-   */
-  connected?: boolean;
-
-  /**
-   *
-   *          <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
-   *       thing has been disconnected for more than a few weeks, the time value might be missing.</p>
-   *
-   */
-  timestamp?: number;
-}
-
-export namespace ThingConnectivity {
-  export function isa(o: any): o is ThingConnectivity {
-    return _smithy.isa(o, "ThingConnectivity");
-  }
-}
-
-/**
- *
- *          <p>The thing search index document.</p>
- *
- */
-export interface ThingDocument {
-  __type?: "ThingDocument";
-  /**
-   *
-   *          <p>The attributes.</p>
-   *
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>Indicates whether the thing is connected to the AWS IoT service.</p>
-   *
-   */
-  connectivity?: ThingConnectivity;
-
-  /**
-   *
-   *          <p>The shadow.</p>
-   *
-   */
-  shadow?: string;
-
-  /**
-   *
-   *          <p>Thing group names.</p>
-   *
-   */
-  thingGroupNames?: Array<string>;
-
-  /**
-   *
-   *          <p>The thing ID.</p>
-   *
-   */
-  thingId?: string;
-
-  /**
-   *
-   *          <p>The thing name.</p>
-   *
-   */
-  thingName?: string;
-
-  /**
-   *
-   *          <p>The thing type name.</p>
-   *
-   */
-  thingTypeName?: string;
-}
-
-export namespace ThingDocument {
-  export function isa(o: any): o is ThingDocument {
-    return _smithy.isa(o, "ThingDocument");
-  }
-}
-
-/**
- *
- *          <p>The thing group search index document.</p>
- *
- */
-export interface ThingGroupDocument {
-  __type?: "ThingGroupDocument";
-  /**
-   *
-   *          <p>The thing group attributes.</p>
-   *
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   *
-   *          <p>Parent group names.</p>
-   *
-   */
-  parentGroupNames?: Array<string>;
-
-  /**
-   *
-   *          <p>The thing group description.</p>
-   *
-   */
-  thingGroupDescription?: string;
-
-  /**
-   *
-   *          <p>The thing group ID.</p>
-   *
-   */
-  thingGroupId?: string;
-
-  /**
-   *
-   *          <p>The thing group name.</p>
-   *
-   */
-  thingGroupName?: string;
-}
-
-export namespace ThingGroupDocument {
-  export function isa(o: any): o is ThingGroupDocument {
-    return _smithy.isa(o, "ThingGroupDocument");
-  }
-}
-
-/**
- *
- *          <p>Thing group indexing configuration.</p>
- *
- */
-export interface ThingGroupIndexingConfiguration {
-  __type?: "ThingGroupIndexingConfiguration";
-  /**
-   *
-   *          <p>A list of thing group fields to index. This list cannot contain any managed fields. Use
-   *       the GetIndexingConfiguration API to get a list of managed fields.</p>
-   *          <p>Contains custom field names and their data type.</p>
-   *
-   */
-  customFields?: Array<Field>;
-
-  /**
-   *
-   *          <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
-   *
-   */
-  managedFields?: Array<Field>;
-
-  /**
-   *
-   *          <p>Thing group indexing mode.</p>
-   *
-   */
-  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
-}
-
-export namespace ThingGroupIndexingConfiguration {
-  export function isa(o: any): o is ThingGroupIndexingConfiguration {
-    return _smithy.isa(o, "ThingGroupIndexingConfiguration");
   }
 }
 
@@ -16036,70 +14065,6 @@ export interface ThingGroupProperties {
 export namespace ThingGroupProperties {
   export function isa(o: any): o is ThingGroupProperties {
     return _smithy.isa(o, "ThingGroupProperties");
-  }
-}
-
-/**
- *
- *          <p>The thing indexing configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html">Managing
- *         Thing Indexing</a>.</p>
- *
- */
-export interface ThingIndexingConfiguration {
-  __type?: "ThingIndexingConfiguration";
-  /**
-   *
-   *          <p>Contains custom field names and their data type.</p>
-   *
-   */
-  customFields?: Array<Field>;
-
-  /**
-   *
-   *          <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
-   *
-   */
-  managedFields?: Array<Field>;
-
-  /**
-   *
-   *          <p>Thing connectivity indexing mode. Valid values are: </p>
-   *          <ul>
-   *             <li>
-   *                <p>STATUS – Your thing index contains connectivity status. To enable thing
-   *           connectivity indexing, thingIndexMode must not be set to OFF.</p>
-   *             </li>
-   *             <li>
-   *                <p>OFF - Thing connectivity status indexing is disabled.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
-
-  /**
-   *
-   *          <p>Thing indexing mode. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>REGISTRY – Your thing index contains registry data only.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p>
-   *             </li>
-   *             <li>
-   *                <p>OFF - Thing indexing is disabled.</p>
-   *             </li>
-   *          </ul>
-   *
-   */
-  thingIndexingMode: ThingIndexingMode | string | undefined;
-}
-
-export namespace ThingIndexingConfiguration {
-  export function isa(o: any): o is ThingIndexingConfiguration {
-    return _smithy.isa(o, "ThingIndexingConfiguration");
   }
 }
 
@@ -16214,638 +14179,1728 @@ export namespace ThingTypeProperties {
   }
 }
 
-/**
- *
- *          <p>The rate exceeds the limit.</p>
- *
- */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "ThrottlingException";
-  name: "ThrottlingException";
-  $fault: "client";
+export interface AttachSecurityProfileRequest {
+  __type?: "AttachSecurityProfileRequest";
   /**
    *
-   *          <p>The message for the exception.</p>
+   *          <p>The security profile that is attached.</p>
    *
    */
-  message?: string;
+  securityProfileName: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the target (thing group) to which the security profile is attached.</p>
+   *
+   */
+  securityProfileTargetArn: string | undefined;
 }
 
-export namespace ThrottlingException {
-  export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+export namespace AttachSecurityProfileRequest {
+  export function isa(o: any): o is AttachSecurityProfileRequest {
+    return _smithy.isa(o, "AttachSecurityProfileRequest");
   }
 }
 
-/**
- *
- *          <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
- *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
- *            execution status is not set to another terminal state before the timer expires, it will
- *            be automatically set to <code>TIMED_OUT</code>.</p>
- *
- */
-export interface TimeoutConfig {
-  __type?: "TimeoutConfig";
-  /**
-   *
-   *          <p>Specifies the amount of time, in minutes, this device has to finish execution of this job.
-   *            The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The
-   *            in progress timer can't be updated and will apply to all job executions for the job. Whenever a job
-   *            execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail
-   *            and switch to the terminal <code>TIMED_OUT</code> status.</p>
-   *
-   */
-  inProgressTimeoutInMinutes?: number;
+export interface AttachSecurityProfileResponse extends $MetadataBearer {
+  __type?: "AttachSecurityProfileResponse";
 }
 
-export namespace TimeoutConfig {
-  export function isa(o: any): o is TimeoutConfig {
-    return _smithy.isa(o, "TimeoutConfig");
+export namespace AttachSecurityProfileResponse {
+  export function isa(o: any): o is AttachSecurityProfileResponse {
+    return _smithy.isa(o, "AttachSecurityProfileResponse");
   }
 }
 
-/**
- *
- *          <p>Specifies the TLS context to use for the test authorizer request.</p>
- *
- */
-export interface TlsContext {
-  __type?: "TlsContext";
+export interface CancelAuditMitigationActionsTaskRequest {
+  __type?: "CancelAuditMitigationActionsTaskRequest";
   /**
    *
-   *          <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
+   *          <p>The unique identifier for the task that you want to cancel. </p>
    *
    */
-  serverName?: string;
+  taskId: string | undefined;
 }
 
-export namespace TlsContext {
-  export function isa(o: any): o is TlsContext {
-    return _smithy.isa(o, "TlsContext");
+export namespace CancelAuditMitigationActionsTaskRequest {
+  export function isa(o: any): o is CancelAuditMitigationActionsTaskRequest {
+    return _smithy.isa(o, "CancelAuditMitigationActionsTaskRequest");
   }
 }
 
-/**
- *
- *          <p>Describes a rule.</p>
- *
- */
-export interface TopicRule {
-  __type?: "TopicRule";
-  /**
-   *
-   *          <p>The actions associated with the rule.</p>
-   *
-   */
-  actions?: Array<Action>;
-
-  /**
-   *
-   *          <p>The version of the SQL rules engine to use when evaluating the rule.</p>
-   *
-   */
-  awsIotSqlVersion?: string;
-
-  /**
-   *
-   *          <p>The date and time the rule was created.</p>
-   *
-   */
-  createdAt?: Date;
-
-  /**
-   *
-   *          <p>The description of the rule.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *          <p>The action to perform when an error occurs.</p>
-   *
-   */
-  errorAction?: Action;
-
-  /**
-   *
-   *          <p>Specifies whether the rule is disabled.</p>
-   *
-   */
-  ruleDisabled?: boolean;
-
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName?: string;
-
-  /**
-   *
-   *          <p>The SQL statement used to query the topic. When using a SQL query with multiple
-   *          lines, be sure to escape the newline characters.</p>
-   *
-   */
-  sql?: string;
+export interface CancelAuditMitigationActionsTaskResponse
+  extends $MetadataBearer {
+  __type?: "CancelAuditMitigationActionsTaskResponse";
 }
 
-export namespace TopicRule {
-  export function isa(o: any): o is TopicRule {
-    return _smithy.isa(o, "TopicRule");
+export namespace CancelAuditMitigationActionsTaskResponse {
+  export function isa(o: any): o is CancelAuditMitigationActionsTaskResponse {
+    return _smithy.isa(o, "CancelAuditMitigationActionsTaskResponse");
   }
 }
 
-/**
- *
- *          <p>A topic rule destination.</p>
- *
- */
-export interface TopicRuleDestination {
-  __type?: "TopicRuleDestination";
+export interface CancelAuditTaskRequest {
+  __type?: "CancelAuditTaskRequest";
   /**
    *
-   *          <p>The topic rule destination URL.</p>
+   *           <p>The ID of the audit you want to cancel. You can only cancel an
+   *               audit that is "IN_PROGRESS".</p>
    *
    */
-  arn?: string;
-
-  /**
-   *
-   *          <p>Properties of the HTTP URL.</p>
-   *
-   */
-  httpUrlProperties?: HttpUrlDestinationProperties;
-
-  /**
-   *
-   *          <p>The status of the topic rule destination. Valid values are:</p>
-   *          <dl>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                <p>A topic rule destination was created but has not been confirmed. You can set
-   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *             <dt>ENABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
-   *                   set <code>status</code> to <code>DISABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>DISABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
-   *                   can set <code>status</code> to <code>ENABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>ERROR</dt>
-   *             <dd>
-   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
-   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
-   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *          </dl>
-   *
-   */
-  status?: TopicRuleDestinationStatus | string;
-
-  /**
-   *
-   *          <p>Additional details or reason why the topic rule destination is in the current
-   *          status.</p>
-   *
-   */
-  statusReason?: string;
+  taskId: string | undefined;
 }
 
-export namespace TopicRuleDestination {
-  export function isa(o: any): o is TopicRuleDestination {
-    return _smithy.isa(o, "TopicRuleDestination");
+export namespace CancelAuditTaskRequest {
+  export function isa(o: any): o is CancelAuditTaskRequest {
+    return _smithy.isa(o, "CancelAuditTaskRequest");
   }
 }
 
-/**
- *
- *          <p>Configuration of the topic rule destination.</p>
- *
- */
-export interface TopicRuleDestinationConfiguration {
-  __type?: "TopicRuleDestinationConfiguration";
-  /**
-   *
-   *          <p>Configuration of the HTTP URL.</p>
-   *
-   */
-  httpUrlConfiguration?: HttpUrlDestinationConfiguration;
+export interface CancelAuditTaskResponse extends $MetadataBearer {
+  __type?: "CancelAuditTaskResponse";
 }
 
-export namespace TopicRuleDestinationConfiguration {
-  export function isa(o: any): o is TopicRuleDestinationConfiguration {
-    return _smithy.isa(o, "TopicRuleDestinationConfiguration");
+export namespace CancelAuditTaskResponse {
+  export function isa(o: any): o is CancelAuditTaskResponse {
+    return _smithy.isa(o, "CancelAuditTaskResponse");
   }
 }
 
-/**
- *
- *          <p>Information about the topic rule destination.</p>
- *
- */
-export interface TopicRuleDestinationSummary {
-  __type?: "TopicRuleDestinationSummary";
+export interface CreateMitigationActionRequest {
+  __type?: "CreateMitigationActionRequest";
   /**
    *
-   *          <p>The topic rule destination ARN.</p>
+   *          <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
    *
    */
-  arn?: string;
+  actionName: string | undefined;
 
   /**
    *
-   *          <p>Information about the HTTP URL.</p>
+   *          <p>Defines the type of action and the parameters for that action.</p>
    *
    */
-  httpUrlSummary?: HttpUrlDestinationSummary;
+  actionParams: MitigationActionParams | undefined;
 
   /**
    *
-   *          <p>The status of the topic rule destination. Valid values are:</p>
-   *          <dl>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                <p>A topic rule destination was created but has not been confirmed. You can set
-   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *             <dt>ENABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
-   *                   set <code>status</code> to <code>DISABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>DISABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
-   *                   can set <code>status</code> to <code>ENABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>ERROR</dt>
-   *             <dd>
-   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
-   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
-   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *          </dl>
+   *          <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    *
    */
-  status?: TopicRuleDestinationStatus | string;
+  roleArn: string | undefined;
 
   /**
    *
-   *          <p>The reason the topic rule destination is in the current status.</p>
+   *          <p>Metadata that can be used to manage the mitigation action.</p>
    *
    */
-  statusReason?: string;
+  tags?: Array<Tag>;
 }
 
-export namespace TopicRuleDestinationSummary {
-  export function isa(o: any): o is TopicRuleDestinationSummary {
-    return _smithy.isa(o, "TopicRuleDestinationSummary");
+export namespace CreateMitigationActionRequest {
+  export function isa(o: any): o is CreateMitigationActionRequest {
+    return _smithy.isa(o, "CreateMitigationActionRequest");
   }
 }
 
-/**
- *
- *          <p>Describes a rule.</p>
- *
- */
-export interface TopicRuleListItem {
-  __type?: "TopicRuleListItem";
+export interface CreateMitigationActionResponse extends $MetadataBearer {
+  __type?: "CreateMitigationActionResponse";
   /**
    *
-   *          <p>The date and time the rule was created.</p>
+   *          <p>The ARN for the new mitigation action.</p>
    *
    */
-  createdAt?: Date;
+  actionArn?: string;
 
   /**
    *
-   *          <p>The rule ARN.</p>
+   *          <p>A unique identifier for the new mitigation action.</p>
    *
    */
-  ruleArn?: string;
-
-  /**
-   *
-   *          <p>Specifies whether the rule is disabled.</p>
-   *
-   */
-  ruleDisabled?: boolean;
-
-  /**
-   *
-   *          <p>The name of the rule.</p>
-   *
-   */
-  ruleName?: string;
-
-  /**
-   *
-   *          <p>The pattern for the topic names that apply.</p>
-   *
-   */
-  topicPattern?: string;
+  actionId?: string;
 }
 
-export namespace TopicRuleListItem {
-  export function isa(o: any): o is TopicRuleListItem {
-    return _smithy.isa(o, "TopicRuleListItem");
+export namespace CreateMitigationActionResponse {
+  export function isa(o: any): o is CreateMitigationActionResponse {
+    return _smithy.isa(o, "CreateMitigationActionResponse");
   }
 }
 
-/**
- *
- *          <p>Describes a rule.</p>
- *
- */
-export interface TopicRulePayload {
-  __type?: "TopicRulePayload";
+export interface CreateScheduledAuditRequest {
+  __type?: "CreateScheduledAuditRequest";
   /**
    *
-   *          <p>The actions associated with the rule.</p>
+   *           <p>The day of the month on which the scheduled audit takes place. Can be "1"
+   *             through "31" or "LAST". This field is required if the "frequency" parameter is
+   *             set to "MONTHLY". If days 29-31 are specified, and the month does not have that many
+   *             days, the audit takes place on the "LAST" day of the month.</p>
    *
    */
-  actions: Array<Action> | undefined;
+  dayOfMonth?: string;
 
   /**
    *
-   *          <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   *           <p>The day of the week on which the scheduled audit takes place. Can be one of
+   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
+   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
    *
    */
-  awsIotSqlVersion?: string;
+  dayOfWeek?: DayOfWeek | string;
 
   /**
    *
-   *          <p>The description of the rule.</p>
+   *           <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
+   *             "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by
+   *             the system.</p>
    *
    */
-  description?: string;
+  frequency: AuditFrequency | string | undefined;
 
   /**
    *
-   *          <p>The action to take when an error occurs.</p>
+   *           <p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>
    *
    */
-  errorAction?: Action;
+  scheduledAuditName: string | undefined;
 
   /**
    *
-   *          <p>Specifies whether the rule is disabled.</p>
+   *            <p>Metadata that can be used to manage the scheduled audit.</p>
    *
    */
-  ruleDisabled?: boolean;
+  tags?: Array<Tag>;
 
   /**
    *
-   *          <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS IoT SQL
-   *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
+   *           <p>Which checks are performed during the scheduled audit. Checks must be enabled
+   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
    *
    */
-  sql: string | undefined;
+  targetCheckNames: Array<string> | undefined;
 }
 
-export namespace TopicRulePayload {
-  export function isa(o: any): o is TopicRulePayload {
-    return _smithy.isa(o, "TopicRulePayload");
+export namespace CreateScheduledAuditRequest {
+  export function isa(o: any): o is CreateScheduledAuditRequest {
+    return _smithy.isa(o, "CreateScheduledAuditRequest");
   }
 }
 
-/**
- *
- *          <p>You can't revert the certificate transfer because the transfer is already
- *          complete.</p>
- *
- */
-export interface TransferAlreadyCompletedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TransferAlreadyCompletedException";
-  name: "TransferAlreadyCompletedException";
-  $fault: "client";
+export interface CreateScheduledAuditResponse extends $MetadataBearer {
+  __type?: "CreateScheduledAuditResponse";
   /**
    *
-   *          <p>The message for the exception.</p>
+   *           <p>The ARN of the scheduled audit.</p>
    *
    */
-  message?: string;
+  scheduledAuditArn?: string;
 }
 
-export namespace TransferAlreadyCompletedException {
-  export function isa(o: any): o is TransferAlreadyCompletedException {
-    return _smithy.isa(o, "TransferAlreadyCompletedException");
+export namespace CreateScheduledAuditResponse {
+  export function isa(o: any): o is CreateScheduledAuditResponse {
+    return _smithy.isa(o, "CreateScheduledAuditResponse");
   }
 }
 
-/**
- *
- *          <p>The input for the TransferCertificate operation.</p>
- *
- */
-export interface TransferCertificateRequest {
-  __type?: "TransferCertificateRequest";
+export interface CreateSecurityProfileRequest {
+  __type?: "CreateSecurityProfileRequest";
   /**
    *
-   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
+   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
+   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
+   *         any metric specified here.</p>
    *
    */
-  certificateId: string | undefined;
+  additionalMetricsToRetain?: Array<string>;
 
   /**
    *
-   *          <p>The AWS account.</p>
+   *          <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
+   *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    *
    */
-  targetAwsAccount: string | undefined;
+  alertTargets?: { [key: string]: AlertTarget };
 
   /**
    *
-   *          <p>The transfer message.</p>
+   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    *
    */
-  transferMessage?: string;
+  behaviors?: Array<Behavior>;
+
+  /**
+   *
+   *          <p>A description of the security profile.</p>
+   *
+   */
+  securityProfileDescription?: string;
+
+  /**
+   *
+   *          <p>The name you are giving to the security profile.</p>
+   *
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   *
+   *          <p>Metadata that can be used to manage the security profile.</p>
+   *
+   */
+  tags?: Array<Tag>;
 }
 
-export namespace TransferCertificateRequest {
-  export function isa(o: any): o is TransferCertificateRequest {
-    return _smithy.isa(o, "TransferCertificateRequest");
+export namespace CreateSecurityProfileRequest {
+  export function isa(o: any): o is CreateSecurityProfileRequest {
+    return _smithy.isa(o, "CreateSecurityProfileRequest");
   }
 }
 
-/**
- *
- *          <p>The output from the TransferCertificate operation.</p>
- *
- */
-export interface TransferCertificateResponse extends $MetadataBearer {
-  __type?: "TransferCertificateResponse";
+export interface CreateSecurityProfileResponse extends $MetadataBearer {
+  __type?: "CreateSecurityProfileResponse";
   /**
    *
-   *          <p>The ARN of the certificate.</p>
+   *          <p>The ARN of the security profile.</p>
    *
    */
-  transferredCertificateArn?: string;
+  securityProfileArn?: string;
+
+  /**
+   *
+   *          <p>The name you gave to the security profile.</p>
+   *
+   */
+  securityProfileName?: string;
 }
 
-export namespace TransferCertificateResponse {
-  export function isa(o: any): o is TransferCertificateResponse {
-    return _smithy.isa(o, "TransferCertificateResponse");
+export namespace CreateSecurityProfileResponse {
+  export function isa(o: any): o is CreateSecurityProfileResponse {
+    return _smithy.isa(o, "CreateSecurityProfileResponse");
   }
 }
 
-/**
- *
- *          <p>You can't transfer the certificate because authorization policies are still
- *          attached.</p>
- *
- */
-export interface TransferConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "TransferConflictException";
-  name: "TransferConflictException";
-  $fault: "client";
+export interface DeleteAccountAuditConfigurationRequest {
+  __type?: "DeleteAccountAuditConfigurationRequest";
   /**
    *
-   *          <p>The message for the exception.</p>
+   *          <p>If true, all scheduled audits are deleted.</p>
    *
    */
-  message?: string;
+  deleteScheduledAudits?: boolean;
 }
 
-export namespace TransferConflictException {
-  export function isa(o: any): o is TransferConflictException {
-    return _smithy.isa(o, "TransferConflictException");
+export namespace DeleteAccountAuditConfigurationRequest {
+  export function isa(o: any): o is DeleteAccountAuditConfigurationRequest {
+    return _smithy.isa(o, "DeleteAccountAuditConfigurationRequest");
   }
 }
 
-/**
- *
- *          <p>Data used to transfer a certificate to an AWS account.</p>
- *
- */
-export interface TransferData {
-  __type?: "TransferData";
-  /**
-   *
-   *          <p>The date the transfer was accepted.</p>
-   *
-   */
-  acceptDate?: Date;
-
-  /**
-   *
-   *          <p>The date the transfer was rejected.</p>
-   *
-   */
-  rejectDate?: Date;
-
-  /**
-   *
-   *          <p>The reason why the transfer was rejected.</p>
-   *
-   */
-  rejectReason?: string;
-
-  /**
-   *
-   *          <p>The date the transfer took place.</p>
-   *
-   */
-  transferDate?: Date;
-
-  /**
-   *
-   *          <p>The transfer message.</p>
-   *
-   */
-  transferMessage?: string;
+export interface DeleteAccountAuditConfigurationResponse
+  extends $MetadataBearer {
+  __type?: "DeleteAccountAuditConfigurationResponse";
 }
 
-export namespace TransferData {
-  export function isa(o: any): o is TransferData {
-    return _smithy.isa(o, "TransferData");
+export namespace DeleteAccountAuditConfigurationResponse {
+  export function isa(o: any): o is DeleteAccountAuditConfigurationResponse {
+    return _smithy.isa(o, "DeleteAccountAuditConfigurationResponse");
   }
 }
 
-/**
- *
- *          <p>You are not authorized to perform this operation.</p>
- *
- */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "UnauthorizedException";
-  name: "UnauthorizedException";
-  $fault: "client";
+export interface DeleteMitigationActionRequest {
+  __type?: "DeleteMitigationActionRequest";
   /**
    *
-   *          <p>The message for the exception.</p>
+   *          <p>The name of the mitigation action that you want to delete.</p>
    *
    */
-  message?: string;
+  actionName: string | undefined;
 }
 
-export namespace UnauthorizedException {
-  export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
+export namespace DeleteMitigationActionRequest {
+  export function isa(o: any): o is DeleteMitigationActionRequest {
+    return _smithy.isa(o, "DeleteMitigationActionRequest");
   }
 }
 
-export interface UntagResourceRequest {
-  __type?: "UntagResourceRequest";
-  /**
-   *
-   * 		       <p>The ARN of the resource.</p>
-   *
-   */
-  resourceArn: string | undefined;
-
-  /**
-   *
-   * 		       <p>A list of the keys of the tags to be removed from the resource.</p>
-   *
-   */
-  tagKeys: Array<string> | undefined;
+export interface DeleteMitigationActionResponse extends $MetadataBearer {
+  __type?: "DeleteMitigationActionResponse";
 }
 
-export namespace UntagResourceRequest {
-  export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+export namespace DeleteMitigationActionResponse {
+  export function isa(o: any): o is DeleteMitigationActionResponse {
+    return _smithy.isa(o, "DeleteMitigationActionResponse");
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
-  __type?: "UntagResourceResponse";
+export interface DeleteScheduledAuditRequest {
+  __type?: "DeleteScheduledAuditRequest";
+  /**
+   *
+   *           <p>The name of the scheduled audit you want to delete.</p>
+   *
+   */
+  scheduledAuditName: string | undefined;
 }
 
-export namespace UntagResourceResponse {
-  export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+export namespace DeleteScheduledAuditRequest {
+  export function isa(o: any): o is DeleteScheduledAuditRequest {
+    return _smithy.isa(o, "DeleteScheduledAuditRequest");
+  }
+}
+
+export interface DeleteScheduledAuditResponse extends $MetadataBearer {
+  __type?: "DeleteScheduledAuditResponse";
+}
+
+export namespace DeleteScheduledAuditResponse {
+  export function isa(o: any): o is DeleteScheduledAuditResponse {
+    return _smithy.isa(o, "DeleteScheduledAuditResponse");
+  }
+}
+
+export interface DeleteSecurityProfileRequest {
+  __type?: "DeleteSecurityProfileRequest";
+  /**
+   *
+   *          <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   *
+   */
+  expectedVersion?: number;
+
+  /**
+   *
+   *          <p>The name of the security profile to be deleted.</p>
+   *
+   */
+  securityProfileName: string | undefined;
+}
+
+export namespace DeleteSecurityProfileRequest {
+  export function isa(o: any): o is DeleteSecurityProfileRequest {
+    return _smithy.isa(o, "DeleteSecurityProfileRequest");
+  }
+}
+
+export interface DeleteSecurityProfileResponse extends $MetadataBearer {
+  __type?: "DeleteSecurityProfileResponse";
+}
+
+export namespace DeleteSecurityProfileResponse {
+  export function isa(o: any): o is DeleteSecurityProfileResponse {
+    return _smithy.isa(o, "DeleteSecurityProfileResponse");
+  }
+}
+
+export interface DescribeAccountAuditConfigurationRequest {
+  __type?: "DescribeAccountAuditConfigurationRequest";
+}
+
+export namespace DescribeAccountAuditConfigurationRequest {
+  export function isa(o: any): o is DescribeAccountAuditConfigurationRequest {
+    return _smithy.isa(o, "DescribeAccountAuditConfigurationRequest");
+  }
+}
+
+export interface DescribeAccountAuditConfigurationResponse
+  extends $MetadataBearer {
+  __type?: "DescribeAccountAuditConfigurationResponse";
+  /**
+   *
+   *           <p>Which audit checks are enabled and disabled for this account.</p>
+   *
+   */
+  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
+
+  /**
+   *
+   *           <p>Information about the targets to which audit notifications are sent for
+   *             this account.</p>
+   *
+   */
+  auditNotificationTargetConfigurations?: {
+    [key: string]: AuditNotificationTarget;
+  };
+
+  /**
+   *
+   *           <p>The ARN of the role that grants permission to AWS IoT to access information
+   *             about your devices, policies, certificates, and other items as required when
+   *             performing an audit.</p>
+   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace DescribeAccountAuditConfigurationResponse {
+  export function isa(o: any): o is DescribeAccountAuditConfigurationResponse {
+    return _smithy.isa(o, "DescribeAccountAuditConfigurationResponse");
+  }
+}
+
+export interface DescribeAuditFindingRequest {
+  __type?: "DescribeAuditFindingRequest";
+  /**
+   *
+   *          <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+   *
+   */
+  findingId: string | undefined;
+}
+
+export namespace DescribeAuditFindingRequest {
+  export function isa(o: any): o is DescribeAuditFindingRequest {
+    return _smithy.isa(o, "DescribeAuditFindingRequest");
+  }
+}
+
+export interface DescribeAuditFindingResponse extends $MetadataBearer {
+  __type?: "DescribeAuditFindingResponse";
+  /**
+   *
+   *          <p>The findings (results) of the audit.</p>
+   *
+   */
+  finding?: AuditFinding;
+}
+
+export namespace DescribeAuditFindingResponse {
+  export function isa(o: any): o is DescribeAuditFindingResponse {
+    return _smithy.isa(o, "DescribeAuditFindingResponse");
+  }
+}
+
+export interface DescribeAuditMitigationActionsTaskRequest {
+  __type?: "DescribeAuditMitigationActionsTaskRequest";
+  /**
+   *
+   *          <p>The unique identifier for the audit mitigation task.</p>
+   *
+   */
+  taskId: string | undefined;
+}
+
+export namespace DescribeAuditMitigationActionsTaskRequest {
+  export function isa(o: any): o is DescribeAuditMitigationActionsTaskRequest {
+    return _smithy.isa(o, "DescribeAuditMitigationActionsTaskRequest");
+  }
+}
+
+export interface DescribeAuditMitigationActionsTaskResponse
+  extends $MetadataBearer {
+  __type?: "DescribeAuditMitigationActionsTaskResponse";
+  /**
+   *
+   *          <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
+   *
+   */
+  actionsDefinition?: Array<MitigationAction>;
+
+  /**
+   *
+   *          <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
+   *
+   */
+  auditCheckToActionsMapping?: { [key: string]: Array<string> };
+
+  /**
+   *
+   *          <p>The date and time when the task was completed or canceled.</p>
+   *
+   */
+  endTime?: Date;
+
+  /**
+   *
+   *          <p>The date and time when the task was started.</p>
+   *
+   */
+  startTime?: Date;
+
+  /**
+   *
+   *          <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
+   *
+   */
+  target?: AuditMitigationActionsTaskTarget;
+
+  /**
+   *
+   *          <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
+   *
+   */
+  taskStatistics?: { [key: string]: TaskStatisticsForAuditCheck };
+
+  /**
+   *
+   *          <p>The current status of the task.</p>
+   *
+   */
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
+}
+
+export namespace DescribeAuditMitigationActionsTaskResponse {
+  export function isa(o: any): o is DescribeAuditMitigationActionsTaskResponse {
+    return _smithy.isa(o, "DescribeAuditMitigationActionsTaskResponse");
+  }
+}
+
+export interface DescribeAuditTaskRequest {
+  __type?: "DescribeAuditTaskRequest";
+  /**
+   *
+   *           <p>The ID of the audit whose information you want to get.</p>
+   *
+   */
+  taskId: string | undefined;
+}
+
+export namespace DescribeAuditTaskRequest {
+  export function isa(o: any): o is DescribeAuditTaskRequest {
+    return _smithy.isa(o, "DescribeAuditTaskRequest");
+  }
+}
+
+export interface DescribeAuditTaskResponse extends $MetadataBearer {
+  __type?: "DescribeAuditTaskResponse";
+  /**
+   *
+   *           <p>Detailed information about each check performed during this audit.</p>
+   *
+   */
+  auditDetails?: { [key: string]: AuditCheckDetails };
+
+  /**
+   *
+   *           <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
+   *
+   */
+  scheduledAuditName?: string;
+
+  /**
+   *
+   *           <p>The time the audit started.</p>
+   *
+   */
+  taskStartTime?: Date;
+
+  /**
+   *
+   *          <p>Statistical information about the audit.</p>
+   *
+   */
+  taskStatistics?: TaskStatistics;
+
+  /**
+   *
+   *           <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
+   *             "FAILED", or "CANCELED".</p>
+   *
+   */
+  taskStatus?: AuditTaskStatus | string;
+
+  /**
+   *
+   *           <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
+   *
+   */
+  taskType?: AuditTaskType | string;
+}
+
+export namespace DescribeAuditTaskResponse {
+  export function isa(o: any): o is DescribeAuditTaskResponse {
+    return _smithy.isa(o, "DescribeAuditTaskResponse");
+  }
+}
+
+export interface DescribeMitigationActionRequest {
+  __type?: "DescribeMitigationActionRequest";
+  /**
+   *
+   *          <p>The friendly name that uniquely identifies the mitigation action.</p>
+   *
+   */
+  actionName: string | undefined;
+}
+
+export namespace DescribeMitigationActionRequest {
+  export function isa(o: any): o is DescribeMitigationActionRequest {
+    return _smithy.isa(o, "DescribeMitigationActionRequest");
+  }
+}
+
+export interface DescribeMitigationActionResponse extends $MetadataBearer {
+  __type?: "DescribeMitigationActionResponse";
+  /**
+   *
+   *          <p>The ARN that identifies this migration action.</p>
+   *
+   */
+  actionArn?: string;
+
+  /**
+   *
+   *          <p>A unique identifier for this action.</p>
+   *
+   */
+  actionId?: string;
+
+  /**
+   *
+   *          <p>The friendly name that uniquely identifies the mitigation action.</p>
+   *
+   */
+  actionName?: string;
+
+  /**
+   *
+   *          <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
+   *
+   */
+  actionParams?: MitigationActionParams;
+
+  /**
+   *
+   *          <p>The type of mitigation action.</p>
+   *
+   */
+  actionType?: MitigationActionType | string;
+
+  /**
+   *
+   *          <p>The date and time when the mitigation action was added to your AWS account.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The date and time when the mitigation action was last changed.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role used to apply this action.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace DescribeMitigationActionResponse {
+  export function isa(o: any): o is DescribeMitigationActionResponse {
+    return _smithy.isa(o, "DescribeMitigationActionResponse");
+  }
+}
+
+export interface DescribeScheduledAuditRequest {
+  __type?: "DescribeScheduledAuditRequest";
+  /**
+   *
+   *           <p>The name of the scheduled audit whose information you want to get.</p>
+   *
+   */
+  scheduledAuditName: string | undefined;
+}
+
+export namespace DescribeScheduledAuditRequest {
+  export function isa(o: any): o is DescribeScheduledAuditRequest {
+    return _smithy.isa(o, "DescribeScheduledAuditRequest");
+  }
+}
+
+export interface DescribeScheduledAuditResponse extends $MetadataBearer {
+  __type?: "DescribeScheduledAuditResponse";
+  /**
+   *
+   *           <p>The day of the month on which the scheduled audit takes place. Will be "1"
+   *             through "31" or "LAST". If days 29-31 are specified, and the month does not have that many
+   *             days, the audit takes place on the "LAST" day of the month.</p>
+   *
+   */
+  dayOfMonth?: string;
+
+  /**
+   *
+   *           <p>The day of the week on which the scheduled audit takes place. One of
+   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".</p>
+   *
+   */
+  dayOfWeek?: DayOfWeek | string;
+
+  /**
+   *
+   *           <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
+   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
+   *             the system.</p>
+   *
+   */
+  frequency?: AuditFrequency | string;
+
+  /**
+   *
+   *           <p>The ARN of the scheduled audit.</p>
+   *
+   */
+  scheduledAuditArn?: string;
+
+  /**
+   *
+   *           <p>The name of the scheduled audit.</p>
+   *
+   */
+  scheduledAuditName?: string;
+
+  /**
+   *
+   *           <p>Which checks are performed during the scheduled audit. Checks must be
+   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
+   *
+   */
+  targetCheckNames?: Array<string>;
+}
+
+export namespace DescribeScheduledAuditResponse {
+  export function isa(o: any): o is DescribeScheduledAuditResponse {
+    return _smithy.isa(o, "DescribeScheduledAuditResponse");
+  }
+}
+
+export interface DescribeSecurityProfileRequest {
+  __type?: "DescribeSecurityProfileRequest";
+  /**
+   *
+   *          <p>The name of the security profile whose information you want to get.</p>
+   *
+   */
+  securityProfileName: string | undefined;
+}
+
+export namespace DescribeSecurityProfileRequest {
+  export function isa(o: any): o is DescribeSecurityProfileRequest {
+    return _smithy.isa(o, "DescribeSecurityProfileRequest");
+  }
+}
+
+export interface DescribeSecurityProfileResponse extends $MetadataBearer {
+  __type?: "DescribeSecurityProfileResponse";
+  /**
+   *
+   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
+   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
+   *         any metric specified here.</p>
+   *
+   */
+  additionalMetricsToRetain?: Array<string>;
+
+  /**
+   *
+   *          <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   *
+   */
+  alertTargets?: { [key: string]: AlertTarget };
+
+  /**
+   *
+   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   *
+   */
+  behaviors?: Array<Behavior>;
+
+  /**
+   *
+   *          <p>The time the security profile was created.</p>
+   *
+   */
+  creationDate?: Date;
+
+  /**
+   *
+   *          <p>The time the security profile was last modified.</p>
+   *
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   *
+   *          <p>The ARN of the security profile.</p>
+   *
+   */
+  securityProfileArn?: string;
+
+  /**
+   *
+   *          <p>A description of the security profile (associated with the security profile
+   *         when it was created or updated).</p>
+   *
+   */
+  securityProfileDescription?: string;
+
+  /**
+   *
+   *          <p>The name of the security profile.</p>
+   *
+   */
+  securityProfileName?: string;
+
+  /**
+   *
+   *          <p>The version of the security profile. A new version is generated whenever the
+   *         security profile is updated.</p>
+   *
+   */
+  version?: number;
+}
+
+export namespace DescribeSecurityProfileResponse {
+  export function isa(o: any): o is DescribeSecurityProfileResponse {
+    return _smithy.isa(o, "DescribeSecurityProfileResponse");
+  }
+}
+
+export interface DetachSecurityProfileRequest {
+  __type?: "DetachSecurityProfileRequest";
+  /**
+   *
+   *          <p>The security profile that is detached.</p>
+   *
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the thing group from which the security profile is detached.</p>
+   *
+   */
+  securityProfileTargetArn: string | undefined;
+}
+
+export namespace DetachSecurityProfileRequest {
+  export function isa(o: any): o is DetachSecurityProfileRequest {
+    return _smithy.isa(o, "DetachSecurityProfileRequest");
+  }
+}
+
+export interface DetachSecurityProfileResponse extends $MetadataBearer {
+  __type?: "DetachSecurityProfileResponse";
+}
+
+export namespace DetachSecurityProfileResponse {
+  export function isa(o: any): o is DetachSecurityProfileResponse {
+    return _smithy.isa(o, "DetachSecurityProfileResponse");
+  }
+}
+
+export interface ListActiveViolationsRequest {
+  __type?: "ListActiveViolationsRequest";
+  /**
+   *
+   *         <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *         <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *         <p>The name of the Device Defender security profile for which violations are listed.</p>
+   *
+   */
+  securityProfileName?: string;
+
+  /**
+   *
+   *         <p>The name of the thing whose active violations are listed.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace ListActiveViolationsRequest {
+  export function isa(o: any): o is ListActiveViolationsRequest {
+    return _smithy.isa(o, "ListActiveViolationsRequest");
+  }
+}
+
+export interface ListActiveViolationsResponse extends $MetadataBearer {
+  __type?: "ListActiveViolationsResponse";
+  /**
+   *
+   *         <p>The list of active violations.</p>
+   *
+   */
+  activeViolations?: Array<ActiveViolation>;
+
+  /**
+   *
+   *         <p>A token that can be used to retrieve the next set of results,
+   *             or <code>null</code> if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListActiveViolationsResponse {
+  export function isa(o: any): o is ListActiveViolationsResponse {
+    return _smithy.isa(o, "ListActiveViolationsResponse");
+  }
+}
+
+export interface ListAuditFindingsRequest {
+  __type?: "ListAuditFindingsRequest";
+  /**
+   *
+   *           <p>A filter to limit results to the findings for the specified audit check.</p>
+   *
+   */
+  checkName?: string;
+
+  /**
+   *
+   *           <p>A filter to limit results to those found before the specified time. You must
+   *             specify either the startTime and endTime or the taskId, but not both.</p>
+   *
+   */
+  endTime?: Date;
+
+  /**
+   *
+   *           <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *           <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>Information identifying the noncompliant resource.</p>
+   *
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   *
+   *           <p>A filter to limit results to those found after the specified time. You must
+   *             specify either the startTime and endTime or the taskId, but not both.</p>
+   *
+   */
+  startTime?: Date;
+
+  /**
+   *
+   *           <p>A filter to limit results to the audit with the specified ID. You must
+   *             specify either the taskId or the startTime and endTime, but not both.</p>
+   *
+   */
+  taskId?: string;
+}
+
+export namespace ListAuditFindingsRequest {
+  export function isa(o: any): o is ListAuditFindingsRequest {
+    return _smithy.isa(o, "ListAuditFindingsRequest");
+  }
+}
+
+export interface ListAuditFindingsResponse extends $MetadataBearer {
+  __type?: "ListAuditFindingsResponse";
+  /**
+   *
+   *           <p>The findings (results) of the audit.</p>
+   *
+   */
+  findings?: Array<AuditFinding>;
+
+  /**
+   *
+   *           <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *             if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListAuditFindingsResponse {
+  export function isa(o: any): o is ListAuditFindingsResponse {
+    return _smithy.isa(o, "ListAuditFindingsResponse");
+  }
+}
+
+export interface ListAuditMitigationActionsExecutionsRequest {
+  __type?: "ListAuditMitigationActionsExecutionsRequest";
+  /**
+   *
+   *          <p>Specify this filter to limit results to those with a specific status.</p>
+   *
+   */
+  actionStatus?: AuditMitigationActionsExecutionStatus | string;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
+   *
+   */
+  findingId: string | undefined;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
+   *
+   */
+  taskId: string | undefined;
+}
+
+export namespace ListAuditMitigationActionsExecutionsRequest {
+  export function isa(
+    o: any
+  ): o is ListAuditMitigationActionsExecutionsRequest {
+    return _smithy.isa(o, "ListAuditMitigationActionsExecutionsRequest");
+  }
+}
+
+export interface ListAuditMitigationActionsExecutionsResponse
+  extends $MetadataBearer {
+  __type?: "ListAuditMitigationActionsExecutionsResponse";
+  /**
+   *
+   *          <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
+   *
+   */
+  actionsExecutions?: Array<AuditMitigationActionExecutionMetadata>;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListAuditMitigationActionsExecutionsResponse {
+  export function isa(
+    o: any
+  ): o is ListAuditMitigationActionsExecutionsResponse {
+    return _smithy.isa(o, "ListAuditMitigationActionsExecutionsResponse");
+  }
+}
+
+export interface ListAuditMitigationActionsTasksRequest {
+  __type?: "ListAuditMitigationActionsTasksRequest";
+  /**
+   *
+   *          <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
+   *
+   */
+  auditTaskId?: string;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
+   *
+   */
+  endTime: Date | undefined;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
+   *
+   */
+  findingId?: string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
+   *
+   */
+  startTime: Date | undefined;
+
+  /**
+   *
+   *          <p>Specify this filter to limit results to tasks that are in a specific state.</p>
+   *
+   */
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
+}
+
+export namespace ListAuditMitigationActionsTasksRequest {
+  export function isa(o: any): o is ListAuditMitigationActionsTasksRequest {
+    return _smithy.isa(o, "ListAuditMitigationActionsTasksRequest");
+  }
+}
+
+export interface ListAuditMitigationActionsTasksResponse
+  extends $MetadataBearer {
+  __type?: "ListAuditMitigationActionsTasksResponse";
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
+   *
+   */
+  tasks?: Array<AuditMitigationActionsTaskMetadata>;
+}
+
+export namespace ListAuditMitigationActionsTasksResponse {
+  export function isa(o: any): o is ListAuditMitigationActionsTasksResponse {
+    return _smithy.isa(o, "ListAuditMitigationActionsTasksResponse");
+  }
+}
+
+export interface ListAuditTasksRequest {
+  __type?: "ListAuditTasksRequest";
+  /**
+   *
+   *           <p>The end of the time period.</p>
+   *
+   */
+  endTime: Date | undefined;
+
+  /**
+   *
+   *           <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *           <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *           <p>The beginning of the time period. Audit information is retained for a
+   *               limited time (180 days). Requesting a start time prior to what is retained
+   *               results in an "InvalidRequestException".</p>
+   *
+   */
+  startTime: Date | undefined;
+
+  /**
+   *
+   *           <p>A filter to limit the output to audits with the specified completion
+   *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
+   *
+   */
+  taskStatus?: AuditTaskStatus | string;
+
+  /**
+   *
+   *           <p>A filter to limit the output to the specified type of audit: can be one of
+   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
+   *
+   */
+  taskType?: AuditTaskType | string;
+}
+
+export namespace ListAuditTasksRequest {
+  export function isa(o: any): o is ListAuditTasksRequest {
+    return _smithy.isa(o, "ListAuditTasksRequest");
+  }
+}
+
+export interface ListAuditTasksResponse extends $MetadataBearer {
+  __type?: "ListAuditTasksResponse";
+  /**
+   *
+   *           <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *             if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *           <p>The audits that were performed during the specified time period.</p>
+   *
+   */
+  tasks?: Array<AuditTaskMetadata>;
+}
+
+export namespace ListAuditTasksResponse {
+  export function isa(o: any): o is ListAuditTasksResponse {
+    return _smithy.isa(o, "ListAuditTasksResponse");
+  }
+}
+
+export interface ListMitigationActionsRequest {
+  __type?: "ListMitigationActionsRequest";
+  /**
+   *
+   *          <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
+   *
+   */
+  actionType?: MitigationActionType | string;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListMitigationActionsRequest {
+  export function isa(o: any): o is ListMitigationActionsRequest {
+    return _smithy.isa(o, "ListMitigationActionsRequest");
+  }
+}
+
+export interface ListMitigationActionsResponse extends $MetadataBearer {
+  __type?: "ListMitigationActionsResponse";
+  /**
+   *
+   *          <p>A set of actions that matched the specified filter criteria.</p>
+   *
+   */
+  actionIdentifiers?: Array<MitigationActionIdentifier>;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListMitigationActionsResponse {
+  export function isa(o: any): o is ListMitigationActionsResponse {
+    return _smithy.isa(o, "ListMitigationActionsResponse");
+  }
+}
+
+export interface ListScheduledAuditsRequest {
+  __type?: "ListScheduledAuditsRequest";
+  /**
+   *
+   *           <p>The maximum number of results to return at one time. The default is 25.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *           <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListScheduledAuditsRequest {
+  export function isa(o: any): o is ListScheduledAuditsRequest {
+    return _smithy.isa(o, "ListScheduledAuditsRequest");
+  }
+}
+
+export interface ListScheduledAuditsResponse extends $MetadataBearer {
+  __type?: "ListScheduledAuditsResponse";
+  /**
+   *
+   *           <p>A token that can be used to retrieve the next set of results,
+   *             or <code>null</code> if there are no additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *           <p>The list of scheduled audits.</p>
+   *
+   */
+  scheduledAudits?: Array<ScheduledAuditMetadata>;
+}
+
+export namespace ListScheduledAuditsResponse {
+  export function isa(o: any): o is ListScheduledAuditsResponse {
+    return _smithy.isa(o, "ListScheduledAuditsResponse");
+  }
+}
+
+export interface ListSecurityProfilesForTargetRequest {
+  __type?: "ListSecurityProfilesForTargetRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>If true, return child groups too.</p>
+   *
+   */
+  recursive?: boolean;
+
+  /**
+   *
+   *          <p>The ARN of the target (thing group) whose attached security profiles you want to get.</p>
+   *
+   */
+  securityProfileTargetArn: string | undefined;
+}
+
+export namespace ListSecurityProfilesForTargetRequest {
+  export function isa(o: any): o is ListSecurityProfilesForTargetRequest {
+    return _smithy.isa(o, "ListSecurityProfilesForTargetRequest");
+  }
+}
+
+export interface ListSecurityProfilesForTargetResponse extends $MetadataBearer {
+  __type?: "ListSecurityProfilesForTargetResponse";
+  /**
+   *
+   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>A list of security profiles and their associated targets.</p>
+   *
+   */
+  securityProfileTargetMappings?: Array<SecurityProfileTargetMapping>;
+}
+
+export namespace ListSecurityProfilesForTargetResponse {
+  export function isa(o: any): o is ListSecurityProfilesForTargetResponse {
+    return _smithy.isa(o, "ListSecurityProfilesForTargetResponse");
+  }
+}
+
+export interface ListSecurityProfilesRequest {
+  __type?: "ListSecurityProfilesRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListSecurityProfilesRequest {
+  export function isa(o: any): o is ListSecurityProfilesRequest {
+    return _smithy.isa(o, "ListSecurityProfilesRequest");
+  }
+}
+
+export interface ListSecurityProfilesResponse extends $MetadataBearer {
+  __type?: "ListSecurityProfilesResponse";
+  /**
+   *
+   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>A list of security profile identifiers (names and ARNs).</p>
+   *
+   */
+  securityProfileIdentifiers?: Array<SecurityProfileIdentifier>;
+}
+
+export namespace ListSecurityProfilesResponse {
+  export function isa(o: any): o is ListSecurityProfilesResponse {
+    return _smithy.isa(o, "ListSecurityProfilesResponse");
+  }
+}
+
+export interface ListTargetsForSecurityProfileRequest {
+  __type?: "ListTargetsForSecurityProfileRequest";
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The security profile.</p>
+   *
+   */
+  securityProfileName: string | undefined;
+}
+
+export namespace ListTargetsForSecurityProfileRequest {
+  export function isa(o: any): o is ListTargetsForSecurityProfileRequest {
+    return _smithy.isa(o, "ListTargetsForSecurityProfileRequest");
+  }
+}
+
+export interface ListTargetsForSecurityProfileResponse extends $MetadataBearer {
+  __type?: "ListTargetsForSecurityProfileResponse";
+  /**
+   *
+   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The thing groups to which the security profile is attached.</p>
+   *
+   */
+  securityProfileTargets?: Array<SecurityProfileTarget>;
+}
+
+export namespace ListTargetsForSecurityProfileResponse {
+  export function isa(o: any): o is ListTargetsForSecurityProfileResponse {
+    return _smithy.isa(o, "ListTargetsForSecurityProfileResponse");
+  }
+}
+
+export interface ListViolationEventsRequest {
+  __type?: "ListViolationEventsRequest";
+  /**
+   *
+   *          <p>The end time for the alerts to be listed.</p>
+   *
+   */
+  endTime: Date | undefined;
+
+  /**
+   *
+   *          <p>The maximum number of results to return at one time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   *          <p>The token for the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>A filter to limit results to those alerts generated by the specified security profile.</p>
+   *
+   */
+  securityProfileName?: string;
+
+  /**
+   *
+   *          <p>The start time for the alerts to be listed.</p>
+   *
+   */
+  startTime: Date | undefined;
+
+  /**
+   *
+   *          <p>A filter to limit results to those alerts caused by the specified thing.</p>
+   *
+   */
+  thingName?: string;
+}
+
+export namespace ListViolationEventsRequest {
+  export function isa(o: any): o is ListViolationEventsRequest {
+    return _smithy.isa(o, "ListViolationEventsRequest");
+  }
+}
+
+export interface ListViolationEventsResponse extends $MetadataBearer {
+  __type?: "ListViolationEventsResponse";
+  /**
+   *
+   *          <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   *          <p>The security profile violation alerts issued for this account during the given time period,
+   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
+   *
+   */
+  violationEvents?: Array<ViolationEvent>;
+}
+
+export namespace ListViolationEventsResponse {
+  export function isa(o: any): o is ListViolationEventsResponse {
+    return _smithy.isa(o, "ListViolationEventsResponse");
+  }
+}
+
+export interface StartAuditMitigationActionsTaskRequest {
+  __type?: "StartAuditMitigationActionsTaskRequest";
+  /**
+   *
+   *          <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>
+   *
+   */
+  auditCheckToActionsMapping: { [key: string]: Array<string> } | undefined;
+
+  /**
+   *
+   *          <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
+   *
+   */
+  clientRequestToken: string | undefined;
+
+  /**
+   *
+   *          <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
+   *
+   */
+  target: AuditMitigationActionsTaskTarget | undefined;
+
+  /**
+   *
+   *          <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
+   *
+   */
+  taskId: string | undefined;
+}
+
+export namespace StartAuditMitigationActionsTaskRequest {
+  export function isa(o: any): o is StartAuditMitigationActionsTaskRequest {
+    return _smithy.isa(o, "StartAuditMitigationActionsTaskRequest");
+  }
+}
+
+export interface StartAuditMitigationActionsTaskResponse
+  extends $MetadataBearer {
+  __type?: "StartAuditMitigationActionsTaskResponse";
+  /**
+   *
+   *          <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
+   *
+   */
+  taskId?: string;
+}
+
+export namespace StartAuditMitigationActionsTaskResponse {
+  export function isa(o: any): o is StartAuditMitigationActionsTaskResponse {
+    return _smithy.isa(o, "StartAuditMitigationActionsTaskResponse");
+  }
+}
+
+export interface StartOnDemandAuditTaskRequest {
+  __type?: "StartOnDemandAuditTaskRequest";
+  /**
+   *
+   *           <p>Which checks are performed during the audit. The checks you specify must be enabled
+   *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
+   *             to see the list of all checks, including those that are enabled or
+   *             <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
+   *
+   */
+  targetCheckNames: Array<string> | undefined;
+}
+
+export namespace StartOnDemandAuditTaskRequest {
+  export function isa(o: any): o is StartOnDemandAuditTaskRequest {
+    return _smithy.isa(o, "StartOnDemandAuditTaskRequest");
+  }
+}
+
+export interface StartOnDemandAuditTaskResponse extends $MetadataBearer {
+  __type?: "StartOnDemandAuditTaskResponse";
+  /**
+   *
+   *           <p>The ID of the on-demand audit you started.</p>
+   *
+   */
+  taskId?: string;
+}
+
+export namespace StartOnDemandAuditTaskResponse {
+  export function isa(o: any): o is StartOnDemandAuditTaskResponse {
+    return _smithy.isa(o, "StartOnDemandAuditTaskResponse");
   }
 }
 
@@ -16902,498 +15957,6 @@ export namespace UpdateAccountAuditConfigurationResponse {
   }
 }
 
-export interface UpdateAuthorizerRequest {
-  __type?: "UpdateAuthorizerRequest";
-  /**
-   *
-   *          <p>The ARN of the authorizer's Lambda function.</p>
-   *
-   */
-  authorizerFunctionArn?: string;
-
-  /**
-   *
-   *          <p>The authorizer name.</p>
-   *
-   */
-  authorizerName: string | undefined;
-
-  /**
-   *
-   *          <p>The status of the update authorizer request.</p>
-   *
-   */
-  status?: AuthorizerStatus | string;
-
-  /**
-   *
-   *          <p>The key used to extract the token from the HTTP headers. </p>
-   *
-   */
-  tokenKeyName?: string;
-
-  /**
-   *
-   *          <p>The public keys used to verify the token signature.</p>
-   *
-   */
-  tokenSigningPublicKeys?: { [key: string]: string };
-}
-
-export namespace UpdateAuthorizerRequest {
-  export function isa(o: any): o is UpdateAuthorizerRequest {
-    return _smithy.isa(o, "UpdateAuthorizerRequest");
-  }
-}
-
-export interface UpdateAuthorizerResponse extends $MetadataBearer {
-  __type?: "UpdateAuthorizerResponse";
-  /**
-   *
-   *          <p>The authorizer ARN.</p>
-   *
-   */
-  authorizerArn?: string;
-
-  /**
-   *
-   *          <p>The authorizer name.</p>
-   *
-   */
-  authorizerName?: string;
-}
-
-export namespace UpdateAuthorizerResponse {
-  export function isa(o: any): o is UpdateAuthorizerResponse {
-    return _smithy.isa(o, "UpdateAuthorizerResponse");
-  }
-}
-
-export interface UpdateBillingGroupRequest {
-  __type?: "UpdateBillingGroupRequest";
-  /**
-   *
-   * 		       <p>The name of the billing group.</p>
-   *
-   */
-  billingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The properties of the billing group.</p>
-   *
-   */
-  billingGroupProperties: BillingGroupProperties | undefined;
-
-  /**
-   *
-   * 		       <p>The expected version of the billing group. If the version of the billing group does
-   * 			not match the expected version specified in the request, the
-   * 				<code>UpdateBillingGroup</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   *
-   */
-  expectedVersion?: number;
-}
-
-export namespace UpdateBillingGroupRequest {
-  export function isa(o: any): o is UpdateBillingGroupRequest {
-    return _smithy.isa(o, "UpdateBillingGroupRequest");
-  }
-}
-
-export interface UpdateBillingGroupResponse extends $MetadataBearer {
-  __type?: "UpdateBillingGroupResponse";
-  /**
-   *
-   * 		       <p>The latest version of the billing group.</p>
-   *
-   */
-  version?: number;
-}
-
-export namespace UpdateBillingGroupResponse {
-  export function isa(o: any): o is UpdateBillingGroupResponse {
-    return _smithy.isa(o, "UpdateBillingGroupResponse");
-  }
-}
-
-/**
- *
- *         <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
- *
- */
-export interface UpdateCACertificateParams {
-  __type?: "UpdateCACertificateParams";
-  /**
-   *
-   *         <p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
-   *
-   */
-  action: CACertificateUpdateAction | string | undefined;
-}
-
-export namespace UpdateCACertificateParams {
-  export function isa(o: any): o is UpdateCACertificateParams {
-    return _smithy.isa(o, "UpdateCACertificateParams");
-  }
-}
-
-/**
- *
- *          <p>The input to the UpdateCACertificate operation.</p>
- *
- */
-export interface UpdateCACertificateRequest {
-  __type?: "UpdateCACertificateRequest";
-  /**
-   *
-   *          <p>The CA certificate identifier.</p>
-   *
-   */
-  certificateId: string | undefined;
-
-  /**
-   *
-   *          <p>The new value for the auto registration status. Valid values are: "ENABLE" or
-   *          "DISABLE".</p>
-   *
-   */
-  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
-
-  /**
-   *
-   *          <p>The updated status of the CA certificate.</p>
-   *          <p>
-   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
-   *          should not be used.</p>
-   *
-   */
-  newStatus?: CACertificateStatus | string;
-
-  /**
-   *
-   *          <p>Information about the registration configuration.</p>
-   *
-   */
-  registrationConfig?: RegistrationConfig;
-
-  /**
-   *
-   *          <p>If true, removes auto registration.</p>
-   *
-   */
-  removeAutoRegistration?: boolean;
-}
-
-export namespace UpdateCACertificateRequest {
-  export function isa(o: any): o is UpdateCACertificateRequest {
-    return _smithy.isa(o, "UpdateCACertificateRequest");
-  }
-}
-
-/**
- *
- *          <p>The input for the UpdateCertificate operation.</p>
- *
- */
-export interface UpdateCertificateRequest {
-  __type?: "UpdateCertificateRequest";
-  /**
-   *
-   *          <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   *
-   */
-  certificateId: string | undefined;
-
-  /**
-   *
-   *          <p>The new status.</p>
-   *          <p>
-   *             <b>Note:</b> Setting the status to PENDING_TRANSFER will result
-   *          in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It
-   *          is not intended for developer use.</p>
-   *          <p>
-   *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
-   *          should not be used.</p>
-   *
-   */
-  newStatus: CertificateStatus | string | undefined;
-}
-
-export namespace UpdateCertificateRequest {
-  export function isa(o: any): o is UpdateCertificateRequest {
-    return _smithy.isa(o, "UpdateCertificateRequest");
-  }
-}
-
-/**
- *
- *         <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
- *
- */
-export interface UpdateDeviceCertificateParams {
-  __type?: "UpdateDeviceCertificateParams";
-  /**
-   *
-   *         <p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
-   *
-   */
-  action: DeviceCertificateUpdateAction | string | undefined;
-}
-
-export namespace UpdateDeviceCertificateParams {
-  export function isa(o: any): o is UpdateDeviceCertificateParams {
-    return _smithy.isa(o, "UpdateDeviceCertificateParams");
-  }
-}
-
-export interface UpdateDomainConfigurationRequest {
-  __type?: "UpdateDomainConfigurationRequest";
-  /**
-   *
-   *          <p>An object that specifies the authorization service for a domain.</p>
-   *
-   */
-  authorizerConfig?: AuthorizerConfig;
-
-  /**
-   *
-   *          <p>The name of the domain configuration to be updated.</p>
-   *
-   */
-  domainConfigurationName: string | undefined;
-
-  /**
-   *
-   *          <p>The status to which the domain configuration should be updated.</p>
-   *
-   */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
-
-  /**
-   *
-   *          <p>Removes the authorization configuration from a domain.</p>
-   *
-   */
-  removeAuthorizerConfig?: boolean;
-}
-
-export namespace UpdateDomainConfigurationRequest {
-  export function isa(o: any): o is UpdateDomainConfigurationRequest {
-    return _smithy.isa(o, "UpdateDomainConfigurationRequest");
-  }
-}
-
-export interface UpdateDomainConfigurationResponse extends $MetadataBearer {
-  __type?: "UpdateDomainConfigurationResponse";
-  /**
-   *
-   *          <p>The ARN of the domain configuration that was updated.</p>
-   *
-   */
-  domainConfigurationArn?: string;
-
-  /**
-   *
-   *          <p>The name of the domain configuration that was updated.</p>
-   *
-   */
-  domainConfigurationName?: string;
-}
-
-export namespace UpdateDomainConfigurationResponse {
-  export function isa(o: any): o is UpdateDomainConfigurationResponse {
-    return _smithy.isa(o, "UpdateDomainConfigurationResponse");
-  }
-}
-
-export interface UpdateDynamicThingGroupRequest {
-  __type?: "UpdateDynamicThingGroupRequest";
-  /**
-   *
-   * 		       <p>The expected version of the dynamic thing group to update.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group index to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one index is supported: 'AWS_Things'.</p>
-   * 		       </note>
-   *
-   */
-  indexName?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group search query string to update.</p>
-   *
-   */
-  queryString?: string;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group query version to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
-   * 				query version defaults to this value.</p>
-   * 		       </note>
-   *
-   */
-  queryVersion?: string;
-
-  /**
-   *
-   * 		       <p>The name of the dynamic thing group to update.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The dynamic thing group properties to update.</p>
-   *
-   */
-  thingGroupProperties: ThingGroupProperties | undefined;
-}
-
-export namespace UpdateDynamicThingGroupRequest {
-  export function isa(o: any): o is UpdateDynamicThingGroupRequest {
-    return _smithy.isa(o, "UpdateDynamicThingGroupRequest");
-  }
-}
-
-export interface UpdateDynamicThingGroupResponse extends $MetadataBearer {
-  __type?: "UpdateDynamicThingGroupResponse";
-  /**
-   *
-   * 		       <p>The dynamic thing group version.</p>
-   *
-   */
-  version?: number;
-}
-
-export namespace UpdateDynamicThingGroupResponse {
-  export function isa(o: any): o is UpdateDynamicThingGroupResponse {
-    return _smithy.isa(o, "UpdateDynamicThingGroupResponse");
-  }
-}
-
-export interface UpdateEventConfigurationsRequest {
-  __type?: "UpdateEventConfigurationsRequest";
-  /**
-   *
-   * 		       <p>The new event configuration values.</p>
-   *
-   */
-  eventConfigurations?: { [key: string]: Configuration };
-}
-
-export namespace UpdateEventConfigurationsRequest {
-  export function isa(o: any): o is UpdateEventConfigurationsRequest {
-    return _smithy.isa(o, "UpdateEventConfigurationsRequest");
-  }
-}
-
-export interface UpdateEventConfigurationsResponse extends $MetadataBearer {
-  __type?: "UpdateEventConfigurationsResponse";
-}
-
-export namespace UpdateEventConfigurationsResponse {
-  export function isa(o: any): o is UpdateEventConfigurationsResponse {
-    return _smithy.isa(o, "UpdateEventConfigurationsResponse");
-  }
-}
-
-export interface UpdateIndexingConfigurationRequest {
-  __type?: "UpdateIndexingConfigurationRequest";
-  /**
-   *
-   *          <p>Thing group indexing configuration.</p>
-   *
-   */
-  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
-
-  /**
-   *
-   *          <p>Thing indexing configuration.</p>
-   *
-   */
-  thingIndexingConfiguration?: ThingIndexingConfiguration;
-}
-
-export namespace UpdateIndexingConfigurationRequest {
-  export function isa(o: any): o is UpdateIndexingConfigurationRequest {
-    return _smithy.isa(o, "UpdateIndexingConfigurationRequest");
-  }
-}
-
-export interface UpdateIndexingConfigurationResponse extends $MetadataBearer {
-  __type?: "UpdateIndexingConfigurationResponse";
-}
-
-export namespace UpdateIndexingConfigurationResponse {
-  export function isa(o: any): o is UpdateIndexingConfigurationResponse {
-    return _smithy.isa(o, "UpdateIndexingConfigurationResponse");
-  }
-}
-
-export interface UpdateJobRequest {
-  __type?: "UpdateJobRequest";
-  /**
-   *
-   *         <p>Allows you to create criteria to abort a job.</p>
-   *
-   */
-  abortConfig?: AbortConfig;
-
-  /**
-   *
-   *         <p>A short text description of the job.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *         <p>Allows you to create a staged rollout of the job.</p>
-   *
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
-
-  /**
-   *
-   *         <p>The ID of the job to be updated.</p>
-   *
-   */
-  jobId: string | undefined;
-
-  /**
-   *
-   *         <p>Configuration information for pre-signed S3 URLs.</p>
-   *
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   *
-   *         <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
-   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
-   *
-   */
-  timeoutConfig?: TimeoutConfig;
-}
-
-export namespace UpdateJobRequest {
-  export function isa(o: any): o is UpdateJobRequest {
-    return _smithy.isa(o, "UpdateJobRequest");
-  }
-}
-
 export interface UpdateMitigationActionRequest {
   __type?: "UpdateMitigationActionRequest";
   /**
@@ -17444,114 +16007,6 @@ export interface UpdateMitigationActionResponse extends $MetadataBearer {
 export namespace UpdateMitigationActionResponse {
   export function isa(o: any): o is UpdateMitigationActionResponse {
     return _smithy.isa(o, "UpdateMitigationActionResponse");
-  }
-}
-
-export interface UpdateProvisioningTemplateRequest {
-  __type?: "UpdateProvisioningTemplateRequest";
-  /**
-   *
-   *          <p>The ID of the default provisioning template version.</p>
-   *
-   */
-  defaultVersionId?: number;
-
-  /**
-   *
-   *          <p>The description of the fleet provisioning template.</p>
-   *
-   */
-  description?: string;
-
-  /**
-   *
-   *          <p>True to enable the fleet provisioning template, otherwise false.</p>
-   *
-   */
-  enabled?: boolean;
-
-  /**
-   *
-   *          <p>The ARN of the role associated with the provisioning template. This IoT role grants
-   *          permission to provision a device.</p>
-   *
-   */
-  provisioningRoleArn?: string;
-
-  /**
-   *
-   *          <p>The name of the fleet provisioning template.</p>
-   *
-   */
-  templateName: string | undefined;
-}
-
-export namespace UpdateProvisioningTemplateRequest {
-  export function isa(o: any): o is UpdateProvisioningTemplateRequest {
-    return _smithy.isa(o, "UpdateProvisioningTemplateRequest");
-  }
-}
-
-export interface UpdateProvisioningTemplateResponse extends $MetadataBearer {
-  __type?: "UpdateProvisioningTemplateResponse";
-}
-
-export namespace UpdateProvisioningTemplateResponse {
-  export function isa(o: any): o is UpdateProvisioningTemplateResponse {
-    return _smithy.isa(o, "UpdateProvisioningTemplateResponse");
-  }
-}
-
-export interface UpdateRoleAliasRequest {
-  __type?: "UpdateRoleAliasRequest";
-  /**
-   *
-   *          <p>The number of seconds the credential will be valid.</p>
-   *
-   */
-  credentialDurationSeconds?: number;
-
-  /**
-   *
-   *          <p>The role alias to update.</p>
-   *
-   */
-  roleAlias: string | undefined;
-
-  /**
-   *
-   *          <p>The role ARN.</p>
-   *
-   */
-  roleArn?: string;
-}
-
-export namespace UpdateRoleAliasRequest {
-  export function isa(o: any): o is UpdateRoleAliasRequest {
-    return _smithy.isa(o, "UpdateRoleAliasRequest");
-  }
-}
-
-export interface UpdateRoleAliasResponse extends $MetadataBearer {
-  __type?: "UpdateRoleAliasResponse";
-  /**
-   *
-   *          <p>The role alias.</p>
-   *
-   */
-  roleAlias?: string;
-
-  /**
-   *
-   *          <p>The role alias ARN.</p>
-   *
-   */
-  roleAliasArn?: string;
-}
-
-export namespace UpdateRoleAliasResponse {
-  export function isa(o: any): o is UpdateRoleAliasResponse {
-    return _smithy.isa(o, "UpdateRoleAliasResponse");
   }
 }
 
@@ -17779,6 +16234,1927 @@ export namespace UpdateSecurityProfileResponse {
   }
 }
 
+export interface ValidateSecurityProfileBehaviorsRequest {
+  __type?: "ValidateSecurityProfileBehaviorsRequest";
+  /**
+   *
+   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   *
+   */
+  behaviors: Array<Behavior> | undefined;
+}
+
+export namespace ValidateSecurityProfileBehaviorsRequest {
+  export function isa(o: any): o is ValidateSecurityProfileBehaviorsRequest {
+    return _smithy.isa(o, "ValidateSecurityProfileBehaviorsRequest");
+  }
+}
+
+export interface ValidateSecurityProfileBehaviorsResponse
+  extends $MetadataBearer {
+  __type?: "ValidateSecurityProfileBehaviorsResponse";
+  /**
+   *
+   *          <p>True if the behaviors were valid.</p>
+   *
+   */
+  valid?: boolean;
+
+  /**
+   *
+   *          <p>The list of any errors found in the behaviors.</p>
+   *
+   */
+  validationErrors?: Array<ValidationError>;
+}
+
+export namespace ValidateSecurityProfileBehaviorsResponse {
+  export function isa(o: any): o is ValidateSecurityProfileBehaviorsResponse {
+    return _smithy.isa(o, "ValidateSecurityProfileBehaviorsResponse");
+  }
+}
+
+/**
+ *
+ *         <p>Parameters used when defining a mitigation action that move a set of things to a thing group.</p>
+ *
+ */
+export interface AddThingsToThingGroupParams {
+  __type?: "AddThingsToThingGroupParams";
+  /**
+   *
+   *         <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
+   *
+   */
+  overrideDynamicGroups?: boolean;
+
+  /**
+   *
+   *         <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
+   *
+   */
+  thingGroupNames: Array<string> | undefined;
+}
+
+export namespace AddThingsToThingGroupParams {
+  export function isa(o: any): o is AddThingsToThingGroupParams {
+    return _smithy.isa(o, "AddThingsToThingGroupParams");
+  }
+}
+
+export enum CACertificateUpdateAction {
+  DEACTIVATE = "DEACTIVATE"
+}
+
+export enum DeviceCertificateUpdateAction {
+  DEACTIVATE = "DEACTIVATE"
+}
+
+/**
+ *
+ *         <p>Parameters used when defining a mitigation action that enable AWS IoT logging.</p>
+ *
+ */
+export interface EnableIoTLoggingParams {
+  __type?: "EnableIoTLoggingParams";
+  /**
+   *
+   *         <p>Specifies the types of information to be logged.</p>
+   *
+   */
+  logLevel: LogLevel | string | undefined;
+
+  /**
+   *
+   *         <p>The ARN of the IAM role used for logging.</p>
+   *
+   */
+  roleArnForLogging: string | undefined;
+}
+
+export namespace EnableIoTLoggingParams {
+  export function isa(o: any): o is EnableIoTLoggingParams {
+    return _smithy.isa(o, "EnableIoTLoggingParams");
+  }
+}
+
+/**
+ *
+ *         <p>Describes which changes should be applied as part of a mitigation action.</p>
+ *
+ */
+export interface MitigationAction {
+  __type?: "MitigationAction";
+  /**
+   *
+   *         <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   *
+   */
+  actionParams?: MitigationActionParams;
+
+  /**
+   *
+   *         <p>A unique identifier for the mitigation action.</p>
+   *
+   */
+  id?: string;
+
+  /**
+   *
+   *         <p>A user-friendly name for the mitigation action.</p>
+   *
+   */
+  name?: string;
+
+  /**
+   *
+   *         <p>The IAM role ARN used to apply this mitigation action.</p>
+   *
+   */
+  roleArn?: string;
+}
+
+export namespace MitigationAction {
+  export function isa(o: any): o is MitigationAction {
+    return _smithy.isa(o, "MitigationAction");
+  }
+}
+
+/**
+ *
+ *         <p>Information that identifies a mitigation action. This information is returned by ListMitigationActions.</p>
+ *
+ */
+export interface MitigationActionIdentifier {
+  __type?: "MitigationActionIdentifier";
+  /**
+   *
+   *         <p>The IAM role ARN used to apply this mitigation action.</p>
+   *
+   */
+  actionArn?: string;
+
+  /**
+   *
+   *         <p>The friendly name of the mitigation action.</p>
+   *
+   */
+  actionName?: string;
+
+  /**
+   *
+   *         <p>The date when this mitigation action was created.</p>
+   *
+   */
+  creationDate?: Date;
+}
+
+export namespace MitigationActionIdentifier {
+  export function isa(o: any): o is MitigationActionIdentifier {
+    return _smithy.isa(o, "MitigationActionIdentifier");
+  }
+}
+
+/**
+ *
+ *         <p>The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).</p>
+ *
+ */
+export interface MitigationActionParams {
+  __type?: "MitigationActionParams";
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
+   *
+   */
+  addThingsToThingGroupParams?: AddThingsToThingGroupParams;
+
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>
+   *
+   */
+  enableIoTLoggingParams?: EnableIoTLoggingParams;
+
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
+   *
+   */
+  publishFindingToSnsParams?: PublishFindingToSnsParams;
+
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
+   *
+   */
+  replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
+
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
+   *
+   */
+  updateCACertificateParams?: UpdateCACertificateParams;
+
+  /**
+   *
+   *         <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
+   *
+   */
+  updateDeviceCertificateParams?: UpdateDeviceCertificateParams;
+}
+
+export namespace MitigationActionParams {
+  export function isa(o: any): o is MitigationActionParams {
+    return _smithy.isa(o, "MitigationActionParams");
+  }
+}
+
+export enum MitigationActionType {
+  ADD_THINGS_TO_THING_GROUP = "ADD_THINGS_TO_THING_GROUP",
+  ENABLE_IOT_LOGGING = "ENABLE_IOT_LOGGING",
+  PUBLISH_FINDING_TO_SNS = "PUBLISH_FINDING_TO_SNS",
+  REPLACE_DEFAULT_POLICY_VERSION = "REPLACE_DEFAULT_POLICY_VERSION",
+  UPDATE_CA_CERTIFICATE = "UPDATE_CA_CERTIFICATE",
+  UPDATE_DEVICE_CERTIFICATE = "UPDATE_DEVICE_CERTIFICATE"
+}
+
+export enum PolicyTemplateName {
+  BLANK_POLICY = "BLANK_POLICY"
+}
+
+/**
+ *
+ *         <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
+ *
+ */
+export interface PublishFindingToSnsParams {
+  __type?: "PublishFindingToSnsParams";
+  /**
+   *
+   *         <p>The ARN of the topic to which you want to publish the findings.</p>
+   *
+   */
+  topicArn: string | undefined;
+}
+
+export namespace PublishFindingToSnsParams {
+  export function isa(o: any): o is PublishFindingToSnsParams {
+    return _smithy.isa(o, "PublishFindingToSnsParams");
+  }
+}
+
+/**
+ *
+ *         <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
+ *
+ */
+export interface ReplaceDefaultPolicyVersionParams {
+  __type?: "ReplaceDefaultPolicyVersionParams";
+  /**
+   *
+   *         <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
+   *
+   */
+  templateName: PolicyTemplateName | string | undefined;
+}
+
+export namespace ReplaceDefaultPolicyVersionParams {
+  export function isa(o: any): o is ReplaceDefaultPolicyVersionParams {
+    return _smithy.isa(o, "ReplaceDefaultPolicyVersionParams");
+  }
+}
+
+/**
+ *
+ *         <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
+ *
+ */
+export interface UpdateCACertificateParams {
+  __type?: "UpdateCACertificateParams";
+  /**
+   *
+   *         <p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+   *
+   */
+  action: CACertificateUpdateAction | string | undefined;
+}
+
+export namespace UpdateCACertificateParams {
+  export function isa(o: any): o is UpdateCACertificateParams {
+    return _smithy.isa(o, "UpdateCACertificateParams");
+  }
+}
+
+/**
+ *
+ *         <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
+ *
+ */
+export interface UpdateDeviceCertificateParams {
+  __type?: "UpdateDeviceCertificateParams";
+  /**
+   *
+   *         <p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+   *
+   */
+  action: DeviceCertificateUpdateAction | string | undefined;
+}
+
+export namespace UpdateDeviceCertificateParams {
+  export function isa(o: any): o is UpdateDeviceCertificateParams {
+    return _smithy.isa(o, "UpdateDeviceCertificateParams");
+  }
+}
+
+/**
+ *
+ *          <p>Which audit checks are enabled and disabled for this account.</p>
+ *
+ */
+export interface AuditCheckConfiguration {
+  __type?: "AuditCheckConfiguration";
+  /**
+   *
+   *          <p>True if this audit check is enabled for this account.</p>
+   *
+   */
+  enabled?: boolean;
+}
+
+export namespace AuditCheckConfiguration {
+  export function isa(o: any): o is AuditCheckConfiguration {
+    return _smithy.isa(o, "AuditCheckConfiguration");
+  }
+}
+
+/**
+ *
+ *          <p>Information about the audit check.</p>
+ *
+ */
+export interface AuditCheckDetails {
+  __type?: "AuditCheckDetails";
+  /**
+   *
+   *          <p>True if the check is complete and found all resources compliant.</p>
+   *
+   */
+  checkCompliant?: boolean;
+
+  /**
+   *
+   *          <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
+   *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
+   *
+   */
+  checkRunStatus?: AuditCheckRunStatus | string;
+
+  /**
+   *
+   *          <p>The code of any error encountered when this check is performed during this audit.
+   *           One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".</p>
+   *
+   */
+  errorCode?: string;
+
+  /**
+   *
+   *          <p>The message associated with any error encountered when this check is performed during this audit.</p>
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   *          <p>The number of resources that were found noncompliant during the check.</p>
+   *
+   */
+  nonCompliantResourcesCount?: number;
+
+  /**
+   *
+   *          <p>The number of resources on which the check was performed.</p>
+   *
+   */
+  totalResourcesCount?: number;
+}
+
+export namespace AuditCheckDetails {
+  export function isa(o: any): o is AuditCheckDetails {
+    return _smithy.isa(o, "AuditCheckDetails");
+  }
+}
+
+export enum AuditCheckRunStatus {
+  CANCELED = "CANCELED",
+  COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
+  COMPLETED_NON_COMPLIANT = "COMPLETED_NON_COMPLIANT",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  WAITING_FOR_DATA_COLLECTION = "WAITING_FOR_DATA_COLLECTION"
+}
+
+/**
+ *
+ *          <p>The findings (results) of the audit.</p>
+ *
+ */
+export interface AuditFinding {
+  __type?: "AuditFinding";
+  /**
+   *
+   *         <p>The audit check that generated this result.</p>
+   *
+   */
+  checkName?: string;
+
+  /**
+   *
+   *          <p>A unique identifier for this set of audit findings. This identifier is used to apply
+   *       mitigation tasks to one or more sets of findings.</p>
+   *
+   */
+  findingId?: string;
+
+  /**
+   *
+   *         <p>The time the result (finding) was discovered.</p>
+   *
+   */
+  findingTime?: Date;
+
+  /**
+   *
+   *         <p>The resource that was found to be noncompliant with the
+   *         audit check.</p>
+   *
+   */
+  nonCompliantResource?: NonCompliantResource;
+
+  /**
+   *
+   *         <p>The reason the resource was noncompliant.</p>
+   *
+   */
+  reasonForNonCompliance?: string;
+
+  /**
+   *
+   *          <p>A code that indicates the reason that the resource was noncompliant.</p>
+   *
+   */
+  reasonForNonComplianceCode?: string;
+
+  /**
+   *
+   *         <p>The list of related resources.</p>
+   *
+   */
+  relatedResources?: Array<RelatedResource>;
+
+  /**
+   *
+   *         <p>The severity of the result (finding).</p>
+   *
+   */
+  severity?: AuditFindingSeverity | string;
+
+  /**
+   *
+   *         <p>The ID of the audit that generated this result (finding).</p>
+   *
+   */
+  taskId?: string;
+
+  /**
+   *
+   *         <p>The time the audit started.</p>
+   *
+   */
+  taskStartTime?: Date;
+}
+
+export namespace AuditFinding {
+  export function isa(o: any): o is AuditFinding {
+    return _smithy.isa(o, "AuditFinding");
+  }
+}
+
+export enum AuditFindingSeverity {
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM"
+}
+
+export enum AuditFrequency {
+  BIWEEKLY = "BIWEEKLY",
+  DAILY = "DAILY",
+  MONTHLY = "MONTHLY",
+  WEEKLY = "WEEKLY"
+}
+
+/**
+ *
+ *          <p>Returned by ListAuditMitigationActionsTask, this object contains information that describes a mitigation action that has been started.</p>
+ *
+ */
+export interface AuditMitigationActionExecutionMetadata {
+  __type?: "AuditMitigationActionExecutionMetadata";
+  /**
+   *
+   *          <p>The unique identifier for the mitigation action being applied by the task.</p>
+   *
+   */
+  actionId?: string;
+
+  /**
+   *
+   *          <p>The friendly name of the mitigation action being applied by the task.</p>
+   *
+   */
+  actionName?: string;
+
+  /**
+   *
+   *          <p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>
+   *
+   */
+  endTime?: Date;
+
+  /**
+   *
+   *          <p>If an error occurred, the code that indicates which type of error occurred.</p>
+   *
+   */
+  errorCode?: string;
+
+  /**
+   *
+   *          <p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>
+   *
+   */
+  findingId?: string;
+
+  /**
+   *
+   *          <p>If an error occurred, a message that describes the error.</p>
+   *
+   */
+  message?: string;
+
+  /**
+   *
+   *          <p>The date and time when the task was started.</p>
+   *
+   */
+  startTime?: Date;
+
+  /**
+   *
+   *          <p>The current status of the task being executed.</p>
+   *
+   */
+  status?: AuditMitigationActionsExecutionStatus | string;
+
+  /**
+   *
+   *          <p>The unique identifier for the task that applies the mitigation action.</p>
+   *
+   */
+  taskId?: string;
+}
+
+export namespace AuditMitigationActionExecutionMetadata {
+  export function isa(o: any): o is AuditMitigationActionExecutionMetadata {
+    return _smithy.isa(o, "AuditMitigationActionExecutionMetadata");
+  }
+}
+
+export enum AuditMitigationActionsExecutionStatus {
+  CANCELED = "CANCELED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  PENDING = "PENDING",
+  SKIPPED = "SKIPPED"
+}
+
+/**
+ *
+ *          <p>Information about an audit mitigation actions task that is returned by <code>ListAuditMitigationActionsTasks</code>.</p>
+ *
+ */
+export interface AuditMitigationActionsTaskMetadata {
+  __type?: "AuditMitigationActionsTaskMetadata";
+  /**
+   *
+   *          <p>The time at which the audit mitigation actions task was started.</p>
+   *
+   */
+  startTime?: Date;
+
+  /**
+   *
+   *          <p>The unique identifier for the task.</p>
+   *
+   */
+  taskId?: string;
+
+  /**
+   *
+   *          <p>The current state of the audit mitigation actions task.</p>
+   *
+   */
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
+}
+
+export namespace AuditMitigationActionsTaskMetadata {
+  export function isa(o: any): o is AuditMitigationActionsTaskMetadata {
+    return _smithy.isa(o, "AuditMitigationActionsTaskMetadata");
+  }
+}
+
+export enum AuditMitigationActionsTaskStatus {
+  CANCELED = "CANCELED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+/**
+ *
+ *          <p>Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.</p>
+ *
+ */
+export interface AuditMitigationActionsTaskTarget {
+  __type?: "AuditMitigationActionsTaskTarget";
+  /**
+   *
+   *          <p>Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.</p>
+   *
+   */
+  auditCheckToReasonCodeFilter?: { [key: string]: Array<string> };
+
+  /**
+   *
+   *          <p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>
+   *
+   */
+  auditTaskId?: string;
+
+  /**
+   *
+   *          <p>If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.</p>
+   *
+   */
+  findingIds?: Array<string>;
+}
+
+export namespace AuditMitigationActionsTaskTarget {
+  export function isa(o: any): o is AuditMitigationActionsTaskTarget {
+    return _smithy.isa(o, "AuditMitigationActionsTaskTarget");
+  }
+}
+
+/**
+ *
+ *          <p>Information about the targets to which audit notifications are sent.</p>
+ *
+ */
+export interface AuditNotificationTarget {
+  __type?: "AuditNotificationTarget";
+  /**
+   *
+   *          <p>True if notifications to the target are enabled.</p>
+   *
+   */
+  enabled?: boolean;
+
+  /**
+   *
+   *          <p>The ARN of the role that grants permission to send notifications to the target.</p>
+   *
+   */
+  roleArn?: string;
+
+  /**
+   *
+   *          <p>The ARN of the target (SNS topic) to which audit notifications are sent.</p>
+   *
+   */
+  targetArn?: string;
+}
+
+export namespace AuditNotificationTarget {
+  export function isa(o: any): o is AuditNotificationTarget {
+    return _smithy.isa(o, "AuditNotificationTarget");
+  }
+}
+
+export enum AuditNotificationType {
+  SNS = "SNS"
+}
+
+/**
+ *
+ *          <p>The audits that were performed.</p>
+ *
+ */
+export interface AuditTaskMetadata {
+  __type?: "AuditTaskMetadata";
+  /**
+   *
+   *          <p>The ID of this audit.</p>
+   *
+   */
+  taskId?: string;
+
+  /**
+   *
+   *          <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
+   *         "FAILED", or "CANCELED".</p>
+   *
+   */
+  taskStatus?: AuditTaskStatus | string;
+
+  /**
+   *
+   *          <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
+   *
+   */
+  taskType?: AuditTaskType | string;
+}
+
+export namespace AuditTaskMetadata {
+  export function isa(o: any): o is AuditTaskMetadata {
+    return _smithy.isa(o, "AuditTaskMetadata");
+  }
+}
+
+export enum AuditTaskStatus {
+  CANCELED = "CANCELED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS"
+}
+
+export enum AuditTaskType {
+  ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
+  SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK"
+}
+
+export enum DayOfWeek {
+  FRI = "FRI",
+  MON = "MON",
+  SAT = "SAT",
+  SUN = "SUN",
+  THU = "THU",
+  TUE = "TUE",
+  WED = "WED"
+}
+
+/**
+ *
+ *          <p>Information about the resource that was noncompliant with the audit check.</p>
+ *
+ */
+export interface NonCompliantResource {
+  __type?: "NonCompliantResource";
+  /**
+   *
+   *         <p>Other information about the noncompliant resource.</p>
+   *
+   */
+  additionalInfo?: { [key: string]: string };
+
+  /**
+   *
+   *         <p>Information that identifies the noncompliant resource.</p>
+   *
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   *
+   *         <p>The type of the noncompliant resource.</p>
+   *
+   */
+  resourceType?: ResourceType | string;
+}
+
+export namespace NonCompliantResource {
+  export function isa(o: any): o is NonCompliantResource {
+    return _smithy.isa(o, "NonCompliantResource");
+  }
+}
+
+/**
+ *
+ *          <p>Information about the version of the policy associated with the resource.</p>
+ *
+ */
+export interface PolicyVersionIdentifier {
+  __type?: "PolicyVersionIdentifier";
+  /**
+   *
+   *         <p>The name of the policy.</p>
+   *
+   */
+  policyName?: string;
+
+  /**
+   *
+   *          <p>The ID of the version of the policy associated with the resource.</p>
+   *
+   */
+  policyVersionId?: string;
+}
+
+export namespace PolicyVersionIdentifier {
+  export function isa(o: any): o is PolicyVersionIdentifier {
+    return _smithy.isa(o, "PolicyVersionIdentifier");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a related resource.</p>
+ *
+ */
+export interface RelatedResource {
+  __type?: "RelatedResource";
+  /**
+   *
+   *          <p>Other information about the resource.</p>
+   *
+   */
+  additionalInfo?: { [key: string]: string };
+
+  /**
+   *
+   *         <p>Information that identifies the resource.</p>
+   *
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   *
+   *         <p>The type of resource.</p>
+   *
+   */
+  resourceType?: ResourceType | string;
+}
+
+export namespace RelatedResource {
+  export function isa(o: any): o is RelatedResource {
+    return _smithy.isa(o, "RelatedResource");
+  }
+}
+
+/**
+ *
+ *          <p>Information that identifies the noncompliant resource.</p>
+ *
+ */
+export interface ResourceIdentifier {
+  __type?: "ResourceIdentifier";
+  /**
+   *
+   *         <p>The account with which the resource is associated.</p>
+   *
+   */
+  account?: string;
+
+  /**
+   *
+   *          <p>The ID of the CA certificate used to authorize the certificate.</p>
+   *
+   */
+  caCertificateId?: string;
+
+  /**
+   *
+   *         <p>The client ID.</p>
+   *
+   */
+  clientId?: string;
+
+  /**
+   *
+   *         <p>The ID of the Amazon Cognito identity pool.</p>
+   *
+   */
+  cognitoIdentityPoolId?: string;
+
+  /**
+   *
+   *          <p>The ID of the certificate attached to the resource.</p>
+   *
+   */
+  deviceCertificateId?: string;
+
+  /**
+   *
+   *          <p>The ARN of the IAM role that has overly permissive actions.</p>
+   *
+   */
+  iamRoleArn?: string;
+
+  /**
+   *
+   *          <p>The version of the policy associated with the resource.</p>
+   *
+   */
+  policyVersionIdentifier?: PolicyVersionIdentifier;
+
+  /**
+   *
+   *          <p>The ARN of the role alias that has overly permissive actions.</p>
+   *
+   */
+  roleAliasArn?: string;
+}
+
+export namespace ResourceIdentifier {
+  export function isa(o: any): o is ResourceIdentifier {
+    return _smithy.isa(o, "ResourceIdentifier");
+  }
+}
+
+export enum ResourceType {
+  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
+  CA_CERTIFICATE = "CA_CERTIFICATE",
+  CLIENT_ID = "CLIENT_ID",
+  COGNITO_IDENTITY_POOL = "COGNITO_IDENTITY_POOL",
+  DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
+  IAM_ROLE = "IAM_ROLE",
+  IOT_POLICY = "IOT_POLICY",
+  ROLE_ALIAS = "ROLE_ALIAS"
+}
+
+/**
+ *
+ *          <p>Information about the scheduled audit.</p>
+ *
+ */
+export interface ScheduledAuditMetadata {
+  __type?: "ScheduledAuditMetadata";
+  /**
+   *
+   *          <p>The day of the month on which the scheduled audit is run (if the
+   *           <code>frequency</code> is "MONTHLY").
+   *         If days 29-31 are specified, and the month does not have that many
+   *         days, the audit takes place on the "LAST" day of the month.</p>
+   *
+   */
+  dayOfMonth?: string;
+
+  /**
+   *
+   *          <p>The day of the week on which the scheduled audit is run (if the
+   *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
+   *
+   */
+  dayOfWeek?: DayOfWeek | string;
+
+  /**
+   *
+   *          <p>How often the scheduled audit occurs.</p>
+   *
+   */
+  frequency?: AuditFrequency | string;
+
+  /**
+   *
+   *          <p>The ARN of the scheduled audit.</p>
+   *
+   */
+  scheduledAuditArn?: string;
+
+  /**
+   *
+   *          <p>The name of the scheduled audit.</p>
+   *
+   */
+  scheduledAuditName?: string;
+}
+
+export namespace ScheduledAuditMetadata {
+  export function isa(o: any): o is ScheduledAuditMetadata {
+    return _smithy.isa(o, "ScheduledAuditMetadata");
+  }
+}
+
+/**
+ *
+ *          <p>This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.</p>
+ *
+ */
+export interface TaskAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "TaskAlreadyExistsException";
+  name: "TaskAlreadyExistsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TaskAlreadyExistsException {
+  export function isa(o: any): o is TaskAlreadyExistsException {
+    return _smithy.isa(o, "TaskAlreadyExistsException");
+  }
+}
+
+/**
+ *
+ *          <p>Statistics for the checks performed during the audit.</p>
+ *
+ */
+export interface TaskStatistics {
+  __type?: "TaskStatistics";
+  /**
+   *
+   *          <p>The number of checks that did not run because the audit was canceled.</p>
+   *
+   */
+  canceledChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks that found compliant resources.</p>
+   *
+   */
+  compliantChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks.</p>
+   *
+   */
+  failedChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks in progress.</p>
+   *
+   */
+  inProgressChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks that found noncompliant resources.</p>
+   *
+   */
+  nonCompliantChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks in this audit.</p>
+   *
+   */
+  totalChecks?: number;
+
+  /**
+   *
+   *          <p>The number of checks waiting for data collection.</p>
+   *
+   */
+  waitingForDataCollectionChecks?: number;
+}
+
+export namespace TaskStatistics {
+  export function isa(o: any): o is TaskStatistics {
+    return _smithy.isa(o, "TaskStatistics");
+  }
+}
+
+/**
+ *
+ *          <p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>
+ *
+ */
+export interface TaskStatisticsForAuditCheck {
+  __type?: "TaskStatisticsForAuditCheck";
+  /**
+   *
+   *          <p>The number of findings to which the mitigation action task was canceled when applied.</p>
+   *
+   */
+  canceledFindingsCount?: number;
+
+  /**
+   *
+   *          <p>The number of findings for which at least one of the actions failed when applied.</p>
+   *
+   */
+  failedFindingsCount?: number;
+
+  /**
+   *
+   *          <p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>
+   *
+   */
+  skippedFindingsCount?: number;
+
+  /**
+   *
+   *          <p>The number of findings for which all mitigation actions succeeded when applied.</p>
+   *
+   */
+  succeededFindingsCount?: number;
+
+  /**
+   *
+   *          <p>The total number of findings to which a task is being applied.</p>
+   *
+   */
+  totalFindingsCount?: number;
+}
+
+export namespace TaskStatisticsForAuditCheck {
+  export function isa(o: any): o is TaskStatisticsForAuditCheck {
+    return _smithy.isa(o, "TaskStatisticsForAuditCheck");
+  }
+}
+
+/**
+ *
+ *          <p>Information about an active Device Defender security profile behavior violation.</p>
+ *
+ */
+export interface ActiveViolation {
+  __type?: "ActiveViolation";
+  /**
+   *
+   *          <p>The behavior which is being violated.</p>
+   *
+   */
+  behavior?: Behavior;
+
+  /**
+   *
+   *          <p>The time the most recent violation occurred.</p>
+   *
+   */
+  lastViolationTime?: Date;
+
+  /**
+   *
+   *          <p>The value of the metric (the measurement) which caused the most recent violation.</p>
+   *
+   */
+  lastViolationValue?: MetricValue;
+
+  /**
+   *
+   *          <p>The security profile whose behavior is in violation.</p>
+   *
+   */
+  securityProfileName?: string;
+
+  /**
+   *
+   *          <p>The name of the thing responsible for the active violation.</p>
+   *
+   */
+  thingName?: string;
+
+  /**
+   *
+   *          <p>The ID of the active violation.</p>
+   *
+   */
+  violationId?: string;
+
+  /**
+   *
+   *          <p>The time the violation started.</p>
+   *
+   */
+  violationStartTime?: Date;
+}
+
+export namespace ActiveViolation {
+  export function isa(o: any): o is ActiveViolation {
+    return _smithy.isa(o, "ActiveViolation");
+  }
+}
+
+/**
+ *
+ *          <p>A structure containing the alert target ARN and the role ARN.</p>
+ *
+ */
+export interface AlertTarget {
+  __type?: "AlertTarget";
+  /**
+   *
+   *          <p>The ARN of the notification target to which alerts are sent.</p>
+   *
+   */
+  alertTargetArn: string | undefined;
+
+  /**
+   *
+   *          <p>The ARN of the role that grants permission to send alerts to the
+   *         notification target.</p>
+   *
+   */
+  roleArn: string | undefined;
+}
+
+export namespace AlertTarget {
+  export function isa(o: any): o is AlertTarget {
+    return _smithy.isa(o, "AlertTarget");
+  }
+}
+
+export enum AlertTargetType {
+  SNS = "SNS"
+}
+
+/**
+ *
+ *          <p>A Device Defender security profile behavior.</p>
+ *
+ */
+export interface Behavior {
+  __type?: "Behavior";
+  /**
+   *
+   *          <p>The criteria that determine if a device is behaving normally in regard to
+   *           the <code>metric</code>.</p>
+   *
+   */
+  criteria?: BehaviorCriteria;
+
+  /**
+   *
+   *          <p>What is measured by the behavior.</p>
+   *
+   */
+  metric?: string;
+
+  /**
+   *
+   *          <p>The name you have given to the behavior.</p>
+   *
+   */
+  name: string | undefined;
+}
+
+export namespace Behavior {
+  export function isa(o: any): o is Behavior {
+    return _smithy.isa(o, "Behavior");
+  }
+}
+
+/**
+ *
+ *          <p>The criteria by which the behavior is determined to be normal.</p>
+ *
+ */
+export interface BehaviorCriteria {
+  __type?: "BehaviorCriteria";
+  /**
+   *
+   *          <p>The operator that relates the thing measured (<code>metric</code>) to the criteria
+   *           (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
+   *
+   */
+  comparisonOperator?: ComparisonOperator | string;
+
+  /**
+   *
+   *          <p>If a device is in violation of the behavior for the specified number of consecutive
+   *           datapoints, an alarm occurs. If not specified, the default is 1.</p>
+   *
+   */
+  consecutiveDatapointsToAlarm?: number;
+
+  /**
+   *
+   *          <p>If an alarm has occurred and the offending device is no longer in violation of the behavior
+   *           for the specified number of consecutive datapoints, the alarm is cleared. If not specified,
+   *           the default is 1.</p>
+   *
+   */
+  consecutiveDatapointsToClear?: number;
+
+  /**
+   *
+   *          <p>Use this to specify the time duration over which the behavior is evaluated,
+   *           for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).
+   *           For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are
+   *           accumulated over this time duration before being used to calculate percentiles, and later,
+   *           measurements from an individual device are also accumulated over this time duration before being
+   *           given a percentile rank.</p>
+   *
+   */
+  durationSeconds?: number;
+
+  /**
+   *
+   *          <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
+   *           is determined to be in compliance or in violation of the behavior.</p>
+   *
+   */
+  statisticalThreshold?: StatisticalThreshold;
+
+  /**
+   *
+   *          <p>The value to be compared with the <code>metric</code>.</p>
+   *
+   */
+  value?: MetricValue;
+}
+
+export namespace BehaviorCriteria {
+  export function isa(o: any): o is BehaviorCriteria {
+    return _smithy.isa(o, "BehaviorCriteria");
+  }
+}
+
+export enum ComparisonOperator {
+  GREATER_THAN = "greater-than",
+  GREATER_THAN_EQUALS = "greater-than-equals",
+  IN_CIDR_SET = "in-cidr-set",
+  IN_PORT_SET = "in-port-set",
+  LESS_THAN = "less-than",
+  LESS_THAN_EQUALS = "less-than-equals",
+  NOT_IN_CIDR_SET = "not-in-cidr-set",
+  NOT_IN_PORT_SET = "not-in-port-set"
+}
+
+/**
+ *
+ *          <p>The value to be compared with the <code>metric</code>.</p>
+ *
+ */
+export interface MetricValue {
+  __type?: "MetricValue";
+  /**
+   *
+   *          <p>If the <code>comparisonOperator</code> calls for a set of CIDRs, use this
+   *           to specify that set to be compared with the <code>metric</code>.</p>
+   *
+   */
+  cidrs?: Array<string>;
+
+  /**
+   *
+   *          <p>If the <code>comparisonOperator</code> calls for a numeric value, use this
+   *           to specify that numeric value to be compared with the <code>metric</code>.</p>
+   *
+   */
+  count?: number;
+
+  /**
+   *
+   *          <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
+   *           to specify that set to be compared with the <code>metric</code>.</p>
+   *
+   */
+  ports?: Array<number>;
+}
+
+export namespace MetricValue {
+  export function isa(o: any): o is MetricValue {
+    return _smithy.isa(o, "MetricValue");
+  }
+}
+
+/**
+ *
+ *          <p>Identifying information for a Device Defender security profile.</p>
+ *
+ */
+export interface SecurityProfileIdentifier {
+  __type?: "SecurityProfileIdentifier";
+  /**
+   *
+   *          <p>The ARN of the security profile.</p>
+   *
+   */
+  arn: string | undefined;
+
+  /**
+   *
+   *          <p>The name you have given to the security profile.</p>
+   *
+   */
+  name: string | undefined;
+}
+
+export namespace SecurityProfileIdentifier {
+  export function isa(o: any): o is SecurityProfileIdentifier {
+    return _smithy.isa(o, "SecurityProfileIdentifier");
+  }
+}
+
+/**
+ *
+ *          <p>A target to which an alert is sent when a security profile behavior is
+ *           violated.</p>
+ *
+ */
+export interface SecurityProfileTarget {
+  __type?: "SecurityProfileTarget";
+  /**
+   *
+   *          <p>The ARN of the security profile.</p>
+   *
+   */
+  arn: string | undefined;
+}
+
+export namespace SecurityProfileTarget {
+  export function isa(o: any): o is SecurityProfileTarget {
+    return _smithy.isa(o, "SecurityProfileTarget");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a security profile and the target associated with it.</p>
+ *
+ */
+export interface SecurityProfileTargetMapping {
+  __type?: "SecurityProfileTargetMapping";
+  /**
+   *
+   *          <p>Information that identifies the security profile.</p>
+   *
+   */
+  securityProfileIdentifier?: SecurityProfileIdentifier;
+
+  /**
+   *
+   *          <p>Information about the target (thing group) associated with the security profile.</p>
+   *
+   */
+  target?: SecurityProfileTarget;
+}
+
+export namespace SecurityProfileTargetMapping {
+  export function isa(o: any): o is SecurityProfileTargetMapping {
+    return _smithy.isa(o, "SecurityProfileTargetMapping");
+  }
+}
+
+/**
+ *
+ *          <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
+ *           is determined to be in compliance or in violation of the behavior.</p>
+ *
+ */
+export interface StatisticalThreshold {
+  __type?: "StatisticalThreshold";
+  /**
+   *
+   *          <p>The percentile which resolves to a threshold value by which compliance with a behavior is
+   *           determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from
+   *           all reporting devices in your account and statistical ranks are calculated. Then, the measurements
+   *           from a device are collected over the same period. If the accumulated measurements from the device
+   *           fall above or below (<code>comparisonOperator</code>) the value associated with the percentile
+   *           specified, then the device is considered to be in compliance with the behavior, otherwise a
+   *           violation occurs.</p>
+   *
+   */
+  statistic?: string;
+}
+
+export namespace StatisticalThreshold {
+  export function isa(o: any): o is StatisticalThreshold {
+    return _smithy.isa(o, "StatisticalThreshold");
+  }
+}
+
+/**
+ *
+ *          <p>Information about an error found in a behavior specification.</p>
+ *
+ */
+export interface ValidationError {
+  __type?: "ValidationError";
+  /**
+   *
+   *          <p>The description of an error found in the behaviors.</p>
+   *
+   */
+  errorMessage?: string;
+}
+
+export namespace ValidationError {
+  export function isa(o: any): o is ValidationError {
+    return _smithy.isa(o, "ValidationError");
+  }
+}
+
+/**
+ *
+ *          <p>Information about a Device Defender security profile behavior violation.</p>
+ *
+ */
+export interface ViolationEvent {
+  __type?: "ViolationEvent";
+  /**
+   *
+   *          <p>The behavior which was violated.</p>
+   *
+   */
+  behavior?: Behavior;
+
+  /**
+   *
+   *         <p>The value of the metric (the measurement).</p>
+   *
+   */
+  metricValue?: MetricValue;
+
+  /**
+   *
+   *          <p>The name of the security profile whose behavior was violated.</p>
+   *
+   */
+  securityProfileName?: string;
+
+  /**
+   *
+   *          <p>The name of the thing responsible for the violation event.</p>
+   *
+   */
+  thingName?: string;
+
+  /**
+   *
+   *          <p>The time the violation event occurred.</p>
+   *
+   */
+  violationEventTime?: Date;
+
+  /**
+   *
+   *          <p>The type of violation event.</p>
+   *
+   */
+  violationEventType?: ViolationEventType | string;
+
+  /**
+   *
+   *          <p>The ID of the violation event.</p>
+   *
+   */
+  violationId?: string;
+}
+
+export namespace ViolationEvent {
+  export function isa(o: any): o is ViolationEvent {
+    return _smithy.isa(o, "ViolationEvent");
+  }
+}
+
+export enum ViolationEventType {
+  ALARM_CLEARED = "alarm-cleared",
+  ALARM_INVALIDATED = "alarm-invalidated",
+  IN_ALARM = "in-alarm"
+}
+
+export interface CreateStreamRequest {
+  __type?: "CreateStreamRequest";
+  /**
+   *
+   * 		       <p>A description of the stream.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>The files to stream.</p>
+   *
+   */
+  files: Array<StreamFile> | undefined;
+
+  /**
+   *
+   * 		       <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
+   *
+   */
+  roleArn: string | undefined;
+
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId: string | undefined;
+
+  /**
+   *
+   * 		       <p>Metadata which can be used to manage streams.</p>
+   *
+   */
+  tags?: Array<Tag>;
+}
+
+export namespace CreateStreamRequest {
+  export function isa(o: any): o is CreateStreamRequest {
+    return _smithy.isa(o, "CreateStreamRequest");
+  }
+}
+
+export interface CreateStreamResponse extends $MetadataBearer {
+  __type?: "CreateStreamResponse";
+  /**
+   *
+   * 		       <p>A description of the stream.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>The stream ARN.</p>
+   *
+   */
+  streamArn?: string;
+
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId?: string;
+
+  /**
+   *
+   * 		       <p>The version of the stream.</p>
+   *
+   */
+  streamVersion?: number;
+}
+
+export namespace CreateStreamResponse {
+  export function isa(o: any): o is CreateStreamResponse {
+    return _smithy.isa(o, "CreateStreamResponse");
+  }
+}
+
+export interface DeleteStreamRequest {
+  __type?: "DeleteStreamRequest";
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId: string | undefined;
+}
+
+export namespace DeleteStreamRequest {
+  export function isa(o: any): o is DeleteStreamRequest {
+    return _smithy.isa(o, "DeleteStreamRequest");
+  }
+}
+
+export interface DeleteStreamResponse extends $MetadataBearer {
+  __type?: "DeleteStreamResponse";
+}
+
+export namespace DeleteStreamResponse {
+  export function isa(o: any): o is DeleteStreamResponse {
+    return _smithy.isa(o, "DeleteStreamResponse");
+  }
+}
+
+export interface DescribeStreamRequest {
+  __type?: "DescribeStreamRequest";
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId: string | undefined;
+}
+
+export namespace DescribeStreamRequest {
+  export function isa(o: any): o is DescribeStreamRequest {
+    return _smithy.isa(o, "DescribeStreamRequest");
+  }
+}
+
+export interface DescribeStreamResponse extends $MetadataBearer {
+  __type?: "DescribeStreamResponse";
+  /**
+   *
+   * 		       <p>Information about the stream.</p>
+   *
+   */
+  streamInfo?: StreamInfo;
+}
+
+export namespace DescribeStreamResponse {
+  export function isa(o: any): o is DescribeStreamResponse {
+    return _smithy.isa(o, "DescribeStreamResponse");
+  }
+}
+
+export interface ListStreamsRequest {
+  __type?: "ListStreamsRequest";
+  /**
+   *
+   * 		       <p>Set to true to return the list of streams in ascending order.</p>
+   *
+   */
+  ascendingOrder?: boolean;
+
+  /**
+   *
+   * 		       <p>The maximum number of results to return at a time.</p>
+   *
+   */
+  maxResults?: number;
+
+  /**
+   *
+   * 		       <p>A token used to get the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+}
+
+export namespace ListStreamsRequest {
+  export function isa(o: any): o is ListStreamsRequest {
+    return _smithy.isa(o, "ListStreamsRequest");
+  }
+}
+
+export interface ListStreamsResponse extends $MetadataBearer {
+  __type?: "ListStreamsResponse";
+  /**
+   *
+   * 		       <p>A token used to get the next set of results.</p>
+   *
+   */
+  nextToken?: string;
+
+  /**
+   *
+   * 		       <p>A list of streams.</p>
+   *
+   */
+  streams?: Array<StreamSummary>;
+}
+
+export namespace ListStreamsResponse {
+  export function isa(o: any): o is ListStreamsResponse {
+    return _smithy.isa(o, "ListStreamsResponse");
+  }
+}
+
+/**
+ *
+ * 		       <p>Represents a file to stream.</p>
+ *
+ */
+export interface StreamFile {
+  __type?: "StreamFile";
+  /**
+   *
+   * 		       <p>The file ID.</p>
+   *
+   */
+  fileId?: number;
+
+  /**
+   *
+   * 		       <p>The location of the file in S3.</p>
+   *
+   */
+  s3Location?: S3Location;
+}
+
+export namespace StreamFile {
+  export function isa(o: any): o is StreamFile {
+    return _smithy.isa(o, "StreamFile");
+  }
+}
+
+/**
+ *
+ * 		       <p>Information about a stream.</p>
+ *
+ */
+export interface StreamInfo {
+  __type?: "StreamInfo";
+  /**
+   *
+   * 		       <p>The date when the stream was created.</p>
+   *
+   */
+  createdAt?: Date;
+
+  /**
+   *
+   * 		       <p>The description of the stream.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>The files to stream.</p>
+   *
+   */
+  files?: Array<StreamFile>;
+
+  /**
+   *
+   * 		       <p>The date when the stream was last updated.</p>
+   *
+   */
+  lastUpdatedAt?: Date;
+
+  /**
+   *
+   * 		       <p>An IAM role AWS IoT assumes to access your S3 files.</p>
+   *
+   */
+  roleArn?: string;
+
+  /**
+   *
+   * 		       <p>The stream ARN.</p>
+   *
+   */
+  streamArn?: string;
+
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId?: string;
+
+  /**
+   *
+   * 		       <p>The stream version.</p>
+   *
+   */
+  streamVersion?: number;
+}
+
+export namespace StreamInfo {
+  export function isa(o: any): o is StreamInfo {
+    return _smithy.isa(o, "StreamInfo");
+  }
+}
+
+/**
+ *
+ * 		       <p>A summary of a stream.</p>
+ *
+ */
+export interface StreamSummary {
+  __type?: "StreamSummary";
+  /**
+   *
+   * 		       <p>A description of the stream.</p>
+   *
+   */
+  description?: string;
+
+  /**
+   *
+   * 		       <p>The stream ARN.</p>
+   *
+   */
+  streamArn?: string;
+
+  /**
+   *
+   * 		       <p>The stream ID.</p>
+   *
+   */
+  streamId?: string;
+
+  /**
+   *
+   * 		       <p>The stream version.</p>
+   *
+   */
+  streamVersion?: number;
+}
+
+export namespace StreamSummary {
+  export function isa(o: any): o is StreamSummary {
+    return _smithy.isa(o, "StreamSummary");
+  }
+}
+
 export interface UpdateStreamRequest {
   __type?: "UpdateStreamRequest";
   /**
@@ -17853,413 +18229,37 @@ export namespace UpdateStreamResponse {
   }
 }
 
-export interface UpdateThingGroupRequest {
-  __type?: "UpdateThingGroupRequest";
-  /**
-   *
-   * 		       <p>The expected version of the thing group. If this does not match the version of the
-   * 			thing group being updated, the update will fail.</p>
-   *
-   */
-  expectedVersion?: number;
-
-  /**
-   *
-   * 		       <p>The thing group to update.</p>
-   *
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The thing group properties.</p>
-   *
-   */
-  thingGroupProperties: ThingGroupProperties | undefined;
-}
-
-export namespace UpdateThingGroupRequest {
-  export function isa(o: any): o is UpdateThingGroupRequest {
-    return _smithy.isa(o, "UpdateThingGroupRequest");
-  }
-}
-
-export interface UpdateThingGroupResponse extends $MetadataBearer {
-  __type?: "UpdateThingGroupResponse";
-  /**
-   *
-   * 		       <p>The version of the updated thing group.</p>
-   *
-   */
-  version?: number;
-}
-
-export namespace UpdateThingGroupResponse {
-  export function isa(o: any): o is UpdateThingGroupResponse {
-    return _smithy.isa(o, "UpdateThingGroupResponse");
-  }
-}
-
-export interface UpdateThingGroupsForThingRequest {
-  __type?: "UpdateThingGroupsForThingRequest";
-  /**
-   *
-   * 		       <p>Override dynamic thing groups with static thing groups when 10-group limit is
-   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
-   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
-   * 			dynamic group.</p>
-   *
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
-   *
-   * 		       <p>The groups to which the thing will be added.</p>
-   *
-   */
-  thingGroupsToAdd?: Array<string>;
-
-  /**
-   *
-   * 		       <p>The groups from which the thing will be removed.</p>
-   *
-   */
-  thingGroupsToRemove?: Array<string>;
-
-  /**
-   *
-   * 		       <p>The thing whose group memberships will be updated.</p>
-   *
-   */
-  thingName?: string;
-}
-
-export namespace UpdateThingGroupsForThingRequest {
-  export function isa(o: any): o is UpdateThingGroupsForThingRequest {
-    return _smithy.isa(o, "UpdateThingGroupsForThingRequest");
-  }
-}
-
-export interface UpdateThingGroupsForThingResponse extends $MetadataBearer {
-  __type?: "UpdateThingGroupsForThingResponse";
-}
-
-export namespace UpdateThingGroupsForThingResponse {
-  export function isa(o: any): o is UpdateThingGroupsForThingResponse {
-    return _smithy.isa(o, "UpdateThingGroupsForThingResponse");
-  }
-}
-
 /**
  *
- * 		       <p>The input for the UpdateThing operation.</p>
+ * 		       <p>The S3 location.</p>
  *
  */
-export interface UpdateThingRequest {
-  __type?: "UpdateThingRequest";
+export interface S3Location {
+  __type?: "S3Location";
   /**
    *
-   * 		       <p>A list of thing attributes, a JSON string containing name-value pairs. For
-   * 			example:</p>
-   * 		       <p>
-   * 			         <code>{\"attributes\":{\"name1\":\"value2\"}}</code>
-   * 		       </p>
-   * 		       <p>This data is used to add new attributes or update existing attributes.</p>
+   * 		       <p>The S3 bucket.</p>
    *
    */
-  attributePayload?: AttributePayload;
+  bucket?: string;
 
   /**
    *
-   * 		       <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>UpdateThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
+   * 		       <p>The S3 key.</p>
    *
    */
-  expectedVersion?: number;
+  key?: string;
 
   /**
    *
-   * 		       <p>Remove a thing type association. If <b>true</b>, the
-   * 			association is removed.</p>
+   * 		       <p>The S3 bucket version.</p>
    *
    */
-  removeThingType?: boolean;
-
-  /**
-   *
-   * 		       <p>The name of the thing to update.</p>
-   *
-   */
-  thingName: string | undefined;
-
-  /**
-   *
-   * 		       <p>The name of the thing type.</p>
-   *
-   */
-  thingTypeName?: string;
+  version?: string;
 }
 
-export namespace UpdateThingRequest {
-  export function isa(o: any): o is UpdateThingRequest {
-    return _smithy.isa(o, "UpdateThingRequest");
-  }
-}
-
-/**
- *
- * 		       <p>The output from the UpdateThing operation.</p>
- *
- */
-export interface UpdateThingResponse extends $MetadataBearer {
-  __type?: "UpdateThingResponse";
-}
-
-export namespace UpdateThingResponse {
-  export function isa(o: any): o is UpdateThingResponse {
-    return _smithy.isa(o, "UpdateThingResponse");
-  }
-}
-
-export interface UpdateTopicRuleDestinationRequest {
-  __type?: "UpdateTopicRuleDestinationRequest";
-  /**
-   *
-   *          <p>The ARN of the topic rule destination.</p>
-   *
-   */
-  arn: string | undefined;
-
-  /**
-   *
-   *          <p>The status of the topic rule destination. Valid values are:</p>
-   *          <dl>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                <p>A topic rule destination was created but has not been confirmed. You can set
-   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *             <dt>ENABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
-   *                   set <code>status</code> to <code>DISABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>DISABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
-   *                   can set <code>status</code> to <code>ENABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>ERROR</dt>
-   *             <dd>
-   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
-   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
-   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *          </dl>
-   *
-   *
-   */
-  status: TopicRuleDestinationStatus | string | undefined;
-}
-
-export namespace UpdateTopicRuleDestinationRequest {
-  export function isa(o: any): o is UpdateTopicRuleDestinationRequest {
-    return _smithy.isa(o, "UpdateTopicRuleDestinationRequest");
-  }
-}
-
-export interface UpdateTopicRuleDestinationResponse extends $MetadataBearer {
-  __type?: "UpdateTopicRuleDestinationResponse";
-}
-
-export namespace UpdateTopicRuleDestinationResponse {
-  export function isa(o: any): o is UpdateTopicRuleDestinationResponse {
-    return _smithy.isa(o, "UpdateTopicRuleDestinationResponse");
-  }
-}
-
-export interface ValidateSecurityProfileBehaviorsRequest {
-  __type?: "ValidateSecurityProfileBehaviorsRequest";
-  /**
-   *
-   *          <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
-   *
-   */
-  behaviors: Array<Behavior> | undefined;
-}
-
-export namespace ValidateSecurityProfileBehaviorsRequest {
-  export function isa(o: any): o is ValidateSecurityProfileBehaviorsRequest {
-    return _smithy.isa(o, "ValidateSecurityProfileBehaviorsRequest");
-  }
-}
-
-export interface ValidateSecurityProfileBehaviorsResponse
-  extends $MetadataBearer {
-  __type?: "ValidateSecurityProfileBehaviorsResponse";
-  /**
-   *
-   *          <p>True if the behaviors were valid.</p>
-   *
-   */
-  valid?: boolean;
-
-  /**
-   *
-   *          <p>The list of any errors found in the behaviors.</p>
-   *
-   */
-  validationErrors?: Array<ValidationError>;
-}
-
-export namespace ValidateSecurityProfileBehaviorsResponse {
-  export function isa(o: any): o is ValidateSecurityProfileBehaviorsResponse {
-    return _smithy.isa(o, "ValidateSecurityProfileBehaviorsResponse");
-  }
-}
-
-/**
- *
- *          <p>Information about an error found in a behavior specification.</p>
- *
- */
-export interface ValidationError {
-  __type?: "ValidationError";
-  /**
-   *
-   *          <p>The description of an error found in the behaviors.</p>
-   *
-   */
-  errorMessage?: string;
-}
-
-export namespace ValidationError {
-  export function isa(o: any): o is ValidationError {
-    return _smithy.isa(o, "ValidationError");
-  }
-}
-
-/**
- *
- *          <p>An exception thrown when the version of an entity specified with the
- *             <code>expectedVersion</code> parameter does not match the latest version in the
- *          system.</p>
- *
- */
-export interface VersionConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "VersionConflictException";
-  name: "VersionConflictException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace VersionConflictException {
-  export function isa(o: any): o is VersionConflictException {
-    return _smithy.isa(o, "VersionConflictException");
-  }
-}
-
-/**
- *
- *          <p>The number of policy versions exceeds the limit.</p>
- *
- */
-export interface VersionsLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
-  __type: "VersionsLimitExceededException";
-  name: "VersionsLimitExceededException";
-  $fault: "client";
-  /**
-   *
-   *          <p>The message for the exception.</p>
-   *
-   */
-  message?: string;
-}
-
-export namespace VersionsLimitExceededException {
-  export function isa(o: any): o is VersionsLimitExceededException {
-    return _smithy.isa(o, "VersionsLimitExceededException");
-  }
-}
-
-/**
- *
- *          <p>Information about a Device Defender security profile behavior violation.</p>
- *
- */
-export interface ViolationEvent {
-  __type?: "ViolationEvent";
-  /**
-   *
-   *          <p>The behavior which was violated.</p>
-   *
-   */
-  behavior?: Behavior;
-
-  /**
-   *
-   *         <p>The value of the metric (the measurement).</p>
-   *
-   */
-  metricValue?: MetricValue;
-
-  /**
-   *
-   *          <p>The name of the security profile whose behavior was violated.</p>
-   *
-   */
-  securityProfileName?: string;
-
-  /**
-   *
-   *          <p>The name of the thing responsible for the violation event.</p>
-   *
-   */
-  thingName?: string;
-
-  /**
-   *
-   *          <p>The time the violation event occurred.</p>
-   *
-   */
-  violationEventTime?: Date;
-
-  /**
-   *
-   *          <p>The type of violation event.</p>
-   *
-   */
-  violationEventType?: ViolationEventType | string;
-
-  /**
-   *
-   *          <p>The ID of the violation event.</p>
-   *
-   */
-  violationId?: string;
-}
-
-export namespace ViolationEvent {
-  export function isa(o: any): o is ViolationEvent {
-    return _smithy.isa(o, "ViolationEvent");
+export namespace S3Location {
+  export function isa(o: any): o is S3Location {
+    return _smithy.isa(o, "S3Location");
   }
 }
