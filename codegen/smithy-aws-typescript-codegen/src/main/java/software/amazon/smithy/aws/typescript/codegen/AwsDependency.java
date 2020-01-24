@@ -50,6 +50,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^1.0.0-alpha.1"),
     MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "^1.0.0-alpha.1"),
     SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs", "^1.0.0-alpha.0"),
+    CHUNKED_STREAM_READER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/chunked-stream-reader-node", "^1.0.0-alpha.0"),
+    CHUNKED_BLOB_READER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/chunked-blob-reader", "^1.0.0-alpha.0"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder", "^1.0.0-alpha.1"),
     XML_PARSER(NORMAL_DEPENDENCY, "pixl-xml", "^1.0.13"),
     XML_PARSER_TYPES(DEV_DEPENDENCY, "@types/pixl-xml", "^1.0.1"),

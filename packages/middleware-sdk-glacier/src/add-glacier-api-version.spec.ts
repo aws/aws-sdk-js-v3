@@ -1,5 +1,6 @@
 import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
 import { HttpRequest } from "@aws-sdk/protocol-http";
+import { commonConfig } from "./fixture";
 
 describe("addGlacierApiVersion", () => {
   const mockNextHandler = jest.fn();
@@ -8,10 +9,16 @@ describe("addGlacierApiVersion", () => {
     jest.clearAllMocks();
   });
 
+  const config = {
+    ...commonConfig,
+    runtime: "node"
+  };
+
   it("sets the x-amz-glacier-version header", async () => {
-    const handler = addGlacierApiVersionMiddleware({
-      apiVersion: "1970-01-01"
-    })(mockNextHandler, {} as any);
+    const handler = addGlacierApiVersionMiddleware(config)(
+      mockNextHandler,
+      {} as any
+    );
 
     await handler({
       input: {},

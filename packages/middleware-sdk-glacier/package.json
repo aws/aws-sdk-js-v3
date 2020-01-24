@@ -13,14 +13,17 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
+    "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/is-array-buffer": "^1.0.0-alpha.2",
+    "@aws-sdk/sha256-tree-hash": "^1.0.0-alpha.1",
+    "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
+    "tslib": "^1.8.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.12",
     "jest": "^24.7.1",
     "typescript": "~3.4.0"
-  },
-  "dependencies": {
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
-    "@aws-sdk/types": "^1.0.0-alpha.4",
-    "tslib": "^1.8.0"
   }
 }
