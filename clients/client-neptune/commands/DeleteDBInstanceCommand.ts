@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import { DBInstance, DeleteDBInstanceMessage } from "../models/index";
+import {
+  DeleteDBInstanceMessage,
+  DeleteDBInstanceResult
+} from "../models/index";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
-export type DeleteDBInstanceCommandOutput = DBInstance;
+export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult;
 
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,

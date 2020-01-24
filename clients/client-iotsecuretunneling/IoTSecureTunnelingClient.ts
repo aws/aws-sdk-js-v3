@@ -192,13 +192,11 @@ export type IoTSecureTunnelingClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig;
 
 /**
- *
- * 		       <fullname>AWS IoT Secure Tunneling</fullname>
+ * <fullname>AWS IoT Secure Tunneling</fullname>
  * 		       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices
  * 			deployed in the field.</p>
  * 		       <p>For more information about how AWS IoT Secure Tunneling works, see the <a href="https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html">User
  * 			Guide</a>.</p>
- *
  */
 export class IoTSecureTunnelingClient extends __Client<
   __HttpHandlerOptions,

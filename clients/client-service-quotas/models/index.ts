@@ -2,10 +2,8 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The action you attempted is not allowed unless Service Access with Service Quotas is
+ * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
  *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
- *
  */
 export interface AWSServiceAccessNotEnabledException
   extends _smithy.SmithyException,
@@ -23,9 +21,7 @@ export namespace AWSServiceAccessNotEnabledException {
 }
 
 /**
- *
- *          <p>You do not have sufficient access to perform this action.</p>
- *
+ * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
   extends _smithy.SmithyException,
@@ -65,23 +61,17 @@ export namespace AssociateServiceQuotaTemplateResponse {
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
-   *
-   *          <p>Specifies the AWS Region for the quota that you want to delete.</p>
-   *
+   * <p>Specifies the AWS Region for the quota that you want to delete.</p>
    */
   AwsRegion: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the code for the quota that you want to delete.</p>
-   *
+   * <p>Specifies the code for the quota that you want to delete.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the code for the service that you want to delete.</p>
-   *
+   * <p>Specifies the code for the service that you want to delete.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -114,9 +104,7 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
 }
 
 /**
- *
- *          <p>You can't perform this action because a dependency does not have access.</p>
- *
+ * <p>You can't perform this action because a dependency does not have access.</p>
  */
 export interface DependencyAccessDeniedException
   extends _smithy.SmithyException,
@@ -162,15 +150,12 @@ export enum ErrorCode {
 }
 
 /**
- *
- *          <p>Returns an error that explains why the action did not succeed.</p>
- *
+ * <p>Returns an error that explains why the action did not succeed.</p>
  */
 export interface ErrorReason {
   __type?: "ErrorReason";
   /**
-   *
-   *          <p>Service Quotas returns the following error values.
+   * <p>Service Quotas returns the following error values.
    *     </p>
    *          <p>
    *             <code>DEPENDENCY_ACCESS_DENIED_ERROR</code> is returned when the caller does not have
@@ -185,14 +170,11 @@ export interface ErrorReason {
    *          <p>
    *             <code>SERVICE_QUOTA_NOT_AVAILABLE_ERROR</code> is returned when there was an error in
    *       Service Quotas.</p>
-   *
    */
   ErrorCode?: ErrorCode | string;
 
   /**
-   *
-   *          <p>The error message that provides more detail.</p>
-   *
+   * <p>The error message that provides more detail.</p>
    */
   ErrorMessage?: string;
 }
@@ -206,16 +188,12 @@ export namespace ErrorReason {
 export interface GetAWSDefaultServiceQuotaRequest {
   __type?: "GetAWSDefaultServiceQuotaRequest";
   /**
-   *
-   *          <p>Identifies the service quota you want to select.</p>
-   *
+   * <p>Identifies the service quota you want to select.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -229,10 +207,8 @@ export namespace GetAWSDefaultServiceQuotaRequest {
 export interface GetAWSDefaultServiceQuotaResponse extends $MetadataBearer {
   __type?: "GetAWSDefaultServiceQuotaResponse";
   /**
-   *
-   *          <p>Returns the <a>ServiceQuota</a> object which contains all values for a
+   * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
    *       quota.</p>
-   *
    */
   Quota?: ServiceQuota;
 }
@@ -259,11 +235,9 @@ export interface GetAssociationForServiceQuotaTemplateResponse
   extends $MetadataBearer {
   __type?: "GetAssociationForServiceQuotaTemplateResponse";
   /**
-   *
-   *          <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
+   * <p>Specifies whether the template is <code>ASSOCIATED</code> or <code>DISASSOCIATED</code>.
    *       If the template is <code>ASSOCIATED</code>, then it requests service quota increases for all
    *       new accounts created in your organization. </p>
-   *
    */
   ServiceQuotaTemplateAssociationStatus?:
     | ServiceQuotaTemplateAssociationStatus
@@ -281,9 +255,7 @@ export namespace GetAssociationForServiceQuotaTemplateResponse {
 export interface GetRequestedServiceQuotaChangeRequest {
   __type?: "GetRequestedServiceQuotaChangeRequest";
   /**
-   *
-   *          <p>Identifies the quota increase request.</p>
-   *
+   * <p>Identifies the quota increase request.</p>
    */
   RequestId: string | undefined;
 }
@@ -298,10 +270,8 @@ export interface GetRequestedServiceQuotaChangeResponse
   extends $MetadataBearer {
   __type?: "GetRequestedServiceQuotaChangeResponse";
   /**
-   *
-   *          <p>Returns the <code>RequestedServiceQuotaChange</code> object for the specific increase
+   * <p>Returns the <code>RequestedServiceQuotaChange</code> object for the specific increase
    *       request.</p>
-   *
    */
   RequestedQuota?: RequestedServiceQuotaChange;
 }
@@ -315,23 +285,17 @@ export namespace GetRequestedServiceQuotaChangeResponse {
 export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
   __type?: "GetServiceQuotaIncreaseRequestFromTemplateRequest";
   /**
-   *
-   *          <p>Specifies the AWS Region for the quota that you want to use.</p>
-   *
+   * <p>Specifies the AWS Region for the quota that you want to use.</p>
    */
   AwsRegion: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the quota you want.</p>
-   *
+   * <p>Specifies the quota you want.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -348,9 +312,7 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateResponse
   extends $MetadataBearer {
   __type?: "GetServiceQuotaIncreaseRequestFromTemplateResponse";
   /**
-   *
-   *          <p>This object contains the details about the quota increase request.</p>
-   *
+   * <p>This object contains the details about the quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
 }
@@ -366,16 +328,12 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
 export interface GetServiceQuotaRequest {
   __type?: "GetServiceQuotaRequest";
   /**
-   *
-   *          <p>Identifies the service quota you want to select.</p>
-   *
+   * <p>Identifies the service quota you want to select.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -389,10 +347,8 @@ export namespace GetServiceQuotaRequest {
 export interface GetServiceQuotaResponse extends $MetadataBearer {
   __type?: "GetServiceQuotaResponse";
   /**
-   *
-   *          <p>Returns the <a>ServiceQuota</a> object which contains all values for a
+   * <p>Returns the <a>ServiceQuota</a> object which contains all values for a
    *       quota.</p>
-   *
    */
   Quota?: ServiceQuota;
 }
@@ -404,9 +360,7 @@ export namespace GetServiceQuotaResponse {
 }
 
 /**
- *
- *          <p>Invalid input was provided. </p>
- *
+ * <p>Invalid input was provided. </p>
  */
 export interface IllegalArgumentException
   extends _smithy.SmithyException,
@@ -424,9 +378,7 @@ export namespace IllegalArgumentException {
 }
 
 /**
- *
- *          <p>Invalid input was provided.</p>
- *
+ * <p>Invalid input was provided.</p>
  */
 export interface InvalidPaginationTokenException
   extends _smithy.SmithyException,
@@ -444,9 +396,7 @@ export namespace InvalidPaginationTokenException {
 }
 
 /**
- *
- *          <p>Invalid input was provided for the . </p>
- *
+ * <p>Invalid input was provided for the . </p>
  */
 export interface InvalidResourceStateException
   extends _smithy.SmithyException,
@@ -466,21 +416,18 @@ export namespace InvalidResourceStateException {
 export interface ListAWSDefaultServiceQuotasRequest {
   __type?: "ListAWSDefaultServiceQuotasRequest";
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from. If additional items exist beyond the specified
@@ -488,14 +435,11 @@ export interface ListAWSDefaultServiceQuotasRequest {
    *       that value as the <code>NextToken</code> request parameter in the call to the operation to get
    *       the next part of the results. You should check <code>NextToken</code> after every operation to
    *       ensure that you receive all of the results.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -509,19 +453,15 @@ export namespace ListAWSDefaultServiceQuotasRequest {
 export interface ListAWSDefaultServiceQuotasResponse extends $MetadataBearer {
   __type?: "ListAWSDefaultServiceQuotasResponse";
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>A list of the quotas in the account with the AWS default values. </p>
-   *
+   * <p>A list of the quotas in the account with the AWS default values. </p>
    */
   Quotas?: Array<ServiceQuota>;
 }
@@ -535,46 +475,36 @@ export namespace ListAWSDefaultServiceQuotasResponse {
 export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaRequest";
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Specifies the service quota that you want to use</p>
-   *
+   * <p>Specifies the service quota that you want to use</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the status value of the quota increase request.</p>
-   *
+   * <p>Specifies the status value of the quota increase request.</p>
    */
   Status?: RequestStatus | string;
 }
@@ -594,21 +524,17 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse
   extends $MetadataBearer {
   __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse";
   /**
-   *
-   *          <p>If present in the response, this value indicates there's more output available that what's
+   * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
    *         <code>NextToken</code> request parameter in a subsequent call to the operation to continue
    *       processing and get the next part of the output. You should repeat this until the
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a list of service quota requests.</p>
-   *
+   * <p>Returns a list of service quota requests.</p>
    */
   RequestedQuotas?: Array<RequestedServiceQuotaChange>;
 }
@@ -627,39 +553,31 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
 export interface ListRequestedServiceQuotaChangeHistoryRequest {
   __type?: "ListRequestedServiceQuotaChangeHistoryRequest";
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode?: string;
 
   /**
-   *
-   *          <p>Specifies the status value of the quota increase request.</p>
-   *
+   * <p>Specifies the status value of the quota increase request.</p>
    */
   Status?: RequestStatus | string;
 }
@@ -676,21 +594,17 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse
   extends $MetadataBearer {
   __type?: "ListRequestedServiceQuotaChangeHistoryResponse";
   /**
-   *
-   *          <p>If present in the response, this value indicates there's more output available that what's
+   * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
    *         <code>NextToken</code> request parameter in a subsequent call to the operation to continue
    *       processing and get the next part of the output. You should repeat this until the
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a list of service quota requests.</p>
-   *
+   * <p>Returns a list of service quota requests.</p>
    */
   RequestedQuotas?: Array<RequestedServiceQuotaChange>;
 }
@@ -706,40 +620,32 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
 export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
   __type?: "ListServiceQuotaIncreaseRequestsInTemplateRequest";
   /**
-   *
-   *          <p>Specifies the AWS Region for the quota that you want to use.</p>
-   *
+   * <p>Specifies the AWS Region for the quota that you want to use.</p>
    */
   AwsRegion?: string;
 
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The identifier for a service. When performing an operation, use the
+   * <p>The identifier for a service. When performing an operation, use the
    *         <code>ServiceCode</code> to specify a particular service. </p>
-   *
    */
   ServiceCode?: string;
 }
@@ -756,21 +662,17 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse
   extends $MetadataBearer {
   __type?: "ListServiceQuotaIncreaseRequestsInTemplateResponse";
   /**
-   *
-   *          <p>If present in the response, this value indicates there's more output available that what's
+   * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
    *         <code>NextToken</code> request parameter in a subsequent call to the operation to continue
    *       processing and get the next part of the output. You should repeat this until the
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns the list of values of the quota increase request in the template.</p>
-   *
+   * <p>Returns the list of values of the quota increase request in the template.</p>
    */
   ServiceQuotaIncreaseRequestInTemplateList?: Array<
     ServiceQuotaIncreaseRequestInTemplate
@@ -788,33 +690,27 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
 export interface ListServiceQuotasRequest {
   __type?: "ListServiceQuotasRequest";
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The identifier for a service. When performing an operation, use the
+   * <p>The identifier for a service. When performing an operation, use the
    *         <code>ServiceCode</code> to specify a particular service. </p>
-   *
    */
   ServiceCode: string | undefined;
 }
@@ -828,22 +724,18 @@ export namespace ListServiceQuotasRequest {
 export interface ListServiceQuotasResponse extends $MetadataBearer {
   __type?: "ListServiceQuotasResponse";
   /**
-   *
-   *          <p>If present in the response, this value indicates there's more output available that what's
+   * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
    *         <code>NextToken</code> request parameter in a subsequent call to the operation to continue
    *       processing and get the next part of the output. You should repeat this until the
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>The response information for a quota lists all attribute information for the quota.
+   * <p>The response information for a quota lists all attribute information for the quota.
    *     </p>
-   *
    */
   Quotas?: Array<ServiceQuota>;
 }
@@ -857,25 +749,21 @@ export namespace ListServiceQuotasResponse {
 export interface ListServicesRequest {
   __type?: "ListServicesRequest";
   /**
-   *
-   *          <p>(Optional) Limits the number of results that you want to include in the response. If you
+   * <p>(Optional) Limits the number of results that you want to include in the response. If you
    *       don't include this parameter, the response defaults to a value that's specific to the
    *       operation. If additional items exist beyond the specified maximum, the <code>NextToken</code>
    *       element is present and has a value (isn't null). Include that value as the
    *         <code>NextToken</code> request parameter in the call to the operation to get the next part
    *       of the results. You should check <code>NextToken</code> after every operation to ensure that
    *       you receive all of the results.</p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *          <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
+   * <p>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
    *       response in a previous request that indicates that there's more output available. In a
    *       subsequent call, set it to the value of the previous call's <code>NextToken</code> response to
    *       indicate where the output should continue from.</p>
-   *
    */
   NextToken?: string;
 }
@@ -889,21 +777,17 @@ export namespace ListServicesRequest {
 export interface ListServicesResponse extends $MetadataBearer {
   __type?: "ListServicesResponse";
   /**
-   *
-   *          <p>If present in the response, this value indicates there's more output available that what's
+   * <p>If present in the response, this value indicates there's more output available that what's
    *       included in the current response. This can occur even when the response includes no values at
    *       all, such as when you ask for a filtered view of a very long list. Use this value in the
    *         <code>NextToken</code> request parameter in a subsequent call to the operation to continue
    *       processing and get the next part of the output. You should repeat this until the
    *         <code>NextToken</code> response element comes back empty (as <code>null</code>).</p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *          <p>Returns a list of services. </p>
-   *
+   * <p>Returns a list of services. </p>
    */
   Services?: Array<ServiceInfo>;
 }
@@ -915,44 +799,34 @@ export namespace ListServicesResponse {
 }
 
 /**
- *
- *          <p>A structure that uses CloudWatch metrics to gather data about the service quota.</p>
- *
+ * <p>A structure that uses CloudWatch metrics to gather data about the service quota.</p>
  */
 export interface MetricInfo {
   __type?: "MetricInfo";
   /**
-   *
-   *          <p>A dimension is a name/value pair that is part of the identity of a metric. Every metric
+   * <p>A dimension is a name/value pair that is part of the identity of a metric. Every metric
    *       has specific characteristics that describe it, and you can think of dimensions as categories
    *       for those characteristics. These dimensions are part of the CloudWatch Metric Identity that
    *       measures usage against a particular service quota.</p>
-   *
    */
   MetricDimensions?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The name of the CloudWatch metric that measures usage of a service quota. This is a
+   * <p>The name of the CloudWatch metric that measures usage of a service quota. This is a
    *       required field.</p>
-   *
    */
   MetricName?: string;
 
   /**
-   *
-   *          <p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can
+   * <p>The namespace of the metric. The namespace is a container for CloudWatch metrics. You can
    *       specify a name for the namespace when you create a metric.</p>
-   *
    */
   MetricNamespace?: string;
 
   /**
-   *
-   *          <p>Statistics are metric data aggregations over specified periods of time. This is the
+   * <p>Statistics are metric data aggregations over specified periods of time. This is the
    *       recommended statistic to use when comparing usage in the CloudWatch Metric against your
    *       Service Quota.</p>
-   *
    */
   MetricStatisticRecommendation?: string;
 }
@@ -964,9 +838,7 @@ export namespace MetricInfo {
 }
 
 /**
- *
- *          <p>The account making this call is not a member of an organization.</p>
- *
+ * <p>The account making this call is not a member of an organization.</p>
  */
 export interface NoAvailableOrganizationException
   extends _smithy.SmithyException,
@@ -984,9 +856,7 @@ export namespace NoAvailableOrganizationException {
 }
 
 /**
- *
- *          <p>The specified resource does not exist.</p>
- *
+ * <p>The specified resource does not exist.</p>
  */
 export interface NoSuchResourceException
   extends _smithy.SmithyException,
@@ -1004,10 +874,8 @@ export namespace NoSuchResourceException {
 }
 
 /**
- *
- *          <p>The organization that your account belongs to, is not in All Features mode. To enable all
+ * <p>The organization that your account belongs to, is not in All Features mode. To enable all
  *       features mode, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">EnableAllFeatures</a>.</p>
- *
  */
 export interface OrganizationNotInAllFeaturesModeException
   extends _smithy.SmithyException,
@@ -1037,30 +905,22 @@ export enum PeriodUnit {
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateRequest";
   /**
-   *
-   *          <p>Specifies the AWS Region for the quota. </p>
-   *
+   * <p>Specifies the AWS Region for the quota. </p>
    */
   AwsRegion: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the new, increased value for the quota. </p>
-   *
+   * <p>Specifies the new, increased value for the quota. </p>
    */
   DesiredValue: number | undefined;
 
   /**
-   *
-   *          <p>Specifies the service quota that you want to use.</p>
-   *
+   * <p>Specifies the service quota that you want to use.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -1077,9 +937,7 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse
   extends $MetadataBearer {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateResponse";
   /**
-   *
-   *          <p>A structure that contains information about one service quota increase request.</p>
-   *
+   * <p>A structure that contains information about one service quota increase request.</p>
    */
   ServiceQuotaIncreaseRequestInTemplate?: ServiceQuotaIncreaseRequestInTemplate;
 }
@@ -1093,10 +951,8 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
 }
 
 /**
- *
- *          <p>You have exceeded your service quota. To perform the requested action, remove some of the
+ * <p>You have exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
- *
  */
 export interface QuotaExceededException
   extends _smithy.SmithyException,
@@ -1114,23 +970,17 @@ export namespace QuotaExceededException {
 }
 
 /**
- *
- *          <p>A structure that contains information about the quota period.</p>
- *
+ * <p>A structure that contains information about the quota period.</p>
  */
 export interface QuotaPeriod {
   __type?: "QuotaPeriod";
   /**
-   *
-   *          <p>The time unit of a period.</p>
-   *
+   * <p>The time unit of a period.</p>
    */
   PeriodUnit?: PeriodUnit | string;
 
   /**
-   *
-   *          <p>The value of a period.</p>
-   *
+   * <p>The value of a period.</p>
    */
   PeriodValue?: number;
 }
@@ -1144,23 +994,17 @@ export namespace QuotaPeriod {
 export interface RequestServiceQuotaIncreaseRequest {
   __type?: "RequestServiceQuotaIncreaseRequest";
   /**
-   *
-   *          <p>Specifies the value submitted in the service quota increase request. </p>
-   *
+   * <p>Specifies the value submitted in the service quota increase request. </p>
    */
   DesiredValue: number | undefined;
 
   /**
-   *
-   *          <p>Specifies the service quota that you want to use.</p>
-   *
+   * <p>Specifies the service quota that you want to use.</p>
    */
   QuotaCode: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode: string | undefined;
 }
@@ -1174,9 +1018,7 @@ export namespace RequestServiceQuotaIncreaseRequest {
 export interface RequestServiceQuotaIncreaseResponse extends $MetadataBearer {
   __type?: "RequestServiceQuotaIncreaseResponse";
   /**
-   *
-   *          <p>Returns a list of service quota requests.</p>
-   *
+   * <p>Returns a list of service quota requests.</p>
    */
   RequestedQuota?: RequestedServiceQuotaChange;
 }
@@ -1196,108 +1038,78 @@ export enum RequestStatus {
 }
 
 /**
- *
- *          <p>A structure that contains information about a requested change for a quota.</p>
- *
+ * <p>A structure that contains information about a requested change for a quota.</p>
  */
 export interface RequestedServiceQuotaChange {
   __type?: "RequestedServiceQuotaChange";
   /**
-   *
-   *          <p>The case Id for the service quota increase request.</p>
-   *
+   * <p>The case Id for the service quota increase request.</p>
    */
   CaseId?: string;
 
   /**
-   *
-   *          <p>The date and time when the service quota increase request was received and the case Id was
+   * <p>The date and time when the service quota increase request was received and the case Id was
    *       created. </p>
-   *
    */
   Created?: Date;
 
   /**
-   *
-   *          <p>New increased value for the service quota.</p>
-   *
+   * <p>New increased value for the service quota.</p>
    */
   DesiredValue?: number;
 
   /**
-   *
-   *          <p>Identifies if the quota is global.</p>
-   *
+   * <p>Identifies if the quota is global.</p>
    */
   GlobalQuota?: boolean;
 
   /**
-   *
-   *          <p>The unique identifier of a requested service quota change.</p>
-   *
+   * <p>The unique identifier of a requested service quota change.</p>
    */
   Id?: string;
 
   /**
-   *
-   *          <p>The date and time of the most recent change in the service quota increase request.</p>
-   *
+   * <p>The date and time of the most recent change in the service quota increase request.</p>
    */
   LastUpdated?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the service quota.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
    */
   QuotaArn?: string;
 
   /**
-   *
-   *          <p>Specifies the service quota that you want to use.</p>
-   *
+   * <p>Specifies the service quota that you want to use.</p>
    */
   QuotaCode?: string;
 
   /**
-   *
-   *          <p>Name of the service quota.</p>
-   *
+   * <p>Name of the service quota.</p>
    */
   QuotaName?: string;
 
   /**
-   *
-   *          <p>The IAM identity who submitted the service quota increase request.</p>
-   *
+   * <p>The IAM identity who submitted the service quota increase request.</p>
    */
   Requester?: string;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode?: string;
 
   /**
-   *
-   *          <p>The name of the AWS service specified in the increase request. </p>
-   *
+   * <p>The name of the AWS service specified in the increase request. </p>
    */
   ServiceName?: string;
 
   /**
-   *
-   *          <p>State of the service quota increase request.</p>
-   *
+   * <p>State of the service quota increase request.</p>
    */
   Status?: RequestStatus | string;
 
   /**
-   *
-   *          <p>Specifies the unit used for the quota.</p>
-   *
+   * <p>Specifies the unit used for the quota.</p>
    */
   Unit?: string;
 }
@@ -1309,9 +1121,7 @@ export namespace RequestedServiceQuotaChange {
 }
 
 /**
- *
- *          <p>The specified resource already exists.</p>
- *
+ * <p>The specified resource already exists.</p>
  */
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
@@ -1329,9 +1139,7 @@ export namespace ResourceAlreadyExistsException {
 }
 
 /**
- *
- *          <p>Something went wrong. </p>
- *
+ * <p>Something went wrong. </p>
  */
 export interface ServiceException
   extends _smithy.SmithyException,
@@ -1349,24 +1157,18 @@ export namespace ServiceException {
 }
 
 /**
- *
- *          <p>A structure that contains the <code>ServiceName</code> and <code>ServiceCode</code>. It
+ * <p>A structure that contains the <code>ServiceName</code> and <code>ServiceCode</code>. It
  *       does not include all details of the service quota. To get those values, use the <a>ListServiceQuotas</a> operation. </p>
- *
  */
 export interface ServiceInfo {
   __type?: "ServiceInfo";
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode?: string;
 
   /**
-   *
-   *          <p>The name of the AWS service specified in the increase request. </p>
-   *
+   * <p>The name of the AWS service specified in the increase request. </p>
    */
   ServiceName?: string;
 }
@@ -1378,94 +1180,68 @@ export namespace ServiceInfo {
 }
 
 /**
- *
- *          <p>A structure that contains the full set of details that define the service quota.</p>
- *
+ * <p>A structure that contains the full set of details that define the service quota.</p>
  */
 export interface ServiceQuota {
   __type?: "ServiceQuota";
   /**
-   *
-   *          <p>Specifies if the quota value can be increased.</p>
-   *
+   * <p>Specifies if the quota value can be increased.</p>
    */
   Adjustable?: boolean;
 
   /**
-   *
-   *          <p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't
+   * <p>Specifies the <code>ErrorCode</code> and <code>ErrorMessage</code> when success isn't
    *       achieved.</p>
-   *
    */
   ErrorReason?: ErrorReason;
 
   /**
-   *
-   *          <p>Specifies if the quota is global.</p>
-   *
+   * <p>Specifies if the quota is global.</p>
    */
   GlobalQuota?: boolean;
 
   /**
-   *
-   *          <p>Identifies the unit and value of how time is measured.</p>
-   *
+   * <p>Identifies the unit and value of how time is measured.</p>
    */
   Period?: QuotaPeriod;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the service quota.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the service quota.</p>
    */
   QuotaArn?: string;
 
   /**
-   *
-   *          <p>The code identifier for the service quota specified.</p>
-   *
+   * <p>The code identifier for the service quota specified.</p>
    */
   QuotaCode?: string;
 
   /**
-   *
-   *          <p>The name identifier of the service quota.</p>
-   *
+   * <p>The name identifier of the service quota.</p>
    */
   QuotaName?: string;
 
   /**
-   *
-   *          <p>Specifies the service that you want to use.</p>
-   *
+   * <p>Specifies the service that you want to use.</p>
    */
   ServiceCode?: string;
 
   /**
-   *
-   *          <p>The name of the AWS service specified in the increase request. </p>
-   *
+   * <p>The name of the AWS service specified in the increase request. </p>
    */
   ServiceName?: string;
 
   /**
-   *
-   *          <p>The unit of measurement for the value of the service quota.</p>
-   *
+   * <p>The unit of measurement for the value of the service quota.</p>
    */
   Unit?: string;
 
   /**
-   *
-   *          <p>Specifies the details about the measurement. </p>
-   *
+   * <p>Specifies the details about the measurement. </p>
    */
   UsageMetric?: MetricInfo;
 
   /**
-   *
-   *          <p>The value of service quota.</p>
-   *
+   * <p>The value of service quota.</p>
    */
   Value?: number;
 }
@@ -1477,65 +1253,47 @@ export namespace ServiceQuota {
 }
 
 /**
- *
- *          <p>A structure that contains information about one service quota increase request.</p>
- *
+ * <p>A structure that contains information about one service quota increase request.</p>
  */
 export interface ServiceQuotaIncreaseRequestInTemplate {
   __type?: "ServiceQuotaIncreaseRequestInTemplate";
   /**
-   *
-   *          <p>The AWS Region where the increase request occurs.</p>
-   *
+   * <p>The AWS Region where the increase request occurs.</p>
    */
   AwsRegion?: string;
 
   /**
-   *
-   *          <p>Identifies the new, increased value of the service quota in the increase request. </p>
-   *
+   * <p>Identifies the new, increased value of the service quota in the increase request. </p>
    */
   DesiredValue?: number;
 
   /**
-   *
-   *          <p>Specifies if the quota is a global quota.</p>
-   *
+   * <p>Specifies if the quota is a global quota.</p>
    */
   GlobalQuota?: boolean;
 
   /**
-   *
-   *          <p>The code identifier for the service quota specified in the increase request.</p>
-   *
+   * <p>The code identifier for the service quota specified in the increase request.</p>
    */
   QuotaCode?: string;
 
   /**
-   *
-   *          <p>The name of the service quota in the increase request.</p>
-   *
+   * <p>The name of the service quota in the increase request.</p>
    */
   QuotaName?: string;
 
   /**
-   *
-   *          <p>The code identifier for the AWS service specified in the increase request.</p>
-   *
+   * <p>The code identifier for the AWS service specified in the increase request.</p>
    */
   ServiceCode?: string;
 
   /**
-   *
-   *          <p>The name of the AWS service specified in the increase request. </p>
-   *
+   * <p>The name of the AWS service specified in the increase request. </p>
    */
   ServiceName?: string;
 
   /**
-   *
-   *          <p>The unit of measure for the increase request.</p>
-   *
+   * <p>The unit of measure for the increase request.</p>
    */
   Unit?: string;
 }
@@ -1552,10 +1310,8 @@ export enum ServiceQuotaTemplateAssociationStatus {
 }
 
 /**
- *
- *          <p>The quota request template is not associated with your organization. </p>
+ * <p>The quota request template is not associated with your organization. </p>
  *          <p>To use the template, call <a>AssociateServiceQuotaTemplate</a>. </p>
- *
  */
 export interface ServiceQuotaTemplateNotInUseException
   extends _smithy.SmithyException,
@@ -1573,10 +1329,8 @@ export namespace ServiceQuotaTemplateNotInUseException {
 }
 
 /**
- *
- *          <p>The Service Quotas template is not available in the Region where you are making the
+ * <p>The Service Quotas template is not available in the Region where you are making the
  *       request. Please make the request in us-east-1. </p>
- *
  */
 export interface TemplatesNotAvailableInRegionException
   extends _smithy.SmithyException,
@@ -1594,10 +1348,8 @@ export namespace TemplatesNotAvailableInRegionException {
 }
 
 /**
- *
- *          <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
+ * <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota. </p>
- *
  */
 export interface TooManyRequestsException
   extends _smithy.SmithyException,

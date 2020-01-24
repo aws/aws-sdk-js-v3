@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, ModifyClusterDbRevisionMessage } from "../models/index";
+import {
+  ModifyClusterDbRevisionMessage,
+  ModifyClusterDbRevisionResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
   serializeAws_queryModifyClusterDbRevisionCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterDbRevisionCommandInput = ModifyClusterDbRevisionMessage;
-export type ModifyClusterDbRevisionCommandOutput = Cluster;
+export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult;
 
 export class ModifyClusterDbRevisionCommand extends $Command<
   ModifyClusterDbRevisionCommandInput,

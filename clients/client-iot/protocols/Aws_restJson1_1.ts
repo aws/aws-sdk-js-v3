@@ -828,6 +828,7 @@ import {
   AuthorizerDescription,
   AuthorizerSummary,
   AwsJobExecutionsRolloutConfig,
+  AwsJobPresignedUrlConfig,
   Behavior,
   BehaviorCriteria,
   BillingGroupMetadata,
@@ -916,6 +917,7 @@ import {
   PolicyVersion,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
+  Protocol,
   ProvisioningTemplateSummary,
   ProvisioningTemplateVersionSummary,
   PublishFindingToSnsParams,
@@ -4575,12 +4577,26 @@ export async function serializeAws_restJson1_1CreateOTAUpdateCommand(
       context
     );
   }
+  if (input.awsJobPresignedUrlConfig !== undefined) {
+    bodyParams[
+      "awsJobPresignedUrlConfig"
+    ] = serializeAws_restJson1_1AwsJobPresignedUrlConfig(
+      input.awsJobPresignedUrlConfig,
+      context
+    );
+  }
   if (input.description !== undefined) {
     bodyParams["description"] = input.description;
   }
   if (input.files !== undefined) {
     bodyParams["files"] = serializeAws_restJson1_1OTAUpdateFiles(
       input.files,
+      context
+    );
+  }
+  if (input.protocols !== undefined) {
+    bodyParams["protocols"] = serializeAws_restJson1_1Protocols(
+      input.protocols,
       context
     );
   }
@@ -26883,6 +26899,17 @@ const serializeAws_restJson1_1AwsJobExecutionsRolloutConfig = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1AwsJobPresignedUrlConfig = (
+  input: AwsJobPresignedUrlConfig,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.expiresInSec !== undefined) {
+    bodyParams["expiresInSec"] = input.expiresInSec;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1CodeSigning = (
   input: CodeSigning,
   context: __SerdeContext
@@ -27034,6 +27061,13 @@ const serializeAws_restJson1_1OTAUpdateFiles = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1OTAUpdateFile(entry, context)
   );
+};
+
+const serializeAws_restJson1_1Protocols = (
+  input: Array<Protocol | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_restJson1_1S3Destination = (
@@ -30667,6 +30701,20 @@ const deserializeAws_restJson1_1AwsJobExecutionsRolloutConfig = (
   return contents;
 };
 
+const deserializeAws_restJson1_1AwsJobPresignedUrlConfig = (
+  output: any,
+  context: __SerdeContext
+): AwsJobPresignedUrlConfig => {
+  let contents: any = {
+    __type: "AwsJobPresignedUrlConfig",
+    expiresInSec: undefined
+  };
+  if (output.expiresInSec !== undefined) {
+    contents.expiresInSec = output.expiresInSec;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1CodeSigning = (
   output: any,
   context: __SerdeContext
@@ -30873,6 +30921,7 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
     awsIotJobArn: undefined,
     awsIotJobId: undefined,
     awsJobExecutionsRolloutConfig: undefined,
+    awsJobPresignedUrlConfig: undefined,
     creationDate: undefined,
     description: undefined,
     errorInfo: undefined,
@@ -30881,6 +30930,7 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
     otaUpdateFiles: undefined,
     otaUpdateId: undefined,
     otaUpdateStatus: undefined,
+    protocols: undefined,
     targetSelection: undefined,
     targets: undefined
   };
@@ -30899,6 +30949,12 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
   if (output.awsJobExecutionsRolloutConfig !== undefined) {
     contents.awsJobExecutionsRolloutConfig = deserializeAws_restJson1_1AwsJobExecutionsRolloutConfig(
       output.awsJobExecutionsRolloutConfig,
+      context
+    );
+  }
+  if (output.awsJobPresignedUrlConfig !== undefined) {
+    contents.awsJobPresignedUrlConfig = deserializeAws_restJson1_1AwsJobPresignedUrlConfig(
+      output.awsJobPresignedUrlConfig,
       context
     );
   }
@@ -30939,6 +30995,12 @@ const deserializeAws_restJson1_1OTAUpdateInfo = (
   }
   if (output.otaUpdateStatus !== undefined) {
     contents.otaUpdateStatus = output.otaUpdateStatus;
+  }
+  if (output.protocols !== undefined) {
+    contents.protocols = deserializeAws_restJson1_1Protocols(
+      output.protocols,
+      context
+    );
   }
   if (output.targetSelection !== undefined) {
     contents.targetSelection = output.targetSelection;
@@ -30985,6 +31047,13 @@ const deserializeAws_restJson1_1OTAUpdatesSummary = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OTAUpdateSummary(entry, context)
   );
+};
+
+const deserializeAws_restJson1_1Protocols = (
+  output: any,
+  context: __SerdeContext
+): Array<Protocol | string> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1S3Destination = (

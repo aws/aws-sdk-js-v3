@@ -207,8 +207,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon DynamoDB</fullname>
+ * <fullname>Amazon DynamoDB</fullname>
  *
  *
  *          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
@@ -227,15 +226,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       consistent and fast performance. All of your data is stored on solid state disks (SSDs) and
  *       automatically replicated across multiple Availability Zones in an AWS region, providing
  *       built-in high availability and data durability. </p>
- *
- *
- *
  */
 export class DynamoDB extends DynamoDBClient {
   /**
-   *
-   *          <p>Returns the regional endpoint information.</p>
-   *
+   * <p>Returns the regional endpoint information.</p>
    */
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -270,8 +264,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items from one or
+   * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items from one or
    *       more tables. You identify requested items by primary key.</p>
    *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
    *             items. <code>BatchGetItem</code> returns a partial result if the response size limit is
@@ -317,9 +310,6 @@ export class DynamoDB extends DynamoDBClient {
    *             nonexistent items consume the minimum read capacity units according to the type of read.
    *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working with Tables</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
-   *
-   *
-   *
    */
   public batchGetItem(
     args: BatchGetItemCommandInput,
@@ -354,8 +344,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A
+   * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more tables. A
    *       single call to <code>BatchWriteItem</code> can write up to 16 MB of data, which can
    *       comprise as many as 25 put or delete requests. Individual items
    *       to be written can be as large as 400 KB.</p>
@@ -430,9 +419,6 @@ export class DynamoDB extends DynamoDBClient {
    *                <p>The total request size exceeds 16 MB.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
    */
   public batchWriteItem(
     args: BatchWriteItemCommandInput,
@@ -467,8 +453,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Creates a backup for an existing table.</p>
+   * <p>Creates a backup for an existing table.</p>
    *          <p> Each time you create an on-demand backup, the entire table data is backed up. There
    *             is no limit to the number of on-demand backups that can be taken. </p>
    *          <p> When you create an on-demand backup, a time marker of the request is cataloged, and
@@ -498,7 +483,6 @@ export class DynamoDB extends DynamoDBClient {
    *                   <p>Provisioned read and write capacity</p>
    *               </li>
    *          </ul>
-   *
    */
   public createBackup(
     args: CreateBackupCommandInput,
@@ -533,8 +517,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Creates a global table from an existing table. A global table creates a replication
+   * <p>Creates a global table from an existing table. A global table creates a replication
    *             relationship between two or more DynamoDB tables with the same table name in the
    *             provided Regions. </p>
    *          <note>
@@ -586,7 +569,6 @@ export class DynamoDB extends DynamoDBClient {
    *        your global table.
    *     </p>
    *          </important>
-   *
    */
   public createGlobalTable(
     args: CreateGlobalTableCommandInput,
@@ -621,8 +603,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>CreateTable</code> operation adds a new table to your account. In an AWS
+   * <p>The <code>CreateTable</code> operation adds a new table to your account. In an AWS
    *             account, table names must be unique within each Region. That is, you can have two tables
    *             with same name if you create the tables in different Regions.</p>
    *          <p>
@@ -635,8 +616,6 @@ export class DynamoDB extends DynamoDBClient {
    *       tables sequentially. Only one table with secondary indexes can be in the <code>CREATING</code> state at
    *       any given time.</p>
    *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
-   *
-   *
    */
   public createTable(
     args: CreateTableCommandInput,
@@ -671,10 +650,8 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Deletes an existing backup of a table.</p>
+   * <p>Deletes an existing backup of a table.</p>
    *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per second.</p>
-   *
    */
   public deleteBackup(
     args: DeleteBackupCommandInput,
@@ -709,15 +686,12 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Deletes a single item in a table by primary key. You can perform a conditional delete operation that deletes the item if it exists, or if it has an expected attribute value.</p>
+   * <p>Deletes a single item in a table by primary key. You can perform a conditional delete operation that deletes the item if it exists, or if it has an expected attribute value.</p>
    *          <p>In addition to deleting an item, you can also return the item's attribute values in the same
    *       operation, using the <code>ReturnValues</code> parameter.</p>
    *          <p>Unless you specify conditions, the <code>DeleteItem</code> is an idempotent operation; running it
    *       multiple times on the same item or attribute does <i>not</i> result in an error response.</p>
    *          <p>Conditional deletes are useful for deleting items only if specific conditions are met. If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not deleted.</p>
-   *
-   *
    */
   public deleteItem(
     args: DeleteItemCommandInput,
@@ -752,8 +726,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
+   * <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
    *         <code>DeleteTable</code> request, the specified table is in the <code>DELETING</code> state until
    *       DynamoDB completes the deletion. If the table is in the <code>ACTIVE</code> state, you can delete
    *       it. If a table is in <code>CREATING</code> or <code>UPDATING</code> states, then DynamoDB returns
@@ -770,9 +743,6 @@ export class DynamoDB extends DynamoDBClient {
    *       into the <code>DISABLED</code> state, and the stream is automatically deleted after 24 hours.</p>
    *
    *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
-   *
-   *
-   *
    */
   public deleteTable(
     args: DeleteTableCommandInput,
@@ -807,10 +777,8 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Describes an existing backup of a table.</p>
+   * <p>Describes an existing backup of a table.</p>
    *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per second.</p>
-   *
    */
   public describeBackup(
     args: DescribeBackupCommandInput,
@@ -845,8 +813,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Checks the status of continuous backups and point in time recovery on the specified table.
+   * <p>Checks the status of continuous backups and point in time recovery on the specified table.
    *       Continuous backups are <code>ENABLED</code> on all tables at table creation.
    *       If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to ENABLED.</p>
    *          <p> After continuous backups and point in time recovery are enabled, you can restore to any
@@ -857,7 +824,6 @@ export class DynamoDB extends DynamoDBClient {
    *        in time during the last 35 days.
    *      </p>
    *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per second.</p>
-   *
    */
   public describeContinuousBackups(
     args: DescribeContinuousBackupsCommandInput,
@@ -892,9 +858,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns information about contributor insights, for a given table or global secondary index.</p>
-   *
+   * <p>Returns information about contributor insights, for a given table or global secondary index.</p>
    */
   public describeContributorInsights(
     args: DescribeContributorInsightsCommandInput,
@@ -929,12 +893,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the specified global table.</p>
+   * <p>Returns information about the specified global table.</p>
    *           <note>
    *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
-   *
    */
   public describeGlobalTable(
     args: DescribeGlobalTableCommandInput,
@@ -969,12 +931,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Describes Region-specific settings for a global table.</p>
+   * <p>Describes Region-specific settings for a global table.</p>
    *           <note>
    *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
-   *
    */
   public describeGlobalTableSettings(
     args: DescribeGlobalTableSettingsCommandInput,
@@ -1009,8 +969,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns the current provisioned-capacity limits for your AWS account in a Region, both
+   * <p>Returns the current provisioned-capacity limits for your AWS account in a Region, both
    *             for the Region as a whole and for any one DynamoDB table that you create there.</p>
    *          <p>When you establish an AWS account, the account has initial limits on the maximum read
    *             capacity units and write capacity units that you can provision across all of your
@@ -1073,8 +1032,6 @@ export class DynamoDB extends DynamoDBClient {
    *         errors if you call it more than once in a minute.</p>
    *          </note>
    *          <p>The <code>DescribeLimits</code> Request element has no content.</p>
-   *
-   *
    */
   public describeLimits(
     args: DescribeLimitsCommandInput,
@@ -1109,16 +1066,13 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>
+   * <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>
    *          <note>
    *             <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might
    *         return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually
    *         consistent query, and the metadata for your table might not be available at that moment.
    *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
    *          </note>
-   *
-   *
    */
   public describeTable(
     args: DescribeTableCommandInput,
@@ -1153,12 +1107,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Describes auto scaling settings across replicas of the global table at once.</p>
+   * <p>Describes auto scaling settings across replicas of the global table at once.</p>
    *          <note>
    *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
-   *
    */
   public describeTableReplicaAutoScaling(
     args: DescribeTableReplicaAutoScalingCommandInput,
@@ -1196,9 +1148,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
-   *
+   * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
    */
   public describeTimeToLive(
     args: DescribeTimeToLiveCommandInput,
@@ -1233,16 +1183,13 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary
+   * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary
    *           key. If there is no matching item, <code>GetItem</code> does not return any data and there will be no <code>Item</code> element in the response.</p>
    *          <p>
    *             <code>GetItem</code> provides an eventually consistent read by default. If your application
    *       requires a strongly consistent read, set <code>ConsistentRead</code> to <code>true</code>. Although
    *       a strongly consistent read might take more time than an eventually consistent read, it always
    *       returns the last updated value.</p>
-   *
-   *
    */
   public getItem(
     args: GetItemCommandInput,
@@ -1277,15 +1224,13 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>List backups associated with an AWS account. To list backups for a given table, specify
+   * <p>List backups associated with an AWS account. To list backups for a given table, specify
    *                 <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
    *             with at most 1 MB worth of items in a page. You can also specify a limit for the maximum
    *             number of entries to be returned in a page. </p>
    *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
    *             limits are for the time at which the original backup was requested.</p>
    *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
-   *
    */
   public listBackups(
     args: ListBackupsCommandInput,
@@ -1320,9 +1265,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
-   *
+   * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
    */
   public listContributorInsights(
     args: ListContributorInsightsCommandInput,
@@ -1357,12 +1300,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Lists all global tables that have a replica in the specified Region.</p>
+   * <p>Lists all global tables that have a replica in the specified Region.</p>
    *           <note>
    *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
    *          </note>
-   *
    */
   public listGlobalTables(
     args: ListGlobalTablesCommandInput,
@@ -1397,12 +1338,9 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of table names associated with the current account and endpoint. The output
+   * <p>Returns an array of table names associated with the current account and endpoint. The output
    *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
    *       names.</p>
-   *
-   *
    */
   public listTables(
     args: ListTablesCommandInput,
@@ -1437,12 +1375,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10 times per second, per account.</p>
+   * <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10 times per second, per account.</p>
    *          <p>For an overview on tagging DynamoDB resources, see
    *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
    *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *
    */
   public listTagsOfResource(
     args: ListTagsOfResourceCommandInput,
@@ -1477,8 +1413,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the <code>ReturnValues</code> parameter.</p>
+   * <p>Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the <code>ReturnValues</code> parameter.</p>
    *          <important>
    *             <p>This topic provides general information about the <code>PutItem</code> API.</p>
    *             <p>For information on how to call the <code>PutItem</code> API using the AWS SDK in specific languages, see the following:</p>
@@ -1544,8 +1479,6 @@ export class DynamoDB extends DynamoDBClient {
    *          no matching item exists.</p>
    *          </note>
    *          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *
-   *
    */
   public putItem(
     args: PutItemCommandInput,
@@ -1580,8 +1513,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *         <p>The <code>Query</code> operation finds items based on primary key values.
+   * <p>The <code>Query</code> operation finds items based on primary key values.
    *             You can query any table or secondary index that has a composite primary key (a partition
    *             key and a sort key).
    *         </p>
@@ -1637,8 +1569,6 @@ export class DynamoDB extends DynamoDBClient {
    *             strongly consistent result. Global secondary indexes support eventually consistent reads
    *             only, so do not specify <code>ConsistentRead</code> when querying a global
    *             secondary index.</p>
-   *
-   *
    */
   public query(
     args: QueryCommandInput,
@@ -1673,8 +1603,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores
+   * <p>Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores
    *         (any type of restore) in a given account.
    *       </p>
    *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per second.</p>
@@ -1699,7 +1628,6 @@ export class DynamoDB extends DynamoDBClient {
    *                  <p>Time to Live (TTL) settings</p>
    *              </li>
    *          </ul>
-   *
    */
   public restoreTableFromBackup(
     args: RestoreTableFromBackupCommandInput,
@@ -1734,8 +1662,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Restores the specified table to the specified point in time within
+   * <p>Restores the specified table to the specified point in time within
    *         <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
    *         You can restore your table to any point in time during the last 35 days.
    *         Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.
@@ -1791,7 +1718,6 @@ export class DynamoDB extends DynamoDBClient {
    *                  <p>Point in time recovery settings</p>
    *              </li>
    *          </ul>
-   *
    */
   public restoreTableToPointInTime(
     args: RestoreTableToPointInTimeCommandInput,
@@ -1826,8 +1752,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every
+   * <p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every
    *       item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a <code>FilterExpression</code> operation.</p>
    *          <p>If the total number of scanned items exceeds the maximum dataset size limit of 1 MB, the
    *             scan stops and results are returned to the user as a <code>LastEvaluatedKey</code> value
@@ -1852,8 +1777,6 @@ export class DynamoDB extends DynamoDBClient {
    *             immediately before the operation began. If you need a consistent copy of the data, as of
    *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
    *             parameter to <code>true</code>.</p>
-   *
-   *
    */
   public scan(
     args: ScanCommandInput,
@@ -1888,15 +1811,13 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
+   * <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
    *             user-defined tags so that they appear on the Billing and Cost Management console for
    *             cost allocation tracking. You can call TagResource up to five times per second, per
    *             account. </p>
    *          <p>For an overview on tagging DynamoDB resources, see
    *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
    *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1931,8 +1852,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
    *             multiple items from one or more tables (but not from indexes) in a single account and
    *             Region. A <code>TransactGetItems</code> call can contain up to 25
@@ -1958,7 +1878,6 @@ export class DynamoDB extends DynamoDBClient {
    *                <p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p>
    *             </li>
    *          </ul>
-   *
    */
   public transactGetItems(
     args: TransactGetItemsCommandInput,
@@ -1993,8 +1912,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             <code>TransactWriteItems</code> is a synchronous write operation that groups up to 25
    *             action requests. These actions can target items in different tables, but not in
    *             different AWS accounts or Regions, and no two actions can target the same item. For
@@ -2068,7 +1986,6 @@ export class DynamoDB extends DynamoDBClient {
    *                <p>There  is a user error, such as an invalid data format.</p>
    *             </li>
    *          </ul>
-   *
    */
   public transactWriteItems(
     args: TransactWriteItemsCommandInput,
@@ -2103,13 +2020,11 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
+   * <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
    *                 <code>UntagResource</code> up to five times per second, per account. </p>
    *          <p>For an overview on tagging DynamoDB resources, see
    *       <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
    *       in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2144,8 +2059,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>
+   * <p>
    *             <code>UpdateContinuousBackups</code> enables or disables point in time recovery for the specified table.
    *       A successful <code>UpdateContinuousBackups</code> call returns the current <code>ContinuousBackupsDescription</code>.
    *       Continuous backups are <code>ENABLED</code> on all tables at table creation.
@@ -2157,8 +2071,6 @@ export class DynamoDB extends DynamoDBClient {
    *          <p>
    *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
    *             You can restore your table to any point in time during the last 35 days. </p>
-   *
-   *
    */
   public updateContinuousBackups(
     args: UpdateContinuousBackupsCommandInput,
@@ -2193,9 +2105,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Updates the status for contributor insights for a specific table or index.</p>
-   *
+   * <p>Updates the status for contributor insights for a specific table or index.</p>
    */
   public updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
@@ -2230,8 +2140,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Adds or removes replicas in the specified global table. The global table must already
+   * <p>Adds or removes replicas in the specified global table. The global table must already
    *             exist to be able to use this operation. Any replica to be added must be empty, have the
    *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
    *             and have the same provisioned and maximum write capacity units.</p>
@@ -2260,8 +2169,6 @@ export class DynamoDB extends DynamoDBClient {
    *             </p>
    *             </li>
    *          </ul>
-   *
-   *
    */
   public updateGlobalTable(
     args: UpdateGlobalTableCommandInput,
@@ -2296,9 +2203,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Updates settings for a global table.</p>
-   *
+   * <p>Updates settings for a global table.</p>
    */
   public updateGlobalTableSettings(
     args: UpdateGlobalTableSettingsCommandInput,
@@ -2333,12 +2238,9 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Edits an existing item's attributes, or adds a new item to the table if it does not already exist. You can put, delete, or add attribute values. You can also perform a conditional update on an existing item (insert a new attribute name-value pair if it doesn't exist, or replace an existing name-value pair if it has certain expected attribute values).</p>
+   * <p>Edits an existing item's attributes, or adds a new item to the table if it does not already exist. You can put, delete, or add attribute values. You can also perform a conditional update on an existing item (insert a new attribute name-value pair if it doesn't exist, or replace an existing name-value pair if it has certain expected attribute values).</p>
    *          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
    *       operation using the <code>ReturnValues</code> parameter.</p>
-   *
-   *
    */
   public updateItem(
     args: UpdateItemCommandInput,
@@ -2373,8 +2275,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.</p>
+   * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.</p>
    *          <p>You can only perform one of the following operations at once:</p>
    *          <ul>
    *             <li>
@@ -2397,9 +2298,6 @@ export class DynamoDB extends DynamoDBClient {
    *       changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is <code>UPDATING</code>,
    *       you cannot issue another <code>UpdateTable</code> request. When the table returns to the
    *         <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is complete.</p>
-   *
-   *
-   *
    */
   public updateTable(
     args: UpdateTableCommandInput,
@@ -2434,12 +2332,10 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>Updates auto scaling settings on your global tables at once.</p>
+   * <p>Updates auto scaling settings on your global tables at once.</p>
    *          <note>
    *             <p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p>
    *          </note>
-   *
    */
   public updateTableReplicaAutoScaling(
     args: UpdateTableReplicaAutoScalingCommandInput,
@@ -2474,8 +2370,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   *
-   *          <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for the
+   * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for the
    *             specified table. A successful <code>UpdateTimeToLive</code> call returns the current
    *                 <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to
    *             fully process. Any additional <code>UpdateTimeToLive</code> calls for the same table
@@ -2500,7 +2395,6 @@ export class DynamoDB extends DynamoDBClient {
    *             secondary index immediately in the same eventually consistent way as a standard delete
    *             operation.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the Amazon DynamoDB Developer Guide. </p>
-   *
    */
   public updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,

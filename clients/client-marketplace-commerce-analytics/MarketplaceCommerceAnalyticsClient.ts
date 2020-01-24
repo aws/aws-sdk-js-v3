@@ -172,9 +172,7 @@ export type MarketplaceCommerceAnalyticsClientResolvedConfig = __SmithyResolvedC
   HostHeaderResolvedConfig;
 
 /**
- *
- *         Provides AWS Marketplace business intelligence data on-demand.
- *
+ * Provides AWS Marketplace business intelligence data on-demand.
  */
 export class MarketplaceCommerceAnalyticsClient extends __Client<
   __HttpHandlerOptions,

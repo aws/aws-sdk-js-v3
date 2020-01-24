@@ -182,8 +182,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <note>
+ * <note>
  *             <p>This is the latest version of the <b>AWS WAF</b> API, released in
  *             November, 2019. The names of the entities that you use to access this API, like
  *             endpoints and namespaces, all have the versioning information added, like "V2" or "v2",
@@ -239,18 +238,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                maximum cost of a rule group when you use it.</p>
  *             </li>
  *          </ul>
- *
- *
  */
 export class WAFV2 extends WAFV2Client {
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Associates a Web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>For AWS CloudFront, you can associate the Web ACL by providing the <code>Id</code> of the <a>WebACL</a> to the CloudFront API call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
-   *
    */
   public associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -285,8 +280,7 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
@@ -301,7 +295,6 @@ export class WAFV2 extends WAFV2Client {
    * 				Rule group capacity is fixed at creation, which helps users plan their
    *          web ACL WCU usage when they use a rule group.
    *          The WCU limit for web ACLs is 1,500.  </p>
-   *
    */
   public checkCapacity(
     args: CheckCapacityCommandInput,
@@ -336,12 +329,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Creates an <a>IPSet</a>, which you use to identify web requests that originate from specific IP addresses or ranges of IP addresses. For example, if you're receiving a lot of requests from a ranges of IP addresses, you can configure AWS WAF to block them using an IPSet that lists those IP addresses. </p>
-   *
    */
   public createIPSet(
     args: CreateIPSetCommandInput,
@@ -376,12 +367,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Creates a <a>RegexPatternSet</a> per the specifications provided.</p>
-   *
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -416,13 +405,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Creates a <a>RuleGroup</a> per the specifications provided. </p>
    *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
-   *
    */
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -457,13 +444,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Creates a <a>WebACL</a> per the specifications provided.</p>
    *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load Balancer.  </p>
-   *
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -498,12 +483,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the specified <a>IPSet</a>. </p>
-   *
    */
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -538,13 +521,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the <a>LoggingConfiguration</a> from the specified web
    *          ACL.</p>
-   *
    */
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -579,12 +560,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the specified <a>RegexPatternSet</a>.</p>
-   *
    */
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -619,12 +598,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the specified <a>RuleGroup</a>.</p>
-   *
    */
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -659,12 +636,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Deletes the specified <a>WebACL</a>.</p>
-   *
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -699,12 +674,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
-   *
    */
   public describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
@@ -739,13 +712,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
    *          <p>For AWS CloudFront, you can disassociate the Web ACL by providing an empty <code>WebACLId</code> in the CloudFront API call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
-   *
    */
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -780,12 +751,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the specified <a>IPSet</a>.</p>
-   *
    */
   public getIPSet(
     args: GetIPSetCommandInput,
@@ -820,12 +789,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
-   *
    */
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -860,12 +827,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the keys that are currently blocked by a rate-based rule. The maximum number of managed keys that can be blocked for a single rate-based rule is 10,000. If more than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.</p>
-   *
    */
   public getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
@@ -906,12 +871,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the specified <a>RegexPatternSet</a>.</p>
-   *
    */
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -946,12 +909,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the specified <a>RuleGroup</a>.</p>
-   *
    */
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -986,8 +947,7 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>
@@ -995,7 +955,6 @@ export class WAFV2 extends WAFV2Client {
    *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
    *          (such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
    *          returns an updated time range. This new time range indicates the actual period during which AWS WAF selected the requests in the sample.</p>
-   *
    */
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -1030,12 +989,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the specified <a>WebACL</a>.</p>
-   *
    */
   public getWebACL(
     args: GetWebACLCommandInput,
@@ -1070,12 +1027,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
-   *
    */
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
@@ -1110,12 +1065,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of managed rule groups that are available for you to use. This list includes all AWS managed rule groups and the AWS Marketplace managed rule groups that you're subscribed to.</p>
-   *
    */
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
@@ -1153,12 +1106,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>
-   *
    */
   public listIPSets(
     args: ListIPSetsCommandInput,
@@ -1193,12 +1144,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>
-   *
    */
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -1233,12 +1182,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex pattern sets that you manage.</p>
-   *
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -1273,12 +1220,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that are associated with the specified web ACL. If you want the list of AWS CloudFront resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
-   *
    */
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -1313,12 +1258,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you manage. </p>
-   *
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1353,12 +1296,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *         <p>Retrieves the <a>TagInfoForResource</a> for the specified resource. </p>
-   *
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1393,12 +1334,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.</p>
-   *
    */
   public listWebACLs(
     args: ListWebACLsCommandInput,
@@ -1433,8 +1372,7 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
@@ -1455,8 +1393,6 @@ export class WAFV2 extends WAFV2Client {
    *          </ol>
    *
    *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
-   *
-   *
    */
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -1491,12 +1427,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *         <p>Associates tags with the specified AWS resource. Tags are key:value pairs that you can associate with AWS resources. For example, the tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50 tags to each AWS resource.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1531,12 +1465,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *         <p>Disassociates tags from an AWS resource. Tags are key:value pairs that you can associate with AWS resources. For example, the tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50 tags to each AWS resource.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1571,12 +1503,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Updates the specified <a>IPSet</a>.</p>
-   *
    */
   public updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -1611,12 +1541,10 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Updates the specified <a>RegexPatternSet</a>.</p>
-   *
    */
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -1651,13 +1579,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Updates the specified <a>RuleGroup</a>.</p>
    *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
-   *
    */
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -1692,13 +1618,11 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
-   *
-   *          <note>
+   * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Updates the specified <a>WebACL</a>.</p>
    *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load Balancer.  </p>
-   *
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,

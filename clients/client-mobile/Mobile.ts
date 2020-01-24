@@ -47,21 +47,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>
+ * <p>
  *             AWS Mobile Service provides mobile app and website developers with capabilities
  *             required to configure AWS resources and bootstrap their developer desktop projects
  *             with the necessary SDKs, constants, tools and samples to make use of those resources.
  *         </p>
- *
  */
 export class Mobile extends MobileClient {
   /**
-   *
-   *         <p>
+   * <p>
    *             Creates an AWS Mobile Hub project.
    *         </p>
-   *
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -96,11 +92,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Delets a project in AWS Mobile Hub.
    *         </p>
-   *
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -135,11 +129,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Get the bundle details for the requested bundle id.
    *         </p>
-   *
    */
   public describeBundle(
     args: DescribeBundleCommandInput,
@@ -174,11 +166,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Gets details about a project in AWS Mobile Hub.
    *         </p>
-   *
    */
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -213,12 +203,10 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Generates customized software development kit (SDK) and or tool packages
    *             used to integrate mobile web or mobile app clients with backend AWS resources.
    *         </p>
-   *
    */
   public exportBundle(
     args: ExportBundleCommandInput,
@@ -253,13 +241,11 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Exports project configuration to a snapshot which can be downloaded and shared.
    *             Note that mobile app push credentials are encrypted in exported projects, so they
    *             can only be shared successfully within the same AWS account.
    *         </p>
-   *
    */
   public exportProject(
     args: ExportProjectCommandInput,
@@ -294,11 +280,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             List all available bundles.
    *         </p>
-   *
    */
   public listBundles(
     args: ListBundlesCommandInput,
@@ -333,11 +317,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Lists projects in AWS Mobile Hub.
    *         </p>
-   *
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -372,11 +354,9 @@ export class Mobile extends MobileClient {
   }
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Update an existing project.
    *         </p>
-   *
    */
   public updateProject(
     args: UpdateProjectCommandInput,

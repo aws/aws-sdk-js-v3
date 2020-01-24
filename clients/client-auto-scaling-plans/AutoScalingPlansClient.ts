@@ -188,8 +188,7 @@ export type AutoScalingPlansClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Auto Scaling</fullname>
+ * <fullname>AWS Auto Scaling</fullname>
  *          <p>Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and
  *          configure dynamic scaling and predictive scaling for your resources using scaling plans.
  *          Use this service in conjunction with the Amazon EC2 Auto Scaling, Application Auto Scaling, Amazon CloudWatch, and AWS
@@ -197,7 +196,6 @@ export type AutoScalingPlansClientResolvedConfig = __SmithyResolvedConfiguration
  *          <p>Currently, predictive scaling is only available for Amazon EC2 Auto Scaling groups.</p>
  *          <p>For more information about AWS Auto Scaling, including information about granting IAM users
  *          required permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>.</p>
- *
  */
 export class AutoScalingPlansClient extends __Client<
   __HttpHandlerOptions,

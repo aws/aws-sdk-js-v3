@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   PurchaseReservedCacheNodesOfferingMessage,
-  ReservedCacheNode
+  PurchaseReservedCacheNodesOfferingResult
 } from "../models/index";
 import {
   deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PurchaseReservedCacheNodesOfferingCommandInput = PurchaseReservedCacheNodesOfferingMessage;
-export type PurchaseReservedCacheNodesOfferingCommandOutput = ReservedCacheNode;
+export type PurchaseReservedCacheNodesOfferingCommandOutput = PurchaseReservedCacheNodesOfferingResult;
 
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandInput,

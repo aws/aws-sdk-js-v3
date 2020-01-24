@@ -47,6 +47,8 @@ import {
   ImportWorkspaceImageResult,
   ListAvailableManagementCidrRangesRequest,
   ListAvailableManagementCidrRangesResult,
+  MigrateWorkspaceRequest,
+  MigrateWorkspaceResult,
   ModifyAccountRequest,
   ModifyAccountResult,
   ModifyClientPropertiesRequest,
@@ -157,6 +159,7 @@ export type ServiceInputTypes =
   | DisassociateIpGroupsRequest
   | ImportWorkspaceImageRequest
   | ListAvailableManagementCidrRangesRequest
+  | MigrateWorkspaceRequest
   | ModifyAccountRequest
   | ModifyClientPropertiesRequest
   | ModifySelfservicePermissionsRequest
@@ -199,6 +202,7 @@ export type ServiceOutputTypes =
   | DisassociateIpGroupsResult
   | ImportWorkspaceImageResult
   | ListAvailableManagementCidrRangesResult
+  | MigrateWorkspaceResult
   | ModifyAccountResult
   | ModifyClientPropertiesResult
   | ModifySelfservicePermissionsResult
@@ -324,11 +328,9 @@ export type WorkSpacesClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon WorkSpaces Service</fullname>
+ * <fullname>Amazon WorkSpaces Service</fullname>
  *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and
  *          Amazon Linux desktops for your users.</p>
- *
  */
 export class WorkSpacesClient extends __Client<
   __HttpHandlerOptions,

@@ -37,21 +37,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <fullname>AWS IoT Secure Tunneling</fullname>
+ * <fullname>AWS IoT Secure Tunneling</fullname>
  * 		       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices
  * 			deployed in the field.</p>
  * 		       <p>For more information about how AWS IoT Secure Tunneling works, see the <a href="https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html">User
  * 			Guide</a>.</p>
- *
  */
 export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   /**
-   *
-   * 		       <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
+   * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
    * 			request is received, we close the WebSocket connections between the client and proxy
    * 			server so no data can be transmitted.</p>
-   *
    */
   public closeTunnel(
     args: CloseTunnelCommandInput,
@@ -86,9 +82,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>Gets information about a tunnel identified by the unique tunnel id.</p>
-   *
+   * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
    */
   public describeTunnel(
     args: DescribeTunnelCommandInput,
@@ -123,9 +117,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the tags for the specified resource.</p>
-   *
+   * <p>Lists the tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -160,10 +152,8 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
+   * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
    * 			descending order, newer tunnels will be listed before older tunnels.</p>
-   *
    */
   public listTunnels(
     args: ListTunnelsCommandInput,
@@ -198,10 +188,8 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a new tunnel, and returns two client access tokens for clients to use to
+   * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
    * 			connect to the AWS IoT Secure Tunneling proxy server. .</p>
-   *
    */
   public openTunnel(
     args: OpenTunnelCommandInput,
@@ -236,9 +224,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>A resource tag.</p>
-   *
+   * <p>A resource tag.</p>
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -273,9 +259,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   }
 
   /**
-   *
-   * 		       <p>Removes a tag from a resource.</p>
-   *
+   * <p>Removes a tag from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

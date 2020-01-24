@@ -232,10 +232,8 @@ export type ElasticTranscoderClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>AWS Elastic Transcoder Service</fullname>
+ * <fullname>AWS Elastic Transcoder Service</fullname>
  *         <p>The AWS Elastic Transcoder Service.</p>
- *
  */
 export class ElasticTranscoderClient extends __Client<
   __HttpHandlerOptions,

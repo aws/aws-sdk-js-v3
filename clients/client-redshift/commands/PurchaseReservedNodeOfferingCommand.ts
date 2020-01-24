@@ -5,7 +5,7 @@ import {
 } from "../RedshiftClient";
 import {
   PurchaseReservedNodeOfferingMessage,
-  ReservedNode
+  PurchaseReservedNodeOfferingResult
 } from "../models/index";
 import {
   deserializeAws_queryPurchaseReservedNodeOfferingCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PurchaseReservedNodeOfferingCommandInput = PurchaseReservedNodeOfferingMessage;
-export type PurchaseReservedNodeOfferingCommandOutput = ReservedNode;
+export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult;
 
 export class PurchaseReservedNodeOfferingCommand extends $Command<
   PurchaseReservedNodeOfferingCommandInput,

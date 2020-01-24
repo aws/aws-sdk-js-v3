@@ -4,19 +4,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AcceptQualificationRequestRequest {
   __type?: "AcceptQualificationRequestRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The value of the Qualification. You can omit this value if you are using the
    *             presence or absence of the Qualification as the basis for a HIT requirement.
    *         </p>
-   *
    */
   IntegerValue?: number;
 
   /**
-   *
-   *         <p>The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.</p>
-   *
+   * <p>The ID of the Qualification request, as returned by the <code>GetQualificationRequests</code> operation.</p>
    */
   QualificationRequestId: string | undefined;
 }
@@ -40,29 +36,23 @@ export namespace AcceptQualificationRequestResponse {
 export interface ApproveAssignmentRequest {
   __type?: "ApproveAssignmentRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
    *         </p>
-   *
    */
   AssignmentId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A flag indicating that an assignment should be approved even if it was previously rejected. Defaults to <code>False</code>.
    *         </p>
-   *
    */
   OverrideRejection?: boolean;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A message for the Worker, which the Worker can see in the Status section of the web site.
    *         </p>
-   *
    */
   RequesterFeedback?: string;
 }
@@ -84,116 +74,90 @@ export namespace ApproveAssignmentResponse {
 }
 
 /**
- *
- *         <p> The Assignment data structure represents a single assignment
+ * <p> The Assignment data structure represents a single assignment
  *             of a HIT to a Worker. The assignment tracks the Worker's efforts to
  *             complete the HIT, and contains the results for later retrieval.
  *         </p>
- *
  */
 export interface Assignment {
   __type?: "Assignment";
   /**
-   *
-   *         <p> The date and time the Worker accepted the assignment.</p>
-   *
+   * <p> The date and time the Worker accepted the assignment.</p>
    */
   AcceptTime?: Date;
 
   /**
-   *
-   *         <p> The Worker's answers submitted for the HIT contained in a
+   * <p> The Worker's answers submitted for the HIT contained in a
    *             QuestionFormAnswers document, if the Worker provides an answer. If
    *             the Worker does not provide any answers, Answer may contain a
    *             QuestionFormAnswers document, or Answer may be empty.</p>
-   *
    */
   Answer?: string;
 
   /**
-   *
-   *         <p> If the Worker has submitted results and the Requester has
+   * <p> If the Worker has submitted results and the Requester has
    *             approved the results, ApprovalTime is the date and time the Requester
    *             approved the results. This value is omitted from the assignment if
    *             the Requester has not yet approved the results.</p>
-   *
    */
   ApprovalTime?: Date;
 
   /**
-   *
-   *         <p> A unique identifier for the assignment.</p>
-   *
+   * <p> A unique identifier for the assignment.</p>
    */
   AssignmentId?: string;
 
   /**
-   *
-   *         <p> The status of the assignment.</p>
-   *
+   * <p> The status of the assignment.</p>
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
-   *
-   *         <p> If results have been submitted, AutoApprovalTime is the date
+   * <p> If results have been submitted, AutoApprovalTime is the date
    *             and time the results of the assignment results are considered
    *             Approved automatically if they have not already been explicitly
    *             approved or rejected by the Requester. This value is derived from the
    *             auto-approval delay specified by the Requester in the HIT. This value
    *             is omitted from the assignment if the Worker has not yet submitted
    *             results.</p>
-   *
    */
   AutoApprovalTime?: Date;
 
   /**
-   *
-   *         <p> The date and time of the deadline for the assignment. This
+   * <p> The date and time of the deadline for the assignment. This
    *             value is derived from the deadline specification for the HIT and the
    *             date and time the Worker accepted the HIT.</p>
-   *
    */
   Deadline?: Date;
 
   /**
-   *
-   *         <p> The ID of the HIT.</p>
-   *
+   * <p> The ID of the HIT.</p>
    */
   HITId?: string;
 
   /**
-   *
-   *         <p> If the Worker has submitted results and the Requester has
+   * <p> If the Worker has submitted results and the Requester has
    *             rejected the results, RejectionTime is the date and time the
    *             Requester rejected the results.</p>
-   *
    */
   RejectionTime?: Date;
 
   /**
-   *
-   *         <p> The feedback string included with the call to the
+   * <p> The feedback string included with the call to the
    *             ApproveAssignment operation or the RejectAssignment operation, if the
    *             Requester approved or rejected the assignment and specified feedback.</p>
-   *
    */
   RequesterFeedback?: string;
 
   /**
-   *
-   *         <p> If the Worker has submitted results, SubmitTime is the date
+   * <p> If the Worker has submitted results, SubmitTime is the date
    *             and time the assignment was submitted. This value is omitted from the
    *             assignment if the Worker has not yet submitted results.</p>
-   *
    */
   SubmitTime?: Date;
 
   /**
-   *
-   *         <p> The ID of the Worker who accepted the HIT.</p>
-   *
+   * <p> The ID of the Worker who accepted the HIT.</p>
    */
   WorkerId?: string;
 }
@@ -213,37 +177,29 @@ export enum AssignmentStatus {
 export interface AssociateQualificationWithWorkerRequest {
   __type?: "AssociateQualificationWithWorkerRequest";
   /**
-   *
-   *         <p>The value of the Qualification to assign.</p>
-   *
+   * <p>The value of the Qualification to assign.</p>
    */
   IntegerValue?: number;
 
   /**
-   *
-   *         <p>The ID of the Qualification type to use for the assigned Qualification.</p>
-   *
+   * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Specifies whether to send a notification email message to the Worker
    *             saying that the qualification was assigned to the Worker.
    *             Note: this is true by default.
    *         </p>
-   *
    */
   SendNotification?: boolean;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the Worker to whom the Qualification is being assigned.
    *             Worker IDs are included with submitted HIT assignments and Qualification requests.
    *         </p>
-   *
    */
   WorkerId: string | undefined;
 }
@@ -266,44 +222,32 @@ export namespace AssociateQualificationWithWorkerResponse {
 }
 
 /**
- *
- *         <p>An object representing a Bonus payment paid to a Worker.</p>
- *
+ * <p>An object representing a Bonus payment paid to a Worker.</p>
  */
 export interface BonusPayment {
   __type?: "BonusPayment";
   /**
-   *
-   *         <p>The ID of the assignment associated with this bonus payment.</p>
-   *
+   * <p>The ID of the assignment associated with this bonus payment.</p>
    */
   AssignmentId?: string;
 
   /**
-   *
-   *         <p>A string representing a currency amount.</p>
-   *
+   * <p>A string representing a currency amount.</p>
    */
   BonusAmount?: string;
 
   /**
-   *
-   *         <p>The date and time of when the bonus was granted.</p>
-   *
+   * <p>The date and time of when the bonus was granted.</p>
    */
   GrantTime?: Date;
 
   /**
-   *
-   *         <p>The Reason text given when the bonus was granted, if any.</p>
-   *
+   * <p>The Reason text given when the bonus was granted, if any.</p>
    */
   Reason?: string;
 
   /**
-   *
-   *         <p>The ID of the Worker to whom the bonus was paid.</p>
-   *
+   * <p>The ID of the Worker to whom the bonus was paid.</p>
    */
   WorkerId?: string;
 }
@@ -330,22 +274,17 @@ export enum Comparator {
 export interface CreateAdditionalAssignmentsForHITRequest {
   __type?: "CreateAdditionalAssignmentsForHITRequest";
   /**
-   *
-   *         <p>The ID of the HIT to extend.</p>
-   *
+   * <p>The ID of the HIT to extend.</p>
    */
   HITId: string | undefined;
 
   /**
-   *
-   *         <p>The number of additional assignments to request for this HIT.</p>
-   *
+   * <p>The number of additional assignments to request for this HIT.</p>
    */
   NumberOfAdditionalAssignments: number | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A unique identifier for this request, which allows you to retry the call on error
    *             without extending the HIT multiple times.
    *             This is useful in cases such as network timeouts where it is unclear whether or not
@@ -353,7 +292,6 @@ export interface CreateAdditionalAssignmentsForHITRequest {
    *             from a previous call using the same <code>UniqueRequestToken</code>,
    *             subsequent calls will return an error with a message containing the request ID.
    *         </p>
-   *
    */
   UniqueRequestToken?: string;
 }
@@ -378,117 +316,96 @@ export namespace CreateAdditionalAssignmentsForHITResponse {
 export interface CreateHITRequest {
   __type?: "CreateHITRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
    *             If a Worker does not complete the assignment within the specified duration,
    *             the assignment is considered abandoned. If the HIT is still active
    *             (that is, its lifetime has not elapsed), the assignment becomes available
    *             for other users to find and accept.
    *         </p>
-   *
    */
   AssignmentDurationInSeconds: number | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The Assignment-level Review Policy applies to the assignments under the HIT.
    *             You can specify for Mechanical Turk to take various actions based on the policy.
    *         </p>
-   *
    */
   AssignmentReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The number of seconds after an assignment for the HIT has been submitted,
    *             after which the assignment is considered Approved automatically
    *             unless the Requester explicitly rejects it.
    *         </p>
-   *
    */
   AutoApprovalDelayInSeconds?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A general description of the HIT. A description includes detailed information about the kind of task
    *             the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded
    *             view of search results, and in the HIT and assignment screens. A good description gives the user enough
    *             information to evaluate the HIT before accepting it.
    *         </p>
-   *
    */
   Description: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
    *             and create an additional HIT by providing those values as HITLayoutParameters.
    *         </p>
    *         <p>
    *             Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
    *         </p>
-   *
    */
   HITLayoutId?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             If the HITLayoutId is provided, any placeholder values must be filled in with values
    *             using the HITLayoutParameter structure. For more information, see HITLayout.
    *         </p>
-   *
    */
   HITLayoutParameters?: Array<HITLayoutParameter>;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The HIT-level Review Policy applies to the HIT.
    *             You can specify for Mechanical Turk to take various actions based on the policy.
    *         </p>
-   *
    */
   HITReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             One or more words or phrases that describe the HIT, separated by commas.
    *             These words are used in searches to find HITs.
    *         </p>
-   *
    */
   Keywords?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
    *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
    *             even if not all of the assignments for the HIT have been accepted.
    *         </p>
-   *
    */
   LifetimeInSeconds: number | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
    *         </p>
-   *
    */
   MaxAssignments?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Conditions that a Worker's Qualifications must meet in order
    *             to accept the HIT. A HIT can have between zero and ten
    *             Qualification requirements. All requirements must be met in
@@ -496,13 +413,11 @@ export interface CreateHITRequest {
    *             actions can be restricted using the <code>ActionsGuarded</code>
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
-   *
    */
   QualificationRequirements?: Array<QualificationRequirement>;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The data the person completing the HIT uses to produce the results.
    *         </p>
    *         <p>
@@ -511,13 +426,11 @@ export interface CreateHITRequest {
    *             64 kilobytes (65,535 bytes) in size, including whitespace.
    *         </p>
    *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
-   *
    */
   Question?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             An arbitrary data field.
    *             The RequesterAnnotation parameter lets your application attach arbitrary data
    *             to the HIT for tracking purposes.
@@ -532,33 +445,27 @@ export interface CreateHITRequest {
    *             The RequesterAnnotation parameter may be different for each HIT you submit.
    *             It does not affect how your HITs are grouped.
    *         </p>
-   *
    */
   RequesterAnnotation?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
    *         </p>
-   *
    */
   Reward: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains.
    *             On the Amazon Mechanical Turk web site, the HIT title appears in search results,
    *             and everywhere the HIT is mentioned.
    *         </p>
-   *
    */
   Title: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A unique identifier for this request which allows you to retry the call
    *             on error without creating duplicate HITs.
    *             This is useful in cases such as network timeouts where it is unclear whether or not
@@ -574,7 +481,6 @@ export interface CreateHITRequest {
    *                 UniqueRequestToken made after the 24 hour limit could create duplicate HITs.
    *             </p>
    *         </note>
-   *
    */
   UniqueRequestToken?: string;
 }
@@ -588,12 +494,10 @@ export namespace CreateHITRequest {
 export interface CreateHITResponse extends $MetadataBearer {
   __type?: "CreateHITResponse";
   /**
-   *
-   *         <p> Contains the newly created HIT data. For a description of
+   * <p> Contains the newly created HIT data. For a description of
    *             the HIT data structure as it appears in responses, see the HIT Data
    *             Structure documentation.
    *         </p>
-   *
    */
   HIT?: HIT;
 }
@@ -607,54 +511,45 @@ export namespace CreateHITResponse {
 export interface CreateHITTypeRequest {
   __type?: "CreateHITTypeRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The amount of time, in seconds, that a Worker has to complete the HIT after accepting it.
    *             If a Worker does not complete the assignment within the specified duration,
    *             the assignment is considered abandoned. If the HIT is still active
    *             (that is, its lifetime has not elapsed), the assignment becomes available
    *             for other users to find and accept.
    *         </p>
-   *
    */
   AssignmentDurationInSeconds: number | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The number of seconds after an assignment for the HIT has been submitted,
    *             after which the assignment is considered Approved automatically
    *             unless the Requester explicitly rejects it.
    *         </p>
-   *
    */
   AutoApprovalDelayInSeconds?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A general description of the HIT. A description includes detailed information about the kind of task
    *             the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded
    *             view of search results, and in the HIT and assignment screens. A good description gives the user enough
    *             information to evaluate the HIT before accepting it.
    *         </p>
-   *
    */
   Description: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             One or more words or phrases that describe the HIT, separated by commas.
    *             These words are used in searches to find HITs.
    *         </p>
-   *
    */
   Keywords?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Conditions that a Worker's Qualifications must meet in order
    *             to accept the HIT. A HIT can have between zero and ten
    *             Qualification requirements. All requirements must be met in
@@ -662,27 +557,22 @@ export interface CreateHITTypeRequest {
    *             actions can be restricted using the <code>ActionsGuarded</code>
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
-   *
    */
   QualificationRequirements?: Array<QualificationRequirement>;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The amount of money the Requester will pay a Worker for successfully completing the HIT.
    *         </p>
-   *
    */
   Reward: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains.
    *             On the Amazon Mechanical Turk web site, the HIT title appears in search results,
    *             and everywhere the HIT is mentioned.
    *         </p>
-   *
    */
   Title: string | undefined;
 }
@@ -696,9 +586,7 @@ export namespace CreateHITTypeRequest {
 export interface CreateHITTypeResponse extends $MetadataBearer {
   __type?: "CreateHITTypeResponse";
   /**
-   *
-   *         <p> The ID of the newly registered HIT type.</p>
-   *
+   * <p> The ID of the newly registered HIT type.</p>
    */
   HITTypeId?: string;
 }
@@ -712,78 +600,63 @@ export namespace CreateHITTypeResponse {
 export interface CreateHITWithHITTypeRequest {
   __type?: "CreateHITWithHITTypeRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The Assignment-level Review Policy applies to the assignments under the HIT.
    *             You can specify for Mechanical Turk to take various actions based on the policy.
    *         </p>
-   *
    */
   AssignmentReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The HITLayoutId allows you to use a pre-existing HIT design with placeholder values
    *             and create an additional HIT by providing those values as HITLayoutParameters.
    *         </p>
    *         <p>
    *             Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
    *         </p>
-   *
    */
   HITLayoutId?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             If the HITLayoutId is provided, any placeholder values must be filled in with values
    *             using the HITLayoutParameter structure. For more information, see HITLayout.
    *         </p>
-   *
    */
   HITLayoutParameters?: Array<HITLayoutParameter>;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The HIT-level Review Policy applies to the HIT.
    *             You can specify for Mechanical Turk to take various actions based on the policy.
    *         </p>
-   *
    */
   HITReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p>The HIT type ID you want to create this HIT with.</p>
-   *
+   * <p>The HIT type ID you want to create this HIT with.</p>
    */
   HITTypeId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             An amount of time, in seconds, after which the HIT is no longer available for users to accept.
    *             After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches,
    *             even if not all of the assignments for the HIT have been accepted.
    *         </p>
-   *
    */
   LifetimeInSeconds: number | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
    *         </p>
-   *
    */
   MaxAssignments?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The data the person completing the HIT uses to produce the results.
    *         </p>
    *         <p>
@@ -792,13 +665,11 @@ export interface CreateHITWithHITTypeRequest {
    *             64 kilobytes (65,535 bytes) in size, including whitespace.
    *         </p>
    *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
-   *
    */
   Question?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             An arbitrary data field.
    *             The RequesterAnnotation parameter lets your application attach arbitrary data
    *             to the HIT for tracking purposes.
@@ -813,13 +684,11 @@ export interface CreateHITWithHITTypeRequest {
    *             The RequesterAnnotation parameter may be different for each HIT you submit.
    *             It does not affect how your HITs are grouped.
    *         </p>
-   *
    */
   RequesterAnnotation?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A unique identifier for this request which allows you to retry the call
    *             on error without creating duplicate HITs.
    *             This is useful in cases such as network timeouts where it is unclear whether or not
@@ -835,7 +704,6 @@ export interface CreateHITWithHITTypeRequest {
    *                 UniqueRequestToken made after the 24 hour limit could create duplicate HITs.
    *             </p>
    *         </note>
-   *
    */
   UniqueRequestToken?: string;
 }
@@ -849,12 +717,10 @@ export namespace CreateHITWithHITTypeRequest {
 export interface CreateHITWithHITTypeResponse extends $MetadataBearer {
   __type?: "CreateHITWithHITTypeResponse";
   /**
-   *
-   *         <p> Contains the newly created HIT data. For a description of
+   * <p> Contains the newly created HIT data. For a description of
    *             the HIT data structure as it appears in responses, see the HIT Data
    *             Structure documentation.
    *         </p>
-   *
    */
   HIT?: HIT;
 }
@@ -868,75 +734,60 @@ export namespace CreateHITWithHITTypeResponse {
 export interface CreateQualificationTypeRequest {
   __type?: "CreateQualificationTypeRequest";
   /**
-   *
-   *         <p>The answers to the Qualification test specified in the Test
+   * <p>The answers to the Qualification test specified in the Test
    *             parameter, in the form of an AnswerKey data structure.</p>
    *         <p>Constraints: Must not be longer than 65535 bytes.</p>
    *         <p>Constraints: None. If not specified, you must process
    *             Qualification requests manually.</p>
-   *
    */
   AnswerKey?: string;
 
   /**
-   *
-   *         <p>Specifies whether requests for the Qualification type are
+   * <p>Specifies whether requests for the Qualification type are
    *             granted immediately, without prompting the Worker with a
    *             Qualification test.</p>
    *         <p>Constraints: If the Test parameter is specified, this
    *             parameter cannot be true.</p>
-   *
    */
   AutoGranted?: boolean;
 
   /**
-   *
-   *         <p>The Qualification value to use for automatically granted
+   * <p>The Qualification value to use for automatically granted
    *             Qualifications. This parameter is used only if the AutoGranted
    *             parameter is true.</p>
-   *
    */
   AutoGrantedValue?: number;
 
   /**
-   *
-   *         <p>A long description for the Qualification type. On the Amazon
+   * <p>A long description for the Qualification type. On the Amazon
    *             Mechanical Turk website, the long description is displayed when a
    *             Worker examines a Qualification type.</p>
-   *
    */
   Description: string | undefined;
 
   /**
-   *
-   *         <p>One or more words or phrases that describe the Qualification
+   * <p>One or more words or phrases that describe the Qualification
    *             type, separated by commas. The keywords of a type make the type
    *             easier to find during a search.</p>
-   *
    */
   Keywords?: string;
 
   /**
-   *
-   *         <p> The name you give to the Qualification type. The type name
+   * <p> The name you give to the Qualification type. The type name
    *             is used to represent the Qualification to Workers, and to find the
    *             type using a Qualification type search. It must be unique across all
    *             of your Qualification types.</p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *         <p>The initial status of the Qualification type.</p>
+   * <p>The initial status of the Qualification type.</p>
    *         <p>Constraints: Valid values are: Active | Inactive</p>
-   *
    */
   QualificationTypeStatus: QualificationTypeStatus | string | undefined;
 
   /**
-   *
-   *         <p>The number of seconds that a Worker must wait after
+   * <p>The number of seconds that a Worker must wait after
    *             requesting a Qualification of the Qualification type before the
    *             worker can retry the Qualification request.</p>
    *         <p>Constraints: None. If not specified, retries are disabled and
@@ -946,13 +797,11 @@ export interface CreateQualificationTypeRequest {
    *             with retries enabled. If you want to disable retries, you must delete
    *             existing retry-enabled Qualification type and then create a new
    *             Qualification type with retries disabled.</p>
-   *
    */
   RetryDelayInSeconds?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The questions for the Qualification test a Worker must answer
    *             correctly to obtain a Qualification of this type. If this parameter
    *             is specified,
@@ -964,16 +813,13 @@ export interface CreateQualificationTypeRequest {
    *             AutoGranted is true.</p>
    *         <p>Constraints: None. If not specified, the Worker may request
    *             the Qualification without answering any questions.</p>
-   *
    */
   Test?: string;
 
   /**
-   *
-   *         <p>The number of seconds the Worker has to complete the
+   * <p>The number of seconds the Worker has to complete the
    *             Qualification test, starting from the time the Worker requests the
    *             Qualification.</p>
-   *
    */
   TestDurationInSeconds?: number;
 }
@@ -987,10 +833,8 @@ export namespace CreateQualificationTypeRequest {
 export interface CreateQualificationTypeResponse extends $MetadataBearer {
   __type?: "CreateQualificationTypeResponse";
   /**
-   *
-   *         <p>The created Qualification type, returned as a
+   * <p>The created Qualification type, returned as a
    *             QualificationType data structure.</p>
-   *
    */
   QualificationType?: QualificationType;
 }
@@ -1004,16 +848,12 @@ export namespace CreateQualificationTypeResponse {
 export interface CreateWorkerBlockRequest {
   __type?: "CreateWorkerBlockRequest";
   /**
-   *
-   *         <p>A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.</p>
-   *
+   * <p>A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.</p>
    */
   Reason: string | undefined;
 
   /**
-   *
-   *         <p>The ID of the Worker to block.</p>
-   *
+   * <p>The ID of the Worker to block.</p>
    */
   WorkerId: string | undefined;
 }
@@ -1037,9 +877,7 @@ export namespace CreateWorkerBlockResponse {
 export interface DeleteHITRequest {
   __type?: "DeleteHITRequest";
   /**
-   *
-   *         <p>The ID of the HIT to be deleted.</p>
-   *
+   * <p>The ID of the HIT to be deleted.</p>
    */
   HITId: string | undefined;
 }
@@ -1063,9 +901,7 @@ export namespace DeleteHITResponse {
 export interface DeleteQualificationTypeRequest {
   __type?: "DeleteQualificationTypeRequest";
   /**
-   *
-   *         <p>The ID of the QualificationType to dispose.</p>
-   *
+   * <p>The ID of the QualificationType to dispose.</p>
    */
   QualificationTypeId: string | undefined;
 }
@@ -1089,16 +925,12 @@ export namespace DeleteQualificationTypeResponse {
 export interface DeleteWorkerBlockRequest {
   __type?: "DeleteWorkerBlockRequest";
   /**
-   *
-   *         <p>A message that explains the reason for unblocking the Worker. The Worker does not see this message.</p>
-   *
+   * <p>A message that explains the reason for unblocking the Worker. The Worker does not see this message.</p>
    */
   Reason?: string;
 
   /**
-   *
-   *         <p>The ID of the Worker to unblock.</p>
-   *
+   * <p>The ID of the Worker to unblock.</p>
    */
   WorkerId: string | undefined;
 }
@@ -1122,23 +954,17 @@ export namespace DeleteWorkerBlockResponse {
 export interface DisassociateQualificationFromWorkerRequest {
   __type?: "DisassociateQualificationFromWorkerRequest";
   /**
-   *
-   *         <p>The ID of the Qualification type of the Qualification to be revoked.</p>
-   *
+   * <p>The ID of the Qualification type of the Qualification to be revoked.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
-   *
+   * <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
    */
   Reason?: string;
 
   /**
-   *
-   *         <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
-   *
+   * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
    */
   WorkerId: string | undefined;
 }
@@ -1190,16 +1016,12 @@ export namespace GetAccountBalanceRequest {
 export interface GetAccountBalanceResponse extends $MetadataBearer {
   __type?: "GetAccountBalanceResponse";
   /**
-   *
-   *         <p>A string representing a currency amount.</p>
-   *
+   * <p>A string representing a currency amount.</p>
    */
   AvailableBalance?: string;
 
   /**
-   *
-   *         <p>A string representing a currency amount.</p>
-   *
+   * <p>A string representing a currency amount.</p>
    */
   OnHoldBalance?: string;
 }
@@ -1213,9 +1035,7 @@ export namespace GetAccountBalanceResponse {
 export interface GetAssignmentRequest {
   __type?: "GetAssignmentRequest";
   /**
-   *
-   *         <p>The ID of the Assignment to be retrieved.</p>
-   *
+   * <p>The ID of the Assignment to be retrieved.</p>
    */
   AssignmentId: string | undefined;
 }
@@ -1229,19 +1049,15 @@ export namespace GetAssignmentRequest {
 export interface GetAssignmentResponse extends $MetadataBearer {
   __type?: "GetAssignmentResponse";
   /**
-   *
-   *         <p> The assignment. The response includes one Assignment
+   * <p> The assignment. The response includes one Assignment
    *             element.
    *         </p>
-   *
    */
   Assignment?: Assignment;
 
   /**
-   *
-   *         <p> The HIT associated with this assignment. The response
+   * <p> The HIT associated with this assignment. The response
    *             includes one HIT element.</p>
-   *
    */
   HIT?: HIT;
 }
@@ -1255,18 +1071,14 @@ export namespace GetAssignmentResponse {
 export interface GetFileUploadURLRequest {
   __type?: "GetFileUploadURLRequest";
   /**
-   *
-   *         <p>The ID of the assignment that contains the question with a
+   * <p>The ID of the assignment that contains the question with a
    *             FileUploadAnswer.</p>
-   *
    */
   AssignmentId: string | undefined;
 
   /**
-   *
-   *         <p>The identifier of the question with a FileUploadAnswer, as
+   * <p>The identifier of the question with a FileUploadAnswer, as
    *             specified in the QuestionForm of the HIT.</p>
-   *
    */
   QuestionIdentifier: string | undefined;
 }
@@ -1280,11 +1092,9 @@ export namespace GetFileUploadURLRequest {
 export interface GetFileUploadURLResponse extends $MetadataBearer {
   __type?: "GetFileUploadURLResponse";
   /**
-   *
-   *         <p> A temporary URL for the file that the Worker uploaded for
+   * <p> A temporary URL for the file that the Worker uploaded for
    *             the answer.
    *         </p>
-   *
    */
   FileUploadURL?: string;
 }
@@ -1298,9 +1108,7 @@ export namespace GetFileUploadURLResponse {
 export interface GetHITRequest {
   __type?: "GetHITRequest";
   /**
-   *
-   *         <p>The ID of the HIT to be retrieved.</p>
-   *
+   * <p>The ID of the HIT to be retrieved.</p>
    */
   HITId: string | undefined;
 }
@@ -1314,9 +1122,7 @@ export namespace GetHITRequest {
 export interface GetHITResponse extends $MetadataBearer {
   __type?: "GetHITResponse";
   /**
-   *
-   *         <p> Contains the requested HIT data.</p>
-   *
+   * <p> Contains the requested HIT data.</p>
    */
   HIT?: HIT;
 }
@@ -1330,16 +1136,12 @@ export namespace GetHITResponse {
 export interface GetQualificationScoreRequest {
   __type?: "GetQualificationScoreRequest";
   /**
-   *
-   *         <p>The ID of the QualificationType.</p>
-   *
+   * <p>The ID of the QualificationType.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p>The ID of the Worker whose Qualification is being updated.</p>
-   *
+   * <p>The ID of the Worker whose Qualification is being updated.</p>
    */
   WorkerId: string | undefined;
 }
@@ -1353,12 +1155,10 @@ export namespace GetQualificationScoreRequest {
 export interface GetQualificationScoreResponse extends $MetadataBearer {
   __type?: "GetQualificationScoreResponse";
   /**
-   *
-   *         <p> The Qualification data structure of the Qualification
+   * <p> The Qualification data structure of the Qualification
    *             assigned to a user, including the Qualification type and the value
    *             (score).
    *         </p>
-   *
    */
   Qualification?: Qualification;
 }
@@ -1372,9 +1172,7 @@ export namespace GetQualificationScoreResponse {
 export interface GetQualificationTypeRequest {
   __type?: "GetQualificationTypeRequest";
   /**
-   *
-   *         <p>The ID of the QualificationType.</p>
-   *
+   * <p>The ID of the QualificationType.</p>
    */
   QualificationTypeId: string | undefined;
 }
@@ -1388,9 +1186,7 @@ export namespace GetQualificationTypeRequest {
 export interface GetQualificationTypeResponse extends $MetadataBearer {
   __type?: "GetQualificationTypeResponse";
   /**
-   *
-   *         <p> The returned Qualification Type</p>
-   *
+   * <p> The returned Qualification Type</p>
    */
   QualificationType?: QualificationType;
 }
@@ -1402,147 +1198,112 @@ export namespace GetQualificationTypeResponse {
 }
 
 /**
- *
- *         <p> The HIT data structure represents a single HIT, including
+ * <p> The HIT data structure represents a single HIT, including
  *             all the information necessary for a Worker to accept and complete the
  *             HIT.</p>
- *
  */
 export interface HIT {
   __type?: "HIT";
   /**
-   *
-   *         <p> The length of time, in seconds, that a Worker has to
+   * <p> The length of time, in seconds, that a Worker has to
    *             complete the HIT after accepting it.</p>
-   *
    */
   AssignmentDurationInSeconds?: number;
 
   /**
-   *
-   *         <p>The amount of time, in seconds, after the Worker submits an
+   * <p>The amount of time, in seconds, after the Worker submits an
    *             assignment for the HIT that the results are automatically approved by
    *             Amazon Mechanical Turk. This is the amount of time the Requester has
    *             to reject an assignment submitted by a Worker before the assignment
    *             is auto-approved and the Worker is paid.
    *         </p>
-   *
    */
   AutoApprovalDelayInSeconds?: number;
 
   /**
-   *
-   *         <p> The date and time the HIT was created.</p>
-   *
+   * <p> The date and time the HIT was created.</p>
    */
   CreationTime?: Date;
 
   /**
-   *
-   *         <p> A general description of the HIT.</p>
-   *
+   * <p> A general description of the HIT.</p>
    */
   Description?: string;
 
   /**
-   *
-   *         <p>The date and time the HIT expires.</p>
-   *
+   * <p>The date and time the HIT expires.</p>
    */
   Expiration?: Date;
 
   /**
-   *
-   *         <p> The ID of the HIT Group of this HIT.</p>
-   *
+   * <p> The ID of the HIT Group of this HIT.</p>
    */
   HITGroupId?: string;
 
   /**
-   *
-   *         <p> A unique identifier for the HIT.</p>
-   *
+   * <p> A unique identifier for the HIT.</p>
    */
   HITId?: string;
 
   /**
-   *
-   *         <p> The ID of the HIT Layout of this HIT.</p>
-   *
+   * <p> The ID of the HIT Layout of this HIT.</p>
    */
   HITLayoutId?: string;
 
   /**
-   *
-   *         <p> Indicates the review status of the HIT. Valid Values are
+   * <p> Indicates the review status of the HIT. Valid Values are
    *             NotReviewed | MarkedForReview | ReviewedAppropriate |
    *             ReviewedInappropriate.</p>
-   *
    */
   HITReviewStatus?: HITReviewStatus | string;
 
   /**
-   *
-   *         <p>The status of the HIT and its assignments. Valid Values are
+   * <p>The status of the HIT and its assignments. Valid Values are
    *             Assignable | Unassignable | Reviewable | Reviewing | Disposed.
    *         </p>
-   *
    */
   HITStatus?: HITStatus | string;
 
   /**
-   *
-   *         <p>The ID of the HIT type of this HIT</p>
-   *
+   * <p>The ID of the HIT type of this HIT</p>
    */
   HITTypeId?: string;
 
   /**
-   *
-   *         <p> One or more words or phrases that describe the HIT,
+   * <p> One or more words or phrases that describe the HIT,
    *             separated by commas. Search terms similar to the keywords of a HIT
    *             are more likely to have the HIT in the search results.</p>
-   *
    */
   Keywords?: string;
 
   /**
-   *
-   *         <p>The number of times the HIT can be accepted and completed
+   * <p>The number of times the HIT can be accepted and completed
    *             before the HIT becomes unavailable.
    *         </p>
-   *
    */
   MaxAssignments?: number;
 
   /**
-   *
-   *         <p> The number of assignments for this HIT that are available
+   * <p> The number of assignments for this HIT that are available
    *             for Workers to accept.</p>
-   *
    */
   NumberOfAssignmentsAvailable?: number;
 
   /**
-   *
-   *         <p> The number of assignments for this HIT that have been
+   * <p> The number of assignments for this HIT that have been
    *             approved or rejected.</p>
-   *
    */
   NumberOfAssignmentsCompleted?: number;
 
   /**
-   *
-   *         <p> The number of assignments for this HIT that are being
+   * <p> The number of assignments for this HIT that are being
    *             previewed or have been accepted by Workers, but have not yet been
    *             submitted, returned, or abandoned.</p>
-   *
    */
   NumberOfAssignmentsPending?: number;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Conditions that a Worker's Qualifications must meet in order
    *             to accept the HIT. A HIT can have between zero and ten
    *             Qualification requirements. All requirements must be met in
@@ -1550,38 +1311,29 @@ export interface HIT {
    *             actions can be restricted using the <code>ActionsGuarded</code>
    *             field on each <code>QualificationRequirement</code> structure.
    *         </p>
-   *
    */
   QualificationRequirements?: Array<QualificationRequirement>;
 
   /**
-   *
-   *         <p> The data the Worker completing the HIT uses produce the
+   * <p> The data the Worker completing the HIT uses produce the
    *             results. This is either either a QuestionForm, HTMLQuestion or an
    *             ExternalQuestion data structure.</p>
-   *
    */
   Question?: string;
 
   /**
-   *
-   *         <p> An arbitrary data field the Requester who created the HIT
+   * <p> An arbitrary data field the Requester who created the HIT
    *             can use. This field is visible only to the creator of the HIT.</p>
-   *
    */
   RequesterAnnotation?: string;
 
   /**
-   *
-   *         <p>A string representing a currency amount.</p>
-   *
+   * <p>A string representing a currency amount.</p>
    */
   Reward?: string;
 
   /**
-   *
-   *         <p> The title of the HIT.</p>
-   *
+   * <p> The title of the HIT.</p>
    */
   Title?: string;
 }
@@ -1599,30 +1351,24 @@ export enum HITAccessActions {
 }
 
 /**
- *
- *         <p> The HITLayoutParameter data structure defines parameter
+ * <p> The HITLayoutParameter data structure defines parameter
  *             values used with a HITLayout. A HITLayout is a reusable Amazon
  *             Mechanical Turk project template used to provide Human Intelligence
  *             Task (HIT) question data for CreateHIT.
  *         </p>
- *
  */
 export interface HITLayoutParameter {
   __type?: "HITLayoutParameter";
   /**
-   *
-   *         <p> The name of the parameter in the HITLayout.
+   * <p> The name of the parameter in the HITLayout.
    *         </p>
-   *
    */
   Name: string | undefined;
 
   /**
-   *
-   *         <p>The value substituted for the parameter referenced in the
+   * <p>The value substituted for the parameter referenced in the
    *             HITLayout.
    *         </p>
-   *
    */
   Value: string | undefined;
 }
@@ -1651,25 +1397,19 @@ export enum HITStatus {
 export interface ListAssignmentsForHITRequest {
   __type?: "ListAssignmentsForHITRequest";
   /**
-   *
-   *         <p>The status of the assignments to return: Submitted | Approved
+   * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
-   *
    */
   AssignmentStatuses?: Array<AssignmentStatus | string>;
 
   /**
-   *
-   *         <p>The ID of the HIT.</p>
-   *
+   * <p>The ID of the HIT.</p>
    */
   HITId: string | undefined;
 
   MaxResults?: number;
   /**
-   *
-   *         <p>Pagination token</p>
-   *
+   * <p>Pagination token</p>
    */
   NextToken?: string;
 }
@@ -1683,29 +1423,23 @@ export namespace ListAssignmentsForHITRequest {
 export interface ListAssignmentsForHITResponse extends $MetadataBearer {
   __type?: "ListAssignmentsForHITResponse";
   /**
-   *
-   *         <p> The collection of Assignment data structures returned by
+   * <p> The collection of Assignment data structures returned by
    *             this call.</p>
-   *
    */
   Assignments?: Array<Assignment>;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of assignments on the page in the filtered
+   * <p> The number of assignments on the page in the filtered
    *             results list, equivalent to the number of assignments returned by
    *             this call.</p>
-   *
    */
   NumResults?: number;
 }
@@ -1719,30 +1453,24 @@ export namespace ListAssignmentsForHITResponse {
 export interface ListBonusPaymentsRequest {
   __type?: "ListBonusPaymentsRequest";
   /**
-   *
-   *         <p>The ID of the assignment associated with the bonus payments
+   * <p>The ID of the assignment associated with the bonus payments
    *             to retrieve. If specified, only bonus payments for the given
    *             assignment are returned. Either the HITId parameter or the
    *             AssignmentId parameter must be specified</p>
-   *
    */
   AssignmentId?: string;
 
   /**
-   *
-   *         <p>The ID of the HIT associated with the bonus payments to
+   * <p>The ID of the HIT associated with the bonus payments to
    *             retrieve. If not specified, all bonus payments for all assignments
    *             for the given HIT are returned. Either the HITId parameter or the
    *             AssignmentId parameter must be specified</p>
-   *
    */
   HITId?: string;
 
   MaxResults?: number;
   /**
-   *
-   *         <p>Pagination token</p>
-   *
+   * <p>Pagination token</p>
    */
   NextToken?: string;
 }
@@ -1756,31 +1484,25 @@ export namespace ListBonusPaymentsRequest {
 export interface ListBonusPaymentsResponse extends $MetadataBearer {
   __type?: "ListBonusPaymentsResponse";
   /**
-   *
-   *         <p>A successful request to the ListBonusPayments operation
+   * <p>A successful request to the ListBonusPayments operation
    *             returns a list of BonusPayment objects.
    *         </p>
-   *
    */
   BonusPayments?: Array<BonusPayment>;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The number of bonus payments on this page in the filtered
+   * <p>The number of bonus payments on this page in the filtered
    *             results list, equivalent to the number of bonus payments being
    *             returned by this call.
    *         </p>
-   *
    */
   NumResults?: number;
 }
@@ -1794,27 +1516,21 @@ export namespace ListBonusPaymentsResponse {
 export interface ListHITsForQualificationTypeRequest {
   __type?: "ListHITsForQualificationTypeRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             Limit the number of results returned.
    *         </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>Pagination Token</p>
-   *
+   * <p>Pagination Token</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the Qualification type to use when querying HITs.
    *         </p>
-   *
    */
   QualificationTypeId: string | undefined;
 }
@@ -1828,27 +1544,21 @@ export namespace ListHITsForQualificationTypeRequest {
 export interface ListHITsForQualificationTypeResponse extends $MetadataBearer {
   __type?: "ListHITsForQualificationTypeResponse";
   /**
-   *
-   *         <p> The list of HIT elements returned by the query.</p>
-   *
+   * <p> The list of HIT elements returned by the query.</p>
    */
   HITs?: Array<HIT>;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of HITs on this page in the filtered results
+   * <p> The number of HITs on this page in the filtered results
    *             list, equivalent to the number of HITs being returned by this call.	</p>
-   *
    */
   NumResults?: number;
 }
@@ -1863,9 +1573,7 @@ export interface ListHITsRequest {
   __type?: "ListHITsRequest";
   MaxResults?: number;
   /**
-   *
-   *         <p>Pagination token</p>
-   *
+   * <p>Pagination token</p>
    */
   NextToken?: string;
 }
@@ -1879,27 +1587,21 @@ export namespace ListHITsRequest {
 export interface ListHITsResponse extends $MetadataBearer {
   __type?: "ListHITsResponse";
   /**
-   *
-   *         <p> The list of HIT elements returned by the query.</p>
-   *
+   * <p> The list of HIT elements returned by the query.</p>
    */
   HITs?: Array<HIT>;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The number of HITs on this page in the filtered results list,
+   * <p>The number of HITs on this page in the filtered results list,
    *             equivalent to the number of HITs being returned by this call.</p>
-   *
    */
   NumResults?: number;
 }
@@ -1913,27 +1615,21 @@ export namespace ListHITsResponse {
 export interface ListQualificationRequestsRequest {
   __type?: "ListQualificationRequestsRequest";
   /**
-   *
-   *         <p> The maximum number of results to return in a single call.
+   * <p> The maximum number of results to return in a single call.
    *         </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The ID of the QualificationType.</p>
-   *
+   * <p>The ID of the QualificationType.</p>
    */
   QualificationTypeId?: string;
 }
@@ -1947,30 +1643,24 @@ export namespace ListQualificationRequestsRequest {
 export interface ListQualificationRequestsResponse extends $MetadataBearer {
   __type?: "ListQualificationRequestsResponse";
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The number of Qualification requests on this page in the filtered results list,
+   * <p>The number of Qualification requests on this page in the filtered results list,
    *             equivalent to the number of Qualification requests being returned by this call.</p>
-   *
    */
   NumResults?: number;
 
   /**
-   *
-   *         <p>The Qualification request. The response includes one
+   * <p>The Qualification request. The response includes one
    *             QualificationRequest element
    *             for each Qualification request returned
    *             by the query.</p>
-   *
    */
   QualificationRequests?: Array<QualificationRequest>;
 }
@@ -1984,26 +1674,21 @@ export namespace ListQualificationRequestsResponse {
 export interface ListQualificationTypesRequest {
   __type?: "ListQualificationTypesRequest";
   /**
-   *
-   *         <p> The maximum number of results to return in a single call.
+   * <p> The maximum number of results to return in a single call.
    *         </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p> Specifies that only Qualification types that the Requester
+   * <p> Specifies that only Qualification types that the Requester
    *             created are returned. If false, the operation returns all
    *             Qualification types.
    *         </p>
-   *
    */
   MustBeOwnedByCaller?: boolean;
 
   /**
-   *
-   *         <p>Specifies that only Qualification types that a user can
+   * <p>Specifies that only Qualification types that a user can
    *             request through the Amazon Mechanical Turk web site, such as by
    *             taking a Qualification test, are returned as results of the search.
    *             Some Qualification types, such as those assigned automatically by the
@@ -2011,26 +1696,21 @@ export interface ListQualificationTypesRequest {
    *             Qualification types, including those managed by the system, are
    *             considered. Valid values are True | False.
    *         </p>
-   *
    */
   MustBeRequestable: boolean | undefined;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> A text query against all of the searchable attributes of
+   * <p> A text query against all of the searchable attributes of
    *             Qualification types.
    *         </p>
-   *
    */
   Query?: string;
 }
@@ -2044,31 +1724,25 @@ export namespace ListQualificationTypesRequest {
 export interface ListQualificationTypesResponse extends $MetadataBearer {
   __type?: "ListQualificationTypesResponse";
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of Qualification types on this page in the
+   * <p> The number of Qualification types on this page in the
    *             filtered results list, equivalent to the number of types this
    *             operation returns.
    *         </p>
-   *
    */
   NumResults?: number;
 
   /**
-   *
-   *         <p> The list of QualificationType elements returned by the
+   * <p> The list of QualificationType elements returned by the
    *             query.
    *         </p>
-   *
    */
   QualificationTypes?: Array<QualificationType>;
 }
@@ -2082,53 +1756,41 @@ export namespace ListQualificationTypesResponse {
 export interface ListReviewPolicyResultsForHITRequest {
   __type?: "ListReviewPolicyResultsForHITRequest";
   /**
-   *
-   *         <p>The unique identifier of the HIT to retrieve review results for.</p>
-   *
+   * <p>The unique identifier of the HIT to retrieve review results for.</p>
    */
   HITId: string | undefined;
 
   /**
-   *
-   *         <p>Limit the number of results returned.</p>
-   *
+   * <p>Limit the number of results returned.</p>
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>Pagination token</p>
-   *
+   * <p>Pagination token</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The Policy Level(s) to retrieve review results for - HIT or Assignment.
    *             If omitted, the default behavior is to retrieve all data for both policy levels.
    *             For a list of all the described policies, see Review Policies.
    *         </p>
-   *
    */
   PolicyLevels?: Array<ReviewPolicyLevel | string>;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Specify if the operation should retrieve a list of the actions taken executing
    *             the Review Policies and their outcomes.
    *         </p>
-   *
    */
   RetrieveActions?: boolean;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Specify if the operation should retrieve a list of the results computed by the Review Policies.
    *         </p>
-   *
    */
   RetrieveResults?: boolean;
 }
@@ -2142,53 +1804,41 @@ export namespace ListReviewPolicyResultsForHITRequest {
 export interface ListReviewPolicyResultsForHITResponse extends $MetadataBearer {
   __type?: "ListReviewPolicyResultsForHITResponse";
   /**
-   *
-   *         <p> The name of the Assignment-level Review Policy. This
+   * <p> The name of the Assignment-level Review Policy. This
    *             contains only the PolicyName element.
    *         </p>
-   *
    */
   AssignmentReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p> Contains both ReviewResult and ReviewAction elements for an
+   * <p> Contains both ReviewResult and ReviewAction elements for an
    *             Assignment.
    *         </p>
-   *
    */
   AssignmentReviewReport?: ReviewReport;
 
   /**
-   *
-   *         <p>The HITId of the HIT for which results have been returned.</p>
-   *
+   * <p>The HITId of the HIT for which results have been returned.</p>
    */
   HITId?: string;
 
   /**
-   *
-   *         <p>The name of the HIT-level Review Policy. This contains only
+   * <p>The name of the HIT-level Review Policy. This contains only
    *             the PolicyName element.</p>
-   *
    */
   HITReviewPolicy?: ReviewPolicy;
 
   /**
-   *
-   *         <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
+   * <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
    *         </p>
-   *
    */
   HITReviewReport?: ReviewReport;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 }
@@ -2202,38 +1852,30 @@ export namespace ListReviewPolicyResultsForHITResponse {
 export interface ListReviewableHITsRequest {
   __type?: "ListReviewableHITsRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the HIT type of the HITs to consider for the query.
    *             If not specified, all HITs for the Reviewer are considered
    *         </p>
-   *
    */
   HITTypeId?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Limit the number of results returned.
    *         </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>Pagination Token</p>
-   *
+   * <p>Pagination Token</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Can be either <code>Reviewable</code> or <code>Reviewing</code>.
    *             Reviewable is the default value.
    *         </p>
-   *
    */
   Status?: ReviewableHITStatus | string;
 }
@@ -2247,28 +1889,22 @@ export namespace ListReviewableHITsRequest {
 export interface ListReviewableHITsResponse extends $MetadataBearer {
   __type?: "ListReviewableHITsResponse";
   /**
-   *
-   *         <p> The list of HIT elements returned by the query.</p>
-   *
+   * <p> The list of HIT elements returned by the query.</p>
    */
   HITs?: Array<HIT>;
 
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of HITs on this page in the filtered results
+   * <p> The number of HITs on this page in the filtered results
    *             list, equivalent to the number of HITs being returned by this call.
    *         </p>
-   *
    */
   NumResults?: number;
 }
@@ -2283,9 +1919,7 @@ export interface ListWorkerBlocksRequest {
   __type?: "ListWorkerBlocksRequest";
   MaxResults?: number;
   /**
-   *
-   *          <p>Pagination token</p>
-   *
+   * <p>Pagination token</p>
    */
   NextToken?: string;
 }
@@ -2299,29 +1933,23 @@ export namespace ListWorkerBlocksRequest {
 export interface ListWorkerBlocksResponse extends $MetadataBearer {
   __type?: "ListWorkerBlocksResponse";
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of assignments on the page in the filtered
+   * <p> The number of assignments on the page in the filtered
    *             results list, equivalent to the number of assignments returned by
    *             this call.</p>
-   *
    */
   NumResults?: number;
 
   /**
-   *
-   *         <p> The list of WorkerBlocks, containing the collection of
+   * <p> The list of WorkerBlocks, containing the collection of
    *             Worker IDs and reasons for blocking.</p>
-   *
    */
   WorkerBlocks?: Array<WorkerBlock>;
 }
@@ -2335,36 +1963,28 @@ export namespace ListWorkerBlocksResponse {
 export interface ListWorkersWithQualificationTypeRequest {
   __type?: "ListWorkersWithQualificationTypeRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             Limit the number of results returned.
    *         </p>
-   *
    */
   MaxResults?: number;
 
   /**
-   *
-   *         <p>Pagination Token</p>
-   *
+   * <p>Pagination Token</p>
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p>The ID of the Qualification type of the Qualifications to
+   * <p>The ID of the Qualification type of the Qualifications to
    *             return.</p>
-   *
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The status of the Qualifications to return.
    *             Can be <code>Granted | Revoked</code>.
    *         </p>
-   *
    */
   Status?: QualificationStatus | string;
 }
@@ -2379,29 +1999,23 @@ export interface ListWorkersWithQualificationTypeResponse
   extends $MetadataBearer {
   __type?: "ListWorkersWithQualificationTypeResponse";
   /**
-   *
-   *         <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
    *             returns a pagination token in the response. You can use this pagination token
    *             to retrieve the next set of results.
    *         </p>
-   *
    */
   NextToken?: string;
 
   /**
-   *
-   *         <p> The number of Qualifications on this page in the filtered
+   * <p> The number of Qualifications on this page in the filtered
    *             results list, equivalent to the number of Qualifications being
    *             returned by this call.</p>
-   *
    */
   NumResults?: number;
 
   /**
-   *
-   *         <p> The list of Qualification elements returned by this call.
+   * <p> The list of Qualification elements returned by this call.
    *         </p>
-   *
    */
   Qualifications?: Array<Qualification>;
 }
@@ -2413,28 +2027,22 @@ export namespace ListWorkersWithQualificationTypeResponse {
 }
 
 /**
- *
- *         <p>The Locale data structure represents a geographical region or location.</p>
- *
+ * <p>The Locale data structure represents a geographical region or location.</p>
  */
 export interface Locale {
   __type?: "Locale";
   /**
-   *
-   *         <p> The country of the locale. Must be a valid ISO 3166 country
+   * <p> The country of the locale. Must be a valid ISO 3166 country
    *             code. For example, the code US refers to the United States of
    *             America.
    *         </p>
-   *
    */
   Country: string | undefined;
 
   /**
-   *
-   *         <p>The state or subdivision of the locale. A valid ISO 3166-2
+   * <p>The state or subdivision of the locale. A valid ISO 3166-2
    *             subdivision code. For example, the code WA refers to the state of
    *             Washington.</p>
-   *
    */
   Subdivision?: string;
 }
@@ -2446,16 +2054,13 @@ export namespace Locale {
 }
 
 /**
- *
- *         <p>The NotificationSpecification data structure describes a HIT
+ * <p>The NotificationSpecification data structure describes a HIT
  *             event notification for a HIT type.</p>
- *
  */
 export interface NotificationSpecification {
   __type?: "NotificationSpecification";
   /**
-   *
-   *         <p>
+   * <p>
    *             The target for notification messages. The Destination’s format is determined by the specified Transport:
    *         </p>
    *         <ul>
@@ -2469,37 +2074,30 @@ export interface NotificationSpecification {
    *                 <p>When Transport is SNS, the Destination is the ARN of your topic.</p>
    *             </li>
    *          </ul>
-   *
    */
   Destination: string | undefined;
 
   /**
-   *
-   *         <p> The list of events that should cause notifications to be
+   * <p> The list of events that should cause notifications to be
    *             sent. Valid Values: AssignmentAccepted | AssignmentAbandoned |
    *             AssignmentReturned | AssignmentSubmitted | AssignmentRejected |
    *             AssignmentApproved | HITCreated | HITExtended | HITDisposed |
    *             HITReviewable | HITExpired | Ping. The Ping event is only valid for
    *             the SendTestEventNotification operation.
    *         </p>
-   *
    */
   EventTypes: Array<EventType | string> | undefined;
 
   /**
-   *
-   *         <p> The method Amazon Mechanical Turk uses to send the
+   * <p> The method Amazon Mechanical Turk uses to send the
    *             notification. Valid Values: Email | SQS | SNS.
    *         </p>
-   *
    */
   Transport: NotificationTransport | string | undefined;
 
   /**
-   *
-   *         <p>The version of the Notification API to use. Valid value is
+   * <p>The version of the Notification API to use. Valid value is
    *             2006-05-05.</p>
-   *
    */
   Version: string | undefined;
 }
@@ -2522,35 +2120,27 @@ export enum NotifyWorkersFailureCode {
 }
 
 /**
- *
- *         <p> When MTurk encounters an issue with notifying the Workers
+ * <p> When MTurk encounters an issue with notifying the Workers
  *             you specified, it returns back this object with failure details.
  *         </p>
- *
  */
 export interface NotifyWorkersFailureStatus {
   __type?: "NotifyWorkersFailureStatus";
   /**
-   *
-   *         <p> Encoded value for the failure type.
+   * <p> Encoded value for the failure type.
    *         </p>
-   *
    */
   NotifyWorkersFailureCode?: NotifyWorkersFailureCode | string;
 
   /**
-   *
-   *         <p> A message detailing the reason the Worker could not be
+   * <p> A message detailing the reason the Worker could not be
    *             notified.
    *         </p>
-   *
    */
   NotifyWorkersFailureMessage?: string;
 
   /**
-   *
-   *         <p> The ID of the Worker.</p>
-   *
+   * <p> The ID of the Worker.</p>
    */
   WorkerId?: string;
 }
@@ -2564,27 +2154,21 @@ export namespace NotifyWorkersFailureStatus {
 export interface NotifyWorkersRequest {
   __type?: "NotifyWorkersRequest";
   /**
-   *
-   *         <p>The text of the email message to send. Can include up to
+   * <p>The text of the email message to send. Can include up to
    *             4,096 characters</p>
-   *
    */
   MessageText: string | undefined;
 
   /**
-   *
-   *         <p>The subject line of the email message to send. Can include up
+   * <p>The subject line of the email message to send. Can include up
    *             to 200 characters.</p>
-   *
    */
   Subject: string | undefined;
 
   /**
-   *
-   *         <p>A list of Worker IDs you wish to notify. You
+   * <p>A list of Worker IDs you wish to notify. You
    *             can notify upto
    *             100 Workers at a time.</p>
-   *
    */
   WorkerIds: Array<string> | undefined;
 }
@@ -2598,12 +2182,10 @@ export namespace NotifyWorkersRequest {
 export interface NotifyWorkersResponse extends $MetadataBearer {
   __type?: "NotifyWorkersResponse";
   /**
-   *
-   *         <p> When MTurk sends notifications to the list of Workers, it
+   * <p> When MTurk sends notifications to the list of Workers, it
    *             returns back any failures it encounters in this list of
    *             NotifyWorkersFailureStatus objects.
    *         </p>
-   *
    */
   NotifyWorkersFailureStatuses?: Array<NotifyWorkersFailureStatus>;
 }
@@ -2615,31 +2197,25 @@ export namespace NotifyWorkersResponse {
 }
 
 /**
- *
- *         <p> This data structure is the data type for the AnswerKey
+ * <p> This data structure is the data type for the AnswerKey
  *             parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
  *         </p>
- *
  */
 export interface ParameterMapEntry {
   __type?: "ParameterMapEntry";
   /**
-   *
-   *         <p> The QuestionID from the HIT that is used to identify which
+   * <p> The QuestionID from the HIT that is used to identify which
    *             question requires Mechanical Turk to score as part of the
    *             ScoreMyKnownAnswers/2011-09-01 Review Policy.
    *         </p>
-   *
    */
   Key?: string;
 
   /**
-   *
-   *         <p> The list of answers to the question specified in the
+   * <p> The list of answers to the question specified in the
    *             MapEntry Key element. The Worker must match all values in order for
    *             the answer to be scored correctly.
    *         </p>
-   *
    */
   Values?: Array<string>;
 }
@@ -2651,33 +2227,25 @@ export namespace ParameterMapEntry {
 }
 
 /**
- *
- *         <p> Name of the parameter from the Review policy.
+ * <p> Name of the parameter from the Review policy.
  *         </p>
- *
  */
 export interface PolicyParameter {
   __type?: "PolicyParameter";
   /**
-   *
-   *         <p> Name of the parameter from the list of Review Polices.
+   * <p> Name of the parameter from the list of Review Polices.
    *         </p>
-   *
    */
   Key?: string;
 
   /**
-   *
-   *         <p> List of ParameterMapEntry objects.
+   * <p> List of ParameterMapEntry objects.
    *         </p>
-   *
    */
   MapEntries?: Array<ParameterMapEntry>;
 
   /**
-   *
-   *         <p> The list of values of the Parameter</p>
-   *
+   * <p> The list of values of the Parameter</p>
    */
   Values?: Array<string>;
 }
@@ -2689,60 +2257,46 @@ export namespace PolicyParameter {
 }
 
 /**
- *
- *         <p>The Qualification data structure represents a Qualification
+ * <p>The Qualification data structure represents a Qualification
  *             assigned to a user, including the Qualification type and the value
  *             (score).</p>
- *
  */
 export interface Qualification {
   __type?: "Qualification";
   /**
-   *
-   *         <p> The date and time the Qualification was granted to the
+   * <p> The date and time the Qualification was granted to the
    *             Worker. If the Worker's Qualification was revoked, and then
    *             re-granted based on a new Qualification request, GrantTime is the
    *             date and time of the last call to the AcceptQualificationRequest
    *             operation.</p>
-   *
    */
   GrantTime?: Date;
 
   /**
-   *
-   *         <p> The value (score) of the Qualification, if the Qualification
+   * <p> The value (score) of the Qualification, if the Qualification
    *             has an integer value.</p>
-   *
    */
   IntegerValue?: number;
 
   /**
-   *
-   *         <p>The Locale data structure represents a geographical region or location.</p>
-   *
+   * <p>The Locale data structure represents a geographical region or location.</p>
    */
   LocaleValue?: Locale;
 
   /**
-   *
-   *         <p> The ID of the Qualification type for the Qualification.</p>
-   *
+   * <p> The ID of the Qualification type for the Qualification.</p>
    */
   QualificationTypeId?: string;
 
   /**
-   *
-   *         <p> The status of the Qualification. Valid values are Granted |
+   * <p> The status of the Qualification. Valid values are Granted |
    *             Revoked.</p>
-   *
    */
   Status?: QualificationStatus | string;
 
   /**
-   *
-   *         <p> The ID of the Worker who possesses the Qualification.
+   * <p> The ID of the Worker who possesses the Qualification.
    *         </p>
-   *
    */
   WorkerId?: string;
 }
@@ -2754,70 +2308,56 @@ export namespace Qualification {
 }
 
 /**
- *
- *         <p> The QualificationRequest data structure represents a request
+ * <p> The QualificationRequest data structure represents a request
  *             a Worker has made for a Qualification.
  *         </p>
- *
  */
 export interface QualificationRequest {
   __type?: "QualificationRequest";
   /**
-   *
-   *         <p> The Worker's answers for the Qualification type's test
+   * <p> The Worker's answers for the Qualification type's test
    *             contained in a QuestionFormAnswers document, if the type has a test
    *             and the Worker has submitted answers. If the Worker does not provide
    *             any answers, Answer may be empty.
    *         </p>
-   *
    */
   Answer?: string;
 
   /**
-   *
-   *         <p>The ID of the Qualification request, a unique identifier
+   * <p>The ID of the Qualification request, a unique identifier
    *             generated when the request was submitted.
    *
    *         </p>
-   *
    */
   QualificationRequestId?: string;
 
   /**
-   *
-   *         <p> The ID of the Qualification type the Worker is requesting,
+   * <p> The ID of the Qualification type the Worker is requesting,
    *             as returned by the CreateQualificationType operation.
    *         </p>
-   *
    */
   QualificationTypeId?: string;
 
   /**
-   *
-   *         <p>The date and time the Qualification request had a status of
+   * <p>The date and time the Qualification request had a status of
    *             Submitted. This is either the time the Worker submitted answers for a
    *             Qualification test, or the time the Worker requested the
    *             Qualification if the Qualification type does not have a test.
    *         </p>
-   *
    */
   SubmitTime?: Date;
 
   /**
-   *
-   *         <p> The contents of the Qualification test that was presented to
+   * <p> The contents of the Qualification test that was presented to
    *             the Worker, if the type has a test and the Worker has submitted
    *             answers. This value is identical to the QuestionForm associated with
    *             the Qualification type at the time the Worker requests the
    *             Qualification.</p>
-   *
    */
   Test?: string;
 
   /**
-   *
-   *         <p> The ID of the Worker requesting the Qualification.</p>
-   *
+   * <p> The ID of the Worker requesting the Qualification.</p>
    */
   WorkerId?: string;
 }
@@ -2829,20 +2369,17 @@ export namespace QualificationRequest {
 }
 
 /**
- *
- *         <p>
+ * <p>
  *             The QualificationRequirement data structure describes a Qualification that a Worker must have
  *             before the Worker is allowed to accept a HIT.
  *             A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT, or
  *             see the HIT in search results.
  *         </p>
- *
  */
 export interface QualificationRequirement {
   __type?: "QualificationRequirement";
   /**
-   *
-   *         <p> Setting this attribute prevents Workers whose Qualifications do not meet
+   * <p> Setting this attribute prevents Workers whose Qualifications do not meet
    *             this QualificationRequirement from taking the specified action. Valid arguments include
    *             "Accept" (Worker cannot accept the HIT, but can preview the HIT and see it in their search results),
    *             "PreviewAndAccept" (Worker cannot accept or preview the HIT, but can see the HIT in their search results),
@@ -2855,13 +2392,11 @@ export interface QualificationRequirement {
    *             HIT in their search result, but will not be able to Preview or Accept the HIT. ActionsGuarded should not be used in combination with the
    *             <code>RequiredToPreview</code> field.
    *         </p>
-   *
    */
   ActionsGuarded?: HITAccessActions | string;
 
   /**
-   *
-   *         <p>The kind of comparison to make against a Qualification's
+   * <p>The kind of comparison to make against a Qualification's
    *             value. You can compare a Qualification's value to an IntegerValue to
    *             see if it is LessThan, LessThanOrEqualTo, GreaterThan,
    *             GreaterThanOrEqualTo, EqualTo, or NotEqualTo the IntegerValue. You
@@ -2874,13 +2409,11 @@ export interface QualificationRequirement {
    *             DoesNotExist in the user's profile,
    *             regardless of its value.
    *         </p>
-   *
    */
   Comparator: Comparator | string | undefined;
 
   /**
-   *
-   *         <p> The integer value to compare against the Qualification's
+   * <p> The integer value to compare against the Qualification's
    *             value. IntegerValue must not be present if Comparator is Exists or
    *             DoesNotExist. IntegerValue can only be used if the Qualification type
    *             has an integer value; it cannot be used with the Worker_Locale
@@ -2888,13 +2421,11 @@ export interface QualificationRequirement {
    *             In or the NotIn comparator, you can use up to 15 IntegerValue
    *             elements in a QualificationRequirement data structure.
    *         </p>
-   *
    */
   IntegerValues?: Array<number>;
 
   /**
-   *
-   *         <p> The locale value to compare against the Qualification's
+   * <p> The locale value to compare against the Qualification's
    *             value. The local value must be a valid ISO 3166 country code or
    *             supports ISO 3166-2 subdivisions. LocaleValue can only be used with a
    *             Worker_Locale QualificationType ID. LocaleValue can only be used with
@@ -2904,20 +2435,16 @@ export interface QualificationRequirement {
    *             NotIn comparator, you can use up to 30 LocaleValue elements in a
    *             QualificationRequirement data structure.
    *         </p>
-   *
    */
   LocaleValues?: Array<Locale>;
 
   /**
-   *
-   *         <p> The ID of the Qualification type for the requirement.</p>
-   *
+   * <p> The ID of the Qualification type for the requirement.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p> DEPRECATED: Use the <code>ActionsGuarded</code> field instead.
+   * <p> DEPRECATED: Use the <code>ActionsGuarded</code> field instead.
    *             If RequiredToPreview is true, the question data for the HIT will not be shown
    *             when a Worker whose Qualifications do not meet this requirement tries
    *             to preview the HIT. That is, a Worker's Qualifications must meet all
@@ -2929,7 +2456,6 @@ export interface QualificationRequirement {
    *             to accept and complete the HIT. The default is false. This should not
    *             be used in combination with the <code>ActionsGuarded</code> field.
    *         </p>
-   *
    */
   RequiredToPreview?: boolean;
 }
@@ -2946,114 +2472,91 @@ export enum QualificationStatus {
 }
 
 /**
- *
- *         <p> The QualificationType data structure represents a
+ * <p> The QualificationType data structure represents a
  *             Qualification type, a description of a property of a Worker that must
  *             match the requirements of a HIT for the Worker to be able to accept
  *             the HIT. The type also describes how a Worker can obtain a
  *             Qualification of that type, such as through a Qualification test.
  *         </p>
- *
  */
 export interface QualificationType {
   __type?: "QualificationType";
   /**
-   *
-   *         <p>The answers to the Qualification test specified in the Test
+   * <p>The answers to the Qualification test specified in the Test
    *             parameter.</p>
-   *
    */
   AnswerKey?: string;
 
   /**
-   *
-   *         <p>Specifies that requests for the Qualification type are
+   * <p>Specifies that requests for the Qualification type are
    *             granted immediately, without prompting the Worker with a
    *             Qualification test. Valid values are True | False.</p>
-   *
    */
   AutoGranted?: boolean;
 
   /**
-   *
-   *         <p> The Qualification integer value to use for automatically
+   * <p> The Qualification integer value to use for automatically
    *             granted Qualifications, if AutoGranted is true. This is 1 by default.
    *         </p>
-   *
    */
   AutoGrantedValue?: number;
 
   /**
-   *
-   *         <p> The date and time the Qualification type was created.
+   * <p> The date and time the Qualification type was created.
    *         </p>
-   *
    */
   CreationTime?: Date;
 
   /**
-   *
-   *         <p> A long description for the Qualification type.
+   * <p> A long description for the Qualification type.
    *         </p>
-   *
    */
   Description?: string;
 
   /**
-   *
-   *         <p> Specifies whether the Qualification type is one that a user
+   * <p> Specifies whether the Qualification type is one that a user
    *             can request through the Amazon Mechanical Turk web site, such as by
    *             taking a Qualification test. This value is False for Qualifications
    *             assigned automatically by the system. Valid values are True | False.
    *         </p>
-   *
    */
   IsRequestable?: boolean;
 
   /**
-   *
-   *         <p> One or more words or phrases that describe theQualification
+   * <p> One or more words or phrases that describe theQualification
    *             type, separated by commas. The Keywords make the type easier to find
    *             using a search.
    *         </p>
-   *
    */
   Keywords?: string;
 
   /**
-   *
-   *         <p> The name of the Qualification type. The type name is used to
+   * <p> The name of the Qualification type. The type name is used to
    *             identify the type, and to find the type using a Qualification type
    *             search.
    *         </p>
-   *
    */
   Name?: string;
 
   /**
-   *
-   *         <p> A unique identifier for the Qualification type. A
+   * <p> A unique identifier for the Qualification type. A
    *             Qualification type is given a Qualification type ID when you call the
    *             CreateQualificationType operation.
    *         </p>
-   *
    */
   QualificationTypeId?: string;
 
   /**
-   *
-   *         <p> The status of the Qualification type. A Qualification type's
+   * <p> The status of the Qualification type. A Qualification type's
    *             status determines if users can apply to receive a Qualification of
    *             this type, and if HITs can be created with requirements based on this
    *             type. Valid values are Active | Inactive.
    *         </p>
-   *
    */
   QualificationTypeStatus?: QualificationTypeStatus | string;
 
   /**
-   *
-   *         <p> The amount of time, in seconds, Workers must wait after
+   * <p> The amount of time, in seconds, Workers must wait after
    *             taking the Qualification test before they can take it again. Workers
    *             can take a Qualification test multiple times if they were not granted
    *             the Qualification from a previous attempt, or if the test offers a
@@ -3061,29 +2564,24 @@ export interface QualificationType {
    *             retries are disabled and Workers can request a Qualification only
    *             once.
    *         </p>
-   *
    */
   RetryDelayInSeconds?: number;
 
   /**
-   *
-   *         <p> The questions for a Qualification test associated with this
+   * <p> The questions for a Qualification test associated with this
    *             Qualification type that a user can take to obtain a Qualification of
    *             this type. This parameter must be specified if AnswerKey is present.
    *             A Qualification type cannot have both a specified Test parameter and
    *             an AutoGranted value of true.
    *         </p>
-   *
    */
   Test?: string;
 
   /**
-   *
-   *         <p> The amount of time, in seconds, given to a Worker to
+   * <p> The amount of time, in seconds, given to a Worker to
    *             complete the Qualification test, beginning from the time the Worker
    *             requests the Qualification.
    *         </p>
-   *
    */
   TestDurationInSeconds?: number;
 }
@@ -3102,20 +2600,16 @@ export enum QualificationTypeStatus {
 export interface RejectAssignmentRequest {
   __type?: "RejectAssignmentRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
    *         </p>
-   *
    */
   AssignmentId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             A message for the Worker, which the Worker can see in the Status section of the web site.
    *         </p>
-   *
    */
   RequesterFeedback: string | undefined;
 }
@@ -3139,21 +2633,17 @@ export namespace RejectAssignmentResponse {
 export interface RejectQualificationRequestRequest {
   __type?: "RejectQualificationRequestRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the Qualification request, as returned by the
    *             <code>ListQualificationRequests</code>
    *             operation.
    *         </p>
-   *
    */
   QualificationRequestId: string | undefined;
 
   /**
-   *
-   *         <p>A text message explaining why the request was rejected, to be
+   * <p>A text message explaining why the request was rejected, to be
    *             shown to the Worker who made the request.</p>
-   *
    */
   Reason?: string;
 }
@@ -3175,73 +2665,55 @@ export namespace RejectQualificationRequestResponse {
 }
 
 /**
- *
- *         <p> Both the AssignmentReviewReport and the HITReviewReport
+ * <p> Both the AssignmentReviewReport and the HITReviewReport
  *             elements contains the ReviewActionDetail data structure. This
  *             structure is returned multiple times for each action specified in the
  *             Review Policy.
  *         </p>
- *
  */
 export interface ReviewActionDetail {
   __type?: "ReviewActionDetail";
   /**
-   *
-   *         <p>The unique identifier for the action.</p>
-   *
+   * <p>The unique identifier for the action.</p>
    */
   ActionId?: string;
 
   /**
-   *
-   *         <p> The nature of the action itself. The Review Policy is
+   * <p> The nature of the action itself. The Review Policy is
    *             responsible for examining the HIT and Assignments, emitting results,
    *             and deciding which other actions will be necessary. </p>
-   *
    */
   ActionName?: string;
 
   /**
-   *
-   *         <p> The date when the action was completed.</p>
-   *
+   * <p> The date when the action was completed.</p>
    */
   CompleteTime?: Date;
 
   /**
-   *
-   *         <p> Present only when the Results have a FAILED Status.</p>
-   *
+   * <p> Present only when the Results have a FAILED Status.</p>
    */
   ErrorCode?: string;
 
   /**
-   *
-   *         <p> A description of the outcome of the review.</p>
-   *
+   * <p> A description of the outcome of the review.</p>
    */
   Result?: string;
 
   /**
-   *
-   *         <p> The current disposition of the action: INTENDED, SUCCEEDED,
+   * <p> The current disposition of the action: INTENDED, SUCCEEDED,
    *             FAILED, or CANCELLED.
    *         </p>
-   *
    */
   Status?: ReviewActionStatus | string;
 
   /**
-   *
-   *         <p> The specific HITId or AssignmentID targeted by the action.</p>
-   *
+   * <p> The specific HITId or AssignmentID targeted by the action.</p>
    */
   TargetId?: string;
 
   /**
-   *
-   *         <p> The type of object in TargetId.</p>
-   *
+   * <p> The type of object in TargetId.</p>
    */
   TargetType?: string;
 }
@@ -3260,27 +2732,21 @@ export enum ReviewActionStatus {
 }
 
 /**
- *
- *         <p> HIT Review Policy data structures represent HIT review
+ * <p> HIT Review Policy data structures represent HIT review
  *             policies, which you specify when you create a HIT.
  *         </p>
- *
  */
 export interface ReviewPolicy {
   __type?: "ReviewPolicy";
   /**
-   *
-   *         <p>Name of the parameter from the Review policy.</p>
-   *
+   * <p>Name of the parameter from the Review policy.</p>
    */
   Parameters?: Array<PolicyParameter>;
 
   /**
-   *
-   *         <p> Name of a Review Policy: SimplePlurality/2011-09-01 or
+   * <p> Name of a Review Policy: SimplePlurality/2011-09-01 or
    *             ScoreMyKnownAnswers/2011-09-01
    *         </p>
-   *
    */
   PolicyName: string | undefined;
 }
@@ -3297,29 +2763,23 @@ export enum ReviewPolicyLevel {
 }
 
 /**
- *
- *         <p> Contains both ReviewResult and ReviewAction elements for a
+ * <p> Contains both ReviewResult and ReviewAction elements for a
  *             particular HIT.
  *         </p>
- *
  */
 export interface ReviewReport {
   __type?: "ReviewReport";
   /**
-   *
-   *         <p> A list of ReviewAction objects for each action specified in
+   * <p> A list of ReviewAction objects for each action specified in
    *             the Review Policy.
    *         </p>
-   *
    */
   ReviewActions?: Array<ReviewActionDetail>;
 
   /**
-   *
-   *         <p> A list of ReviewResults objects for each action specified in
+   * <p> A list of ReviewResults objects for each action specified in
    *             the Review Policy.
    *         </p>
-   *
    */
   ReviewResults?: Array<ReviewResultDetail>;
 }
@@ -3331,33 +2791,26 @@ export namespace ReviewReport {
 }
 
 /**
- *
- *         <p> This data structure is returned multiple times for each
+ * <p> This data structure is returned multiple times for each
  *             result specified in the Review Policy.
  *         </p>
- *
  */
 export interface ReviewResultDetail {
   __type?: "ReviewResultDetail";
   /**
-   *
-   *         <p> A unique identifier of the Review action result.
+   * <p> A unique identifier of the Review action result.
    *         </p>
-   *
    */
   ActionId?: string;
 
   /**
-   *
-   *         <p> Key identifies the particular piece of reviewed information.
+   * <p> Key identifies the particular piece of reviewed information.
    *         </p>
-   *
    */
   Key?: string;
 
   /**
-   *
-   *         <p> Specifies the QuestionId the result is describing. Depending
+   * <p> Specifies the QuestionId the result is describing. Depending
    *             on whether the TargetType is a HIT or Assignment this results could
    *             specify multiple values. If TargetType is HIT and QuestionId is
    *             absent, then the result describes results of the HIT, including the
@@ -3365,35 +2818,28 @@ export interface ReviewResultDetail {
    *             absent, then the result describes the Worker's performance on the
    *             HIT.
    *         </p>
-   *
    */
   QuestionId?: string;
 
   /**
-   *
-   *         <p>The HITID or AssignmentId about which this result was taken.
+   * <p>The HITID or AssignmentId about which this result was taken.
    *             Note that HIT-level Review Policies will often emit results about
    *             both the HIT itself and its Assignments, while Assignment-level
    *             review policies generally only emit results about the Assignment
    *             itself.
    *         </p>
-   *
    */
   SubjectId?: string;
 
   /**
-   *
-   *         <p> The type of the object from the SubjectId field.</p>
-   *
+   * <p> The type of the object from the SubjectId field.</p>
    */
   SubjectType?: string;
 
   /**
-   *
-   *         <p> The values of Key provided by the review policies you have
+   * <p> The values of Key provided by the review policies you have
    *             selected.
    *         </p>
-   *
    */
   Value?: string;
 }
@@ -3412,47 +2858,37 @@ export enum ReviewableHITStatus {
 export interface SendBonusRequest {
   __type?: "SendBonusRequest";
   /**
-   *
-   *         <p>The ID of the assignment for which this bonus is paid.</p>
-   *
+   * <p>The ID of the assignment for which this bonus is paid.</p>
    */
   AssignmentId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The Bonus amount is a US Dollar amount specified using a string (for example, "5" represents $5.00 USD and
    *             "101.42" represents $101.42 USD). Do not include currency symbols or currency codes.
    *         </p>
-   *
    */
   BonusAmount: string | undefined;
 
   /**
-   *
-   *         <p>A message that explains the reason for the bonus payment. The
+   * <p>A message that explains the reason for the bonus payment. The
    *             Worker receiving the bonus can see this message.</p>
-   *
    */
   Reason: string | undefined;
 
   /**
-   *
-   *         <p>A unique identifier for this request, which allows you to
+   * <p>A unique identifier for this request, which allows you to
    *             retry the call on error without granting multiple bonuses. This is
    *             useful in cases such as network timeouts where it is unclear whether
    *             or not the call succeeded on the server. If the bonus already exists
    *             in the system from a previous call using the same UniqueRequestToken,
    *             subsequent calls will return an error with a message containing the
    *             request ID.</p>
-   *
    */
   UniqueRequestToken?: string;
 
   /**
-   *
-   *         <p>The ID of the Worker being paid the bonus.</p>
-   *
+   * <p>The ID of the Worker being paid the bonus.</p>
    */
   WorkerId: string | undefined;
 }
@@ -3476,25 +2912,21 @@ export namespace SendBonusResponse {
 export interface SendTestEventNotificationRequest {
   __type?: "SendTestEventNotificationRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The notification specification to test. This value is identical to the value
    *             you would provide to the UpdateNotificationSettings operation when you establish
    *             the notification specification for a HIT type.
    *         </p>
-   *
    */
   Notification: NotificationSpecification | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The event to simulate to test the notification specification.
    *             This event is included in the test message even if the notification specification
    *             does not include the event type.
    *             The notification specification does not filter out the test event.
    *         </p>
-   *
    */
   TestEventType: EventType | string | undefined;
 }
@@ -3518,20 +2950,16 @@ export namespace SendTestEventNotificationResponse {
 export interface UpdateExpirationForHITRequest {
   __type?: "UpdateExpirationForHITRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The date and time at which you want the HIT to expire
    *         </p>
-   *
    */
   ExpireAt: Date | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The HIT to update.
    *         </p>
-   *
    */
   HITId: string | undefined;
 }
@@ -3555,17 +2983,14 @@ export namespace UpdateExpirationForHITResponse {
 export interface UpdateHITReviewStatusRequest {
   __type?: "UpdateHITReviewStatusRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the HIT to update.
    *         </p>
-   *
    */
   HITId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             Specifies how to update the HIT status. Default is <code>False</code>.
    *         </p>
    *         <ul>
@@ -3580,7 +3005,6 @@ export interface UpdateHITReviewStatusRequest {
    *                 </p>
    *             </li>
    *          </ul>
-   *
    */
   Revert?: boolean;
 }
@@ -3604,16 +3028,12 @@ export namespace UpdateHITReviewStatusResponse {
 export interface UpdateHITTypeOfHITRequest {
   __type?: "UpdateHITTypeOfHITRequest";
   /**
-   *
-   *         <p>The HIT to update.</p>
-   *
+   * <p>The HIT to update.</p>
    */
   HITId: string | undefined;
 
   /**
-   *
-   *         <p>The ID of the new HIT type.</p>
-   *
+   * <p>The ID of the new HIT type.</p>
    */
   HITTypeId: string | undefined;
 }
@@ -3637,32 +3057,26 @@ export namespace UpdateHITTypeOfHITResponse {
 export interface UpdateNotificationSettingsRequest {
   __type?: "UpdateNotificationSettingsRequest";
   /**
-   *
-   *         <p>
+   * <p>
    *             Specifies whether notifications are sent for HITs of this HIT type,
    *             according to the notification specification.
    *             You must specify either the Notification parameter or the Active parameter
    *             for the call to UpdateNotificationSettings to succeed.
    *         </p>
-   *
    */
   Active?: boolean;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The ID of the HIT type whose notification specification is being updated.
    *         </p>
-   *
    */
   HITTypeId: string | undefined;
 
   /**
-   *
-   *         <p>
+   * <p>
    *             The notification specification for the HIT type.
    *         </p>
-   *
    */
   Notification?: NotificationSpecification;
 }
@@ -3686,53 +3100,38 @@ export namespace UpdateNotificationSettingsResponse {
 export interface UpdateQualificationTypeRequest {
   __type?: "UpdateQualificationTypeRequest";
   /**
-   *
-   *         <p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p>
-   *
+   * <p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p>
    */
   AnswerKey?: string;
 
   /**
-   *
-   *         <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p>
+   * <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p>
    *         <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
-   *
-   *
    */
   AutoGranted?: boolean;
 
   /**
-   *
-   *         <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
-   *
-   *
+   * <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
    */
   AutoGrantedValue?: number;
 
   /**
-   *
-   *         <p>The new description of the Qualification type.</p>
-   *
+   * <p>The new description of the Qualification type.</p>
    */
   Description?: string;
 
   /**
-   *
-   *         <p>The ID of the Qualification type to update.</p>
-   *
+   * <p>The ID of the Qualification type to update.</p>
    */
   QualificationTypeId: string | undefined;
 
   /**
-   *
-   *         <p>The new status of the Qualification type - Active | Inactive</p>
-   *
+   * <p>The new status of the Qualification type - Active | Inactive</p>
    */
   QualificationTypeStatus?: QualificationTypeStatus | string;
 
   /**
-   *
-   *         <p>The amount of time, in seconds, that Workers must wait
+   * <p>The amount of time, in seconds, that Workers must wait
    *             after requesting a Qualification of the specified Qualification type
    *             before they can retry the Qualification request. It is not possible to
    *             disable retries for a Qualification type after it has been created with
@@ -3740,24 +3139,18 @@ export interface UpdateQualificationTypeRequest {
    *             the existing retry-enabled Qualification type using
    *             DisposeQualificationType and then create a new Qualification type with
    *             retries disabled using CreateQualificationType.</p>
-   *
    */
   RetryDelayInSeconds?: number;
 
   /**
-   *
-   *         <p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p>
+   * <p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p>
    *         <p>Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.</p>
    *         <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>
-   *
-   *
    */
   Test?: string;
 
   /**
-   *
-   *         <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
-   *
+   * <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
    */
   TestDurationInSeconds?: number;
 }
@@ -3771,9 +3164,7 @@ export namespace UpdateQualificationTypeRequest {
 export interface UpdateQualificationTypeResponse extends $MetadataBearer {
   __type?: "UpdateQualificationTypeResponse";
   /**
-   *
-   *         <p> Contains a QualificationType data structure.</p>
-   *
+   * <p> Contains a QualificationType data structure.</p>
    */
   QualificationType?: QualificationType;
 }
@@ -3785,27 +3176,21 @@ export namespace UpdateQualificationTypeResponse {
 }
 
 /**
- *
- *         <p> The WorkerBlock data structure represents a Worker who has
+ * <p> The WorkerBlock data structure represents a Worker who has
  *             been blocked. It has two elements: the WorkerId and the Reason for
  *             the block.
  *         </p>
- *
  */
 export interface WorkerBlock {
   __type?: "WorkerBlock";
   /**
-   *
-   *         <p> A message explaining the reason the Worker was blocked.
+   * <p> A message explaining the reason the Worker was blocked.
    *         </p>
-   *
    */
   Reason?: string;
 
   /**
-   *
-   *         <p> The ID of the Worker who accepted the HIT.</p>
-   *
+   * <p> The ID of the Worker who accepted the HIT.</p>
    */
   WorkerId?: string;
 }
@@ -3817,9 +3202,7 @@ export namespace WorkerBlock {
 }
 
 /**
- *
- *         <p>Your request is invalid.</p>
- *
+ * <p>Your request is invalid.</p>
  */
 export interface RequestError extends _smithy.SmithyException, $MetadataBearer {
   __type: "RequestError";
@@ -3836,9 +3219,7 @@ export namespace RequestError {
 }
 
 /**
- *
- *         <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
- *
+ * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  */
 export interface ServiceFault extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceFault";

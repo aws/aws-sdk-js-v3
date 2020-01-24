@@ -417,20 +417,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Service Catalog</fullname>
+ * <fullname>AWS Service Catalog</fullname>
  *          <p>
  *             <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables
  *          organizations to create and manage catalogs of IT services that are approved for use on
  *          AWS. To get the most out of this documentation, you should be familiar with the
  *          terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p>
- *
  */
 export class ServiceCatalog extends ServiceCatalogClient {
   /**
-   *
-   *          <p>Accepts an offer to share the specified portfolio.</p>
-   *
+   * <p>Accepts an offer to share the specified portfolio.</p>
    */
   public acceptPortfolioShare(
     args: AcceptPortfolioShareCommandInput,
@@ -465,9 +461,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associates the specified budget with the specified resource.</p>
-   *
+   * <p>Associates the specified budget with the specified resource.</p>
    */
   public associateBudgetWithResource(
     args: AssociateBudgetWithResourceCommandInput,
@@ -502,9 +496,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associates the specified principal ARN with the specified portfolio.</p>
-   *
+   * <p>Associates the specified principal ARN with the specified portfolio.</p>
    */
   public associatePrincipalWithPortfolio(
     args: AssociatePrincipalWithPortfolioCommandInput,
@@ -542,9 +534,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associates the specified product with the specified portfolio.</p>
-   *
+   * <p>Associates the specified product with the specified portfolio.</p>
    */
   public associateProductWithPortfolio(
     args: AssociateProductWithPortfolioCommandInput,
@@ -579,9 +569,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associates a self-service action with a provisioning artifact.</p>
-   *
+   * <p>Associates a self-service action with a provisioning artifact.</p>
    */
   public associateServiceActionWithProvisioningArtifact(
     args: AssociateServiceActionWithProvisioningArtifactCommandInput,
@@ -632,9 +620,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associate the specified TagOption with the specified portfolio or product.</p>
-   *
+   * <p>Associate the specified TagOption with the specified portfolio or product.</p>
    */
   public associateTagOptionWithResource(
     args: AssociateTagOptionWithResourceCommandInput,
@@ -672,9 +658,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Associates multiple self-service actions with provisioning artifacts.</p>
-   *
+   * <p>Associates multiple self-service actions with provisioning artifacts.</p>
    */
   public batchAssociateServiceActionWithProvisioningArtifact(
     args: BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
@@ -725,9 +709,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
-   *
+   * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
    */
   public batchDisassociateServiceActionFromProvisioningArtifact(
     args: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
@@ -780,13 +762,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified source product to the specified target product or a new product.</p>
+   * <p>Copies the specified source product to the specified target product or a new product.</p>
    *          <p>You can copy a product to the same account or another account.
    *          You can copy a product to the same region or another region.</p>
    *          <p>This operation is performed asynchronously. To track the progress of the
    *          operation, use <a>DescribeCopyProductStatus</a>.</p>
-   *
    */
   public copyProduct(
     args: CopyProductCommandInput,
@@ -821,9 +801,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a constraint.</p>
-   *
+   * <p>Creates a constraint.</p>
    */
   public createConstraint(
     args: CreateConstraintCommandInput,
@@ -858,9 +836,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a portfolio.</p>
-   *
+   * <p>Creates a portfolio.</p>
    */
   public createPortfolio(
     args: CreatePortfolioCommandInput,
@@ -895,9 +871,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an Organization. AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.</p>
-   *
+   * <p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an Organization. AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.</p>
    */
   public createPortfolioShare(
     args: CreatePortfolioShareCommandInput,
@@ -932,9 +906,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a product.</p>
-   *
+   * <p>Creates a product.</p>
    */
   public createProduct(
     args: CreateProductCommandInput,
@@ -969,15 +941,13 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a plan. A plan includes the list of resources to be
+   * <p>Creates a plan. A plan includes the list of resources to be
    *          created (when provisioning a new product) or modified (when updating a provisioned product)
    *          when the plan is executed.</p>
    *          <p>You can create one plan per provisioned product. To create a plan for an existing
    *          provisioned product, the product status must be AVAILBLE or TAINTED.</p>
    *          <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
    *          To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>
-   *
    */
   public createProvisionedProductPlan(
     args: CreateProvisionedProductPlanCommandInput,
@@ -1012,12 +982,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
+   * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
-   *
-   *
-   *
    */
   public createProvisioningArtifact(
     args: CreateProvisioningArtifactCommandInput,
@@ -1052,9 +1018,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a self-service action.</p>
-   *
+   * <p>Creates a self-service action.</p>
    */
   public createServiceAction(
     args: CreateServiceActionCommandInput,
@@ -1089,9 +1053,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Creates a TagOption.</p>
-   *
+   * <p>Creates a TagOption.</p>
    */
   public createTagOption(
     args: CreateTagOptionCommandInput,
@@ -1126,9 +1088,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified constraint.</p>
-   *
+   * <p>Deletes the specified constraint.</p>
    */
   public deleteConstraint(
     args: DeleteConstraintCommandInput,
@@ -1163,11 +1123,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified portfolio.</p>
+   * <p>Deletes the specified portfolio.</p>
    *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
    *          products, users, constraints, or shared accounts.</p>
-   *
    */
   public deletePortfolio(
     args: DeletePortfolioCommandInput,
@@ -1202,9 +1160,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an Organization.</p>
-   *
+   * <p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an Organization.</p>
    */
   public deletePortfolioShare(
     args: DeletePortfolioShareCommandInput,
@@ -1239,10 +1195,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified product.</p>
+   * <p>Deletes the specified product.</p>
    *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
-   *
    */
   public deleteProduct(
     args: DeleteProductCommandInput,
@@ -1277,9 +1231,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified plan.</p>
-   *
+   * <p>Deletes the specified plan.</p>
    */
   public deleteProvisionedProductPlan(
     args: DeleteProvisionedProductPlanCommandInput,
@@ -1314,12 +1266,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
+   * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
    *          You cannot delete the last provisioning artifact for a product, because a product must have at
    *          least one provisioning artifact.</p>
-   *
    */
   public deleteProvisioningArtifact(
     args: DeleteProvisioningArtifactCommandInput,
@@ -1354,9 +1304,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes a self-service action.</p>
-   *
+   * <p>Deletes a self-service action.</p>
    */
   public deleteServiceAction(
     args: DeleteServiceActionCommandInput,
@@ -1391,10 +1339,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified TagOption.</p>
+   * <p>Deletes the specified TagOption.</p>
    *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
-   *
    */
   public deleteTagOption(
     args: DeleteTagOptionCommandInput,
@@ -1429,9 +1375,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified constraint.</p>
-   *
+   * <p>Gets information about the specified constraint.</p>
    */
   public describeConstraint(
     args: DescribeConstraintCommandInput,
@@ -1466,9 +1410,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets the status of the specified copy product operation.</p>
-   *
+   * <p>Gets the status of the specified copy product operation.</p>
    */
   public describeCopyProductStatus(
     args: DescribeCopyProductStatusCommandInput,
@@ -1503,9 +1445,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified portfolio.</p>
-   *
+   * <p>Gets information about the specified portfolio.</p>
    */
   public describePortfolio(
     args: DescribePortfolioCommandInput,
@@ -1540,9 +1480,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets the status of the specified portfolio share operation. This API can only be called by the master account in the organization.</p>
-   *
+   * <p>Gets the status of the specified portfolio share operation. This API can only be called by the master account in the organization.</p>
    */
   public describePortfolioShareStatus(
     args: DescribePortfolioShareStatusCommandInput,
@@ -1577,9 +1515,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified product.</p>
-   *
+   * <p>Gets information about the specified product.</p>
    */
   public describeProduct(
     args: DescribeProductCommandInput,
@@ -1614,9 +1550,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified product. This operation is run with administrator access.</p>
-   *
+   * <p>Gets information about the specified product. This operation is run with administrator access.</p>
    */
   public describeProductAsAdmin(
     args: DescribeProductAsAdminCommandInput,
@@ -1651,9 +1585,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified product.</p>
-   *
+   * <p>Gets information about the specified product.</p>
    */
   public describeProductView(
     args: DescribeProductViewCommandInput,
@@ -1688,9 +1620,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified provisioned product.</p>
-   *
+   * <p>Gets information about the specified provisioned product.</p>
    */
   public describeProvisionedProduct(
     args: DescribeProvisionedProductCommandInput,
@@ -1725,9 +1655,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the resource changes for the specified plan.</p>
-   *
+   * <p>Gets information about the resource changes for the specified plan.</p>
    */
   public describeProvisionedProductPlan(
     args: DescribeProvisionedProductPlanCommandInput,
@@ -1765,9 +1693,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
-   *
+   * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
    */
   public describeProvisioningArtifact(
     args: DescribeProvisioningArtifactCommandInput,
@@ -1802,8 +1728,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the configuration required to provision the specified product using
+   * <p>Gets information about the configuration required to provision the specified product using
    *          the specified provisioning artifact.</p>
    *          <p>If the output contains a TagOption key with an empty list of values, there is a
    *          TagOption conflict for that key. The end user cannot take action to fix the conflict, and
@@ -1811,7 +1736,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          do not include conflicted TagOption keys as tags, or this causes the error
    *          "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
    *          Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
-   *
    */
   public describeProvisioningParameters(
     args: DescribeProvisioningParametersCommandInput,
@@ -1849,8 +1773,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified request operation.</p>
+   * <p>Gets information about the specified request operation.</p>
    *          <p>Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
    *          <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>).
    *       </p>
@@ -1859,7 +1782,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *       will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to
    *       use <a>ListRecordHistory</a> to see the product's history from when he was the owner.</p>
    *          </note>
-   *
    */
   public describeRecord(
     args: DescribeRecordCommandInput,
@@ -1894,9 +1816,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Describes a self-service action.</p>
-   *
+   * <p>Describes a self-service action.</p>
    */
   public describeServiceAction(
     args: DescribeServiceActionCommandInput,
@@ -1975,9 +1895,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the specified TagOption.</p>
-   *
+   * <p>Gets information about the specified TagOption.</p>
    */
   public describeTagOption(
     args: DescribeTagOptionCommandInput,
@@ -2012,9 +1930,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization. Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>
-   *
+   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization. Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>
    */
   public disableAWSOrganizationsAccess(
     args: DisableAWSOrganizationsAccessCommandInput,
@@ -2049,9 +1965,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified budget from the specified resource.</p>
-   *
+   * <p>Disassociates the specified budget from the specified resource.</p>
    */
   public disassociateBudgetFromResource(
     args: DisassociateBudgetFromResourceCommandInput,
@@ -2089,10 +2003,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates a previously associated principal ARN from a specified
+   * <p>Disassociates a previously associated principal ARN from a specified
    *          portfolio.</p>
-   *
    */
   public disassociatePrincipalFromPortfolio(
     args: DisassociatePrincipalFromPortfolioCommandInput,
@@ -2139,9 +2051,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified product from the specified portfolio. </p>
-   *
+   * <p>Disassociates the specified product from the specified portfolio. </p>
    */
   public disassociateProductFromPortfolio(
     args: DisassociateProductFromPortfolioCommandInput,
@@ -2182,9 +2092,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
-   *
+   * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
    */
   public disassociateServiceActionFromProvisioningArtifact(
     args: DisassociateServiceActionFromProvisioningArtifactCommandInput,
@@ -2235,9 +2143,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified TagOption from the specified resource.</p>
-   *
+   * <p>Disassociates the specified TagOption from the specified resource.</p>
    */
   public disassociateTagOptionFromResource(
     args: DisassociateTagOptionFromResourceCommandInput,
@@ -2284,10 +2190,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p>
+   * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p>
    *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
-   *
    */
   public enableAWSOrganizationsAccess(
     args: EnableAWSOrganizationsAccessCommandInput,
@@ -2322,9 +2226,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
-   *
+   * <p>Provisions or modifies a product based on the resource changes for the specified plan.</p>
    */
   public executeProvisionedProductPlan(
     args: ExecuteProvisionedProductPlanCommandInput,
@@ -2359,9 +2261,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Executes a self-service action against a provisioned product.</p>
-   *
+   * <p>Executes a self-service action against a provisioned product.</p>
    */
   public executeProvisionedProductServiceAction(
     args: ExecuteProvisionedProductServiceActionCommandInput,
@@ -2408,9 +2308,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the master account in the organization.</p>
-   *
+   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the master account in the organization.</p>
    */
   public getAWSOrganizationsAccessStatus(
     args: GetAWSOrganizationsAccessStatusCommandInput,
@@ -2448,9 +2346,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all portfolios for which sharing was accepted by this account.</p>
-   *
+   * <p>Lists all portfolios for which sharing was accepted by this account.</p>
    */
   public listAcceptedPortfolioShares(
     args: ListAcceptedPortfolioSharesCommandInput,
@@ -2485,9 +2381,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all the budgets associated to the specified resource.</p>
-   *
+   * <p>Lists all the budgets associated to the specified resource.</p>
    */
   public listBudgetsForResource(
     args: ListBudgetsForResourceCommandInput,
@@ -2522,9 +2416,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the constraints for the specified portfolio and product.</p>
-   *
+   * <p>Lists the constraints for the specified portfolio and product.</p>
    */
   public listConstraintsForPortfolio(
     args: ListConstraintsForPortfolioCommandInput,
@@ -2559,11 +2451,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the paths to the specified product. A path is how the user
+   * <p>Lists the paths to the specified product. A path is how the user
    *          has access to a specified product, and is necessary when provisioning a product. A path
    *          also determines the constraints put on the product.</p>
-   *
    */
   public listLaunchPaths(
     args: ListLaunchPathsCommandInput,
@@ -2598,9 +2488,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the organization nodes that have access to the specified portfolio. This API can only be called by the master account in the organization.</p>
-   *
+   * <p>Lists the organization nodes that have access to the specified portfolio. This API can only be called by the master account in the organization.</p>
    */
   public listOrganizationPortfolioAccess(
     args: ListOrganizationPortfolioAccessCommandInput,
@@ -2638,9 +2526,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the account IDs that have access to the specified portfolio.</p>
-   *
+   * <p>Lists the account IDs that have access to the specified portfolio.</p>
    */
   public listPortfolioAccess(
     args: ListPortfolioAccessCommandInput,
@@ -2675,9 +2561,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all portfolios in the catalog.</p>
-   *
+   * <p>Lists all portfolios in the catalog.</p>
    */
   public listPortfolios(
     args: ListPortfoliosCommandInput,
@@ -2712,9 +2596,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all portfolios that the specified product is associated with.</p>
-   *
+   * <p>Lists all portfolios that the specified product is associated with.</p>
    */
   public listPortfoliosForProduct(
     args: ListPortfoliosForProductCommandInput,
@@ -2749,9 +2631,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all principal ARNs associated with the specified portfolio.</p>
-   *
+   * <p>Lists all principal ARNs associated with the specified portfolio.</p>
    */
   public listPrincipalsForPortfolio(
     args: ListPrincipalsForPortfolioCommandInput,
@@ -2786,9 +2666,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
-   *
+   * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
    */
   public listProvisionedProductPlans(
     args: ListProvisionedProductPlansCommandInput,
@@ -2823,9 +2701,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
-   *
+   * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
    */
   public listProvisioningArtifacts(
     args: ListProvisioningArtifactsCommandInput,
@@ -2860,9 +2736,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
-   *
+   * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
    */
   public listProvisioningArtifactsForServiceAction(
     args: ListProvisioningArtifactsForServiceActionCommandInput,
@@ -2909,9 +2783,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the specified requests or all performed requests.</p>
-   *
+   * <p>Lists the specified requests or all performed requests.</p>
    */
   public listRecordHistory(
     args: ListRecordHistoryCommandInput,
@@ -2946,9 +2818,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the resources associated with the specified TagOption.</p>
-   *
+   * <p>Lists the resources associated with the specified TagOption.</p>
    */
   public listResourcesForTagOption(
     args: ListResourcesForTagOptionCommandInput,
@@ -2983,9 +2853,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists all self-service actions.</p>
-   *
+   * <p>Lists all self-service actions.</p>
    */
   public listServiceActions(
     args: ListServiceActionsCommandInput,
@@ -3020,9 +2888,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
-   *
+   * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
    */
   public listServiceActionsForProvisioningArtifact(
     args: ListServiceActionsForProvisioningArtifactCommandInput,
@@ -3069,9 +2935,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific AWS account name or region. </p>
-   *
+   * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific AWS account name or region. </p>
    */
   public listStackInstancesForProvisionedProduct(
     args: ListStackInstancesForProvisionedProductCommandInput,
@@ -3118,9 +2982,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the specified TagOptions or all TagOptions.</p>
-   *
+   * <p>Lists the specified TagOptions or all TagOptions.</p>
    */
   public listTagOptions(
     args: ListTagOptionsCommandInput,
@@ -3155,8 +3017,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Provisions the specified product.</p>
+   * <p>Provisions the specified product.</p>
    *          <p>A provisioned product is a resourced instance of a product.
    *          For example, provisioning a product based on a CloudFormation template launches a
    *          CloudFormation stack and its underlying resources.
@@ -3165,7 +3026,6 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          tag conflict for that key. Do not include conflicted keys as tags, or this causes
    *          the error "Parameter validation failed: Missing required parameter in
    *          Tags[<i>N</i>]:<i>Value</i>".</p>
-   *
    */
   public provisionProduct(
     args: ProvisionProductCommandInput,
@@ -3200,9 +3060,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Rejects an offer to share the specified portfolio.</p>
-   *
+   * <p>Rejects an offer to share the specified portfolio.</p>
    */
   public rejectPortfolioShare(
     args: RejectPortfolioShareCommandInput,
@@ -3237,10 +3095,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Lists the provisioned products that are available (not terminated).</p>
+   * <p>Lists the provisioned products that are available (not terminated).</p>
    *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
-   *
    */
   public scanProvisionedProducts(
     args: ScanProvisionedProductsCommandInput,
@@ -3275,11 +3131,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the products to which the caller has access.</p>
-   *
-   *
-   *
+   * <p>Gets information about the products to which the caller has access.</p>
    */
   public searchProducts(
     args: SearchProductsCommandInput,
@@ -3314,9 +3166,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the products for the specified portfolio or all products.</p>
-   *
+   * <p>Gets information about the products for the specified portfolio or all products.</p>
    */
   public searchProductsAsAdmin(
     args: SearchProductsAsAdminCommandInput,
@@ -3351,9 +3201,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Gets information about the provisioned products that meet the specified criteria.</p>
-   *
+   * <p>Gets information about the provisioned products that meet the specified criteria.</p>
    */
   public searchProvisionedProducts(
     args: SearchProvisionedProductsCommandInput,
@@ -3388,11 +3236,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Terminates the specified provisioned product.</p>
+   * <p>Terminates the specified provisioned product.</p>
    *          <p>This operation does not delete any records associated with the provisioned product.</p>
    *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
-   *
    */
   public terminateProvisionedProduct(
     args: TerminateProvisionedProductCommandInput,
@@ -3427,9 +3273,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified constraint.</p>
-   *
+   * <p>Updates the specified constraint.</p>
    */
   public updateConstraint(
     args: UpdateConstraintCommandInput,
@@ -3464,10 +3308,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified portfolio.</p>
+   * <p>Updates the specified portfolio.</p>
    *          <p>You cannot update a product that was shared with you.</p>
-   *
    */
   public updatePortfolio(
     args: UpdatePortfolioCommandInput,
@@ -3502,9 +3344,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified product.</p>
-   *
+   * <p>Updates the specified product.</p>
    */
   public updateProduct(
     args: UpdateProductCommandInput,
@@ -3539,13 +3379,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Requests updates to the configuration of the specified provisioned product.</p>
+   * <p>Requests updates to the configuration of the specified provisioned product.</p>
    *          <p>If there are tags associated with the object, they cannot be updated or added.
    *          Depending on the specific updates requested, this operation can update with no
    *          interruption, with some interruption, or replace the provisioned product entirely.</p>
    *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
-   *
    */
   public updateProvisionedProduct(
     args: UpdateProvisionedProductCommandInput,
@@ -3580,9 +3418,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Requests updates to the properties of the specified provisioned product.</p>
-   *
+   * <p>Requests updates to the properties of the specified provisioned product.</p>
    */
   public updateProvisionedProductProperties(
     args: UpdateProvisionedProductPropertiesCommandInput,
@@ -3629,10 +3465,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
+   * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
-   *
    */
   public updateProvisioningArtifact(
     args: UpdateProvisioningArtifactCommandInput,
@@ -3667,9 +3501,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates a self-service action.</p>
-   *
+   * <p>Updates a self-service action.</p>
    */
   public updateServiceAction(
     args: UpdateServiceActionCommandInput,
@@ -3704,9 +3536,7 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   *
-   *          <p>Updates the specified TagOption.</p>
-   *
+   * <p>Updates the specified TagOption.</p>
    */
   public updateTagOption(
     args: UpdateTagOptionCommandInput,

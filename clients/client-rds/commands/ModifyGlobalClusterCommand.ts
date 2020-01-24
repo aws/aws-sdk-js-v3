@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { GlobalCluster, ModifyGlobalClusterMessage } from "../models/index";
+import {
+  ModifyGlobalClusterMessage,
+  ModifyGlobalClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyGlobalClusterCommand,
   serializeAws_queryModifyGlobalClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyGlobalClusterCommandInput = ModifyGlobalClusterMessage;
-export type ModifyGlobalClusterCommandOutput = GlobalCluster;
+export type ModifyGlobalClusterCommandOutput = ModifyGlobalClusterResult;
 
 export class ModifyGlobalClusterCommand extends $Command<
   ModifyGlobalClusterCommandInput,

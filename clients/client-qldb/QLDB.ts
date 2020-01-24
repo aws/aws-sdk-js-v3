@@ -77,15 +77,11 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>The control plane for Amazon QLDB</p>
- *
+ * <p>The control plane for Amazon QLDB</p>
  */
 export class QLDB extends QLDBClient {
   /**
-   *
-   *          <p>Creates a new ledger in your AWS account.</p>
-   *
+   * <p>Creates a new ledger in your AWS account.</p>
    */
   public createLedger(
     args: CreateLedgerCommandInput,
@@ -120,13 +116,11 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
+   * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
    *          ledger using the QLDB API or the AWS Command Line Interface (AWS CLI). You can disable it by calling the
    *             <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
-   *
    */
   public deleteLedger(
     args: DeleteLedgerCommandInput,
@@ -161,14 +155,12 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a journal export job, including the ledger name, export ID,
+   * <p>Returns information about a journal export job, including the ledger name, export ID,
    *          when it was created, current status, and its start and end time export parameters.</p>
    *          <p>If the export job with the given <code>ExportId</code> doesn't exist, then throws
    *             <code>ResourceNotFoundException</code>.</p>
    *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
    *             <code>ResourceNotFoundException</code>.</p>
-   *
    */
   public describeJournalS3Export(
     args: DescribeJournalS3ExportCommandInput,
@@ -203,9 +195,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns information about a ledger, including its state and when it was created.</p>
-   *
+   * <p>Returns information about a ledger, including its state and when it was created.</p>
    */
   public describeLedger(
     args: DescribeLedgerCommandInput,
@@ -240,8 +230,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Exports journal contents within a date and time range from a ledger into a specified
+   * <p>Exports journal contents within a date and time range from a ledger into a specified
    *          Amazon Simple Storage Service (Amazon S3) bucket. The data is written as files in Amazon Ion format.</p>
    *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
    *             <code>ResourceNotFoundException</code>.</p>
@@ -249,7 +238,6 @@ export class QLDB extends QLDBClient {
    *          throws <code>ResourcePreconditionNotMetException</code>.</p>
    *          <p>You can initiate up to two concurrent journal export requests for each ledger. Beyond
    *          this limit, journal export requests throw <code>LimitExceededException</code>.</p>
-   *
    */
   public exportJournalToS3(
     args: ExportJournalToS3CommandInput,
@@ -284,8 +272,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns a journal block object at a specified address in a ledger. Also returns a proof
+   * <p>Returns a journal block object at a specified address in a ledger. Also returns a proof
    *          of the specified block for verification if <code>DigestTipAddress</code> is
    *          provided.</p>
    *          <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws
@@ -294,7 +281,6 @@ export class QLDB extends QLDBClient {
    *             <code>ResourcePreconditionNotMetException</code>.</p>
    *          <p>If no block exists with the specified address, then throws
    *             <code>InvalidParameterException</code>.</p>
-   *
    */
   public getBlock(
     args: GetBlockCommandInput,
@@ -329,10 +315,8 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns the digest of a ledger at the latest committed block in the journal. The
+   * <p>Returns the digest of a ledger at the latest committed block in the journal. The
    *          response includes a 256-bit hash value and a block address.</p>
-   *
    */
   public getDigest(
     args: GetDigestCommandInput,
@@ -367,11 +351,9 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns a revision data object for a specified document ID and block address. Also
+   * <p>Returns a revision data object for a specified document ID and block address. Also
    *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
    *          is provided.</p>
-   *
    */
   public getRevision(
     args: GetRevisionCommandInput,
@@ -406,13 +388,11 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of journal export job descriptions for all ledgers that are associated
+   * <p>Returns an array of journal export job descriptions for all ledgers that are associated
    *          with the current AWS account and Region.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
    *          times.</p>
-   *
    */
   public listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
@@ -447,12 +427,10 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of journal export job descriptions for a specified ledger.</p>
+   * <p>Returns an array of journal export job descriptions for a specified ledger.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
    *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
    *          multiple times.</p>
-   *
    */
   public listJournalS3ExportsForLedger(
     args: ListJournalS3ExportsForLedgerCommandInput,
@@ -487,12 +465,10 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns an array of ledger summaries that are associated with the current AWS account
+   * <p>Returns an array of ledger summaries that are associated with the current AWS account
    *          and Region.</p>
    *          <p>This action returns a maximum of 100 items and is paginated so that you can
    *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
-   *
    */
   public listLedgers(
     args: ListLedgersCommandInput,
@@ -527,9 +503,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Returns all tags for a specified Amazon QLDB resource.</p>
-   *
+   * <p>Returns all tags for a specified Amazon QLDB resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -564,11 +538,9 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
+   * <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
    *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
    *          resource, your request fails and returns an error.</p>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -603,10 +575,8 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
+   * <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
    *          tag keys to remove.</p>
-   *
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -641,9 +611,7 @@ export class QLDB extends QLDBClient {
   }
 
   /**
-   *
-   *          <p>Updates properties on a ledger.</p>
-   *
+   * <p>Updates properties on a ledger.</p>
    */
   public updateLedger(
     args: UpdateLedgerCommandInput,

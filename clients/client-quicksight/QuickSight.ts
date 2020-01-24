@@ -327,20 +327,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- * 		       <fullname>Amazon QuickSight API Reference</fullname>
+ * <fullname>Amazon QuickSight API Reference</fullname>
  * 		       <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the AWS
  * 			Cloud that makes it easy to extend data and insights to every user in your organization.
  * 			This API reference contains documentation for a programming interface that you can use
  * 			to manage Amazon QuickSight. </p>
- *
  */
 export class QuickSight extends QuickSightClient {
   /**
-   *
-   * 		       <p>Cancels an ongoing ingestion of data into SPICE.</p>
-   *
-   *
+   * <p>Cancels an ongoing ingestion of data into SPICE.</p>
    */
   public cancelIngestion(
     args: CancelIngestionCommandInput,
@@ -375,16 +370,14 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a dashboard from a template. To first create a template, see the CreateTemplate API.</p>
-   * 		       <p>A dashboard is an entity in QuickSight which identifies
-   * 			Quicksight reports, created from analyses. QuickSight dashboards are sharable. With the
-   * 			right permissions, you can create scheduled email reports from them. The
-   * 			<code>CreateDashboard</code>, <code>DescribeDashboard</code> and
-   * 			<code>ListDashboardsByUser</code> APIs act on the dashboard entity. If you have the correct
-   * 			permissions, you can create a dashboard from a template that exists in a different AWS
-   * 			account.</p>
-   *
+   * <p>Creates a dashboard from a template. To first create a template, see the CreateTemplate API
+   * 			operation.</p>
+   * 		       <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created from
+   * 			analyses. You can share QuickSight dashboards. With the right permissions, you can
+   * 			create scheduled email reports from them. The <code>CreateDashboard</code>,
+   * 				<code>DescribeDashboard</code>, and <code>ListDashboardsByUser</code> API operations
+   * 			act on the dashboard entity. If you have the correct permissions, you can create a
+   * 			dashboard from a template that exists in a different AWS account.</p>
    */
   public createDashboard(
     args: CreateDashboardCommandInput,
@@ -419,10 +412,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a dataset.</p>
-   *
-   *
+   * <p>Creates a dataset.</p>
    */
   public createDataSet(
     args: CreateDataSetCommandInput,
@@ -457,10 +447,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a data source.</p>
-   *
-   *
+   * <p>Creates a data source.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -495,13 +482,11 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an Amazon QuickSight group.</p>
+   * <p>Creates an Amazon QuickSight group.</p>
    * 		       <p>The permissions resource is
    * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
    *             </code>.</p>
    * 		       <p>The response is a group object.</p>
-   *
    */
   public createGroup(
     args: CreateGroupCommandInput,
@@ -536,9 +521,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
-   *
+   * <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
    */
   public createGroupMembership(
     args: CreateGroupMembershipCommandInput,
@@ -573,11 +556,9 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an assignment with one specified IAM policy Amazon Resource Name (ARN) and will assigned to specified groups or users of QuickSight.
-   * 		Users and groups need to be in the same namespace.
-   * 		</p>
-   *
+   * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name
+   * 			(ARN). This policy will be assigned to specified groups or users of Amazon QuickSight.
+   * 			The users and groups need to be in the same namespace. </p>
    */
   public createIAMPolicyAssignment(
     args: CreateIAMPolicyAssignmentCommandInput,
@@ -612,13 +593,11 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates and starts a new SPICE ingestion on a dataset</p>
+   * <p>Creates and starts a new SPICE ingestion on a dataset</p>
    *
    * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
    * 			access control. For an example, see <a href="https://aws.example.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
    * 				tags?</a> in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
-   *
    */
   public createIngestion(
     args: CreateIngestionCommandInput,
@@ -653,15 +632,14 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a template from an existing QuickSight analysis or template. The resulting template
-   * 			can be used to create a dashboard.</p>
-   * 		       <p>A template is an entity in QuickSight which encapsulates the metadata required to create an
-   * 			analysis that can be used to create dashboard. It adds a layer of abstraction by use
-   * 			placeholders to replace the dataset associated with the analysis. You can use templates to
-   * 			create dashboards by replacing dataset placeholders with datasets which follow the same
-   * 			schema that was used to create the source analysis and template.</p>
-   *
+   * <p>Creates a template from an existing QuickSight analysis or template. You can use the resulting
+   * 			template to create a dashboard.</p>
+   * 		       <p>A <i>template</i> is an entity in QuickSight that encapsulates the metadata
+   * 			required to create an analysis and that you can use to create s dashboard. A template adds
+   * 			a layer of abstraction by using placeholders to replace the dataset associated with the
+   * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
+   * 			with datasets that follow the same schema that was used to create the source analysis
+   * 			and template.</p>
    */
   public createTemplate(
     args: CreateTemplateCommandInput,
@@ -696,9 +674,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates a template alias for a template.</p>
-   *
+   * <p>Creates a template alias for a template.</p>
    */
   public createTemplateAlias(
     args: CreateTemplateAliasCommandInput,
@@ -733,9 +709,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a dashboard.</p>
-   *
+   * <p>Deletes a dashboard.</p>
    */
   public deleteDashboard(
     args: DeleteDashboardCommandInput,
@@ -770,10 +744,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a dataset.</p>
-   *
-   *
+   * <p>Deletes a dataset.</p>
    */
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
@@ -808,11 +779,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the data source permanently. This action breaks
+   * <p>Deletes the data source permanently. This action breaks
    * 			all the datasets that reference the deleted data source.</p>
-   *
-   *
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -847,9 +815,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Removes a user group from Amazon QuickSight. </p>
-   *
+   * <p>Removes a user group from Amazon QuickSight. </p>
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -884,9 +850,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Removes a user from a group so that the user is no longer a member of the group.</p>
-   *
+   * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
    */
   public deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
@@ -921,9 +885,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes an existing assignment.</p>
-   *
+   * <p>Deletes an existing IAM policy assignment.</p>
    */
   public deleteIAMPolicyAssignment(
     args: DeleteIAMPolicyAssignmentCommandInput,
@@ -958,9 +920,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a template.</p>
-   *
+   * <p>Deletes a template.</p>
    */
   public deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -995,9 +955,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Update template alias of given template.</p>
-   *
+   * <p>Deletes the item that the specified template alias points to. If you provide a specific
+   * 			alias, you delete the version of the template that the alias points to.</p>
    */
   public deleteTemplateAlias(
     args: DeleteTemplateAliasCommandInput,
@@ -1032,11 +991,9 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
+   * <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
    * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
    * 			isn't deleted as a result of this call. </p>
-   *
    */
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -1071,9 +1028,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Deletes a user identified by its principal ID. </p>
-   *
+   * <p>Deletes a user identified by its principal ID. </p>
    */
   public deleteUserByPrincipalId(
     args: DeleteUserByPrincipalIdCommandInput,
@@ -1108,9 +1063,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Provides a summary for a dashboard.</p>
-   *
+   * <p>Provides a summary for a dashboard.</p>
    */
   public describeDashboard(
     args: DescribeDashboardCommandInput,
@@ -1145,9 +1098,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes read and write permissions on a dashboard.</p>
-   *
+   * <p>Describes read and write permissions for a dashboard.</p>
    */
   public describeDashboardPermissions(
     args: DescribeDashboardPermissionsCommandInput,
@@ -1182,10 +1133,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes a dataset. </p>
-   *
-   *
+   * <p>Describes a dataset. </p>
    */
   public describeDataSet(
     args: DescribeDataSetCommandInput,
@@ -1220,11 +1168,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes the permissions on a dataset.</p>
+   * <p>Describes the permissions on a dataset.</p>
    * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
-   *
-   *
    */
   public describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
@@ -1259,9 +1204,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes a data source.</p>
-   *
+   * <p>Describes a data source.</p>
    */
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -1296,10 +1239,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes the resource permissions for a data source.</p>
-   *
-   *
+   * <p>Describes the resource permissions for a data source.</p>
    */
   public describeDataSourcePermissions(
     args: DescribeDataSourcePermissionsCommandInput,
@@ -1334,9 +1274,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
-   *
+   * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
    */
   public describeGroup(
     args: DescribeGroupCommandInput,
@@ -1371,9 +1309,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes an existing IAMPolicy Assignment by specified assignment name.</p>
-   *
+   * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>
    */
   public describeIAMPolicyAssignment(
     args: DescribeIAMPolicyAssignmentCommandInput,
@@ -1408,10 +1344,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes a SPICE ingestion.</p>
-   *
-   *
+   * <p>Describes a SPICE ingestion.</p>
    */
   public describeIngestion(
     args: DescribeIngestionCommandInput,
@@ -1446,9 +1379,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes a template's metadata.</p>
-   *
+   * <p>Describes a template's metadata.</p>
    */
   public describeTemplate(
     args: DescribeTemplateCommandInput,
@@ -1483,9 +1414,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes the template aliases of a template.</p>
-   *
+   * <p>Describes the template alias for a template.</p>
    */
   public describeTemplateAlias(
     args: DescribeTemplateAliasCommandInput,
@@ -1520,9 +1449,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Describes read and write permissions on a template.</p>
-   *
+   * <p>Describes read and write permissions on a template.</p>
    */
   public describeTemplatePermissions(
     args: DescribeTemplatePermissionsCommandInput,
@@ -1557,9 +1484,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Returns information about a user, given the user name. </p>
-   *
+   * <p>Returns information about a user, given the user name. </p>
    */
   public describeUser(
     args: DescribeUserCommandInput,
@@ -1594,17 +1519,13 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Generates a server-side embeddable URL and authorization code. Before this can work
-   * 			properly, first you need to configure the dashboards and user permissions. For more
-   * 			information, see the Amazon QuickSight User Guide section on <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
-   * 			Amazon QuickSight Dashboards</a> or see the Amazon QuickSight API Reference section on
-   * 			<a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding
-   * 			Amazon QuickSight Dashboards</a>
-   * 			.</p>
+   * <p>Generates a server-side embeddable URL and authorization code. For this process to work
+   * 			properly, first configure the dashboards and user permissions. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight User
+   * 				Guide</i> or <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight API
+   * 				Reference</i>.</p>
    * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from
    * 			the user’s browser.</p>
-   *
    */
   public getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
@@ -1639,9 +1560,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the versions of the dashboards in the Quicksight subscription.</p>
-   *
+   * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
    */
   public listDashboardVersions(
     args: ListDashboardVersionsCommandInput,
@@ -1676,9 +1595,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists dashboards in the AWS account.</p>
-   *
+   * <p>Lists dashboards in an AWS account.</p>
    */
   public listDashboards(
     args: ListDashboardsCommandInput,
@@ -1713,11 +1630,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all of the datasets belonging to this account in an AWS region.</p>
+   * <p>Lists all of the datasets belonging to the current AWS account in an AWS Region.</p>
    * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
-   *
-   *
    */
   public listDataSets(
     args: ListDataSetsCommandInput,
@@ -1752,10 +1666,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
-   *
-   *
+   * <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1790,9 +1701,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists member users in a group.</p>
-   *
+   * <p>Lists member users in a group.</p>
    */
   public listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
@@ -1827,9 +1736,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all user groups in Amazon QuickSight. </p>
-   *
+   * <p>Lists all user groups in Amazon QuickSight. </p>
    */
   public listGroups(
     args: ListGroupsCommandInput,
@@ -1864,9 +1771,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists assignments in current QuickSight account.</p>
-   *
+   * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>
    */
   public listIAMPolicyAssignments(
     args: ListIAMPolicyAssignmentsCommandInput,
@@ -1901,11 +1806,9 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the assignments and the Amazon Resource Names (ARNs) for
-   * 			the associated IAM policies assigned to the specified user and the
-   * 			group or groups that the user belongs to.</p>
-   *
+   * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
+   * 			policies assigned to the specified user and group or groups that the user belongs
+   * 			to.</p>
    */
   public listIAMPolicyAssignmentsForUser(
     args: ListIAMPolicyAssignmentsForUserCommandInput,
@@ -1943,10 +1846,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the history of SPICE ingestions for a dataset.</p>
-   *
-   *
+   * <p>Lists the history of SPICE ingestions for a dataset.</p>
    */
   public listIngestions(
     args: ListIngestionsCommandInput,
@@ -1981,9 +1881,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the tags assigned to a resource.</p>
-   *
+   * <p>Lists the tags assigned to a resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2018,10 +1916,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the aliases of a template.</p>
-   *
-   *
+   * <p>Lists all the aliases of a template.</p>
    */
   public listTemplateAliases(
     args: ListTemplateAliasesCommandInput,
@@ -2056,9 +1951,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the versions of the templates in the Quicksight account.</p>
-   *
+   * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
    */
   public listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
@@ -2093,9 +1986,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists all the templates in the QuickSight account.</p>
-   *
+   * <p>Lists all the templates in the current Amazon QuickSight account.</p>
    */
   public listTemplates(
     args: ListTemplatesCommandInput,
@@ -2130,9 +2021,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
-   *
+   * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
    */
   public listUserGroups(
     args: ListUserGroupsCommandInput,
@@ -2167,9 +2056,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
-   *
+   * <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
    */
   public listUsers(
     args: ListUsersCommandInput,
@@ -2204,10 +2091,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
+   * <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
    * 			and Access Management (IAM) identity or role specified in the request. </p>
-   *
    */
   public registerUser(
     args: RegisterUserCommandInput,
@@ -2242,8 +2127,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
+   * <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
    * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
    * 			scope user permissions, by granting a user permission to access or change only resources
    * 			with certain tag values. You can use the <code>TagResource</code> operation with a
@@ -2265,7 +2149,6 @@ export class QuickSight extends QuickSightClient {
    *                <p>QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.</p>
    *             </li>
    *          </ul>
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -2300,9 +2183,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Removes a tag or tags from a resource.</p>
-   *
+   * <p>Removes a tag or tags from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2337,9 +2218,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates a dashboard in the AWS account.</p>
-   *
+   * <p>Updates a dashboard in an AWS account.</p>
    */
   public updateDashboard(
     args: UpdateDashboardCommandInput,
@@ -2374,9 +2253,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates read and write permissions on a dashboard.</p>
-   *
+   * <p>Updates read and write permissions on a dashboard.</p>
    */
   public updateDashboardPermissions(
     args: UpdateDashboardPermissionsCommandInput,
@@ -2411,9 +2288,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the published version of a dashboard.</p>
-   *
+   * <p>Updates the published version of a dashboard.</p>
    */
   public updateDashboardPublishedVersion(
     args: UpdateDashboardPublishedVersionCommandInput,
@@ -2451,10 +2326,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates a dataset.</p>
-   *
-   *
+   * <p>Updates a dataset.</p>
    */
   public updateDataSet(
     args: UpdateDataSetCommandInput,
@@ -2489,11 +2361,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the permissions on a dataset.</p>
+   * <p>Updates the permissions on a dataset.</p>
    * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
-   *
-   *
    */
   public updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
@@ -2528,10 +2397,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates a data source.</p>
-   *
-   *
+   * <p>Updates a data source.</p>
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -2566,10 +2432,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the permissions to a data source.</p>
-   *
-   *
+   * <p>Updates the permissions to a data source.</p>
    */
   public updateDataSourcePermissions(
     args: UpdateDataSourcePermissionsCommandInput,
@@ -2604,9 +2467,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Changes a group description. </p>
-   *
+   * <p>Changes a group description. </p>
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -2641,9 +2502,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates an existing assignment. This operation updates only the optional parameter or parameters that are specified in the request.</p>
-   *
+   * <p>Updates an existing IAM policy assignment. This operation updates only the optional
+   * 			parameter or parameters that are specified in the request.</p>
    */
   public updateIAMPolicyAssignment(
     args: UpdateIAMPolicyAssignmentCommandInput,
@@ -2678,9 +2538,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates a template from an existing QuickSight analysis.</p>
-   *
+   * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
    */
   public updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -2715,9 +2573,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the template alias of a template.</p>
-   *
+   * <p>Updates the template alias of a template.</p>
    */
   public updateTemplateAlias(
     args: UpdateTemplateAliasCommandInput,
@@ -2752,9 +2608,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates the permissions on a template.</p>
-   *
+   * <p>Updates the resource permissions for a template.</p>
    */
   public updateTemplatePermissions(
     args: UpdateTemplatePermissionsCommandInput,
@@ -2789,9 +2643,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   *
-   * 		       <p>Updates an Amazon QuickSight user.</p>
-   *
+   * <p>Updates an Amazon QuickSight user.</p>
    */
   public updateUser(
     args: UpdateUserCommandInput,

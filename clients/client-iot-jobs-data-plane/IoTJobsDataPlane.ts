@@ -22,8 +22,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to
+ * <p>AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to
  *          and executed on one or more devices connected to AWS IoT. For example, you can define a job that instructs a
  *          set of devices to download and install application or firmware updates, reboot, rotate certificates, or perform
  *          remote troubleshooting operations.</p>
@@ -34,13 +33,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          execution of the job by downloading the job document, performing the operations it specifies, and reporting its
  *          progress to AWS IoT. The Jobs service provides commands to track the progress of a job on a specific target and
  *          for all the targets of the job</p>
- *
  */
 export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   /**
-   *
-   *          <p>Gets details of a job execution.</p>
-   *
+   * <p>Gets details of a job execution.</p>
    */
   public describeJobExecution(
     args: DescribeJobExecutionCommandInput,
@@ -75,9 +71,7 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   }
 
   /**
-   *
-   *          <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
-   *
+   * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
    */
   public getPendingJobExecutions(
     args: GetPendingJobExecutionsCommandInput,
@@ -112,9 +106,7 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   }
 
   /**
-   *
-   *          <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
-   *
+   * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>
    */
   public startNextPendingJobExecution(
     args: StartNextPendingJobExecutionCommandInput,
@@ -149,9 +141,7 @@ export class IoTJobsDataPlane extends IoTJobsDataPlaneClient {
   }
 
   /**
-   *
-   *          <p>Updates the status of a job execution.</p>
-   *
+   * <p>Updates the status of a job execution.</p>
    */
   public updateJobExecution(
     args: UpdateJobExecutionCommandInput,

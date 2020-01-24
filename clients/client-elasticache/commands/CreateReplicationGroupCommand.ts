@@ -5,7 +5,7 @@ import {
 } from "../ElastiCacheClient";
 import {
   CreateReplicationGroupMessage,
-  ReplicationGroup
+  CreateReplicationGroupResult
 } from "../models/index";
 import {
   deserializeAws_queryCreateReplicationGroupCommand,
@@ -27,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateReplicationGroupCommandInput = CreateReplicationGroupMessage;
-export type CreateReplicationGroupCommandOutput = ReplicationGroup;
+export type CreateReplicationGroupCommandOutput = CreateReplicationGroupResult;
 
 export class CreateReplicationGroupCommand extends $Command<
   CreateReplicationGroupCommandInput,

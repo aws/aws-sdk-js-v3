@@ -17,8 +17,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
+ * <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
  *       (such as AWS CLI or a native application) to register with AWS SSO. The service also
  *       enables the client to fetch the user’s access token upon successful authentication and
  *       authorization with AWS SSO. This service conforms with the OAuth 2.0 based implementation of
@@ -36,15 +35,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         convenient way to create programmatic access to AWS SSO and other AWS services. For more
  *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
  *          </note>
- *
  */
 export class SSOOIDC extends SSOOIDCClient {
   /**
-   *
-   *          <p>Creates and returns an access token for the authorized client. The access token issued
+   * <p>Creates and returns an access token for the authorized client. The access token issued
    *       will be used to fetch short-term credentials for the assigned roles in the AWS
    *       account.</p>
-   *
    */
   public createToken(
     args: CreateTokenCommandInput,
@@ -79,10 +75,8 @@ export class SSOOIDC extends SSOOIDCClient {
   }
 
   /**
-   *
-   *          <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
+   * <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
    *       The output should be persisted for reuse through many authentication requests.</p>
-   *
    */
   public registerClient(
     args: RegisterClientCommandInput,
@@ -117,9 +111,7 @@ export class SSOOIDC extends SSOOIDCClient {
   }
 
   /**
-   *
-   *          <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
-   *
+   * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
    */
   public startDeviceAuthorization(
     args: StartDeviceAuthorizationCommandInput,

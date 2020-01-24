@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import { DBCluster, PromoteReadReplicaDBClusterMessage } from "../models/index";
+import {
+  PromoteReadReplicaDBClusterMessage,
+  PromoteReadReplicaDBClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryPromoteReadReplicaDBClusterCommand,
   serializeAws_queryPromoteReadReplicaDBClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaDBClusterCommandInput = PromoteReadReplicaDBClusterMessage;
-export type PromoteReadReplicaDBClusterCommandOutput = DBCluster;
+export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult;
 
 export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandInput,

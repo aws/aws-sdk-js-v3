@@ -6423,6 +6423,13 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
         context
       );
       break;
+    case "ResourceConflictException":
+    case "com.amazonaws.awsgirapi#ResourceConflictException":
+      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsgirapi#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
@@ -6485,6 +6492,13 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     case "InvalidParameterValueException":
     case "com.amazonaws.awsgirapi#InvalidParameterValueException":
       response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.awsgirapi#ResourceConflictException":
+      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
         output,
         context
       );

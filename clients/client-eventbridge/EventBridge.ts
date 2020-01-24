@@ -157,8 +157,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Amazon EventBridge helps you to respond to state changes in your AWS
+ * <p>Amazon EventBridge helps you to respond to state changes in your AWS
  *             resources. When your resources change state, they automatically send events into an
  *             event stream. You can create rules that match selected events in the stream and route
  *             them to targets to take action. You can also use rules to take action on a predetermined
@@ -179,20 +178,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          </ul>
  *         <p>For more information about the features of Amazon EventBridge, see the
  *             <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/">Amazon EventBridge User Guide</a>.</p>
- *
  */
 export class EventBridge extends EventBridgeClient {
   /**
-   *
-   *         <p>Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events
+   * <p>Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events
    *         from the event source.</p>
    *         <note>
    *             <p>This operation is performed by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public activateEventSource(
     args: ActivateEventSourceCommandInput,
@@ -227,18 +220,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *         <p>Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your
+   * <p>Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your
    *         own custom applications and services, or it can be a partner event bus which can be matched to a partner event source.</p>
    *         <note>
    *             <p>This operation is used by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
-   *
-   *
    */
   public createEventBus(
     args: CreateEventBusCommandInput,
@@ -273,9 +259,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *         <p>Called by an SaaS partner to create a partner event source.</p>
+   * <p>Called by an SaaS partner to create a partner event source.</p>
    *         <note>
    *             <p>This operation is not used by AWS customers.</p>
    *          </note>
@@ -310,13 +294,6 @@ export class EventBridge extends EventBridgeClient {
    *                 decide whether to create an event bus to receive these events.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
@@ -351,17 +328,12 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>An AWS customer uses this operation to temporarily stop receiving events from the
+   * <p>An AWS customer uses this operation to temporarily stop receiving events from the
    *             specified partner event source. The matching event bus isn't deleted. </p>
    *         <p>When you deactivate a partner event source, the source goes into <code>PENDING</code>
    *             state. If it remains in <code>PENDING</code> state for more than two weeks, it's
    *             deleted.</p>
    *         <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>
-   *
-   *
-   *
-   *
    */
   public deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
@@ -396,16 +368,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified custom event bus or partner event bus. All rules associated with this event bus are also deleted. You can't delete your
+   * <p>Deletes the specified custom event bus or partner event bus. All rules associated with this event bus are also deleted. You can't delete your
    *         account's default event bus.</p>
    *         <note>
    *             <p>This operation is performed by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public deleteEventBus(
     args: DeleteEventBusCommandInput,
@@ -440,16 +407,10 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>This operation is used by SaaS partners to delete a partner event source. AWS
+   * <p>This operation is used by SaaS partners to delete a partner event source. AWS
    *             customers don't use this operation.</p>
    *         <p>When you delete an event source, the status of the corresponding partner event bus in
    *             the AWS customer account becomes <code>DELETED</code>.</p>
-   *
-   *
-   *
-   *
-   *
    */
   public deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
@@ -484,8 +445,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Deletes the specified rule.</p>
+   * <p>Deletes the specified rule.</p>
    *         <p>Before you can delete the rule, you must remove all targets, using <a>RemoveTargets</a>.</p>
    *
    *         <p>When you delete a rule, incoming events might continue to match to the deleted
@@ -495,9 +455,6 @@ export class EventBridge extends EventBridgeClient {
    *             These rules are created by those other AWS services to support functionality in those
    *             services. You can delete these rules using the <code>Force</code> option, but you should
    *             do so only if you're sure that the other service isn't still using that rule.</p>
-   *
-   *
-   *
    */
   public deleteRule(
     args: DeleteRuleCommandInput,
@@ -532,20 +489,12 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Displays details about an event bus in your account. This can include the external AWS accounts that are permitted to write events to your
+   * <p>Displays details about an event bus in your account. This can include the external AWS accounts that are permitted to write events to your
    *             default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.</p>
    *         <p>
    *             To enable your account to
    *             receive events from other accounts on its default event bus, use <a>PutPermission</a>.</p>
    *         <p>For more information about partner event buses, see <a>CreateEventBus</a>.</p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
    */
   public describeEventBus(
     args: DescribeEventBusCommandInput,
@@ -580,15 +529,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>This operation lists details about a partner event source that is shared
+   * <p>This operation lists details about a partner event source that is shared
    *             with your account.</p>
    *         <note>
    *             <p>This operation is run by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
    */
   public describeEventSource(
     args: DescribeEventSourceCommandInput,
@@ -623,17 +568,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *         <p>An SaaS partner can use this operation to list details about a partner event source that they have created.</p>
+   * <p>An SaaS partner can use this operation to list details about a partner event source that they have created.</p>
    *         <note>
    *             <p>AWS customers do not use this operation.
    *             Instead, AWS customers can use <a>DescribeEventSource</a> to see details about a partner event source that is shared with them.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
@@ -668,14 +607,10 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Describes the specified rule.</p>
+   * <p>Describes the specified rule.</p>
    *         <p>
    *             <code>DescribeRule</code> doesn't list the targets of a rule. To see the targets
    *             associated with a rule, use <a>ListTargetsByRule</a>.</p>
-   *
-   *
-   *
    */
   public describeRule(
     args: DescribeRuleCommandInput,
@@ -710,15 +645,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Disables the specified rule. A disabled rule won't match any events and won't
+   * <p>Disables the specified rule. A disabled rule won't match any events and won't
    *             self-trigger if it has a schedule expression.</p>
    *
    *         <p>When you disable a rule, incoming events might continue to match to the disabled
    *             rule. Allow a short period of time for changes to take effect.</p>
-   *
-   *
-   *
    */
   public disableRule(
     args: DisableRuleCommandInput,
@@ -753,15 +684,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Enables the specified rule. If the rule doesn't exist, the operation
+   * <p>Enables the specified rule. If the rule doesn't exist, the operation
    *             fails.</p>
    *
    *         <p>When you enable a rule, incoming events might not immediately start matching to a
    *             newly enabled rule. Allow a short period of time for changes to take effect.</p>
-   *
-   *
-   *
    */
   public enableRule(
     args: EnableRuleCommandInput,
@@ -796,14 +723,10 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *             <p>Lists all the event buses in your account, including the default event bus, custom event buses, and partner event buses.</p>
+   * <p>Lists all the event buses in your account, including the default event bus, custom event buses, and partner event buses.</p>
    *             <note>
    *             <p>This operation is run by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
    */
   public listEventBuses(
     args: ListEventBusesCommandInput,
@@ -838,17 +761,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *             <p>You can use this to see all the partner event sources that have been shared with your AWS account.
+   * <p>You can use this to see all the partner event sources that have been shared with your AWS account.
    *                 For more information about partner event sources, see <a>CreateEventBus</a>.</p>
    *             <note>
    *             <p>This operation is run by AWS customers, not by SaaS partners.</p>
    *          </note>
-   *
-   *
-   *
-   *
-   *
    */
   public listEventSources(
     args: ListEventSourcesCommandInput,
@@ -883,15 +800,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *             <p>An SaaS partner can use this operation to display the AWS account ID that a particular partner event source name
+   * <p>An SaaS partner can use this operation to display the AWS account ID that a particular partner event source name
    *                 is associated with.</p>
    *             <note>
    *             <p>This operation is used by SaaS partners, not by AWS customers.</p>
    *          </note>
-   *
-   *
    */
   public listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
@@ -929,17 +842,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *             <p>An SaaS partner can use this operation to list all the partner event source names that they have created.</p>
+   * <p>An SaaS partner can use this operation to list all the partner event source names that they have created.</p>
    *                 <note>
    *             <p>This operation is
    *                 not used by AWS customers.</p>
    *          </note>
-   *
-   *
-   *
-   *
    */
   public listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
@@ -974,12 +881,8 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Lists the rules for the specified target.
+   * <p>Lists the rules for the specified target.
    *             You can see which rules can invoke a specific target in your account.</p>
-   *
-   *
-   *
    */
   public listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
@@ -1014,16 +917,12 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Lists your EventBridge rules. You can either list all the rules or
+   * <p>Lists your EventBridge rules. You can either list all the rules or
    *             provide a prefix to match to the rule names.</p>
    *
    *         <p>
    *             <code>ListRules</code> doesn't list the targets of a rule. To see the targets
    *             associated with a rule, use <a>ListTargetsByRule</a>.</p>
-   *
-   *
-   *
    */
   public listRules(
     args: ListRulesCommandInput,
@@ -1058,13 +957,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules can be tagged.</p>
-   *
-   *
-   *
-   *
-   *
+   * <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules can be tagged.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1099,11 +992,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Lists the targets assigned to the specified rule.</p>
-   *
-   *
-   *
+   * <p>Lists the targets assigned to the specified rule.</p>
    */
   public listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
@@ -1138,12 +1027,8 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Sends custom events to EventBridge so that they can be matched to rules. These events can be from your custom applications
+   * <p>Sends custom events to EventBridge so that they can be matched to rules. These events can be from your custom applications
    *         and services.</p>
-   *
-   *
-   *
    */
   public putEvents(
     args: PutEventsCommandInput,
@@ -1178,18 +1063,11 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *
-   *             <p>This is used by SaaS partners to write events to a customer's partner event bus.</p>
+   * <p>This is used by SaaS partners to write events to a customer's partner event bus.</p>
    *             <note>
    *             <p>AWS customers do not use this operation. Instead, AWS customers can use
    *                 <a>PutEvents</a> to write custom events from their own applications to an event bus.</p>
    *          </note>
-   *
-   *
-   *
-   *
-   *
    */
   public putPartnerEvents(
     args: PutPartnerEventsCommandInput,
@@ -1224,8 +1102,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Running <code>PutPermission</code> permits the specified AWS account or AWS organization to put events to the specified <i>event bus</i>.
+   * <p>Running <code>PutPermission</code> permits the specified AWS account or AWS organization to put events to the specified <i>event bus</i>.
    *             Rules in your account are triggered by these events arriving to an event bus in your account.  </p>
    *         <p>For another account to send events to your account, that external account must have a rule with your account's
    *         event bus as a target.</p>
@@ -1241,7 +1118,6 @@ export class EventBridge extends EventBridgeClient {
    *             target. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and Receiving Events Between AWS Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    *
    *         <p>The permission policy on an event bus can't exceed 10 KB in size.</p>
-   *
    */
   public putPermission(
     args: PutPermissionCommandInput,
@@ -1276,8 +1152,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Creates or updates the specified rule. Rules are enabled by default or based on
+   * <p>Creates or updates the specified rule. Rules are enabled by default or based on
    *             value of the state. You can disable a rule using <a>DisableRule</a>.</p>
    *
    *         <p>A single rule watches for events from a single event bus. Events generated by AWS services go to your
@@ -1325,9 +1200,6 @@ export class EventBridge extends EventBridgeClient {
    *         <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use budgeting,
    *             which alerts you when charges exceed your specified limit. For more information, see
    *             <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with Budgets</a>.</p>
-   *
-   *
-   *
    */
   public putRule(
     args: PutRuleCommandInput,
@@ -1362,8 +1234,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Adds the specified targets to the specified rule, or updates the targets if they're
+   * <p>Adds the specified targets to the specified rule, or updates the targets if they're
    *             already associated with the rule.</p>
    *         <p>Targets are the resources that are invoked when a rule is triggered.</p>
    *         <p>You can configure the following as targets in EventBridge:</p>
@@ -1495,10 +1366,6 @@ export class EventBridge extends EventBridgeClient {
    *             that happens, <code>FailedEntryCount</code> is nonzero in the response, and each entry
    *             in <code>FailedEntries</code> provides the ID of the failed target and the error
    *             code.</p>
-   *
-   *
-   *
-   *
    */
   public putTargets(
     args: PutTargetsCommandInput,
@@ -1533,11 +1400,9 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to
+   * <p>Revokes the permission of another AWS account to be able to put events to the specified event bus. Specify the account to
    *             revoke by the <code>StatementId</code> value that you associated with the account when you granted it permission with <code>PutPermission</code>.
    *             You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>
-   *
    */
   public removePermission(
     args: RemovePermissionCommandInput,
@@ -1572,8 +1437,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.</p>
+   * <p>Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.</p>
    *
    *         <p>When you remove a target, when the associated rule triggers, removed targets might
    *             continue to be invoked. Allow a short period of time for changes to take
@@ -1581,9 +1445,6 @@ export class EventBridge extends EventBridgeClient {
    *
    *         <p>This action can partially fail if too many requests are made at the same time. If that happens, <code>FailedEntryCount</code> is non-zero in the response and
    *             each entry in <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
-   *
-   *
-   *
    */
   public removeTargets(
     args: RemoveTargetsCommandInput,
@@ -1618,8 +1479,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Assigns one or more tags (key-value pairs) to the specified EventBridge
+   * <p>Assigns one or more tags (key-value pairs) to the specified EventBridge
    *             resource. Tags can help you organize and categorize your resources. You can also use
    *             them to scope user permissions by granting a user permission to access or change only
    *             resources with certain tag values. In EventBridge, rules can be tagged.</p>
@@ -1631,10 +1491,6 @@ export class EventBridge extends EventBridgeClient {
    *             rule, the new tag value that you specify replaces the previous value for that
    *             tag.</p>
    *             <p>You can associate as many as 50 tags with a resource.</p>
-   *
-   *
-   *
-   *
    */
   public tagResource(
     args: TagResourceCommandInput,
@@ -1669,16 +1525,12 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Tests whether the specified event pattern matches the provided event.</p>
+   * <p>Tests whether the specified event pattern matches the provided event.</p>
    *         <p>Most services in AWS treat <code>:</code> or <code>/</code> as the same character
    *             in Amazon Resource Names (ARNs). However, EventBridge uses an exact match in event
    *             patterns and rules. Be sure to use the correct ARN characters when creating event
    *             patterns so that they match the ARN syntax in the event that you want to
    *             match.</p>
-   *
-   *
-   *
    */
   public testEventPattern(
     args: TestEventPatternCommandInput,
@@ -1713,10 +1565,7 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   *
-   *         <p>Removes one or more tags from the specified EventBridge resource. In EventBridge, rules can be tagged.</p>
-   *
-   *
+   * <p>Removes one or more tags from the specified EventBridge resource. In EventBridge, rules can be tagged.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

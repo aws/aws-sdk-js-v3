@@ -59,6 +59,10 @@ import {
   ListSecurityProfilesCommandOutput
 } from "../commands/ListSecurityProfilesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput
 } from "../commands/ListUserHierarchyGroupsCommand";
@@ -67,6 +71,10 @@ import {
   ListUsersCommandOutput
 } from "../commands/ListUsersCommand";
 import {
+  StartChatContactCommandInput,
+  StartChatContactCommandOutput
+} from "../commands/StartChatContactCommand";
+import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput
 } from "../commands/StartOutboundVoiceContactCommand";
@@ -74,6 +82,14 @@ import {
   StopContactCommandInput,
   StopContactCommandOutput
 } from "../commands/StopContactCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
 import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput
@@ -100,6 +116,7 @@ import {
 } from "../commands/UpdateUserSecurityProfilesCommand";
 import {
   Channel,
+  ChatMessage,
   ContactFlowSummary,
   ContactNotFoundException,
   Credentials,
@@ -125,6 +142,7 @@ import {
   InvalidRequestException,
   LimitExceededException,
   OutboundContactNotPermittedException,
+  ParticipantDetails,
   PhoneNumberSummary,
   QueueReference,
   QueueSummary,
@@ -200,6 +218,9 @@ export async function serializeAws_restJson1_1CreateUserCommand(
       input.SecurityProfileIds,
       context
     );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
   }
   if (input.Username !== undefined) {
     bodyParams["Username"] = input.Username;
@@ -731,6 +752,33 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
   });
 }
 
+export async function serializeAws_restJson1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath
+  });
+}
+
 export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
   input: ListUserHierarchyGroupsCommandInput,
   context: __SerdeContext
@@ -794,6 +842,55 @@ export async function serializeAws_restJson1_1ListUsersCommand(
     headers: headers,
     path: resolvedPath,
     query: query
+  });
+}
+
+export async function serializeAws_restJson1_1StartChatContactCommand(
+  input: StartChatContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/contact/chat";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.Attributes !== undefined) {
+    bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
+      input.Attributes,
+      context
+    );
+  }
+  if (input.ClientToken !== undefined) {
+    bodyParams["ClientToken"] = input.ClientToken;
+  }
+  if (input.ContactFlowId !== undefined) {
+    bodyParams["ContactFlowId"] = input.ContactFlowId;
+  }
+  if (input.InitialMessage !== undefined) {
+    bodyParams["InitialMessage"] = serializeAws_restJson1_1ChatMessage(
+      input.InitialMessage,
+      context
+    );
+  }
+  if (input.InstanceId !== undefined) {
+    bodyParams["InstanceId"] = input.InstanceId;
+  }
+  if (input.ParticipantDetails !== undefined) {
+    bodyParams[
+      "ParticipantDetails"
+    ] = serializeAws_restJson1_1ParticipantDetails(
+      input.ParticipantDetails,
+      context
+    );
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    body: body
   });
 }
 
@@ -864,6 +961,72 @@ export async function serializeAws_restJson1_1StopContactCommand(
     headers: headers,
     path: resolvedPath,
     body: body
+  });
+}
+
+export async function serializeAws_restJson1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.tags !== undefined) {
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: any = input.resourceArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  const query: any = {};
+  if (input.tagKeys !== undefined) {
+    query["tagKeys"] = input.tagKeys;
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "DELETE",
+    headers: headers,
+    path: resolvedPath,
+    query: query
   });
 }
 
@@ -2411,6 +2574,88 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    tags: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined) {
+    contents.tags = deserializeAws_restJson1_1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -2586,6 +2831,96 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1StartChatContactCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChatContactCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1StartChatContactCommandError(
+      output,
+      context
+    );
+  }
+  const contents: StartChatContactCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartChatContactResponse",
+    ContactId: undefined,
+    ParticipantId: undefined,
+    ParticipantToken: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ContactId !== undefined) {
+    contents.ContactId = data.ContactId;
+  }
+  if (data.ParticipantId !== undefined) {
+    contents.ParticipantId = data.ParticipantId;
+  }
+  if (data.ParticipantToken !== undefined) {
+    contents.ParticipantToken = data.ParticipantToken;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1StartChatContactCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChatContactCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.amazonconnectservice.v20170808#LimitExceededException":
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1StartOutboundVoiceContactCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -2737,6 +3072,152 @@ async function deserializeAws_restJson1_1StopContactCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
         output,
         context
       );
@@ -3415,6 +3896,31 @@ const serializeAws_restJson1_1Attributes = (
   return mapParams;
 };
 
+const serializeAws_restJson1_1ChatMessage = (
+  input: ChatMessage,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Content !== undefined) {
+    bodyParams["Content"] = input.Content;
+  }
+  if (input.ContentType !== undefined) {
+    bodyParams["ContentType"] = input.ContentType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1ParticipantDetails = (
+  input: ParticipantDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DisplayName !== undefined) {
+    bodyParams["DisplayName"] = input.DisplayName;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1Channels = (
   input: Array<Channel | string>,
   context: __SerdeContext
@@ -3530,6 +4036,17 @@ const serializeAws_restJson1_1SecurityProfileIds = (
   context: __SerdeContext
 ): any => {
   return (input || []).map(entry => entry);
+};
+
+const serializeAws_restJson1_1TagMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  let mapParams: any = {};
+  Object.keys(input).forEach(key => {
+    mapParams[key] = input[key];
+  });
+  return mapParams;
 };
 
 const serializeAws_restJson1_1UserIdentityInfo = (
@@ -4229,6 +4746,17 @@ const deserializeAws_restJson1_1SecurityProfileSummaryList = (
   );
 };
 
+const deserializeAws_restJson1_1TagMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  let mapParams: any = {};
+  Object.keys(output).forEach(key => {
+    mapParams[key] = output[key];
+  });
+  return mapParams;
+};
+
 const deserializeAws_restJson1_1User = (
   output: any,
   context: __SerdeContext
@@ -4243,6 +4771,7 @@ const deserializeAws_restJson1_1User = (
     PhoneConfig: undefined,
     RoutingProfileId: undefined,
     SecurityProfileIds: undefined,
+    Tags: undefined,
     Username: undefined
   };
   if (output.Arn !== undefined) {
@@ -4277,6 +4806,9 @@ const deserializeAws_restJson1_1User = (
       output.SecurityProfileIds,
       context
     );
+  }
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_restJson1_1TagMap(output.Tags, context);
   }
   if (output.Username !== undefined) {
     contents.Username = output.Username;

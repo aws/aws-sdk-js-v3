@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElastiCacheClient";
-import { DecreaseReplicaCountMessage, ReplicationGroup } from "../models/index";
+import {
+  DecreaseReplicaCountMessage,
+  DecreaseReplicaCountResult
+} from "../models/index";
 import {
   deserializeAws_queryDecreaseReplicaCountCommand,
   serializeAws_queryDecreaseReplicaCountCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DecreaseReplicaCountCommandInput = DecreaseReplicaCountMessage;
-export type DecreaseReplicaCountCommandOutput = ReplicationGroup;
+export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult;
 
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,

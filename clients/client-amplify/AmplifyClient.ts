@@ -312,11 +312,9 @@ export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>
+ * <p>
  *             Amplify is a fully managed continuous deployment and hosting service for modern web apps.
  *         </p>
- *
  */
 export class AmplifyClient extends __Client<
   __HttpHandlerOptions,

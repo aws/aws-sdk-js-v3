@@ -19,3 +19,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateBrokerCountCommand";
 export * from "./commands/UpdateBrokerStorageCommand";
 export * from "./commands/UpdateClusterConfigurationCommand";
+export * from "./commands/UpdateMonitoringCommand";

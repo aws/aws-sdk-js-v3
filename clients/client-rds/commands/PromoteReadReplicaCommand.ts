@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { DBInstance, PromoteReadReplicaMessage } from "../models/index";
+import {
+  PromoteReadReplicaMessage,
+  PromoteReadReplicaResult
+} from "../models/index";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = DBInstance;
+export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult;
 
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,

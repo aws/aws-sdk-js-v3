@@ -59,6 +59,10 @@ import {
   DescribeProductsCommandOutput
 } from "../commands/DescribeProductsCommand";
 import {
+  DescribeStandardsControlsCommandInput,
+  DescribeStandardsControlsCommandOutput
+} from "../commands/DescribeStandardsControlsCommand";
+import {
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput
 } from "../commands/DisableImportFindingsForProductCommand";
@@ -151,14 +155,37 @@ import {
   UpdateInsightCommandOutput
 } from "../commands/UpdateInsightCommand";
 import {
+  UpdateStandardsControlCommandInput,
+  UpdateStandardsControlCommandOutput
+} from "../commands/UpdateStandardsControlCommand";
+import {
   AccessDeniedException,
   AccountDetails,
   ActionTarget,
+  AvailabilityZone,
+  AwsCloudFrontDistributionDetails,
+  AwsCloudFrontDistributionLogging,
+  AwsCloudFrontDistributionOriginItem,
+  AwsCloudFrontDistributionOrigins,
   AwsEc2InstanceDetails,
+  AwsElbv2LoadBalancerDetails,
   AwsIamAccessKeyDetails,
+  AwsIamRoleDetails,
+  AwsKmsKeyDetails,
+  AwsLambdaFunctionCode,
+  AwsLambdaFunctionDeadLetterConfig,
+  AwsLambdaFunctionDetails,
+  AwsLambdaFunctionEnvironment,
+  AwsLambdaFunctionEnvironmentError,
+  AwsLambdaFunctionLayer,
+  AwsLambdaFunctionTracingConfig,
+  AwsLambdaFunctionVpcConfig,
   AwsS3BucketDetails,
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
+  AwsSnsTopicDetails,
+  AwsSnsTopicSubscription,
+  AwsSqsQueueDetails,
   Compliance,
   ContainerDetails,
   DateFilter,
@@ -174,6 +201,7 @@ import {
   IpFilter,
   KeywordFilter,
   LimitExceededException,
+  LoadBalancerState,
   Malware,
   MapFilter,
   Member,
@@ -193,6 +221,7 @@ import {
   Result,
   Severity,
   SortCriterion,
+  StandardsControl,
   StandardsSubscription,
   StandardsSubscriptionRequest,
   StringFilter,
@@ -595,6 +624,46 @@ export async function serializeAws_restJson1_1DescribeProductsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   let resolvedPath = "/products";
+  const query: any = {};
+  if (input.MaxResults !== undefined) {
+    query["MaxResults"] = input.MaxResults.toString();
+  }
+  if (input.NextToken !== undefined) {
+    query["NextToken"] = input.NextToken.toString();
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
+  });
+}
+
+export async function serializeAws_restJson1_1DescribeStandardsControlsCommand(
+  input: DescribeStandardsControlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/standards/controls/{StandardsSubscriptionArn+}";
+  if (input.StandardsSubscriptionArn !== undefined) {
+    const labelValue: any = input.StandardsSubscriptionArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: StandardsSubscriptionArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace(
+      "{StandardsSubscriptionArn+}",
+      labelValue
+    );
+  } else {
+    throw new Error(
+      "No value provided for input HTTP label: StandardsSubscriptionArn."
+    );
+  }
   const query: any = {};
   if (input.MaxResults !== undefined) {
     query["MaxResults"] = input.MaxResults.toString();
@@ -1230,6 +1299,45 @@ export async function serializeAws_restJson1_1UpdateInsightCommand(
   }
   if (input.Name !== undefined) {
     bodyParams["Name"] = input.Name;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PATCH",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1UpdateStandardsControlCommand(
+  input: UpdateStandardsControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/standards/control/{StandardsControlArn+}";
+  if (input.StandardsControlArn !== undefined) {
+    const labelValue: any = input.StandardsControlArn.toString();
+    if (labelValue.length <= 0) {
+      throw new Error(
+        "Empty value provided for input HTTP label: StandardsControlArn."
+      );
+    }
+    resolvedPath = resolvedPath.replace("{StandardsControlArn+}", labelValue);
+  } else {
+    throw new Error(
+      "No value provided for input HTTP label: StandardsControlArn."
+    );
+  }
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.ControlStatus !== undefined) {
+    bodyParams["ControlStatus"] = input.ControlStatus;
+  }
+  if (input.DisabledReason !== undefined) {
+    bodyParams["DisabledReason"] = input.DisabledReason;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -2431,6 +2539,88 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.securityhub#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1DescribeStandardsControlsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStandardsControlsCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DescribeStandardsControlsCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DescribeStandardsControlsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeStandardsControlsResponse",
+    Controls: undefined,
+    NextToken: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Controls !== undefined) {
+    contents.Controls = deserializeAws_restJson1_1StandardsControls(
+      data.Controls,
+      context
+    );
+  }
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DescribeStandardsControlsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStandardsControlsCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = await deserializeAws_restJson1_1InternalExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
         output,
         context
       );
@@ -4218,6 +4408,76 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1UpdateStandardsControlCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStandardsControlCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1UpdateStandardsControlCommandError(
+      output,
+      context
+    );
+  }
+  const contents: UpdateStandardsControlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateStandardsControlResponse"
+  };
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1UpdateStandardsControlCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStandardsControlCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = await deserializeAws_restJson1_1InternalExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = await deserializeAws_restJson1_1InvalidAccessExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = await deserializeAws_restJson1_1InvalidInputExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.securityhub#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
@@ -4409,6 +4669,130 @@ const serializeAws_restJson1_1ArnList = (
   return (input || []).map(entry => entry);
 };
 
+const serializeAws_restJson1_1AvailabilityZone = (
+  input: AvailabilityZone,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.SubnetId !== undefined) {
+    bodyParams["SubnetId"] = input.SubnetId;
+  }
+  if (input.ZoneName !== undefined) {
+    bodyParams["ZoneName"] = input.ZoneName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AvailabilityZones = (
+  input: Array<AvailabilityZone>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1AvailabilityZone(entry, context)
+  );
+};
+
+const serializeAws_restJson1_1AwsCloudFrontDistributionDetails = (
+  input: AwsCloudFrontDistributionDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DomainName !== undefined) {
+    bodyParams["DomainName"] = input.DomainName;
+  }
+  if (input.ETag !== undefined) {
+    bodyParams["ETag"] = input.ETag;
+  }
+  if (input.LastModifiedTime !== undefined) {
+    bodyParams["LastModifiedTime"] = input.LastModifiedTime;
+  }
+  if (input.Logging !== undefined) {
+    bodyParams[
+      "Logging"
+    ] = serializeAws_restJson1_1AwsCloudFrontDistributionLogging(
+      input.Logging,
+      context
+    );
+  }
+  if (input.Origins !== undefined) {
+    bodyParams[
+      "Origins"
+    ] = serializeAws_restJson1_1AwsCloudFrontDistributionOrigins(
+      input.Origins,
+      context
+    );
+  }
+  if (input.Status !== undefined) {
+    bodyParams["Status"] = input.Status;
+  }
+  if (input.WebAclId !== undefined) {
+    bodyParams["WebAclId"] = input.WebAclId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsCloudFrontDistributionLogging = (
+  input: AwsCloudFrontDistributionLogging,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Bucket !== undefined) {
+    bodyParams["Bucket"] = input.Bucket;
+  }
+  if (input.Enabled !== undefined) {
+    bodyParams["Enabled"] = input.Enabled;
+  }
+  if (input.IncludeCookies !== undefined) {
+    bodyParams["IncludeCookies"] = input.IncludeCookies;
+  }
+  if (input.Prefix !== undefined) {
+    bodyParams["Prefix"] = input.Prefix;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsCloudFrontDistributionOriginItem = (
+  input: AwsCloudFrontDistributionOriginItem,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DomainName !== undefined) {
+    bodyParams["DomainName"] = input.DomainName;
+  }
+  if (input.Id !== undefined) {
+    bodyParams["Id"] = input.Id;
+  }
+  if (input.OriginPath !== undefined) {
+    bodyParams["OriginPath"] = input.OriginPath;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList = (
+  input: Array<AwsCloudFrontDistributionOriginItem>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1AwsCloudFrontDistributionOriginItem(entry, context)
+  );
+};
+
+const serializeAws_restJson1_1AwsCloudFrontDistributionOrigins = (
+  input: AwsCloudFrontDistributionOrigins,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Items !== undefined) {
+    bodyParams[
+      "Items"
+    ] = serializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList(
+      input.Items,
+      context
+    );
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1AwsEc2InstanceDetails = (
   input: AwsEc2InstanceDetails,
   context: __SerdeContext
@@ -4450,6 +4834,53 @@ const serializeAws_restJson1_1AwsEc2InstanceDetails = (
   return bodyParams;
 };
 
+const serializeAws_restJson1_1AwsElbv2LoadBalancerDetails = (
+  input: AwsElbv2LoadBalancerDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AvailabilityZones !== undefined) {
+    bodyParams["AvailabilityZones"] = serializeAws_restJson1_1AvailabilityZones(
+      input.AvailabilityZones,
+      context
+    );
+  }
+  if (input.CanonicalHostedZoneId !== undefined) {
+    bodyParams["CanonicalHostedZoneId"] = input.CanonicalHostedZoneId;
+  }
+  if (input.CreatedTime !== undefined) {
+    bodyParams["CreatedTime"] = input.CreatedTime;
+  }
+  if (input.DNSName !== undefined) {
+    bodyParams["DNSName"] = input.DNSName;
+  }
+  if (input.IpAddressType !== undefined) {
+    bodyParams["IpAddressType"] = input.IpAddressType;
+  }
+  if (input.Scheme !== undefined) {
+    bodyParams["Scheme"] = input.Scheme;
+  }
+  if (input.SecurityGroups !== undefined) {
+    bodyParams["SecurityGroups"] = serializeAws_restJson1_1SecurityGroups(
+      input.SecurityGroups,
+      context
+    );
+  }
+  if (input.State !== undefined) {
+    bodyParams["State"] = serializeAws_restJson1_1LoadBalancerState(
+      input.State,
+      context
+    );
+  }
+  if (input.Type !== undefined) {
+    bodyParams["Type"] = input.Type;
+  }
+  if (input.VpcId !== undefined) {
+    bodyParams["VpcId"] = input.VpcId;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1AwsIamAccessKeyDetails = (
   input: AwsIamAccessKeyDetails,
   context: __SerdeContext
@@ -4458,11 +4889,284 @@ const serializeAws_restJson1_1AwsIamAccessKeyDetails = (
   if (input.CreatedAt !== undefined) {
     bodyParams["CreatedAt"] = input.CreatedAt;
   }
+  if (input.PrincipalId !== undefined) {
+    bodyParams["PrincipalId"] = input.PrincipalId;
+  }
+  if (input.PrincipalName !== undefined) {
+    bodyParams["PrincipalName"] = input.PrincipalName;
+  }
+  if (input.PrincipalType !== undefined) {
+    bodyParams["PrincipalType"] = input.PrincipalType;
+  }
   if (input.Status !== undefined) {
     bodyParams["Status"] = input.Status;
   }
   if (input.UserName !== undefined) {
     bodyParams["UserName"] = input.UserName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsIamRoleDetails = (
+  input: AwsIamRoleDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AssumeRolePolicyDocument !== undefined) {
+    bodyParams["AssumeRolePolicyDocument"] = input.AssumeRolePolicyDocument;
+  }
+  if (input.CreateDate !== undefined) {
+    bodyParams["CreateDate"] = input.CreateDate;
+  }
+  if (input.MaxSessionDuration !== undefined) {
+    bodyParams["MaxSessionDuration"] = input.MaxSessionDuration;
+  }
+  if (input.Path !== undefined) {
+    bodyParams["Path"] = input.Path;
+  }
+  if (input.RoleId !== undefined) {
+    bodyParams["RoleId"] = input.RoleId;
+  }
+  if (input.RoleName !== undefined) {
+    bodyParams["RoleName"] = input.RoleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsKmsKeyDetails = (
+  input: AwsKmsKeyDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AWSAccountId !== undefined) {
+    bodyParams["AWSAccountId"] = input.AWSAccountId;
+  }
+  if (input.CreationDate !== undefined) {
+    bodyParams["CreationDate"] = input.CreationDate;
+  }
+  if (input.KeyId !== undefined) {
+    bodyParams["KeyId"] = input.KeyId;
+  }
+  if (input.KeyManager !== undefined) {
+    bodyParams["KeyManager"] = input.KeyManager;
+  }
+  if (input.KeyState !== undefined) {
+    bodyParams["KeyState"] = input.KeyState;
+  }
+  if (input.Origin !== undefined) {
+    bodyParams["Origin"] = input.Origin;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionCode = (
+  input: AwsLambdaFunctionCode,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.S3Bucket !== undefined) {
+    bodyParams["S3Bucket"] = input.S3Bucket;
+  }
+  if (input.S3Key !== undefined) {
+    bodyParams["S3Key"] = input.S3Key;
+  }
+  if (input.S3ObjectVersion !== undefined) {
+    bodyParams["S3ObjectVersion"] = input.S3ObjectVersion;
+  }
+  if (input.ZipFile !== undefined) {
+    bodyParams["ZipFile"] = input.ZipFile;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionDeadLetterConfig = (
+  input: AwsLambdaFunctionDeadLetterConfig,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.TargetArn !== undefined) {
+    bodyParams["TargetArn"] = input.TargetArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionDetails = (
+  input: AwsLambdaFunctionDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Code !== undefined) {
+    bodyParams["Code"] = serializeAws_restJson1_1AwsLambdaFunctionCode(
+      input.Code,
+      context
+    );
+  }
+  if (input.CodeSha256 !== undefined) {
+    bodyParams["CodeSha256"] = input.CodeSha256;
+  }
+  if (input.DeadLetterConfig !== undefined) {
+    bodyParams[
+      "DeadLetterConfig"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionDeadLetterConfig(
+      input.DeadLetterConfig,
+      context
+    );
+  }
+  if (input.Environment !== undefined) {
+    bodyParams[
+      "Environment"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionEnvironment(
+      input.Environment,
+      context
+    );
+  }
+  if (input.FunctionName !== undefined) {
+    bodyParams["FunctionName"] = input.FunctionName;
+  }
+  if (input.Handler !== undefined) {
+    bodyParams["Handler"] = input.Handler;
+  }
+  if (input.KmsKeyArn !== undefined) {
+    bodyParams["KmsKeyArn"] = input.KmsKeyArn;
+  }
+  if (input.LastModified !== undefined) {
+    bodyParams["LastModified"] = input.LastModified;
+  }
+  if (input.Layers !== undefined) {
+    bodyParams["Layers"] = serializeAws_restJson1_1AwsLambdaFunctionLayerList(
+      input.Layers,
+      context
+    );
+  }
+  if (input.MasterArn !== undefined) {
+    bodyParams["MasterArn"] = input.MasterArn;
+  }
+  if (input.MemorySize !== undefined) {
+    bodyParams["MemorySize"] = input.MemorySize;
+  }
+  if (input.RevisionId !== undefined) {
+    bodyParams["RevisionId"] = input.RevisionId;
+  }
+  if (input.Role !== undefined) {
+    bodyParams["Role"] = input.Role;
+  }
+  if (input.Runtime !== undefined) {
+    bodyParams["Runtime"] = input.Runtime;
+  }
+  if (input.Timeout !== undefined) {
+    bodyParams["Timeout"] = input.Timeout;
+  }
+  if (input.TracingConfig !== undefined) {
+    bodyParams[
+      "TracingConfig"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionTracingConfig(
+      input.TracingConfig,
+      context
+    );
+  }
+  if (input.Version !== undefined) {
+    bodyParams["Version"] = input.Version;
+  }
+  if (input.VpcConfig !== undefined) {
+    bodyParams[
+      "VpcConfig"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionVpcConfig(
+      input.VpcConfig,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionEnvironment = (
+  input: AwsLambdaFunctionEnvironment,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Error !== undefined) {
+    bodyParams[
+      "Error"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionEnvironmentError(
+      input.Error,
+      context
+    );
+  }
+  if (input.Variables !== undefined) {
+    bodyParams["Variables"] = serializeAws_restJson1_1FieldMap(
+      input.Variables,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionEnvironmentError = (
+  input: AwsLambdaFunctionEnvironmentError,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ErrorCode !== undefined) {
+    bodyParams["ErrorCode"] = input.ErrorCode;
+  }
+  if (input.Message !== undefined) {
+    bodyParams["Message"] = input.Message;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionLayer = (
+  input: AwsLambdaFunctionLayer,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Arn !== undefined) {
+    bodyParams["Arn"] = input.Arn;
+  }
+  if (input.CodeSize !== undefined) {
+    bodyParams["CodeSize"] = input.CodeSize;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionLayerList = (
+  input: Array<AwsLambdaFunctionLayer>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1AwsLambdaFunctionLayer(entry, context)
+  );
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionTracingConfig = (
+  input: AwsLambdaFunctionTracingConfig,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Mode !== undefined) {
+    bodyParams["Mode"] = input.Mode;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsLambdaFunctionVpcConfig = (
+  input: AwsLambdaFunctionVpcConfig,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.SecurityGroupIds !== undefined) {
+    bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1NonEmptyStringList(
+      input.SecurityGroupIds,
+      context
+    );
+  }
+  if (input.SubnetIds !== undefined) {
+    bodyParams["SubnetIds"] = serializeAws_restJson1_1NonEmptyStringList(
+      input.SubnetIds,
+      context
+    );
+  }
+  if (input.VpcId !== undefined) {
+    bodyParams["VpcId"] = input.VpcId;
   }
   return bodyParams;
 };
@@ -5188,6 +5892,75 @@ const serializeAws_restJson1_1AwsSecurityFindingList = (
   );
 };
 
+const serializeAws_restJson1_1AwsSnsTopicDetails = (
+  input: AwsSnsTopicDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.KmsMasterKeyId !== undefined) {
+    bodyParams["KmsMasterKeyId"] = input.KmsMasterKeyId;
+  }
+  if (input.Owner !== undefined) {
+    bodyParams["Owner"] = input.Owner;
+  }
+  if (input.Subscription !== undefined) {
+    bodyParams[
+      "Subscription"
+    ] = serializeAws_restJson1_1AwsSnsTopicSubscriptionList(
+      input.Subscription,
+      context
+    );
+  }
+  if (input.TopicName !== undefined) {
+    bodyParams["TopicName"] = input.TopicName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsSnsTopicSubscription = (
+  input: AwsSnsTopicSubscription,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Endpoint !== undefined) {
+    bodyParams["Endpoint"] = input.Endpoint;
+  }
+  if (input.Protocol !== undefined) {
+    bodyParams["Protocol"] = input.Protocol;
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1AwsSnsTopicSubscriptionList = (
+  input: Array<AwsSnsTopicSubscription>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1AwsSnsTopicSubscription(entry, context)
+  );
+};
+
+const serializeAws_restJson1_1AwsSqsQueueDetails = (
+  input: AwsSqsQueueDetails,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DeadLetterTargetArn !== undefined) {
+    bodyParams["DeadLetterTargetArn"] = input.DeadLetterTargetArn;
+  }
+  if (input.KmsDataKeyReusePeriodSeconds !== undefined) {
+    bodyParams["KmsDataKeyReusePeriodSeconds"] =
+      input.KmsDataKeyReusePeriodSeconds;
+  }
+  if (input.KmsMasterKeyId !== undefined) {
+    bodyParams["KmsMasterKeyId"] = input.KmsMasterKeyId;
+  }
+  if (input.QueueName !== undefined) {
+    bodyParams["QueueName"] = input.QueueName;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1Compliance = (
   input: Compliance,
   context: __SerdeContext
@@ -5313,6 +6086,20 @@ const serializeAws_restJson1_1KeywordFilterList = (
   );
 };
 
+const serializeAws_restJson1_1LoadBalancerState = (
+  input: LoadBalancerState,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Code !== undefined) {
+    bodyParams["Code"] = input.Code;
+  }
+  if (input.Reason !== undefined) {
+    bodyParams["Reason"] = input.Reason;
+  }
+  return bodyParams;
+};
+
 const serializeAws_restJson1_1Malware = (
   input: Malware,
   context: __SerdeContext
@@ -5407,6 +6194,13 @@ const serializeAws_restJson1_1Network = (
     bodyParams["SourcePort"] = input.SourcePort;
   }
   return bodyParams;
+};
+
+const serializeAws_restJson1_1NonEmptyStringList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_restJson1_1Note = (
@@ -5577,11 +6371,27 @@ const serializeAws_restJson1_1ResourceDetails = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.AwsCloudFrontDistribution !== undefined) {
+    bodyParams[
+      "AwsCloudFrontDistribution"
+    ] = serializeAws_restJson1_1AwsCloudFrontDistributionDetails(
+      input.AwsCloudFrontDistribution,
+      context
+    );
+  }
   if (input.AwsEc2Instance !== undefined) {
     bodyParams[
       "AwsEc2Instance"
     ] = serializeAws_restJson1_1AwsEc2InstanceDetails(
       input.AwsEc2Instance,
+      context
+    );
+  }
+  if (input.AwsElbv2LoadBalancer !== undefined) {
+    bodyParams[
+      "AwsElbv2LoadBalancer"
+    ] = serializeAws_restJson1_1AwsElbv2LoadBalancerDetails(
+      input.AwsElbv2LoadBalancer,
       context
     );
   }
@@ -5593,9 +6403,41 @@ const serializeAws_restJson1_1ResourceDetails = (
       context
     );
   }
+  if (input.AwsIamRole !== undefined) {
+    bodyParams["AwsIamRole"] = serializeAws_restJson1_1AwsIamRoleDetails(
+      input.AwsIamRole,
+      context
+    );
+  }
+  if (input.AwsKmsKey !== undefined) {
+    bodyParams["AwsKmsKey"] = serializeAws_restJson1_1AwsKmsKeyDetails(
+      input.AwsKmsKey,
+      context
+    );
+  }
+  if (input.AwsLambdaFunction !== undefined) {
+    bodyParams[
+      "AwsLambdaFunction"
+    ] = serializeAws_restJson1_1AwsLambdaFunctionDetails(
+      input.AwsLambdaFunction,
+      context
+    );
+  }
   if (input.AwsS3Bucket !== undefined) {
     bodyParams["AwsS3Bucket"] = serializeAws_restJson1_1AwsS3BucketDetails(
       input.AwsS3Bucket,
+      context
+    );
+  }
+  if (input.AwsSnsTopic !== undefined) {
+    bodyParams["AwsSnsTopic"] = serializeAws_restJson1_1AwsSnsTopicDetails(
+      input.AwsSnsTopic,
+      context
+    );
+  }
+  if (input.AwsSqsQueue !== undefined) {
+    bodyParams["AwsSqsQueue"] = serializeAws_restJson1_1AwsSqsQueueDetails(
+      input.AwsSqsQueue,
       context
     );
   }
@@ -5621,6 +6463,13 @@ const serializeAws_restJson1_1ResourceList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Resource(entry, context)
   );
+};
+
+const serializeAws_restJson1_1SecurityGroups = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const serializeAws_restJson1_1Severity = (
@@ -5820,6 +6669,154 @@ const deserializeAws_restJson1_1ActionTargetList = (
   );
 };
 
+const deserializeAws_restJson1_1AvailabilityZone = (
+  output: any,
+  context: __SerdeContext
+): AvailabilityZone => {
+  let contents: any = {
+    __type: "AvailabilityZone",
+    SubnetId: undefined,
+    ZoneName: undefined
+  };
+  if (output.SubnetId !== undefined) {
+    contents.SubnetId = output.SubnetId;
+  }
+  if (output.ZoneName !== undefined) {
+    contents.ZoneName = output.ZoneName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AvailabilityZones = (
+  output: any,
+  context: __SerdeContext
+): Array<AvailabilityZone> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1AvailabilityZone(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1AwsCloudFrontDistributionDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionDetails => {
+  let contents: any = {
+    __type: "AwsCloudFrontDistributionDetails",
+    DomainName: undefined,
+    ETag: undefined,
+    LastModifiedTime: undefined,
+    Logging: undefined,
+    Origins: undefined,
+    Status: undefined,
+    WebAclId: undefined
+  };
+  if (output.DomainName !== undefined) {
+    contents.DomainName = output.DomainName;
+  }
+  if (output.ETag !== undefined) {
+    contents.ETag = output.ETag;
+  }
+  if (output.LastModifiedTime !== undefined) {
+    contents.LastModifiedTime = output.LastModifiedTime;
+  }
+  if (output.Logging !== undefined) {
+    contents.Logging = deserializeAws_restJson1_1AwsCloudFrontDistributionLogging(
+      output.Logging,
+      context
+    );
+  }
+  if (output.Origins !== undefined) {
+    contents.Origins = deserializeAws_restJson1_1AwsCloudFrontDistributionOrigins(
+      output.Origins,
+      context
+    );
+  }
+  if (output.Status !== undefined) {
+    contents.Status = output.Status;
+  }
+  if (output.WebAclId !== undefined) {
+    contents.WebAclId = output.WebAclId;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsCloudFrontDistributionLogging = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionLogging => {
+  let contents: any = {
+    __type: "AwsCloudFrontDistributionLogging",
+    Bucket: undefined,
+    Enabled: undefined,
+    IncludeCookies: undefined,
+    Prefix: undefined
+  };
+  if (output.Bucket !== undefined) {
+    contents.Bucket = output.Bucket;
+  }
+  if (output.Enabled !== undefined) {
+    contents.Enabled = output.Enabled;
+  }
+  if (output.IncludeCookies !== undefined) {
+    contents.IncludeCookies = output.IncludeCookies;
+  }
+  if (output.Prefix !== undefined) {
+    contents.Prefix = output.Prefix;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItem = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginItem => {
+  let contents: any = {
+    __type: "AwsCloudFrontDistributionOriginItem",
+    DomainName: undefined,
+    Id: undefined,
+    OriginPath: undefined
+  };
+  if (output.DomainName !== undefined) {
+    contents.DomainName = output.DomainName;
+  }
+  if (output.Id !== undefined) {
+    contents.Id = output.Id;
+  }
+  if (output.OriginPath !== undefined) {
+    contents.OriginPath = output.OriginPath;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList = (
+  output: any,
+  context: __SerdeContext
+): Array<AwsCloudFrontDistributionOriginItem> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItem(
+      entry,
+      context
+    )
+  );
+};
+
+const deserializeAws_restJson1_1AwsCloudFrontDistributionOrigins = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOrigins => {
+  let contents: any = {
+    __type: "AwsCloudFrontDistributionOrigins",
+    Items: undefined
+  };
+  if (output.Items !== undefined) {
+    contents.Items = deserializeAws_restJson1_1AwsCloudFrontDistributionOriginItemList(
+      output.Items,
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1AwsEc2InstanceDetails = (
   output: any,
   context: __SerdeContext
@@ -5872,6 +6869,65 @@ const deserializeAws_restJson1_1AwsEc2InstanceDetails = (
   return contents;
 };
 
+const deserializeAws_restJson1_1AwsElbv2LoadBalancerDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsElbv2LoadBalancerDetails => {
+  let contents: any = {
+    __type: "AwsElbv2LoadBalancerDetails",
+    AvailabilityZones: undefined,
+    CanonicalHostedZoneId: undefined,
+    CreatedTime: undefined,
+    DNSName: undefined,
+    IpAddressType: undefined,
+    Scheme: undefined,
+    SecurityGroups: undefined,
+    State: undefined,
+    Type: undefined,
+    VpcId: undefined
+  };
+  if (output.AvailabilityZones !== undefined) {
+    contents.AvailabilityZones = deserializeAws_restJson1_1AvailabilityZones(
+      output.AvailabilityZones,
+      context
+    );
+  }
+  if (output.CanonicalHostedZoneId !== undefined) {
+    contents.CanonicalHostedZoneId = output.CanonicalHostedZoneId;
+  }
+  if (output.CreatedTime !== undefined) {
+    contents.CreatedTime = output.CreatedTime;
+  }
+  if (output.DNSName !== undefined) {
+    contents.DNSName = output.DNSName;
+  }
+  if (output.IpAddressType !== undefined) {
+    contents.IpAddressType = output.IpAddressType;
+  }
+  if (output.Scheme !== undefined) {
+    contents.Scheme = output.Scheme;
+  }
+  if (output.SecurityGroups !== undefined) {
+    contents.SecurityGroups = deserializeAws_restJson1_1SecurityGroups(
+      output.SecurityGroups,
+      context
+    );
+  }
+  if (output.State !== undefined) {
+    contents.State = deserializeAws_restJson1_1LoadBalancerState(
+      output.State,
+      context
+    );
+  }
+  if (output.Type !== undefined) {
+    contents.Type = output.Type;
+  }
+  if (output.VpcId !== undefined) {
+    contents.VpcId = output.VpcId;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1AwsIamAccessKeyDetails = (
   output: any,
   context: __SerdeContext
@@ -5879,17 +6935,348 @@ const deserializeAws_restJson1_1AwsIamAccessKeyDetails = (
   let contents: any = {
     __type: "AwsIamAccessKeyDetails",
     CreatedAt: undefined,
+    PrincipalId: undefined,
+    PrincipalName: undefined,
+    PrincipalType: undefined,
     Status: undefined,
     UserName: undefined
   };
   if (output.CreatedAt !== undefined) {
     contents.CreatedAt = output.CreatedAt;
   }
+  if (output.PrincipalId !== undefined) {
+    contents.PrincipalId = output.PrincipalId;
+  }
+  if (output.PrincipalName !== undefined) {
+    contents.PrincipalName = output.PrincipalName;
+  }
+  if (output.PrincipalType !== undefined) {
+    contents.PrincipalType = output.PrincipalType;
+  }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   if (output.UserName !== undefined) {
     contents.UserName = output.UserName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsIamRoleDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsIamRoleDetails => {
+  let contents: any = {
+    __type: "AwsIamRoleDetails",
+    AssumeRolePolicyDocument: undefined,
+    CreateDate: undefined,
+    MaxSessionDuration: undefined,
+    Path: undefined,
+    RoleId: undefined,
+    RoleName: undefined
+  };
+  if (output.AssumeRolePolicyDocument !== undefined) {
+    contents.AssumeRolePolicyDocument = output.AssumeRolePolicyDocument;
+  }
+  if (output.CreateDate !== undefined) {
+    contents.CreateDate = output.CreateDate;
+  }
+  if (output.MaxSessionDuration !== undefined) {
+    contents.MaxSessionDuration = output.MaxSessionDuration;
+  }
+  if (output.Path !== undefined) {
+    contents.Path = output.Path;
+  }
+  if (output.RoleId !== undefined) {
+    contents.RoleId = output.RoleId;
+  }
+  if (output.RoleName !== undefined) {
+    contents.RoleName = output.RoleName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsKmsKeyDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsKmsKeyDetails => {
+  let contents: any = {
+    __type: "AwsKmsKeyDetails",
+    AWSAccountId: undefined,
+    CreationDate: undefined,
+    KeyId: undefined,
+    KeyManager: undefined,
+    KeyState: undefined,
+    Origin: undefined
+  };
+  if (output.AWSAccountId !== undefined) {
+    contents.AWSAccountId = output.AWSAccountId;
+  }
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = output.CreationDate;
+  }
+  if (output.KeyId !== undefined) {
+    contents.KeyId = output.KeyId;
+  }
+  if (output.KeyManager !== undefined) {
+    contents.KeyManager = output.KeyManager;
+  }
+  if (output.KeyState !== undefined) {
+    contents.KeyState = output.KeyState;
+  }
+  if (output.Origin !== undefined) {
+    contents.Origin = output.Origin;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionCode = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionCode => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionCode",
+    S3Bucket: undefined,
+    S3Key: undefined,
+    S3ObjectVersion: undefined,
+    ZipFile: undefined
+  };
+  if (output.S3Bucket !== undefined) {
+    contents.S3Bucket = output.S3Bucket;
+  }
+  if (output.S3Key !== undefined) {
+    contents.S3Key = output.S3Key;
+  }
+  if (output.S3ObjectVersion !== undefined) {
+    contents.S3ObjectVersion = output.S3ObjectVersion;
+  }
+  if (output.ZipFile !== undefined) {
+    contents.ZipFile = output.ZipFile;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionDeadLetterConfig = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionDeadLetterConfig => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionDeadLetterConfig",
+    TargetArn: undefined
+  };
+  if (output.TargetArn !== undefined) {
+    contents.TargetArn = output.TargetArn;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionDetails => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionDetails",
+    Code: undefined,
+    CodeSha256: undefined,
+    DeadLetterConfig: undefined,
+    Environment: undefined,
+    FunctionName: undefined,
+    Handler: undefined,
+    KmsKeyArn: undefined,
+    LastModified: undefined,
+    Layers: undefined,
+    MasterArn: undefined,
+    MemorySize: undefined,
+    RevisionId: undefined,
+    Role: undefined,
+    Runtime: undefined,
+    Timeout: undefined,
+    TracingConfig: undefined,
+    Version: undefined,
+    VpcConfig: undefined
+  };
+  if (output.Code !== undefined) {
+    contents.Code = deserializeAws_restJson1_1AwsLambdaFunctionCode(
+      output.Code,
+      context
+    );
+  }
+  if (output.CodeSha256 !== undefined) {
+    contents.CodeSha256 = output.CodeSha256;
+  }
+  if (output.DeadLetterConfig !== undefined) {
+    contents.DeadLetterConfig = deserializeAws_restJson1_1AwsLambdaFunctionDeadLetterConfig(
+      output.DeadLetterConfig,
+      context
+    );
+  }
+  if (output.Environment !== undefined) {
+    contents.Environment = deserializeAws_restJson1_1AwsLambdaFunctionEnvironment(
+      output.Environment,
+      context
+    );
+  }
+  if (output.FunctionName !== undefined) {
+    contents.FunctionName = output.FunctionName;
+  }
+  if (output.Handler !== undefined) {
+    contents.Handler = output.Handler;
+  }
+  if (output.KmsKeyArn !== undefined) {
+    contents.KmsKeyArn = output.KmsKeyArn;
+  }
+  if (output.LastModified !== undefined) {
+    contents.LastModified = output.LastModified;
+  }
+  if (output.Layers !== undefined) {
+    contents.Layers = deserializeAws_restJson1_1AwsLambdaFunctionLayerList(
+      output.Layers,
+      context
+    );
+  }
+  if (output.MasterArn !== undefined) {
+    contents.MasterArn = output.MasterArn;
+  }
+  if (output.MemorySize !== undefined) {
+    contents.MemorySize = output.MemorySize;
+  }
+  if (output.RevisionId !== undefined) {
+    contents.RevisionId = output.RevisionId;
+  }
+  if (output.Role !== undefined) {
+    contents.Role = output.Role;
+  }
+  if (output.Runtime !== undefined) {
+    contents.Runtime = output.Runtime;
+  }
+  if (output.Timeout !== undefined) {
+    contents.Timeout = output.Timeout;
+  }
+  if (output.TracingConfig !== undefined) {
+    contents.TracingConfig = deserializeAws_restJson1_1AwsLambdaFunctionTracingConfig(
+      output.TracingConfig,
+      context
+    );
+  }
+  if (output.Version !== undefined) {
+    contents.Version = output.Version;
+  }
+  if (output.VpcConfig !== undefined) {
+    contents.VpcConfig = deserializeAws_restJson1_1AwsLambdaFunctionVpcConfig(
+      output.VpcConfig,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionEnvironment = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionEnvironment => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionEnvironment",
+    Error: undefined,
+    Variables: undefined
+  };
+  if (output.Error !== undefined) {
+    contents.Error = deserializeAws_restJson1_1AwsLambdaFunctionEnvironmentError(
+      output.Error,
+      context
+    );
+  }
+  if (output.Variables !== undefined) {
+    contents.Variables = deserializeAws_restJson1_1FieldMap(
+      output.Variables,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionEnvironmentError = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionEnvironmentError => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionEnvironmentError",
+    ErrorCode: undefined,
+    Message: undefined
+  };
+  if (output.ErrorCode !== undefined) {
+    contents.ErrorCode = output.ErrorCode;
+  }
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionLayer = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionLayer => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionLayer",
+    Arn: undefined,
+    CodeSize: undefined
+  };
+  if (output.Arn !== undefined) {
+    contents.Arn = output.Arn;
+  }
+  if (output.CodeSize !== undefined) {
+    contents.CodeSize = output.CodeSize;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionLayerList = (
+  output: any,
+  context: __SerdeContext
+): Array<AwsLambdaFunctionLayer> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1AwsLambdaFunctionLayer(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionTracingConfig = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionTracingConfig => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionTracingConfig",
+    Mode: undefined
+  };
+  if (output.Mode !== undefined) {
+    contents.Mode = output.Mode;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsLambdaFunctionVpcConfig = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaFunctionVpcConfig => {
+  let contents: any = {
+    __type: "AwsLambdaFunctionVpcConfig",
+    SecurityGroupIds: undefined,
+    SubnetIds: undefined,
+    VpcId: undefined
+  };
+  if (output.SecurityGroupIds !== undefined) {
+    contents.SecurityGroupIds = deserializeAws_restJson1_1NonEmptyStringList(
+      output.SecurityGroupIds,
+      context
+    );
+  }
+  if (output.SubnetIds !== undefined) {
+    contents.SubnetIds = deserializeAws_restJson1_1NonEmptyStringList(
+      output.SubnetIds,
+      context
+    );
+  }
+  if (output.VpcId !== undefined) {
+    contents.VpcId = output.VpcId;
   }
   return contents;
 };
@@ -6675,6 +8062,88 @@ const deserializeAws_restJson1_1AwsSecurityFindingList = (
   );
 };
 
+const deserializeAws_restJson1_1AwsSnsTopicDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsSnsTopicDetails => {
+  let contents: any = {
+    __type: "AwsSnsTopicDetails",
+    KmsMasterKeyId: undefined,
+    Owner: undefined,
+    Subscription: undefined,
+    TopicName: undefined
+  };
+  if (output.KmsMasterKeyId !== undefined) {
+    contents.KmsMasterKeyId = output.KmsMasterKeyId;
+  }
+  if (output.Owner !== undefined) {
+    contents.Owner = output.Owner;
+  }
+  if (output.Subscription !== undefined) {
+    contents.Subscription = deserializeAws_restJson1_1AwsSnsTopicSubscriptionList(
+      output.Subscription,
+      context
+    );
+  }
+  if (output.TopicName !== undefined) {
+    contents.TopicName = output.TopicName;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsSnsTopicSubscription = (
+  output: any,
+  context: __SerdeContext
+): AwsSnsTopicSubscription => {
+  let contents: any = {
+    __type: "AwsSnsTopicSubscription",
+    Endpoint: undefined,
+    Protocol: undefined
+  };
+  if (output.Endpoint !== undefined) {
+    contents.Endpoint = output.Endpoint;
+  }
+  if (output.Protocol !== undefined) {
+    contents.Protocol = output.Protocol;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1AwsSnsTopicSubscriptionList = (
+  output: any,
+  context: __SerdeContext
+): Array<AwsSnsTopicSubscription> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1AwsSnsTopicSubscription(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1AwsSqsQueueDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsSqsQueueDetails => {
+  let contents: any = {
+    __type: "AwsSqsQueueDetails",
+    DeadLetterTargetArn: undefined,
+    KmsDataKeyReusePeriodSeconds: undefined,
+    KmsMasterKeyId: undefined,
+    QueueName: undefined
+  };
+  if (output.DeadLetterTargetArn !== undefined) {
+    contents.DeadLetterTargetArn = output.DeadLetterTargetArn;
+  }
+  if (output.KmsDataKeyReusePeriodSeconds !== undefined) {
+    contents.KmsDataKeyReusePeriodSeconds = output.KmsDataKeyReusePeriodSeconds;
+  }
+  if (output.KmsMasterKeyId !== undefined) {
+    contents.KmsMasterKeyId = output.KmsMasterKeyId;
+  }
+  if (output.QueueName !== undefined) {
+    contents.QueueName = output.QueueName;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1CategoryList = (
   output: any,
   context: __SerdeContext
@@ -6987,6 +8456,24 @@ const deserializeAws_restJson1_1KeywordFilterList = (
   );
 };
 
+const deserializeAws_restJson1_1LoadBalancerState = (
+  output: any,
+  context: __SerdeContext
+): LoadBalancerState => {
+  let contents: any = {
+    __type: "LoadBalancerState",
+    Code: undefined,
+    Reason: undefined
+  };
+  if (output.Code !== undefined) {
+    contents.Code = output.Code;
+  }
+  if (output.Reason !== undefined) {
+    contents.Reason = output.Reason;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1_1Malware = (
   output: any,
   context: __SerdeContext
@@ -7148,6 +8635,13 @@ const deserializeAws_restJson1_1Network = (
     contents.SourcePort = output.SourcePort;
   }
   return contents;
+};
+
+const deserializeAws_restJson1_1NonEmptyStringList = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1_1Note = (
@@ -7404,15 +8898,34 @@ const deserializeAws_restJson1_1ResourceDetails = (
 ): ResourceDetails => {
   let contents: any = {
     __type: "ResourceDetails",
+    AwsCloudFrontDistribution: undefined,
     AwsEc2Instance: undefined,
+    AwsElbv2LoadBalancer: undefined,
     AwsIamAccessKey: undefined,
+    AwsIamRole: undefined,
+    AwsKmsKey: undefined,
+    AwsLambdaFunction: undefined,
     AwsS3Bucket: undefined,
+    AwsSnsTopic: undefined,
+    AwsSqsQueue: undefined,
     Container: undefined,
     Other: undefined
   };
+  if (output.AwsCloudFrontDistribution !== undefined) {
+    contents.AwsCloudFrontDistribution = deserializeAws_restJson1_1AwsCloudFrontDistributionDetails(
+      output.AwsCloudFrontDistribution,
+      context
+    );
+  }
   if (output.AwsEc2Instance !== undefined) {
     contents.AwsEc2Instance = deserializeAws_restJson1_1AwsEc2InstanceDetails(
       output.AwsEc2Instance,
+      context
+    );
+  }
+  if (output.AwsElbv2LoadBalancer !== undefined) {
+    contents.AwsElbv2LoadBalancer = deserializeAws_restJson1_1AwsElbv2LoadBalancerDetails(
+      output.AwsElbv2LoadBalancer,
       context
     );
   }
@@ -7422,9 +8935,39 @@ const deserializeAws_restJson1_1ResourceDetails = (
       context
     );
   }
+  if (output.AwsIamRole !== undefined) {
+    contents.AwsIamRole = deserializeAws_restJson1_1AwsIamRoleDetails(
+      output.AwsIamRole,
+      context
+    );
+  }
+  if (output.AwsKmsKey !== undefined) {
+    contents.AwsKmsKey = deserializeAws_restJson1_1AwsKmsKeyDetails(
+      output.AwsKmsKey,
+      context
+    );
+  }
+  if (output.AwsLambdaFunction !== undefined) {
+    contents.AwsLambdaFunction = deserializeAws_restJson1_1AwsLambdaFunctionDetails(
+      output.AwsLambdaFunction,
+      context
+    );
+  }
   if (output.AwsS3Bucket !== undefined) {
     contents.AwsS3Bucket = deserializeAws_restJson1_1AwsS3BucketDetails(
       output.AwsS3Bucket,
+      context
+    );
+  }
+  if (output.AwsSnsTopic !== undefined) {
+    contents.AwsSnsTopic = deserializeAws_restJson1_1AwsSnsTopicDetails(
+      output.AwsSnsTopic,
+      context
+    );
+  }
+  if (output.AwsSqsQueue !== undefined) {
+    contents.AwsSqsQueue = deserializeAws_restJson1_1AwsSqsQueueDetails(
+      output.AwsSqsQueue,
       context
     );
   }
@@ -7476,6 +9019,13 @@ const deserializeAws_restJson1_1ResultList = (
   );
 };
 
+const deserializeAws_restJson1_1SecurityGroups = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1_1Severity = (
   output: any,
   context: __SerdeContext
@@ -7492,6 +9042,61 @@ const deserializeAws_restJson1_1Severity = (
     contents.Product = output.Product;
   }
   return contents;
+};
+
+const deserializeAws_restJson1_1StandardsControl = (
+  output: any,
+  context: __SerdeContext
+): StandardsControl => {
+  let contents: any = {
+    __type: "StandardsControl",
+    ControlId: undefined,
+    ControlStatus: undefined,
+    ControlStatusUpdatedAt: undefined,
+    Description: undefined,
+    DisabledReason: undefined,
+    RemediationUrl: undefined,
+    SeverityRating: undefined,
+    StandardsControlArn: undefined,
+    Title: undefined
+  };
+  if (output.ControlId !== undefined) {
+    contents.ControlId = output.ControlId;
+  }
+  if (output.ControlStatus !== undefined) {
+    contents.ControlStatus = output.ControlStatus;
+  }
+  if (output.ControlStatusUpdatedAt !== undefined) {
+    contents.ControlStatusUpdatedAt = new Date(output.ControlStatusUpdatedAt);
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.DisabledReason !== undefined) {
+    contents.DisabledReason = output.DisabledReason;
+  }
+  if (output.RemediationUrl !== undefined) {
+    contents.RemediationUrl = output.RemediationUrl;
+  }
+  if (output.SeverityRating !== undefined) {
+    contents.SeverityRating = output.SeverityRating;
+  }
+  if (output.StandardsControlArn !== undefined) {
+    contents.StandardsControlArn = output.StandardsControlArn;
+  }
+  if (output.Title !== undefined) {
+    contents.Title = output.Title;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1StandardsControls = (
+  output: any,
+  context: __SerdeContext
+): Array<StandardsControl> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1StandardsControl(entry, context)
+  );
 };
 
 const deserializeAws_restJson1_1StandardsInputParameterMap = (

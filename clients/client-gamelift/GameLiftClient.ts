@@ -96,6 +96,8 @@ import {
   ListFleetsOutput,
   ListScriptsInput,
   ListScriptsOutput,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   PutScalingPolicyInput,
   PutScalingPolicyOutput,
   RequestUploadCredentialsInput,
@@ -118,6 +120,10 @@ import {
   StopGameSessionPlacementOutput,
   StopMatchmakingInput,
   StopMatchmakingOutput,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateAliasInput,
   UpdateAliasOutput,
   UpdateBuildInput,
@@ -246,6 +252,7 @@ export type ServiceInputTypes =
   | ListBuildsInput
   | ListFleetsInput
   | ListScriptsInput
+  | ListTagsForResourceRequest
   | PutScalingPolicyInput
   | RequestUploadCredentialsInput
   | ResolveAliasInput
@@ -257,6 +264,8 @@ export type ServiceInputTypes =
   | StopFleetActionsInput
   | StopGameSessionPlacementInput
   | StopMatchmakingInput
+  | TagResourceRequest
+  | UntagResourceRequest
   | UpdateAliasInput
   | UpdateBuildInput
   | UpdateFleetAttributesInput
@@ -317,6 +326,7 @@ export type ServiceOutputTypes =
   | ListBuildsOutput
   | ListFleetsOutput
   | ListScriptsOutput
+  | ListTagsForResourceResponse
   | PutScalingPolicyOutput
   | RequestUploadCredentialsOutput
   | ResolveAliasOutput
@@ -328,6 +338,8 @@ export type ServiceOutputTypes =
   | StopFleetActionsOutput
   | StopGameSessionPlacementOutput
   | StopMatchmakingOutput
+  | TagResourceResponse
+  | UntagResourceResponse
   | UpdateAliasOutput
   | UpdateBuildOutput
   | UpdateFleetAttributesOutput
@@ -448,8 +460,7 @@ export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon GameLift Service</fullname>
+ * <fullname>Amazon GameLift Service</fullname>
  *         <p> Amazon GameLift is a managed service for developers who need a scalable, dedicated server
  *             solution for their multiplayer games. Use Amazon GameLift for these tasks: (1) set up computing
  *             resources and deploy your game servers, (2) run game sessions and get players into
@@ -491,7 +502,6 @@ export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<
  *             Task-based list of API actions</a>
  *             </b>
  *          </p>
- *
  */
 export class GameLiftClient extends __Client<
   __HttpHandlerOptions,

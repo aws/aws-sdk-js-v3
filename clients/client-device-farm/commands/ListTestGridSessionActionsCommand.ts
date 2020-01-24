@@ -1,0 +1,93 @@
+import {
+  DeviceFarmClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../DeviceFarmClient";
+import {
+  ListTestGridSessionActionsRequest,
+  ListTestGridSessionActionsResult
+} from "../models/index";
+import {
+  deserializeAws_json1_1ListTestGridSessionActionsCommand,
+  serializeAws_json1_1ListTestGridSessionActionsCommand
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type ListTestGridSessionActionsCommandInput = ListTestGridSessionActionsRequest;
+export type ListTestGridSessionActionsCommandOutput = ListTestGridSessionActionsResult;
+
+export class ListTestGridSessionActionsCommand extends $Command<
+  ListTestGridSessionActionsCommandInput,
+  ListTestGridSessionActionsCommandOutput,
+  DeviceFarmClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ListTestGridSessionActionsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: DeviceFarmClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    ListTestGridSessionActionsCommandInput,
+    ListTestGridSessionActionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ListTestGridSessionActionsCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListTestGridSessionActionsCommand(
+      input,
+      context
+    );
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ListTestGridSessionActionsCommandOutput> {
+    return deserializeAws_json1_1ListTestGridSessionActionsCommand(
+      output,
+      context
+    );
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

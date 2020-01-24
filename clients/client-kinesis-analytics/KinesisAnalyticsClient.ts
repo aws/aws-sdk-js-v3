@@ -244,8 +244,7 @@ export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <fullname>Amazon Kinesis Analytics</fullname>
+ * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>
  *          </p>
@@ -255,8 +254,6 @@ export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration
  *         <p>This is the <i>Amazon Kinesis Analytics v1 API Reference</i>.
  *             The Amazon Kinesis Analytics Developer Guide provides additional information.
  *             </p>
- *
- *
  */
 export class KinesisAnalyticsClient extends __Client<
   __HttpHandlerOptions,

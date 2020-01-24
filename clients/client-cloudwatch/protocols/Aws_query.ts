@@ -4238,7 +4238,8 @@ const deserializeAws_queryAnomalyDetector = (
     Dimensions: undefined,
     MetricName: undefined,
     Namespace: undefined,
-    Stat: undefined
+    Stat: undefined,
+    StateValue: undefined
   };
   if (output["Configuration"] !== undefined) {
     contents.Configuration = deserializeAws_queryAnomalyDetectorConfiguration(
@@ -4264,6 +4265,9 @@ const deserializeAws_queryAnomalyDetector = (
   }
   if (output["Stat"] !== undefined) {
     contents.Stat = output["Stat"];
+  }
+  if (output["StateValue"] !== undefined) {
+    contents.StateValue = output["StateValue"];
   }
   return contents;
 };

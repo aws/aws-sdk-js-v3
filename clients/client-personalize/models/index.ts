@@ -2,82 +2,59 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- *
- *          <p>Describes a custom algorithm.</p>
- *
- *
+ * <p>Describes a custom algorithm.</p>
  */
 export interface Algorithm {
   __type?: "Algorithm";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the algorithm.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
    */
   algorithmArn?: string;
 
   /**
-   *
-   *          <p>The URI of the Docker container for the algorithm image.</p>
-   *
+   * <p>The URI of the Docker container for the algorithm image.</p>
    */
   algorithmImage?: AlgorithmImage;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the algorithm was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the algorithm was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>Specifies the default hyperparameters, their ranges, and whether they
+   * <p>Specifies the default hyperparameters, their ranges, and whether they
    *       are tunable. A tunable hyperparameter can
    *       have its value determined during hyperparameter optimization (HPO).</p>
-   *
    */
   defaultHyperParameterRanges?: DefaultHyperParameterRanges;
 
   /**
-   *
-   *          <p>Specifies the default hyperparameters.</p>
-   *
+   * <p>Specifies the default hyperparameters.</p>
    */
   defaultHyperParameters?: { [key: string]: string };
 
   /**
-   *
-   *          <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
-   *
+   * <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
    */
   defaultResourceConfig?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the algorithm was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the algorithm was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the algorithm.</p>
-   *
+   * <p>The name of the algorithm.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the role.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the role.</p>
    */
   roleArn?: string;
 
   /**
-   *
-   *          <p>The training input mode.</p>
-   *
+   * <p>The training input mode.</p>
    */
   trainingInputMode?: string;
 }
@@ -89,23 +66,17 @@ export namespace Algorithm {
 }
 
 /**
- *
- *          <p>Describes an algorithm image.</p>
- *
+ * <p>Describes an algorithm image.</p>
  */
 export interface AlgorithmImage {
   __type?: "AlgorithmImage";
   /**
-   *
-   *          <p>The URI of the Docker container for the algorithm image.</p>
-   *
+   * <p>The URI of the Docker container for the algorithm image.</p>
    */
   dockerURI: string | undefined;
 
   /**
-   *
-   *          <p>The name of the algorithm image.</p>
-   *
+   * <p>The name of the algorithm image.</p>
    */
   name?: string;
 }
@@ -117,26 +88,20 @@ export namespace AlgorithmImage {
 }
 
 /**
- *
- *          <p>When the solution performs AutoML (<code>performAutoML</code> is true in
+ * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
  *       <a>CreateSolution</a>), Amazon Personalize
  *       determines which recipe, from the specified list, optimizes the given metric.
  *       Amazon Personalize then uses that recipe for the solution.</p>
- *
  */
 export interface AutoMLConfig {
   __type?: "AutoMLConfig";
   /**
-   *
-   *          <p>The metric to optimize.</p>
-   *
+   * <p>The metric to optimize.</p>
    */
   metricName?: string;
 
   /**
-   *
-   *          <p>The list of candidate recipes.</p>
-   *
+   * <p>The list of candidate recipes.</p>
    */
   recipeList?: Array<string>;
 }
@@ -148,18 +113,14 @@ export namespace AutoMLConfig {
 }
 
 /**
- *
- *          <p>When the solution performs AutoML (<code>performAutoML</code> is true in
+ * <p>When the solution performs AutoML (<code>performAutoML</code> is true in
  *       <a>CreateSolution</a>), specifies the recipe that best optimized the
  *       specified metric.</p>
- *
  */
 export interface AutoMLResult {
   __type?: "AutoMLResult";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the best recipe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the best recipe.</p>
    */
   bestRecipeArn?: string;
 }
@@ -171,88 +132,65 @@ export namespace AutoMLResult {
 }
 
 /**
- *
- *          <p>Contains information on a batch inference job.</p>
- *
+ * <p>Contains information on a batch inference job.</p>
  */
 export interface BatchInferenceJob {
   __type?: "BatchInferenceJob";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
    */
   batchInferenceJobArn?: string;
 
   /**
-   *
-   *          <p>The time at which the batch inference job was created.</p>
-   *
+   * <p>The time at which the batch inference job was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If the batch inference job failed, the reason for the failure.</p>
-   *
+   * <p>If the batch inference job failed, the reason for the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The Amazon S3 path that leads to the input data used to generate the batch inference
+   * <p>The Amazon S3 path that leads to the input data used to generate the batch inference
    *       job.</p>
-   *
    */
   jobInput?: BatchInferenceJobInput;
 
   /**
-   *
-   *          <p>The name of the batch inference job.</p>
-   *
+   * <p>The name of the batch inference job.</p>
    */
   jobName?: string;
 
   /**
-   *
-   *          <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
-   *
+   * <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
    */
   jobOutput?: BatchInferenceJobOutput;
 
   /**
-   *
-   *          <p>The time at which the batch inference job was last updated.</p>
-   *
+   * <p>The time at which the batch inference job was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The number of recommendations generated by the batch inference job. This number includes
+   * <p>The number of recommendations generated by the batch inference job. This number includes
    *       the error messages generated for failed input records.</p>
-   *
    */
   numResults?: number;
 
   /**
-   *
-   *          <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
-   *
+   * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
    */
   roleArn?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
+   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
    *       was created.</p>
-   *
    */
   solutionVersionArn?: string;
 
   /**
-   *
-   *          <p>The status of the batch inference job. The status is one of the following values:</p>
+   * <p>The status of the batch inference job. The status is one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>PENDING</p>
@@ -267,7 +205,6 @@ export interface BatchInferenceJob {
    *                <p>CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -279,17 +216,13 @@ export namespace BatchInferenceJob {
 }
 
 /**
- *
- *          <p>The input configuration of a batch inference job.</p>
- *
+ * <p>The input configuration of a batch inference job.</p>
  */
 export interface BatchInferenceJobInput {
   __type?: "BatchInferenceJobInput";
   /**
-   *
-   *          <p>The URI of the Amazon S3 location that contains your input data. The Amazon S3 bucket must be in the
+   * <p>The URI of the Amazon S3 location that contains your input data. The Amazon S3 bucket must be in the
    *       same region as the API endpoint you are calling.</p>
-   *
    */
   s3DataSource: S3DataConfig | undefined;
 }
@@ -301,16 +234,12 @@ export namespace BatchInferenceJobInput {
 }
 
 /**
- *
- *          <p>The output configuration parameters of a batch inference job.</p>
- *
+ * <p>The output configuration parameters of a batch inference job.</p>
  */
 export interface BatchInferenceJobOutput {
   __type?: "BatchInferenceJobOutput";
   /**
-   *
-   *          <p>Information on the Amazon S3 bucket in which the batch inference job's output is stored.</p>
-   *
+   * <p>Information on the Amazon S3 bucket in which the batch inference job's output is stored.</p>
    */
   s3DataDestination: S3DataConfig | undefined;
 }
@@ -322,51 +251,38 @@ export namespace BatchInferenceJobOutput {
 }
 
 /**
- *
- *          <p>A truncated version of the <a>BatchInferenceJob</a> datatype. The <a>ListBatchInferenceJobs</a> operation returns a list of batch inference job
+ * <p>A truncated version of the <a>BatchInferenceJob</a> datatype. The <a>ListBatchInferenceJobs</a> operation returns a list of batch inference job
  *       summaries.</p>
- *
  */
 export interface BatchInferenceJobSummary {
   __type?: "BatchInferenceJobSummary";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
    */
   batchInferenceJobArn?: string;
 
   /**
-   *
-   *          <p>The time at which the batch inference job was created.</p>
-   *
+   * <p>The time at which the batch inference job was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If the batch inference job failed, the reason for the failure.</p>
-   *
+   * <p>If the batch inference job failed, the reason for the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The name of the batch inference job.</p>
-   *
+   * <p>The name of the batch inference job.</p>
    */
   jobName?: string;
 
   /**
-   *
-   *          <p>The time at which the batch inference job was last updated.</p>
-   *
+   * <p>The time at which the batch inference job was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The status of the batch inference job. The status is one of the following values:</p>
+   * <p>The status of the batch inference job. The status is one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>PENDING</p>
@@ -381,7 +297,6 @@ export interface BatchInferenceJobSummary {
    *                <p>CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -393,73 +308,54 @@ export namespace BatchInferenceJobSummary {
 }
 
 /**
- *
- *          <p>Describes a deployed solution version, otherwise known as a campaign.
+ * <p>Describes a deployed solution version, otherwise known as a campaign.
  *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
- *
  */
 export interface Campaign {
   __type?: "Campaign";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign. </p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign. </p>
    */
   campaignArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix format) that the campaign was created.</p>
-   *
+   * <p>The date and time (in Unix format) that the campaign was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If a campaign fails, the reason behind the failure.</p>
-   *
+   * <p>If a campaign fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix format) that the campaign was last updated.</p>
-   *
+   * <p>The date and time (in Unix format) that the campaign was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+   * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
    *       <a>DescribeCampaign</a> API.</p>
-   *
    */
   latestCampaignUpdate?: CampaignUpdateSummary;
 
   /**
-   *
-   *          <p>Specifies the requested minimum provisioned transactions (recommendations) per second.</p>
-   *
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second.</p>
    */
   minProvisionedTPS?: number;
 
   /**
-   *
-   *          <p>The name of the campaign.</p>
-   *
+   * <p>The name of the campaign.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
    */
   solutionVersionArn?: string;
 
   /**
-   *
-   *          <p>The status of the campaign.</p>
+   * <p>The status of the campaign.</p>
    *          <p>A campaign can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -469,7 +365,6 @@ export interface Campaign {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -481,51 +376,38 @@ export namespace Campaign {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a campaign. For a complete listing, call the
+ * <p>Provides a summary of the properties of a campaign. For a complete listing, call the
  *       <a>DescribeCampaign</a> API.</p>
- *
  */
 export interface CampaignSummary {
   __type?: "CampaignSummary";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    */
   campaignArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the campaign was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the campaign was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If a campaign fails, the reason behind the failure.</p>
-   *
+   * <p>If a campaign fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the campaign was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the campaign was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the campaign.</p>
-   *
+   * <p>The name of the campaign.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the campaign.</p>
+   * <p>The status of the campaign.</p>
    *          <p>A campaign can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -535,7 +417,6 @@ export interface CampaignSummary {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -547,52 +428,39 @@ export namespace CampaignSummary {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+ * <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
  *       <a>DescribeCampaign</a> API.</p>
- *
  */
 export interface CampaignUpdateSummary {
   __type?: "CampaignUpdateSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the campaign update was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the campaign update was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If a campaign update fails, the reason behind the failure.</p>
-   *
+   * <p>If a campaign update fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the campaign update was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the campaign update was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
-   *
    */
   minProvisionedTPS?: number;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
    */
   solutionVersionArn?: string;
 
   /**
-   *
-   *          <p>The status of the campaign update.</p>
+   * <p>The status of the campaign update.</p>
    *          <p>A campaign update can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -602,7 +470,6 @@ export interface CampaignUpdateSummary {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -614,23 +481,17 @@ export namespace CampaignUpdateSummary {
 }
 
 /**
- *
- *          <p>Provides the name and range of a categorical hyperparameter.</p>
- *
+ * <p>Provides the name and range of a categorical hyperparameter.</p>
  */
 export interface CategoricalHyperParameterRange {
   __type?: "CategoricalHyperParameterRange";
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>A list of the categories for the hyperparameter.</p>
-   *
+   * <p>A list of the categories for the hyperparameter.</p>
    */
   values?: Array<string>;
 }
@@ -642,30 +503,22 @@ export namespace CategoricalHyperParameterRange {
 }
 
 /**
- *
- *          <p>Provides the name and range of a continuous hyperparameter.</p>
- *
+ * <p>Provides the name and range of a continuous hyperparameter.</p>
  */
 export interface ContinuousHyperParameterRange {
   __type?: "ContinuousHyperParameterRange";
   /**
-   *
-   *          <p>The maximum allowable value for the hyperparameter.</p>
-   *
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
   maxValue?: number;
 
   /**
-   *
-   *          <p>The minimum allowable value for the hyperparameter.</p>
-   *
+   * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
 
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 }
@@ -679,47 +532,35 @@ export namespace ContinuousHyperParameterRange {
 export interface CreateBatchInferenceJobRequest {
   __type?: "CreateBatchInferenceJobRequest";
   /**
-   *
-   *          <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
+   * <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
    *       material must be in JSON format.</p>
-   *
    */
   jobInput: BatchInferenceJobInput | undefined;
 
   /**
-   *
-   *          <p>The name of the batch inference job to create.</p>
-   *
+   * <p>The name of the batch inference job to create.</p>
    */
   jobName: string | undefined;
 
   /**
-   *
-   *          <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
-   *
+   * <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
    */
   jobOutput: BatchInferenceJobOutput | undefined;
 
   /**
-   *
-   *          <p>The number of recommendations to retreive.</p>
-   *
+   * <p>The number of recommendations to retreive.</p>
    */
   numResults?: number;
 
   /**
-   *
-   *          <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out
+   * <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out
    *       Amazon S3 buckets respectively.</p>
-   *
    */
   roleArn: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
+   * <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
    *       batch inference recommendations.</p>
-   *
    */
   solutionVersionArn: string | undefined;
 }
@@ -733,9 +574,7 @@ export namespace CreateBatchInferenceJobRequest {
 export interface CreateBatchInferenceJobResponse extends $MetadataBearer {
   __type?: "CreateBatchInferenceJobResponse";
   /**
-   *
-   *          <p>The ARN of the batch inference job.</p>
-   *
+   * <p>The ARN of the batch inference job.</p>
    */
   batchInferenceJobArn?: string;
 }
@@ -749,24 +588,18 @@ export namespace CreateBatchInferenceJobResponse {
 export interface CreateCampaignRequest {
   __type?: "CreateCampaignRequest";
   /**
-   *
-   *          <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
-   *
    */
   minProvisionedTPS: number | undefined;
 
   /**
-   *
-   *          <p>A name for the new campaign. The campaign name must be unique within your account.</p>
-   *
+   * <p>A name for the new campaign. The campaign name must be unique within your account.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
    */
   solutionVersionArn: string | undefined;
 }
@@ -780,9 +613,7 @@ export namespace CreateCampaignRequest {
 export interface CreateCampaignResponse extends $MetadataBearer {
   __type?: "CreateCampaignResponse";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    */
   campaignArn?: string;
 }
@@ -796,24 +627,18 @@ export namespace CreateCampaignResponse {
 export interface CreateDatasetGroupRequest {
   __type?: "CreateDatasetGroupRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of a KMS key used to encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 
   /**
-   *
-   *          <p>The name for the new dataset group.</p>
-   *
+   * <p>The name for the new dataset group.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an
+   * <p>The ARN of the IAM role that has permissions to access the KMS key. Supplying an
    *       IAM role is only valid when also specifying a KMS key.</p>
-   *
    */
   roleArn?: string;
 }
@@ -827,9 +652,7 @@ export namespace CreateDatasetGroupRequest {
 export interface CreateDatasetGroupResponse extends $MetadataBearer {
   __type?: "CreateDatasetGroupResponse";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
    */
   datasetGroupArn?: string;
 }
@@ -843,30 +666,22 @@ export namespace CreateDatasetGroupResponse {
 export interface CreateDatasetImportJobRequest {
   __type?: "CreateDatasetImportJobRequest";
   /**
-   *
-   *          <p>The Amazon S3 bucket that contains the training data to import.</p>
-   *
+   * <p>The Amazon S3 bucket that contains the training data to import.</p>
    */
   dataSource: DataSource | undefined;
 
   /**
-   *
-   *          <p>The ARN of the dataset that receives the imported data.</p>
-   *
+   * <p>The ARN of the dataset that receives the imported data.</p>
    */
   datasetArn: string | undefined;
 
   /**
-   *
-   *          <p>The name for the dataset import job.</p>
-   *
+   * <p>The name for the dataset import job.</p>
    */
   jobName: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
-   *
+   * <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
    */
   roleArn: string | undefined;
 }
@@ -880,9 +695,7 @@ export namespace CreateDatasetImportJobRequest {
 export interface CreateDatasetImportJobResponse extends $MetadataBearer {
   __type?: "CreateDatasetImportJobResponse";
   /**
-   *
-   *          <p>The ARN of the dataset import job.</p>
-   *
+   * <p>The ARN of the dataset import job.</p>
    */
   datasetImportJobArn?: string;
 }
@@ -896,15 +709,12 @@ export namespace CreateDatasetImportJobResponse {
 export interface CreateDatasetRequest {
   __type?: "CreateDatasetRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
    */
   datasetGroupArn: string | undefined;
 
   /**
-   *
-   *          <p>The type of dataset.</p>
+   * <p>The type of dataset.</p>
    *          <p>One of the following (case insensitive) values:</p>
    *          <ul>
    *             <li>
@@ -917,22 +727,17 @@ export interface CreateDatasetRequest {
    *                <p>Users</p>
    *             </li>
    *          </ul>
-   *
    */
   datasetType: string | undefined;
 
   /**
-   *
-   *          <p>The name for the dataset.</p>
-   *
+   * <p>The name for the dataset.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
+   * <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
    *       fields.</p>
-   *
    */
   schemaArn: string | undefined;
 }
@@ -946,9 +751,7 @@ export namespace CreateDatasetRequest {
 export interface CreateDatasetResponse extends $MetadataBearer {
   __type?: "CreateDatasetResponse";
   /**
-   *
-   *          <p>The ARN of the dataset.</p>
-   *
+   * <p>The ARN of the dataset.</p>
    */
   datasetArn?: string;
 }
@@ -962,16 +765,12 @@ export namespace CreateDatasetResponse {
 export interface CreateEventTrackerRequest {
   __type?: "CreateEventTrackerRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
    */
   datasetGroupArn: string | undefined;
 
   /**
-   *
-   *          <p>The name for the event tracker.</p>
-   *
+   * <p>The name for the event tracker.</p>
    */
   name: string | undefined;
 }
@@ -985,17 +784,13 @@ export namespace CreateEventTrackerRequest {
 export interface CreateEventTrackerResponse extends $MetadataBearer {
   __type?: "CreateEventTrackerResponse";
   /**
-   *
-   *          <p>The ARN of the event tracker.</p>
-   *
+   * <p>The ARN of the event tracker.</p>
    */
   eventTrackerArn?: string;
 
   /**
-   *
-   *          <p>The ID of the event tracker. Include this ID in requests to the
+   * <p>The ID of the event tracker. Include this ID in requests to the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
-   *
    */
   trackingId?: string;
 }
@@ -1009,16 +804,12 @@ export namespace CreateEventTrackerResponse {
 export interface CreateSchemaRequest {
   __type?: "CreateSchemaRequest";
   /**
-   *
-   *          <p>The name for the schema.</p>
-   *
+   * <p>The name for the schema.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>A schema in Avro JSON format.</p>
-   *
+   * <p>A schema in Avro JSON format.</p>
    */
   schema: string | undefined;
 }
@@ -1032,9 +823,7 @@ export namespace CreateSchemaRequest {
 export interface CreateSchemaResponse extends $MetadataBearer {
   __type?: "CreateSchemaResponse";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the created schema.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the created schema.</p>
    */
   schemaArn?: string;
 }
@@ -1048,65 +837,51 @@ export namespace CreateSchemaResponse {
 export interface CreateSolutionRequest {
   __type?: "CreateSolutionRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
    */
   datasetGroupArn: string | undefined;
 
   /**
-   *
-   *          <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
+   * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
    *       this parameter specifies which event type (for example, 'click' or 'like') is used for
    *       training the model.</p>
-   *
    */
   eventType?: string;
 
   /**
-   *
-   *          <p>The name for the solution.</p>
-   *
+   * <p>The name for the solution.</p>
    */
   name: string | undefined;
 
   /**
-   *
-   *          <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
+   * <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
    *       For this case, you must specify <code>recipeArn</code>.</p>
    *          <p>When set to <code>true</code>, Amazon Personalize analyzes your training data and selects
    *       the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case, you must omit
    *       <code>recipeArn</code>. Amazon Personalize determines the optimal recipe by running tests with
    *       different values for the hyperparameters.
    *       AutoML lengthens the training process as compared to selecting a specific recipe.</p>
-   *
    */
   performAutoML?: boolean;
 
   /**
-   *
-   *          <p>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe.
+   * <p>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe.
    *       The default is <code>false</code>.</p>
    *          <p>When performing AutoML, this parameter is always <code>true</code> and you
    *       should not set it to <code>false</code>.</p>
-   *
    */
   performHPO?: boolean;
 
   /**
-   *
-   *          <p>The ARN of the recipe to use for model training. Only specified when
+   * <p>The ARN of the recipe to use for model training. Only specified when
    *       <code>performAutoML</code> is false.</p>
-   *
    */
   recipeArn?: string;
 
   /**
-   *
-   *          <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
+   * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
    *       true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section
    *       of the solution configuration.</p>
-   *
    */
   solutionConfig?: SolutionConfig;
 }
@@ -1120,9 +895,7 @@ export namespace CreateSolutionRequest {
 export interface CreateSolutionResponse extends $MetadataBearer {
   __type?: "CreateSolutionResponse";
   /**
-   *
-   *          <p>The ARN of the solution.</p>
-   *
+   * <p>The ARN of the solution.</p>
    */
   solutionArn?: string;
 }
@@ -1136,16 +909,13 @@ export namespace CreateSolutionResponse {
 export interface CreateSolutionVersionRequest {
   __type?: "CreateSolutionVersionRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
+   * <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
    *       information.</p>
-   *
    */
   solutionArn: string | undefined;
 
   /**
-   *
-   *          <p>The scope of training to be performed when creating the solution version. The
+   * <p>The scope of training to be performed when creating the solution version. The
    *         <code>FULL</code> option trains the solution version based on the entirety of the input
    *       solution's training data, while the <code>UPDATE</code> option processes only the data that
    *       has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
@@ -1155,7 +925,6 @@ export interface CreateSolutionVersionRequest {
    *         version created from the input solution using the <code>FULL</code> option and the input
    *         solution was trained with the <a>native-recipe-hrnn-coldstart</a> recipe.</p>
    *          </important>
-   *
    */
   trainingMode?: TrainingMode | string;
 }
@@ -1169,9 +938,7 @@ export namespace CreateSolutionVersionRequest {
 export interface CreateSolutionVersionResponse extends $MetadataBearer {
   __type?: "CreateSolutionVersionResponse";
   /**
-   *
-   *          <p>The ARN of the new solution version.</p>
-   *
+   * <p>The ARN of the new solution version.</p>
    */
   solutionVersionArn?: string;
 }
@@ -1183,20 +950,16 @@ export namespace CreateSolutionVersionResponse {
 }
 
 /**
- *
- *          <p>Describes the data source that contains the data to upload to a dataset.</p>
- *
+ * <p>Describes the data source that contains the data to upload to a dataset.</p>
  */
 export interface DataSource {
   __type?: "DataSource";
   /**
-   *
-   *          <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
+   * <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
    *       stored. For example: </p>
    *          <p>
    *             <code>s3://bucket-name/training-data.csv</code>
    *          </p>
-   *
    */
   dataLocation?: string;
 }
@@ -1208,36 +971,27 @@ export namespace DataSource {
 }
 
 /**
- *
- *          <p>Provides metadata for a dataset.</p>
- *
+ * <p>Provides metadata for a dataset.</p>
  */
 export interface Dataset {
   __type?: "Dataset";
   /**
-   *
-   *          <p>The creation date and time (in Unix time) of the dataset.</p>
-   *
+   * <p>The creation date and time (in Unix time) of the dataset.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
    */
   datasetArn?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>One of the following values:</p>
+   * <p>One of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>Interactions</p>
@@ -1249,34 +1003,26 @@ export interface Dataset {
    *                <p>Users</p>
    *             </li>
    *          </ul>
-   *
    */
   datasetType?: string;
 
   /**
-   *
-   *          <p>A time stamp that shows when the dataset was updated.</p>
-   *
+   * <p>A time stamp that shows when the dataset was updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the dataset.</p>
-   *
+   * <p>The name of the dataset.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The ARN of the associated schema.</p>
-   *
+   * <p>The ARN of the associated schema.</p>
    */
   schemaArn?: string;
 
   /**
-   *
-   *          <p>The status of the dataset.</p>
+   * <p>The status of the dataset.</p>
    *          <p>A dataset can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -1286,7 +1032,6 @@ export interface Dataset {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1298,71 +1043,53 @@ export namespace Dataset {
 }
 
 /**
- *
- *          <p>A dataset group is a collection of related datasets (Interactions, User, and Item).
+ * <p>A dataset group is a collection of related datasets (Interactions, User, and Item).
  *       You create a dataset group by calling
  *       <a>CreateDatasetGroup</a>. You then create a dataset and add it to a dataset
  *       group by calling <a>CreateDataset</a>. The dataset group
  *       is used to create and train a solution by calling <a>CreateSolution</a>.
  *       A dataset group can contain only one of each type of dataset.</p>
  *          <p>You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group.</p>
- *
- *
  */
 export interface DatasetGroup {
   __type?: "DatasetGroup";
   /**
-   *
-   *          <p>The creation date and time (in Unix time) of the dataset group.</p>
-   *
+   * <p>The creation date and time (in Unix time) of the dataset group.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>If creating a dataset group fails, provides the reason why.</p>
-   *
+   * <p>If creating a dataset group fails, provides the reason why.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the datasets.</p>
    */
   kmsKeyArn?: string;
 
   /**
-   *
-   *          <p>The last update date and time (in Unix time) of the dataset group.</p>
-   *
+   * <p>The last update date and time (in Unix time) of the dataset group.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the dataset group.</p>
-   *
+   * <p>The name of the dataset group.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
-   *
+   * <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
    */
   roleArn?: string;
 
   /**
-   *
-   *          <p>The current status of the dataset group.</p>
+   * <p>The current status of the dataset group.</p>
    *          <p>A dataset group can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -1372,7 +1099,6 @@ export interface DatasetGroup {
    *                <p>DELETE PENDING</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1384,51 +1110,38 @@ export namespace DatasetGroup {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a dataset group. For a complete listing, call the
+ * <p>Provides a summary of the properties of a dataset group. For a complete listing, call the
  *       <a>DescribeDatasetGroup</a> API.</p>
- *
  */
 export interface DatasetGroupSummary {
   __type?: "DatasetGroupSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset group was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset group was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>If creating a dataset group fails, the reason behind the failure.</p>
-   *
+   * <p>If creating a dataset group fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset group was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset group was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the dataset group.</p>
-   *
+   * <p>The name of the dataset group.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the dataset group.</p>
+   * <p>The status of the dataset group.</p>
    *          <p>A dataset group can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -1438,7 +1151,6 @@ export interface DatasetGroupSummary {
    *                <p>DELETE PENDING</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1450,8 +1162,7 @@ export namespace DatasetGroupSummary {
 }
 
 /**
- *
- *          <p>Describes a job that imports training data from a data source (Amazon S3 bucket)
+ * <p>Describes a job that imports training data from a data source (Amazon S3 bucket)
  *       to an Amazon Personalize dataset. For more information, see
  *       <a>CreateDatasetImportJob</a>.</p>
  *          <p>A dataset import job can be in one of the following states:</p>
@@ -1460,76 +1171,57 @@ export namespace DatasetGroupSummary {
  *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
  *             </li>
  *          </ul>
- *
  */
 export interface DatasetImportJob {
   __type?: "DatasetImportJob";
   /**
-   *
-   *          <p>The creation date and time (in Unix time) of the dataset import job.</p>
-   *
+   * <p>The creation date and time (in Unix time) of the dataset import job.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon S3 bucket that contains the training data to import.</p>
-   *
+   * <p>The Amazon S3 bucket that contains the training data to import.</p>
    */
   dataSource?: DataSource;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
    */
   datasetArn?: string;
 
   /**
-   *
-   *          <p>The ARN of the dataset import job.</p>
-   *
+   * <p>The ARN of the dataset import job.</p>
    */
   datasetImportJobArn?: string;
 
   /**
-   *
-   *          <p>If a dataset import job fails, provides the reason why.</p>
-   *
+   * <p>If a dataset import job fails, provides the reason why.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The name of the import job.</p>
-   *
+   * <p>The name of the import job.</p>
    */
   jobName?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) the dataset was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) the dataset was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data source.</p>
-   *
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that has permissions to read from the Amazon S3 data source.</p>
    */
   roleArn?: string;
 
   /**
-   *
-   *          <p>The status of the dataset import job.</p>
+   * <p>The status of the dataset import job.</p>
    *          <p>A dataset import job can be in one of the following states:</p>
    *          <ul>
    *             <li>
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1541,58 +1233,44 @@ export namespace DatasetImportJob {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
+ * <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
  *       <a>DescribeDatasetImportJob</a> API.</p>
- *
  */
 export interface DatasetImportJobSummary {
   __type?: "DatasetImportJobSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset import job was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset import job was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
   datasetImportJobArn?: string;
 
   /**
-   *
-   *          <p>If a dataset import job fails, the reason behind the failure.</p>
-   *
+   * <p>If a dataset import job fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The name of the dataset import job.</p>
-   *
+   * <p>The name of the dataset import job.</p>
    */
   jobName?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The status of the dataset import job.</p>
+   * <p>The status of the dataset import job.</p>
    *          <p>A dataset import job can be in one of the following states:</p>
    *          <ul>
    *             <li>
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1604,45 +1282,33 @@ export namespace DatasetImportJobSummary {
 }
 
 /**
- *
- *          <p>Describes the schema for a dataset. For more information on schemas, see
+ * <p>Describes the schema for a dataset. For more information on schemas, see
  *       <a>CreateSchema</a>.</p>
- *
  */
 export interface DatasetSchema {
   __type?: "DatasetSchema";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the schema was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the schema was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the schema was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the schema was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the schema.</p>
-   *
+   * <p>The name of the schema.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The schema.</p>
-   *
+   * <p>The schema.</p>
    */
   schema?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the schema.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
    */
   schemaArn?: string;
 }
@@ -1654,38 +1320,28 @@ export namespace DatasetSchema {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a dataset schema. For a complete listing, call the
+ * <p>Provides a summary of the properties of a dataset schema. For a complete listing, call the
  *       <a>DescribeSchema</a> API.</p>
- *
  */
 export interface DatasetSchemaSummary {
   __type?: "DatasetSchemaSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the schema was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the schema was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the schema was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the schema was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the schema.</p>
-   *
+   * <p>The name of the schema.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the schema.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
    */
   schemaArn?: string;
 }
@@ -1697,30 +1353,23 @@ export namespace DatasetSchemaSummary {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a dataset. For a complete listing, call the
+ * <p>Provides a summary of the properties of a dataset. For a complete listing, call the
  *       <a>DescribeDataset</a> API.</p>
- *
  */
 export interface DatasetSummary {
   __type?: "DatasetSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   datasetArn?: string;
 
   /**
-   *
-   *          <p>The dataset type. One of the following values:</p>
+   * <p>The dataset type. One of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>Interactions</p>
@@ -1735,27 +1384,21 @@ export interface DatasetSummary {
    *                <p>Event-Interactions</p>
    *             </li>
    *          </ul>
-   *
    */
   datasetType?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the dataset was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the dataset was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the dataset.</p>
-   *
+   * <p>The name of the dataset.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the dataset.</p>
+   * <p>The status of the dataset.</p>
    *          <p>A dataset can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -1765,7 +1408,6 @@ export interface DatasetSummary {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -1777,32 +1419,24 @@ export namespace DatasetSummary {
 }
 
 /**
- *
- *          <p>Provides the name and default range of a categorical hyperparameter
+ * <p>Provides the name and default range of a categorical hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
- *
  */
 export interface DefaultCategoricalHyperParameterRange {
   __type?: "DefaultCategoricalHyperParameterRange";
   /**
-   *
-   *          <p>Whether the hyperparameter is tunable.</p>
-   *
+   * <p>Whether the hyperparameter is tunable.</p>
    */
   isTunable?: boolean;
 
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>A list of the categories for the hyperparameter.</p>
-   *
+   * <p>A list of the categories for the hyperparameter.</p>
    */
   values?: Array<string>;
 }
@@ -1814,39 +1448,29 @@ export namespace DefaultCategoricalHyperParameterRange {
 }
 
 /**
- *
- *          <p>Provides the name and default range of a continuous hyperparameter
+ * <p>Provides the name and default range of a continuous hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
- *
  */
 export interface DefaultContinuousHyperParameterRange {
   __type?: "DefaultContinuousHyperParameterRange";
   /**
-   *
-   *          <p>Whether the hyperparameter is tunable.</p>
-   *
+   * <p>Whether the hyperparameter is tunable.</p>
    */
   isTunable?: boolean;
 
   /**
-   *
-   *          <p>The maximum allowable value for the hyperparameter.</p>
-   *
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
   maxValue?: number;
 
   /**
-   *
-   *          <p>The minimum allowable value for the hyperparameter.</p>
-   *
+   * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
 
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 }
@@ -1858,33 +1482,25 @@ export namespace DefaultContinuousHyperParameterRange {
 }
 
 /**
- *
- *          <p>Specifies the hyperparameters and their default ranges.
+ * <p>Specifies the hyperparameters and their default ranges.
  *     Hyperparameters can be categorical, continuous, or integer-valued.</p>
- *
  */
 export interface DefaultHyperParameterRanges {
   __type?: "DefaultHyperParameterRanges";
   /**
-   *
-   *          <p>The categorical hyperparameters and their default ranges.</p>
-   *
+   * <p>The categorical hyperparameters and their default ranges.</p>
    */
   categoricalHyperParameterRanges?: Array<
     DefaultCategoricalHyperParameterRange
   >;
 
   /**
-   *
-   *          <p>The continuous hyperparameters and their default ranges.</p>
-   *
+   * <p>The continuous hyperparameters and their default ranges.</p>
    */
   continuousHyperParameterRanges?: Array<DefaultContinuousHyperParameterRange>;
 
   /**
-   *
-   *          <p>The integer-valued hyperparameters and their default ranges.</p>
-   *
+   * <p>The integer-valued hyperparameters and their default ranges.</p>
    */
   integerHyperParameterRanges?: Array<DefaultIntegerHyperParameterRange>;
 }
@@ -1896,39 +1512,29 @@ export namespace DefaultHyperParameterRanges {
 }
 
 /**
- *
- *          <p>Provides the name and default range of a integer-valued hyperparameter
+ * <p>Provides the name and default range of a integer-valued hyperparameter
  *       and whether the hyperparameter is tunable. A tunable hyperparameter can
  *       have its value determined during hyperparameter optimization (HPO).</p>
- *
  */
 export interface DefaultIntegerHyperParameterRange {
   __type?: "DefaultIntegerHyperParameterRange";
   /**
-   *
-   *          <p>Indicates whether the hyperparameter is tunable.</p>
-   *
+   * <p>Indicates whether the hyperparameter is tunable.</p>
    */
   isTunable?: boolean;
 
   /**
-   *
-   *          <p>The maximum allowable value for the hyperparameter.</p>
-   *
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
   maxValue?: number;
 
   /**
-   *
-   *          <p>The minimum allowable value for the hyperparameter.</p>
-   *
+   * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
 
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 }
@@ -1942,9 +1548,7 @@ export namespace DefaultIntegerHyperParameterRange {
 export interface DeleteCampaignRequest {
   __type?: "DeleteCampaignRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign to delete.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign to delete.</p>
    */
   campaignArn: string | undefined;
 }
@@ -1958,9 +1562,7 @@ export namespace DeleteCampaignRequest {
 export interface DeleteDatasetGroupRequest {
   __type?: "DeleteDatasetGroupRequest";
   /**
-   *
-   *          <p>The ARN of the dataset group to delete.</p>
-   *
+   * <p>The ARN of the dataset group to delete.</p>
    */
   datasetGroupArn: string | undefined;
 }
@@ -1974,9 +1576,7 @@ export namespace DeleteDatasetGroupRequest {
 export interface DeleteDatasetRequest {
   __type?: "DeleteDatasetRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
    */
   datasetArn: string | undefined;
 }
@@ -1990,9 +1590,7 @@ export namespace DeleteDatasetRequest {
 export interface DeleteEventTrackerRequest {
   __type?: "DeleteEventTrackerRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>
    */
   eventTrackerArn: string | undefined;
 }
@@ -2006,9 +1604,7 @@ export namespace DeleteEventTrackerRequest {
 export interface DeleteSchemaRequest {
   __type?: "DeleteSchemaRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the schema to delete.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the schema to delete.</p>
    */
   schemaArn: string | undefined;
 }
@@ -2022,9 +1618,7 @@ export namespace DeleteSchemaRequest {
 export interface DeleteSolutionRequest {
   __type?: "DeleteSolutionRequest";
   /**
-   *
-   *          <p>The ARN of the solution to delete.</p>
-   *
+   * <p>The ARN of the solution to delete.</p>
    */
   solutionArn: string | undefined;
 }
@@ -2038,9 +1632,7 @@ export namespace DeleteSolutionRequest {
 export interface DescribeAlgorithmRequest {
   __type?: "DescribeAlgorithmRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the algorithm to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the algorithm to describe.</p>
    */
   algorithmArn: string | undefined;
 }
@@ -2054,9 +1646,7 @@ export namespace DescribeAlgorithmRequest {
 export interface DescribeAlgorithmResponse extends $MetadataBearer {
   __type?: "DescribeAlgorithmResponse";
   /**
-   *
-   *          <p>A listing of the properties of the algorithm.</p>
-   *
+   * <p>A listing of the properties of the algorithm.</p>
    */
   algorithm?: Algorithm;
 }
@@ -2070,9 +1660,7 @@ export namespace DescribeAlgorithmResponse {
 export interface DescribeBatchInferenceJobRequest {
   __type?: "DescribeBatchInferenceJobRequest";
   /**
-   *
-   *          <p>The ARN of the batch inference job to describe.</p>
-   *
+   * <p>The ARN of the batch inference job to describe.</p>
    */
   batchInferenceJobArn: string | undefined;
 }
@@ -2086,9 +1674,7 @@ export namespace DescribeBatchInferenceJobRequest {
 export interface DescribeBatchInferenceJobResponse extends $MetadataBearer {
   __type?: "DescribeBatchInferenceJobResponse";
   /**
-   *
-   *          <p>Information on the specified batch inference job.</p>
-   *
+   * <p>Information on the specified batch inference job.</p>
    */
   batchInferenceJob?: BatchInferenceJob;
 }
@@ -2102,9 +1688,7 @@ export namespace DescribeBatchInferenceJobResponse {
 export interface DescribeCampaignRequest {
   __type?: "DescribeCampaignRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    */
   campaignArn: string | undefined;
 }
@@ -2118,9 +1702,7 @@ export namespace DescribeCampaignRequest {
 export interface DescribeCampaignResponse extends $MetadataBearer {
   __type?: "DescribeCampaignResponse";
   /**
-   *
-   *          <p>The properties of the campaign.</p>
-   *
+   * <p>The properties of the campaign.</p>
    */
   campaign?: Campaign;
 }
@@ -2134,9 +1716,7 @@ export namespace DescribeCampaignResponse {
 export interface DescribeDatasetGroupRequest {
   __type?: "DescribeDatasetGroupRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group to describe.</p>
    */
   datasetGroupArn: string | undefined;
 }
@@ -2150,9 +1730,7 @@ export namespace DescribeDatasetGroupRequest {
 export interface DescribeDatasetGroupResponse extends $MetadataBearer {
   __type?: "DescribeDatasetGroupResponse";
   /**
-   *
-   *          <p>A listing of the dataset group's properties.</p>
-   *
+   * <p>A listing of the dataset group's properties.</p>
    */
   datasetGroup?: DatasetGroup;
 }
@@ -2166,9 +1744,7 @@ export namespace DescribeDatasetGroupResponse {
 export interface DescribeDatasetImportJobRequest {
   __type?: "DescribeDatasetImportJobRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset import job to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset import job to describe.</p>
    */
   datasetImportJobArn: string | undefined;
 }
@@ -2182,8 +1758,7 @@ export namespace DescribeDatasetImportJobRequest {
 export interface DescribeDatasetImportJobResponse extends $MetadataBearer {
   __type?: "DescribeDatasetImportJobResponse";
   /**
-   *
-   *          <p>Information about the dataset import job, including the status.</p>
+   * <p>Information about the dataset import job, including the status.</p>
    *          <p>The status is one of the following values:</p>
    *          <ul>
    *             <li>
@@ -2199,7 +1774,6 @@ export interface DescribeDatasetImportJobResponse extends $MetadataBearer {
    *                <p>CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   datasetImportJob?: DatasetImportJob;
 }
@@ -2213,9 +1787,7 @@ export namespace DescribeDatasetImportJobResponse {
 export interface DescribeDatasetRequest {
   __type?: "DescribeDatasetRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset to describe.</p>
    */
   datasetArn: string | undefined;
 }
@@ -2229,9 +1801,7 @@ export namespace DescribeDatasetRequest {
 export interface DescribeDatasetResponse extends $MetadataBearer {
   __type?: "DescribeDatasetResponse";
   /**
-   *
-   *          <p>A listing of the dataset's properties.</p>
-   *
+   * <p>A listing of the dataset's properties.</p>
    */
   dataset?: Dataset;
 }
@@ -2245,9 +1815,7 @@ export namespace DescribeDatasetResponse {
 export interface DescribeEventTrackerRequest {
   __type?: "DescribeEventTrackerRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the event tracker to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the event tracker to describe.</p>
    */
   eventTrackerArn: string | undefined;
 }
@@ -2261,9 +1829,7 @@ export namespace DescribeEventTrackerRequest {
 export interface DescribeEventTrackerResponse extends $MetadataBearer {
   __type?: "DescribeEventTrackerResponse";
   /**
-   *
-   *          <p>An object that describes the event tracker.</p>
-   *
+   * <p>An object that describes the event tracker.</p>
    */
   eventTracker?: EventTracker;
 }
@@ -2277,9 +1843,7 @@ export namespace DescribeEventTrackerResponse {
 export interface DescribeFeatureTransformationRequest {
   __type?: "DescribeFeatureTransformationRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the feature transformation to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the feature transformation to describe.</p>
    */
   featureTransformationArn: string | undefined;
 }
@@ -2293,9 +1857,7 @@ export namespace DescribeFeatureTransformationRequest {
 export interface DescribeFeatureTransformationResponse extends $MetadataBearer {
   __type?: "DescribeFeatureTransformationResponse";
   /**
-   *
-   *          <p>A listing of the FeatureTransformation properties.</p>
-   *
+   * <p>A listing of the FeatureTransformation properties.</p>
    */
   featureTransformation?: FeatureTransformation;
 }
@@ -2309,9 +1871,7 @@ export namespace DescribeFeatureTransformationResponse {
 export interface DescribeRecipeRequest {
   __type?: "DescribeRecipeRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the recipe to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the recipe to describe.</p>
    */
   recipeArn: string | undefined;
 }
@@ -2325,9 +1885,7 @@ export namespace DescribeRecipeRequest {
 export interface DescribeRecipeResponse extends $MetadataBearer {
   __type?: "DescribeRecipeResponse";
   /**
-   *
-   *          <p>An object that describes the recipe.</p>
-   *
+   * <p>An object that describes the recipe.</p>
    */
   recipe?: Recipe;
 }
@@ -2341,9 +1899,7 @@ export namespace DescribeRecipeResponse {
 export interface DescribeSchemaRequest {
   __type?: "DescribeSchemaRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the schema to retrieve.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the schema to retrieve.</p>
    */
   schemaArn: string | undefined;
 }
@@ -2357,9 +1913,7 @@ export namespace DescribeSchemaRequest {
 export interface DescribeSchemaResponse extends $MetadataBearer {
   __type?: "DescribeSchemaResponse";
   /**
-   *
-   *          <p>The requested schema.</p>
-   *
+   * <p>The requested schema.</p>
    */
   schema?: DatasetSchema;
 }
@@ -2373,9 +1927,7 @@ export namespace DescribeSchemaResponse {
 export interface DescribeSolutionRequest {
   __type?: "DescribeSolutionRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution to describe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution to describe.</p>
    */
   solutionArn: string | undefined;
 }
@@ -2389,9 +1941,7 @@ export namespace DescribeSolutionRequest {
 export interface DescribeSolutionResponse extends $MetadataBearer {
   __type?: "DescribeSolutionResponse";
   /**
-   *
-   *          <p>An object that describes the solution.</p>
-   *
+   * <p>An object that describes the solution.</p>
    */
   solution?: Solution;
 }
@@ -2405,9 +1955,7 @@ export namespace DescribeSolutionResponse {
 export interface DescribeSolutionVersionRequest {
   __type?: "DescribeSolutionVersionRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
    */
   solutionVersionArn: string | undefined;
 }
@@ -2421,9 +1969,7 @@ export namespace DescribeSolutionVersionRequest {
 export interface DescribeSolutionVersionResponse extends $MetadataBearer {
   __type?: "DescribeSolutionVersionResponse";
   /**
-   *
-   *          <p>The solution version.</p>
-   *
+   * <p>The solution version.</p>
    */
   solutionVersion?: SolutionVersion;
 }
@@ -2435,57 +1981,42 @@ export namespace DescribeSolutionVersionResponse {
 }
 
 /**
- *
- *          <p>Provides information about an event tracker.</p>
- *
+ * <p>Provides information about an event tracker.</p>
  */
 export interface EventTracker {
   __type?: "EventTracker";
   /**
-   *
-   *          <p>The Amazon AWS account that owns the event tracker.</p>
-   *
+   * <p>The Amazon AWS account that owns the event tracker.</p>
    */
   accountId?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix format) that the event tracker was created.</p>
-   *
+   * <p>The date and time (in Unix format) that the event tracker was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The ARN of the event tracker.</p>
-   *
+   * <p>The ARN of the event tracker.</p>
    */
   eventTrackerArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the event tracker was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the event tracker.</p>
-   *
+   * <p>The name of the event tracker.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the event tracker.</p>
+   * <p>The status of the event tracker.</p>
    *          <p>An event tracker can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -2495,15 +2026,12 @@ export interface EventTracker {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 
   /**
-   *
-   *          <p>The ID of the event tracker. Include this ID in requests to the
+   * <p>The ID of the event tracker. Include this ID in requests to the
    *     <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
-   *
    */
   trackingId?: string;
 }
@@ -2515,44 +2043,33 @@ export namespace EventTracker {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of an event tracker. For a complete listing, call the
+ * <p>Provides a summary of the properties of an event tracker. For a complete listing, call the
  *       <a>DescribeEventTracker</a> API.</p>
- *
  */
 export interface EventTrackerSummary {
   __type?: "EventTrackerSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the event tracker was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the event tracker was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the event tracker.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the event tracker.</p>
    */
   eventTrackerArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the event tracker was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the event tracker was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the event tracker.</p>
-   *
+   * <p>The name of the event tracker.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the event tracker.</p>
+   * <p>The status of the event tracker.</p>
    *          <p>An event tracker can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -2562,7 +2079,6 @@ export interface EventTrackerSummary {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -2574,58 +2090,44 @@ export namespace EventTrackerSummary {
 }
 
 /**
- *
- *          <p>Provides feature transformation information. Feature transformation is the process
+ * <p>Provides feature transformation information. Feature transformation is the process
  *       of modifying raw input data into a form more suitable for model training.</p>
- *
  */
 export interface FeatureTransformation {
   __type?: "FeatureTransformation";
   /**
-   *
-   *          <p>The creation date and time (in Unix time) of the feature transformation.</p>
-   *
+   * <p>The creation date and time (in Unix time) of the feature transformation.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>Provides the default parameters for feature transformation.</p>
-   *
+   * <p>Provides the default parameters for feature transformation.</p>
    */
   defaultParameters?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>
    */
   featureTransformationArn?: string;
 
   /**
-   *
-   *          <p>The last update date and time (in Unix time) of the feature transformation.</p>
-   *
+   * <p>The last update date and time (in Unix time) of the feature transformation.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the feature transformation.</p>
-   *
+   * <p>The name of the feature transformation.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The status of the feature transformation.</p>
+   * <p>The status of the feature transformation.</p>
    *          <p>A feature transformation can be in one of the following states:</p>
    *          <ul>
    *             <li>
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -2639,9 +2141,7 @@ export namespace FeatureTransformation {
 export interface GetSolutionMetricsRequest {
   __type?: "GetSolutionMetricsRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version for which to get metrics.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution version for which to get metrics.</p>
    */
   solutionVersionArn: string | undefined;
 }
@@ -2655,16 +2155,12 @@ export namespace GetSolutionMetricsRequest {
 export interface GetSolutionMetricsResponse extends $MetadataBearer {
   __type?: "GetSolutionMetricsResponse";
   /**
-   *
-   *          <p>The metrics for the solution version.</p>
-   *
+   * <p>The metrics for the solution version.</p>
    */
   metrics?: { [key: string]: number };
 
   /**
-   *
-   *          <p>The same solution version ARN as specified in the request.</p>
-   *
+   * <p>The same solution version ARN as specified in the request.</p>
    */
   solutionVersionArn?: string;
 }
@@ -2676,31 +2172,23 @@ export namespace GetSolutionMetricsResponse {
 }
 
 /**
- *
- *          <p>Describes the properties for hyperparameter optimization (HPO). For use with the
+ * <p>Describes the properties for hyperparameter optimization (HPO). For use with the
  *       bring-your-own-recipe feature. Do not use for Amazon Personalize native recipes.</p>
- *
  */
 export interface HPOConfig {
   __type?: "HPOConfig";
   /**
-   *
-   *          <p>The hyperparameters and their allowable ranges.</p>
-   *
+   * <p>The hyperparameters and their allowable ranges.</p>
    */
   algorithmHyperParameterRanges?: HyperParameterRanges;
 
   /**
-   *
-   *          <p>The metric to optimize during HPO.</p>
-   *
+   * <p>The metric to optimize during HPO.</p>
    */
   hpoObjective?: HPOObjective;
 
   /**
-   *
-   *          <p>Describes the resource configuration for HPO.</p>
-   *
+   * <p>Describes the resource configuration for HPO.</p>
    */
   hpoResourceConfig?: HPOResourceConfig;
 }
@@ -2712,30 +2200,22 @@ export namespace HPOConfig {
 }
 
 /**
- *
- *          <p>The metric to optimize during hyperparameter optimization (HPO).</p>
- *
+ * <p>The metric to optimize during hyperparameter optimization (HPO).</p>
  */
 export interface HPOObjective {
   __type?: "HPOObjective";
   /**
-   *
-   *          <p>The name of the metric.</p>
-   *
+   * <p>The name of the metric.</p>
    */
   metricName?: string;
 
   /**
-   *
-   *          <p>A regular expression for finding the metric in the training job logs.</p>
-   *
+   * <p>A regular expression for finding the metric in the training job logs.</p>
    */
   metricRegex?: string;
 
   /**
-   *
-   *          <p>The data type of the metric.</p>
-   *
+   * <p>The data type of the metric.</p>
    */
   type?: string;
 }
@@ -2747,33 +2227,27 @@ export namespace HPOObjective {
 }
 
 /**
- *
- *          <p>Describes the resource configuration for hyperparameter optimization (HPO).</p>
- *
+ * <p>Describes the resource configuration for hyperparameter optimization (HPO).</p>
  */
 export interface HPOResourceConfig {
   __type?: "HPOResourceConfig";
   /**
-   *
-   *          <p>The maximum number of training
+   * <p>The maximum number of training
    *       jobs when you create a
    *       solution
    *       version.
    *       The maximum value for <code>maxNumberOfTrainingJobs</code> is
    *       <code>40</code>.</p>
-   *
    */
   maxNumberOfTrainingJobs?: string;
 
   /**
-   *
-   *          <p>The maximum number of parallel training
+   * <p>The maximum number of parallel training
    *       jobs when you create a
    *       solution
    *       version.
    *       The maximum value for <code>maxParallelTrainingJobs</code> is
    *       <code>10</code>.</p>
-   *
    */
   maxParallelTrainingJobs?: string;
 }
@@ -2785,31 +2259,23 @@ export namespace HPOResourceConfig {
 }
 
 /**
- *
- *          <p>Specifies the hyperparameters and their ranges.
+ * <p>Specifies the hyperparameters and their ranges.
  *     Hyperparameters can be categorical, continuous, or integer-valued.</p>
- *
  */
 export interface HyperParameterRanges {
   __type?: "HyperParameterRanges";
   /**
-   *
-   *          <p>The categorical hyperparameters and their ranges.</p>
-   *
+   * <p>The categorical hyperparameters and their ranges.</p>
    */
   categoricalHyperParameterRanges?: Array<CategoricalHyperParameterRange>;
 
   /**
-   *
-   *          <p>The continuous hyperparameters and their ranges.</p>
-   *
+   * <p>The continuous hyperparameters and their ranges.</p>
    */
   continuousHyperParameterRanges?: Array<ContinuousHyperParameterRange>;
 
   /**
-   *
-   *          <p>The integer-valued hyperparameters and their ranges.</p>
-   *
+   * <p>The integer-valued hyperparameters and their ranges.</p>
    */
   integerHyperParameterRanges?: Array<IntegerHyperParameterRange>;
 }
@@ -2821,30 +2287,22 @@ export namespace HyperParameterRanges {
 }
 
 /**
- *
- *          <p>Provides the name and range of an integer-valued hyperparameter.</p>
- *
+ * <p>Provides the name and range of an integer-valued hyperparameter.</p>
  */
 export interface IntegerHyperParameterRange {
   __type?: "IntegerHyperParameterRange";
   /**
-   *
-   *          <p>The maximum allowable value for the hyperparameter.</p>
-   *
+   * <p>The maximum allowable value for the hyperparameter.</p>
    */
   maxValue?: number;
 
   /**
-   *
-   *          <p>The minimum allowable value for the hyperparameter.</p>
-   *
+   * <p>The minimum allowable value for the hyperparameter.</p>
    */
   minValue?: number;
 
   /**
-   *
-   *          <p>The name of the hyperparameter.</p>
-   *
+   * <p>The name of the hyperparameter.</p>
    */
   name?: string;
 }
@@ -2858,25 +2316,19 @@ export namespace IntegerHyperParameterRange {
 export interface ListBatchInferenceJobsRequest {
   __type?: "ListBatchInferenceJobsRequest";
   /**
-   *
-   *          <p>The maximum number of batch inference job results to return in each page. The default
+   * <p>The maximum number of batch inference job results to return in each page. The default
    *       value is 100.</p>
-   *
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>The token to request the next page of results.</p>
-   *
+   * <p>The token to request the next page of results.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference jobs
+   * <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference jobs
    *       were created.</p>
-   *
    */
   solutionVersionArn?: string;
 }
@@ -2890,17 +2342,13 @@ export namespace ListBatchInferenceJobsRequest {
 export interface ListBatchInferenceJobsResponse extends $MetadataBearer {
   __type?: "ListBatchInferenceJobsResponse";
   /**
-   *
-   *          <p>A list containing information on each job that is returned.</p>
-   *
+   * <p>A list containing information on each job that is returned.</p>
    */
   batchInferenceJobs?: Array<BatchInferenceJobSummary>;
 
   /**
-   *
-   *          <p>The token to use to retreive the next page of results. The value is <code>null</code> when
+   * <p>The token to use to retreive the next page of results. The value is <code>null</code> when
    *       there are no more results to return.</p>
-   *
    */
   nextToken?: string;
 }
@@ -2914,25 +2362,19 @@ export namespace ListBatchInferenceJobsResponse {
 export interface ListCampaignsRequest {
   __type?: "ListCampaignsRequest";
   /**
-   *
-   *          <p>The maximum number of campaigns to return.</p>
-   *
+   * <p>The maximum number of campaigns to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListCampaigns</code> for getting
+   * <p>A token returned from the previous call to <code>ListCampaigns</code> for getting
    *       the next set of campaigns (if they exist).</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
+   * <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
    *         a solution is not specified, all the campaigns associated with the account are listed.</p>
-   *
    */
   solutionArn?: string;
 }
@@ -2946,16 +2388,12 @@ export namespace ListCampaignsRequest {
 export interface ListCampaignsResponse extends $MetadataBearer {
   __type?: "ListCampaignsResponse";
   /**
-   *
-   *          <p>A list of the campaigns.</p>
-   *
+   * <p>A list of the campaigns.</p>
    */
   campaigns?: Array<CampaignSummary>;
 
   /**
-   *
-   *          <p>A token for getting the next set of campaigns (if they exist).</p>
-   *
+   * <p>A token for getting the next set of campaigns (if they exist).</p>
    */
   nextToken?: string;
 }
@@ -2969,17 +2407,13 @@ export namespace ListCampaignsResponse {
 export interface ListDatasetGroupsRequest {
   __type?: "ListDatasetGroupsRequest";
   /**
-   *
-   *          <p>The maximum number of dataset groups to return.</p>
-   *
+   * <p>The maximum number of dataset groups to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting
+   * <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting
    *       the next set of dataset groups (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -2993,16 +2427,12 @@ export namespace ListDatasetGroupsRequest {
 export interface ListDatasetGroupsResponse extends $MetadataBearer {
   __type?: "ListDatasetGroupsResponse";
   /**
-   *
-   *          <p>The list of your dataset groups.</p>
-   *
+   * <p>The list of your dataset groups.</p>
    */
   datasetGroups?: Array<DatasetGroupSummary>;
 
   /**
-   *
-   *          <p>A token for getting the next set of dataset groups (if they exist).</p>
-   *
+   * <p>A token for getting the next set of dataset groups (if they exist).</p>
    */
   nextToken?: string;
 }
@@ -3016,24 +2446,18 @@ export namespace ListDatasetGroupsResponse {
 export interface ListDatasetImportJobsRequest {
   __type?: "ListDatasetImportJobsRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
    */
   datasetArn?: string;
 
   /**
-   *
-   *          <p>The maximum number of dataset import jobs to return.</p>
-   *
+   * <p>The maximum number of dataset import jobs to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
+   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
    *       the next set of dataset import jobs (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -3047,16 +2471,12 @@ export namespace ListDatasetImportJobsRequest {
 export interface ListDatasetImportJobsResponse extends $MetadataBearer {
   __type?: "ListDatasetImportJobsResponse";
   /**
-   *
-   *          <p>The list of dataset import jobs.</p>
-   *
+   * <p>The list of dataset import jobs.</p>
    */
   datasetImportJobs?: Array<DatasetImportJobSummary>;
 
   /**
-   *
-   *          <p>A token for getting the next set of dataset import jobs (if they exist).</p>
-   *
+   * <p>A token for getting the next set of dataset import jobs (if they exist).</p>
    */
   nextToken?: string;
 }
@@ -3070,25 +2490,19 @@ export namespace ListDatasetImportJobsResponse {
 export interface ListDatasetsRequest {
   __type?: "ListDatasetsRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group that contains the
+   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the
    *       datasets to list.</p>
-   *
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The maximum number of datasets to return.</p>
-   *
+   * <p>The maximum number of datasets to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
+   * <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
    *       the next set of dataset import jobs (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -3102,16 +2516,12 @@ export namespace ListDatasetsRequest {
 export interface ListDatasetsResponse extends $MetadataBearer {
   __type?: "ListDatasetsResponse";
   /**
-   *
-   *          <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
-   *
+   * <p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>
    */
   datasets?: Array<DatasetSummary>;
 
   /**
-   *
-   *          <p>A token for getting the next set of datasets (if they exist).</p>
-   *
+   * <p>A token for getting the next set of datasets (if they exist).</p>
    */
   nextToken?: string;
 }
@@ -3125,24 +2535,18 @@ export namespace ListDatasetsResponse {
 export interface ListEventTrackersRequest {
   __type?: "ListEventTrackersRequest";
   /**
-   *
-   *          <p>The ARN of a dataset group used to filter the response.</p>
-   *
+   * <p>The ARN of a dataset group used to filter the response.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The maximum number of event trackers to return.</p>
-   *
+   * <p>The maximum number of event trackers to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
+   * <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
    *       the next set of event trackers (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -3156,16 +2560,12 @@ export namespace ListEventTrackersRequest {
 export interface ListEventTrackersResponse extends $MetadataBearer {
   __type?: "ListEventTrackersResponse";
   /**
-   *
-   *          <p>A list of event trackers.</p>
-   *
+   * <p>A list of event trackers.</p>
    */
   eventTrackers?: Array<EventTrackerSummary>;
 
   /**
-   *
-   *          <p>A token for getting the next set of event trackers (if they exist).</p>
-   *
+   * <p>A token for getting the next set of event trackers (if they exist).</p>
    */
   nextToken?: string;
 }
@@ -3179,24 +2579,18 @@ export namespace ListEventTrackersResponse {
 export interface ListRecipesRequest {
   __type?: "ListRecipesRequest";
   /**
-   *
-   *          <p>The maximum number of recipes to return.</p>
-   *
+   * <p>The maximum number of recipes to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListRecipes</code> for getting
+   * <p>A token returned from the previous call to <code>ListRecipes</code> for getting
    *       the next set of recipes (if they exist).</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The default is <code>SERVICE</code>.</p>
-   *
+   * <p>The default is <code>SERVICE</code>.</p>
    */
   recipeProvider?: RecipeProvider | string;
 }
@@ -3210,16 +2604,12 @@ export namespace ListRecipesRequest {
 export interface ListRecipesResponse extends $MetadataBearer {
   __type?: "ListRecipesResponse";
   /**
-   *
-   *          <p>A token for getting the next set of recipes.</p>
-   *
+   * <p>A token for getting the next set of recipes.</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The list of available recipes.</p>
-   *
+   * <p>The list of available recipes.</p>
    */
   recipes?: Array<RecipeSummary>;
 }
@@ -3233,17 +2623,13 @@ export namespace ListRecipesResponse {
 export interface ListSchemasRequest {
   __type?: "ListSchemasRequest";
   /**
-   *
-   *          <p>The maximum number of schemas to return.</p>
-   *
+   * <p>The maximum number of schemas to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListSchemas</code> for getting
+   * <p>A token returned from the previous call to <code>ListSchemas</code> for getting
    *       the next set of schemas (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -3257,16 +2643,12 @@ export namespace ListSchemasRequest {
 export interface ListSchemasResponse extends $MetadataBearer {
   __type?: "ListSchemasResponse";
   /**
-   *
-   *          <p>A token used to get the next set of schemas (if they exist).</p>
-   *
+   * <p>A token used to get the next set of schemas (if they exist).</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>A list of schemas.</p>
-   *
+   * <p>A list of schemas.</p>
    */
   schemas?: Array<DatasetSchemaSummary>;
 }
@@ -3280,24 +2662,18 @@ export namespace ListSchemasResponse {
 export interface ListSolutionVersionsRequest {
   __type?: "ListSolutionVersionsRequest";
   /**
-   *
-   *          <p>The maximum number of solution versions to return.</p>
-   *
+   * <p>The maximum number of solution versions to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
+   * <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
    *       the next set of solution versions (if they exist).</p>
-   *
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution.</p>
    */
   solutionArn?: string;
 }
@@ -3311,16 +2687,12 @@ export namespace ListSolutionVersionsRequest {
 export interface ListSolutionVersionsResponse extends $MetadataBearer {
   __type?: "ListSolutionVersionsResponse";
   /**
-   *
-   *          <p>A token for getting the next set of solution versions (if they exist).</p>
-   *
+   * <p>A token for getting the next set of solution versions (if they exist).</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>A list of solution versions describing the version properties.</p>
-   *
+   * <p>A list of solution versions describing the version properties.</p>
    */
   solutionVersions?: Array<SolutionVersionSummary>;
 }
@@ -3334,24 +2706,18 @@ export namespace ListSolutionVersionsResponse {
 export interface ListSolutionsRequest {
   __type?: "ListSolutionsRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The maximum number of solutions to return.</p>
-   *
+   * <p>The maximum number of solutions to return.</p>
    */
   maxResults?: number;
 
   /**
-   *
-   *          <p>A token returned from the previous call to <code>ListSolutions</code> for getting
+   * <p>A token returned from the previous call to <code>ListSolutions</code> for getting
    *       the next set of solutions (if they exist).</p>
-   *
    */
   nextToken?: string;
 }
@@ -3365,16 +2731,12 @@ export namespace ListSolutionsRequest {
 export interface ListSolutionsResponse extends $MetadataBearer {
   __type?: "ListSolutionsResponse";
   /**
-   *
-   *          <p>A token for getting the next set of solutions (if they exist).</p>
-   *
+   * <p>A token for getting the next set of solutions (if they exist).</p>
    */
   nextToken?: string;
 
   /**
-   *
-   *          <p>A list of the current solutions.</p>
-   *
+   * <p>A list of the current solutions.</p>
    */
   solutions?: Array<SolutionSummary>;
 }
@@ -3386,67 +2748,50 @@ export namespace ListSolutionsResponse {
 }
 
 /**
- *
- *          <p>Provides information about a recipe. Each recipe provides an algorithm
+ * <p>Provides information about a recipe. Each recipe provides an algorithm
  *       that Amazon Personalize uses in model training when you use the <a>CreateSolution</a>
  *       operation. </p>
- *
  */
 export interface Recipe {
   __type?: "Recipe";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
+   * <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
    *       the model.</p>
-   *
    */
   algorithmArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix format) that the recipe was created.</p>
-   *
+   * <p>The date and time (in Unix format) that the recipe was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The description of the recipe.</p>
-   *
+   * <p>The description of the recipe.</p>
    */
   description?: string;
 
   /**
-   *
-   *          <p>The ARN of the FeatureTransformation object.</p>
-   *
+   * <p>The ARN of the FeatureTransformation object.</p>
    */
   featureTransformationArn?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix format) that the recipe was last updated.</p>
-   *
+   * <p>The date and time (in Unix format) that the recipe was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the recipe.</p>
-   *
+   * <p>The name of the recipe.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the recipe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
    */
   recipeArn?: string;
 
   /**
-   *
-   *          <p>One of the following values:</p>
+   * <p>One of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>PERSONALIZED_RANKING</p>
@@ -3458,15 +2803,11 @@ export interface Recipe {
    *                <p>USER_PERSONALIZATION</p>
    *             </li>
    *          </ul>
-   *
    */
   recipeType?: string;
 
   /**
-   *
-   *          <p>The status of the recipe.</p>
-   *
-   *
+   * <p>The status of the recipe.</p>
    */
   status?: string;
 }
@@ -3482,46 +2823,33 @@ export enum RecipeProvider {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a recipe. For a complete listing, call the
+ * <p>Provides a summary of the properties of a recipe. For a complete listing, call the
  *       <a>DescribeRecipe</a> API.</p>
- *
  */
 export interface RecipeSummary {
   __type?: "RecipeSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the recipe was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the recipe was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the recipe was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the recipe was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the recipe.</p>
-   *
+   * <p>The name of the recipe.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the recipe.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the recipe.</p>
    */
   recipeArn?: string;
 
   /**
-   *
-   *          <p>The status of the recipe.</p>
-   *
-   *
+   * <p>The status of the recipe.</p>
    */
   status?: string;
 }
@@ -3533,24 +2861,18 @@ export namespace RecipeSummary {
 }
 
 /**
- *
- *          <p>The configuration details of an Amazon S3 input or output bucket.</p>
- *
+ * <p>The configuration details of an Amazon S3 input or output bucket.</p>
  */
 export interface S3DataConfig {
   __type?: "S3DataConfig";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that  Amazon Personalize  uses to
+   * <p>The Amazon Resource Name (ARN) of the Amazon Key Management Service (KMS) key that  Amazon Personalize  uses to
    *       encrypt or decrypt the input and output files of a batch inference job.</p>
-   *
    */
   kmsKeyArn?: string;
 
   /**
-   *
-   *          <p>The file path of the Amazon S3 bucket.</p>
-   *
+   * <p>The file path of the Amazon S3 bucket.</p>
    */
   path: string | undefined;
 }
@@ -3562,103 +2884,76 @@ export namespace S3DataConfig {
 }
 
 /**
- *
- *          <p>An object that provides information about a solution. A solution is a trained model
+ * <p>An object that provides information about a solution. A solution is a trained model
  *       that can be deployed as a campaign.</p>
- *
  */
 export interface Solution {
   __type?: "Solution";
   /**
-   *
-   *          <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
-   *
+   * <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
    */
   autoMLResult?: AutoMLResult;
 
   /**
-   *
-   *          <p>The creation date and time (in Unix time) of the solution.</p>
-   *
+   * <p>The creation date and time (in Unix time) of the solution.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
-   *
+   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
    */
   eventType?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the solution was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>Describes the latest version of the solution, including the status and the ARN.</p>
-   *
+   * <p>Describes the latest version of the solution, including the status and the ARN.</p>
    */
   latestSolutionVersion?: SolutionVersionSummary;
 
   /**
-   *
-   *          <p>The name of the solution.</p>
-   *
+   * <p>The name of the solution.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
+   * <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
    *       the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
    *       When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
-   *
    */
   performAutoML?: boolean;
 
   /**
-   *
-   *          <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
+   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
    *       default is <code>false</code>.</p>
-   *
    */
   performHPO?: boolean;
 
   /**
-   *
-   *          <p>The ARN of the recipe used to create the solution.</p>
-   *
+   * <p>The ARN of the recipe used to create the solution.</p>
    */
   recipeArn?: string;
 
   /**
-   *
-   *          <p>The ARN of the solution.</p>
-   *
+   * <p>The ARN of the solution.</p>
    */
   solutionArn?: string;
 
   /**
-   *
-   *          <p>Describes the configuration properties for the solution.</p>
-   *
+   * <p>Describes the configuration properties for the solution.</p>
    */
   solutionConfig?: SolutionConfig;
 
   /**
-   *
-   *          <p>The status of the solution.</p>
+   * <p>The status of the solution.</p>
    *          <p>A solution can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -3668,7 +2963,6 @@ export interface Solution {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -3680,46 +2974,34 @@ export namespace Solution {
 }
 
 /**
- *
- *          <p>Describes the configuration properties for the solution.</p>
- *
+ * <p>Describes the configuration properties for the solution.</p>
  */
 export interface SolutionConfig {
   __type?: "SolutionConfig";
   /**
-   *
-   *          <p>Lists the hyperparameter names and ranges.</p>
-   *
+   * <p>Lists the hyperparameter names and ranges.</p>
    */
   algorithmHyperParameters?: { [key: string]: string };
 
   /**
-   *
-   *          <p>The <a>AutoMLConfig</a> object containing a list of recipes to search
+   * <p>The <a>AutoMLConfig</a> object containing a list of recipes to search
    *       when AutoML is performed.</p>
-   *
    */
   autoMLConfig?: AutoMLConfig;
 
   /**
-   *
-   *          <p>Only events with a value greater than or equal to this threshold are
+   * <p>Only events with a value greater than or equal to this threshold are
    *       used for training a model.</p>
-   *
    */
   eventValueThreshold?: string;
 
   /**
-   *
-   *          <p>Lists the feature transformation parameters.</p>
-   *
+   * <p>Lists the feature transformation parameters.</p>
    */
   featureTransformationParameters?: { [key: string]: string };
 
   /**
-   *
-   *          <p>Describes the properties for hyperparameter optimization (HPO).</p>
-   *
+   * <p>Describes the properties for hyperparameter optimization (HPO).</p>
    */
   hpoConfig?: HPOConfig;
 }
@@ -3731,44 +3013,33 @@ export namespace SolutionConfig {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a solution. For a complete listing, call the
+ * <p>Provides a summary of the properties of a solution. For a complete listing, call the
  *       <a>DescribeSolution</a> API.</p>
- *
  */
 export interface SolutionSummary {
   __type?: "SolutionSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that the solution was created.</p>
-   *
+   * <p>The date and time (in Unix time) that the solution was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the solution was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the solution was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The name of the solution.</p>
-   *
+   * <p>The name of the solution.</p>
    */
   name?: string;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution.</p>
    */
   solutionArn?: string;
 
   /**
-   *
-   *          <p>The status of the solution.</p>
+   * <p>The status of the solution.</p>
    *          <p>A solution can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -3778,7 +3049,6 @@ export interface SolutionSummary {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -3790,99 +3060,74 @@ export namespace SolutionSummary {
 }
 
 /**
- *
- *          <p>An object that provides information about a specific version of a <a>Solution</a>.</p>
- *
+ * <p>An object that provides information about a specific version of a <a>Solution</a>.</p>
  */
 export interface SolutionVersion {
   __type?: "SolutionVersion";
   /**
-   *
-   *          <p>The date and
+   * <p>The date and
    *       time
    *       (in Unix time) that this version of the solution was created.</p>
-   *
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
    */
   datasetGroupArn?: string;
 
   /**
-   *
-   *          <p>The event type (for example, 'click' or 'like') that is used for training the
+   * <p>The event type (for example, 'click' or 'like') that is used for training the
    *       model.</p>
-   *
    */
   eventType?: string;
 
   /**
-   *
-   *          <p>If training a solution version fails, the reason for the failure.</p>
-   *
+   * <p>If training a solution version fails, the reason for the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in
+   * <p>The date and time (in
    *       Unix
    *       time) that the solution was last updated.</p>
-   *
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
+   * <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
    *       configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
-   *
    */
   performAutoML?: boolean;
 
   /**
-   *
-   *          <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
+   * <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
    *         <code>false</code>.</p>
-   *
    */
   performHPO?: boolean;
 
   /**
-   *
-   *          <p>The ARN of the recipe used in the solution.</p>
-   *
+   * <p>The ARN of the recipe used in the solution.</p>
    */
   recipeArn?: string;
 
   /**
-   *
-   *          <p>The ARN of the solution.</p>
-   *
+   * <p>The ARN of the solution.</p>
    */
   solutionArn?: string;
 
   /**
-   *
-   *          <p>Describes the configuration properties for the solution.</p>
-   *
+   * <p>Describes the configuration properties for the solution.</p>
    */
   solutionConfig?: SolutionConfig;
 
   /**
-   *
-   *          <p>The ARN of the solution version.</p>
-   *
+   * <p>The ARN of the solution version.</p>
    */
   solutionVersionArn?: string;
 
   /**
-   *
-   *          <p>The status of the solution version.</p>
+   * <p>The status of the solution version.</p>
    *          <p>A solution version can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -3898,21 +3143,17 @@ export interface SolutionVersion {
    *                <p>CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 
   /**
-   *
-   *          <p>The time used to train the model. You are billed for the time it takes to train a model.
+   * <p>The time used to train the model. You are billed for the time it takes to train a model.
    *       This field is visible only after Amazon Personalize successfully trains a model.</p>
-   *
    */
   trainingHours?: number;
 
   /**
-   *
-   *          <p>The scope of training used to create the solution version. The <code>FULL</code> option
+   * <p>The scope of training used to create the solution version. The <code>FULL</code> option
    *       trains the solution version based on the entirety of the input solution's training data, while
    *       the <code>UPDATE</code> option processes only the training data that has changed since the
    *       creation of the last solution version. Choose <code>UPDATE</code> when you want to start
@@ -3921,7 +3162,6 @@ export interface SolutionVersion {
    *             <p>The <code>UPDATE</code> option can only be used after you've created a solution version
    *         with the <code>FULL</code> option and the training solution uses the <a>native-recipe-hrnn-coldstart</a>.</p>
    *          </important>
-   *
    */
   trainingMode?: TrainingMode | string;
 }
@@ -3933,51 +3173,39 @@ export namespace SolutionVersion {
 }
 
 /**
- *
- *          <p>Provides a summary of the properties of a solution version. For a complete listing, call the
+ * <p>Provides a summary of the properties of a solution version. For a complete listing, call the
  *       <a>DescribeSolutionVersion</a> API.</p>
- *
  */
 export interface SolutionVersionSummary {
   __type?: "SolutionVersionSummary";
   /**
-   *
-   *          <p>The date and time (in Unix time) that this version of a solution was created.</p>
-   *
+   * <p>The date and time (in Unix time) that this version of a solution was created.</p>
    */
   creationDateTime?: Date;
 
   /**
-   *
-   *          <p>If a solution version fails, the reason behind the failure.</p>
-   *
+   * <p>If a solution version fails, the reason behind the failure.</p>
    */
   failureReason?: string;
 
   /**
-   *
-   *          <p>The date and time (in Unix time) that the solution version was last updated.</p>
-   *
+   * <p>The date and time (in Unix time) that the solution version was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the solution version.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the solution version.</p>
    */
   solutionVersionArn?: string;
 
   /**
-   *
-   *          <p>The status of the solution version.</p>
+   * <p>The status of the solution version.</p>
    *          <p>A solution version can be in one of the following states:</p>
    *          <ul>
    *             <li>
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *
    */
   status?: string;
 }
@@ -3996,24 +3224,18 @@ export enum TrainingMode {
 export interface UpdateCampaignRequest {
   __type?: "UpdateCampaignRequest";
   /**
-   *
-   *          <p>The Amazon Resource Name (ARN) of the campaign.</p>
-   *
+   * <p>The Amazon Resource Name (ARN) of the campaign.</p>
    */
   campaignArn: string | undefined;
 
   /**
-   *
-   *          <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+   * <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
    *       Amazon Personalize will support.</p>
-   *
    */
   minProvisionedTPS?: number;
 
   /**
-   *
-   *          <p>The ARN of a new solution version to deploy.</p>
-   *
+   * <p>The ARN of a new solution version to deploy.</p>
    */
   solutionVersionArn?: string;
 }
@@ -4027,9 +3249,7 @@ export namespace UpdateCampaignRequest {
 export interface UpdateCampaignResponse extends $MetadataBearer {
   __type?: "UpdateCampaignResponse";
   /**
-   *
-   *          <p>The same campaign ARN as given in the request.</p>
-   *
+   * <p>The same campaign ARN as given in the request.</p>
    */
   campaignArn?: string;
 }
@@ -4041,9 +3261,7 @@ export namespace UpdateCampaignResponse {
 }
 
 /**
- *
- *          <p>Provide a valid value for the field or parameter.</p>
- *
+ * <p>Provide a valid value for the field or parameter.</p>
  */
 export interface InvalidInputException
   extends _smithy.SmithyException,
@@ -4061,9 +3279,7 @@ export namespace InvalidInputException {
 }
 
 /**
- *
- *          <p>The token is not valid.</p>
- *
+ * <p>The token is not valid.</p>
  */
 export interface InvalidNextTokenException
   extends _smithy.SmithyException,
@@ -4081,9 +3297,7 @@ export namespace InvalidNextTokenException {
 }
 
 /**
- *
- *          <p>The limit on the number of requests per second has been exceeded.</p>
- *
+ * <p>The limit on the number of requests per second has been exceeded.</p>
  */
 export interface LimitExceededException
   extends _smithy.SmithyException,
@@ -4101,9 +3315,7 @@ export namespace LimitExceededException {
 }
 
 /**
- *
- *          <p>The specified resource already exists.</p>
- *
+ * <p>The specified resource already exists.</p>
  */
 export interface ResourceAlreadyExistsException
   extends _smithy.SmithyException,
@@ -4121,9 +3333,7 @@ export namespace ResourceAlreadyExistsException {
 }
 
 /**
- *
- *          <p>The specified resource is in use.</p>
- *
+ * <p>The specified resource is in use.</p>
  */
 export interface ResourceInUseException
   extends _smithy.SmithyException,
@@ -4141,9 +3351,7 @@ export namespace ResourceInUseException {
 }
 
 /**
- *
- *          <p>Could not find the specified resource.</p>
- *
+ * <p>Could not find the specified resource.</p>
  */
 export interface ResourceNotFoundException
   extends _smithy.SmithyException,

@@ -21,6 +21,12 @@ import {
   ListPlacementsResponse,
   ListProjectsRequest,
   ListProjectsResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
+  TagResourceRequest,
+  TagResourceResponse,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdatePlacementRequest,
   UpdatePlacementResponse,
   UpdateProjectRequest,
@@ -90,6 +96,9 @@ export type ServiceInputTypes =
   | GetDevicesInPlacementRequest
   | ListPlacementsRequest
   | ListProjectsRequest
+  | ListTagsForResourceRequest
+  | TagResourceRequest
+  | UntagResourceRequest
   | UpdatePlacementRequest
   | UpdateProjectRequest;
 
@@ -105,6 +114,9 @@ export type ServiceOutputTypes =
   | GetDevicesInPlacementResponse
   | ListPlacementsResponse
   | ListProjectsResponse
+  | ListTagsForResourceResponse
+  | TagResourceResponse
+  | UntagResourceResponse
   | UpdatePlacementResponse
   | UpdateProjectResponse;
 
@@ -216,9 +228,7 @@ export type IoT1ClickProjectsClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>The AWS IoT 1-Click Project API Reference</p>
- *
+ * <p>The AWS IoT 1-Click Projects API Reference</p>
  */
 export class IoT1ClickProjectsClient extends __Client<
   __HttpHandlerOptions,

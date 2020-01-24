@@ -248,8 +248,7 @@ export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *         <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
+ * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
  *             AWS without needing to stand up or maintain your own Kubernetes control plane.
  *             Kubernetes is an open-source system for automating the deployment, scaling, and
  *             management of containerized applications. </p>
@@ -259,7 +258,6 @@ export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<
  *             environment, whether running in on-premises data centers or public clouds. This means
  *             that you can easily migrate any standard Kubernetes application to Amazon EKS without any
  *             code modification required.</p>
- *
  */
 export class EKSClient extends __Client<
   __HttpHandlerOptions,

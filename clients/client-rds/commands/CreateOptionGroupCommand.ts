@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RDSClient";
-import { CreateOptionGroupMessage, OptionGroup } from "../models/index";
+import {
+  CreateOptionGroupMessage,
+  CreateOptionGroupResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateOptionGroupCommand,
   serializeAws_queryCreateOptionGroupCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateOptionGroupCommandInput = CreateOptionGroupMessage;
-export type CreateOptionGroupCommandOutput = OptionGroup;
+export type CreateOptionGroupCommandOutput = CreateOptionGroupResult;
 
 export class CreateOptionGroupCommand extends $Command<
   CreateOptionGroupCommandInput,

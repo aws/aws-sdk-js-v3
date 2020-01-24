@@ -41,6 +41,7 @@ export * from "./commands/PutDedicatedIpInPoolCommand";
 export * from "./commands/PutDedicatedIpWarmupAttributesCommand";
 export * from "./commands/PutDeliverabilityDashboardOptionCommand";
 export * from "./commands/PutEmailIdentityDkimAttributesCommand";
+export * from "./commands/PutEmailIdentityDkimSigningAttributesCommand";
 export * from "./commands/PutEmailIdentityFeedbackAttributesCommand";
 export * from "./commands/PutEmailIdentityMailFromAttributesCommand";
 export * from "./commands/PutSuppressedDestinationCommand";

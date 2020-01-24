@@ -321,8 +321,7 @@ export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS Key Management Service</fullname>
+ * <fullname>AWS Key Management Service</fullname>
  *          <p>AWS Key Management Service (AWS KMS) is an encryption and key management web service. This guide describes
  *       the AWS KMS operations that you can call programmatically. For general information about AWS KMS,
  *       see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/">
@@ -411,7 +410,6 @@ export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<
  *                </p>
  *             </li>
  *          </ul>
- *
  */
 export class KMSClient extends __Client<
   __HttpHandlerOptions,

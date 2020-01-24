@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../NeptuneClient";
-import { DBCluster, FailoverDBClusterMessage } from "../models/index";
+import {
+  FailoverDBClusterMessage,
+  FailoverDBClusterResult
+} from "../models/index";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
-export type FailoverDBClusterCommandOutput = DBCluster;
+export type FailoverDBClusterCommandOutput = FailoverDBClusterResult;
 
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,

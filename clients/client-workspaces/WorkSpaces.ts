@@ -120,6 +120,11 @@ import {
   ListAvailableManagementCidrRangesCommandOutput
 } from "./commands/ListAvailableManagementCidrRangesCommand";
 import {
+  MigrateWorkspaceCommand,
+  MigrateWorkspaceCommandInput,
+  MigrateWorkspaceCommandOutput
+} from "./commands/MigrateWorkspaceCommand";
+import {
   ModifyAccountCommand,
   ModifyAccountCommandInput,
   ModifyAccountCommandOutput
@@ -202,17 +207,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>Amazon WorkSpaces Service</fullname>
+ * <fullname>Amazon WorkSpaces Service</fullname>
  *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and
  *          Amazon Linux desktops for your users.</p>
- *
  */
 export class WorkSpaces extends WorkSpacesClient {
   /**
-   *
-   *          <p>Associates the specified IP access control group with the specified directory.</p>
-   *
+   * <p>Associates the specified IP access control group with the specified directory.</p>
    */
   public associateIpGroups(
     args: AssociateIpGroupsCommandInput,
@@ -247,11 +248,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Adds one or more rules to the specified IP access control group.</p>
+   * <p>Adds one or more rules to the specified IP access control group.</p>
    *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
    *          ranges specified in the rules.</p>
-   *
    */
   public authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
@@ -286,9 +285,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Copies the specified image from the specified Region to the current Region.</p>
-   *
+   * <p>Copies the specified image from the specified Region to the current Region.</p>
    */
   public copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
@@ -323,8 +320,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Creates an IP access control group.</p>
+   * <p>Creates an IP access control group.</p>
    *          <p>An IP access control group provides you with the ability to control the IP addresses
    *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
    *          ranges, add rules to your IP access control group and then associate the group with your
@@ -334,7 +330,6 @@ export class WorkSpaces extends WorkSpacesClient {
    *          associate an IP access control group with your directory, the default group is used. The
    *          default group includes a default rule that allows users to access their WorkSpaces from
    *          anywhere. You cannot modify the default IP access control group for your directory.</p>
-   *
    */
   public createIpGroup(
     args: CreateIpGroupCommandInput,
@@ -369,9 +364,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Creates the specified tags for the specified WorkSpaces resource.</p>
-   *
+   * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
    */
   public createTags(
     args: CreateTagsCommandInput,
@@ -406,10 +399,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Creates one or more WorkSpaces.</p>
+   * <p>Creates one or more WorkSpaces.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
-   *
    */
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
@@ -444,10 +435,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified IP access control group.</p>
+   * <p>Deletes the specified IP access control group.</p>
    *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
-   *
    */
   public deleteIpGroup(
     args: DeleteIpGroupCommandInput,
@@ -482,9 +471,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified tags from the specified WorkSpaces resource.</p>
-   *
+   * <p>Deletes the specified tags from the specified WorkSpaces resource.</p>
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -519,11 +506,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified image from your account. To delete an image, you must first delete
+   * <p>Deletes the specified image from your account. To delete an image, you must first delete
    *          any bundles that are associated with the image and un-share the image if it is shared with
    *          other accounts. </p>
-   *
    */
   public deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
@@ -558,11 +543,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Deregisters the specified directory. This operation is asynchronous
+   * <p>Deregisters the specified directory. This operation is asynchronous
    *          and returns before the WorkSpace directory is deregistered. If any WorkSpaces are
    *       registered to this directory, you must remove them before you can deregister the directory.</p>
-   *
    */
   public deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
@@ -597,10 +580,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
+   * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
    *          the specified account.</p>
-   *
    */
   public describeAccount(
     args: DescribeAccountCommandInput,
@@ -635,10 +616,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
+   * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
    *          License (BYOL) for the specified account.</p>
-   *
    */
   public describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
@@ -673,9 +652,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
-   *
+   * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
    */
   public describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
@@ -710,9 +687,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes one or more of your IP access control groups.</p>
-   *
+   * <p>Describes one or more of your IP access control groups.</p>
    */
   public describeIpGroups(
     args: DescribeIpGroupsCommandInput,
@@ -747,9 +722,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified tags for the specified WorkSpaces resource.</p>
-   *
+   * <p>Describes the specified tags for the specified WorkSpaces resource.</p>
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -784,10 +757,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list that describes the available WorkSpace bundles.</p>
+   * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
    *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
-   *
    */
   public describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
@@ -822,10 +793,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes the available directories that are registered with
+   * <p>Describes the available directories that are registered with
    *          Amazon WorkSpaces.</p>
-   *
    */
   public describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
@@ -860,10 +829,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list that describes one or more specified images, if the image identifiers
+   * <p>Retrieves a list that describes one or more specified images, if the image identifiers
    *          are provided. Otherwise, all images in the account are described. </p>
-   *
    */
   public describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
@@ -898,9 +865,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes the snapshots for the specified WorkSpace.</p>
-   *
+   * <p>Describes the snapshots for the specified WorkSpace.</p>
    */
   public describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
@@ -935,11 +900,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes the specified WorkSpaces.</p>
+   * <p>Describes the specified WorkSpaces.</p>
    *          <p>You can filter the results by using the bundle identifier, directory identifier, or
    *          owner, but you can specify only one filter at a time.</p>
-   *
    */
   public describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
@@ -974,9 +937,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Describes the connection status of the specified WorkSpaces.</p>
-   *
+   * <p>Describes the connection status of the specified WorkSpaces.</p>
    */
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
@@ -1023,9 +984,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Disassociates the specified IP access control group from the specified directory.</p>
-   *
+   * <p>Disassociates the specified IP access control group from the specified directory.</p>
    */
   public disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
@@ -1060,11 +1019,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL) image into
+   * <p>Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL) image into
    *          Amazon WorkSpaces. The image must be an already licensed EC2 image that is in your AWS
    *          account, and you must own the image. </p>
-   *
    */
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
@@ -1099,13 +1056,11 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
+   * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
    *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
    *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
    *          network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
    *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
-   *
    */
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
@@ -1152,10 +1107,51 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Migrates a WorkSpace from one operating system or bundle type to another, while retaining the data on the user volume.</p>
    *
-   *          <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
+   *          <p>The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume
+   *          from the last available snapshot of the original WorkSpace. During migration, the original <code>D:\Users\%USERNAME%</code>
+   *          user profile folder is renamed to <code>D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated</code>. A new <code>D:\Users\%USERNAME%\</code>
+   *          folder is generated by the new OS. Certain files in the old user profile are moved to the new user profile.</p>
+   *
+   *          <p>For available migration scenarios, details about what happens during migration, and best practices, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html">Migrate a WorkSpace</a>.</p>
+   */
+  public migrateWorkspace(
+    args: MigrateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MigrateWorkspaceCommandOutput>;
+  public migrateWorkspace(
+    args: MigrateWorkspaceCommandInput,
+    cb: (err: any, data?: MigrateWorkspaceCommandOutput) => void
+  ): void;
+  public migrateWorkspace(
+    args: MigrateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MigrateWorkspaceCommandOutput) => void
+  ): void;
+  public migrateWorkspace(
+    args: MigrateWorkspaceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: MigrateWorkspaceCommandOutput) => void),
+    cb?: (err: any, data?: MigrateWorkspaceCommandOutput) => void
+  ): Promise<MigrateWorkspaceCommandOutput> | void {
+    const command = new MigrateWorkspaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
    *          account.</p>
-   *
    */
   public modifyAccount(
     args: ModifyAccountCommandInput,
@@ -1190,9 +1186,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
-   *
+   * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
    */
   public modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
@@ -1227,10 +1221,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Modifies the self-service WorkSpace management capabilities for your users. For more
+   * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
-   *
    */
   public modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
@@ -1265,11 +1257,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Specifies which devices and operating systems users can use to access their Workspaces.
+   * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.
    *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access">
    *             Control Device Access</a>.</p>
-   *
    */
   public modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
@@ -1307,9 +1297,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Modify the default properties used to create WorkSpaces.</p>
-   *
+   * <p>Modify the default properties used to create WorkSpaces.</p>
    */
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
@@ -1356,9 +1344,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Modifies the specified WorkSpace properties.</p>
-   *
+   * <p>Modifies the specified WorkSpace properties.</p>
    */
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
@@ -1393,14 +1379,12 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Sets the state of the specified WorkSpace.</p>
+   * <p>Sets the state of the specified WorkSpace.</p>
    *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
    *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
    *          reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
    *          stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code>
    *          state.</p>
-   *
    */
   public modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
@@ -1435,12 +1419,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Reboots the specified WorkSpaces.</p>
+   * <p>Reboots the specified WorkSpaces.</p>
    *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code> or
    *             <code>UNHEALTHY</code>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
-   *
    */
   public rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
@@ -1475,8 +1457,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Rebuilds the specified WorkSpace.</p>
+   * <p>Rebuilds the specified WorkSpace.</p>
    *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
    *             <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>
    *          <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
@@ -1484,7 +1465,6 @@ export class WorkSpaces extends WorkSpacesClient {
    *          WorkSpace</a>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
    *          rebuilt.</p>
-   *
    */
   public rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
@@ -1519,13 +1499,11 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Registers the specified directory. This operation is asynchronous
+   * <p>Registers the specified directory. This operation is asynchronous
    *          and returns before the WorkSpace directory is registered. If this is the first time you are
    *          registering a directory, you will need to create the workspaces_DefaultRole role before you can
    *          register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
    *             Creating the workspaces_DefaultRole Role</a>.</p>
-   *
    */
   public registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
@@ -1560,8 +1538,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Restores the specified WorkSpace to its last known healthy state.</p>
+   * <p>Restores the specified WorkSpace to its last known healthy state.</p>
    *          <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>,
    *             <code>ERROR</code>, or <code>UNHEALTHY</code>.</p>
    *          <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of
@@ -1569,7 +1546,6 @@ export class WorkSpaces extends WorkSpacesClient {
    *          WorkSpace</a>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpace is completely
    *          restored.</p>
-   *
    */
   public restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
@@ -1604,9 +1580,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Removes one or more rules from the specified IP access control group.</p>
-   *
+   * <p>Removes one or more rules from the specified IP access control group.</p>
    */
   public revokeIpRules(
     args: RevokeIpRulesCommandInput,
@@ -1641,11 +1615,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Starts the specified WorkSpaces.</p>
+   * <p>Starts the specified WorkSpaces.</p>
    *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
    *          state of <code>STOPPED</code>.</p>
-   *
    */
   public startWorkspaces(
     args: StartWorkspacesCommandInput,
@@ -1680,12 +1652,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p> Stops the specified WorkSpaces.</p>
+   * <p> Stops the specified WorkSpaces.</p>
    *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
    *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
    *             <code>ERROR</code>.</p>
-   *
    */
   public stopWorkspaces(
     args: StopWorkspacesCommandInput,
@@ -1720,15 +1690,13 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Terminates the specified WorkSpaces.</p>
+   * <p>Terminates the specified WorkSpaces.</p>
    *          <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is
    *          destroyed. If you need to archive any user data, contact Amazon Web Services before
    *          terminating the WorkSpace.</p>
    *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
    *          terminated.</p>
-   *
    */
   public terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
@@ -1763,10 +1731,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   *
-   *          <p>Replaces the current rules of the specified IP access control group with the specified
+   * <p>Replaces the current rules of the specified IP access control group with the specified
    *          rules.</p>
-   *
    */
   public updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,

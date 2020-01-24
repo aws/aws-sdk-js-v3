@@ -180,9 +180,7 @@ export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
- *
+ * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations.</p>
  */
 export class CodeGuruReviewerClient extends __Client<
   __HttpHandlerOptions,

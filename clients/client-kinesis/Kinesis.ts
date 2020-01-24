@@ -142,16 +142,13 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
+ * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
  *         <p>Amazon Kinesis Data Streams is a managed service that scales elastically for
  *             real-time processing of streaming big data.</p>
- *
  */
 export class Kinesis extends KinesisClient {
   /**
-   *
-   *         <p>Adds or updates tags for the specified Kinesis data stream. Each time you invoke
+   * <p>Adds or updates tags for the specified Kinesis data stream. Each time you invoke
    *             this operation, you can specify up to 10 tags. If you want to add more than 10 tags to
    *             your stream, you can invoke this operation multiple times. In total, each stream can
    *             have up to 50 tags.</p>
@@ -160,8 +157,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <a>AddTagsToStream</a> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public addTagsToStream(
     args: AddTagsToStreamCommandInput,
@@ -196,8 +191,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Creates a Kinesis data stream. A stream captures and transports data records that
+   * <p>Creates a Kinesis data stream. A stream captures and transports data records that
    *             are continuously emitted from different data sources or <i>producers</i>.
    *             Scale-out within a stream is explicitly supported by means of shards, which are uniquely
    *             identified groups of data records in a stream.</p>
@@ -236,8 +230,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <a>CreateStream</a> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public createStream(
     args: CreateStreamCommandInput,
@@ -272,13 +264,10 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Decreases the Kinesis data stream's retention period, which is the length of time
+   * <p>Decreases the Kinesis data stream's retention period, which is the length of time
    *             data records are accessible after they are added to the stream. The minimum value of a
    *             stream's retention period is 24 hours.</p>
    *         <p>This operation may result in lost data. For example, if the stream's retention period is 48 hours and is decreased to 24 hours, any data already in the stream that is older than 24 hours is inaccessible.</p>
-   *
-   *
    */
   public decreaseStreamRetentionPeriod(
     args: DecreaseStreamRetentionPeriodCommandInput,
@@ -313,8 +302,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
+   * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
    *             applications that are operating on the stream before you delete the stream. If an
    *             application attempts to operate on a deleted stream, it receives the exception
    *                 <code>ResourceNotFoundException</code>.</p>
@@ -332,8 +320,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <a>DeleteStream</a> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public deleteStream(
     args: DeleteStreamCommandInput,
@@ -368,8 +354,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
+   * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
    *             the data stream and the name you gave the consumer when you registered it. You may also
    *             provide all three parameters, as long as they don't conflict with each other. If you
    *             don't know the name or ARN of the consumer that you want to deregister, you can use the
@@ -377,7 +362,6 @@ export class Kinesis extends KinesisClient {
    *             all the consumers that are currently registered with a given data stream. The
    *             description of a consumer contains its name and ARN.</p>
    *         <p>This operation has a limit of five transactions per second per account.</p>
-   *
    */
   public deregisterStreamConsumer(
     args: DeregisterStreamConsumerCommandInput,
@@ -412,12 +396,9 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Describes the shard limits and usage for the account.</p>
+   * <p>Describes the shard limits and usage for the account.</p>
    *         <p>If you update your account limits, the old limits might be returned for a few minutes.</p>
    *         <p>This operation has a limit of one transaction per second per account.</p>
-   *
-   *
    */
   public describeLimits(
     args: DescribeLimitsCommandInput,
@@ -452,8 +433,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Describes the specified Kinesis data stream.</p>
+   * <p>Describes the specified Kinesis data stream.</p>
    *
    *         <p>The information returned includes the stream name, Amazon Resource Name (ARN), creation
    *             time, enhanced metric configuration, and shard map. The shard map is an array of shard objects.
@@ -469,8 +449,6 @@ export class Kinesis extends KinesisClient {
    *         <p>There are no guarantees about the chronological order shards returned. To process shards in chronological
    *             order, use the ID of the parent shard to track the lineage to the oldest shard.</p>
    *         <p>This operation has a limit of 10 transactions per second per account.</p>
-   *
-   *
    */
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -505,8 +483,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>To get the description of a registered consumer, provide the ARN of the consumer.
+   * <p>To get the description of a registered consumer, provide the ARN of the consumer.
    *             Alternatively, you can provide the ARN of the data stream and the name you gave the
    *             consumer when you registered it. You may also provide all three parameters, as long as
    *             they don't conflict with each other. If you don't know the name or ARN of the consumer
@@ -514,7 +491,6 @@ export class Kinesis extends KinesisClient {
    *             operation to get a list of the descriptions of all the consumers that are currently
    *             registered with a given data stream.</p>
    *         <p>This operation has a limit of 20 transactions per second per account.</p>
-   *
    */
   public describeStreamConsumer(
     args: DescribeStreamConsumerCommandInput,
@@ -549,12 +525,10 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Provides a summarized description of the specified Kinesis data stream without the
+   * <p>Provides a summarized description of the specified Kinesis data stream without the
    *             shard list.</p>
    *         <p>The information returned includes the stream name, Amazon Resource Name (ARN), status, record retention period, approximate creation
    *             time, monitoring, encryption details, and open shard count. </p>
-   *
    */
   public describeStreamSummary(
     args: DescribeStreamSummaryCommandInput,
@@ -589,10 +563,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Disables enhanced monitoring.</p>
-   *
-   *
+   * <p>Disables enhanced monitoring.</p>
    */
   public disableEnhancedMonitoring(
     args: DisableEnhancedMonitoringCommandInput,
@@ -627,10 +598,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
-   *
-   *
+   * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
    */
   public enableEnhancedMonitoring(
     args: EnableEnhancedMonitoringCommandInput,
@@ -665,8 +633,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Gets data records from a Kinesis data stream's shard.</p>
+   * <p>Gets data records from a Kinesis data stream's shard.</p>
    *         <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard
    *             iterator specifies the position in the shard from which you want to start reading data
    *             records sequentially. If there are no records available in the portion of the shard that
@@ -713,8 +680,6 @@ export class Kinesis extends KinesisClient {
    *             increasing. For example, records in a shard or across a stream might have time stamps
    *             that are out of order.</p>
    *         <p>This operation has a limit of five transactions per second per account.</p>
-   *
-   *
    */
   public getRecords(
     args: GetRecordsCommandInput,
@@ -749,8 +714,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it
+   * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it
    *             is returned to the requester.</p>
    *         <p>A shard iterator specifies the shard position from which to start reading data records sequentially. The position is specified using the sequence number of a data record in a shard. A sequence number is the identifier associated with every record ingested in the stream, and is assigned when a record is put into the stream. Each stream has one or more shards.</p>
    *         <p>You must specify the shard iterator type. For example, you can set the
@@ -781,8 +745,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <a>GetShardIterator</a> has a limit of five transactions per second per
    *             account per open shard.</p>
-   *
-   *
    */
   public getShardIterator(
     args: GetShardIteratorCommandInput,
@@ -817,8 +779,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Increases the  Kinesis data stream's retention period, which is the length of time
+   * <p>Increases the  Kinesis data stream's retention period, which is the length of time
    *             data records are accessible after they are added to the stream. The maximum value of a
    *             stream's retention period is 168 hours (7 days).</p>
    *         <p>If you choose a longer stream retention period, this operation increases the time
@@ -827,8 +788,6 @@ export class Kinesis extends KinesisClient {
    *             accessible after the operation has been called. For example, if a stream's retention
    *             period is set to 24 hours and is increased to 168 hours, any data that is older than 24
    *             hours remains inaccessible to consumer applications.</p>
-   *
-   *
    */
   public increaseStreamRetentionPeriod(
     args: IncreaseStreamRetentionPeriodCommandInput,
@@ -863,8 +822,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Lists the shards in a stream and provides information about each shard. This
+   * <p>Lists the shards in a stream and provides information about each shard. This
    *             operation has a limit of 100 transactions per second per data stream.</p>
    *         <important>
    *             <p>This API is a new operation that is used by the Amazon Kinesis Client Library
@@ -873,8 +831,6 @@ export class Kinesis extends KinesisClient {
    *                     <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling Access to Amazon Kinesis Data Streams Resources Using
    *                 IAM</a>.</p>
    *         </important>
-   *
-   *
    */
   public listShards(
     args: ListShardsCommandInput,
@@ -909,11 +865,9 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
+   * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
    *             and provides information about each consumer.</p>
    *         <p>This operation has a limit of 10 transactions per second per account.</p>
-   *
    */
   public listStreamConsumers(
     args: ListStreamConsumersCommandInput,
@@ -948,8 +902,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Lists your Kinesis data streams.</p>
+   * <p>Lists your Kinesis data streams.</p>
    *         <p>The number of streams may be too large to return from a single call to
    *                 <code>ListStreams</code>. You can limit the number of returned streams using the
    *                 <code>Limit</code> parameter. If you do not specify a value for the
@@ -965,8 +918,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <a>ListStreams</a> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public listStreams(
     args: ListStreamsCommandInput,
@@ -1001,11 +952,8 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
+   * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
    *             five transactions per second per account.</p>
-   *
-   *
    */
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
@@ -1040,8 +988,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
+   * <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
    *             shard to reduce the stream's capacity to ingest and transport data. Two shards are
    *             considered adjacent if the union of the hash key ranges for the two shards form a
    *             contiguous set with no gaps. For example, if you have two shards, one with a hash key
@@ -1077,8 +1024,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <code>MergeShards</code> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public mergeShards(
     args: MergeShardsCommandInput,
@@ -1113,8 +1058,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Writes a single data record into an Amazon Kinesis data stream. Call
+   * <p>Writes a single data record into an Amazon Kinesis data stream. Call
    *                 <code>PutRecord</code> to send data into the stream for real-time ingestion and
    *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
    *             records per second, up to a maximum data write total of 1 MB per second.</p>
@@ -1145,8 +1089,6 @@ export class Kinesis extends KinesisClient {
    *         <p>By default, data records are accessible for 24 hours from the time that they are added to a stream.
    *             You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a>
    *             to modify this retention period.</p>
-   *
-   *
    */
   public putRecord(
     args: PutRecordCommandInput,
@@ -1181,8 +1123,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Writes multiple data records into a Kinesis data stream in a single call (also
+   * <p>Writes multiple data records into a Kinesis data stream in a single call (also
    *             referred to as a <code>PutRecords</code> request). Use this operation to send data into
    *             the stream for data ingestion and processing. </p>
    *         <p>Each <code>PutRecords</code> request can support up to 500 records. Each record in the request can be as large as 1 MB, up to a limit of 5 MB for the entire request, including partition keys. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second.</p>
@@ -1228,8 +1169,6 @@ export class Kinesis extends KinesisClient {
    *         <p>By default, data records are accessible for 24 hours from the time that they are added to a stream.
    *             You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a>
    *             to modify this retention period.</p>
-   *
-   *
    */
   public putRecords(
     args: PutRecordsCommandInput,
@@ -1264,15 +1203,13 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
+   * <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
    *             consumer you register can read data from the stream at a rate of up to 2 MiB per second.
    *             This rate is unaffected by the total number of consumers that read from the same
    *             stream.</p>
    *         <p>You can register up to 5 consumers per stream. A given consumer can only be registered
    *             with one stream.</p>
    *         <p>This operation has a limit of five transactions per second per account.</p>
-   *
    */
   public registerStreamConsumer(
     args: RegisterStreamConsumerCommandInput,
@@ -1307,15 +1244,12 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
+   * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
    *             cannot be recovered after this operation successfully completes.</p>
    *         <p>If you specify a tag that does not exist, it is ignored.</p>
    *         <p>
    *             <a>RemoveTagsFromStream</a> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public removeTagsFromStream(
     args: RemoveTagsFromStreamCommandInput,
@@ -1350,8 +1284,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
+   * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
    *             stream's capacity to ingest and transport data. <code>SplitShard</code> is called when
    *             there is a need to increase the overall capacity of a stream because of an expected
    *             increase in the volume of data records being ingested. </p>
@@ -1394,8 +1327,6 @@ export class Kinesis extends KinesisClient {
    *         <p>
    *             <code>SplitShard</code> has a limit of five transactions per second per
    *             account.</p>
-   *
-   *
    */
   public splitShard(
     args: SplitShardCommandInput,
@@ -1430,9 +1361,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *
-   *         <p>Enables or updates server-side encryption using an AWS KMS key for a specified stream. </p>
+   * <p>Enables or updates server-side encryption using an AWS KMS key for a specified stream. </p>
    *         <p>Starting encryption is an asynchronous operation. Upon receiving the request,
    *             Kinesis Data Streams returns immediately and sets the status of the stream to
    *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
@@ -1447,8 +1376,6 @@ export class Kinesis extends KinesisClient {
    *             status before all records written to the stream are encrypted. After you enable
    *             encryption, you can verify that encryption is applied by inspecting the API response
    *             from <code>PutRecord</code> or <code>PutRecords</code>.</p>
-   *
-   *
    */
   public startStreamEncryption(
     args: StartStreamEncryptionCommandInput,
@@ -1483,9 +1410,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *
-   *         <p>Disables server-side encryption for a specified stream. </p>
+   * <p>Disables server-side encryption for a specified stream. </p>
    *         <p>Stopping encryption is an asynchronous operation. Upon receiving the request,
    *             Kinesis Data Streams returns immediately and sets the status of the stream to
    *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
@@ -1501,8 +1426,6 @@ export class Kinesis extends KinesisClient {
    *             After you disabled encryption, you can verify that encryption is not applied by
    *             inspecting the API response from <code>PutRecord</code> or
    *             <code>PutRecords</code>.</p>
-   *
-   *
    */
   public stopStreamEncryption(
     args: StopStreamEncryptionCommandInput,
@@ -1537,8 +1460,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Call this operation from your consumer after you call <a>RegisterStreamConsumer</a> to register the consumer with Kinesis Data
+   * <p>Call this operation from your consumer after you call <a>RegisterStreamConsumer</a> to register the consumer with Kinesis Data
    *             Streams. If the call succeeds, your consumer starts receiving events of type <a>SubscribeToShardEvent</a> for up to 5 minutes, after which time you need to
    *             call <code>SubscribeToShard</code> again to renew the subscription if you want to
    *             continue to receive records.</p>
@@ -1547,7 +1469,6 @@ export class Kinesis extends KinesisClient {
    *             again less than 5 seconds later, the second call generates a <a>ResourceInUseException</a>. If you call the operation a second time more
    *             than 5 seconds after the first call succeeds, the second call succeeds and the first
    *             connection gets shut down.</p>
-   *
    */
   public subscribeToShard(
     args: SubscribeToShardCommandInput,
@@ -1582,8 +1503,7 @@ export class Kinesis extends KinesisClient {
   }
 
   /**
-   *
-   *         <p>Updates the shard count of the specified stream to the specified number of shards.</p>
+   * <p>Updates the shard count of the specified stream to the specified number of shards.</p>
    *         <p>Updating the shard count is an asynchronous operation. Upon receiving the request,
    *             Kinesis Data Streams returns immediately and sets the status of the stream to
    *                 <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the
@@ -1621,8 +1541,6 @@ export class Kinesis extends KinesisClient {
    *                 <i>Amazon Kinesis Data Streams Developer Guide</i>. To request an
    *             increase in the call rate limit, the shard limit for this API, or your overall shard
    *             limit, use the <a href="https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis">limits form</a>.</p>
-   *
-   *
    */
   public updateShardCount(
     args: UpdateShardCountCommandInput,

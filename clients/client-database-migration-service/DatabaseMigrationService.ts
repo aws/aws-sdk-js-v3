@@ -237,8 +237,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *          <fullname>AWS Database Migration Service</fullname>
+ * <fullname>AWS Database Migration Service</fullname>
  *          <p>AWS Database Migration Service (AWS DMS) can migrate your data to and from the most
  *          widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL
  *          Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise
@@ -248,18 +247,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>For more information about AWS DMS, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html">What Is AWS Database Migration Service?</a>
  *          in the <i>AWS Database Migration User Guide.</i>
  *          </p>
- *
  */
 export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   /**
-   *
-   *          <p>Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
+   * <p>Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
    *          security group, and migration task. These tags can also be used with cost allocation
    *          reporting to track cost associated with DMS resources, or used in a Condition statement in
    *          an IAM policy for DMS.</p>
-   *
-   *
-   *
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -294,9 +288,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
-   *
+   * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
    */
   public applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -331,10 +323,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates an endpoint using the provided settings.</p>
-   *
-   *
+   * <p>Creates an endpoint using the provided settings.</p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -369,8 +358,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p> Creates an AWS DMS event notification subscription. </p>
+   * <p> Creates an AWS DMS event notification subscription. </p>
    *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
    *          provide a list of AWS DMS source IDs (<code>SourceIds</code>) that triggers the events, and
    *          provide a list of event categories (<code>EventCategories</code>) for events you want to be
@@ -386,8 +374,6 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
    *             Notifications</a> in the <i>AWS Database Migration Service User
    *             Guide.</i>
    *          </p>
-   *
-   *
    */
   public createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -422,15 +408,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates the replication instance using the specified parameters.</p>
+   * <p>Creates the replication instance using the specified parameters.</p>
    *          <p>AWS DMS requires that your account have certain roles with appropriate permissions
    *          before you can create a replication instance. For information on the required roles, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
    *          information on the required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.IAMPermissions.html">IAM Permissions Needed to Use AWS DMS</a>.</p>
-   *
-   *
-   *
    */
   public createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
@@ -465,11 +447,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
-   *
-   *
-   *
+   * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
    */
   public createReplicationSubnetGroup(
     args: CreateReplicationSubnetGroupCommandInput,
@@ -504,11 +482,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Creates a replication task using the specified parameters.</p>
-   *
-   *
-   *
+   * <p>Creates a replication task using the specified parameters.</p>
    */
   public createReplicationTask(
     args: CreateReplicationTaskCommandInput,
@@ -543,9 +517,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified certificate. </p>
-   *
+   * <p>Deletes the specified certificate. </p>
    */
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -580,11 +552,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes the connection between a replication instance and an endpoint.</p>
-   *
-   *
-   *
+   * <p>Deletes the connection between a replication instance and an endpoint.</p>
    */
   public deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -619,15 +587,12 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified endpoint.</p>
+   * <p>Deletes the specified endpoint.</p>
    *          <note>
    *             <p>All tasks associated with the endpoint must be deleted before you can delete the
    *             endpoint.</p>
    *          </note>
    *          <p></p>
-   *
-   *
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -662,9 +627,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p> Deletes an AWS DMS event subscription. </p>
-   *
+   * <p> Deletes an AWS DMS event subscription. </p>
    */
   public deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -699,15 +662,12 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified replication instance.</p>
+   * <p>Deletes the specified replication instance.</p>
    *          <note>
    *             <p>You must delete any migration tasks that are associated with the replication instance
    *             before you can delete it.</p>
    *          </note>
    *          <p></p>
-   *
-   *
    */
   public deleteReplicationInstance(
     args: DeleteReplicationInstanceCommandInput,
@@ -742,11 +702,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes a subnet group.</p>
-   *
-   *
-   *
+   * <p>Deletes a subnet group.</p>
    */
   public deleteReplicationSubnetGroup(
     args: DeleteReplicationSubnetGroupCommandInput,
@@ -781,11 +737,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified replication task.</p>
-   *
-   *
-   *
+   * <p>Deletes the specified replication task.</p>
    */
   public deleteReplicationTask(
     args: DeleteReplicationTaskCommandInput,
@@ -820,17 +772,13 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists all of the AWS DMS attributes for a customer account. These attributes include AWS
+   * <p>Lists all of the AWS DMS attributes for a customer account. These attributes include AWS
    *          DMS quotas for the account and a unique account identifier in a particular DMS region. DMS
    *          quotas include a list of resource quotas supported by the account, such as the number of
    *          replication instances allowed. The description for each resource quota, includes the quota
    *          name, current usage toward that quota, and the quota's maximum value. DMS uses the unique
    *          account identifier to name each artifact used by DMS in the given region.</p>
    *          <p>This command does not take any parameters.</p>
-   *
-   *
-   *
    */
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -865,9 +813,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Provides a description of the certificate.</p>
-   *
+   * <p>Provides a description of the certificate.</p>
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -902,12 +848,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Describes the status of the connections that have been made between the replication
+   * <p>Describes the status of the connections that have been made between the replication
    *          instance and an endpoint. Connections are created when you test an endpoint.</p>
-   *
-   *
-   *
    */
   public describeConnections(
     args: DescribeConnectionsCommandInput,
@@ -942,10 +884,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the type of endpoints available.</p>
-   *
-   *
+   * <p>Returns information about the type of endpoints available.</p>
    */
   public describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
@@ -980,11 +919,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the endpoints for your account in the current region.</p>
-   *
-   *
-   *
+   * <p>Returns information about the endpoints for your account in the current region.</p>
    */
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -1019,13 +954,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists categories for all event source types, or, if specified, for a specified source
+   * <p>Lists categories for all event source types, or, if specified, for a specified source
    *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
    *             and Notifications</a> in the <i>AWS Database Migration Service User
    *             Guide.</i>
    *          </p>
-   *
    */
   public describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -1060,14 +993,12 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists all the event subscriptions for a customer account. The description of a
+   * <p>Lists all the event subscriptions for a customer account. The description of a
    *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
    *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
    *             <code>CreationTime</code>, and <code>Status</code>. </p>
    *          <p>If you specify <code>SubscriptionName</code>, this action lists the description for that
    *          subscription.</p>
-   *
    */
   public describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -1102,14 +1033,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p> Lists events for a given source identifier and source type. You can also specify a
+   * <p> Lists events for a given source identifier and source type. You can also specify a
    *          start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
    *             Notifications</a> in the <i>AWS Database Migration User
    *          Guide.</i>
    *          </p>
-   *
-   *
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -1144,12 +1072,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the replication instance types that can be created in the
+   * <p>Returns information about the replication instance types that can be created in the
    *          specified region.</p>
-   *
-   *
-   *
    */
   public describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
@@ -1196,12 +1120,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>For internal use only</p>
-   *
-   *
-   *
-   *
+   * <p>For internal use only</p>
    */
   public describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -1248,11 +1167,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns the status of the RefreshSchemas operation.</p>
-   *
-   *
-   *
+   * <p>Returns the status of the RefreshSchemas operation.</p>
    */
   public describeRefreshSchemasStatus(
     args: DescribeRefreshSchemasStatusCommandInput,
@@ -1287,10 +1202,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the task logs for the specified task.</p>
-   *
-   *
+   * <p>Returns information about the task logs for the specified task.</p>
    */
   public describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
@@ -1337,12 +1249,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about replication instances for your account in the current
+   * <p>Returns information about replication instances for your account in the current
    *          region.</p>
-   *
-   *
-   *
    */
   public describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
@@ -1377,11 +1285,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the replication subnet groups.</p>
-   *
-   *
-   *
+   * <p>Returns information about the replication subnet groups.</p>
    */
   public describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
@@ -1419,10 +1323,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns the task assessment results from Amazon S3. This action always returns the
+   * <p>Returns the task assessment results from Amazon S3. This action always returns the
    *          latest results.</p>
-   *
    */
   public describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
@@ -1469,12 +1371,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about replication tasks for your account in the current
+   * <p>Returns information about replication tasks for your account in the current
    *          region.</p>
-   *
-   *
-   *
    */
   public describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
@@ -1509,12 +1407,9 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns information about the schema for the specified endpoint.</p>
+   * <p>Returns information about the schema for the specified endpoint.</p>
    *
    *          <p></p>
-   *
-   *
    */
   public describeSchemas(
     args: DescribeSchemasCommandInput,
@@ -1549,14 +1444,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Returns table statistics on the database migration task, including table name, rows
+   * <p>Returns table statistics on the database migration task, including table name, rows
    *          inserted, rows updated, and rows deleted.</p>
    *          <p>Note that the "last updated" column the DMS console only indicates the time that AWS DMS
    *          last updated the table statistics record for a table. It does not indicate the time of the
    *          last update to the table.</p>
-   *
-   *
    */
   public describeTableStatistics(
     args: DescribeTableStatisticsCommandInput,
@@ -1591,9 +1483,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Uploads the specified certificate.</p>
-   *
+   * <p>Uploads the specified certificate.</p>
    */
   public importCertificate(
     args: ImportCertificateCommandInput,
@@ -1628,12 +1518,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Lists all tags for an AWS DMS resource.</p>
-   *
-   *
-   *
-   *
+   * <p>Lists all tags for an AWS DMS resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1668,11 +1553,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Modifies the specified endpoint.</p>
-   *
-   *
-   *
+   * <p>Modifies the specified endpoint.</p>
    */
   public modifyEndpoint(
     args: ModifyEndpointCommandInput,
@@ -1707,9 +1588,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Modifies an existing AWS DMS event notification subscription. </p>
-   *
+   * <p>Modifies an existing AWS DMS event notification subscription. </p>
    */
   public modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -1744,14 +1623,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Modifies the replication instance to apply new settings. You can change one or more
+   * <p>Modifies the replication instance to apply new settings. You can change one or more
    *          parameters by specifying these parameters and the new values in the request.</p>
    *          <p>Some settings are applied during the maintenance window.</p>
    *
    *          <p></p>
-   *
-   *
    */
   public modifyReplicationInstance(
     args: ModifyReplicationInstanceCommandInput,
@@ -1786,11 +1662,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Modifies the settings for the specified replication subnet group.</p>
-   *
-   *
-   *
+   * <p>Modifies the settings for the specified replication subnet group.</p>
    */
   public modifyReplicationSubnetGroup(
     args: ModifyReplicationSubnetGroupCommandInput,
@@ -1825,13 +1697,10 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Modifies the specified replication task.</p>
+   * <p>Modifies the specified replication task.</p>
    *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
    *          <p>For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
    *             <i>AWS Database Migration Service User Guide</i>.</p>
-   *
-   *
    */
   public modifyReplicationTask(
     args: ModifyReplicationTaskCommandInput,
@@ -1866,10 +1735,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
+   * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
    *          replication instance becomes available again.</p>
-   *
    */
   public rebootReplicationInstance(
     args: RebootReplicationInstanceCommandInput,
@@ -1904,11 +1771,9 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
+   * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
    *          can take several minutes. You can check the status of this operation by calling the
    *          DescribeRefreshSchemasStatus operation.</p>
-   *
    */
   public refreshSchemas(
     args: RefreshSchemasCommandInput,
@@ -1943,9 +1808,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Reloads the target database table with the source data. </p>
-   *
+   * <p>Reloads the target database table with the source data. </p>
    */
   public reloadTables(
     args: ReloadTablesCommandInput,
@@ -1980,11 +1843,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Removes metadata tags from a DMS resource.</p>
-   *
-   *
-   *
+   * <p>Removes metadata tags from a DMS resource.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2019,13 +1878,10 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Starts the replication task.</p>
+   * <p>Starts the replication task.</p>
    *          <p>For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks </a> in the
    *             <i>AWS Database Migration Service User Guide.</i>
    *          </p>
-   *
-   *
    */
   public startReplicationTask(
     args: StartReplicationTaskCommandInput,
@@ -2060,10 +1916,8 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p> Starts the replication task assessment for unsupported data types in the source
+   * <p> Starts the replication task assessment for unsupported data types in the source
    *          database. </p>
-   *
    */
   public startReplicationTaskAssessment(
     args: StartReplicationTaskAssessmentCommandInput,
@@ -2101,12 +1955,9 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Stops the replication task.</p>
+   * <p>Stops the replication task.</p>
    *
    *          <p></p>
-   *
-   *
    */
   public stopReplicationTask(
     args: StopReplicationTaskCommandInput,
@@ -2141,11 +1992,7 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   *
-   *          <p>Tests the connection between the replication instance and the endpoint.</p>
-   *
-   *
-   *
+   * <p>Tests the connection between the replication instance and the endpoint.</p>
    */
   public testConnection(
     args: TestConnectionCommandInput,

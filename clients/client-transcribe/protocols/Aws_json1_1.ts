@@ -3,6 +3,10 @@ import {
   CreateVocabularyCommandOutput
 } from "../commands/CreateVocabularyCommand";
 import {
+  CreateVocabularyFilterCommandInput,
+  CreateVocabularyFilterCommandOutput
+} from "../commands/CreateVocabularyFilterCommand";
+import {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput
 } from "../commands/DeleteTranscriptionJobCommand";
@@ -10,6 +14,10 @@ import {
   DeleteVocabularyCommandInput,
   DeleteVocabularyCommandOutput
 } from "../commands/DeleteVocabularyCommand";
+import {
+  DeleteVocabularyFilterCommandInput,
+  DeleteVocabularyFilterCommandOutput
+} from "../commands/DeleteVocabularyFilterCommand";
 import {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput
@@ -19,6 +27,10 @@ import {
   GetVocabularyCommandOutput
 } from "../commands/GetVocabularyCommand";
 import {
+  GetVocabularyFilterCommandInput,
+  GetVocabularyFilterCommandOutput
+} from "../commands/GetVocabularyFilterCommand";
+import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput
 } from "../commands/ListTranscriptionJobsCommand";
@@ -26,6 +38,10 @@ import {
   ListVocabulariesCommandInput,
   ListVocabulariesCommandOutput
 } from "../commands/ListVocabulariesCommand";
+import {
+  ListVocabularyFiltersCommandInput,
+  ListVocabularyFiltersCommandOutput
+} from "../commands/ListVocabularyFiltersCommand";
 import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput
@@ -35,22 +51,34 @@ import {
   UpdateVocabularyCommandOutput
 } from "../commands/UpdateVocabularyCommand";
 import {
+  UpdateVocabularyFilterCommandInput,
+  UpdateVocabularyFilterCommandOutput
+} from "../commands/UpdateVocabularyFilterCommand";
+import {
   BadRequestException,
   ConflictException,
+  CreateVocabularyFilterRequest,
+  CreateVocabularyFilterResponse,
   CreateVocabularyRequest,
   CreateVocabularyResponse,
   DeleteTranscriptionJobRequest,
+  DeleteVocabularyFilterRequest,
   DeleteVocabularyRequest,
   GetTranscriptionJobRequest,
   GetTranscriptionJobResponse,
+  GetVocabularyFilterRequest,
+  GetVocabularyFilterResponse,
   GetVocabularyRequest,
   GetVocabularyResponse,
   InternalFailureException,
+  JobExecutionSettings,
   LimitExceededException,
   ListTranscriptionJobsRequest,
   ListTranscriptionJobsResponse,
   ListVocabulariesRequest,
   ListVocabulariesResponse,
+  ListVocabularyFiltersRequest,
+  ListVocabularyFiltersResponse,
   Media,
   NotFoundException,
   Settings,
@@ -59,8 +87,11 @@ import {
   Transcript,
   TranscriptionJob,
   TranscriptionJobSummary,
+  UpdateVocabularyFilterRequest,
+  UpdateVocabularyFilterResponse,
   UpdateVocabularyRequest,
   UpdateVocabularyResponse,
+  VocabularyFilterInfo,
   VocabularyInfo
 } from "../models/index";
 import {
@@ -91,6 +122,27 @@ export async function serializeAws_json1_1CreateVocabularyCommand(
     protocol: "https",
     method: "POST",
     path: "/CreateVocabulary",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateVocabularyFilterCommand(
+  input: CreateVocabularyFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Transcribe.CreateVocabularyFilter";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1CreateVocabularyFilterRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateVocabularyFilter",
     headers: headers,
     body: body
   });
@@ -138,6 +190,27 @@ export async function serializeAws_json1_1DeleteVocabularyCommand(
   });
 }
 
+export async function serializeAws_json1_1DeleteVocabularyFilterCommand(
+  input: DeleteVocabularyFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Transcribe.DeleteVocabularyFilter";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1DeleteVocabularyFilterRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteVocabularyFilter",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1GetTranscriptionJobCommand(
   input: GetTranscriptionJobCommandInput,
   context: __SerdeContext
@@ -175,6 +248,27 @@ export async function serializeAws_json1_1GetVocabularyCommand(
     protocol: "https",
     method: "POST",
     path: "/GetVocabulary",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetVocabularyFilterCommand(
+  input: GetVocabularyFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Transcribe.GetVocabularyFilter";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1GetVocabularyFilterRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetVocabularyFilter",
     headers: headers,
     body: body
   });
@@ -222,6 +316,27 @@ export async function serializeAws_json1_1ListVocabulariesCommand(
   });
 }
 
+export async function serializeAws_json1_1ListVocabularyFiltersCommand(
+  input: ListVocabularyFiltersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Transcribe.ListVocabularyFilters";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1ListVocabularyFiltersRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListVocabularyFilters",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function serializeAws_json1_1StartTranscriptionJobCommand(
   input: StartTranscriptionJobCommandInput,
   context: __SerdeContext
@@ -264,6 +379,27 @@ export async function serializeAws_json1_1UpdateVocabularyCommand(
   });
 }
 
+export async function serializeAws_json1_1UpdateVocabularyFilterCommand(
+  input: UpdateVocabularyFilterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Transcribe.UpdateVocabularyFilter";
+  let body: any = {};
+  body = JSON.stringify(
+    serializeAws_json1_1UpdateVocabularyFilterRequest(input, context)
+  );
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UpdateVocabularyFilter",
+    headers: headers,
+    body: body
+  });
+}
+
 export async function deserializeAws_json1_1CreateVocabularyCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -286,6 +422,87 @@ async function deserializeAws_json1_1CreateVocabularyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = await deserializeAws_json1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ConflictException":
+    case "com.amazonaws.transcribe#ConflictException":
+      response = await deserializeAws_json1_1ConflictExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = await deserializeAws_json1_1InternalFailureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.transcribe#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1CreateVocabularyFilterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVocabularyFilterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateVocabularyFilterCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateVocabularyFilterResponse(
+    data,
+    context
+  );
+  const response: CreateVocabularyFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateVocabularyFilterResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateVocabularyFilterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVocabularyFilterCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -422,6 +639,79 @@ async function deserializeAws_json1_1DeleteVocabularyCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = await deserializeAws_json1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = await deserializeAws_json1_1InternalFailureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.transcribe#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.transcribe#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1DeleteVocabularyFilterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVocabularyFilterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteVocabularyFilterCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteVocabularyFilterCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteVocabularyFilterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVocabularyFilterCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -628,6 +918,84 @@ async function deserializeAws_json1_1GetVocabularyCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1GetVocabularyFilterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVocabularyFilterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetVocabularyFilterCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetVocabularyFilterResponse(data, context);
+  const response: GetVocabularyFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetVocabularyFilterResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetVocabularyFilterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVocabularyFilterCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = await deserializeAws_json1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = await deserializeAws_json1_1InternalFailureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.transcribe#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.transcribe#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_json1_1ListTranscriptionJobsCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -721,6 +1089,77 @@ async function deserializeAws_json1_1ListVocabulariesCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = await deserializeAws_json1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = await deserializeAws_json1_1InternalFailureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.transcribe#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_json1_1ListVocabularyFiltersCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVocabularyFiltersCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListVocabularyFiltersCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListVocabularyFiltersResponse(data, context);
+  const response: ListVocabularyFiltersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListVocabularyFiltersResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListVocabularyFiltersCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVocabularyFiltersCommandOutput> {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context)
@@ -927,6 +1366,87 @@ async function deserializeAws_json1_1UpdateVocabularyCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_json1_1UpdateVocabularyFilterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVocabularyFilterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateVocabularyFilterCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateVocabularyFilterResponse(
+    data,
+    context
+  );
+  const response: UpdateVocabularyFilterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateVocabularyFilterResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UpdateVocabularyFilterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVocabularyFilterCommandOutput> {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context)
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = await deserializeAws_json1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = await deserializeAws_json1_1InternalFailureExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.transcribe#NotFoundException":
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.transcribe#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 const deserializeAws_json1_1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1022,6 +1542,26 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1CreateVocabularyFilterRequest = (
+  input: CreateVocabularyFilterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.LanguageCode !== undefined) {
+    bodyParams["LanguageCode"] = input.LanguageCode;
+  }
+  if (input.VocabularyFilterFileUri !== undefined) {
+    bodyParams["VocabularyFilterFileUri"] = input.VocabularyFilterFileUri;
+  }
+  if (input.VocabularyFilterName !== undefined) {
+    bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
+  }
+  if (input.Words !== undefined) {
+    bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1CreateVocabularyRequest = (
   input: CreateVocabularyRequest,
   context: __SerdeContext
@@ -1053,6 +1593,17 @@ const serializeAws_json1_1DeleteTranscriptionJobRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1DeleteVocabularyFilterRequest = (
+  input: DeleteVocabularyFilterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.VocabularyFilterName !== undefined) {
+    bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1DeleteVocabularyRequest = (
   input: DeleteVocabularyRequest,
   context: __SerdeContext
@@ -1075,6 +1626,17 @@ const serializeAws_json1_1GetTranscriptionJobRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1GetVocabularyFilterRequest = (
+  input: GetVocabularyFilterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.VocabularyFilterName !== undefined) {
+    bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1GetVocabularyRequest = (
   input: GetVocabularyRequest,
   context: __SerdeContext
@@ -1082,6 +1644,20 @@ const serializeAws_json1_1GetVocabularyRequest = (
   let bodyParams: any = {};
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1JobExecutionSettings = (
+  input: JobExecutionSettings,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AllowDeferredExecution !== undefined) {
+    bodyParams["AllowDeferredExecution"] = input.AllowDeferredExecution;
+  }
+  if (input.DataAccessRoleArn !== undefined) {
+    bodyParams["DataAccessRoleArn"] = input.DataAccessRoleArn;
   }
   return bodyParams;
 };
@@ -1126,6 +1702,23 @@ const serializeAws_json1_1ListVocabulariesRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1ListVocabularyFiltersRequest = (
+  input: ListVocabularyFiltersRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NameContains !== undefined) {
+    bodyParams["NameContains"] = input.NameContains;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1Media = (
   input: Media,
   context: __SerdeContext
@@ -1164,6 +1757,12 @@ const serializeAws_json1_1Settings = (
   if (input.ShowSpeakerLabels !== undefined) {
     bodyParams["ShowSpeakerLabels"] = input.ShowSpeakerLabels;
   }
+  if (input.VocabularyFilterMethod !== undefined) {
+    bodyParams["VocabularyFilterMethod"] = input.VocabularyFilterMethod;
+  }
+  if (input.VocabularyFilterName !== undefined) {
+    bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
+  }
   if (input.VocabularyName !== undefined) {
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
@@ -1175,6 +1774,14 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   let bodyParams: any = {};
+  if (input.JobExecutionSettings !== undefined) {
+    bodyParams[
+      "JobExecutionSettings"
+    ] = serializeAws_json1_1JobExecutionSettings(
+      input.JobExecutionSettings,
+      context
+    );
+  }
   if (input.LanguageCode !== undefined) {
     bodyParams["LanguageCode"] = input.LanguageCode;
   }
@@ -1205,6 +1812,23 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
   return bodyParams;
 };
 
+const serializeAws_json1_1UpdateVocabularyFilterRequest = (
+  input: UpdateVocabularyFilterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.VocabularyFilterFileUri !== undefined) {
+    bodyParams["VocabularyFilterFileUri"] = input.VocabularyFilterFileUri;
+  }
+  if (input.VocabularyFilterName !== undefined) {
+    bodyParams["VocabularyFilterName"] = input.VocabularyFilterName;
+  }
+  if (input.Words !== undefined) {
+    bodyParams["Words"] = serializeAws_json1_1Words(input.Words, context);
+  }
+  return bodyParams;
+};
+
 const serializeAws_json1_1UpdateVocabularyRequest = (
   input: UpdateVocabularyRequest,
   context: __SerdeContext
@@ -1223,6 +1847,13 @@ const serializeAws_json1_1UpdateVocabularyRequest = (
     bodyParams["VocabularyName"] = input.VocabularyName;
   }
   return bodyParams;
+};
+
+const serializeAws_json1_1Words = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
 };
 
 const deserializeAws_json1_1BadRequestException = (
@@ -1249,6 +1880,32 @@ const deserializeAws_json1_1ConflictException = (
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateVocabularyFilterResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateVocabularyFilterResponse => {
+  let contents: any = {
+    __type: "CreateVocabularyFilterResponse",
+    LanguageCode: undefined,
+    LastModifiedTime: undefined,
+    VocabularyFilterName: undefined
+  };
+  if (output.LanguageCode !== undefined) {
+    contents.LanguageCode = output.LanguageCode;
+  }
+  if (output.LastModifiedTime !== undefined) {
+    contents.LastModifiedTime = new Date(
+      output.LastModifiedTime % 1 != 0
+        ? Math.round(output.LastModifiedTime * 1000)
+        : output.LastModifiedTime
+    );
+  }
+  if (output.VocabularyFilterName !== undefined) {
+    contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
 };
@@ -1304,6 +1961,36 @@ const deserializeAws_json1_1GetTranscriptionJobResponse = (
   return contents;
 };
 
+const deserializeAws_json1_1GetVocabularyFilterResponse = (
+  output: any,
+  context: __SerdeContext
+): GetVocabularyFilterResponse => {
+  let contents: any = {
+    __type: "GetVocabularyFilterResponse",
+    DownloadUri: undefined,
+    LanguageCode: undefined,
+    LastModifiedTime: undefined,
+    VocabularyFilterName: undefined
+  };
+  if (output.DownloadUri !== undefined) {
+    contents.DownloadUri = output.DownloadUri;
+  }
+  if (output.LanguageCode !== undefined) {
+    contents.LanguageCode = output.LanguageCode;
+  }
+  if (output.LastModifiedTime !== undefined) {
+    contents.LastModifiedTime = new Date(
+      output.LastModifiedTime % 1 != 0
+        ? Math.round(output.LastModifiedTime * 1000)
+        : output.LastModifiedTime
+    );
+  }
+  if (output.VocabularyFilterName !== undefined) {
+    contents.VocabularyFilterName = output.VocabularyFilterName;
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1GetVocabularyResponse = (
   output: any,
   context: __SerdeContext
@@ -1352,6 +2039,24 @@ const deserializeAws_json1_1InternalFailureException = (
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobExecutionSettings = (
+  output: any,
+  context: __SerdeContext
+): JobExecutionSettings => {
+  let contents: any = {
+    __type: "JobExecutionSettings",
+    AllowDeferredExecution: undefined,
+    DataAccessRoleArn: undefined
+  };
+  if (output.AllowDeferredExecution !== undefined) {
+    contents.AllowDeferredExecution = output.AllowDeferredExecution;
+  }
+  if (output.DataAccessRoleArn !== undefined) {
+    contents.DataAccessRoleArn = output.DataAccessRoleArn;
   }
   return contents;
 };
@@ -1420,6 +2125,27 @@ const deserializeAws_json1_1ListVocabulariesResponse = (
   return contents;
 };
 
+const deserializeAws_json1_1ListVocabularyFiltersResponse = (
+  output: any,
+  context: __SerdeContext
+): ListVocabularyFiltersResponse => {
+  let contents: any = {
+    __type: "ListVocabularyFiltersResponse",
+    NextToken: undefined,
+    VocabularyFilters: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.VocabularyFilters !== undefined) {
+    contents.VocabularyFilters = deserializeAws_json1_1VocabularyFilters(
+      output.VocabularyFilters,
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_json1_1Media = (
   output: any,
   context: __SerdeContext
@@ -1459,6 +2185,8 @@ const deserializeAws_json1_1Settings = (
     MaxSpeakerLabels: undefined,
     ShowAlternatives: undefined,
     ShowSpeakerLabels: undefined,
+    VocabularyFilterMethod: undefined,
+    VocabularyFilterName: undefined,
     VocabularyName: undefined
   };
   if (output.ChannelIdentification !== undefined) {
@@ -1475,6 +2203,12 @@ const deserializeAws_json1_1Settings = (
   }
   if (output.ShowSpeakerLabels !== undefined) {
     contents.ShowSpeakerLabels = output.ShowSpeakerLabels;
+  }
+  if (output.VocabularyFilterMethod !== undefined) {
+    contents.VocabularyFilterMethod = output.VocabularyFilterMethod;
+  }
+  if (output.VocabularyFilterName !== undefined) {
+    contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   if (output.VocabularyName !== undefined) {
     contents.VocabularyName = output.VocabularyName;
@@ -1522,11 +2256,13 @@ const deserializeAws_json1_1TranscriptionJob = (
     CompletionTime: undefined,
     CreationTime: undefined,
     FailureReason: undefined,
+    JobExecutionSettings: undefined,
     LanguageCode: undefined,
     Media: undefined,
     MediaFormat: undefined,
     MediaSampleRateHertz: undefined,
     Settings: undefined,
+    StartTime: undefined,
     Transcript: undefined,
     TranscriptionJobName: undefined,
     TranscriptionJobStatus: undefined
@@ -1548,6 +2284,12 @@ const deserializeAws_json1_1TranscriptionJob = (
   if (output.FailureReason !== undefined) {
     contents.FailureReason = output.FailureReason;
   }
+  if (output.JobExecutionSettings !== undefined) {
+    contents.JobExecutionSettings = deserializeAws_json1_1JobExecutionSettings(
+      output.JobExecutionSettings,
+      context
+    );
+  }
   if (output.LanguageCode !== undefined) {
     contents.LanguageCode = output.LanguageCode;
   }
@@ -1564,6 +2306,13 @@ const deserializeAws_json1_1TranscriptionJob = (
     contents.Settings = deserializeAws_json1_1Settings(
       output.Settings,
       context
+    );
+  }
+  if (output.StartTime !== undefined) {
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
     );
   }
   if (output.Transcript !== undefined) {
@@ -1601,6 +2350,7 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
     FailureReason: undefined,
     LanguageCode: undefined,
     OutputLocationType: undefined,
+    StartTime: undefined,
     TranscriptionJobName: undefined,
     TranscriptionJobStatus: undefined
   };
@@ -1627,11 +2377,44 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
   if (output.OutputLocationType !== undefined) {
     contents.OutputLocationType = output.OutputLocationType;
   }
+  if (output.StartTime !== undefined) {
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
+  }
   if (output.TranscriptionJobName !== undefined) {
     contents.TranscriptionJobName = output.TranscriptionJobName;
   }
   if (output.TranscriptionJobStatus !== undefined) {
     contents.TranscriptionJobStatus = output.TranscriptionJobStatus;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateVocabularyFilterResponse => {
+  let contents: any = {
+    __type: "UpdateVocabularyFilterResponse",
+    LanguageCode: undefined,
+    LastModifiedTime: undefined,
+    VocabularyFilterName: undefined
+  };
+  if (output.LanguageCode !== undefined) {
+    contents.LanguageCode = output.LanguageCode;
+  }
+  if (output.LastModifiedTime !== undefined) {
+    contents.LastModifiedTime = new Date(
+      output.LastModifiedTime % 1 != 0
+        ? Math.round(output.LastModifiedTime * 1000)
+        : output.LastModifiedTime
+    );
+  }
+  if (output.VocabularyFilterName !== undefined) {
+    contents.VocabularyFilterName = output.VocabularyFilterName;
   }
   return contents;
 };
@@ -1672,6 +2455,41 @@ const deserializeAws_json1_1Vocabularies = (
 ): Array<VocabularyInfo> => {
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VocabularyInfo(entry, context)
+  );
+};
+
+const deserializeAws_json1_1VocabularyFilterInfo = (
+  output: any,
+  context: __SerdeContext
+): VocabularyFilterInfo => {
+  let contents: any = {
+    __type: "VocabularyFilterInfo",
+    LanguageCode: undefined,
+    LastModifiedTime: undefined,
+    VocabularyFilterName: undefined
+  };
+  if (output.LanguageCode !== undefined) {
+    contents.LanguageCode = output.LanguageCode;
+  }
+  if (output.LastModifiedTime !== undefined) {
+    contents.LastModifiedTime = new Date(
+      output.LastModifiedTime % 1 != 0
+        ? Math.round(output.LastModifiedTime * 1000)
+        : output.LastModifiedTime
+    );
+  }
+  if (output.VocabularyFilterName !== undefined) {
+    contents.VocabularyFilterName = output.VocabularyFilterName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1VocabularyFilters = (
+  output: any,
+  context: __SerdeContext
+): Array<VocabularyFilterInfo> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1VocabularyFilterInfo(entry, context)
   );
 };
 

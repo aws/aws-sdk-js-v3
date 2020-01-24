@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DocDBClient";
-import { CreateDBSubnetGroupMessage, DBSubnetGroup } from "../models/index";
+import {
+  CreateDBSubnetGroupMessage,
+  CreateDBSubnetGroupResult
+} from "../models/index";
 import {
   deserializeAws_queryCreateDBSubnetGroupCommand,
   serializeAws_queryCreateDBSubnetGroupCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBSubnetGroupCommandInput = CreateDBSubnetGroupMessage;
-export type CreateDBSubnetGroupCommandOutput = DBSubnetGroup;
+export type CreateDBSubnetGroupCommandOutput = CreateDBSubnetGroupResult;
 
 export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandInput,

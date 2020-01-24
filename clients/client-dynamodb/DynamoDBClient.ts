@@ -326,8 +326,7 @@ export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon DynamoDB</fullname>
+ * <fullname>Amazon DynamoDB</fullname>
  *
  *
  *          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
@@ -346,9 +345,6 @@ export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<
  *       consistent and fast performance. All of your data is stored on solid state disks (SSDs) and
  *       automatically replicated across multiple Availability Zones in an AWS region, providing
  *       built-in high availability and data durability. </p>
- *
- *
- *
  */
 export class DynamoDBClient extends __Client<
   __HttpHandlerOptions,

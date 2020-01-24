@@ -102,8 +102,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- *
- *         <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
+ * <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
  *         <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
  *         <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
  *         <ul>
@@ -168,12 +167,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </ul>
  *             </li>
  *          </ul>
- *
  */
 export class SQS extends SQSClient {
   /**
-   *
-   *          <p>Adds a permission to a queue for a specific
+   * <p>Adds a permission to a queue for a specific
    *       <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>.
    *       This allows sharing access to the queue.</p>
    *          <p>When you create a queue, you have full control access rights for the queue.
@@ -211,8 +208,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public addPermission(
     args: AddPermissionCommandInput,
@@ -247,8 +242,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Changes the visibility timeout of a specified message in a queue to a new value. The
+   * <p>Changes the visibility timeout of a specified message in a queue to a new value. The
    *             default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
    *             maximum is 12 hours. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          <p>For example, you have a message with a visibility timeout of 5 minutes. After 3
@@ -282,9 +276,6 @@ export class SQS extends SQSClient {
    *             <p>Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout
    *               for the message reverts to the original timeout value (not to the value you set using the <code>ChangeMessageVisibility</code> action) the next time the message is received.</p>
    *          </important>
-   *
-   *
-   *
    */
   public changeMessageVisibility(
     args: ChangeMessageVisibilityCommandInput,
@@ -319,8 +310,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
+   * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>
    *                <a>ChangeMessageVisibility</a>.</code> The result of the action on each message is reported individually in the response.
    *           You can send up to 10 <code>
    *                <a>ChangeMessageVisibility</a>
@@ -335,8 +325,6 @@ export class SQS extends SQSClient {
    *          <p>
    *             <code>&Attribute.2=second</code>
    *          </p>
-   *
-   *
    */
   public changeMessageVisibilityBatch(
     args: ChangeMessageVisibilityBatchCommandInput,
@@ -371,8 +359,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the request.
+   * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the request.
    *           Keep the following caveats in mind:</p>
    *          <ul>
    *             <li>
@@ -418,8 +405,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public createQueue(
     args: CreateQueueCommandInput,
@@ -454,8 +439,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the specified message from the specified queue. To select the message to
+   * <p>Deletes the specified message from the specified queue. To select the message to
    *             delete, use the <code>ReceiptHandle</code> of the message (<i>not</i> the
    *                 <code>MessageId</code> which you receive when you send the message). Amazon SQS can
    *             delete a message from a queue even if a visibility timeout setting causes the message to
@@ -475,8 +459,6 @@ export class SQS extends SQSClient {
    *                 receive request. You should ensure that your application is idempotent, so that
    *                 receiving a message more than once does not cause issues.</p>
    *          </note>
-   *
-   *
    */
   public deleteMessage(
     args: DeleteMessageCommandInput,
@@ -511,8 +493,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
+   * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>
    *                <a>DeleteMessage</a>.</code> The result of the action on each message is reported individually in the response.</p>
    *          <important>
    *             <p>Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
@@ -524,8 +505,6 @@ export class SQS extends SQSClient {
    *          <p>
    *             <code>&Attribute.2=second</code>
    *          </p>
-   *
-   *
    */
   public deleteMessageBatch(
     args: DeleteMessageBatchCommandInput,
@@ -560,8 +539,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.</p>
+   * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.</p>
    *          <important>
    *             <p>Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any messages in the queue are no longer available.
    *       </p>
@@ -574,8 +552,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public deleteQueue(
     args: DeleteQueueCommandInput,
@@ -610,8 +586,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Gets attributes for the specified queue.</p>
+   * <p>Gets attributes for the specified queue.</p>
    *          <note>
    *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
    *          </note>
@@ -622,8 +597,6 @@ export class SQS extends SQSClient {
    *          <p>
    *             <code>&Attribute.2=second</code>
    *          </p>
-   *
-   *
    */
   public getQueueAttributes(
     args: GetQueueAttributesCommandInput,
@@ -658,16 +631,12 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Returns the URL of an existing Amazon SQS queue.</p>
+   * <p>Returns the URL of an existing Amazon SQS queue.</p>
    *          <p>To access a queue that belongs to another AWS account, use the <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue.
    *           For more information about shared queue access, see <code>
    *                <a>AddPermission</a>
    *             </code> or see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow Developers to Write Messages to a Shared Queue</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
    *     </p>
-   *
-   *
-   *
    */
   public getQueueUrl(
     args: GetQueueUrlCommandInput,
@@ -702,13 +671,11 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
+   * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
    *
    *
    *          <p>For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using Amazon SQS Dead-Letter Queues</a>
    *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *
    */
   public listDeadLetterSourceQueues(
     args: ListDeadLetterSourceQueuesCommandInput,
@@ -743,13 +710,10 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *         <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         </note>
-   *
-   *
    */
   public listQueueTags(
     args: ListQueueTagsCommandInput,
@@ -784,14 +748,11 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Returns a list of your queues. The maximum number of queues that can be returned is 1,000. If you specify a value for the optional
+   * <p>Returns a list of your queues. The maximum number of queues that can be returned is 1,000. If you specify a value for the optional
    *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>
-   *
-   *
    */
   public listQueues(
     args: ListQueuesCommandInput,
@@ -826,8 +787,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
+   * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>
    *             parameter.</p>
    *
    *          <important>
@@ -841,9 +801,6 @@ export class SQS extends SQSClient {
    *             minute.</p>
    *         <p>Messages sent to the queue <i>after</i> you call
    *                 <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
-   *
-   *
-   *
    */
   public purgeQueue(
     args: PurgeQueueCommandInput,
@@ -878,8 +835,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code> parameter enables long-poll support.
+   * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code> parameter enables long-poll support.
    *          For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS Long Polling</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
    *     </p>
    *          <p>Short poll is the default behavior where a weighted random set of machines is sampled on a <code>ReceiveMessage</code> call. Thus, only the messages on the sampled machines are returned.
@@ -915,9 +871,6 @@ export class SQS extends SQSClient {
    *          <note>
    *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
    *          </note>
-   *
-   *
-   *
    */
   public receiveMessage(
     args: ReceiveMessageCommandInput,
@@ -952,8 +905,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Revokes any permissions in the queue policy that matches the specified <code>Label</code> parameter.</p>
+   * <p>Revokes any permissions in the queue policy that matches the specified <code>Label</code> parameter.</p>
    *          <note>
    *             <ul>
    *                <li>
@@ -967,8 +919,6 @@ export class SQS extends SQSClient {
    *               </li>
    *             </ul>
    *          </note>
-   *
-   *
    */
   public removePermission(
     args: RemovePermissionCommandInput,
@@ -1003,8 +953,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Delivers a message to the specified queue.</p>
+   * <p>Delivers a message to the specified queue.</p>
    *          <important>
    *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
    *            <p>
@@ -1012,8 +961,6 @@ export class SQS extends SQSClient {
    *             </p>
    * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
    *          </important>
-   *
-   *
    */
   public sendMessage(
     args: SendMessageCommandInput,
@@ -1048,8 +995,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
+   * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>
    *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.</p>
    *          <p>The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
    *          <p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes).</p>
@@ -1068,8 +1014,6 @@ export class SQS extends SQSClient {
    *          <p>
    *             <code>&Attribute.2=second</code>
    *          </p>
-   *
-   *
    */
   public sendMessageBatch(
     args: SendMessageBatchCommandInput,
@@ -1104,8 +1048,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *          <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
+   * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.
    *       Changes made to the <code>MessageRetentionPeriod</code> attribute can take up to 15 minutes.</p>
    *          <note>
    *             <ul>
@@ -1120,8 +1063,6 @@ export class SQS extends SQSClient {
    *               </li>
    *             </ul>
    *          </note>
-   *
-   *
    */
   public setQueueAttributes(
     args: SetQueueAttributesCommandInput,
@@ -1156,8 +1097,7 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *         <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *
    *          <p>When you use queue tags, keep the following guidelines in mind:</p>
    *          <ul>
@@ -1178,8 +1118,6 @@ export class SQS extends SQSClient {
    *         <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         </note>
-   *
-   *
    */
   public tagQueue(
     args: TagQueueCommandInput,
@@ -1214,13 +1152,10 @@ export class SQS extends SQSClient {
   }
 
   /**
-   *
-   *         <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *         </note>
-   *
-   *
    */
   public untagQueue(
     args: UntagQueueCommandInput,

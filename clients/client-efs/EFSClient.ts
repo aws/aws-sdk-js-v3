@@ -1,10 +1,17 @@
 import {
+  AccessPointDescription,
+  CreateAccessPointRequest,
   CreateFileSystemRequest,
   CreateMountTargetRequest,
   CreateTagsRequest,
+  DeleteAccessPointRequest,
+  DeleteFileSystemPolicyRequest,
   DeleteFileSystemRequest,
   DeleteMountTargetRequest,
   DeleteTagsRequest,
+  DescribeAccessPointsRequest,
+  DescribeAccessPointsResponse,
+  DescribeFileSystemPolicyRequest,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
   DescribeLifecycleConfigurationRequest,
@@ -15,10 +22,16 @@ import {
   DescribeTagsRequest,
   DescribeTagsResponse,
   FileSystemDescription,
+  FileSystemPolicyDescription,
   LifecycleConfigurationDescription,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   ModifyMountTargetSecurityGroupsRequest,
   MountTargetDescription,
+  PutFileSystemPolicyRequest,
   PutLifecycleConfigurationRequest,
+  TagResourceRequest,
+  UntagResourceRequest,
   UpdateFileSystemRequest
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -75,31 +88,45 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateAccessPointRequest
   | CreateFileSystemRequest
   | CreateMountTargetRequest
   | CreateTagsRequest
+  | DeleteAccessPointRequest
+  | DeleteFileSystemPolicyRequest
   | DeleteFileSystemRequest
   | DeleteMountTargetRequest
   | DeleteTagsRequest
+  | DescribeAccessPointsRequest
+  | DescribeFileSystemPolicyRequest
   | DescribeFileSystemsRequest
   | DescribeLifecycleConfigurationRequest
   | DescribeMountTargetSecurityGroupsRequest
   | DescribeMountTargetsRequest
   | DescribeTagsRequest
+  | ListTagsForResourceRequest
   | ModifyMountTargetSecurityGroupsRequest
+  | PutFileSystemPolicyRequest
   | PutLifecycleConfigurationRequest
+  | TagResourceRequest
+  | UntagResourceRequest
   | UpdateFileSystemRequest;
 
 export type ServiceOutputTypes =
   | __MetadataBearer
+  | AccessPointDescription
+  | DescribeAccessPointsResponse
   | DescribeFileSystemsResponse
   | DescribeMountTargetSecurityGroupsResponse
   | DescribeMountTargetsResponse
   | DescribeTagsResponse
   | FileSystemDescription
   | FileSystemDescription
+  | FileSystemPolicyDescription
+  | FileSystemPolicyDescription
   | LifecycleConfigurationDescription
   | LifecycleConfigurationDescription
+  | ListTagsForResourceResponse
   | MountTargetDescription;
 
 export interface ClientDefaults
@@ -210,13 +237,11 @@ export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>Amazon Elastic File System</fullname>
+ * <fullname>Amazon Elastic File System</fullname>
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
  *       with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
  *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User Guide</a>.</p>
- *
  */
 export class EFSClient extends __Client<
   __HttpHandlerOptions,

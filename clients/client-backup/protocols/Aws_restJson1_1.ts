@@ -43,6 +43,10 @@ import {
   DescribeBackupVaultCommandOutput
 } from "../commands/DescribeBackupVaultCommand";
 import {
+  DescribeCopyJobCommandInput,
+  DescribeCopyJobCommandOutput
+} from "../commands/DescribeCopyJobCommand";
+import {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput
 } from "../commands/DescribeProtectedResourceCommand";
@@ -115,6 +119,10 @@ import {
   ListBackupVaultsCommandOutput
 } from "../commands/ListBackupVaultsCommand";
 import {
+  ListCopyJobsCommandInput,
+  ListCopyJobsCommandOutput
+} from "../commands/ListCopyJobsCommand";
+import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput
 } from "../commands/ListProtectedResourcesCommand";
@@ -146,6 +154,10 @@ import {
   StartBackupJobCommandInput,
   StartBackupJobCommandOutput
 } from "../commands/StartBackupJobCommand";
+import {
+  StartCopyJobCommandInput,
+  StartCopyJobCommandOutput
+} from "../commands/StartCopyJobCommand";
 import {
   StartRestoreJobCommandInput,
   StartRestoreJobCommandOutput
@@ -185,6 +197,8 @@ import {
   BackupVaultListMember,
   CalculatedLifecycle,
   Condition,
+  CopyAction,
+  CopyJob,
   DependencyFailureException,
   InvalidParameterValueException,
   InvalidRequestException,
@@ -561,6 +575,31 @@ export async function serializeAws_restJson1_1DescribeBackupVaultCommand(
     resolvedPath = resolvedPath.replace("{BackupVaultName}", labelValue);
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath
+  });
+}
+
+export async function serializeAws_restJson1_1DescribeCopyJobCommand(
+  input: DescribeCopyJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/copy-jobs/{CopyJobId}";
+  if (input.CopyJobId !== undefined) {
+    const labelValue: any = input.CopyJobId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CopyJobId.");
+    }
+    resolvedPath = resolvedPath.replace("{CopyJobId}", labelValue);
+  } else {
+    throw new Error("No value provided for input HTTP label: CopyJobId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1114,6 +1153,48 @@ export async function serializeAws_restJson1_1ListBackupVaultsCommand(
   });
 }
 
+export async function serializeAws_restJson1_1ListCopyJobsCommand(
+  input: ListCopyJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "";
+  let resolvedPath = "/copy-jobs";
+  const query: any = {};
+  if (input.ByCreatedAfter !== undefined) {
+    query["createdAfter"] = input.ByCreatedAfter.toISOString();
+  }
+  if (input.ByCreatedBefore !== undefined) {
+    query["createdBefore"] = input.ByCreatedBefore.toISOString();
+  }
+  if (input.ByDestinationVaultArn !== undefined) {
+    query["destinationVaultArn"] = input.ByDestinationVaultArn.toString();
+  }
+  if (input.ByResourceArn !== undefined) {
+    query["resourceArn"] = input.ByResourceArn.toString();
+  }
+  if (input.ByResourceType !== undefined) {
+    query["resourceType"] = input.ByResourceType.toString();
+  }
+  if (input.ByState !== undefined) {
+    query["state"] = input.ByState.toString();
+  }
+  if (input.MaxResults !== undefined) {
+    query["maxResults"] = input.MaxResults.toString();
+  }
+  if (input.NextToken !== undefined) {
+    query["nextToken"] = input.NextToken.toString();
+  }
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "GET",
+    headers: headers,
+    path: resolvedPath,
+    query: query
+  });
+}
+
 export async function serializeAws_restJson1_1ListProtectedResourcesCommand(
   input: ListProtectedResourcesCommandInput,
   context: __SerdeContext
@@ -1395,6 +1476,47 @@ export async function serializeAws_restJson1_1StartBackupJobCommand(
   }
   if (input.StartWindowMinutes !== undefined) {
     bodyParams["StartWindowMinutes"] = input.StartWindowMinutes;
+  }
+  body = JSON.stringify(bodyParams);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "PUT",
+    headers: headers,
+    path: resolvedPath,
+    body: body
+  });
+}
+
+export async function serializeAws_restJson1_1StartCopyJobCommand(
+  input: StartCopyJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/json";
+  let resolvedPath = "/copy-jobs";
+  let body: any = {};
+  const bodyParams: any = {};
+  if (input.DestinationBackupVaultArn !== undefined) {
+    bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
+  }
+  if (input.IamRoleArn !== undefined) {
+    bodyParams["IamRoleArn"] = input.IamRoleArn;
+  }
+  if (input.IdempotencyToken !== undefined) {
+    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
+  }
+  if (input.Lifecycle !== undefined) {
+    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
+      input.Lifecycle,
+      context
+    );
+  }
+  if (input.RecoveryPointArn !== undefined) {
+    bodyParams["RecoveryPointArn"] = input.RecoveryPointArn;
+  }
+  if (input.SourceBackupVaultName !== undefined) {
+    bodyParams["SourceBackupVaultName"] = input.SourceBackupVaultName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -2636,6 +2758,81 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
   return Promise.reject(Object.assign(new Error(), response));
 }
 
+export async function deserializeAws_restJson1_1DescribeCopyJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCopyJobCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1DescribeCopyJobCommandError(
+      output,
+      context
+    );
+  }
+  const contents: DescribeCopyJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeCopyJobOutput",
+    CopyJob: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CopyJob !== undefined) {
+    contents.CopyJob = deserializeAws_restJson1_1CopyJob(data.CopyJob, context);
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1DescribeCopyJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCopyJobCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.services.cryo#InvalidParameterValueException":
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "MissingParameterValueException":
+    case "com.amazonaws.services.cryo#MissingParameterValueException":
+      response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.services.cryo#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.services.cryo#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.services.cryo#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
 export async function deserializeAws_restJson1_1DescribeProtectedResourceCommand(
   output: __HttpResponse,
   context: __SerdeContext
@@ -3826,6 +4023,13 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
         context
       );
       break;
+    case "InvalidRequestException":
+    case "com.amazonaws.services.cryo#InvalidRequestException":
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        output,
+        context
+      );
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
       response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
@@ -4232,6 +4436,71 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
     case "ResourceNotFoundException":
     case "com.amazonaws.services.cryo#ResourceNotFoundException":
       response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.services.cryo#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.services.cryo#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1ListCopyJobsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobsCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1ListCopyJobsCommandError(output, context);
+  }
+  const contents: ListCopyJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListCopyJobsOutput",
+    CopyJobs: undefined,
+    NextToken: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CopyJobs !== undefined) {
+    contents.CopyJobs = deserializeAws_restJson1_1CopyJobsList(
+      data.CopyJobs,
+      context
+    );
+  }
+  if (data.NextToken !== undefined) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1ListCopyJobsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobsCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.services.cryo#InvalidParameterValueException":
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
         output,
         context
       );
@@ -4824,6 +5093,93 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> {
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.services.cryo#InvalidParameterValueException":
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.services.cryo#LimitExceededException":
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "MissingParameterValueException":
+    case "com.amazonaws.services.cryo#MissingParameterValueException":
+      response = await deserializeAws_restJson1_1MissingParameterValueExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.services.cryo#ResourceNotFoundException":
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        output,
+        context
+      );
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.services.cryo#ServiceUnavailableException":
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        output,
+        context
+      );
+      break;
+    default:
+      const parsedBody = await parseBody(output.body, context);
+      errorCode = errorCode || "UnknownError";
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        __type: `com.amazonaws.services.cryo#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      } as any;
+  }
+  return Promise.reject(Object.assign(new Error(), response));
+}
+
+export async function deserializeAws_restJson1_1StartCopyJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCopyJobCommandOutput> {
+  if (output.statusCode !== 200 && output.statusCode >= 400) {
+    return deserializeAws_restJson1_1StartCopyJobCommandError(output, context);
+  }
+  const contents: StartCopyJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartCopyJobOutput",
+    CopyJobId: undefined,
+    CreationDate: undefined
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CopyJobId !== undefined) {
+    contents.CopyJobId = data.CopyJobId;
+  }
+  if (data.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      data.CreationDate % 1 != 0
+        ? Math.round(data.CreationDate * 1000)
+        : data.CreationDate
+    );
+  }
+  return Promise.resolve(contents);
+}
+
+async function deserializeAws_restJson1_1StartCopyJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCopyJobCommandOutput> {
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
@@ -5624,6 +5980,12 @@ const serializeAws_restJson1_1BackupRuleInput = (
   if (input.CompletionWindowMinutes !== undefined) {
     bodyParams["CompletionWindowMinutes"] = input.CompletionWindowMinutes;
   }
+  if (input.CopyActions !== undefined) {
+    bodyParams["CopyActions"] = serializeAws_restJson1_1CopyActions(
+      input.CopyActions,
+      context
+    );
+  }
   if (input.Lifecycle !== undefined) {
     bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
       input.Lifecycle,
@@ -5708,6 +6070,32 @@ const serializeAws_restJson1_1Condition = (
     bodyParams["ConditionValue"] = input.ConditionValue;
   }
   return bodyParams;
+};
+
+const serializeAws_restJson1_1CopyAction = (
+  input: CopyAction,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DestinationBackupVaultArn !== undefined) {
+    bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
+  }
+  if (input.Lifecycle !== undefined) {
+    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
+      input.Lifecycle,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_restJson1_1CopyActions = (
+  input: Array<CopyAction>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_restJson1_1CopyAction(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Lifecycle = (
@@ -6002,6 +6390,7 @@ const deserializeAws_restJson1_1BackupRule = (
   let contents: any = {
     __type: "BackupRule",
     CompletionWindowMinutes: undefined,
+    CopyActions: undefined,
     Lifecycle: undefined,
     RecoveryPointTags: undefined,
     RuleId: undefined,
@@ -6012,6 +6401,12 @@ const deserializeAws_restJson1_1BackupRule = (
   };
   if (output.CompletionWindowMinutes !== undefined) {
     contents.CompletionWindowMinutes = output.CompletionWindowMinutes;
+  }
+  if (output.CopyActions !== undefined) {
+    contents.CopyActions = deserializeAws_restJson1_1CopyActions(
+      output.CopyActions,
+      context
+    );
   }
   if (output.Lifecycle !== undefined) {
     contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
@@ -6231,6 +6626,122 @@ const deserializeAws_restJson1_1Condition = (
     contents.ConditionValue = output.ConditionValue;
   }
   return contents;
+};
+
+const deserializeAws_restJson1_1CopyAction = (
+  output: any,
+  context: __SerdeContext
+): CopyAction => {
+  let contents: any = {
+    __type: "CopyAction",
+    DestinationBackupVaultArn: undefined,
+    Lifecycle: undefined
+  };
+  if (output.DestinationBackupVaultArn !== undefined) {
+    contents.DestinationBackupVaultArn = output.DestinationBackupVaultArn;
+  }
+  if (output.Lifecycle !== undefined) {
+    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
+      output.Lifecycle,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1CopyActions = (
+  output: any,
+  context: __SerdeContext
+): Array<CopyAction> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1CopyAction(entry, context)
+  );
+};
+
+const deserializeAws_restJson1_1CopyJob = (
+  output: any,
+  context: __SerdeContext
+): CopyJob => {
+  let contents: any = {
+    __type: "CopyJob",
+    BackupSizeInBytes: undefined,
+    CompletionDate: undefined,
+    CopyJobId: undefined,
+    CreatedBy: undefined,
+    CreationDate: undefined,
+    DestinationBackupVaultArn: undefined,
+    DestinationRecoveryPointArn: undefined,
+    IamRoleArn: undefined,
+    ResourceArn: undefined,
+    ResourceType: undefined,
+    SourceBackupVaultArn: undefined,
+    SourceRecoveryPointArn: undefined,
+    State: undefined,
+    StatusMessage: undefined
+  };
+  if (output.BackupSizeInBytes !== undefined) {
+    contents.BackupSizeInBytes = output.BackupSizeInBytes;
+  }
+  if (output.CompletionDate !== undefined) {
+    contents.CompletionDate = new Date(
+      output.CompletionDate % 1 != 0
+        ? Math.round(output.CompletionDate * 1000)
+        : output.CompletionDate
+    );
+  }
+  if (output.CopyJobId !== undefined) {
+    contents.CopyJobId = output.CopyJobId;
+  }
+  if (output.CreatedBy !== undefined) {
+    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
+      output.CreatedBy,
+      context
+    );
+  }
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      output.CreationDate % 1 != 0
+        ? Math.round(output.CreationDate * 1000)
+        : output.CreationDate
+    );
+  }
+  if (output.DestinationBackupVaultArn !== undefined) {
+    contents.DestinationBackupVaultArn = output.DestinationBackupVaultArn;
+  }
+  if (output.DestinationRecoveryPointArn !== undefined) {
+    contents.DestinationRecoveryPointArn = output.DestinationRecoveryPointArn;
+  }
+  if (output.IamRoleArn !== undefined) {
+    contents.IamRoleArn = output.IamRoleArn;
+  }
+  if (output.ResourceArn !== undefined) {
+    contents.ResourceArn = output.ResourceArn;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  if (output.SourceBackupVaultArn !== undefined) {
+    contents.SourceBackupVaultArn = output.SourceBackupVaultArn;
+  }
+  if (output.SourceRecoveryPointArn !== undefined) {
+    contents.SourceRecoveryPointArn = output.SourceRecoveryPointArn;
+  }
+  if (output.State !== undefined) {
+    contents.State = output.State;
+  }
+  if (output.StatusMessage !== undefined) {
+    contents.StatusMessage = output.StatusMessage;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1_1CopyJobsList = (
+  output: any,
+  context: __SerdeContext
+): Array<CopyJob> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1_1CopyJob(entry, context)
+  );
 };
 
 const deserializeAws_restJson1_1Lifecycle = (

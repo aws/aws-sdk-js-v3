@@ -21,12 +21,16 @@ import {
   DeleteReportGroupOutput,
   DeleteReportInput,
   DeleteReportOutput,
+  DeleteResourcePolicyInput,
+  DeleteResourcePolicyOutput,
   DeleteSourceCredentialsInput,
   DeleteSourceCredentialsOutput,
   DeleteWebhookInput,
   DeleteWebhookOutput,
   DescribeTestCasesInput,
   DescribeTestCasesOutput,
+  GetResourcePolicyInput,
+  GetResourcePolicyOutput,
   ImportSourceCredentialsInput,
   ImportSourceCredentialsOutput,
   InvalidateProjectCacheInput,
@@ -45,8 +49,14 @@ import {
   ListReportsForReportGroupOutput,
   ListReportsInput,
   ListReportsOutput,
+  ListSharedProjectsInput,
+  ListSharedProjectsOutput,
+  ListSharedReportGroupsInput,
+  ListSharedReportGroupsOutput,
   ListSourceCredentialsInput,
   ListSourceCredentialsOutput,
+  PutResourcePolicyInput,
+  PutResourcePolicyOutput,
   StartBuildInput,
   StartBuildOutput,
   StopBuildInput,
@@ -122,9 +132,11 @@ export type ServiceInputTypes =
   | DeleteProjectInput
   | DeleteReportGroupInput
   | DeleteReportInput
+  | DeleteResourcePolicyInput
   | DeleteSourceCredentialsInput
   | DeleteWebhookInput
   | DescribeTestCasesInput
+  | GetResourcePolicyInput
   | ImportSourceCredentialsInput
   | InvalidateProjectCacheInput
   | ListBuildsForProjectInput
@@ -134,7 +146,10 @@ export type ServiceInputTypes =
   | ListReportGroupsInput
   | ListReportsForReportGroupInput
   | ListReportsInput
+  | ListSharedProjectsInput
+  | ListSharedReportGroupsInput
   | ListSourceCredentialsInput
+  | PutResourcePolicyInput
   | StartBuildInput
   | StopBuildInput
   | UpdateProjectInput
@@ -153,9 +168,11 @@ export type ServiceOutputTypes =
   | DeleteProjectOutput
   | DeleteReportGroupOutput
   | DeleteReportOutput
+  | DeleteResourcePolicyOutput
   | DeleteSourceCredentialsOutput
   | DeleteWebhookOutput
   | DescribeTestCasesOutput
+  | GetResourcePolicyOutput
   | ImportSourceCredentialsOutput
   | InvalidateProjectCacheOutput
   | ListBuildsForProjectOutput
@@ -165,7 +182,10 @@ export type ServiceOutputTypes =
   | ListReportGroupsOutput
   | ListReportsForReportGroupOutput
   | ListReportsOutput
+  | ListSharedProjectsOutput
+  | ListSharedReportGroupsOutput
   | ListSourceCredentialsOutput
+  | PutResourcePolicyOutput
   | StartBuildOutput
   | StopBuildOutput
   | UpdateProjectOutput
@@ -280,8 +300,7 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- *
- *          <fullname>AWS CodeBuild</fullname>
+ * <fullname>AWS CodeBuild</fullname>
  *          <p>AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code,
  *          runs unit tests, and produces artifacts that are ready to deploy. AWS CodeBuild eliminates the need
  *          to provision, manage, and scale your own build servers. It provides prepackaged build
@@ -353,6 +372,11 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DeleteResourcePolicy</code>:  Deletes a resource policy that is identified by its resource ARN.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DeleteSourceCredentials</code>: Deletes a set of GitHub, GitHub Enterprise,
  *                or Bitbucket source credentials.</p>
  *             </li>
@@ -364,7 +388,12 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DescribeTestCases</code>:  Returns a list of details about test cases for a report.
+ *                   <code>DescribeTestCases</code>: Returns a list of details about test cases for a report.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetResourcePolicy</code>:  Gets a resource policy that is identified by its resource ARN.
  *             </p>
  *             </li>
  *             <li>
@@ -413,8 +442,21 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListSharedProjects</code>: Gets a list of ARNs associated with projects shared with the current AWS account or user.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListSharedReportGroups</code>: Gets a list of ARNs associated with report groups shared with the current AWS account or user</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ListSourceCredentials</code>: Returns a list of <code>SourceCredentialsInfo</code> objects. Each <code>SourceCredentialsInfo</code> object includes
  *                the authentication type, token ARN, and type of source provider for one set of credentials.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>PutResourcePolicy</code>:  Stores a resource policy for the ARN of a <code>Project</code> or <code>ReportGroup</code> object.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
@@ -438,7 +480,6 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
  *                   <code>UpdateWebhook</code>: Changes the settings of an existing webhook.</p>
  *             </li>
  *          </ul>
- *
  */
 export class CodeBuildClient extends __Client<
   __HttpHandlerOptions,

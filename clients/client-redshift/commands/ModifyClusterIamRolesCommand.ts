@@ -3,7 +3,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../RedshiftClient";
-import { Cluster, ModifyClusterIamRolesMessage } from "../models/index";
+import {
+  ModifyClusterIamRolesMessage,
+  ModifyClusterIamRolesResult
+} from "../models/index";
 import {
   deserializeAws_queryModifyClusterIamRolesCommand,
   serializeAws_queryModifyClusterIamRolesCommand
@@ -24,7 +27,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterIamRolesCommandInput = ModifyClusterIamRolesMessage;
-export type ModifyClusterIamRolesCommandOutput = Cluster;
+export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult;
 
 export class ModifyClusterIamRolesCommand extends $Command<
   ModifyClusterIamRolesCommandInput,
