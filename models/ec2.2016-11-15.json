@@ -544,7 +544,7 @@
         "target": "com.amazonaws.ec2#AdvertiseByoipCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Advertises an IPv4 address range that is provisioned for use with your AWS resources through \n         bring your own IP addresses (BYOIP).</p> \n         <p>You can perform this operation at most once every 10 seconds, even if you specify different \n         address ranges each time.</p>\n         <p>We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise\n         it from AWS. To minimize down time, you can configure your AWS resources to use an address from a\n         BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current \n         location and start advertising it through AWS.</p>\n         <p>It can take a few minutes before traffic to the specified addresses starts routing to AWS\n         because of BGP propagation delays.</p>\n         <p>To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.</p>"
+        "smithy.api#documentation": "<p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS resources through \n         bring your own IP addresses (BYOIP).</p> \n         <p>You can perform this operation at most once every 10 seconds, even if you specify different \n         address ranges each time.</p>\n         <p>We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise\n         it from AWS. To minimize down time, you can configure your AWS resources to use an address from a\n         BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current \n         location and start advertising it through AWS.</p>\n         <p>It can take a few minutes before traffic to the specified addresses starts routing to AWS\n         because of BGP propagation delays.</p>\n         <p>To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.</p>"
       }
     },
     "com.amazonaws.ec2#AdvertiseByoipCidrRequest": {
@@ -553,7 +553,7 @@
         "Cidr": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The IPv4 address range, in CIDR notation. This must be the exact range that you provisioned. \n         You can't advertise only a portion of the provisioned range.</p>",
+            "smithy.api#documentation": "<p>The address range, in CIDR notation. This must be the exact range that you provisioned. \n         You can't advertise only a portion of the provisioned range.</p>",
             "smithy.api#required": true
           }
         },
@@ -1455,6 +1455,9 @@
           "target": "com.amazonaws.ec2#DescribeInternetGateways"
         },
         {
+          "target": "com.amazonaws.ec2#DescribeIpv6Pools"
+        },
+        {
           "target": "com.amazonaws.ec2#DescribeKeyPairs"
         },
         {
@@ -1741,6 +1744,9 @@
         },
         {
           "target": "com.amazonaws.ec2#ExportTransitGatewayRoutes"
+        },
+        {
+          "target": "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrs"
         },
         {
           "target": "com.amazonaws.ec2#GetCapacityReservationUsage"
@@ -2505,7 +2511,7 @@
       "type": "structure",
       "members": {
         "DhcpOptionsId": {
-          "target": "com.amazonaws.ec2#DhcpOptionsId",
+          "target": "com.amazonaws.ec2#DefaultingDhcpOptionsId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the DHCP options set, or <code>default</code> to associate \n        no DHCP options with the VPC.</p>",
             "smithy.api#required": true
@@ -2666,7 +2672,7 @@
           }
         },
         "SubnetId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetId",
           "traits": {
             "aws.api#ec2QueryName": "SubnetId",
             "smithy.api#documentation": "<p>The ID of your subnet.</p>",
@@ -2810,7 +2816,7 @@
         "target": "com.amazonaws.ec2#AssociateVpcCidrBlockResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR\n\t\t\tblock, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size\n\t\t\tis fixed at /56.</p>\n        <p>For more information about associating CIDR blocks with your VPC and applicable\n            restrictions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing\">VPC and Subnet Sizing</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR\n            block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">BYOIP</a>). The IPv6 CIDR block size\n\t\t\tis fixed at /56.</p>\n        <p>For more information about associating CIDR blocks with your VPC and applicable\n            restrictions, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing\">VPC and Subnet Sizing</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#AssociateVpcCidrBlockRequest": {
@@ -2830,10 +2836,22 @@
             "smithy.api#documentation": "<p>An IPv4 CIDR block to associate with the VPC.</p>"
           }
         },
+        "Ipv6CidrBlock": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>\n        <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>"
+          }
+        },
         "Ipv6CidrBlockNetworkBorderGroup": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p>\n         <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>\n         <p> You can have one IPv6 CIDR block association per network border group.</p>"
+          }
+        },
+        "Ipv6Pool": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>"
           }
         },
         "VpcId": {
@@ -3240,9 +3258,6 @@
       "traits": {
         "smithy.api#documentation": "<p>Contains the output of AttachVpnGateway.</p>"
       }
-    },
-    "com.amazonaws.ec2#AttachmentId": {
-      "type": "string"
     },
     "com.amazonaws.ec2#AttachmentStatus": {
       "type": "string",
@@ -3902,6 +3917,9 @@
     "com.amazonaws.ec2#Boolean": {
       "type": "boolean"
     },
+    "com.amazonaws.ec2#BundleId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#BundleIdStringList": {
       "type": "list",
       "member": {
@@ -4101,7 +4119,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.api#ec2QueryName": "Cidr",
-            "smithy.api#documentation": "<p>The public IPv4 address range, in CIDR notation.</p>",
+            "smithy.api#documentation": "<p>The address range, in CIDR notation.</p>",
             "smithy.api#xmlName": "cidr"
           }
         },
@@ -4153,7 +4171,8 @@
           "failed-provision": { },
           "pending-deprovision": { },
           "pending-provision": { },
-          "provisioned": { }
+          "provisioned": { },
+          "provisioned-not-publicly-advertisable": { }
         }
       }
     },
@@ -4192,7 +4211,7 @@
       "type": "structure",
       "members": {
         "BundleId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#BundleId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the bundle task.</p>",
             "smithy.api#required": true
@@ -5723,6 +5742,14 @@
             "smithy.api#xmlName": "transportProtocol"
           }
         },
+        "VpnPort": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.api#ec2QueryName": "VpnPort",
+            "smithy.api#documentation": "<p>The port number for the  Client VPN endpoint.</p>",
+            "smithy.api#xmlName": "vpnPort"
+          }
+        },
         "VpnProtocol": {
           "target": "com.amazonaws.ec2#VpnProtocol",
           "traits": {
@@ -6425,7 +6452,7 @@
           }
         },
         "KmsKeyId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#KmsKeyId",
           "traits": {
             "aws.api#ec2QueryName": "KmsKeyId",
             "smithy.api#documentation": "<p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating\n      the encrypted volume. This parameter is only required if you want to use a non-default CMK; if\n      this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code>\n      is specified, the <code>Encrypted</code> flag must also be set. </p>\n   \t     <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. \n   \t\tWhen using an alias name, prefix it with \"alias/\". For example:</p>\n   \t     <ul>\n            <li>\n   \t\t\t         <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>\n               </p>\n   \t\t       </li>\n            <li>\n   \t\t\t         <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>\n               </p>\n   \t\t       </li>\n            <li>\n   \t\t\t         <p>Alias name: <code>alias/ExampleAlias</code>\n               </p>\n   \t\t       </li>\n            <li>\n   \t\t\t         <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>\n               </p>\n   \t\t       </li>\n         </ul>\n         <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may\n      appear to complete even though you provided an invalid identifier. This action will eventually\n      report failure. </p>\n         <p>The specified CMK must exist in the Region that the snapshot is being copied to. </p>\n         <p>Amazon EBS does not support asymmetric CMKs.</p>",
@@ -6850,6 +6877,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The transport protocol to be used by the VPN session.</p>\n\t\t       <p>Default value: <code>udp</code>\n         </p>"
           }
+        },
+        "VpnPort": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>\n\t        <p>Valid Values: <code>443</code> | <code>1194</code>\n         </p>\n\t        <p>Default Value: <code>443</code>\n         </p>"
+          }
         }
       }
     },
@@ -6931,7 +6964,7 @@
           }
         },
         "TargetVpcSubnetId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet through which you want to route traffic. The specified subnet must be\n\t\t\tan existing target network of the Client VPN endpoint.</p>",
             "smithy.api#required": true
@@ -7677,7 +7710,7 @@
           }
         },
         "InstanceId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#InstanceId",
           "traits": {
             "aws.api#ec2QueryName": "InstanceId",
             "smithy.api#documentation": "<p>The ID of the instance.</p>",
@@ -9052,7 +9085,7 @@
           }
         },
         "VpcId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#VpcId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the VPC.</p>",
             "smithy.api#required": true
@@ -9993,7 +10026,7 @@
         "target": "com.amazonaws.ec2#CreateVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create\n\t\t\tuses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4\n\t\t\taddresses). For more information about how large to make your VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">Your VPC and\n\t\t\t\tSubnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\n        <p>You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6\n            CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6\n            addresses. You cannot choose the IPv6 range for your VPC.</p>\n\t\t       <p>By default, each instance you launch in the VPC has the default DHCP options, which\n\t\t\tinclude only a default DNS server that we provide (AmazonProvidedDNS). For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\n         <p>You can specify the instance tenancy value for the VPC when you create it. You can't change\n      this value for the VPC after you create it. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html\">Dedicated Instances</a> in the\n          <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create\n\t\t\tuses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4\n\t\t\taddresses). For more information about how large to make your VPC, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html\">Your VPC and\n\t\t\t\tSubnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\n         <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">BYOIP</a>).</p>\n\t\t       <p>By default, each instance you launch in the VPC has the default DHCP options, which\n\t\t\tinclude only a default DNS server that we provide (AmazonProvidedDNS). For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\n         <p>You can specify the instance tenancy value for the VPC when you create it. You can't change\n      this value for the VPC after you create it. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html\">Dedicated Instances</a> in the\n          <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateVpcEndpoint": {
@@ -10353,10 +10386,22 @@
             "smithy.api#xmlName": "instanceTenancy"
           }
         },
+        "Ipv6CidrBlock": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>\n        <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>"
+          }
+        },
         "Ipv6CidrBlockNetworkBorderGroup": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>\n         <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>"
+          }
+        },
+        "Ipv6Pool": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>"
           }
         }
       }
@@ -10756,6 +10801,9 @@
         }
       }
     },
+    "com.amazonaws.ec2#DefaultingDhcpOptionsId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#DeleteClientVpnEndpoint": {
       "type": "operation",
       "input": {
@@ -10835,7 +10883,7 @@
           }
         },
         "TargetVpcSubnetId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the target subnet used by the route.</p>"
           }
@@ -12109,7 +12157,7 @@
           }
         },
         "SubnetId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the subnet.</p>",
             "smithy.api#required": true
@@ -12949,7 +12997,7 @@
         "Cidr": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The public IPv4 address range, in CIDR notation. The prefix must be the same prefix \n         that you specified when you provisioned the address range.</p>",
+            "smithy.api#documentation": "<p>The address range, in CIDR notation. The prefix must be the same prefix \n         that you specified when you provisioned the address range.</p>",
             "smithy.api#required": true
           }
         },
@@ -12995,7 +13043,7 @@
           }
         },
         "ImageId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AMI.</p>",
             "smithy.api#required": true
@@ -13389,7 +13437,7 @@
         "target": "com.amazonaws.ec2#DescribeByoipCidrsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>\n         <p>To describe the address pools that were created when you provisioned the address\n         ranges, use <a>DescribePublicIpv4Pools</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>\n         <p>To describe the address pools that were created when you provisioned the address\n          ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>"
       }
     },
     "com.amazonaws.ec2#DescribeByoipCidrsMaxResults": {
@@ -13650,7 +13698,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>description</code> - The description of the authorization rule.</p>\n            </li>\n            <li>\n               <p>\n                  <code>destination-cidr</code> - The CIDR of the network to which the authorization rule\n                    applies.</p>\n            </li>\n            <li>\n               <p>\n                  <code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -13729,7 +13777,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>connection-id</code> - The ID of the connection.</p>\n            </li>\n            <li>\n               <p>\n                  <code>username</code> - For Active Directory client authentication, the user name of the\n                    client who established the client connection.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -13808,7 +13856,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>endpoint-id</code> - The ID of the Client VPN endpoint.</p>\n            </li>\n            <li>\n               <p>\n                  <code>transport-protocol</code> - The transport protocol (<code>tcp</code> |\n                    <code>udp</code>).</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -13887,7 +13935,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>destination-cidr</code> - The CIDR of the route destination.</p>\n            </li>\n            <li>\n               <p>\n                  <code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code> | <code>add-route</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>target-subnet</code> - The ID of the subnet through which traffic is routed.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -13972,7 +14020,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>association-id</code> - The ID of the association.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target-network-id</code> - The ID of the subnet specified as the target network.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -14312,6 +14360,13 @@
             "smithy.api#xmlName": "EgressOnlyInternetGatewayId"
           }
         },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters.</p>\n    \t    <ul>\n            <li>\n    \t\t\t        <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n    \t\t      </li>\n            <li>\n    \t\t\t        <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n    \t\t      </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
         "MaxResults": {
           "target": "com.amazonaws.ec2#DescribeEgressOnlyInternetGatewaysMaxResults",
           "traits": {
@@ -14539,6 +14594,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
+            "smithy.api#documentation": "<p>the filters for the export tasks.</p>",
             "smithy.api#xmlName": "Filter"
           }
         }
@@ -16208,7 +16264,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance\n     type. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type\n     of an instance family. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is\n     EBS-optimized. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free\n     tier. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.count</code> - The number of local disks.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in\n     GB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks.\n      (<code>hdd</code> | <code>ssd</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local\n     instance storage, in GB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-supported</code> - Indicates whether the instance type has local instance\n     storage. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>memory-info.size-in-mib</code> - The memory size.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or\n     required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per\n     network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per\n     network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per\n     instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.network-performance</code> - Describes the network performance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-threads-per-core</code> - The default number of threads per cores for the instance\n     type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters. Filter names and values are case-sensitive.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance\n     type. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type\n     of an instance family. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is\n     EBS-optimized. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free\n     tier. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.count</code> - The number of local disks.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in\n     GB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks.\n      (<code>hdd</code> | <code>ssd</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local\n     instance storage, in GB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instance-storage-supported</code> - Indicates whether the instance type has local instance\n     storage. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>memory-info.size-in-mib</code> - The memory size.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or\n     required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per\n     network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per\n     network interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per\n     instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>network-info.network-performance</code> - Describes the network performance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance\n     type.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -16404,6 +16460,76 @@
         },
         "NextToken": {
           "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeIpv6Pools": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeIpv6PoolsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeIpv6PoolsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes your IPv6 address pools.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DescribeIpv6PoolsRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#Ipv6PoolMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "PoolIds": {
+          "target": "com.amazonaws.ec2#ValueStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the IPv6 address pools.</p>",
+            "smithy.api#xmlName": "PoolId"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeIpv6PoolsResult": {
+      "type": "structure",
+      "members": {
+        "Ipv6Pools": {
+          "target": "com.amazonaws.ec2#Ipv6PoolSet",
+          "traits": {
+            "aws.api#ec2QueryName": "Ipv6PoolSet",
+            "smithy.api#documentation": "<p>Information about the IPv6 address pools.</p>",
+            "smithy.api#xmlName": "ipv6PoolSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
           "traits": {
             "aws.api#ec2QueryName": "NextToken",
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
@@ -21206,7 +21332,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you\n                    specify must exactly match the VPC's CIDR block for information to be returned\n                    for the VPC. Must contain the slash followed by one or two digits (for example,\n                    <code>/28</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the\n                    VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.association-id</code> - The association ID for\n                    an IPv4 CIDR block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.state</code> - The state of an IPv4 CIDR block\n                    associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>dhcp-options-id</code> - The ID of a set of DHCP options.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR\n                    block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.association-id</code> - The association\n                    ID for an IPv6 CIDR block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR\n                    block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>isDefault</code> - Indicates whether the VPC is the default VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>owner-id</code> - The ID of the AWS account that owns the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>vpc-id</code> - The ID of the VPC.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n        <ul>\n            <li>\n                <p>\n                  <code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you\n                    specify must exactly match the VPC's CIDR block for information to be returned\n                    for the VPC. Must contain the slash followed by one or two digits (for example,\n                    <code>/28</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the\n                    VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.association-id</code> - The association ID for\n                    an IPv4 CIDR block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>cidr-block-association.state</code> - The state of an IPv4 CIDR block\n                    associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>dhcp-options-id</code> - The ID of a set of DHCP options.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR\n                    block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.association-id</code> - The association\n                    ID for an IPv6 CIDR block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR\n                    block associated with the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>isDefault</code> - Indicates whether the VPC is the default VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>owner-id</code> - The ID of the AWS account that owns the VPC.</p>\n            </li>\n            <li>\n                <p>\n                  <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n                <p>\n                  <code>vpc-id</code> - The ID of the VPC.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -21477,7 +21603,7 @@
       "type": "structure",
       "members": {
         "AttachmentId": {
-          "target": "com.amazonaws.ec2#AttachmentId",
+          "target": "com.amazonaws.ec2#NetworkInterfaceAttachmentId",
           "traits": {
             "aws.api#ec2QueryName": "AttachmentId",
             "smithy.api#documentation": "<p>The ID of the attachment.</p>",
@@ -22206,7 +22332,7 @@
       "type": "structure",
       "members": {
         "AssociationId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#ElasticIpAssociationId",
           "traits": {
             "smithy.api#documentation": "<p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>"
           }
@@ -22369,7 +22495,7 @@
       "type": "structure",
       "members": {
         "AssociationId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetCidrAssociationId",
           "traits": {
             "aws.api#ec2QueryName": "AssociationId",
             "smithy.api#documentation": "<p>The association ID for the CIDR block.</p>",
@@ -22882,7 +23008,8 @@
         "KmsKeyId": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under\n            which the EBS volume is encrypted.</p>\n        <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\">RunInstances</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\">RequestSpotFleet</a>,\n            and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\">RequestSpotInstances</a>.</p>"
+            "smithy.api#documentation": "<p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under\n            which the EBS volume is encrypted.</p>\n        <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html\">RunInstances</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html\">RequestSpotFleet</a>,\n            and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html\">RequestSpotInstances</a>.</p>",
+            "smithy.api#xmlName": "KmsKeyId"
           }
         },
         "SnapshotId": {
@@ -22999,7 +23126,7 @@
           }
         },
         "VolumeId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#VolumeId",
           "traits": {
             "aws.api#ec2QueryName": "VolumeId",
             "smithy.api#documentation": "<p>The ID of the EBS volume.</p>",
@@ -23038,6 +23165,14 @@
             "aws.api#ec2QueryName": "EgressOnlyInternetGatewayId",
             "smithy.api#documentation": "<p>The ID of the egress-only internet gateway.</p>",
             "smithy.api#xmlName": "egressOnlyInternetGatewayId"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the egress-only internet gateway.</p>",
+            "smithy.api#xmlName": "tagSet"
           }
         }
       },
@@ -23380,6 +23515,9 @@
           "smithy.api#xmlName": "item"
         }
       }
+    },
+    "com.amazonaws.ec2#ElasticIpAssociationId": {
+      "type": "string"
     },
     "com.amazonaws.ec2#EnaSupport": {
       "type": "string",
@@ -24362,6 +24500,7 @@
           "target": "com.amazonaws.ec2#TagList",
           "traits": {
             "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags for the export task.</p>",
             "smithy.api#xmlName": "tagSet"
           }
         }
@@ -25711,6 +25850,69 @@
       "traits": {
         "smithy.api#enum": {
           "ipsec.1": { }
+        }
+      }
+    },
+    "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrs": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrsResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>"
+      }
+    },
+    "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrsRequest": {
+      "type": "structure",
+      "members": {
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#Ipv6PoolMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "PoolId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the IPv6 address pool.</p>",
+            "smithy.api#required": true
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#GetAssociatedIpv6PoolCidrsResult": {
+      "type": "structure",
+      "members": {
+        "Ipv6CidrAssociations": {
+          "target": "com.amazonaws.ec2#Ipv6CidrAssociationSet",
+          "traits": {
+            "aws.api#ec2QueryName": "Ipv6CidrAssociationSet",
+            "smithy.api#documentation": "<p>Information about the IPv6 CIDR block associations.</p>",
+            "smithy.api#xmlName": "ipv6CidrAssociationSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
         }
       }
     },
@@ -28286,7 +28488,7 @@
           }
         },
         "KmsKeyId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#KmsKeyId",
           "traits": {
             "smithy.api#documentation": "<p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the\n   encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this\n   parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is\n   specified, the <code>Encrypted</code> flag must also be set. </p>\n         <p>The CMK identifier may be provided in any of the following formats: </p>\n         <ul>\n            <li>\n               <p>Key ID</p>\n            </li>\n            <li>\n               <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>\n            </li>\n            <li>\n               <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>\n            </li>\n            <li>\n               <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>\n            </li>\n         </ul>\n         <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even\n   though you provided an invalid identifier. This action will eventually report failure. </p>\n         <p>The specified CMK must exist in the Region that the AMI is being copied to.</p>\n         <p>Amazon EBS does not support asymmetric CMKs.</p>"
           }
@@ -28553,7 +28755,7 @@
           "target": "com.amazonaws.ec2#TagList",
           "traits": {
             "aws.api#ec2QueryName": "TagSet",
-            "smithy.api#documentation": "<p>Any tags applied to the import image task.</p>",
+            "smithy.api#documentation": "<p>The tags for the import image task.</p>",
             "smithy.api#xmlName": "tagSet"
           }
         }
@@ -29038,7 +29240,7 @@
           "target": "com.amazonaws.ec2#TagList",
           "traits": {
             "aws.api#ec2QueryName": "TagSet",
-            "smithy.api#documentation": "<p>Any tags applied to the import snapshot task.</p>",
+            "smithy.api#documentation": "<p>The tags for the import snapshot task.</p>",
             "smithy.api#xmlName": "tagSet"
           }
         }
@@ -31837,6 +32039,39 @@
         }
       }
     },
+    "com.amazonaws.ec2#Ipv6CidrAssociation": {
+      "type": "structure",
+      "members": {
+        "AssociatedResource": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "AssociatedResource",
+            "smithy.api#documentation": "<p>The resource that's associated with the IPv6 CIDR block.</p>",
+            "smithy.api#xmlName": "associatedResource"
+          }
+        },
+        "Ipv6Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "Ipv6Cidr",
+            "smithy.api#documentation": "<p>The IPv6 CIDR block.</p>",
+            "smithy.api#xmlName": "ipv6Cidr"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an IPv6 CIDR block association.</p>"
+      }
+    },
+    "com.amazonaws.ec2#Ipv6CidrAssociationSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#Ipv6CidrAssociation",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#Ipv6CidrBlock": {
       "type": "structure",
       "members": {
@@ -31866,6 +32101,64 @@
       "type": "boolean",
       "traits": {
         "smithy.api#box": true
+      }
+    },
+    "com.amazonaws.ec2#Ipv6Pool": {
+      "type": "structure",
+      "members": {
+        "Description": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "Description",
+            "smithy.api#documentation": "<p>The description for the address pool.</p>",
+            "smithy.api#xmlName": "description"
+          }
+        },
+        "PoolCidrBlocks": {
+          "target": "com.amazonaws.ec2#PoolCidrBlocksSet",
+          "traits": {
+            "aws.api#ec2QueryName": "PoolCidrBlockSet",
+            "smithy.api#documentation": "<p>The CIDR blocks for the address pool.</p>",
+            "smithy.api#xmlName": "poolCidrBlockSet"
+          }
+        },
+        "PoolId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "PoolId",
+            "smithy.api#documentation": "<p>The ID of the address pool.</p>",
+            "smithy.api#xmlName": "poolId"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>Any tags for the address pool.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an IPv6 address pool.</p>"
+      }
+    },
+    "com.amazonaws.ec2#Ipv6PoolMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.ec2#Ipv6PoolSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#Ipv6Pool",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.ec2#Ipv6Range": {
@@ -31909,6 +32202,9 @@
           "disable": { }
         }
       }
+    },
+    "com.amazonaws.ec2#KernelId": {
+      "type": "string"
     },
     "com.amazonaws.ec2#KeyNameStringList": {
       "type": "list",
@@ -32775,6 +33071,19 @@
         "smithy.api#documentation": "<p>Indicates whether the instance is configured for hibernation. This parameter is valid only\n            if the instance meets the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\">hibernation\n                prerequisites</a>.</p>"
       }
     },
+    "com.amazonaws.ec2#LaunchTemplateHttpTokensState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "optional": {
+            "name": "optional"
+          },
+          "required": {
+            "name": "required"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#LaunchTemplateIamInstanceProfileSpecification": {
       "type": "structure",
       "members": {
@@ -32864,6 +33173,90 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The market (purchasing) option for the instances.</p>"
+      }
+    },
+    "com.amazonaws.ec2#LaunchTemplateInstanceMetadataEndpointState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "disabled": { },
+          "enabled": { }
+        }
+      }
+    },
+    "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptions": {
+      "type": "structure",
+      "members": {
+        "HttpEndpoint": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataEndpointState",
+          "traits": {
+            "aws.api#ec2QueryName": "HttpEndpoint",
+            "smithy.api#documentation": "<p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>\n        <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n            </p>\n        </note>",
+            "smithy.api#xmlName": "httpEndpoint"
+          }
+        },
+        "HttpPutResponseHopLimit": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.api#ec2QueryName": "HttpPutResponseHopLimit",
+            "smithy.api#documentation": "<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>\n         <p>Default: 1</p>\n         <p>Possible values: Integers from 1 to 64</p>",
+            "smithy.api#xmlName": "httpPutResponseHopLimit"
+          }
+        },
+        "HttpTokens": {
+          "target": "com.amazonaws.ec2#LaunchTemplateHttpTokensState",
+          "traits": {
+            "aws.api#ec2QueryName": "HttpTokens",
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>\n        <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>",
+            "smithy.api#xmlName": "httpTokens"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsState",
+          "traits": {
+            "aws.api#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state of the metadata option changes.</p>\n         <p>\n            <code>pending</code> - The metadata options are being updated and the instance is not ready to process metadata traffic with the new selection.</p>\n         <p>\n            <code>applied</code> - The metadata options have been successfully applied on the instance.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsRequest": {
+      "type": "structure",
+      "members": {
+        "HttpEndpoint": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataEndpointState",
+          "traits": {
+            "smithy.api#documentation": "<p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>\n         <note>\n            <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.\n</p>\n         </note>"
+          }
+        },
+        "HttpPutResponseHopLimit": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p>\n        <p>Default: 1</p>\n        <p>Possible values: Integers from 1 to 64</p>"
+          }
+        },
+        "HttpTokens": {
+          "target": "com.amazonaws.ec2#LaunchTemplateHttpTokensState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>\n        <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>\n            <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsState": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": {
+          "pending": { },
+          "applied": { }
+        }
       }
     },
     "com.amazonaws.ec2#LaunchTemplateInstanceNetworkInterfaceSpecification": {
@@ -33254,8 +33647,16 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.api#ec2QueryName": "HostResourceGroupArn",
-            "smithy.api#documentation": "<p>The ARN of the host resource group in which to launch the instances.</p>",
+            "smithy.api#documentation": "<p>The ARN of the host resource group in which to launch the instances.\n    \t</p>",
             "smithy.api#xmlName": "hostResourceGroupArn"
+          }
+        },
+        "PartitionNumber": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.api#ec2QueryName": "PartitionNumber",
+            "smithy.api#documentation": "<p>The number of the partition the instance should launch in. Valid only if the placement group strategy is set to <code>partition</code>.</p>",
+            "smithy.api#xmlName": "partitionNumber"
           }
         },
         "SpreadDomain": {
@@ -33310,6 +33711,12 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the host resource group in which to launch the instances. If you specify a host \n\t\tresource group ARN, omit the <b>Tenancy</b> parameter \n\t\tor set it to <code>host</code>.</p>"
+          }
+        },
+        "PartitionNumber": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of the partition the instance should launch in. Valid only if the placement group strategy is set to <code>partition</code>.</p>"
           }
         },
         "SpreadDomain": {
@@ -33834,6 +34241,14 @@
             "smithy.api#documentation": "<p>The state of the local gateway.</p>",
             "smithy.api#xmlName": "state"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the local gateway.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
         }
       },
       "traits": {
@@ -33961,6 +34376,14 @@
             "smithy.api#documentation": "<p>The state of the local gateway route table.</p>",
             "smithy.api#xmlName": "state"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the local gateway route table.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
         }
       },
       "traits": {
@@ -34027,6 +34450,14 @@
             "smithy.api#documentation": "<p>The state of the association.</p>",
             "smithy.api#xmlName": "state"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the association.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
         }
       },
       "traits": {
@@ -34084,6 +34515,14 @@
             "aws.api#ec2QueryName": "State",
             "smithy.api#documentation": "<p>The state of the association.</p>",
             "smithy.api#xmlName": "state"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the association.</p>",
+            "smithy.api#xmlName": "tagSet"
           }
         },
         "VpcId": {
@@ -34186,6 +34625,14 @@
             "smithy.api#xmlName": "peerBgpAsn"
           }
         },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the virtual interface.</p>",
+            "smithy.api#xmlName": "tagSet"
+          }
+        },
         "Vlan": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
@@ -34224,6 +34671,14 @@
             "aws.api#ec2QueryName": "LocalGatewayVirtualInterfaceIdSet",
             "smithy.api#documentation": "<p>The IDs of the virtual interfaces.</p>",
             "smithy.api#xmlName": "localGatewayVirtualInterfaceIdSet"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.ec2#TagList",
+          "traits": {
+            "aws.api#ec2QueryName": "TagSet",
+            "smithy.api#documentation": "<p>The tags assigned to the virtual interface group.</p>",
+            "smithy.api#xmlName": "tagSet"
           }
         }
       },
@@ -34475,6 +34930,12 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether the VPN is split-tunnel.</p>\n        <p>For information about split-tunnel VPN endpoints, see <a href=\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS\n                Client VPN Administrator Guide</i>.</p>"
+          }
+        },
+        "VpnPort": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>\n\t        <p>Valid Values: <code>443</code> | <code>1194</code>\n         </p>\n\t        <p>Default Value: <code>443</code>\n         </p>"
           }
         }
       }
@@ -34910,7 +35371,7 @@
           }
         },
         "ImageId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AMI.</p>",
             "smithy.api#required": true
@@ -35753,7 +36214,7 @@
           }
         },
         "SubnetId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#SubnetId",
           "traits": {
             "aws.api#ec2QueryName": "SubnetId",
             "smithy.api#documentation": "<p>The ID of the subnet.</p>",
@@ -37823,6 +38284,9 @@
         "smithy.api#documentation": "<p>Describes an attachment change.</p>"
       }
     },
+    "com.amazonaws.ec2#NetworkInterfaceAttachmentId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#NetworkInterfaceAttribute": {
       "type": "string",
       "traits": {
@@ -38974,6 +39438,31 @@
         }
       }
     },
+    "com.amazonaws.ec2#PoolCidrBlock": {
+      "type": "structure",
+      "members": {
+        "Cidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "PoolCidrBlock",
+            "smithy.api#documentation": "<p>The CIDR block.</p>",
+            "smithy.api#xmlName": "poolCidrBlock"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a CIDR block for an address pool.</p>"
+      }
+    },
+    "com.amazonaws.ec2#PoolCidrBlocksSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#PoolCidrBlock",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#PoolMaxResults": {
       "type": "integer",
       "traits": {
@@ -39483,7 +39972,7 @@
         "target": "com.amazonaws.ec2#ProvisionByoipCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provisions an address range for use with your AWS resources through bring your own IP \n         addresses (BYOIP) and creates a corresponding address pool. After the address range is\n         provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>\n         <p>AWS verifies that you own the address range and are authorized to advertise it. \n         You must ensure that the address range is registered to you and that you created an \n         RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. \n         For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Provisioning an address range is an asynchronous operation, so the call returns immediately,\n         but the address range is not ready to use until its status changes from <code>pending-provision</code>\n         to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>. \n         To allocate an Elastic IP address from your address pool, use <a>AllocateAddress</a> \n         with either the specific address from the address pool or the ID of the address pool.</p>"
+        "smithy.api#documentation": "<p>Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring your own IP \n         addresses (BYOIP) and creates a corresponding address pool. After the address range is\n         provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>\n         <p>AWS verifies that you own the address range and are authorized to advertise it. \n         You must ensure that the address range is registered to you and that you created an \n         RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range. \n         For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Provisioning an address range is an asynchronous operation, so the call returns immediately,\n         but the address range is not ready to use until its status changes from <code>pending-provision</code>\n         to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>. \n         To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a> \n         with either the specific address from the address pool or the ID of the address pool.</p>"
       }
     },
     "com.amazonaws.ec2#ProvisionByoipCidrRequest": {
@@ -39492,7 +39981,7 @@
         "Cidr": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The public IPv4 address range, in CIDR notation. The most specific prefix that you can \n         specify is /24. The address range cannot overlap with another address range that you've \n         brought to this or another Region.</p>",
+            "smithy.api#documentation": "<p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can \n         specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've \n         brought to this or another Region.</p>",
             "smithy.api#required": true
           }
         },
@@ -39513,6 +40002,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
+        },
+        "PubliclyAdvertisable": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>(IPv6 only) Indicate whether the address range will be publicly advertised to the\n            internet.</p>\n        <p>Default: true</p>"
+          }
         }
       }
     },
@@ -39523,7 +40018,7 @@
           "target": "com.amazonaws.ec2#ByoipCidr",
           "traits": {
             "aws.api#ec2QueryName": "ByoipCidr",
-            "smithy.api#documentation": "<p>Information about the address pool.</p>",
+            "smithy.api#documentation": "<p>Information about the address range.</p>",
             "smithy.api#xmlName": "byoipCidr"
           }
         }
@@ -39609,7 +40104,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.api#ec2QueryName": "PoolId",
-            "smithy.api#documentation": "<p>The ID of the IPv4 address pool.</p>",
+            "smithy.api#documentation": "<p>The ID of the address pool.</p>",
             "smithy.api#xmlName": "poolId"
           }
         },
@@ -39631,7 +40126,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes an address pool.</p>"
+        "smithy.api#documentation": "<p>Describes an IPv4 address pool.</p>"
       }
     },
     "com.amazonaws.ec2#PublicIpv4PoolRange": {
@@ -40052,6 +40547,9 @@
         }
       }
     },
+    "com.amazonaws.ec2#RamdiskId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#ReasonCodesList": {
       "type": "list",
       "member": {
@@ -40250,7 +40748,7 @@
           }
         },
         "KernelId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#KernelId",
           "traits": {
             "aws.api#ec2QueryName": "KernelId",
             "smithy.api#documentation": "<p>The ID of the kernel.</p>",
@@ -40267,7 +40765,7 @@
           }
         },
         "RamdiskId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#RamdiskId",
           "traits": {
             "aws.api#ec2QueryName": "RamdiskId",
             "smithy.api#documentation": "<p>The ID of the RAM disk.</p>",
@@ -40624,7 +41122,7 @@
       "type": "structure",
       "members": {
         "AllocationId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#AllocationId",
           "traits": {
             "smithy.api#documentation": "<p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>"
           }
@@ -41269,7 +41767,7 @@
         "BlockDeviceMappings": {
           "target": "com.amazonaws.ec2#LaunchTemplateBlockDeviceMappingRequestList",
           "traits": {
-            "smithy.api#documentation": "<p>The block device mapping.</p>\n        <important>\n            <p>Supplying both a snapshot ID and an encryption value as arguments for\n                block-device mapping results in an error. This is because only blank volumes can be\n                encrypted on start, and these are not created from a snapshot. If a snapshot is the\n                basis for the volume, it contains data by definition and its encryption status\n                cannot be changed using this action.</p>\n        </important>",
+            "smithy.api#documentation": "<p>The block device mapping.</p>",
             "smithy.api#xmlName": "BlockDeviceMapping"
           }
         },
@@ -41370,6 +41868,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The license configurations.</p>",
             "smithy.api#xmlName": "LicenseSpecification"
+          }
+        },
+        "MetadataOptions": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptionsRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
           }
         },
         "Monitoring": {
@@ -42685,7 +43189,7 @@
           }
         },
         "ImageId": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#ImageId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the AMI.</p>",
             "smithy.api#required": true
@@ -43051,6 +43555,14 @@
             "aws.api#ec2QueryName": "LicenseSet",
             "smithy.api#documentation": "<p>The license configurations.</p>",
             "smithy.api#xmlName": "licenseSet"
+          }
+        },
+        "MetadataOptions": {
+          "target": "com.amazonaws.ec2#LaunchTemplateInstanceMetadataOptions",
+          "traits": {
+            "aws.api#ec2QueryName": "MetadataOptions",
+            "smithy.api#documentation": "<p>The metadata options for the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\">Instance Metadata and User Data</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#xmlName": "metadataOptions"
           }
         },
         "Monitoring": {
@@ -47710,6 +48222,9 @@
           "smithy.api#xmlName": "item"
         }
       }
+    },
+    "com.amazonaws.ec2#SubnetCidrAssociationId": {
+      "type": "string"
     },
     "com.amazonaws.ec2#SubnetCidrBlockState": {
       "type": "structure",
@@ -52470,6 +52985,14 @@
             "smithy.api#xmlName": "ipv6CidrBlockState"
           }
         },
+        "Ipv6Pool": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.api#ec2QueryName": "Ipv6Pool",
+            "smithy.api#documentation": "<p>The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>",
+            "smithy.api#xmlName": "ipv6Pool"
+          }
+        },
         "NetworkBorderGroup": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
@@ -53189,7 +53712,7 @@
         "target": "com.amazonaws.ec2#WithdrawByoipCidrResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Stops advertising an IPv4 address range that is provisioned as an address pool.</p>\n         <p>You can perform this operation at most once every 10 seconds, even if you specify different \n         address ranges each time.</p>\n         <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS\n          because of BGP propagation delays.</p>"
+        "smithy.api#documentation": "<p>Stops advertising an address range that is provisioned as an address pool.</p>\n         <p>You can perform this operation at most once every 10 seconds, even if you specify different \n         address ranges each time.</p>\n         <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS\n          because of BGP propagation delays.</p>"
       }
     },
     "com.amazonaws.ec2#WithdrawByoipCidrRequest": {
@@ -53198,7 +53721,7 @@
         "Cidr": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The public IPv4 address range, in CIDR notation.</p>",
+            "smithy.api#documentation": "<p>The address range, in CIDR notation.</p>",
             "smithy.api#required": true
           }
         },

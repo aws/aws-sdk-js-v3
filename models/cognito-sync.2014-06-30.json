@@ -21,6 +21,11 @@
         "ids": [
           "HttpHeaderTrait"
         ]
+      },
+      {
+        "ids": [
+          "HttpUriConflict"
+        ]
       }
     ]
   },
@@ -88,7 +93,7 @@
           "cloudFormationName": "CognitoSync",
           "cloudTrailEventSource": "model.sync.cognito.amazonaws.com"
         },
-        "smithy.api#documentation": "\n         <fullname>Amazon Cognito Sync</fullname>\n         <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p>\n         <p>With Amazon Cognito Sync, the data stored for each identity is accessible only to\n         credentials assigned to that identity. In order to use the Cognito Sync service, you need\n         to make API calls using credentials retrieved with <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html\">Amazon Cognito Identity service</a>.</p>\n         <p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to\n         make API calls via the AWS Mobile SDK. To learn more, see the <a href=\"https://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html\">Developer Guide for Android</a> and the <a href=\"https://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html\">Developer Guide for iOS</a>.</p>\n      ",
+        "smithy.api#documentation": "<fullname>Amazon Cognito Sync</fullname>\n         <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Developer credentials don't need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p>\n         <p>With Amazon Cognito Sync, the data stored for each identity is accessible only to\n         credentials assigned to that identity. In order to use the Cognito Sync service, you need\n         to make API calls using credentials retrieved with <a href=\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html\">Amazon Cognito Identity service</a>.</p>\n         <p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to\n         make API calls via the AWS Mobile SDK. To learn more, see the <a href=\"https://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html\">Developer Guide for Android</a> and the <a href=\"https://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html\">Developer Guide for iOS</a>.</p>",
         "smithy.api#protocols": [
           {
             "name": "aws.rest-json-1.1",
@@ -109,13 +114,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The message associated with the AlreadyStreamedException exception.</p>\n      ",
+            "smithy.api#documentation": "<p>The message associated with the AlreadyStreamedException exception.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -174,7 +179,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      ",
+        "smithy.api#documentation": "<p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/bulkpublish",
@@ -188,14 +193,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input for the BulkPublish operation.</p>\n      "
+        "smithy.api#documentation": "<p>The input for the BulkPublish operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#BulkPublishResponse": {
@@ -204,12 +209,12 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The output for the BulkPublish operation.</p>\n      "
+        "smithy.api#documentation": "<p>The output for the BulkPublish operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#BulkPublishStatus": {
@@ -243,30 +248,30 @@
         "DisabledReason": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string containing the reason why streaming of updates to the identity pool was disabled.</p>\n      "
+            "smithy.api#documentation": "<p>A string containing the reason why streaming of updates to the identity pool was disabled.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cognito.sync.model#AssumeRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>\n      "
+            "smithy.api#documentation": "<p>The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.</p>"
           }
         },
         "StreamName": {
           "target": "com.amazonaws.cognito.sync.model#StreamName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.</p>\n      "
+            "smithy.api#documentation": "<p>The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.</p>"
           }
         },
         "StreamingStatus": {
           "target": "com.amazonaws.cognito.sync.model#StreamingStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Status of the Cognito streams. Valid values are:</p>\n         <ul>\n            <li>\n               <p>ENABLED - Streaming of updates to identity pool is enabled.</p>\n            </li>\n            <li>\n               <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>Status of the Cognito streams. Valid values are:</p>\n         <ul>\n            <li>\n               <p>ENABLED - Streaming of updates to identity pool is enabled.</p>\n            </li>\n            <li>\n               <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>\n            </li>\n         </ul>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Configuration options for configure Cognito streams.</p>\n      "
+        "smithy.api#documentation": "<p>Configuration options for configure Cognito streams.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ConcurrentModificationException": {
@@ -275,13 +280,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The message returned by a ConcurrentModificationException.</p>\n      ",
+            "smithy.api#documentation": "<p>The message returned by a ConcurrentModificationException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown if there are parallel requests to modify a resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown if there are parallel requests to modify a resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -292,48 +297,48 @@
         "CreationDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Date on which the dataset was created.</p>\n      "
+            "smithy.api#documentation": "<p>Date on which the dataset was created.</p>"
           }
         },
         "DataStorage": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total size in bytes of the records in this dataset.</p>\n      "
+            "smithy.api#documentation": "<p>Total size in bytes of the records in this dataset.</p>"
           }
         },
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>\n      "
+            "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>"
           }
         },
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedBy": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The device that made the last change to this dataset.</p>\n      "
+            "smithy.api#documentation": "<p>The device that made the last change to this dataset.</p>"
           }
         },
         "LastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Date when the dataset was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>Date when the dataset was last modified.</p>"
           }
         },
         "NumRecords": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Number of records in this dataset.</p>\n      "
+            "smithy.api#documentation": "<p>Number of records in this dataset.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>\n      "
+        "smithy.api#documentation": "<p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DatasetList": {
@@ -384,7 +389,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>\n          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>\n      ",
+        "smithy.api#documentation": "<p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>\n          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
@@ -398,7 +403,7 @@
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot). </p>\n      ",
+            "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot). </p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -406,7 +411,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -414,14 +419,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to delete the specific dataset.</p>\n      "
+        "smithy.api#documentation": "<p>A request to delete the specific dataset.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DeleteDatasetResponse": {
@@ -430,12 +435,12 @@
         "Dataset": {
           "target": "com.amazonaws.cognito.sync.model#Dataset",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>\n      "
+            "smithy.api#documentation": "<p>A collection of data for an identity pool. An identity pool can have multiple\n       datasets. A dataset is per identity and can be general or associated with a particular entity\n       in an application (like a saved game). Datasets are automatically created if they don't\n       exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to a successful DeleteDataset request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to a successful DeleteDataset request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeDataset": {
@@ -464,7 +469,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
@@ -478,7 +483,7 @@
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot).</p>\n      ",
+            "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'\n       (underscore), '-' (dash), and '.' (dot).</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -486,7 +491,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -494,14 +499,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for meta data about a dataset (creation date, number of records, size) by\n       owner and dataset name.</p>\n      "
+        "smithy.api#documentation": "<p>A request for meta data about a dataset (creation date, number of records, size) by\n       owner and dataset name.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeDatasetResponse": {
@@ -510,12 +515,12 @@
         "Dataset": {
           "target": "com.amazonaws.cognito.sync.model#Dataset",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata for a collection of data for an identity. An identity can have multiple\n       datasets. A dataset can be general or associated with a particular entity in an application\n       (like a saved game). Datasets are automatically created if they don't exist. Data is synced\n       by dataset, and a dataset can hold up to 1MB of key-value pairs</p>\n      "
+            "smithy.api#documentation": "<p>Metadata for a collection of data for an identity. An identity can have multiple\n       datasets. A dataset can be general or associated with a particular entity in an application\n       (like a saved game). Datasets are automatically created if they don't exist. Data is synced\n       by dataset, and a dataset can hold up to 1MB of key-value pairs</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to a successful DescribeDataset request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to a successful DescribeDataset request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsage": {
@@ -544,7 +549,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets usage details (for example, data storage) about a particular identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n\n      \n      ",
+        "smithy.api#documentation": "<p>Gets usage details (for example, data storage) about a particular identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}",
@@ -558,14 +563,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for usage information about the identity pool.</p>\n      "
+        "smithy.api#documentation": "<p>A request for usage information about the identity pool.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeIdentityPoolUsageResponse": {
@@ -574,12 +579,12 @@
         "IdentityPoolUsage": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolUsage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Information about the usage of the identity pool.</p>\n      "
+            "smithy.api#documentation": "<p>Information about the usage of the identity pool.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to a successful DescribeIdentityPoolUsage request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to a successful DescribeIdentityPoolUsage request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeIdentityUsage": {
@@ -608,7 +613,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets usage information for an identity, including number of datasets and data usage.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Gets usage information for an identity, including number of datasets and data usage.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}",
@@ -622,7 +627,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -630,14 +635,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for information about the usage of an identity pool.</p>\n      "
+        "smithy.api#documentation": "<p>A request for information about the usage of an identity pool.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DescribeIdentityUsageResponse": {
@@ -646,12 +651,12 @@
         "IdentityUsage": {
           "target": "com.amazonaws.cognito.sync.model#IdentityUsage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Usage information for the identity.</p>\n      "
+            "smithy.api#documentation": "<p>Usage information for the identity.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The response to a successful DescribeIdentityUsage request.</p>\n      "
+        "smithy.api#documentation": "<p>The response to a successful DescribeIdentityUsage request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#DeviceId": {
@@ -669,13 +674,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The message associated with the DuplicateRequestException exception.</p>\n      ",
+            "smithy.api#documentation": "<p>The message associated with the DuplicateRequestException exception.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.</p>\n      ",
+        "smithy.api#documentation": "<p>An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -721,7 +726,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Get the status of the last BulkPublish operation for an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      ",
+        "smithy.api#documentation": "<p>Get the status of the last BulkPublish operation for an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/getBulkPublishDetails",
@@ -735,14 +740,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input for the GetBulkPublishDetails operation.</p>\n      "
+        "smithy.api#documentation": "<p>The input for the GetBulkPublishDetails operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#GetBulkPublishDetailsResponse": {
@@ -751,36 +756,36 @@
         "BulkPublishCompleteTime": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>\n      "
+            "smithy.api#documentation": "<p>If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</p>"
           }
         },
         "BulkPublishStartTime": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date/time at which the last bulk publish was initiated.</p>\n      "
+            "smithy.api#documentation": "<p>The date/time at which the last bulk publish was initiated.</p>"
           }
         },
         "BulkPublishStatus": {
           "target": "com.amazonaws.cognito.sync.model#BulkPublishStatus",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Status of the last bulk publish operation, valid values are: </p>\n         <ul>\n            <li>\n               <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Data is being published to the configured stream</p>\n            </li>\n            <li>\n               <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>\n            </li>\n            <li>\n               <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "<p>Status of the last bulk publish operation, valid values are: </p>\n         <ul>\n            <li>\n               <p>NOT_STARTED - No bulk publish has been requested for this identity pool</p>\n            </li>\n            <li>\n               <p>IN_PROGRESS - Data is being published to the configured stream</p>\n            </li>\n            <li>\n               <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>\n            </li>\n            <li>\n               <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>\n            </li>\n         </ul>"
           }
         },
         "FailureMessage": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</p>\n      "
+            "smithy.api#documentation": "<p>If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The output for the GetBulkPublishDetails operation.</p>\n      "
+        "smithy.api#documentation": "<p>The output for the GetBulkPublishDetails operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#GetCognitoEvents": {
@@ -809,7 +814,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      ",
+        "smithy.api#documentation": "<p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/events",
@@ -823,14 +828,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Cognito Identity Pool ID for the request</p>\n      ",
+            "smithy.api#documentation": "<p>The Cognito Identity Pool ID for the request</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for a list of the configured Cognito Events</p> \n      "
+        "smithy.api#documentation": "<p>A request for a list of the configured Cognito Events</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#GetCognitoEventsResponse": {
@@ -839,12 +844,12 @@
         "Events": {
           "target": "com.amazonaws.cognito.sync.model#Events",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Cognito Events returned from the GetCognitoEvents request</p>\n      "
+            "smithy.api#documentation": "<p>The Cognito Events returned from the GetCognitoEvents request</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The response from the GetCognitoEvents request</p>\n      "
+        "smithy.api#documentation": "<p>The response from the GetCognitoEvents request</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#GetIdentityPoolConfiguration": {
@@ -873,7 +878,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets the configuration settings of an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Gets the configuration settings of an identity pool.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/configuration",
@@ -887,14 +892,14 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input for the GetIdentityPoolConfiguration operation.</p>\n      "
+        "smithy.api#documentation": "<p>The input for the GetIdentityPoolConfiguration operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#GetIdentityPoolConfigurationResponse": {
@@ -903,24 +908,24 @@
         "CognitoStreams": {
           "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for Amazon Cognito streams.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>"
           }
         },
         "PushSync": {
           "target": "com.amazonaws.cognito.sync.model#PushSync",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for push synchronization.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The output for the GetIdentityPoolConfiguration operation.</p>\n      "
+        "smithy.api#documentation": "<p>The output for the GetIdentityPoolConfiguration operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#IdentityId": {
@@ -949,30 +954,30 @@
         "DataStorage": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Data storage information for the identity pool.</p>\n      "
+            "smithy.api#documentation": "<p>Data storage information for the identity pool.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Date on which the identity pool was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>Date on which the identity pool was last modified.</p>"
           }
         },
         "SyncSessionsCount": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Number of sync sessions for the identity pool.</p>\n      "
+            "smithy.api#documentation": "<p>Number of sync sessions for the identity pool.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Usage information for the identity pool.</p>\n      "
+        "smithy.api#documentation": "<p>Usage information for the identity pool.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#IdentityPoolUsageList": {
@@ -987,36 +992,36 @@
         "DataStorage": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total data storage for this identity.</p>\n      "
+            "smithy.api#documentation": "<p>Total data storage for this identity.</p>"
           }
         },
         "DatasetCount": {
           "target": "com.amazonaws.cognito.sync.model#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Number of datasets for the identity.</p>\n      "
+            "smithy.api#documentation": "<p>Number of datasets for the identity.</p>"
           }
         },
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)\n       created by Amazon Cognito. GUID generation is unique within a region.</p>"
           }
         },
         "LastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Date on which the identity was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>Date on which the identity was last modified.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Usage information for the identity.</p>\n      "
+        "smithy.api#documentation": "<p>Usage information for the identity.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#Integer": {
@@ -1031,13 +1036,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by InternalErrorException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by InternalErrorException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Indicates an internal service error.</p>\n      ",
+        "smithy.api#documentation": "<p>Indicates an internal service error.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -1048,13 +1053,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by InvalidConfigurationException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by InvalidConfigurationException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>This exception is thrown when Amazon Cognito detects an invalid configuration.</p>\n      ",
+        "smithy.api#documentation": "<p>This exception is thrown when Amazon Cognito detects an invalid configuration.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1065,13 +1070,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message returned when an InvalidLambdaFunctionOutputException occurs</p>\n      ",
+            "smithy.api#documentation": "<p>A message returned when an InvalidLambdaFunctionOutputException occurs</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The AWS Lambda function returned invalid output or an exception.</p>\n      ",
+        "smithy.api#documentation": "<p>The AWS Lambda function returned invalid output or an exception.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1082,13 +1087,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by InvalidParameterException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by InvalidParameterException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown when a request parameter does not comply with the associated constraints.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown when a request parameter does not comply with the associated constraints.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1107,7 +1112,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>This exception is thrown when your Lambda function fails to respond within 5 seconds.\n      For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-events.html\">Amazon\n        Cognito Events</a>.</p>\n      ",
+        "smithy.api#documentation": "<p>This exception is thrown when your Lambda function fails to respond within 5 seconds.\n      For more information, see <a href=\"http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-events.html\">Amazon\n        Cognito Events</a>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1118,13 +1123,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A message returned when an LambdaThrottledException is thrown</p>\n      ",
+            "smithy.api#documentation": "<p>A message returned when an LambdaThrottledException is thrown</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>AWS Lambda throttled your account, please contact AWS Support</p>\n      ",
+        "smithy.api#documentation": "<p>AWS Lambda throttled your account, please contact AWS Support</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -1135,13 +1140,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by LimitExceededException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by LimitExceededException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown when the limit on the number of objects or operations has been exceeded.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown when the limit on the number of objects or operations has been exceeded.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -1169,7 +1174,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets",
@@ -1183,7 +1188,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1191,7 +1196,7 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1199,20 +1204,20 @@
         "MaxResults": {
           "target": "com.amazonaws.cognito.sync.model#PostiveIntString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to be returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Request for a list of datasets for an identity.</p>\n      "
+        "smithy.api#documentation": "<p>Request for a list of datasets for an identity.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ListDatasetsResponse": {
@@ -1221,24 +1226,24 @@
         "Count": {
           "target": "com.amazonaws.cognito.sync.model#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Number of datasets returned.</p>\n      "
+            "smithy.api#documentation": "<p>Number of datasets returned.</p>"
           }
         },
         "Datasets": {
           "target": "com.amazonaws.cognito.sync.model#DatasetList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A set of datasets.</p>\n      "
+            "smithy.api#documentation": "<p>A set of datasets.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returned for a successful ListDatasets request.</p>\n      "
+        "smithy.api#documentation": "<p>Returned for a successful ListDatasets request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ListIdentityPoolUsage": {
@@ -1264,7 +1269,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets a list of identity pools registered with Cognito.</p>\n         <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Gets a list of identity pools registered with Cognito.</p>\n         <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools",
@@ -1278,20 +1283,20 @@
         "MaxResults": {
           "target": "com.amazonaws.cognito.sync.model#IntegerString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to be returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for usage information on an identity pool.</p>\n      "
+        "smithy.api#documentation": "<p>A request for usage information on an identity pool.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ListIdentityPoolUsageResponse": {
@@ -1300,30 +1305,30 @@
         "Count": {
           "target": "com.amazonaws.cognito.sync.model#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total number of identities for the identity pool.</p>\n      "
+            "smithy.api#documentation": "<p>Total number of identities for the identity pool.</p>"
           }
         },
         "IdentityPoolUsages": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolUsageList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Usage information for the identity pools.</p>\n      "
+            "smithy.api#documentation": "<p>Usage information for the identity pools.</p>"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.cognito.sync.model#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to be returned.</p>\n      "
+            "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returned for a successful ListIdentityPoolUsage request.</p>\n      "
+        "smithy.api#documentation": "<p>Returned for a successful ListIdentityPoolUsage request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ListRecords": {
@@ -1349,7 +1354,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>\n         <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records",
@@ -1363,7 +1368,7 @@
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>\n      ",
+            "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1371,7 +1376,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1379,7 +1384,7 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1387,34 +1392,34 @@
         "LastSyncCount": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The last server sync count for this record.</p>\n      ",
+            "smithy.api#documentation": "<p>The last server sync count for this record.</p>",
             "smithy.api#httpQuery": "lastSyncCount"
           }
         },
         "MaxResults": {
           "target": "com.amazonaws.cognito.sync.model#IntegerString",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of results to be returned.</p>\n      ",
+            "smithy.api#documentation": "<p>The maximum number of results to be returned.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      ",
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
         "SyncSessionToken": {
           "target": "com.amazonaws.cognito.sync.model#SyncSessionToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token containing a session ID, identity ID, and expiration.</p>\n      ",
+            "smithy.api#documentation": "<p>A token containing a session ID, identity ID, and expiration.</p>",
             "smithy.api#httpQuery": "syncSessionToken"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request for a list of records.</p>\n      "
+        "smithy.api#documentation": "<p>A request for a list of records.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ListRecordsResponse": {
@@ -1423,60 +1428,60 @@
         "Count": {
           "target": "com.amazonaws.cognito.sync.model#Integer",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Total number of records.</p>\n      "
+            "smithy.api#documentation": "<p>Total number of records.</p>"
           }
         },
         "DatasetDeletedAfterRequestedSyncCount": {
           "target": "com.amazonaws.cognito.sync.model#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A boolean value specifying whether to delete the dataset locally.</p>\n      "
+            "smithy.api#documentation": "<p>A boolean value specifying whether to delete the dataset locally.</p>"
           }
         },
         "DatasetExists": {
           "target": "com.amazonaws.cognito.sync.model#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether the dataset exists.</p>\n      "
+            "smithy.api#documentation": "<p>Indicates whether the dataset exists.</p>"
           }
         },
         "DatasetSyncCount": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Server sync count for this dataset.</p>\n      "
+            "smithy.api#documentation": "<p>Server sync count for this dataset.</p>"
           }
         },
         "LastModifiedBy": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The user/device that made the last change to this record.</p>\n      "
+            "smithy.api#documentation": "<p>The user/device that made the last change to this record.</p>"
           }
         },
         "MergedDatasetNames": {
           "target": "com.amazonaws.cognito.sync.model#MergedDatasetNameList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Names of merged datasets.</p>\n      "
+            "smithy.api#documentation": "<p>Names of merged datasets.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A pagination token for obtaining the next page of results.</p>\n      "
+            "smithy.api#documentation": "<p>A pagination token for obtaining the next page of results.</p>"
           }
         },
         "Records": {
           "target": "com.amazonaws.cognito.sync.model#RecordList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of all records.</p>\n      "
+            "smithy.api#documentation": "<p>A list of all records.</p>"
           }
         },
         "SyncSessionToken": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A token containing a session ID, identity ID, and expiration.</p>\n      "
+            "smithy.api#documentation": "<p>A token containing a session ID, identity ID, and expiration.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returned for a successful ListRecordsRequest.</p>\n      "
+        "smithy.api#documentation": "<p>Returned for a successful ListRecordsRequest.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#Long": {
@@ -1497,13 +1502,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The message returned by a NotAuthorizedException.</p>\n      ",
+            "smithy.api#documentation": "<p>The message returned by a NotAuthorizedException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown when a user is not authorized to access the requested resource.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown when a user is not authorized to access the requested resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -1544,18 +1549,18 @@
         "ApplicationArns": {
           "target": "com.amazonaws.cognito.sync.model#ApplicationArnList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>List of SNS platform application ARNs that could be used by clients.</p>\n      "
+            "smithy.api#documentation": "<p>List of SNS platform application ARNs that could be used by clients.</p>"
           }
         },
         "RoleArn": {
           "target": "com.amazonaws.cognito.sync.model#AssumeRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>\n      "
+            "smithy.api#documentation": "<p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Configuration options to be applied to the identity pool.</p>\n      "
+        "smithy.api#documentation": "<p>Configuration options to be applied to the identity pool.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#PushToken": {
@@ -1567,42 +1572,42 @@
         "DeviceLastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The last modified date of the client device.</p>\n      "
+            "smithy.api#documentation": "<p>The last modified date of the client device.</p>"
           }
         },
         "Key": {
           "target": "com.amazonaws.cognito.sync.model#RecordKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The key for the record.</p>\n      "
+            "smithy.api#documentation": "<p>The key for the record.</p>"
           }
         },
         "LastModifiedBy": {
           "target": "com.amazonaws.cognito.sync.model#String",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The user/device that made the last change to this record.</p>\n      "
+            "smithy.api#documentation": "<p>The user/device that made the last change to this record.</p>"
           }
         },
         "LastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The date on which the record was last modified.</p>\n      "
+            "smithy.api#documentation": "<p>The date on which the record was last modified.</p>"
           }
         },
         "SyncCount": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The server sync count for this record.</p>\n      "
+            "smithy.api#documentation": "<p>The server sync count for this record.</p>"
           }
         },
         "Value": {
           "target": "com.amazonaws.cognito.sync.model#RecordValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The value for the record.</p>\n      "
+            "smithy.api#documentation": "<p>The value for the record.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The basic data structure of a dataset.</p>\n      "
+        "smithy.api#documentation": "<p>The basic data structure of a dataset.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#RecordKey": {
@@ -1626,39 +1631,39 @@
         "DeviceLastModifiedDate": {
           "target": "com.amazonaws.cognito.sync.model#Date",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The last modified date of the client device.</p>\n      "
+            "smithy.api#documentation": "<p>The last modified date of the client device.</p>"
           }
         },
         "Key": {
           "target": "com.amazonaws.cognito.sync.model#RecordKey",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The key associated with the record patch.</p>\n      ",
+            "smithy.api#documentation": "<p>The key associated with the record patch.</p>",
             "smithy.api#required": true
           }
         },
         "Op": {
           "target": "com.amazonaws.cognito.sync.model#Operation",
           "traits": {
-            "smithy.api#documentation": "\n         <p>An operation, either replace or remove.</p>\n      ",
+            "smithy.api#documentation": "<p>An operation, either replace or remove.</p>",
             "smithy.api#required": true
           }
         },
         "SyncCount": {
           "target": "com.amazonaws.cognito.sync.model#Long",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Last known server sync count for this record. Set to 0 if unknown.</p>\n      ",
+            "smithy.api#documentation": "<p>Last known server sync count for this record. Set to 0 if unknown.</p>",
             "smithy.api#required": true
           }
         },
         "Value": {
           "target": "com.amazonaws.cognito.sync.model#RecordValue",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The value associated with the record patch.</p>\n      "
+            "smithy.api#documentation": "<p>The value associated with the record patch.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>An update operation for a record.</p>\n      "
+        "smithy.api#documentation": "<p>An update operation for a record.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#RecordPatchList": {
@@ -1705,7 +1710,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Registers a device to receive push sync notifications.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Registers a device to receive push sync notifications.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device",
@@ -1719,7 +1724,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID for this identity.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique ID for this identity.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1727,7 +1732,7 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1735,20 +1740,20 @@
         "Platform": {
           "target": "com.amazonaws.cognito.sync.model#Platform",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>\n      ",
+            "smithy.api#documentation": "<p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>",
             "smithy.api#required": true
           }
         },
         "Token": {
           "target": "com.amazonaws.cognito.sync.model#PushToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The push token.</p>\n      ",
+            "smithy.api#documentation": "<p>The push token.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to RegisterDevice.</p>\n      "
+        "smithy.api#documentation": "<p>A request to RegisterDevice.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#RegisterDeviceResponse": {
@@ -1757,12 +1762,12 @@
         "DeviceId": {
           "target": "com.amazonaws.cognito.sync.model#DeviceId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID generated for this device by Cognito.</p>\n      "
+            "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to a RegisterDevice request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to a RegisterDevice request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#ResourceConflictException": {
@@ -1771,13 +1776,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The message returned by a ResourceConflictException.</p>\n      ",
+            "smithy.api#documentation": "<p>The message returned by a ResourceConflictException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -1788,13 +1793,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by a ResourceNotFoundException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by a ResourceNotFoundException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown if the resource doesn't exist.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown if the resource doesn't exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -1822,7 +1827,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      ",
+        "smithy.api#documentation": "<p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/events",
@@ -1836,21 +1841,21 @@
         "Events": {
           "target": "com.amazonaws.cognito.sync.model#Events",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The events to configure</p>\n      ",
+            "smithy.api#documentation": "<p>The events to configure</p>",
             "smithy.api#required": true
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The Cognito Identity Pool to use when configuring Cognito Events</p>\n      ",
+            "smithy.api#documentation": "<p>The Cognito Identity Pool to use when configuring Cognito Events</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to configure Cognito Events.</p>\n      "
+        "smithy.api#documentation": "<p>A request to configure Cognito Events.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#SetIdentityPoolConfiguration": {
@@ -1882,7 +1887,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Sets the necessary configuration for push sync.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Sets the necessary configuration for push sync.</p>\n         <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/configuration",
@@ -1896,13 +1901,13 @@
         "CognitoStreams": {
           "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for Amazon Cognito streams.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -1910,12 +1915,12 @@
         "PushSync": {
           "target": "com.amazonaws.cognito.sync.model#PushSync",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for push synchronization.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The input for the SetIdentityPoolConfiguration operation.</p>\n      "
+        "smithy.api#documentation": "<p>The input for the SetIdentityPoolConfiguration operation.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#SetIdentityPoolConfigurationResponse": {
@@ -1924,24 +1929,24 @@
         "CognitoStreams": {
           "target": "com.amazonaws.cognito.sync.model#CognitoStreams",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for Amazon Cognito streams.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for Amazon Cognito streams.</p>"
           }
         },
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>\n      "
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.</p>"
           }
         },
         "PushSync": {
           "target": "com.amazonaws.cognito.sync.model#PushSync",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Options to apply to this identity pool for push synchronization.</p>\n      "
+            "smithy.api#documentation": "<p>Options to apply to this identity pool for push synchronization.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>The output for the SetIdentityPoolConfiguration operation</p>\n      "
+        "smithy.api#documentation": "<p>The output for the SetIdentityPoolConfiguration operation</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#StreamName": {
@@ -1994,7 +1999,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Subscribes to receive notifications when a dataset is modified by another device.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Subscribes to receive notifications when a dataset is modified by another device.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
@@ -2008,7 +2013,7 @@
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the dataset to subcribe to.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the dataset to subcribe to.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2016,7 +2021,7 @@
         "DeviceId": {
           "target": "com.amazonaws.cognito.sync.model#DeviceId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID generated for this device by Cognito.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2024,7 +2029,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Unique ID for this identity.</p>\n      ",
+            "smithy.api#documentation": "<p>Unique ID for this identity.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2032,21 +2037,21 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to SubscribeToDatasetRequest.</p>\n      "
+        "smithy.api#documentation": "<p>A request to SubscribeToDatasetRequest.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#SubscribeToDatasetResponse": {
       "type": "structure",
       "members": { },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to a SubscribeToDataset request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to a SubscribeToDataset request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#SyncSessionToken": {
@@ -2058,13 +2063,13 @@
         "message": {
           "target": "com.amazonaws.cognito.sync.model#ExceptionMessage",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Message returned by a TooManyRequestsException.</p>\n      ",
+            "smithy.api#documentation": "<p>Message returned by a TooManyRequestsException.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Thrown if the request is throttled.</p>\n      ",
+        "smithy.api#documentation": "<p>Thrown if the request is throttled.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
       }
@@ -2098,7 +2103,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>\n      \n      ",
+        "smithy.api#documentation": "<p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>\n         <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}",
@@ -2112,7 +2117,7 @@
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The name of the dataset from which to unsubcribe.</p>\n      ",
+            "smithy.api#documentation": "<p>The name of the dataset from which to unsubcribe.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2120,7 +2125,7 @@
         "DeviceId": {
           "target": "com.amazonaws.cognito.sync.model#DeviceId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID generated for this device by Cognito.</p>\n      ",
+            "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2128,7 +2133,7 @@
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Unique ID for this identity.</p>\n      ",
+            "smithy.api#documentation": "<p>Unique ID for this identity.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2136,21 +2141,21 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to UnsubscribeFromDataset.</p>\n      "
+        "smithy.api#documentation": "<p>A request to UnsubscribeFromDataset.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#UnsubscribeFromDatasetResponse": {
       "type": "structure",
       "members": { },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Response to an UnsubscribeFromDataset request.</p>\n      "
+        "smithy.api#documentation": "<p>Response to an UnsubscribeFromDataset request.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#UpdateRecords": {
@@ -2194,7 +2199,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Posts updates to records and adds and deletes records for a dataset and user.</p>\n         <p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>\n         <p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>\n      ",
+        "smithy.api#documentation": "<p>Posts updates to records and adds and deletes records for a dataset and user.</p>\n         <p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>\n         <p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>\n         <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}",
@@ -2208,14 +2213,14 @@
         "ClientContext": {
           "target": "com.amazonaws.cognito.sync.model#ClientContext",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>\n      ",
+            "smithy.api#documentation": "<p>Intended to supply a device ID that will populate the lastModifiedBy field referenced in other methods. The ClientContext field is not yet implemented.</p>",
             "smithy.api#httpHeader": "x-amz-Client-Context"
           }
         },
         "DatasetName": {
           "target": "com.amazonaws.cognito.sync.model#DatasetName",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>\n      ",
+            "smithy.api#documentation": "<p>A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2223,13 +2228,13 @@
         "DeviceId": {
           "target": "com.amazonaws.cognito.sync.model#DeviceId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The unique ID generated for this device by Cognito.</p>\n      "
+            "smithy.api#documentation": "<p>The unique ID generated for this device by Cognito.</p>"
           }
         },
         "IdentityId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2237,7 +2242,7 @@
         "IdentityPoolId": {
           "target": "com.amazonaws.cognito.sync.model#IdentityPoolId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>\n      ",
+            "smithy.api#documentation": "<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</p>",
             "smithy.api#httpLabel": true,
             "smithy.api#required": true
           }
@@ -2245,19 +2250,19 @@
         "RecordPatches": {
           "target": "com.amazonaws.cognito.sync.model#RecordPatchList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of patch operations.</p>\n      "
+            "smithy.api#documentation": "<p>A list of patch operations.</p>"
           }
         },
         "SyncSessionToken": {
           "target": "com.amazonaws.cognito.sync.model#SyncSessionToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>\n      ",
+            "smithy.api#documentation": "<p>The SyncSessionToken returned by a previous call to ListRecords for this dataset and identity.</p>",
             "smithy.api#required": true
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A request to post updates to records or add and delete records for a dataset and user.</p>\n      "
+        "smithy.api#documentation": "<p>A request to post updates to records or add and delete records for a dataset and user.</p>"
       }
     },
     "com.amazonaws.cognito.sync.model#UpdateRecordsResponse": {
@@ -2266,12 +2271,12 @@
         "Records": {
           "target": "com.amazonaws.cognito.sync.model#RecordList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A list of records that have been updated.</p>\n      "
+            "smithy.api#documentation": "<p>A list of records that have been updated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returned for a successful UpdateRecordsRequest.</p>\n      "
+        "smithy.api#documentation": "<p>Returned for a successful UpdateRecordsRequest.</p>"
       }
     }
   }
